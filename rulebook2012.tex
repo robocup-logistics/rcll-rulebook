@@ -74,9 +74,9 @@
   \vspace*{4cm}
   
   \noindent
-  Revision: \svnrev\\[2ex]
-  Author: \svnauthor\\[2ex]
-  Date: \svndate\\[2ex]  
+  Revision: \svn{$Rev$}\\[2ex]
+  Author: \svn{$Author$}\\[2ex]
+  Date: \svn{$Date$}\\[2ex]  
 \end{titlepage}
 \thispagestyle{empty}
 \pagebreak
@@ -180,7 +180,7 @@ pallet carriers.
     \multicolumn{1}{c}{Subassembly} & \multicolumn{1}{c}{Deployable} & 	\multicolumn{1}{c}{Prerequisites} & \multicolumn{1}{c}{Result}\\\hline
     \s{0} &	\m{1}, \m{2}, \m{3}, \dg{} & 	none &	\s{1} or \TAG{consumed}\\
     \s{1} &	\m{2}, \m{3}, \dg{} &  	\s{0} & 	\s{2} or \TAG{consumed}\\
-    \s{2} & \m{3}, \dg & 	\s{0}, \s{1} 	\p{}\\ %
+    \s{2} & \m{3}, \dg & 	\s{0}, \s{1} &	\p{}\\ %
     \TAG{Express Good} &  	\m{1} & none &  \TAG{Finished Express Good}\\
     \hline
   \end{tabular} 
@@ -194,7 +194,7 @@ The table above shows the production table concerning the main
 challenge; the three staged production process as well as the express
 good challenge. The main challenge can be repeated as long as enough
 pallet carriers can be provided to complete the cycle. The different
-machine types are specified in section 3.3
+machine types are specified in Sect.~\ref{sec:machines}.
 
 
 \subsubsection{Express good}
@@ -264,6 +264,10 @@ area. The top left corner will remain empty.
 \end{figure}
 
 
+
+\subsection{Coordinates of the Production Machines}
+\label{sec:coordinates}
+
 \begin{table}[h]
   \centering
   \begin{tabular}{l|r|r}
@@ -303,6 +307,8 @@ puck features a diameter of 7.5cm.
 \end{figure}
 
 \subsection{Machines}
+\label{sec:machines}
+
 \subsubsection{General Information}
 
 \begin{figure}[h]
@@ -350,7 +356,7 @@ will not produce any junk.
 
 \begin{table}[h]
   \centering
-  \begin{tabularx}{\linewidth}{l|X}
+  \begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
     \multicolumn{1}{l}{Optical Feedback} &
     \multicolumn{1}{l}{Operating mode} \\ \hline
     All LEDs turned off &  	The machine is physically offline, caused by a real error which should not happen during the competition. \\
@@ -362,22 +368,20 @@ will not produce any junk.
     subassemblies that do not fit to this machine type’s work order or
     corrupted data carriers. \\\hline
   \end{tabularx}
-  \caption{Production Machines}
-  \label{tab:production-machines}
-\end{table}
 
-
-\begin{table}[h]
-  \centering
+\bigskip
   \begin{tabularx}{\linewidth}{l|X|X|X|l}
     \multicolumn{1}{l}{ Type} & \multicolumn{1}{l}{Distribution} & \multicolumn{1}{l}{Input} & \multicolumn{1}{l}{Output} & \multicolumn{1}{l}{(Final)processing time[s]}\\\hline
     \m1 & 4 times & \s0 (Raw-material) & \s1 & $WT_1 = 3 \mbox{ to } 8~\mathrm{sec}$\\
     \m2 & 3 times & \s0; \s1 \s2; & one consumed container & $WT_2 = 15 \mbox{ to } 25~\mathrm{sec}$\\
     \m3 & 3 times &	\s0;\s1;\s2 & Product; two consumed containers & $WT_3 = 40 \mbox{ to } 60~\mathrm{sec}$
   \end{tabularx}
+
   \caption{Production Machines}
-  \label{tab:production-machines-2}
+  \label{tab:production-machines}
 \end{table}
+
+
 
 The distribution describes how many machines of the respective types
 will be randomly placed resulting in a the total of 10 court machines.
@@ -390,7 +394,7 @@ raw-material (\s0) within 2 seconds.
 
 \begin{table}[h]
   \centering
-  \begin{tabularx}{\linewidth}{l|X}
+  \begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
     \multicolumn{1}{l}{Optical Feedback} &\multicolumn{1}{l}{Operating
       mode}\\\hline
     All LEDs turned off & 	The machine is physically offline, caused by a real error which should not happen during the competition.\\
@@ -399,8 +403,8 @@ raw-material (\s0) within 2 seconds.
     Green and yellow LED turned on & The machine is processing the
     current data carrier.\\\hline
   \end{tabularx}
-  \caption{Production Machines}
-  \label{tab:production-machines-2}
+  \caption{Recycling Unit}
+  \label{tab:recycling-unit}
 \end{table}
 
 
@@ -412,7 +416,7 @@ the device.
 
 \begin{table}[h]
   \centering
-  \begin{tabularx}{\linewidth}{l|X}
+  \begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
     \multicolumn{1}{l}{Optical Feedback} &\multicolumn{1}{l}{Stored
       data on the data carrier}\\\hline
     Green LED turned on &	The station is ready to read the next data carrier.\\
@@ -422,21 +426,21 @@ the device.
     Red LED turned on &	Subassembly 2 (\s2)\\
     All LEDs turned on & The final product (\p{})\\\hline
   \end{tabularx}
-  \caption{Production Machines}
-  \label{tab:production-machines-2}
+  \caption{Reading Device}
+  \label{tab:reading-device}
 \end{table}
 
 \subsubsection{Delivery Gates} \begin{table}[h]
   \centering
-  \begin{tabularx}{\linewidth}{l|X}
+  \begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
     \multicolumn{1}{l}{Optical Feedback} &\multicolumn{1}{l}{Stored
       data on the data carrier}\\\hline
     Red LED turned on & This delivery gate is inactive.\\
     Red and green LED turned on & This gate is active, namely the designated gate.\\
     \hline
   \end{tabularx}
-  \caption{Production Machines}
-  \label{tab:production-machines-2}
+  \caption{Delivery Gates}
+  \label{tab:delivery-gates}
 \end{table}
 
 As soon as a pallet carrier is successfully delivered to the active
@@ -484,7 +488,7 @@ data created outside of the robots A central communication that
 requires a device other than the three Robotinos® A permanently
 established connection between the command device and the Robotinos®.
 
-Please refer to 5.3.2 Radio interference for further details.
+Please refer to Sect.~\ref{sec:radio-interference} for further details.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%
@@ -499,7 +503,7 @@ team. All settings, including the EGC and random events, will be the
 exact same for both parties of a match.
 
 \subsection{Team setup}
-
+\label{sec:team-setup}
 No team member is allowed to enter the competition area prior to or
 during a match. The robots can be set up within the robot insertion
 area as long as they are outside the factory area and have not been
@@ -533,7 +537,7 @@ during a match the active gate can switch.
 
 
 \subsubsection{Radio Interference}
-
+\label{sec:radio-interference}
 The referee will induce a connection breakdown between the command
 unit and the Robotinos® at certain points of a match. This will not
 affect the Wi-Fi connection between the Robotinos® and will neither
@@ -557,12 +561,20 @@ The referee can interrupt the match at any time. Then, both teams have
 during the interruption. A team can decide to stop the autonomy
 process of each robot individually at any time of the match. Doing so
 has to be announced notably in order to inform the referee, as this is
-considered a shut down request according to 5.2. Robots that do not
-stop within the time limit will be treated in the same way.
+considered a shut down request according to
+\ref{sec:team-setup}. Robots that do not stop within the time limit
+will be treated in the same way.
 
 \subsubsection{Out-of-order}
 
-The downtime generator will take down a maximum of two machines out of the pool containing production machines and recycling units. It will do so at random points of time. There will be 6 to 8 of such triggered events during a match. The machines affected will remain out of order for 60 to 120 seconds. Every machine can only be forced out of order once per match. If the machine turns offline during processing or consumption of mounted a pallet carrier, it will afterwards resume the process.
+The downtime generator will take down a maximum of two machines out of
+the pool containing production machines and recycling units. It will
+do so at random points of time. There will be 6 to 8 of such triggered
+events during a match. The machines affected will remain out of order
+for 60 to 120 seconds. Every machine can only be forced out of order
+once per match. If the machine turns offline during processing or
+consumption of mounted a pallet carrier, it will afterwards resume the
+process.
 
 \subsubsection{Express good challenge}
 
@@ -608,41 +620,65 @@ can be adjusted to meet time requirements.
 
 \subsubsection{Tournament challenge}
 Proceeding to the playoffs will result in the following changes to the EGC setup:
-\begin{table}[h]
-  \centering
-  \begin{tabularx}{\linewidth}{l|X}
-    \multicolumn{1}{l}{Phase} &\multicolumn{1}{l}{Remark}\\\hline
-    League phase & 
-    \begin{itemize}
-    \item The active delivery gate will not switch during a match.
-      % 
-    \item There will be 3 express good challenges.
-      % 
-    \item     No challenge will be initialised during the first or within the last two match minutes.
-    \end{itemize} \\
-    Playoffs &
-    \begin{itemize}
-    \item The active delivery gate will swap twice - after minutes 7
-      and 11. A delivery made to the old active gate will be still
-      valid for the next 10 seconds.
-      % 
-    \item There will be 4 express good challenges. 
-      % 
-    \item No challenge will be initialised during the first or within
-      the last two match minutes.
-    \end{itemize}\\\hline
-  \end{tabularx} 
-  \caption{Tournament Phases}
-  \label{tab:phases}
-\end{table}
+% \begin{table}[h]
+%   \centering
+%   \begin{tabularx}{\linewidth}{l|X}
+%     \multicolumn{1}{l}{Phase} &\multicolumn{1}{l}{Remark}\\\hline
+%     \multirow{7}{*}{League phase} & 
+%     \begin{itemize}\itemsep-3pt
+%     \item The active delivery gate will not switch during a match.
+%       % 
+%     \item There will be 3 express good challenges.
+%       % 
+%     \item     No challenge will be initialised during the first or within the last two match minutes.
+%     \end{itemize} \\
+%     \multirow{9}{*}{Playoffs} &
+%     \begin{itemize}\itemsep-3pt
+%     \item The active delivery gate will swap twice - after minutes 7
+%       and 11. A delivery made to the old active gate will be still
+%       valid for the next 10 seconds.
+%       % 
+%     \item There will be 4 express good challenges. 
+%       % 
+%     \item No challenge will be initialised during the first or within
+%       the last two match minutes.
+%     \end{itemize}\\\hline
+%   \end{tabularx} 
+%   \caption{Tournament Phases}
+%   \label{tab:phases}
+% \end{table}
 
+\paragraph{League phase}~\\
+\begin{itemize}
+\item The active delivery gate will not switch during a match.
+\item There will be 3 express good challenges.
+\item No challenge will be initialised during the first or within the
+  last two match minutes.
+\end{itemize} 
 
+\paragraph{Playoffs}~\\
+\begin{itemize}
+\item The active delivery gate will swap twice - after minutes 7
+  and 11. A delivery made to the old active gate will be still
+  valid for the next 10 seconds.
+\item There will be 4 express good challenges. 
+\item No challenge will be initialised during the first or within
+  the last two match minutes.
+\end{itemize}
+     
 
-In both cases, delivered or timed out pallet carriers will be removed from the game by the administration and therefore cannot be recycled.
+In both cases, delivered or timed out pallet carriers will be removed
+from the game by the administration and therefore cannot be recycled.
 
 \subsubsection{Wi-Fi regulations}
 
-In order to provide the optimal possible solution for wireless communication during the event, all teams are required to use the 5 GHz Wi-Fi equipment. They are furthermore required to connect their Robotinos® Wi-Fi unit to the access point provided. All teams can also relay on Wi-Fi clients supplied by Festo but are not required to. A detailed description concerning the infrastructure can be found in chapter 1.8 of the Engineering Specifications.
+In order to provide the optimal possible solution for wireless
+communication during the event, all teams are required to use the 5
+GHz Wi-Fi equipment. They are furthermore required to connect their
+Robotinos® Wi-Fi unit to the access point provided. All teams can also
+relay on Wi-Fi clients supplied by Festo but are not required to. A
+detailed description concerning the infrastructure can be found in
+chapter 1.8 of the Engineering Specifications.
 
 
 \subsubsection{Task fulfilment?}
@@ -652,18 +688,19 @@ related processes.
 \begin{table}[h]
   \centering
 \begin{tabularx}{\linewidth}{p{6em}|X|p{4em}}
-    \multicolumn{1}{l}{Subtask } &\multicolumn{1}{l}{Main challenge} &
-    \multicolumn{1}{l}{Scoring [Point]}\\\hline	 	
-Produce \s2 & Finish the work order of a machine type 2 & $+4$\\
-Produce \p  & Finish the work order of a machine type 3 & $+12$ \\
-Deliver & Deliver the final product to the designated loading zone & $+5$\\
-Recycle & Clean up a polluted machine (\m2 or \m3) by recycling all of
-the 3 consumed loading carriers. Partial recycling(\m3) will not be
-rewarded.&
-\multirow{3}{*}{$\begin{array}{l}+3 - \m2\\ 
-+6 - \m3\end{array}$}\\
-Sum &Total points a team will receive for a produced and correctly
-delivered final product with its consumed loading carrier recycled. & $30$\\\hline
+  \multicolumn{1}{l}{Subtask } &\multicolumn{1}{l}{Main challenge} &
+  \multicolumn{1}{l}{Scoring [Point]}\\\hline
+  Produce \s2 & Finish the work order of a machine type 2 & $+4$\\
+  Produce \p  & Finish the work order of a machine type 3 & $+12$ \\
+  Deliver & Deliver the final product to the designated loading zone & $+5$\\
+  Recycle & Clean up a polluted machine (\m2 or \m3) by recycling all
+  of the 3 consumed loading carriers. Partial recycling(\m3) will not
+  be rewarded.&
+  \multirow{3}{*}{$\begin{array}{l}+3 - \m2\\
+      +6 - \m3\end{array}$}\\
+  Sum &Total points a team will receive for a produced and correctly
+  delivered final product with its consumed loading carrier
+  recycled. & $30$\\\hline
   \end{tabularx}  
 
 \bigskip
@@ -687,38 +724,37 @@ delivered final product with its consumed loading carrier recycled. & $30$\\\hli
 This catalogue represents the decision basis of the referee without
 being exhaustive or binding.
 
-\begin{table}[h]
+\begin{table}[h!]
   \centering
   \begin{tabularx}{\linewidth}{l|X}
   \multicolumn{1}{l}{Issue} &\multicolumn{1}{l}{Sanction}\\\hline
   Premature movement & No robot is allowed to move until the referee
   announced the start of the match The faulty robot will be grounded
   for
-  2 minutes\\
+  2 minutes\\[1ex]
 %
   Damaging factory equipment & Theoretical damage to the “real”
   factory equipment as a result of collisions and negligent actions.
   The team will be punished with a score reduction. The total score
-  cannot  drop below zero.\\
+  cannot  drop below zero.\\[1ex]
 %
   Not showing up & A team not showing up at all. The team will be
   removed from the tournament unless the team leader can provide a
-  sincere explanation\\
+  sincere explanation\\[1ex]
 %
   Breaking a minor rule & A rule infringement with none or little
   impact on the team performance The team will receive a warning or a
-  small
-  score reduction\\
+  small  score reduction\\[1ex]
 %
   Breaking a major rule & A rule infringement with considerable impact
   on the team performance or competition mechanics. The referee will
-  decide upon calling a team vote or imposing an adequate punishment.\\
+  decide upon calling a team vote or imposing an adequate punishment.\\[1ex]
 %
   Arguing with the referee & There will be no discussions during a
   match. Each team can make a motion to protest a certain match and
   its result which will be dealt with after the match. There will be a
   warning. Continued disregard will result in a time punishment to the
-  team’s current or next match.\\
+  team’s current or next match.\\[1ex]
 %
   Disregarding rules of conduct & Following the rules of conduct
   should be self-explanatory Upon disregard, the referee will impose
@@ -757,7 +793,7 @@ Additions and alterations for future iterations of this competition
 A part from the three-staged production process, various goods with
 different work orders and specifications (e.g. top speed, delivery
 strategies...) could be part of the challenge. This addition seems to
-be heavily dependent on 6.2.4 Flow of inf.
+be heavily dependent on Sect.~\ref{sec:supp-flow}.
 
 \subsubsection{Various order strategies}
 
@@ -772,7 +808,8 @@ other teams. Additionally a branch of simulation could be created that
 focuses on the simulation of many AGV and a huge production area in
 order to compete on scalability.
 
-\subsection{Introducing a supportive flow of information}
+\subsubsection{Introducing a supportive flow of information}
+\label{sec:supp-flow}
 
 As the current task only deals with the material stream, it is heavily limited to a simple static task. In order to enable a flow of information that transports complex orders, a combined effort should focus on implementing a data interface that can be used by all teams today and in the future. As this would be a giant leap towards the industrial application, a general discussion and a lot of effort has to be invested into this issue.
 
