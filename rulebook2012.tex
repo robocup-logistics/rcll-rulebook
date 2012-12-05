@@ -668,12 +668,14 @@ modified; it however must not exceed the following outside dimensions:
 0.25 m x 0.15 m x 0.05 m.
 
 \begin{rulechange}
-It is allowed to install additional computing power on the
-Robotino. This may either be in form of a notebook/laptop device or
-any other copmuting device that fits into the size requirement of the
-\Robotino{} system. Furthermore, it is allowed to communicate with an
-additional computing device off-field. This device may be used for
-team coordination etc.
+  It is allowed to install additional computing power on the
+  \Robotino. This may either be in form of a notebook/laptop device or
+  any other computing device that suits the size requirement of the
+  \Robotino{} competition system. Furthermore, it is allowed to
+  communicate with an additional computing device off-field. This
+  device may be used for team coordination and/or other
+  purposes. However, communication among the robots and the off-field
+  device is not granted during the competition.
 \end{rulechange}
 
 For a detailed technical description, refer to the Engineering
@@ -685,16 +687,24 @@ Each robot has to operate autonomously. The communication between the
 robot and the device responsible for the Start/Stop command, as well
 as all communication amongst the robots has to be realized using the
 Wi-Fi connection. The program controlling the robot has to be executed
-locally by the robot itself. It is strictly forbidden to use any kind
-of external server acting as command point. The robots are allowed to
-share information with other devices, but must receive nothing else
-but the “start”, “pause” and “stop” command from units other than the
-2 fellow robots. This specifically excludes: Usage of processed image
-data created outside of the robots A central communication that
-requires a device other than the three Robotinos® A permanently
-established connection between the command device and the Robotinos®.
+locally by the robot itself. % It is strictly forbidden to use any kind
+% of external server acting as command point.
+\begin{rulechange}
+  The robots will receive their commands from the Referee-Box as
+  specified in the referee box protocol. Further, communication to one
+  dedicated off-board computing device is allowed. However, wifi
+  communication should not taken for granted during competition by the
+  participating teams. 
+\end{rulechange}
+The robots are allowed to share information with other devices, but
+must receive nothing else but the “start”, “pause” and “stop” command
+from units other than the 2 fellow robots. This specifically excludes:
+Usage of processed image data created outside of the robots A central
+communication that requires a device other than the three Robotinos® A
+permanently established connection between the command device and the
+Robotinos®.
 
-Please refer to Sect.~\ref{sec:radio-interference} for further details.
+% Please refer to Sect.~\ref{sec:radio-interference} for further details.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%
@@ -1003,7 +1013,7 @@ being exhaustive or binding.
   
   \paragraph{Free challenge.~}
   Each team will be given 5 minutes to showcase their robot team, e.g.
-  show some new robotics developments. The team leader of
+  show some new robotics developments. The teamleaders of
   non-presenting team will judge the performance and rate it with
   points between 0--10.  The team with the most points will win this
   challenge. The other teams are ranked in decreasing point order.
@@ -1016,8 +1026,12 @@ being exhaustive or binding.
   challenges. All teamleaders have to be present at the time of the
   challenge to judge the other teams. The OC is responsible to conduct
   the Technical Challenge and can appoint teamleaders to support in
-  conducting the challenges. The best team will be awarded at the
-  closing ceremony.
+  conducting the challenges. Each challenge will have a separate
+  ranking. In each ranking, the team on the last rank will receive 0
+  points, the last-but-one ranked team will receive 1 point etc. The
+  points for each ranking will be added and the team with the most
+  points accrued over all challenges will be awarded with the
+  LLSF Technical Challenge Award.
 
 \end{rulechange}
 
