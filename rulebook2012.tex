@@ -15,6 +15,20 @@
 \usepackage[a4paper]{anysize}
 \marginsize{2.5cm}{2cm}{2cm}{2cm}
 
+\setlength{\marginparwidth}{1cm}
+\usepackage{fourier}
+%\newcommand\rulechange[1]{\begin{shaded}#1\end{shaded}\marginpar{\LARGE\danger}}
+
+\newenvironment{rulechange}{%
+  \def\FrameCommand{\fboxsep=\FrameSep \colorbox{shadecolor}}%
+  \marginpar{\vspace*{2em}\LARGE\danger} \MakeFramed  {\FrameRestore}}%
+ { \endMakeFramed}
+
+
+\usepackage{framed,xcolor}
+\colorlet{shadecolor}{gray!25}
+\newcommand{\Robotino}{Robotino\textregistered}
+
 %% GRAPHICSX %%%%%%%%%%%%%%%%%%%
 \usepackage[pdftex]{graphicx}
 \graphicspath{{figures/}}
@@ -188,6 +202,110 @@ pallet carriers.
   \label{tab:production-table}
 \end{table}
 
+
+
+
+
+
+\tikzstyle{M}=[rectangle, draw=blue, thick, fill=blue!20, text width=2em,align=center, rounded corners, 
+  minimum height=2em]
+%
+\tikzstyle{P}=[draw=red, thick, circle,fill=red!20, minimum height=1.5em]
+
+\begin{tikzpicture}[level distance=4em,sibling distance=5em]
+  \node[P] {$S_1$}  [grow=left,thick]
+  child { node[M] {$M_1$}
+    child { node[P] {$S_0$}}};
+\end{tikzpicture}
+\hspace*{1em}
+\begin{tikzpicture}[level distance=4em,sibling distance=5em]
+  \node[P] {$C$}  [grow=left,thick]
+  child { node[M] {$M_1$}
+    child { node[P] {$S_0$}}};
+\end{tikzpicture}
+
+\begin{tikzpicture}[level distance=4em,sibling distance=5em]
+  \node[P] {$C$}  [grow=left,thick]
+  child { node[M] {$M_2$}
+    child { node[P] {$S_0$}}
+    child { node[P] {$S_1$}}
+    child { node[P] {$S_2$}}
+    };
+\end{tikzpicture}
+
+\begin{tikzpicture}[node distance=4em,level distance=4em,sibling distance=5em]
+
+  \node[P] (p) {$P$}  [grow=left,thick]
+  child { node[M] (m) {$M_3$}
+    child { node[P] {$S_0$}}
+    child { node[P] {$S_1$}}
+    child { node[P] {$S_2$}}
+   };
+  
+\end{tikzpicture}
+
+
+
+
+% \newcommand{\varone} {
+%   \begin{tikzpicture}[level distance=4em,sibling distance=5em]
+%     \node[P] {$P$}  [grow=left,thick]
+%     child {node[M] {$M_3$} 
+%       child {node[P] {$S_0$}} 
+%       child {node[P] {$S_1$}
+%         child {node[M] {$M_1$} 
+%           child {node[P] {$S_0$}}
+%         }
+%       } 
+%       child {node[P, yshift=-1em] {$S_2$}
+%         child {node[M] {$M_2$} 
+%           child {node[P] {$S_0$}}
+%           child {node[P] {$S_1$}
+%             child {node[M] {$M_1$}
+%               child {node[P] {$S_0$}}
+%             }
+%           }
+%         }
+%       }
+%     };
+%   \end{tikzpicture}
+% }
+
+% \newcommand{\varthree} {
+%   \begin{tikzpicture}[level distance=4em,sibling distance=5em]
+%     \node[P] {$P_2$}  [grow=left,thick]
+%     child {node[M] {$M_3$} 
+%       child {node[P] {$S_0$}}
+%       child {node[P] {$S_2$}}
+%       child {node[P] {$S_2$}}      
+%     };
+%     \end{tikzpicture}
+% }
+
+% \newcommand{\vartwo} {
+%   \begin{tikzpicture}[level distance=4em,sibling distance=4em]
+%     \node[P] {$P$}  [grow=left,thick]
+%     child {node[M] {$M_3$} 
+%       child {node[P] {$S_0$}}
+%       child {node[P] {$S_1$}}
+%       child {node[P,label={[label distance=-6pt,fill=red!20]270:{\footnotesize $0.5$}}] {$S_2$}}
+%       child {node[P,label={[label distance=-6pt,fill=red!20]270:{\footnotesize $0.5$}}] {$S_2$}}      
+%     };
+%     \end{tikzpicture}
+% }
+
+
+% \begin{tikzpicture}
+%   \matrix[anchor=east]{
+%     \node (p1) {\varone};\\
+%     \node (p2) {\vartwo};\\[2ex]
+%     \node (p3) {\varthree};\\
+%   };
+% \end{tikzpicture}
+
+
+
+
 \subsubsection{The production table}
 
 The table above shows the production table concerning the main
@@ -318,26 +436,30 @@ puck features a diameter of 7.5cm.
   \label{fig:machine}
 \end{figure}
 
-All machines are identical devices consisting of • one plate housing
-the RFID read/write device and • one signal unit according to the
-figure above. They share the same design and the same RFID device,
-with the overall size of 280 mm height, 160 mm of width and 100 mm of
-depth, see the engineering reference for further details. The default
-operating mode of all machines implies that only the green LED is
-turned on. This signals the machine being ready for input. The reading
-and writing process generally is a delicate process. To avoid
-corruption of the data carrier, it should not leave the working range
-of the RFID device once the processing or consuming is started. To
-enable the production process it is necessary to transport the pallet
-carrier accurately to the RFID device. A consumed pallet carrier has
-to stay within the machine space borders(no part of the puck being
-outside the mark-up) until the production cycle of that very machine
-has been completed. Production resulting from violating this
-requirement is considered junk and will not be rewarded. The machine
-always processes the required pallet carrier delivered last, all prior
-components will be consumed. All machines will start processing the
-data carrier as soon as they enter the diameter named below and change
-their operating mode according to the tables provided.
+All machines are identical devices consisting of 
+\begin{itemize}
+\item one plate housing the RFID read/write device and
+\item one signal unit according to the figure above.
+\end{itemize}
+
+They share the same design and the same RFID device, with the overall
+size of 280 mm height, 160 mm of width and 100 mm of depth, see the
+engineering reference for further details. The default operating mode
+of all machines implies that only the green LED is turned on. This
+signals the machine being ready for input. The reading and writing
+process generally is a delicate process. To avoid corruption of the
+data carrier, it should not leave the working range of the RFID device
+once the processing or consuming is started. To enable the production
+process it is necessary to transport the pallet carrier accurately to
+the RFID device. A consumed pallet carrier has to stay within the
+machine space borders(no part of the puck being outside the mark-up)
+until the production cycle of that very machine has been
+completed. Production resulting from violating this requirement is
+considered junk and will not be rewarded. The machine always processes
+the required pallet carrier delivered last, all prior components will
+be consumed. All machines will start processing the data carrier as
+soon as they enter the diameter named below and change their operating
+mode according to the tables provided.
 
 
 \subsubsection{Production Machines}
@@ -469,6 +591,15 @@ diameter of the body cylinder. The only exception to this is the one
 default mounted pushing device per robot. The pushing device can be
 modified; it however must not exceed the following outside dimensions:
 0.25 m x 0.15 m x 0.05 m.
+
+\begin{rulechange}
+It is allowed to install additional computing power on the
+Robotino. This may either be in form of a notebook/laptop device or
+any other copmuting device that fits into the size requirement of the
+\Robotino{} system. Furthermore, it is allowed to communicate with an
+additional computing device off-field. This device may be used for
+team coordination etc.
+\end{rulechange}
 
 For a detailed technical description, refer to the Engineering
 Specifications chapter 1.1 
@@ -765,6 +896,55 @@ being exhaustive or binding.
   \label{tab:infringements}
 \end{table}
 
+
+
+\begin{rulechange}
+  \subsection{Technical Challenge}
+  
+  Within the league, the technical advances should be documented from
+  year to year. Therefore, the Technical Challenge is introduced.
+  Each participating team should prepare for participating in any
+  number the following tasks:
+
+
+  \paragraph{Collision avoidance.~}
+  The robot is to show that it avoids other obstacles and robots.
+  Therefore the robot must drive from input storage to the delivery zone.
+  However, the paths between the input storage and the delivery zone will
+  be blocked randomly by static obstacles and the robot must not touch any
+  of the obstacles. For touching an obstacle, the team receives a penalty.
+  The fastest team with the fewest penalty points to reach the delivery
+  zone wins this challenge. All other teams are ranked according to
+  how fast they were and how many penalties they conceived.
+  
+  \paragraph{Whac-a-Mole.~}
+  A single robot is placed somewhere on the field. It has to detect
+  the single shining signal unit on the play field. As soon as it puts
+  a puck underneath it, the signal unit is switched off and another
+  random signal unit is switched on. The goal of the challenge is to
+  switch as many signal units as possible within a given time
+  frame. Teams are ranked according to the number of turned-off
+  signals.
+  
+  \paragraph{Free challenge.~}
+  Each team will be given 5 minutes to showcase their robot team, e.g.
+  show some new robotics developments. The team leader of
+  non-presenting team will judge the performance and rate it with
+  points between 0--10.  The team with the most points will win this
+  challenge. The other teams are ranked in decreasing point order.
+
+
+  The technical challenge is conducted in the following way: The
+  teamleader of each participating team agree on a date and time
+  during the tournament for the Technical Challenge in their first
+  Teamleader Meeting. Each team can register for any of the
+  challenges. All teamleaders have to be present at the time of the
+  challenge to judge the other teams. The OC is responsible to conduct
+  the Technical Challenge and can appoint teamleaders to support in
+  conducting the challenges. The best team will be awarded at the
+  closing ceremony.
+
+\end{rulechange}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%
