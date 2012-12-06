@@ -19,10 +19,14 @@
 \usepackage{fourier}
 %\newcommand\rulechange[1]{\begin{shaded}#1\end{shaded}\marginpar{\LARGE\danger}}
 
-\newenvironment{rulechange}{%
-  \def\FrameCommand{\fboxsep=\FrameSep \colorbox{shadecolor}}%
-  \marginpar{\vspace*{2em}\LARGE\danger} \MakeFramed  {\FrameRestore}}%
- { \endMakeFramed}
+% does not work for me, gives:
+%! Undefined control sequence.
+%\@ympar ...lobal \setbox \@currbox \copy \@marbox 
+%                                                  \@xympar 
+%\newenvironment{rulechange}{%
+%  \def\FrameCommand{\fboxsep=\FrameSep \colorbox{shadecolor}}%
+%  \marginpar{\vspace*{2em}\LARGE\danger} \MakeFramed  {\FrameRestore}}%
+% { \endMakeFramed}
 
 
 \usepackage{framed,xcolor}
@@ -120,7 +124,7 @@ concentrates on defining all necessary variables and necessities and
 is not meant to visualize the competition itself. For general
 information about the idea of this competition, please refer to the
 information booklet supplied at the Festo Didactic homepage. Technical
-information about the RobotinoÂ® platform and details to components
+information about the Robotino platform and details to components
 used in the construction of the competition area are combined in the
 engineering reference and try the powerful RoboCup Simulator free of
 charge, which are both supplied at the link above, too.
@@ -153,19 +157,19 @@ German Open and the RoboCup 2012 in Mexico.
 \section{Agreements \& Regulations}
 
 The Logistics League follows a certain design philosophy. All teams
-are obliged to use the RobotinoÂ® robotic system of Festo Didactic Gmbh
+are obliged to use the Robotino robotic system of Festo Didactic Gmbh
 \& Co. KG with certain freedoms and limitations. The usage of both
 revisions, namely 2009 and 2010 are in order, see chapter 4 for
 details.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{The Task â€“â€œA challenge of precision within a flexible
-  deployment systemâ€�}
+\section{The Task -- A challenge of precision within a flexible
+  deployment system}
 
 Our aim is to simulate autonomous guided vehicles (AGV). In opposition
 to regular automatic guided vehicles, a team, consisting of a maximum
-of three RobotinosÂ®, shall complete the following task without a
+of three Robotinos, shall complete the following task without a
 control station or human interference as successful as possible
 competing with a second team against the clock.
 
@@ -178,7 +182,7 @@ known to the teams, the reference which production machine is of which
 machine type is not. Therefore, a part of the task is to discover the
 machine types of as many machines as suitable. In order to complete
 the production cycle, it is required to produce the three
-subassemblies step-by-step. The factoryâ€™s capacity theoretically
+subassemblies step-by-step. The factory's capacity theoretically
 allows production of resources for two products at the same time. The
 whole factory area can be used as an intermediate storage. Finally,
 the successfully assembled product has to be delivered to the correct
@@ -340,7 +344,7 @@ The factory area spans across 5.625 m x 4.8 m. There are two
 boundaries, set by two mark-ups, 0.4 m from the top and bottom borders
 of the competition area. The factory area is joined by two opposing
 0.4 m x 1.0 m zones at the top and bottom middle. The top zone is
-painted â€œblueâ€� marking the input store area with the express good
+painted blue marking the input store area with the express good
 insertion point to the right. The insertion point is 0.6 m of width
 with the insertion slot in its middle. This spot is a 0.1 m times 0.1
 m empty square that will be equipped with a pallet carrier to start
@@ -348,7 +352,7 @@ the express good challenge. The space between the recycling unit and
 the express good insertion point, as well as the space to the left of
 the input store area is called robot insertion area.
 
-The bottom zone is marked â€œgreenâ€� and houses the three delivery gates.
+The bottom zone is marked green and houses the three delivery gates.
 Each gate is of 0.3m width with 0.1m space to the next delivery gate
 separated by black mark-ups.
 
@@ -567,7 +571,7 @@ will not produce any junk.
 
 
 \bigskip
-\begin{rulechange}
+%\begin{rulechange}
   \begin{tabularx}{\linewidth}{l|X|X|X|l}
     \multicolumn{1}{l}{ Type} & \multicolumn{1}{l}{Distribution} & \multicolumn{1}{l}{Input} & \multicolumn{1}{l}{Output} & \multicolumn{1}{l}{(Final)processing time[s]}\\\hline
     \m1 & 4 times & \s0 (Raw-material) & \s1 & $WT_1 = 3 \mbox{ to } 8~\mathrm{sec}$\\
@@ -576,7 +580,7 @@ will not produce any junk.
     \m4 & 1 times &\s0;\s1;\s2 & \p2; two consumed containers &$WT_4 = 40\mbox{ to } 60~\mathrm{sec}$\\
     \m5 & 1 times &	\s0; & \p3; one consumed container &$WT_5 =40\mbox{ to } 60~\mathrm{sec}$
   \end{tabularx}
-\end{rulechange}
+%\end{rulechange}
   \caption{Production Machines}
   \label{tab:production-machines}
   
@@ -653,16 +657,16 @@ reasons. There will be only one active gate at a time.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%
 
-\section{The RobotinoÂ® System}
+\section{The Robotino System}
 
-All participants have to design their competition RobotinosÂ® within
+All participants have to design their competition Robotinos within
 the following specifications:
 
-Any kind of sensors can be changed or added to the RobotinoÂ® platform.
+Any kind of sensors can be changed or added to the Robotino platform.
 However, it is not possible to implement sensors that require
-modifications outside the RobotinoÂ® area (e.g. Northstar, indoor GPS).
+modifications outside the Robotino area (e.g. Northstar, indoor GPS).
 It is furthermore strictly forbidden to implement any kind of RFID
-device into the RobotinoÂ®. There must be no changes to the controller
+device into the Robotino. There must be no changes to the controller
 or mechanical system. The pushing device is defined as a passive,
 non-mechanical load handling attachment. The robots peripherals must
 neither exceed the maximum total height of 0.7 m nor the 0.4 m
@@ -671,7 +675,7 @@ default mounted pushing device per robot. The pushing device can be
 modified; it however must not exceed the following outside dimensions:
 0.25 m x 0.15 m x 0.05 m.
 
-\begin{rulechange}
+%\begin{rulechange}
   It is allowed to install additional computing power on the
   \Robotino. This may either be in form of a notebook/laptop device or
   any other computing device that suits the size requirement of the
@@ -680,7 +684,7 @@ modified; it however must not exceed the following outside dimensions:
   device may be used for team coordination and/or other
   purposes. However, communication among the robots and the off-field
   device is not granted during the competition.
-\end{rulechange}
+%\end{rulechange}
 
 For a detailed technical description, refer to the Engineering
 Specifications chapter 1.1 
@@ -693,20 +697,20 @@ as all communication amongst the robots has to be realized using the
 Wi-Fi connection. The program controlling the robot has to be executed
 locally by the robot itself. % It is strictly forbidden to use any kind
 % of external server acting as command point.
-\begin{rulechange}
+%\begin{rulechange}
   The robots will receive their commands from the Referee-Box as
   specified in the referee box protocol. Further, communication to one
   dedicated off-board computing device is allowed. However, wifi
   communication should not taken for granted during competition by the
   participating teams. 
-\end{rulechange}
+%\end{rulechange}
 The robots are allowed to share information with other devices, but
-must receive nothing else but the â€œstartâ€�, â€œpauseâ€� and â€œstopâ€� command
+must receive nothing else but the start, pause and stop command
 from units other than the 2 fellow robots. This specifically excludes:
 Usage of processed image data created outside of the robots A central
-communication that requires a device other than the three RobotinosÂ® A
+communication that requires a device other than the three Robotinos A
 permanently established connection between the command device and the
-RobotinosÂ®.
+Robotinos.
 
 % Please refer to Sect.~\ref{sec:radio-interference} for further details.
 
@@ -758,8 +762,8 @@ during a match the active gate can switch.
 \subsubsection{Radio Interference}
 \label{sec:radio-interference}
 The referee will induce a connection breakdown between the command
-unit and the RobotinosÂ® at certain points of a match. This will not
-affect the Wi-Fi connection between the RobotinosÂ® and will neither
+unit and the Robotinos at certain points of a match. This will not
+affect the Wi-Fi connection between the Robotinos and will neither
 happen during the first minute of a match. Once switched off, the link
 between LAN and Wi-Fi will stay severed for 100 seconds. The link will
 be reactivated swiftly in case of emergency to interrupt the autonomy
@@ -767,14 +771,14 @@ of the process.
 
 
 \subsection{Exploration Phase}
-\begin{rulechange}
+%\begin{rulechange}
 Before the actual game starts, the machines will indicate their types with the
 signal lights for two minutes. The robots are to roam the environment and
 announce detected signals to the Referee-Box. Each properly reported signal
 scores two points, each signal reported wrongly will give -1 points penalty.
 A minimum of zero points will be accounted for this exploration phase.
 Production or moving Pucks is not allowed during the exploration phase.
-\end{rulechange}
+%\end{rulechange}
 
 \subsection{Match startup}
 
@@ -783,10 +787,10 @@ team. From this point on, the teams involved are allowed to start
 their robots to work autonomously. This can be done by one click per
 robot on any kind of interface. 
 
-\begin{rulechange}
+%\begin{rulechange}
 As a start signal the Referee-Box will initially announce the true assignment of
 all machines to the robots.
-\end{rulechange}
+%\end{rulechange}
 
 \subsection{During a match}
 
@@ -812,7 +816,7 @@ process.
 
 \subsubsection{Production Plan}
 
-\begin{rulechange}
+%\begin{rulechange}
 The Referee-Box will announce a production plan for three different phases of
 the match. The production plan specifies how many items of different product
 variant have to be produced in the current production phase. Only products which
@@ -820,7 +824,7 @@ are covered by the production plan score. In 2013 each of the three phases will
 last 5 minutes. The first phase will start with the match startup.  The second
 phase will start at minute 5, the third at minute 10.
 
-\end{rulechange} 
+%\end{rulechange} 
 
 \begin{table}[h]
   \centering
@@ -838,14 +842,14 @@ phase will start at minute 5, the third at minute 10.
 
 \subsubsection{Express good challenge}
 
-\begin{rulechange}
+%\begin{rulechange}
 The challenge will be induced by the Referee-Box sending an Expres-Good-Message
 to the robots. The Message specifies the demanded product variant, a time-window
 and the delivery gate. As a first step the Express-Good-Challenge of 2013 will
 only demand product variant \p3. Furthermore, in 2013 the challenge has to be
 completed within a time-window of 120 seconds and the express good has to be
 delivered to the active delivery gate.
-\end{rulechange}
+%\end{rulechange}
 
 \subsection{Mode}
 \subsubsection{Tournament specifications}
@@ -931,7 +935,7 @@ from the game by the administration and therefore cannot be recycled.
 In order to provide the optimal possible solution for wireless
 communication during the event, all teams are required to use the 5
 GHz Wi-Fi equipment. They are furthermore required to connect their
-RobotinosÂ® Wi-Fi unit to the access point provided. All teams can also
+Robotinos Wi-Fi unit to the access point provided. All teams can also
 relay on Wi-Fi clients supplied by Festo but are not required to. A
 detailed description concerning the infrastructure can be found in
 chapter 1.8 of the Engineering Specifications.
@@ -989,7 +993,7 @@ being exhaustive or binding.
   for
   2 minutes\\[1ex]
 %
-  Damaging factory equipment & Theoretical damage to the â€œrealâ€�
+  Damaging factory equipment & Theoretical damage to the real
   factory equipment as a result of collisions and negligent actions.
   The team will be punished with a score reduction. The total score
   cannot  drop below zero.\\[1ex]
@@ -1010,11 +1014,11 @@ being exhaustive or binding.
   match. Each team can make a motion to protest a certain match and
   its result which will be dealt with after the match. There will be a
   warning. Continued disregard will result in a time punishment to the
-  teamâ€™s current or next match.\\[1ex]
+  team's current or next match.\\[1ex]
 %
   Disregarding rules of conduct & Following the rules of conduct
   should be self-explanatory Upon disregard, the referee will impose
-  sanctions ranged from time punishments to the teamâ€™s complete
+  sanctions ranged from time punishments to the team's complete
   removal from the tournament.\\\hline
   \end{tabularx}  
   \caption{Infringements}
@@ -1023,7 +1027,7 @@ being exhaustive or binding.
 
 
 
-\begin{rulechange}
+%\begin{rulechange}
   \subsection{Technical Challenge}
   
   Within the league, the technical advances should be documented from
@@ -1073,7 +1077,7 @@ being exhaustive or binding.
   points accrued over all challenges will be awarded with the
   LLSF Technical Challenge Award.
 
-\end{rulechange}
+%\end{rulechange}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%
@@ -1090,23 +1094,27 @@ Istanbul 2011.
 
 \subsubsection{Scripted, dynamic obstacles}
 
-On the way to fully dynamic obstacles this iteration implies a fully scripted administration controlled RobotinoÂ® that follows implicit movement rules that are known to all participants.
+On the way to fully dynamic obstacles this iteration implies a fully
+scripted administration controlled Robotino that follows implicit
+movement rules that are known to all participants.
 
 \subsection{Midterm planning}
-
 Additions and alterations for future iterations of this competition
 
 
 \subsubsection{Various Production programs}
-
 A part from the three-staged production process, various goods with
 different work orders and specifications (e.g. top speed, delivery
 strategies...) could be part of the challenge. This addition seems to
 be heavily dependent on Sect.~\ref{sec:supp-flow}.
 
 \subsubsection{Various order strategies}
-
-A delivery could consist of more than one final product, it could be required to deliver a batch of products, maybe within a certain time span, to complete the loading and receive extra points. Also, the different delivery gates could obtain a predefined shipping list, for example gate 1 requiring 2 Products, 2 M2 and 1 M1, maybe in the correct order to enable FIFO, LIFO or other delivery strategies.
+A delivery could consist of more than one final product, it could be
+required to deliver a batch of products, maybe within a certain time
+span, to complete the loading and receive extra points. Also, the
+different delivery gates could obtain a predefined shipping list, for
+example gate 1 requiring 2 Products, 2 M2 and 1 M1, maybe in the
+correct order to enable FIFO, LIFO or other delivery strategies.
 
 \subsubsection{Simulation league}
 
@@ -1120,36 +1128,38 @@ order to compete on scalability.
 \subsubsection{Introducing a supportive flow of information}
 \label{sec:supp-flow}
 
-As the current task only deals with the material stream, it is heavily limited to a simple static task. In order to enable a flow of information that transports complex orders, a combined effort should focus on implementing a data interface that can be used by all teams today and in the future. As this would be a giant leap towards the industrial application, a general discussion and a lot of effort has to be invested into this issue.
+As the current task only deals with the material stream, it is heavily
+limited to a simple static task. In order to enable a flow of
+information that transports complex orders, a combined effort should
+focus on implementing a data interface that can be used by all teams
+today and in the future. As this would be a giant leap towards the
+industrial application, a general discussion and a lot of effort has
+to be invested into this issue.
 
 
 \subsection{Long term Vision}
-
 Ideas, dreams and ideology that inspire the future development.
 
 \subsubsection{Complex production machines}
-
-As there are more ways to interact with a machine than mounting and dismounting a loading carrier, it is possible to develop new machine types that look different and are completely different to handle.
+As there are more ways to interact with a machine than mounting and
+dismounting a loading carrier, it is possible to develop new machine
+types that look different and are completely different to handle.
 
 \subsubsection{Collaborative Production}
-
 Teams could be required to cooperate with another team to enable a
 combined supply chain. 
 
 \subsubsection{Opponent controlled dynamic obstacles}
-
 No scripted obstacle can truly represent challenges of the industrial
 application. In the long run, an opposing team has to be reinserted
 that is allowed and requested to anticipate the logistic processes in
 real time in order to create worst case scenarios for the teams.
 
 \subsubsection{Interfacing ERP / SCM}
-
 The interface used to present orders could be back ended with software
 from real business applications like ERP, PPS, WHM and SCM.
 
 \subsubsection{JIS / JIT implementation}
-
 With complex production processes and several other achievements and
 upgrades it could be useful to implement JIS and JIT tasks and
 procedures into the LL, requiring delivery strategies like LIFO, FIFO
