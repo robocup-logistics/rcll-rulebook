@@ -120,7 +120,7 @@ concentrates on defining all necessary variables and necessities and
 is not meant to visualize the competition itself. For general
 information about the idea of this competition, please refer to the
 information booklet supplied at the Festo Didactic homepage. Technical
-information about the Robotino® platform and details to components
+information about the RobotinoÂ® platform and details to components
 used in the construction of the competition area are combined in the
 engineering reference and try the powerful RoboCup Simulator free of
 charge, which are both supplied at the link above, too.
@@ -130,7 +130,7 @@ league into the RoboCup portfolio, we look forward to new scale of
 competition that will emerge from initiatives around the globe. In
 2012 we will crown the first Logistics League World Champion. In order
 to enable a competition at eye level among the teams, the focus of
-this years’ iteration is to polish the 2011 Rulebook and to shift some
+this yearsâ€™ iteration is to polish the 2011 Rulebook and to shift some
 of the competition demands in order to achieve a continued improvement
 of competition revenue. This being said, some of the future
 developments have been tabled for this year to enable discussions
@@ -153,24 +153,24 @@ German Open and the RoboCup 2012 in Mexico.
 \section{Agreements \& Regulations}
 
 The Logistics League follows a certain design philosophy. All teams
-are obliged to use the Robotino® robotic system of Festo Didactic Gmbh
+are obliged to use the RobotinoÂ® robotic system of Festo Didactic Gmbh
 \& Co. KG with certain freedoms and limitations. The usage of both
 revisions, namely 2009 and 2010 are in order, see chapter 4 for
 details.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{The Task –“A challenge of precision within a flexible
-  deployment system”}
+\section{The Task â€“â€œA challenge of precision within a flexible
+  deployment systemâ€�}
 
 Our aim is to simulate autonomous guided vehicles (AGV). In opposition
 to regular automatic guided vehicles, a team, consisting of a maximum
-of three Robotinos®, shall complete the following task without a
+of three RobotinosÂ®, shall complete the following task without a
 control station or human interference as successful as possible
 competing with a second team against the clock.
 
-The main task is a 3-staged production cycle with self-crafted
-intermediate products and the transport of the final product to the
+The main task is a staged production cycle of different product variants with
+self-crafted intermediate products and the transport of the final product to the
 designated zone. This is the genuine goal and will be rewarded
 considerably higher than partial fulfillment of the task. Although the
 distribution and utilization process of the different machine types is
@@ -178,7 +178,7 @@ known to the teams, the reference which production machine is of which
 machine type is not. Therefore, a part of the task is to discover the
 machine types of as many machines as suitable. In order to complete
 the production cycle, it is required to produce the three
-subassemblies step-by-step. The factory’s capacity theoretically
+subassemblies step-by-step. The factoryâ€™s capacity theoretically
 allows production of resources for two products at the same time. The
 whole factory area can be used as an intermediate storage. Finally,
 the successfully assembled product has to be delivered to the correct
@@ -317,11 +317,10 @@ machine types are specified in Sect.~\ref{sec:machines}.
 
 \subsubsection{Express good}
 
-The express good challenge will start as soon as a pallet carrier has
-been inserted into the express good slot by the referee. The challenge
-requires a fast paced processing and delivery within the time
-requested. The challenge also requires prior knowledge concerning the
-machine distribution.
+The express good challenge will be announced by the Referee-Box. The challenge
+requires a fast paced processing and delivery of the requested product within
+a specified time window. The challenge also requires prior knowledge
+concerning the machine distribution.
 
 \section{Competition Area}
 
@@ -341,7 +340,7 @@ The factory area spans across 5.625 m x 4.8 m. There are two
 boundaries, set by two mark-ups, 0.4 m from the top and bottom borders
 of the competition area. The factory area is joined by two opposing
 0.4 m x 1.0 m zones at the top and bottom middle. The top zone is
-painted “blue” marking the input store area with the express good
+painted â€œblueâ€� marking the input store area with the express good
 insertion point to the right. The insertion point is 0.6 m of width
 with the insertion slot in its middle. This spot is a 0.1 m times 0.1
 m empty square that will be equipped with a pallet carrier to start
@@ -349,7 +348,7 @@ the express good challenge. The space between the recycling unit and
 the express good insertion point, as well as the space to the left of
 the input store area is called robot insertion area.
 
-The bottom zone is marked “green” and houses the three delivery gates.
+The bottom zone is marked â€œgreenâ€� and houses the three delivery gates.
 Each gate is of 0.3m width with 0.1m space to the next delivery gate
 separated by black mark-ups.
 
@@ -488,7 +487,7 @@ area. The top left corner will remain empty.
   \label{tab:coordinates}
 \end{table}
 
-\subsection{The Pallet Carrier – Puck}
+\subsection{The Pallet Carrier â€“ Puck}
 The data carrying RFID tag is mounted to a hockey puck. The tournament
 puck features a diameter of 7.5cm.
 
@@ -542,8 +541,8 @@ After processing the current data carrier: Yellow LED turned on The
 machine has finished processing the current data carrier and is
 waiting for the next subassembly. Green LED turned on The machine has
 finished the work order and is ready to receive the next batch of
-carriers. In order to complete the machines’ work order the input
-materials have to be delivered one-by-one into the RFID device’s
+carriers. In order to complete the machinesâ€™ work order the input
+materials have to be delivered one-by-one into the RFID deviceâ€™s
 action range. Multiple data carriers in range of the device will
 result in erroneous behavior of the device. Consumption of materials,
 like \s0 used in the production of \s2, will take 2 seconds. Unloading
@@ -562,20 +561,25 @@ will not produce any junk.
     Green and yellow LED turned on &  	The machine is processing or consuming the current data carrier. \\
     Yellow LED flashing(at 2 Hz) & The machine detects wrong material.
     This can be caused by data carriers that are already consumed,
-    subassemblies that do not fit to this machine type’s work order or
+    subassemblies that do not fit to this machine typeâ€™s work order or
     corrupted data carriers. \\\hline
   \end{tabularx}
 
+
 \bigskip
+\begin{rulechange}
   \begin{tabularx}{\linewidth}{l|X|X|X|l}
     \multicolumn{1}{l}{ Type} & \multicolumn{1}{l}{Distribution} & \multicolumn{1}{l}{Input} & \multicolumn{1}{l}{Output} & \multicolumn{1}{l}{(Final)processing time[s]}\\\hline
     \m1 & 4 times & \s0 (Raw-material) & \s1 & $WT_1 = 3 \mbox{ to } 8~\mathrm{sec}$\\
-    \m2 & 3 times & \s0; \s1 \s2; & one consumed container & $WT_2 = 15 \mbox{ to } 25~\mathrm{sec}$\\
-    \m3 & 3 times &	\s0;\s1;\s2 & Product; two consumed containers & $WT_3 = 40 \mbox{ to } 60~\mathrm{sec}$
+    \m2 & 3 times & \s0; \s1 \s2; & \s2; one consumed container & $WT_2 = 15 \mbox{ to } 25~\mathrm{sec}$\\
+    \m3 & 1 times &	\s0;\s1;\s2 & \p1; two consumed containers &$WT_3 = 40 \mbox{ to } 60~\mathrm{sec}$\\
+    \m4 & 1 times &\s0;\s1;\s2 & \p2; two consumed containers &$WT_4 = 40\mbox{ to } 60~\mathrm{sec}$\\
+    \m5 & 1 times &	\s0; & \p3; one consumed container &$WT_5 =40\mbox{ to } 60~\mathrm{sec}$
   \end{tabularx}
-
+\end{rulechange}
   \caption{Production Machines}
   \label{tab:production-machines}
+  
 \end{table}
 
 
@@ -649,16 +653,16 @@ reasons. There will be only one active gate at a time.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%
 
-\section{The Robotino® System}
+\section{The RobotinoÂ® System}
 
-All participants have to design their competition Robotinos® within
+All participants have to design their competition RobotinosÂ® within
 the following specifications:
 
-Any kind of sensors can be changed or added to the Robotino® platform.
+Any kind of sensors can be changed or added to the RobotinoÂ® platform.
 However, it is not possible to implement sensors that require
-modifications outside the Robotino® area (e.g. Northstar, indoor GPS).
+modifications outside the RobotinoÂ® area (e.g. Northstar, indoor GPS).
 It is furthermore strictly forbidden to implement any kind of RFID
-device into the Robotino®. There must be no changes to the controller
+device into the RobotinoÂ®. There must be no changes to the controller
 or mechanical system. The pushing device is defined as a passive,
 non-mechanical load handling attachment. The robots peripherals must
 neither exceed the maximum total height of 0.7 m nor the 0.4 m
@@ -697,12 +701,12 @@ locally by the robot itself. % It is strictly forbidden to use any kind
   participating teams. 
 \end{rulechange}
 The robots are allowed to share information with other devices, but
-must receive nothing else but the “start”, “pause” and “stop” command
+must receive nothing else but the â€œstartâ€�, â€œpauseâ€� and â€œstopâ€� command
 from units other than the 2 fellow robots. This specifically excludes:
 Usage of processed image data created outside of the robots A central
-communication that requires a device other than the three Robotinos® A
+communication that requires a device other than the three RobotinosÂ® A
 permanently established connection between the command device and the
-Robotinos®.
+RobotinosÂ®.
 
 % Please refer to Sect.~\ref{sec:radio-interference} for further details.
 
@@ -714,9 +718,8 @@ Robotinos®.
 
 A match is defined by two contesting teams competing at two separated
 identical competition areas. Each match lasts 15 minutes with 5
-minutes of setup time unless stated otherwise by the organization
-team. All settings, including the EGC and random events, will be the
-exact same for both parties of a match.
+minutes of setup time and a 2 minute Exploration Phase. All settings, including
+the EGC and random events, will be the exact same for both parties of a match.
 
 \subsection{Team setup}
 \label{sec:team-setup}
@@ -728,7 +731,7 @@ is limited to adjustments on sensors, checking cable connections and
 the boot or shut down procedure. A team can ask the referee to shut
 down the robot. If this motion has been forwarded within the first 15
 seconds of the very robots movement and without this robot scoring
-points, the referee will move it to a point of insertion of the team’s
+points, the referee will move it to a point of insertion of the teamâ€™s
 choice, once. Otherwise or on second occasion the robot will be
 removed from the competition area. Resetting or removing a robot will
 not cause an interruption of the game. The referee will only interrupt
@@ -755,20 +758,35 @@ during a match the active gate can switch.
 \subsubsection{Radio Interference}
 \label{sec:radio-interference}
 The referee will induce a connection breakdown between the command
-unit and the Robotinos® at certain points of a match. This will not
-affect the Wi-Fi connection between the Robotinos® and will neither
+unit and the RobotinosÂ® at certain points of a match. This will not
+affect the Wi-Fi connection between the RobotinosÂ® and will neither
 happen during the first minute of a match. Once switched off, the link
 between LAN and Wi-Fi will stay severed for 100 seconds. The link will
 be reactivated swiftly in case of emergency to interrupt the autonomy
 of the process.
 
 
+\subsection{Exploration Phase}
+\begin{rulechange}
+Before the actual game starts, the machines will indicate their types with the
+signal lights for two minutes. The robots are to roam the environment and
+announce detected signals to the Referee-Box. Each properly reported signal
+scores two points, each signal reported wrongly will give -1 points penalty.
+A minimum of zero points will be accounted for this exploration phase.
+Production or moving Pucks is not allowed during the exploration phase.
+\end{rulechange}
+
 \subsection{Match startup}
 
 All matches will start at the exact time scheduled by the organization
 team. From this point on, the teams involved are allowed to start
 their robots to work autonomously. This can be done by one click per
-robot on any kind of interface.
+robot on any kind of interface. 
+
+\begin{rulechange}
+As a start signal the Referee-Box will initially announce the true assignment of
+all machines to the robots.
+\end{rulechange}
 
 \subsection{During a match}
 
@@ -792,20 +810,42 @@ once per match. If the machine turns offline during processing or
 consumption of mounted a pallet carrier, it will afterwards resume the
 process.
 
+\subsubsection{Production Plan}
+
+\begin{rulechange}
+The Referee-Box will announce a production plan for three different phases of
+the match. The production plan specifies how many items of different product
+variant have to be produced in the current production phase. Only products which
+are covered by the production plan score. In 2013 each of the three phases will
+last 5 minutes. The first phase will start with the match startup.  The second
+phase will start at minute 5, the third at minute 10.
+
+\end{rulechange} 
+
+\begin{table}[h]
+  \centering
+  \begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
+    \multicolumn{1}{l}{Product Variant} &\multicolumn{1}{l}{Demanded number of items } \\
+    \hline 
+    Product Variant \p1 &	$N_1 = 1 \mbox{ to } 10$ items \\
+    Product Variant \p2 &	$N_2 = 1 \mbox{ to } 10$ items \\
+    Product Variant \p3 &	$N_3 = 1 \mbox{ to } 10$ items \\
+	\hline
+  \end{tabularx}
+  \caption{Production plan}
+  \label{tab:production-plan}
+\end{table}
+
 \subsubsection{Express good challenge}
 
-The challenge will be induced by the referee seeding one loading
-equipment into the express goods slot. The challenge then has to be
-completed within 120 seconds. The loading equipment has to be
-processed at a machine of type 1 with the corresponding WT1 as
-processing time. Prior to handling the express good, the designated
-machine has to be put into an identified state. This is done by a raw
-material that was processed in this very machine earlier during the
-on-going match. The identification process does not have an effect on
-the further usage of the produced subassembly 1, it can be used
-naturally. After processing the express good has to be delivered to
-the active delivery gate.
-
+\begin{rulechange}
+The challenge will be induced by the Referee-Box sending an Expres-Good-Message
+to the robots. The Message specifies the demanded product variant, a time-window
+and the delivery gate. As a first step the Express-Good-Challenge of 2013 will
+only demand product variant \p3. Furthermore, in 2013 the challenge has to be
+completed within a time-window of 120 seconds and the express good has to be
+delivered to the active delivery gate.
+\end{rulechange}
 
 \subsection{Mode}
 \subsubsection{Tournament specifications}
@@ -891,7 +931,7 @@ from the game by the administration and therefore cannot be recycled.
 In order to provide the optimal possible solution for wireless
 communication during the event, all teams are required to use the 5
 GHz Wi-Fi equipment. They are furthermore required to connect their
-Robotinos® Wi-Fi unit to the access point provided. All teams can also
+RobotinosÂ® Wi-Fi unit to the access point provided. All teams can also
 relay on Wi-Fi clients supplied by Festo but are not required to. A
 detailed description concerning the infrastructure can be found in
 chapter 1.8 of the Engineering Specifications.
@@ -949,7 +989,7 @@ being exhaustive or binding.
   for
   2 minutes\\[1ex]
 %
-  Damaging factory equipment & Theoretical damage to the “real”
+  Damaging factory equipment & Theoretical damage to the â€œrealâ€�
   factory equipment as a result of collisions and negligent actions.
   The team will be punished with a score reduction. The total score
   cannot  drop below zero.\\[1ex]
@@ -970,11 +1010,11 @@ being exhaustive or binding.
   match. Each team can make a motion to protest a certain match and
   its result which will be dealt with after the match. There will be a
   warning. Continued disregard will result in a time punishment to the
-  team’s current or next match.\\[1ex]
+  teamâ€™s current or next match.\\[1ex]
 %
   Disregarding rules of conduct & Following the rules of conduct
   should be self-explanatory Upon disregard, the referee will impose
-  sanctions ranged from time punishments to the team’s complete
+  sanctions ranged from time punishments to the teamâ€™s complete
   removal from the tournament.\\\hline
   \end{tabularx}  
   \caption{Infringements}
@@ -1050,7 +1090,7 @@ Istanbul 2011.
 
 \subsubsection{Scripted, dynamic obstacles}
 
-On the way to fully dynamic obstacles this iteration implies a fully scripted administration controlled Robotino® that follows implicit movement rules that are known to all participants.
+On the way to fully dynamic obstacles this iteration implies a fully scripted administration controlled RobotinoÂ® that follows implicit movement rules that are known to all participants.
 
 \subsection{Midterm planning}
 
