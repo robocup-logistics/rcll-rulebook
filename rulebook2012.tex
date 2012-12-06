@@ -19,6 +19,9 @@
 \usepackage{fourier}
 %\newcommand\rulechange[1]{\begin{shaded}#1\end{shaded}\marginpar{\LARGE\danger}}
 
+
+%% MACROS %%%%%%%%%%%%%%%%%%%
+
 % does not work for me, gives:
 %! Undefined control sequence.
 %\@ympar ...lobal \setbox \@currbox \copy \@marbox 
@@ -32,6 +35,13 @@
 \usepackage{framed,xcolor}
 \colorlet{shadecolor}{gray!25}
 \newcommand{\Robotino}{Robotino\textregistered}
+
+\newcommand{\refsec}[1]{Section~\ref{#1}}
+\newcommand{\reffig}[1]{Figure~\ref{#1}}
+\newcommand{\refdef}[1]{Definition~\ref{#1}}
+%\newcommand{\reflst}[1]{Listing~\ref{#1}}
+\newcommand{\reflst}[1]{Figure~\ref{#1}}
+
 
 %% GRAPHICSX %%%%%%%%%%%%%%%%%%%
 \usepackage[pdftex]{graphicx}
@@ -47,6 +57,28 @@
 
 %% HYPERREF %%%%%%%%%%%%%%%%%%%
 \usepackage{hyperref}
+\hypersetup{
+  pdftitle      = {Rulebook 2013 for the RoboCup Logistics League sponsored by Festo},
+  pdfauthor     = {LLSF TC},
+  pdfkeywords   = {LLSF, Rulebook},
+  pdfsubject    = {},
+  %pdfpagemode   = {UseOutlines},        % PageWdth, FullScreen, None ...
+  hidelinks    = true,          % true colored links, false colored boxes
+%  linkcolor     = black,
+%  citecolor     = black,
+%  filecolor     = black,
+%  urlcolor      = black,
+%  backref       = false,
+%  pagecolor     = black,         % link to other document pages
+%  linktocpage,                  % linked page numbers instead of titles
+%  menucolor   = blue,           % Acrobat menu item
+%  pdfnewwindow= true,                %
+%  pdfborder   = {0 0 0},             %
+%  bookmarksopen=true,                %
+%  bookmarksnumbered=true,            %
+%  pdfcreator   = {pdflatex},
+%  pdfproducer  = {latex-pdftex}
+}
 
 %% SVN-MULTI %%%%%%%%%%%%%%%%%%%
 \usepackage{svn-multi}
@@ -92,9 +124,9 @@
   \vspace*{4cm}
   
   \noindent
-  Revision: \svn{$Rev$}\\[2ex]
-  Author: \svn{$Author$}\\[2ex]
-  Date: \svn{$Date$}\\[2ex]  
+  \svn{$Rev$}\\[2ex]
+  \svn{$Author$}\\[2ex]
+  \svn{$Date$}\\[2ex]  
 \end{titlepage}
 \thispagestyle{empty}
 \pagebreak
@@ -134,7 +166,7 @@ league into the RoboCup portfolio, we look forward to new scale of
 competition that will emerge from initiatives around the globe. In
 2012 we will crown the first Logistics League World Champion. In order
 to enable a competition at eye level among the teams, the focus of
-this yearsâ€™ iteration is to polish the 2011 Rulebook and to shift some
+this years' iteration is to polish the 2011 Rulebook and to shift some
 of the competition demands in order to achieve a continued improvement
 of competition revenue. This being said, some of the future
 developments have been tabled for this year to enable discussions
@@ -491,7 +523,7 @@ area. The top left corner will remain empty.
   \label{tab:coordinates}
 \end{table}
 
-\subsection{The Pallet Carrier â€“ Puck}
+\subsection{The Pallet Carrier Puck}
 The data carrying RFID tag is mounted to a hockey puck. The tournament
 puck features a diameter of 7.5cm.
 
@@ -545,8 +577,8 @@ After processing the current data carrier: Yellow LED turned on The
 machine has finished processing the current data carrier and is
 waiting for the next subassembly. Green LED turned on The machine has
 finished the work order and is ready to receive the next batch of
-carriers. In order to complete the machinesâ€™ work order the input
-materials have to be delivered one-by-one into the RFID deviceâ€™s
+carriers. In order to complete the machines' work order the input
+materials have to be delivered one-by-one into the RFID device's
 action range. Multiple data carriers in range of the device will
 result in erroneous behavior of the device. Consumption of materials,
 like \s0 used in the production of \s2, will take 2 seconds. Unloading
@@ -565,7 +597,7 @@ will not produce any junk.
     Green and yellow LED turned on &  	The machine is processing or consuming the current data carrier. \\
     Yellow LED flashing(at 2 Hz) & The machine detects wrong material.
     This can be caused by data carriers that are already consumed,
-    subassemblies that do not fit to this machine typeâ€™s work order or
+    subassemblies that do not fit to this machine type's work order or
     corrupted data carriers. \\\hline
   \end{tabularx}
 
@@ -689,28 +721,97 @@ modified; it however must not exceed the following outside dimensions:
 For a detailed technical description, refer to the Engineering
 Specifications chapter 1.1 
 
-\subsection{Communication}
+\section{Communication}
+Robots have to operate autonomously, that is without any human
+interference during the game. Communication among robots and to
+off-board computing units is allowed only using wifi
+(cf.~\refsec{sec:wifi-regulations}. Communication is not guaranteed
+and maybe unavailable during parts of the game. Interruptions must be
+expected and is no reason to pause or abort a game, even if they
+endure for long periods of the game.
 
-Each robot has to operate autonomously. The communication between the
-robot and the device responsible for the Start/Stop command, as well
-as all communication amongst the robots has to be realized using the
-Wi-Fi connection. The program controlling the robot has to be executed
-locally by the robot itself. % It is strictly forbidden to use any kind
-% of external server acting as command point.
+\subsection{Bandwidth Allocation}
+\label{sec:bandwidth}
+No minimum bandwidth is guaranteed. The amount of communicated data
+over the wifi connection shall not exceed 2\,MBit/sec. Even though the
+lower layers could provide for more bandwidth, the overall available
+frequency spectrum and wifi channels have to be shared, not only
+within our own league. Generally, a conservative use of bandwidth
+resources is advised. Should a frequently or endured exceedance
+exceedance of the bandwidth limit become known, or if the overall
+bandwidth limit must be reduced due to out circumstances, the TC can
+monitor the network traffic and demand reduction in communicated
+data as necessary.
+
+\subsection{Referee Box}
+\label{sec:refbox}
+The referee box (refbox) is a software system that runs on a system
+provided by the Organization Committee. It controls the overall game,
+monitors feedback from team robot, and awards points. It is instructed
+by a assisting human referee.
+
+To be completed:
+\begin{itemize}
+\item protobuf
+\item Message type overview
+\item Single point of robot instruction
+\end{itemize}
+
+The protocol and technical specifications are described in detail in
+the RoboCup Logistics League Referee Box documentation.
+
+\subsection{Inter-Robot Communication}
+\label{sec:inter-robot-comm}
+
+\subsection{Communication Eavesdropping and Interference}
+\label{sec:comm-tampering}
+% This might sound harsh, but it's based on lessons learned in
+% numerous years of RoboCup, you wouldn't believe what some teams will
+% do... :-/
+Communication of another team may neither be eavesdropped on nor be
+interfered with. Teams not currently active shall disconnect from the
+field access points.
+
+Monitoring of bandwidth used or of possible misbehavior may only be
+performed by members of the TC.
+% can add this, need to be clear that this must be done using a team
+% leader majority vote and not just any team leader
+% or by a person appointed by the team leaders.
+Any indication of misbehavior will be discussed by the team leader
+convention and may result in penalties or disqualification from the
+tournament.
+
+
+%Each robot has to operate autonomously. The communication between the
+%robot and the device responsible for the Start/Stop command, as well
+%as all communication amongst the robots has to be realized using the
+%Wi-Fi connection. The program controlling the robot has to be executed
+%locally by the robot itself. % It is strictly forbidden to use any kind
+%% of external server acting as command point.
 %\begin{rulechange}
-  The robots will receive their commands from the Referee-Box as
-  specified in the referee box protocol. Further, communication to one
-  dedicated off-board computing device is allowed. However, wifi
-  communication should not taken for granted during competition by the
-  participating teams. 
+%  The robots will receive their commands from the Referee-Box as
+%  specified in the referee box protocol. Further, communication to one
+%  dedicated off-board computing device is allowed. However, wifi
+%  communication should not taken for granted during competition by the
+%  participating teams. 
 %\end{rulechange}
-The robots are allowed to share information with other devices, but
-must receive nothing else but the start, pause and stop command
-from units other than the 2 fellow robots. This specifically excludes:
-Usage of processed image data created outside of the robots A central
-communication that requires a device other than the three Robotinos A
-permanently established connection between the command device and the
-Robotinos.
+%The robots are allowed to share information with other devices, but
+%must receive nothing else but the start, pause and stop command
+%from units other than the 2 fellow robots. This specifically excludes:
+%Usage of processed image data created outside of the robots A central
+%communication that requires a device other than the three Robotinos A
+%permanently established connection between the command device and the
+%Robotinos.
+
+\subsection{Wifi regulations}
+\label{sec:wifi-regulations}
+In order to provide the optimal possible solution for wireless
+communication during the event, all teams are required to use the 5
+GHz Wi-Fi equipment. They are furthermore required to connect their
+Robotinos Wi-Fi unit to the access point provided. All teams can also
+relay on Wi-Fi clients supplied by Festo but are not required to. A
+detailed description concerning the infrastructure can be found in
+chapter 1.8 of the Engineering Specifications.
 
 % Please refer to Sect.~\ref{sec:radio-interference} for further details.
 
@@ -735,7 +836,7 @@ is limited to adjustments on sensors, checking cable connections and
 the boot or shut down procedure. A team can ask the referee to shut
 down the robot. If this motion has been forwarded within the first 15
 seconds of the very robots movement and without this robot scoring
-points, the referee will move it to a point of insertion of the teamâ€™s
+points, the referee will move it to a point of insertion of the team's
 choice, once. Otherwise or on second occasion the robot will be
 removed from the competition area. Resetting or removing a robot will
 not cause an interruption of the game. The referee will only interrupt
@@ -929,17 +1030,6 @@ Proceeding to the playoffs will result in the following changes to the EGC setup
 
 In both cases, delivered or timed out pallet carriers will be removed
 from the game by the administration and therefore cannot be recycled.
-
-\subsubsection{Wi-Fi regulations}
-
-In order to provide the optimal possible solution for wireless
-communication during the event, all teams are required to use the 5
-GHz Wi-Fi equipment. They are furthermore required to connect their
-Robotinos Wi-Fi unit to the access point provided. All teams can also
-relay on Wi-Fi clients supplied by Festo but are not required to. A
-detailed description concerning the infrastructure can be found in
-chapter 1.8 of the Engineering Specifications.
-
 
 \subsubsection{Task fulfilment?}
 
