@@ -28,6 +28,7 @@
 %  \def\FrameCommand{\fboxsep=\FrameSep \colorbox{shadecolor}}%
 %  \marginpar{\vspace*{2em}\LARGE\danger} \MakeFramed  {\FrameRestore}}%
 % { \endMakeFramed}
+\newenvironment{rulechange}{}{}
 
 
 \usepackage{framed,xcolor}
@@ -603,7 +604,7 @@ will not produce any junk.
 
 
 \bigskip
-%\begin{rulechange}
+\begin{rulechange}
   \begin{tabularx}{\linewidth}{l|X|X|X|l}
     \multicolumn{1}{l}{ Type} & \multicolumn{1}{l}{Distribution} & \multicolumn{1}{l}{Input} & \multicolumn{1}{l}{Output} & \multicolumn{1}{l}{(Final)processing time[s]}\\\hline
     \m1 & 4 times & \s0 (Raw-material) & \s1 & $WT_1 = 3 \mbox{ to } 8~\mathrm{sec}$\\
@@ -612,7 +613,7 @@ will not produce any junk.
     \m4 & 1 times &\s0;\s1;\s2 & \p2; two consumed containers &$WT_4 = 40\mbox{ to } 60~\mathrm{sec}$\\
     \m5 & 1 times &	\s0; & \p3; one consumed container &$WT_5 =40\mbox{ to } 60~\mathrm{sec}$
   \end{tabularx}
-%\end{rulechange}
+\end{rulechange}
   \caption{Production Machines}
   \label{tab:production-machines}
   
@@ -707,7 +708,7 @@ default mounted pushing device per robot. The pushing device can be
 modified; it however must not exceed the following outside dimensions:
 0.25 m x 0.15 m x 0.05 m.
 
-%\begin{rulechange}
+\begin{rulechange}
   It is allowed to install additional computing power on the
   \Robotino. This may either be in form of a notebook/laptop device or
   any other computing device that suits the size requirement of the
@@ -716,7 +717,7 @@ modified; it however must not exceed the following outside dimensions:
   device may be used for team coordination and/or other
   purposes. However, communication among the robots and the off-field
   device is not granted during the competition.
-%\end{rulechange}
+\end{rulechange}
 
 For a detailed technical description, refer to the Engineering
 Specifications Chapter 1.1 
@@ -872,14 +873,14 @@ of the process.
 
 
 \subsection{Exploration Phase}
-%\begin{rulechange}
+\begin{rulechange}
 Before the actual game starts, the machines will indicate their types with the
 signal lights for two minutes. The robots are to roam the environment and
 announce detected signals to the Referee-Box. Each properly reported signal
 scores two points, each signal reported wrongly will give -1 points penalty.
 A minimum of zero points will be accounted for this exploration phase.
 Production or moving Pucks is not allowed during the exploration phase.
-%\end{rulechange}
+\end{rulechange}
 
 \subsection{Match startup}
 
@@ -888,10 +889,10 @@ team. From this point on, the teams involved are allowed to start
 their robots to work autonomously. This can be done by one click per
 robot on any kind of interface. 
 
-%\begin{rulechange}
+\begin{rulechange}
 As a start signal the Referee-Box will initially announce the true assignment of
 all machines to the robots.
-%\end{rulechange}
+\end{rulechange}
 
 \subsection{During a match}
 
@@ -917,7 +918,7 @@ process.
 
 \subsubsection{Production Plan}
 
-%\begin{rulechange}
+\begin{rulechange}
 The Referee-Box will announce a production plan for three different phases of
 the match. The production plan specifies how many items of different product
 variant have to be produced in the current production phase. Only products which
@@ -925,7 +926,7 @@ are covered by the production plan score. In 2013 each of the three phases will
 last 5 minutes. The first phase will start with the match startup.  The second
 phase will start at minute 5, the third at minute 10.
 
-%\end{rulechange} 
+\end{rulechange} 
 
 \begin{table}[h]
   \centering
@@ -943,14 +944,14 @@ phase will start at minute 5, the third at minute 10.
 
 \subsubsection{Express good challenge}
 
-%\begin{rulechange}
+\begin{rulechange}
 The challenge will be induced by the Referee-Box sending an Expres-Good-Message
 to the robots. The Message specifies the demanded product variant, a time-window
 and the delivery gate. As a first step the Express-Good-Challenge of 2013 will
 only demand product variant \p3. Furthermore, in 2013 the challenge has to be
 completed within a time-window of 120 seconds and the express good has to be
 delivered to the active delivery gate.
-%\end{rulechange}
+\end{rulechange}
 
 \subsection{Mode}
 \subsubsection{Tournament specifications}
@@ -1118,7 +1119,7 @@ decision basis of the referee without being exhaustive or binding.
 
 
 
-%\begin{rulechange}
+\begin{rulechange}
   \subsection{Technical Challenge}
   
   Within the league, the technical advances should be documented from
@@ -1168,7 +1169,7 @@ decision basis of the referee without being exhaustive or binding.
   points accrued over all challenges will be awarded with the
   LLSF Technical Challenge Award.
 
-%\end{rulechange}
+\end{rulechange}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%
