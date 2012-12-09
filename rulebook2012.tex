@@ -217,7 +217,12 @@ treated in the best possible way. Theoretical damage will result in
 minor punishment. This includes machines as well as pallet carriers.
 
 \subsection{Production portfolio}
-\begin{table}[h]
+The production portfolio is presented in
+Table~\ref{tab:production-table} and in
+Fig.~\ref{fig:production-diagram}, which presents the same information
+as a production graph.
+
+\begin{table}[tbhp]
   \centering
   \begin{tabular}{c|c|c|c}
     \multicolumn{1}{c}{Subassembly} & \multicolumn{1}{c}{Deployable} & 	\multicolumn{1}{c}{Prerequisites} & \multicolumn{1}{c}{Result}\\\hline
@@ -233,8 +238,8 @@ minor punishment. This includes machines as well as pallet carriers.
 
 
 
-
-
+\begin{figure}[tbhp]
+  \centering
 
 \tikzstyle{M}=[rectangle, draw=blue, thick, fill=blue!20, text width=2em,align=center, rounded corners, 
   minimum height=2em]
@@ -274,7 +279,9 @@ minor punishment. This includes machines as well as pallet carriers.
 \end{tikzpicture}
 
 
-
+  \caption{The production diagram}
+\label{fig:production-diagram}  
+\end{figure}
 
 % \newcommand{\varone} {
 %   \begin{tikzpicture}[level distance=4em,sibling distance=5em]
@@ -712,7 +719,7 @@ modified; it however must not exceed the following outside dimensions:
 %\end{rulechange}
 
 For a detailed technical description, refer to the Engineering
-Specifications chapter 1.1 
+Specifications Chapter 1.1 
 
 \section{Communication}
 Robots have to operate autonomously, that is without any human
@@ -1024,11 +1031,12 @@ Proceeding to the playoffs will result in the following changes to the EGC setup
 In both cases, delivered or timed out pallet carriers will be removed
 from the game by the administration and therefore cannot be recycled.
 
-\subsubsection{Task fulfilment?}
+\subsubsection{Task fulfilment}
 
-The following table provides the itemized clearance of all task
+Table \ref{tab:scoring} provides the itemized clearance of all task
 related processes.
-\begin{table}[h]
+
+\begin{table}[thbp]
   \centering
 \begin{tabularx}{\linewidth}{p{6em}|X|p{4em}}
   \multicolumn{1}{l}{Subtask } &\multicolumn{1}{l}{Main challenge} &
@@ -1056,18 +1064,18 @@ related processes.
     Sum &  In time delivery of a correct
     express good. & 15\\\hline
   \end{tabularx}  
-
   \caption{Scoring Scheme}
+  \label{tab:scoring}
 \end{table}
 
 
 
 \subsection{Penalties}
 
-This catalogue represents the decision basis of the referee without
-being exhaustive or binding.
+This catalogue in Table~\ref{tab:infringements} represents the
+decision basis of the referee without being exhaustive or binding.
 
-\begin{table}[h!]
+\begin{table}[thpb]
   \centering
   \begin{tabularx}{\linewidth}{l|X}
   \multicolumn{1}{l}{Issue} &\multicolumn{1}{l}{Sanction}\\\hline
