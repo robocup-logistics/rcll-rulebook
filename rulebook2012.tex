@@ -147,32 +147,30 @@
 
 \section*{Preamble}
 
-The future of Production Industry lies with smarter systems.
-With current developments pursuing the goal of more aware, 
-more decentralised behaviours in factories, a scientific platform
-for applied research was required.
-LLSF is determined to develop into a state-of-the-art platform for
-mobile robotics education. This industrial motivated league keeps
-the focus on challenges promoting precise actions, further
-encouraging external data supported autonomy.
+The future of Production Industry lies with smarter systems.  With
+current developments pursuing the goal of more aware, more
+decentralised behaviours in factories, a scientific platform for
+applied research was required.  LLSF is determined to develop into a
+state-of-the-art platform for mobile robotics education. This
+industrial motivated league keeps the focus on challenges promoting
+precise actions, further encouraging external data supported autonomy.
 
 This year’s competition environment is laid out in the pages to come.
 It ensures the same and fair circumstances for all participants, it
-however is neither meant to dictate
-nor suggest the way of approach to fulfill the task, but is meant to
-develop LLSF further towards the motivation of Automated Guided Vehicles (AGV) in
-industrial applications. Current challenges in developing industry wide
-standards for Cyber Physical Production Systems (CPPS)
-ask for plug & produce able systems. 
+however is neither meant to dictate nor suggest the way of approach to
+fulfill the task, but is meant to develop LLSF further towards the
+motivation of Automated Guided Vehicles (AGV) in industrial
+applications. Current challenges in developing industry wide standards
+for Cyber Physical Production Systems (CPPS) ask for plug \& produce
+able systems.
 
 After an exciting Robocup in Mexico, we look forward to a new scale of
 competition that will emerge from initiatives around the globe. In
-2012 we had our first Logistics League World Champion. 
-In 2013 we introduce the Referee Box changing the competition 
-at it's core by introducing a flow of information.
-This allows for more dynamic games and the automatic tracking of scores,
-and to relax the hitherto exisiting regulations regarding additional
-computing power.
+2012 we had our first Logistics League World Champion.  In 2013 we
+introduce the Referee Box changing the competition at it's core by
+introducing a flow of information.  This allows for more dynamic games
+and the automatic tracking of scores, and to relax the hitherto
+exisiting regulations regarding additional computing power.
 
 Finally, no rulebook is perfect. Feel obliged to inform us about
 issues you like to discuss or gaps that might have an impact on the
@@ -181,7 +179,30 @@ RoboCup event to a minimum. We are open for all kinds of suggestions;
 the set of rules will be fixed at 01/01/2013 and revised in April 2013
 once the German Open is over.
 
-\todo[inline]{Fill in contact details about the TC and OC}
+\subsection*{Technical Committee 2013}
+% Alphabetical order by last name
+\emph{Christian Deppe}, Otto-von-Guericke University Magdeburg, Magdeburg,
+Germany\\
+\emph{Daniel Ewert}, RWTH Aachen University, Aachen, Germany\\
+\emph{S\"oren Jentzsch}, Technical University of Munich, Munich, Germany\\
+\emph{Tim Niemueller}, RWTH Aachen University, Aachen, Germany\\
+\emph{Sebastian Reuter}, RWTH Aachen University, Aachen, Germany
+
+\medskip
+
+\hspace{-\parindent}To reach the TC use
+\url{robocup-logistics-tc@lists.kbsg.rwth-aachen.de}.
+
+\subsection*{Organizing Committee 2013}
+\emph{Alexander Ferrein}, FH Aachen University of Applied Sciences,
+Aachen, Germany\\
+\emph{Ulrich Karras}, Festo Didactic GmbH
+\textbf{Add missing members}
+
+\medskip
+
+\hspace{-\parindent}To reach the OC use
+\url{robocup-logistics-oc@lists.kbsg.rwth-aachen.de}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Agreements \& Regulations}
@@ -733,7 +754,7 @@ interference during the game. Communication among robots and to
 off-board computing units is allowed only using wifi
 (cf.~\refsec{sec:wifi-regulations}. Communication is not guaranteed
 and maybe unavailable during parts of the game. Interruptions must be
-expected and is no reason to pause or abort a game, even if they
+expected and are no reason to pause or abort a game, even if they
 endure for long periods of the game.
 
 \subsection{Bandwidth Allocation}
@@ -743,11 +764,10 @@ over the wifi connection shall not exceed 2\,MBit/sec. Even though the
 lower layers could provide for more bandwidth, the overall available
 frequency spectrum and wifi channels have to be shared, not only
 within our own league. Generally, a conservative use of bandwidth
-resources is advised. Should a frequently or endured exceedance
-exceedance of the bandwidth limit become known, or if the overall
-bandwidth limit must be reduced due to out circumstances, the TC can
-monitor the network traffic and demand reduction in communicated
-data as necessary.
+resources is advised. Should a frequently or endured exceedance of the
+bandwidth limit become known, or if the overall bandwidth limit must
+be reduced due to outer circumstances, the TC can monitor the network
+traffic and demand reduction in communicated data as necessary.
 
 \subsection{Referee Box}
 \label{sec:refbox}
@@ -766,8 +786,36 @@ To be completed:
 The protocol and technical specifications are described in detail in
 the RoboCup Logistics League Referee Box documentation.
 
+\subsection{Remote Control}
+\label{sec:remote-control}
+Remote operation or instruction of any kind of the robots is forbidden
+at all times during a game. The only allowed interaction is for the
+single button click startup (cf.~\refsec{sec:match-startup}). Any
+failure to comply with this rule will lead to immediate
+disqualification of the infringing team.
+
+\subsection{Monitoring}
+\label{sec:monitoring}
+\emph{Passive} monitoring, i.e. receive-only communication from a base
+station, of the robots' performance is allowed. However, the overall
+bandwidth limit may not be exceeded.
+%, this includes in particular, but
+%is not limited to, images and other raw data.
+If the referee has any reason to belief that a monitoring application
+might be used for instruction, he can demand the shutdown of the
+monitoring software (also refer to previous section on Remote
+Control).
+
 \subsection{Inter-Robot Communication}
 \label{sec:inter-robot-comm}
+Robots currently active on the field can freely exchange any
+information that supports a coordinated team play. Robots not actively
+participating in the game, for example because they have been
+irrevocably removed from the current game, may not communicate with
+the other robots. It is forbidden to communicate with any sensors that
+are not physically attached to the robot, including, for example, but
+not limited to a camera aside the field. Likewise any off-robot
+actuator is forbidden.
 
 \subsection{Communication Eavesdropping and Interference}
 \label{sec:comm-tampering}
@@ -888,7 +936,7 @@ Production or moving Pucks is not allowed during the exploration phase.
 \end{rulechange}
 
 \subsection{Match startup}
-
+\label{sec:match-startup}
 All matches will start at the exact time scheduled by the organization
 team. From this point on, the teams involved are allowed to start
 their robots to work autonomously. This can be done by one click per
