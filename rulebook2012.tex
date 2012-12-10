@@ -774,17 +774,30 @@ traffic and demand reduction in communicated data as necessary.
 The referee box (refbox) is a software system that runs on a system
 provided by the Organization Committee. It controls the overall game,
 monitors feedback from team robot, and awards points. It is instructed
-by a assisting human referee.
+by an assisting human referee and keeps a log of all relevant game
+events. The final game report will be produced by the refbox. While we
+strive for a maximum of automation of this control task, we rely on
+the human referee for final judgement, in particular for border or
+underspecified cases, and will provide the largest set of override
+abilities feasible.
 
-To be completed:
-\begin{itemize}
-\item protobuf
-\item Message type overview
-\item Single point of robot instruction
-\end{itemize}
+The refbox is the single point of instruction for robots during the
+game. After game setup has finished, game state information and orders
+are announced by the refbox. Commands must be acknowledged. In certain
+situations (for example during the exploration phase) for successful
+and true communication with the refbox points are awarded. The aim is
+to reduce human interference year by year to a minimum as to exhibit
+the widest autonomy during the game possible. Ultimately, the refbox
+should be able to fully control the game by itself, transforming all
+participants, team members, and visitors alike into pure spectators of
+the game, sometimes providing maintenance and crisis intervention when
+necessary.
 
-The protocol and technical specifications are described in detail in
-the RoboCup Logistics League Referee Box documentation.
+The communication from the refbox to the robot is a datagram-oriented
+broadcast protocol based on Google protocol buffers\footnote{Available
+  at \url{https://code.google.com/p/protobuf/}} (protobuf). The
+protocol definition and technical parameters are described in detail
+in the RoboCup Logistics League Referee Box Specification.
 
 \subsection{Remote Control}
 \label{sec:remote-control}
