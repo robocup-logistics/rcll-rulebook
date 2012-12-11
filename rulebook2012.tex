@@ -266,12 +266,12 @@ The factory area spans across 5.625 m x 4.8 m. There are two
 boundaries, set by two mark-ups, 0.4 m from the top and bottom borders
 of the competition area. The factory area is joined by two opposing
 0.4 m x 1.0 m zones at the top and bottom middle. The top zone is
-painted blue marking the input store area with the express good
+painted blue marking the input store area with the late order
 insertion point to the right. The insertion point is 0.6 m of width
 with the insertion slot in its middle. This spot is a 0.1 m times 0.1
 m empty square that will be equipped with a pallet carrier to start
-the express good challenge. The space between the recycling unit and
-the express good insertion point, as well as the space to the left of
+the late order challenge. The space between the recycling unit and
+the late order insertion point, as well as the space to the left of
 the input store area is called robot insertion area.
 
 The bottom zone is marked green and houses the three delivery gates.
@@ -403,7 +403,7 @@ area. The top left corner will remain empty.
     Recycling unit 1 & 0.20 & 0.20 \\
     Recycling unit 2 & 5.40 & 5.40 \\
     Test station &	5.40  &0.20 \\
-    Express good insertion point / slot & 	3.60 & 	5.35 \\
+    Late order insertion point / slot & 	3.60 & 	5.35 \\
     Delivery slot 1 & 	3.15 & 0.26 \\
     Delivery slot 2 &	2.80 & 0.26 \\ 
     Delivery slot 3 &	2.45 & 0.26 \\\hline
@@ -836,7 +836,7 @@ as a production graph.
     \s{0} &	\m{1}, \m{2}, \m{3}, \dg{} & 	none &	\s{1} or \TAG{consumed}\\
     \s{1} &	\m{2}, \m{3}, \dg{} &  	\s{0} & 	\s{2} or \TAG{consumed}\\
     \s{2} & \m{3}, \dg & 	\s{0}, \s{1} &	\p{}\\ %
-    \TAG{Express Good} &  	\m{1} & none &  \TAG{Finished Express Good}\\
+    \TAG{Late ORder} &  	\m{1} & none &  \TAG{Finished Late Order}\\
     \hline
   \end{tabular} 
   \caption{The production table}
@@ -950,18 +950,17 @@ as a production graph.
 \subsubsection{The production table}
 
 The table above shows the production table concerning the main
-challenge; the three staged production process as well as the express
-good challenge. The main challenge can be repeated as long as enough
+challenge; the three staged production process as well as the Late Order challenge. The main challenge can be repeated as long as enough
 pallet carriers can be provided to complete the cycle. The different
 machine types are specified in Sect.~\ref{sec:machines}.
 
 
-\subsubsection{Express good}
+\subsubsection{Late order}
 
-The express good challenge will be announced by the Referee-Box. The challenge
-requires a fast paced processing and delivery of the requested product within
-a specified time window. The challenge also requires prior knowledge
-concerning the machine distribution.
+The late order challenge will be announced by the Referee-Box. The
+challenge requires a fast paced processing and delivery of the
+requested product within a specified time window. The challenge also
+requires prior knowledge concerning the machine distribution.
 
 \subsection{During a match}
 
@@ -1011,42 +1010,67 @@ phase will start at minute 5, the third at minute 10.
   \label{tab:production-plan}
 \end{table}
 
-\subsubsection{Express good challenge}
+\subsubsection{Late order challenge}
 
 \begin{rulechange}
-The challenge will be induced by the Referee-Box sending an Expres-Good-Message
-to the robots. The Message specifies the demanded product variant, a time-window
-and the delivery gate. As a first step the Express-Good-Challenge of 2013 will
-only demand product variant \p3. Furthermore, in 2013 the challenge has to be
-completed within a time-window of 120 seconds and the express good has to be
-delivered to the active delivery gate.
+  The challenge will be induced by the Referee-Box sending an late
+  order message to the robots. The message specifies the demanded
+  product variant, a time window and the delivery gate. As a first
+  step the late good challenge of 2013 will only demand product
+  variant \p3. Furthermore, in 2013 the challenge has to be completed
+  within a time window of 120 seconds and the late order has to be
+  delivered to the active delivery gate.
 \end{rulechange}
 
 \subsection{Mode}
-\subsubsection{Tournament specifications}
+\subsubsection{Tournament scoring specifications}
 
-The tournament features two stages with the first stage being done in
-league form with several sequels orientating at the number of
-participants and a second stage with playoffs featuring the top 4
-teams.
+% The tournament features two stages with the first stage being done in
+% league form with several sequels orientating at the number of
+% participants and a second stage with playoffs featuring the top 4
+% teams.
 
-Each match will be resulted with the score of each team. The winning
-team will be awarded 2 major points. In case of a draw both teams will
-be awarded with 1 major point. In case both teams scored zero points,
-no major points will be awarded.
+\paragraph{Round-Robin phase.~} 
+There will be two stages in the competition. The first stage is a
+group phase and will be played as a round-robin. The best 4 teams of
+the round-robin stage will advange to a playoff round.
 
+At the round-robin stage, the teams will be receive the true point
+they scored by delivering and producing goods during the
+competition. The points will be accumulated in this phase and the
+teams will be ranked according to the accumulated point in descending
+order.
+
+\paragraph{Playoffs.~ } At the payoff-stage, the scoring scheme will be different. As each
+team in this phase directly competes with an opposing team, the team
+that scores more points as the direct opponent, will be announced as
+the winner and 3 points will be awarded to this team. A loss will be
+awarded with 0 points. Additionally, if both teams are unable to score
+any points during the match by delivering or producing goods, both
+team will receive 0 points.
+%
+% Each match will be resulted with the score of each team. The winning
+% team will be awarded 2 major points. In case of a draw both teams will
+% be awarded with 1 major point. In case both teams scored zero points,
+% no major points will be awarded.
+%
 In case of a draw within the playoffs, the game time will be extended
 by 5 minutes unless both teams scored zero points.
-
+%
 If this extension leads to a draw too the overall regular points of
 the teams will determine the match winner. If the overall points are
 equal too, a direct comparison between the teams in question will
 decide. If this fails to resolve the situation, the teams will
 approach a coin toss to determine the winner.
 
+\paragraph{Finals.~} The best 2 teams of the playoff phase will
+advance to the finals. The competition mode for the final is the same
+as in the playoff phase.
+
 The detailed seeding will be created at the event. Although the idea
 is to allow each participant to challenge each other team the league
 can be adjusted to meet time requirements.
+
 
 
 \subsubsection{Tournament challenge}
@@ -1082,7 +1106,7 @@ Proceeding to the playoffs will result in the following changes to the EGC setup
 \paragraph{League phase}~\\
 \begin{itemize}
 \item The active delivery gate will not switch during a match.
-\item There will be 3 express good challenges.
+\item There will be 3 late oderd challenges.
 \item No challenge will be initialised during the first or within the
   last two match minutes.
 \end{itemize} 
@@ -1092,7 +1116,7 @@ Proceeding to the playoffs will result in the following changes to the EGC setup
 \item The active delivery gate will swap twice - after minutes 7
   and 11. A delivery made to the old active gate will be still
   valid for the next 10 seconds.
-\item There will be 4 express good challenges. 
+\item There will be 4 late order challenges. 
 \item No challenge will be initialised during the first or within
   the last two match minutes.
 \end{itemize}
@@ -1126,13 +1150,12 @@ related processes.
 
 \bigskip
 \begin{tabularx}{\linewidth}{p{6em}|X|p{4em}}
-    \multicolumn{1}{l}{Subtask } &\multicolumn{1}{l}{EGC - Expressgood Challenge} &
-    \multicolumn{1}{l}{Scoring [Point]}\\\hline
-    Finish the EG &	Deliver the EG to a machine of type 1 and process the express good in time if the machine type was identified by an earlier production process. &	+5\\
-    Deliver the EG & Deliver the processed express good to the active
-    delivery gate in time. &  +10\\
-    Sum &  In time delivery of a correct
-    express good. & 15\\\hline
+  \multicolumn{1}{l}{Subtask } &\multicolumn{1}{l}{LOC - Late Order
+    Challenge} & \multicolumn{1}{l}{Scoring [Point]}\\\hline
+  Finish the EG &	Deliver the EG to a machine of type 1 and process the late order in time if the machine type was identified by an earlier production process. &	+5\\
+  Deliver the EG & Deliver the processed the late order to the active
+  delivery gate in time. &  +10\\
+  Sum & In time delivery of a correct late order. & 15\\\hline
   \end{tabularx}  
   \caption{Scoring Scheme}
   \label{tab:scoring}
@@ -1156,21 +1179,30 @@ decision basis of the referees without being exhaustive or binding.
 %
   Damaging factory equipment & Theoretical damage to the real
   factory equipment as a result of collisions and negligent actions.
-  The team will be punished with a score reduction. The total score
-  cannot  drop below zero.\\[1ex]
+  This behaviour will be punished as a minor rule break.\\[1ex]
+  % The team will be punished with a score reduction. The total score
+  % cannot  drop below zero.\\[1ex]
 %
   Not showing up & A team not showing up at all. The team will be
   removed from the tournament unless the team leader can provide a
-  sincere explanation\\[1ex]
+  sincere explanation.\\[1ex]
 %
-  Breaking a minor rule & A rule infringement with none or little
-  impact on the team performance The team will receive a warning or a
-  small  score reduction\\[1ex]
+  Manual Interference & A manual interference of a team, i.e. touching
+  a robot without the referee's permission, during the game will be
+  punished as a major rule break.\\[1ex]
 %
+  Breaking a minor rule & A rule infringement with minor impact on the
+  team performance or competition mechanics. Upon decision of
+  the referee, 25 \% of the scored points of the team at the time of
+  the infringement will be deducted, at least 1 point.\\[1ex]
+  %
   Breaking a major rule & A rule infringement with considerable impact
-  on the team performance or competition mechanics. The referee will
-  decide upon calling a team vote or imposing an adequate punishment.\\[1ex]
-%
+  on the team performance or competition mechanics. Upon decision of
+  the referee, 50 \% of the scored points of the team at the time of
+  the infringement will be deducted, at least 5 points. \\[1ex]
+  % The referee will
+  % decide upon calling a team vote or imposing an adequate punishment.\\[1ex]
+  % 
   Arguing with the referee & There will be no discussions during a
   match. Each team can make a motion to protest a certain match and
   its result which will be dealt with after the match. There will be a
@@ -1186,14 +1218,14 @@ decision basis of the referees without being exhaustive or binding.
   \label{tab:infringements}
 \end{table}
 
-The abidance of these rules will be monitored by at least two referees.
-One "field" referee will overlook the competition area. The field
-refereee is allowed to enter the area at any time. Accidental moving
-of a puck or similar unintended tampering resulting from the referees
-present on the field must be coped with. A second "station" referee
-operates the control station for the refbox to issue the initial start command and
-monitor the game flow and the correctness of the digital representation
-and automatical scoring.
+The abidance of these rules will be monitored by at least two
+referees.  One ``field'' referee will overlook the competition
+area. The field refereee is allowed to enter the area at any
+time. Accidental moving of a puck or similar unintended tampering
+resulting from the referees present on the field must be coped with. A
+second "station" referee operates the control station for the refbox
+to issue the initial start command and monitor the game flow and the
+correctness of the digital representation and automatical scoring.
 
 \begin{rulechange}
   \subsection{Technical Challenge}
@@ -1225,19 +1257,19 @@ and automatical scoring.
   
   \paragraph{Free challenge.~}
   Each team will be given 5 minutes to showcase their robot team, e.g.
-  show some new robotics developments. The teamleaders of
+  show some new robotics developments. The team leaders of
   non-presenting team will judge the performance and rate it with
   points between 0--10.  The team with the most points will win this
   challenge. The other teams are ranked in decreasing point order.
 
 
   The technical challenge is conducted in the following way: The
-  teamleader of each participating team agree on a date and time
+  team leader of each participating team agree on a date and time
   during the tournament for the Technical Challenge in their first
-  Teamleader Meeting. Each team can register for any of the
-  challenges. All teamleaders have to be present at the time of the
+  Team leader Meeting. Each team can register for any of the
+  challenges. All team leaders have to be present at the time of the
   challenge to judge the other teams. The OC is responsible to conduct
-  the Technical Challenge and can appoint teamleaders to support in
+  the Technical Challenge and can appoint team leaders to support in
   conducting the challenges. Each challenge will have a separate
   ranking. In each ranking, the team on the last rank will receive 0
   points, the last-but-one ranked team will receive 1 point etc. The
@@ -1250,88 +1282,88 @@ and automatical scoring.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%
 
-\section{Development / Vision}
+% \section{Development / Vision}
 
-This section is meant to enable discussions and support investment
-decisions for future soft- and hardware acquisitions.
+% This section is meant to enable discussions and support investment
+% decisions for future soft- and hardware acquisitions.
 
-\subsection{Short term ideas}
+% \subsection{Short term ideas}
 
-These are ideas that could still be incorporated into the rulebook of
-Istanbul 2011. 
+% These are ideas that could still be incorporated into the rulebook of
+% Istanbul 2011. 
 
-\subsubsection{Scripted, dynamic obstacles}
+% \subsubsection{Scripted, dynamic obstacles}
 
-On the way to fully dynamic obstacles this iteration implies a fully
-scripted administration controlled Robotino that follows implicit
-movement rules that are known to all participants.
+% On the way to fully dynamic obstacles this iteration implies a fully
+% scripted administration controlled Robotino that follows implicit
+% movement rules that are known to all participants.
 
-\subsection{Midterm planning}
-Additions and alterations for future iterations of this competition
-
-
-\subsubsection{Various Production programs}
-A part from the three-staged production process, various goods with
-different work orders and specifications (e.g. top speed, delivery
-strategies...) could be part of the challenge. This addition seems to
-be heavily dependent on Sect.~\ref{sec:supp-flow}.
-
-\subsubsection{Various order strategies}
-A delivery could consist of more than one final product, it could be
-required to deliver a batch of products, maybe within a certain time
-span, to complete the loading and receive extra points. Also, the
-different delivery gates could obtain a predefined shipping list, for
-example gate 1 requiring 2 Products, 2 M2 and 1 M1, maybe in the
-correct order to enable FIFO, LIFO or other delivery strategies.
-
-\subsubsection{Simulation league}
-
-Since there is only the annually world championship and maybe a
-regional preregistration, a simulation platform could be provided,
-where the software framework of teams can be used to compete with
-other teams. Additionally a branch of simulation could be created that
-focuses on the simulation of many AGV and a huge production area in
-order to compete on scalability.
-
-\subsubsection{Introducing a supportive flow of information}
-\label{sec:supp-flow}
-
-As the current task only deals with the material stream, it is heavily
-limited to a simple static task. In order to enable a flow of
-information that transports complex orders, a combined effort should
-focus on implementing a data interface that can be used by all teams
-today and in the future. As this would be a giant leap towards the
-industrial application, a general discussion and a lot of effort has
-to be invested into this issue.
+% \subsection{Midterm planning}
+% Additions and alterations for future iterations of this competition
 
 
-\subsection{Long term Vision}
-Ideas, dreams and ideology that inspire the future development.
+% \subsubsection{Various Production programs}
+% A part from the three-staged production process, various goods with
+% different work orders and specifications (e.g. top speed, delivery
+% strategies...) could be part of the challenge. This addition seems to
+% be heavily dependent on Sect.~\ref{sec:supp-flow}.
 
-\subsubsection{Complex production machines}
-As there are more ways to interact with a machine than mounting and
-dismounting a loading carrier, it is possible to develop new machine
-types that look different and are completely different to handle.
+% \subsubsection{Various order strategies}
+% A delivery could consist of more than one final product, it could be
+% required to deliver a batch of products, maybe within a certain time
+% span, to complete the loading and receive extra points. Also, the
+% different delivery gates could obtain a predefined shipping list, for
+% example gate 1 requiring 2 Products, 2 M2 and 1 M1, maybe in the
+% correct order to enable FIFO, LIFO or other delivery strategies.
 
-\subsubsection{Collaborative Production}
-Teams could be required to cooperate with another team to enable a
-combined supply chain. 
+% \subsubsection{Simulation league}
 
-\subsubsection{Opponent controlled dynamic obstacles}
-No scripted obstacle can truly represent challenges of the industrial
-application. In the long run, an opposing team has to be reinserted
-that is allowed and requested to anticipate the logistic processes in
-real time in order to create worst case scenarios for the teams.
+% Since there is only the annually world championship and maybe a
+% regional preregistration, a simulation platform could be provided,
+% where the software framework of teams can be used to compete with
+% other teams. Additionally a branch of simulation could be created that
+% focuses on the simulation of many AGV and a huge production area in
+% order to compete on scalability.
 
-\subsubsection{Interfacing ERP / SCM}
-The interface used to present orders could be back ended with software
-from real business applications like ERP, PPS, WHM and SCM.
+% \subsubsection{Introducing a supportive flow of information}
+% \label{sec:supp-flow}
 
-\subsubsection{JIS / JIT implementation}
-With complex production processes and several other achievements and
-upgrades it could be useful to implement JIS and JIT tasks and
-procedures into the LL, requiring delivery strategies like LIFO, FIFO
-and certain time windows.
+% As the current task only deals with the material stream, it is heavily
+% limited to a simple static task. In order to enable a flow of
+% information that transports complex orders, a combined effort should
+% focus on implementing a data interface that can be used by all teams
+% today and in the future. As this would be a giant leap towards the
+% industrial application, a general discussion and a lot of effort has
+% to be invested into this issue.
+
+
+% \subsection{Long term Vision}
+% Ideas, dreams and ideology that inspire the future development.
+
+% \subsubsection{Complex production machines}
+% As there are more ways to interact with a machine than mounting and
+% dismounting a loading carrier, it is possible to develop new machine
+% types that look different and are completely different to handle.
+
+% \subsubsection{Collaborative Production}
+% Teams could be required to cooperate with another team to enable a
+% combined supply chain. 
+
+% \subsubsection{Opponent controlled dynamic obstacles}
+% No scripted obstacle can truly represent challenges of the industrial
+% application. In the long run, an opposing team has to be reinserted
+% that is allowed and requested to anticipate the logistic processes in
+% real time in order to create worst case scenarios for the teams.
+
+% \subsubsection{Interfacing ERP / SCM}
+% The interface used to present orders could be back ended with software
+% from real business applications like ERP, PPS, WHM and SCM.
+
+% \subsubsection{JIS / JIT implementation}
+% With complex production processes and several other achievements and
+% upgrades it could be useful to implement JIS and JIT tasks and
+% procedures into the LL, requiring delivery strategies like LIFO, FIFO
+% and certain time windows.
 
 
 
