@@ -35,6 +35,7 @@
 \colorlet{shadecolor}{gray!25}
 \newcommand{\Robotino}{Robotino\textregistered}
 
+
 \newcommand{\refsec}[1]{Section~\ref{#1}}
 \newcommand{\reffig}[1]{Figure~\ref{#1}}
 \newcommand{\refdef}[1]{Definition~\ref{#1}}
@@ -93,10 +94,16 @@
 \usepackage{multicol}
 \usepackage{multirow}
 \usepackage{calc}
+\usepackage{float}
+\restylefloat{table}
 
 %% INPUTENC %%%%%%%%%%%%%%%%%%%
+\usepackage{wasysym}
 \usepackage[utf8]{inputenc}
 \input{macros.tex}
+
+
+
 \begin{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -137,15 +144,16 @@
 \newpage
 \cleardoublepage
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 
 \setcounter{page}{1}
 \pagenumbering{arabic}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction} \label{sec:intro}
 
-\section{Introduction}
-\subsection{Preamble}
+\subsection{Preamble} \label{sec:preamble}
+
 The future of Production Industry lies with smarter systems.  With
 current developments pursuing the goal of more aware, more
 decentralised behaviours in factories, a scientific platform for
@@ -178,12 +186,9 @@ RoboCup event to a minimum. We are open for all kinds of suggestions;
 the set of rules will be fixed at 01/01/2013 and revised in April 2013
 once the German Open is over.
 
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The Task -- A challenge of precision within a flexible
-  deployment system}
+  deployment system} \label{sec:task}
 
 Our aim is to simulate autonomous guided vehicles (AGV). In opposition
 to regular automatic guided vehicles, a team, consisting of a maximum
@@ -192,34 +197,45 @@ interference as successful as possible competing with a second team
 against the clock.
 
 The main task is a staged production cycle of different product
-variants with self-crafted intermediate products and the transpor  of
+variants with self-crafted intermediate products and the transport of
 the final product to the designated zone. This is the genuine goal and
 will be rewarded considerably higher than partial fulfillment of the
-task. Although the distribution and utilization process of the
-different machine types is announced by a refbox, the reference which
-production machine is of which machine type will be withheld for an
-initial discovery phase. Therefore, a part of the task is to discover
-the machine types of as many machines as suitable. Correct discoveries
-are rewarded. For the following production phase, all machine positions
-will be laid open and the product variants to be assemnbled will be
-published. In order to complete a production cycle, it is required to
-produce the related subassemblies step-by-step. The whole factory area
-can be used as an intermediate storage. Finally, the successfully
-assembled product has to be delivered to the correct delivery gate and
-get dismounted into its delivery slot. The factory area has to be
-treated in the best possible way. Theoretical damage will result in
-minor punishment. This includes machines as well as pallet carriers.
+task. The Robotinos transport hockey pucks depicting the (intermediate)
+products between single processing machines. Generally a machine is a
+signal light with a RFID reader as described in appendix \ref{apx:sec:engref}. If a
+puck is fed into the machine, it reads it's id and reacts according to
+it's particular specification. If possible, the product is then
+transformed into a new state: a new subassembly is produced. For each
+product variant (see \refsec{sec:prodportfolio} for details) it is
+required to produce the related subassemblies step-by-step. Transformations can rely on more than one puck as input to be
+triggered.
+
+This game flow is controlled by an referee box broadcasting
+information via wifi (see \refsec{sec:refbox}). It is separated in
+different phases: In a first exploration phase (see 
+\refsec{sec:expphase}), the robotinos can receive scores for
+discovering and publishing the until then unknown types of machines. After this
+initial phase, the refbox then announces the types of all machines and
+the actual production task as described in detail in 
+\refsec{sec:match-startup} begins.
+
+The whole factory area can be used as an intermediate storage. Finally,
+the successfully assembled product has to be delivered to the correct
+delivery gate and get dismounted into its delivery slot. The factory
+area has to be treated in the best possible way. Theoretical damage
+will result in minor punishment. This includes machines as well as
+pallet carriers.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Agreements \& Regulations}
+\subsection{Agreements \& Regulations} \label{sec:agreements}
 
 The Logistics League follows a certain design philosophy. All teams
 are obliged to use the Robotino robotic system of Festo Didactic Gmbh
-\& Co. KG with certain freedoms and limitations. The usage of both
-revisions, namely 2009 and 2010 are in order, see chapter 4 for
-details.
-
-\subsection*{Technical Committee 2013}
+\& Co. KG with certain freedoms and limitations. The usage of all
+currently publicly available revisions is in
+order, see chapter \ref{sec:robotino} for details.
+\section{League Administration} \label{sec:commitees}
+\subsection{Technical Committee 2013} \label{sec:tc}
 % Alphabetical order by last name
 \emph{Christian Deppe}, Otto-von-Guericke University Magdeburg, Magdeburg,
 Germany\\
@@ -233,7 +249,7 @@ Germany\\
 \hspace{-\parindent}To reach the TC use
 \url{robocup-logistics-tc@lists.kbsg.rwth-aachen.de}.
 
-\subsection*{Organizing Committee 2013}
+\subsection{Organizing Committee 2013} \label{sec:oc}
 \emph{Alexander Ferrein}, FH Aachen University of Applied Sciences,
 Aachen, Germany\\
 \emph{Ulrich Karras}, Festo Didactic GmbH
@@ -248,7 +264,7 @@ Aachen, Germany\\
 
 
 
-\section{Competition Area}
+\section{Competition Area} \label{sec:area}
 
 The point of origin for each statement within this rulebook that uses
 relative coordinates is the bottom left corner of the competition area
@@ -579,7 +595,7 @@ reasons. There will be only one active gate at a time.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%
 
-\section{The Robotino System}
+\section{The Robotino System} \label{sec:robotino}
 
 All participants have to design their competition Robotinos within
 the following specifications:
@@ -801,7 +817,7 @@ be reactivated swiftly in case of emergency to interrupt the autonomy
 of the process.
 
 
-\subsection{Exploration Phase}
+\subsection{Exploration Phase} \label{sec:expphase}
 \begin{rulechange}
 Before the actual game starts, the machines will indicate their types with the
 signal lights for two minutes. The robots are to roam the environment and
@@ -823,7 +839,7 @@ As a start signal the Referee-Box will initially announce the true assignment of
 all machines to the robots.
 \end{rulechange}
 
-\subsection{Production portfolio}
+\subsection{Production portfolio} \label{sec:prodportfolio}
 The production portfolio is presented in
 Table~\ref{tab:production-table} and in
 Fig.~\ref{fig:production-diagram}, which presents the same information
@@ -1365,7 +1381,301 @@ correctness of the digital representation and automatical scoring.
 % procedures into the LL, requiring delivery strategies like LIFO, FIFO
 % and certain time windows.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% 
+
+\begin{appendix}
+\newpage
+
+\section{Engineering reference} \label{apx:sec:engref}
+\subsection{The Mobile Robot System}
+The mobile robot system Robotino® is a platform with an open
+mechanical interface for the integration of additional mechanical
+devices and an open electrical interface to integrate easily
+additional sensors or motors of devices. Power is supplied via two 12
+[V] lead gel batteries which permit a running time of up to two hours.
+The scope of delivery likewise includes a charging device. Robotino®
+is driven by 3 independent, omnidirectional drive units. They are
+mounted at an angle of 120° to each other. The three omnidirectional
+drive units of Robotino® , defines the robot as being holonomic,
+meaning that the controllable degrees of freedom equals the total
+degrees of freedom of the robot. The drive units are integrated in a
+sturdy, laser welded steel chassis. The chassis is protected by a
+rubber bumper with integrated switching sensor.
+
+\subsubsection{Robot dimensions}
+\begin{description}
+	\item[Diameter] 370 mm
+	\item[Height including housing] 210 mm
+ 	\item[Overall weight] approx. 11 kg
+ 	\item[Maximal payload] about 6 kg
+ \end{description}
+
+\subsubsection{Drive Unit}
+Each of the 3 drive units consists of the following components:
+ DC Dunker motor with nominal speed of 3600 rpm and nominal torque of 3.8 Ncm. Integrated planetary gear unit with a gear ratio of 4:1. Omnidirectional wheels of diameter of 80 mm. Toothed belt with gear wheels providing a transmission ratio of 4:1.
+
+Altogether this provides a gear transmission ratio of 16:1. Incremental encoder with a resolution of 2048 increments per motor rotation.
+
+\begin{figure}[h]
+\centering
+\includegraphics{driveunit.png}
+\caption{Drive unit with motor (1), encoder (2), omnidirectional wheel
+(3)}
+\label{apx:fig:driveunit}
+\end{figure}
+
+The motor speed will be controlled via a PID controller implemented on
+a Atmel microprocessor of the controller board of Robotino®.
+
+\subsubsection{Sensors}
+
+Robotino® is equipped with 9 infrared distance measuring sensors which
+are mounted in the chassis at an angle of 40° to one another. Robotino®
+can scrutinise all surrounding areas for objects with these sensors.
+Each of the sensors can be queried individually via the controller
+board. Obstacles can thus be avoided, clearances can be maintained and
+bearings can be taken on a selected target. The sensors are capable of
+accurate or relative distance measurements to objects at distances of 4
+to 30 cm. Sensor connection is especially simple including just one
+analogue output signal and supply power. The sensors’ evaluation
+electronics determines distance and read it out as an analogue signal.
+The anti-collision sensor is comprised of a switching strip which is
+secured around the entire circumference of the chassis. A reliably
+recognisable signal is thus transmitted to the controller unit.
+Collisions with objects at any point on the housing are detected and,
+for example, Robotino® is brought to a standstill. The inductive
+proximity sensor is supplied as an additional component. It serves to
+detect metallic objects on the floor and is used for continuous-path
+control, e.g. it might be used to detect the blue lines (metallic
+stripes) on hockey field. It reads out signals of varying strength
+depending upon whether it is located in the middle or at the edge of
+the metal strip. Path tracking can thus be controlled in a
+differentiated fashion.
+
+The inductive proximity sensor must be attached to the mounting
+furnished for this purpose, and must be connected to the I/O interface.
+The output voltage is 0 to 10 [V]. The sensing range is 0 to 6 mm. Path
+tracking can also be implemented with the two included diffuse sensors.
+Flexible fibre optic cables are connected to a fibre-optics unit which
+works with visible red light. Reflected light is detected. Different
+surfaces and colours produce different degrees of reflection. However,
+gradual differences in reflected light cannot be detected. The sensors
+must be attached to the mountings furnished for this purpose, and must
+be connected to the I/O interface.
+
+Robotino® is equipped with a colour webcam. The webcam is equipped with
+a USB interface. Also, there will be integrated a digital Gyroscope
+providing a high accuracy of the odometry in the virtual factory.
+
+\subsubsection{Controller Board – 2010 Revision}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=.5\textwidth]{RobotinoOpen.jpg}
+\label{apx:fig:robotinoopen}
+\end{figure}
 
 
- 
+The controller housing is connected to the wiring in the chassis via
+one plug-in. Thus you can easily take off the controller housing and
+you have direct access to the mechanical system. The controller system
+of Robotino® is divided into two parts – an embedded PC and a
+microcontroller interface card: The Controller of Robotino® consists of
+an embedded PC and a microcontroller interface board. The main
+controller is the embedded PC 104 plus controller with the 500 MHz
+processor AMD LX800. The PC has a SDRAM of 128 MB and is provided with
+a 1 GB flash card. There are numerous communication interfaces on
+board:
+
+\begin{itemize}
+	\item 2x 100 Mbit Ethernet
+	\item	2x external USB, 1x on-board USB-connector
+	\item	2 x RS232
+	\item	Parallel port and VGA port
+	\item	Wireless LAN Access Point following the standards 802.11.g and
+		802.11.b. 
+	\item	The access point can be switched into a client mode.
+		As an option you may use WPA2- coding.
+\end{itemize}
+
+\subsubsection{Software}
+Preinstalled is an Ubuntu Linux operating system with real time kernel
+running on the embedded PC 104. The main part of the controller is the
+Robotino® server, a real time Linux application. It controls the drive
+units and provides interfaces to communicate with external PC
+applications via WiFi. There is an API with libraries which allow you
+to create applications for Robotino® in numerous programming languages:
+
+\begin{itemize}
+	\item C++ und C 
+	\item C\# 
+	\item .net and JAVA 
+	\item MatLab and Simulink
+	\item Labview
+\end{itemize}
+
+You may find a lot of examples concerning using the different API’s in
+the public forum “Openrobotino”, http://www.openrobotino.org .
+
+\paragraph{Robotino® View} 
+
+Robotino® View is a graphical programming language with numerous
+prepared function blocks you can easily connect via input and output
+parameters to establish more complicated function diagrams. You can use
+these function diagrams as subprograms for more complex programming
+sequences. To build up general programming sequences Robotino® View
+follows the international standard IEC 61131-3. You may run Robotino®
+View on an external PC and Robotino® View communicates directly with
+the Robotino® Server on the PC 104 via WiFi in order to control the
+robot system. The function blocks receive a direct feedback of the
+hardware components such that you can live interact with the robot
+system. On the other hand you can download Robotino® View programs into
+the PC 104 in order to run the applications completely autonomously.
+There is a well defined interface to develop own function blocks in C++
+or Lua.
+
+\paragraph{Image Processing}
+
+Depending on the Robotino version it might happen that the standard web
+camera only provides image data by jpeg compression. This is very
+useful if you run your image processing on the PC and exchange the data
+via WiFi. However, if you would like to run your image processing
+algorithms on the Robotino controller then the processor is not
+powerful enough in order to pack and to unpack the image data in a
+reasonable time. Thus we recommend for running image processing
+algorithms on the Robotino controller to use a camera without jpeg
+compression, e.g. use the low cost Logitech web camera C250.
+
+\subsection{Machines} \label{abx:sec:machine}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.5\textwidth]{machine_measures.png}
+	\caption{Ranges and dimensions of a signal}
+	\label{apx:fig:machinemeasures}
+\end{figure}
+
+\subsubsection{Brackets}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.5\textwidth]{bracket.png}
+	\caption{Ranges and dimensions of the supporting brackets}
+	\label{apx:fig:brackets}
+\end{figure}
+
+\subsubsection{Signal}
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|l|l|}
+  	\hline
+   	Dimension \&	diameter&	36 mm \\
+ 	height(total)		 	&	147 mm \\
+	Segment height 			&	34 mm, including 5 mm unlighted border \\
+	Lifespan				&	max. 50.000 h \\
+	Connector				&	Bottom, 2m supplied 
+	Compatible to the I/O-Terminal of MPS(r) units. \\
+	Safety					&	IP65 \\
+	Voltage					&	24V \\
+	Current					&	3 times 40 mA \\
+	Kind of current			&	DC \\
+	Operating mode			&	-20°C to +50°C \\
+	Signaltype				&	Static LED \\
+	Signal					&	Ultrabright LED\\
+	Source					&	Festo \# 549843 \\
+	\hline
+  \end{tabular}
+	\caption{Technical specification of the signal}
+	\label{apx:tab:signalproperties}
+\end{table}
+
+\subsubsection{RFID device}
+
+\begin{table}[H]
+  \centering
+    \begin{tabular}{|l|l|}
+  	\hline
+Technical data of the read/write head		&	Housing rectangular \\
+Housing and working dimensions 				&	40*40 mm with the centred RFID
+tag. \\
+Housing height								& 	65 mm \\
+Operating voltage							&	DC \\
+Housing material Plastic					& 	PBT-GF30-V0, black \\
+Material active face Plastic				& 	PA6-GF30, yellow \\
+Operating voltage							& 	10…30 VDC \\
+DC rated operational current				& 	$\le$ 80 mA \\
+Data transfer								& 	inductance coupling \\
+Working frequency							& 	13.56 MHz \\
+Radio communication and protocol standards	&	ISO 15693 \\
+Read/write distance							&	max. 115 mm \\
+Output function								&	4-wire, read/write \\
+Electrical connection 						&	Connectors M12 x 1 \\
+Vibration resistance						&	55 Hz (1 mm) \\
+Shock resistance							&	30 g (11 ms) \\
+Protection class							&	IP67 \\
+Operating voltage display					& 	LED green \\
+	\hline
+  \end{tabular}
+	\caption{Technical specification of the signal}
+	\label{apx:tab:rfidproperties}
+\end{table}
+
+\subsubsection{Wifi equipment}
+\begin{table}[H]
+  \centering
+    \begin{tabular}{|l|l|}
+  	\hline
+	Festo AP		&	LANCOM L-322agn \\
+Transfer rate		&	Up to 108 Mbps \\
+Data link protocol	&	802.11 a/g/n \\
+Frequency			&	5.0 Ghz \\
+IP-distribution		&	172.26.200.xxx for LAN clients(DHCP) \\
+					&	172.26.101.xxx for the Robotino devices \\
+					&	172.26.1.xxx for Robotinos \\
+Subnetmask			&	255.255.0.0 \\
+Encryption			&	Unsecured \\
+SSID				&	Separated for both teams:\\
+					&	RobotinoEvent.1 \\
+					& RobotinoEvent.2 \\
+Festo Clients		&	3COM WL-560 \\
+Power Supply		&	Clients: 12 VDC, 1A,\\
+					& 	Most Laptops cannot power them \\
+					& 	via USB! \\
+Connector			&	Ethernet \\
+
+	\hline
+  \end{tabular}
+	\caption{Technical specification of the signal}
+	\label{apx:tab:wifi}
+\end{table}
+
+\subsubsection{Data carrier}
+\begin{table}[H]
+  \centering
+    \begin{tabular}{|l|l|}
+  		\hline
+Dimension									&	\diameter  20 mm \\
+height										&	2.5 mm \\
+Data transfer								&	inductance coupling \\
+Working frequency							&	13.56 MHz \\
+Memory 										&	read/write \\	
+Memory type									&	EEPROM \\
+Memory size									&	128 Byte \\
+Freely usable memory						&	112 Byte \\
+Number of read operations					&	unlimited \\
+Number of write operations					&	105 \\
+Typical read time							&	2 ms/byte \\
+Typical write time							&	3 ms/byte \\
+Radio communication and protocol standards	&	ISO 15693 \\
+  		
+  		\hline
+	\end{tabular}
+	\caption{Technical specification of the signal}
+	\label{apx:tab:datacarrier}
+\end{table}
+
+
+\end{appendix}
 \end{document}
