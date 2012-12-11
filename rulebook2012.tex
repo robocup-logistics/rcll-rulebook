@@ -99,7 +99,6 @@
 \input{macros.tex}
 \begin{document}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Titlepage
 \pagenumbering{roman}
@@ -145,8 +144,8 @@
 \pagenumbering{arabic}
 
 
-\section*{Preamble}
-
+\section{Introduction}
+\subsection{Preamble}
 The future of Production Industry lies with smarter systems.  With
 current developments pursuing the goal of more aware, more
 decentralised behaviours in factories, a scientific platform for
@@ -179,43 +178,11 @@ RoboCup event to a minimum. We are open for all kinds of suggestions;
 the set of rules will be fixed at 01/01/2013 and revised in April 2013
 once the German Open is over.
 
-\subsection*{Technical Committee 2013}
-% Alphabetical order by last name
-\emph{Christian Deppe}, Otto-von-Guericke University Magdeburg, Magdeburg,
-Germany\\
-\emph{Daniel Ewert}, RWTH Aachen University, Aachen, Germany\\
-\emph{S\"oren Jentzsch}, Technical University of Munich, Munich, Germany\\
-\emph{Tim Niemueller}, RWTH Aachen University, Aachen, Germany\\
-\emph{Sebastian Reuter}, RWTH Aachen University, Aachen, Germany
 
-\medskip
-
-\hspace{-\parindent}To reach the TC use
-\url{robocup-logistics-tc@lists.kbsg.rwth-aachen.de}.
-
-\subsection*{Organizing Committee 2013}
-\emph{Alexander Ferrein}, FH Aachen University of Applied Sciences,
-Aachen, Germany\\
-\emph{Ulrich Karras}, Festo Didactic GmbH
-\textbf{Add missing members}
-
-\medskip
-
-\hspace{-\parindent}To reach the OC use
-\url{robocup-logistics-oc@lists.kbsg.rwth-aachen.de}.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Agreements \& Regulations}
-
-The Logistics League follows a certain design philosophy. All teams
-are obliged to use the Robotino robotic system of Festo Didactic Gmbh
-\& Co. KG with certain freedoms and limitations. The usage of both
-revisions, namely 2009 and 2010 are in order, see chapter 4 for
-details.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{The Task -- A challenge of precision within a flexible
+\subsection{The Task -- A challenge of precision within a flexible
   deployment system}
 
 Our aim is to simulate autonomous guided vehicles (AGV). In opposition
@@ -243,147 +210,43 @@ get dismounted into its delivery slot. The factory area has to be
 treated in the best possible way. Theoretical damage will result in
 minor punishment. This includes machines as well as pallet carriers.
 
-\subsection{Production portfolio}
-The production portfolio is presented in
-Table~\ref{tab:production-table} and in
-Fig.~\ref{fig:production-diagram}, which presents the same information
-as a production graph.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Agreements \& Regulations}
 
-\begin{table}[tbhp]
-  \centering
-  \begin{tabular}{c|c|c|c}
-    \multicolumn{1}{c}{Subassembly} & \multicolumn{1}{c}{Deployable} & 	\multicolumn{1}{c}{Prerequisites} & \multicolumn{1}{c}{Result}\\\hline
-    \s{0} &	\m{1}, \m{2}, \m{3}, \dg{} & 	none &	\s{1} or \TAG{consumed}\\
-    \s{1} &	\m{2}, \m{3}, \dg{} &  	\s{0} & 	\s{2} or \TAG{consumed}\\
-    \s{2} & \m{3}, \dg & 	\s{0}, \s{1} &	\p{}\\ %
-    \TAG{Express Good} &  	\m{1} & none &  \TAG{Finished Express Good}\\
-    \hline
-  \end{tabular} 
-  \caption{The production table}
-  \label{tab:production-table}
-\end{table}
+The Logistics League follows a certain design philosophy. All teams
+are obliged to use the Robotino robotic system of Festo Didactic Gmbh
+\& Co. KG with certain freedoms and limitations. The usage of both
+revisions, namely 2009 and 2010 are in order, see chapter 4 for
+details.
 
+\subsection*{Technical Committee 2013}
+% Alphabetical order by last name
+\emph{Christian Deppe}, Otto-von-Guericke University Magdeburg, Magdeburg,
+Germany\\
+\emph{Daniel Ewert}, RWTH Aachen University, Aachen, Germany\\
+\emph{S\"oren Jentzsch}, Technical University of Munich, Munich, Germany\\
+\emph{Tim Niemueller}, RWTH Aachen University, Aachen, Germany\\
+\emph{Sebastian Reuter}, RWTH Aachen University, Aachen, Germany
 
+\medskip
 
-\begin{figure}[tbhp]
-  \centering
+\hspace{-\parindent}To reach the TC use
+\url{robocup-logistics-tc@lists.kbsg.rwth-aachen.de}.
 
-\tikzstyle{M}=[rectangle, draw=blue, thick, fill=blue!20, text width=2em,align=center, rounded corners, 
-  minimum height=2em]
-%
-\tikzstyle{P}=[draw=red, thick, circle,fill=red!20, minimum height=1.5em]
+\subsection*{Organizing Committee 2013}
+\emph{Alexander Ferrein}, FH Aachen University of Applied Sciences,
+Aachen, Germany\\
+\emph{Ulrich Karras}, Festo Didactic GmbH
+\textbf{Add missing members}
 
-\begin{tikzpicture}[level distance=4em,sibling distance=5em]
-  \node[P] {$S_1$}  [grow=left,thick]
-  child { node[M] {$M_1$}
-    child { node[P] {$S_0$}}};
-\end{tikzpicture}
-\hspace*{1em}
-\begin{tikzpicture}[level distance=4em,sibling distance=5em]
-  \node[P] {$C$}  [grow=left,thick]
-  child { node[M] {$M_1$}
-    child { node[P] {$S_0$}}};
-\end{tikzpicture}
+\medskip
 
-\begin{tikzpicture}[level distance=4em,sibling distance=5em]
-  \node[P] {$C$}  [grow=left,thick]
-  child { node[M] {$M_2$}
-    child { node[P] {$S_0$}}
-    child { node[P] {$S_1$}}
-    child { node[P] {$S_2$}}
-    };
-\end{tikzpicture}
-
-\begin{tikzpicture}[node distance=4em,level distance=4em,sibling distance=5em]
-
-  \node[P] (p) {$P$}  [grow=left,thick]
-  child { node[M] (m) {$M_3$}
-    child { node[P] {$S_0$}}
-    child { node[P] {$S_1$}}
-    child { node[P] {$S_2$}}
-   };
-  
-\end{tikzpicture}
-
-
-  \caption{The production diagram}
-\label{fig:production-diagram}  
-\end{figure}
-
-% \newcommand{\varone} {
-%   \begin{tikzpicture}[level distance=4em,sibling distance=5em]
-%     \node[P] {$P$}  [grow=left,thick]
-%     child {node[M] {$M_3$} 
-%       child {node[P] {$S_0$}} 
-%       child {node[P] {$S_1$}
-%         child {node[M] {$M_1$} 
-%           child {node[P] {$S_0$}}
-%         }
-%       } 
-%       child {node[P, yshift=-1em] {$S_2$}
-%         child {node[M] {$M_2$} 
-%           child {node[P] {$S_0$}}
-%           child {node[P] {$S_1$}
-%             child {node[M] {$M_1$}
-%               child {node[P] {$S_0$}}
-%             }
-%           }
-%         }
-%       }
-%     };
-%   \end{tikzpicture}
-% }
-
-% \newcommand{\varthree} {
-%   \begin{tikzpicture}[level distance=4em,sibling distance=5em]
-%     \node[P] {$P_2$}  [grow=left,thick]
-%     child {node[M] {$M_3$} 
-%       child {node[P] {$S_0$}}
-%       child {node[P] {$S_2$}}
-%       child {node[P] {$S_2$}}      
-%     };
-%     \end{tikzpicture}
-% }
-
-% \newcommand{\vartwo} {
-%   \begin{tikzpicture}[level distance=4em,sibling distance=4em]
-%     \node[P] {$P$}  [grow=left,thick]
-%     child {node[M] {$M_3$} 
-%       child {node[P] {$S_0$}}
-%       child {node[P] {$S_1$}}
-%       child {node[P,label={[label distance=-6pt,fill=red!20]270:{\footnotesize $0.5$}}] {$S_2$}}
-%       child {node[P,label={[label distance=-6pt,fill=red!20]270:{\footnotesize $0.5$}}] {$S_2$}}      
-%     };
-%     \end{tikzpicture}
-% }
-
-
-% \begin{tikzpicture}
-%   \matrix[anchor=east]{
-%     \node (p1) {\varone};\\
-%     \node (p2) {\vartwo};\\[2ex]
-%     \node (p3) {\varthree};\\
-%   };
-% \end{tikzpicture}
+\hspace{-\parindent}To reach the OC use
+\url{robocup-logistics-oc@lists.kbsg.rwth-aachen.de}.
 
 
 
 
-\subsubsection{The production table}
-
-The table above shows the production table concerning the main
-challenge; the three staged production process as well as the express
-good challenge. The main challenge can be repeated as long as enough
-pallet carriers can be provided to complete the cycle. The different
-machine types are specified in Sect.~\ref{sec:machines}.
-
-
-\subsubsection{Express good}
-
-The express good challenge will be announced by the Referee-Box. The challenge
-requires a fast paced processing and delivery of the requested product within
-a specified time window. The challenge also requires prior knowledge
-concerning the machine distribution.
 
 \section{Competition Area}
 
@@ -960,6 +823,146 @@ As a start signal the Referee-Box will initially announce the true assignment of
 all machines to the robots.
 \end{rulechange}
 
+\subsection{Production portfolio}
+The production portfolio is presented in
+Table~\ref{tab:production-table} and in
+Fig.~\ref{fig:production-diagram}, which presents the same information
+as a production graph.
+
+\begin{table}[tbhp]
+  \centering
+  \begin{tabular}{c|c|c|c}
+    \multicolumn{1}{c}{Subassembly} & \multicolumn{1}{c}{Deployable} & 	\multicolumn{1}{c}{Prerequisites} & \multicolumn{1}{c}{Result}\\\hline
+    \s{0} &	\m{1}, \m{2}, \m{3}, \dg{} & 	none &	\s{1} or \TAG{consumed}\\
+    \s{1} &	\m{2}, \m{3}, \dg{} &  	\s{0} & 	\s{2} or \TAG{consumed}\\
+    \s{2} & \m{3}, \dg & 	\s{0}, \s{1} &	\p{}\\ %
+    \TAG{Express Good} &  	\m{1} & none &  \TAG{Finished Express Good}\\
+    \hline
+  \end{tabular} 
+  \caption{The production table}
+  \label{tab:production-table}
+\end{table}
+
+
+
+\begin{figure}[tbhp]
+  \centering
+
+\tikzstyle{M}=[rectangle, draw=blue, thick, fill=blue!20, text width=2em,align=center, rounded corners, 
+  minimum height=2em]
+%
+\tikzstyle{P}=[draw=red, thick, circle,fill=red!20, minimum height=1.5em]
+
+\begin{tikzpicture}[level distance=4em,sibling distance=5em]
+  \node[P] {$S_1$}  [grow=left,thick]
+  child { node[M] {$M_1$}
+    child { node[P] {$S_0$}}};
+\end{tikzpicture}
+\hspace*{1em}
+\begin{tikzpicture}[level distance=4em,sibling distance=5em]
+  \node[P] {$C$}  [grow=left,thick]
+  child { node[M] {$M_1$}
+    child { node[P] {$S_0$}}};
+\end{tikzpicture}
+
+\begin{tikzpicture}[level distance=4em,sibling distance=5em]
+  \node[P] {$C$}  [grow=left,thick]
+  child { node[M] {$M_2$}
+    child { node[P] {$S_0$}}
+    child { node[P] {$S_1$}}
+    child { node[P] {$S_2$}}
+    };
+\end{tikzpicture}
+
+\begin{tikzpicture}[node distance=4em,level distance=4em,sibling distance=5em]
+
+  \node[P] (p) {$P$}  [grow=left,thick]
+  child { node[M] (m) {$M_3$}
+    child { node[P] {$S_0$}}
+    child { node[P] {$S_1$}}
+    child { node[P] {$S_2$}}
+   };
+  
+\end{tikzpicture}
+
+
+  \caption{The production diagram}
+\label{fig:production-diagram}  
+\end{figure}
+
+% \newcommand{\varone} {
+%   \begin{tikzpicture}[level distance=4em,sibling distance=5em]
+%     \node[P] {$P$}  [grow=left,thick]
+%     child {node[M] {$M_3$} 
+%       child {node[P] {$S_0$}} 
+%       child {node[P] {$S_1$}
+%         child {node[M] {$M_1$} 
+%           child {node[P] {$S_0$}}
+%         }
+%       } 
+%       child {node[P, yshift=-1em] {$S_2$}
+%         child {node[M] {$M_2$} 
+%           child {node[P] {$S_0$}}
+%           child {node[P] {$S_1$}
+%             child {node[M] {$M_1$}
+%               child {node[P] {$S_0$}}
+%             }
+%           }
+%         }
+%       }
+%     };
+%   \end{tikzpicture}
+% }
+
+% \newcommand{\varthree} {
+%   \begin{tikzpicture}[level distance=4em,sibling distance=5em]
+%     \node[P] {$P_2$}  [grow=left,thick]
+%     child {node[M] {$M_3$} 
+%       child {node[P] {$S_0$}}
+%       child {node[P] {$S_2$}}
+%       child {node[P] {$S_2$}}      
+%     };
+%     \end{tikzpicture}
+% }
+
+% \newcommand{\vartwo} {
+%   \begin{tikzpicture}[level distance=4em,sibling distance=4em]
+%     \node[P] {$P$}  [grow=left,thick]
+%     child {node[M] {$M_3$} 
+%       child {node[P] {$S_0$}}
+%       child {node[P] {$S_1$}}
+%       child {node[P,label={[label distance=-6pt,fill=red!20]270:{\footnotesize $0.5$}}] {$S_2$}}
+%       child {node[P,label={[label distance=-6pt,fill=red!20]270:{\footnotesize $0.5$}}] {$S_2$}}      
+%     };
+%     \end{tikzpicture}
+% }
+
+
+% \begin{tikzpicture}
+%   \matrix[anchor=east]{
+%     \node (p1) {\varone};\\
+%     \node (p2) {\vartwo};\\[2ex]
+%     \node (p3) {\varthree};\\
+%   };
+% \end{tikzpicture}
+
+
+\subsubsection{The production table}
+
+The table above shows the production table concerning the main
+challenge; the three staged production process as well as the express
+good challenge. The main challenge can be repeated as long as enough
+pallet carriers can be provided to complete the cycle. The different
+machine types are specified in Sect.~\ref{sec:machines}.
+
+
+\subsubsection{Express good}
+
+The express good challenge will be announced by the Referee-Box. The challenge
+requires a fast paced processing and delivery of the requested product within
+a specified time window. The challenge also requires prior knowledge
+concerning the machine distribution.
+
 \subsection{During a match}
 
 The referee can interrupt the match at any time. Then, both teams have
@@ -1140,7 +1143,7 @@ related processes.
 \subsection{Penalties}
 
 This catalogue in Table~\ref{tab:infringements} represents the
-decision basis of the referee without being exhaustive or binding.
+decision basis of the referees without being exhaustive or binding.
 
 \begin{table}[thpb]
   \centering
@@ -1183,7 +1186,14 @@ decision basis of the referee without being exhaustive or binding.
   \label{tab:infringements}
 \end{table}
 
-
+The abidance of these rules will be monitored by at least two referees.
+One "field" referee will overlook the competition area. The field
+refereee is allowed to enter the area at any time. Accidental moving
+of a puck or similar unintended tampering resulting from the referees
+present on the field must be coped with. A second "station" referee
+operates the control station for the refbox to issue the initial start command and
+monitor the game flow and the correctness of the digital representation
+and automatical scoring.
 
 \begin{rulechange}
   \subsection{Technical Challenge}
