@@ -29,10 +29,13 @@
 % { \endMakeFramed}
 \newenvironment{rulechange}{}{}
 
-\usepackage{siunitx}
+\usepackage[load-configurations=binary]{siunitx}
+% may be
+%\usepackage[binary-units=true]{siunitx}
+% depending on siunitx package version
 
-\usepackage{framed,xcolor}
-\colorlet{shadecolor}{gray!25}
+%\usepackage{framed,xcolor}
+%\colorlet{shadecolor}{gray!25}
 \newcommand{\Robotino}{Robotino\textregistered}
 \newcolumntype{R}{>{\raggedleft\arraybackslash}X}
 \newcolumntype{C}{>{\centering\arraybackslash}X}
@@ -156,6 +159,9 @@
 %% 
 \setcounter{page}{1}
 \pagenumbering{arabic}
+
+\todo[inline]{spell-check. American or British?}
+\todo[inline]{\Robotino or Robotino throughout the doc?}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction} \label{sec:intro}
@@ -287,7 +293,7 @@ To get into contact with the OC use the mailing list\\
 \section{Competition Area} \label{sec:area}
 
 
-\subsection{Field sizes} \label{sec:competition-area}
+\subsection{Field dimensions} \label{sec:competition-area}
 The point of origin for each statement within this rulebook that uses
 relative coordinates is the bottom left corner of the competition area
 namely the corner near the recycling unit to the left of the outgoing
@@ -340,7 +346,7 @@ competition area, and aligned at \ang{45}, facing the center of the
 factory area. The top left corner will remain empty. The competition
 area is shown in Figure~\ref{fig:competition-area}
 
-\begin{figure}[tbhp]
+\begin{figure}[tb]
   \centering
   \begin{tikzpicture}[scale=2.6]
     % field outline
@@ -576,9 +582,8 @@ size of (height $\times$ width $\times$ depth) \SI{280 x 160 x
   components will be consumed. All machines will start processing the
   data carrier as soon as it enters the machining zone as stated in
   Section~\ref{sec:competition-area} and the machine changed its
-  operating mode according to the
-  Tables~\ref{tab:production-machines}, \ref{tab:recycling-unit} and
-  \ref{tab:reading-device}.
+  operating mode according to 
+  Tables~\ref{tab:production-machines}--\ref{tab:reading-device}.
 
 
 \subsubsection{Production Machines}
@@ -595,7 +600,7 @@ seconds. Unloading the machine can be done immediately after the
 operating mode changes away from processing. As long as the machines
 are used properly, they will not produce any junk.
 
-\begin{table}[h]
+\begin{table}[tp]
   \centering
   \subtable[Optical Feedback]{\mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
         \multicolumn{1}{l}{Optical Feedback} &
@@ -612,7 +617,6 @@ are used properly, they will not produce any junk.
 
 
 \bigskip
-\begin{rulechange}
 \subtable[Machine Types]{\mytable{  \begin{tabularx}{\linewidth}{l|X|X|X|l}
     \multicolumn{1}{l}{ Type} & \multicolumn{1}{l}{Distribution} & \multicolumn{1}{l}{Input} & \multicolumn{1}{l}{Output} & \multicolumn{1}{l}{(Final)processing time[s]}\\\hline
     \m1 & 4 times & \s0 (Raw-material) & \s1 & $WT_1 = 3 \mbox{ to } 8~\mathrm{sec}$\\
@@ -621,26 +625,12 @@ are used properly, they will not produce any junk.
     \m4 & 1 times &\s0;\s1;\s2 & \p2; two consumed containers &$WT_4 = 40\mbox{ to } 60~\mathrm{sec}$\\
     \m5 & 1 times &	\s0; & \p3; one consumed container &$WT_5 =40\mbox{ to } 60~\mathrm{sec}$
   \end{tabularx}}}
-\end{rulechange}
   \caption{Production Machines}
-  \label{tab:production-machines}
-  
+  \label{tab:production-machines}  
 \end{table}
 
 
-
-The distribution describes how many machines of the respective types
-will be randomly placed resulting in a the total of 10 court machines.
-
-
-
-\subsubsection{Recycling Unit (former market place)}
-The recycling unit processes all supplied loading carriers back to
-raw-material (\s0) within 2 seconds. The optical feedback provided by
-the recycling unit differs from an ordinary production machines and is
-shown in Table~\ref{tab:recycling-unit}.
-
-\begin{table}[tbhp]
+\begin{table}[tp]
   \centering
   \mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
     \multicolumn{1}{l}{Optical Feedback} &\multicolumn{1}{l}{Operating
@@ -656,14 +646,21 @@ shown in Table~\ref{tab:recycling-unit}.
 \end{table}
 
 
+\begin{table}[tp]
+  \centering
+  \mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
+    \multicolumn{1}{l}{Optical Feedback} &\multicolumn{1}{l}{Stored
+      data on the data carrier}\\\hline
+    Red LED turned on & This delivery gate is inactive.\\
+    Red and green LED turned on & This gate is active, namely the designated gate.\\
+%    \hline
+  \end{tabularx}}
+  \caption{Delivery Gates}
+  \label{tab:delivery-gates}
+\end{table}
 
-\subsubsection{Reading device}
-Reading and visualizing the data carrier's content happens almost
-instantly after delivering the pallet carrier to the action range of
-the device. The optical feedback is shown in
-Table~\ref{tab:reading-device}.
 
-\begin{table}[tbhp]
+\begin{table}[tp]
   \centering
   \mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
     \multicolumn{1}{l}{Optical Feedback} &\multicolumn{1}{l}{Stored
@@ -679,26 +676,38 @@ Table~\ref{tab:reading-device}.
   \label{tab:reading-device}
 \end{table}
 
-\subsubsection{Delivery Gates} 
 
-\begin{table}[tbhp]
-  \centering
-  \mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
-    \multicolumn{1}{l}{Optical Feedback} &\multicolumn{1}{l}{Stored
-      data on the data carrier}\\\hline
-    Red LED turned on & This delivery gate is inactive.\\
-    Red and green LED turned on & This gate is active, namely the designated gate.\\
-%    \hline
-  \end{tabularx}}
-  \caption{Delivery Gates}
-  \label{tab:delivery-gates}
-\end{table}
+
+
+
+The distribution describes how many machines of the respective types
+will be randomly placed resulting in a the total of 10 court machines.
+
+
+
+\subsubsection{Recycling Unit (former market place)}
+The recycling unit processes all supplied loading carriers back to
+raw-material (\s0) within 2 seconds. The optical feedback provided by
+the recycling unit differs from an ordinary production machines and is
+shown in Table~\ref{tab:recycling-unit}.
+
+\subsubsection{Delivery Gates} 
 
 As soon as a pallet carrier is successfully delivered to the active
 gate, it will show the state of the data carrier as in
 Table~\ref{tab:delivery-gates}.  This state will only lasts for some
 seconds and only for indicating the score to the referee. There will
 be only one active gate at a time.
+
+
+
+\subsubsection{Reading device}
+Reading and visualizing the data carrier's content happens almost
+instantly after delivering the pallet carrier to the action range of
+the device. The optical feedback is shown in
+Table~\ref{tab:reading-device}.
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -737,10 +746,10 @@ For a detailed technical description, refer to the
 Appendix~\ref{apx:sec:engref}.
 
 \section{Communication}
-Robots have to operate autonomously, that is without any human
+Robots have to operate autonomously, that is, without any human
 interference during the game. Communication among robots and to
 off-board computing units is allowed only using wifi
-(cf.~\refsec{sec:wifi-regulations}. Communication is not guaranteed
+(cf.~\refsec{sec:wifi-regulations}). Communication is not guaranteed
 and maybe unavailable during parts of the game. Interruptions must be
 expected and are no reason to pause or abort a game, even if they
 endure for long periods of the game.
@@ -748,14 +757,15 @@ endure for long periods of the game.
 \subsection{Bandwidth Allocation}
 \label{sec:bandwidth}
 No minimum bandwidth is guaranteed. The amount of communicated data
-over the wifi connection shall not exceed 2\,MBit/sec. Even though the
-lower layers could provide for more bandwidth, the overall available
-frequency spectrum and wifi channels have to be shared, not only
-within our own league. Generally, a conservative use of bandwidth
-resources is advised. Should a frequently or endured exceedance of the
-bandwidth limit become known, or if the overall bandwidth limit must
-be reduced due to outer circumstances, the TC can monitor the network
-traffic and demand reduction in communicated data as necessary.
+over the wifi connection shall not exceed
+\SI{2}{\mega\bit\per\second}. Even though the lower layers could
+provide for more bandwidth, the overall available frequency spectrum
+and wifi channels have to be shared, not only within our own
+league. Generally, a conservative use of bandwidth resources is
+advised. Should a frequently or endured exceedance of the bandwidth
+limit become known, or if the overall bandwidth limit must be reduced
+due to outer circumstances, the TC can monitor the network traffic and
+demand reduction in communicated data as necessary.
 
 \subsection{Referee Box}
 \label{sec:refbox}
@@ -861,12 +871,11 @@ tournament.
 \subsection{Wifi regulations}
 \label{sec:wifi-regulations}
 In order to provide the optimal possible solution for wireless
-communication during the event, all teams are required to use the 5
-GHz Wi-Fi equipment. They are furthermore required to connect their
-Robotinos Wi-Fi unit to the access point provided. All teams can also
-relay on Wi-Fi clients supplied by Festo but are not required to. A
+communication during the event, all teams are required to use the \SI{5}{\giga\hertz} wifi equipment. They are furthermore required to connect their
+Robotinos wifi unit to the access point provided. All teams can also
+relay on wifi clients supplied by Festo but are not required to. A
 detailed description concerning the infrastructure can be found in
-chapter 1.8 of the Engineering Specifications.
+Appendix~\ref{sec:wifi-equipment}.
 
 % Please refer to Sect.~\ref{sec:radio-interference} for further details.
 
@@ -878,8 +887,9 @@ chapter 1.8 of the Engineering Specifications.
 
 A match is defined by two contesting teams competing at two separated
 identical competition areas. Each match lasts 15 minutes with 5
-minutes of setup time and a 2 minute Exploration Phase. All settings, including
-the EGC and random events, will be the exact same for both parties of a match.
+minutes of setup time and a 2 minute Exploration Phase. All settings,
+including the late order challenge and other random events, will be
+the exact same for both parties of a match.
 
 \subsection{Team setup}
 \label{sec:team-setup}
@@ -890,7 +900,7 @@ elevated into their autonomous state. During a match the manipulation
 is limited to adjustments on sensors, checking cable connections and
 the boot or shut down procedure. A team can ask the referee to shut
 down the robot. If this motion has been forwarded within the first 15
-seconds of the very robots movement and without this robot scoring
+seconds of the very robot's movement and without this robot scoring
 points, the referee will move it to a point of insertion of the team's
 choice, once. Otherwise or on second occasion the robot will be
 removed from the competition area. Resetting or removing a robot will
@@ -919,36 +929,39 @@ during a match the active gate can switch.
 \label{sec:radio-interference}
 The referee will induce a connection breakdown between the command
 unit and the Robotinos at certain points of a match. This will not
-affect the Wi-Fi connection between the Robotinos and will neither
+affect the wifi connection between the Robotinos and will neither
 happen during the first minute of a match. Once switched off, the link
-between LAN and Wi-Fi will stay severed for 100 seconds. The link will
+between LAN and wifi will stay severed for 100 seconds. The link will
 be reactivated swiftly in case of emergency to interrupt the autonomy
 of the process.
 
 
-\subsection{Exploration Phase} \label{sec:expphase}
-\begin{rulechange}
-Before the actual game starts, the machines will indicate their types with the
-signal lights for two minutes. The robots are to roam the environment and
-announce detected signals to the Referee-Box. Each properly reported signal
-scores two points, each signal reported wrongly will give -1 points penalty.
-A minimum of zero points will be accounted for this exploration phase.
-Production or moving Pucks is not allowed during the exploration phase.
-\end{rulechange}
+\subsection{Exploration Phase} \label{sec:expphase} 
+%
+Before the actual game starts, the machines will indicate their types
+with the signal lights for two minutes. The robots are to roam the
+environment and announce detected signals to the referee box. Each
+properly reported signal scores two points, each signal reported
+wrongly will give \num{-1} points penalty.  A minimum of zero points
+will be accounted for this exploration phase.  Production or moving
+pucks is not allowed during the exploration phase.
+
 
 \subsection{Match startup}
 \label{sec:match-startup}
+
 All matches will start at the exact time scheduled by the organization
 team. From this point on, the teams involved are allowed to start
 their robots to work autonomously. This can be done by one click per
 robot on any kind of interface. 
+%
+As a start signal the referee box will initially announce the true
+assignment of all machines to the robots.
 
-\begin{rulechange}
-As a start signal the Referee-Box will initially announce the true assignment of
-all machines to the robots.
-\end{rulechange}
+
 
 \subsection{Production portfolio} \label{sec:prodportfolio}
+
 The production portfolio is presented in
 Table~\ref{tab:production-table} and in
 Fig.~\ref{fig:production-diagram}, which presents the same information
@@ -1024,14 +1037,14 @@ as a production graph.
 \begin{floatrow}
   \capbtabbox{%
     \centering
-    \mytable{\begin{tabular}{c|c|c|c}
+    \mytable{\begin{tabularx}{\textwidth}{C|C|C|c}
         \multicolumn{1}{c}{Subassembly} & \multicolumn{1}{c}{Deployable} & \multicolumn{1}{c}{Prerequisites} & \multicolumn{1}{c}{Result}\\\hline
         \s{0} &	\m{1}, \m{2}, \m{3}, \dg{} & 	none &	\s{1} or \TAG{consumed}\\
         \s{1} &	\m{2}, \m{3}, \dg{} &  	\s{0} & 	\s{2} or \TAG{consumed}\\
         \s{2} & \m{3}, \dg & 	\s{0}, \s{1} &	\p{}\\ %
         \TAG{Late Order} &  	\m{1} & none &  \TAG{Finished Late Order}\\
 %        \hline
-      \end{tabular}
+      \end{tabularx}
     }      
   }{%
     \caption{The production table}
@@ -1039,7 +1052,6 @@ as a production graph.
   }
 \end{floatrow}
   
-\bigskip
 \bigskip
 \begin{floatrow}
   \ffigbox{%
@@ -1100,7 +1112,27 @@ as a production graph.
   \label{fig:production-diagram}  
 }
 \end{floatrow}
+%\todo[inline]{What is a C??}
+
+\bigskip
+\begin{floatrow}
+  \capbtabbox{%
+    \centering
+    \mytable{\begin{tabularx}{0.75\textwidth}{X|X}%{p{0.35\textwidth}|p{0.65\textwidth}}
+        \multicolumn{1}{l}{Product variant} &\multicolumn{1}{l}{Demanded number of items } \\
+        \hline 
+        Product variant \p1 &	$N_1 = 1 \mbox{ to } 10$ items \\
+        Product variant \p2 &	$N_2 = 1 \mbox{ to } 10$ items \\
+        Product variant \p3 &	$N_3 = 1 \mbox{ to } 10$ items \\
+        %	\hline
+      \end{tabularx}}
+  }{
+    \caption{Production plan}
+    \label{tab:production-plan}
+  }
+\end{floatrow}
 \end{figure}
+
 
 
 
@@ -1165,16 +1197,17 @@ as a production graph.
 
 \subsubsection{The production table}
 
-The table above shows the production table concerning the main
-challenge; the three staged production process as well as the Late
-Order challenge. The main challenge can be repeated as long as enough
-pallet carriers can be provided to complete the cycle. The different
-machine types are specified in Sect.~\ref{sec:machines}.
+Table~\ref{tab:production-table} shows the production table for the
+main challenge; the three staged production process as well as the
+Late Order challenge. The main challenge can be repeated as long as
+enough pallet carriers can be provided to complete the cycle. The
+different machine types are specified in Sect.~\ref{sec:machines}.
+
 
 
 \subsubsection{Late order}
 
-The late order challenge will be announced by the Referee-Box. The
+The late order challenge will be announced by the referee box. The
 challenge requires a fast paced processing and delivery of the
 requested product within a specified time window. The challenge also
 requires prior knowledge concerning the machine distribution.
@@ -1203,41 +1236,42 @@ process.
 
 \subsubsection{Production Plan}
 
-\begin{rulechange}
-The Referee-Box will announce a production plan for three different phases of
-the match. The production plan specifies how many items of different product
-variant have to be produced in the current production phase. Only products which
-are covered by the production plan score. In 2013 each of the three phases will
-last 5 minutes. The first phase will start with the match startup.  The second
-phase will start at minute 5, the third at minute 10.
+The referee box will announce a production plan for three different
+phases of the match. The production plan specifies how many items of
+different product variant have to be produced in the current
+production phase. Only products which are covered by the production
+plan score. In 2013 each of the three phases will last 5 minutes. The
+first phase will start with the match startup.  The second phase will
+start at minute 5, the third at minute 10. The production plan is
+shown in Table~\ref{tab:production-plan}.
 
-\end{rulechange} 
 
-\begin{table}[tbph]
-  \centering
-  \mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
-    \multicolumn{1}{l}{Product Variant} &\multicolumn{1}{l}{Demanded number of items } \\
-    \hline 
-    Product Variant \p1 &	$N_1 = 1 \mbox{ to } 10$ items \\
-    Product Variant \p2 &	$N_2 = 1 \mbox{ to } 10$ items \\
-    Product Variant \p3 &	$N_3 = 1 \mbox{ to } 10$ items \\
-    %	\hline
-  \end{tabularx}}
-  \caption{Production plan}
-  \label{tab:production-plan}
-\end{table}
+
+% \begin{table}[t]
+%   \centering
+%   \mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
+%     \multicolumn{1}{l}{Product variant} &\multicolumn{1}{l}{Demanded number of items } \\
+%     \hline 
+%     Product variant \p1 &	$N_1 = 1 \mbox{ to } 10$ items \\
+%     Product variant \p2 &	$N_2 = 1 \mbox{ to } 10$ items \\
+%     Product variant \p3 &	$N_3 = 1 \mbox{ to } 10$ items \\
+%     %	\hline
+%   \end{tabularx}}
+%   \caption{Production plan}
+%   \label{tab:production-plan}
+% \end{table}
+
+
 
 \subsubsection{Late order challenge}
 
-\begin{rulechange}
-  The challenge will be induced by the Referee-Box sending an late
-  order message to the robots. The message specifies the demanded
-  product variant, a time window and the delivery gate. As a first
-  step the late good challenge of 2013 will only demand product
-  variant \p3. Furthermore, in 2013 the challenge has to be completed
-  within a time window of 120 seconds and the late order has to be
-  delivered to the active delivery gate.
-\end{rulechange}
+The challenge will be induced by the referee box sending an late order
+message to the robots. The message specifies the demanded product
+variant, a time window and the delivery gate. As a first step, the late
+good challenge of 2013 will only demand for product variant
+\p3. Furthermore, in 2013 the challenge has to be completed within a
+time window of 120 seconds and the late order has to be delivered to
+the active delivery gate.
 
 \subsection{Mode}
 \subsubsection{Tournament scoring specifications}
@@ -1247,24 +1281,24 @@ phase will start at minute 5, the third at minute 10.
 % participants and a second stage with playoffs featuring the top 4
 % teams.
 
-\paragraph{Round-Robin phase.~} 
+\paragraph{Round-Robin phase.} 
 There will be two stages in the competition. The first stage is a
 group phase and will be played as a round-robin. The best 4 teams of
 the round-robin stage will advange to a playoff round.
-
+%
 At the round-robin stage, the teams will be receive the true point
 they scored by delivering and producing goods during the
 competition. The points will be accumulated in this phase and the
 teams will be ranked according to the accumulated point in descending
 order.
 
-\paragraph{Playoffs.~ } At the payoff-stage, the scoring scheme will be different. As each
-team in this phase directly competes with an opposing team, the team
-that scores more points as the direct opponent, will be announced as
-the winner and 3 points will be awarded to this team. A loss will be
-awarded with 0 points. Additionally, if both teams are unable to score
-any points during the match by delivering or producing goods, both
-team will receive 0 points.
+\paragraph{Playoffs. } At the payoff stage, the scoring scheme will be
+different. As each team in this phase directly competes with an
+opposing team, the team that scores more points as the direct
+opponent, will be announced as the winner and 3 points will be awarded
+to this team. A loss will be awarded with 0 points. Additionally, if
+both teams are unable to score any points during the match by
+delivering or producing goods, both team will receive 0 points.
 %
 % Each match will be resulted with the score of each team. The winning
 % team will be awarded 2 major points. In case of a draw both teams will
@@ -1280,51 +1314,21 @@ equal too, a direct comparison between the teams in question will
 decide. If this fails to resolve the situation, the teams will
 approach a coin toss to determine the winner.
 
-\paragraph{Finals.~} The best 2 teams of the playoff phase will
-advance to the finals. The competition mode for the final is the same
-as in the playoff phase.
 
+
+\paragraph{Finals.} The best 2 teams of the playoff phase will advance
+to the finals. The competition mode for the final is the same as in
+the playoff phase.
+
+\bigskip
 The detailed seeding will be created at the event. Although the idea
 is to allow each participant to challenge each other team the league
 can be adjusted to meet time requirements.
 
-\begin{table}[thbp]
-  \centering
-  \subtable[Scoring scheme for the main challenge]{\mytable{\begin{tabularx}{\linewidth}{p{6em}|X|p{4em}}
-      \multicolumn{1}{l}{Subtask } &\multicolumn{1}{l}{Main challenge} &
-      \multicolumn{1}{l}{Scoring [Point]}\\\hline
-      Produce \s2 & Finish the work order of a machine type 2 & $+4$\\
-      Produce \p  & Finish the work order of a machine type 3 & $+12$ \\
-      Deliver & Deliver the final product to the designated loading zone & $+5$\\
-      Recycle & Clean up a polluted machine (\m2 or \m3) by recycling all
-      of the 3 consumed loading carriers. Partial recycling(\m3) will not
-      be rewarded.&
-      \multirow{3}{*}{$\begin{array}{l}+3 - \m2\\
-          +6 - \m3\end{array}$}\\
-      Sum &Total points a team will receive for a produced and correctly
-      delivered final product with its consumed loading carrier
-      recycled. & $30$\\%\hline
-    \end{tabularx}  }}
-
-
-  \bigskip
-  \subtable[Scoring scheme for the Late order challenge]{\mytable{\begin{tabularx}{\linewidth}{p{6em}|X|p{4em}}
-    \multicolumn{1}{l}{Subtask } &\multicolumn{1}{l}{LOC - Late Order
-      Challenge} & \multicolumn{1}{l}{Scoring [Point]}\\\hline
-    Finish the EG &	Deliver the EG to a machine of type 1 and process the late order in time if the machine type was identified by an earlier production process. &	+5\\
-    Deliver the EG & Deliver the processed the late order to the active
-    delivery gate in time. &  +10\\
-    Sum & In time delivery of a correct late order. & 15\\%\hline
-  \end{tabularx} }}
-  \caption{Scoring Scheme}
-  \label{tab:scoring}
-    
-
-\end{table}
-
 
 \subsubsection{Tournament challenge}
-Proceeding to the playoffs will result in the following changes to the EGC setup:
+Proceeding to the playoffs will result in the following changes to the
+late order challenge setup:
 % \begin{table}[h]
 %   \centering
 %   \begin{tabularx}{\linewidth}{l|X}
@@ -1353,7 +1357,7 @@ Proceeding to the playoffs will result in the following changes to the EGC setup
 %   \label{tab:phases}
 % \end{table}
 
-\paragraph{League phase}~\\
+\paragraph{League phase}
 \begin{itemize}
 \item The active delivery gate will not switch during a match.
 \item There will be 3 late oderd challenges.
@@ -1361,7 +1365,8 @@ Proceeding to the playoffs will result in the following changes to the EGC setup
   last two match minutes.
 \end{itemize} 
 
-\paragraph{Playoffs}~\\
+
+\paragraph{Playoffs}
 \begin{itemize}
 \item The active delivery gate will swap twice - after minutes 7
   and 11. A delivery made to the old active gate will be still
@@ -1369,11 +1374,46 @@ Proceeding to the playoffs will result in the following changes to the EGC setup
 \item There will be 4 late order challenges. 
 \item No challenge will be initialised during the first or within
   the last two match minutes.
-\end{itemize}
-     
+\end{itemize}    
+
 
 In both cases, delivered or timed out pallet carriers will be removed
 from the game by the administration and therefore cannot be recycled.
+
+
+
+\begin{table}[tb]
+  \centering
+  \subtable[Scoring scheme for the main challenge]{\mytable{\begin{tabularx}{\linewidth}{p{6em}|X|p{4em}}
+      \multicolumn{1}{l}{Subtask } &\multicolumn{1}{l}{Main challenge} &
+      \multicolumn{1}{l}{Scoring [Point]}\\\hline
+      Produce \s2 & Finish the work order of a machine type 2 & $+4$\\
+      Produce \p  & Finish the work order of a machine type 3 & $+12$ \\
+      Deliver & Deliver the final product to the designated loading zone & $+5$\\
+      Recycle & Clean up a polluted machine (\m2 or \m3) by recycling all
+      of the 3 consumed loading carriers. Partial recycling(\m3) will not
+      be rewarded.&
+      \multirow{3}{*}{$\begin{array}{l}+3 - \m2\\
+          +6 - \m3\end{array}$}\\
+      Sum &Total points a team will receive for a produced and correctly
+      delivered final product with its consumed loading carrier
+      recycled. & $30$\\%\hline
+    \end{tabularx}  }}
+
+
+  \bigskip
+  \subtable[Scoring scheme for the Late order challenge]{\mytable{\begin{tabularx}{\linewidth}{p{6em}|X|p{4em}}
+    \multicolumn{1}{l}{Subtask } &\multicolumn{1}{l}{LOC - Late Order
+      Challenge} & \multicolumn{1}{l}{Scoring [Point]}\\\hline
+    Finish the EG &	Deliver the EG to a machine of type 1 and process the late order in time if the machine type was identified by an earlier production process. &	+5\\
+    Deliver the EG & Deliver the processed the late order to the active
+    delivery gate in time. &  +10\\
+    Sum & In time delivery of a correct late order. & 15\\%\hline
+  \end{tabularx} }}
+  \caption{Scoring Scheme}
+  \label{tab:scoring}   
+\end{table}
+
 
 \subsubsection{Task fulfilment}
 
@@ -1385,13 +1425,77 @@ related processes.
 
 \subsection{Penalties}
 
-This catalogue in Table~\ref{tab:infringements} represents the
-decision basis of the referees without being exhaustive or binding.
+The catalogue in Table~\ref{tab:infringements} represents the decision
+basis for the referees without being exhaustive or binding.
+%
+The abidance of these rules will be monitored by at least two
+referees.  One ``field'' referee will overlook the competition
+area. The field refereee is allowed to enter the area at any
+time. Accidental moving of a puck or similar unintended tampering
+resulting from the referees present on the field must be coped with. A
+second "station" referee operates the control station for the refbox
+to issue the initial start command and monitor the game flow and the
+correctness of the digital representation and automatical scoring.
+
+
+
+\begin{rulechange}
+  \subsection{Technical Challenge}
+  
+  Within the league, the technical advances should be documented from
+  year to year. Therefore, the Technical Challenge is introduced.
+  Each participating team should prepare for participating in any
+  number the following tasks:
+
+
+  \paragraph{Collision avoidance.~}
+  The robot is to show that it avoids other obstacles and robots.
+  Therefore the robot must drive from input storage to the delivery zone.
+  However, the paths between the input storage and the delivery zone will
+  be blocked randomly by static obstacles and the robot must not touch any
+  of the obstacles. For touching an obstacle, the team receives a penalty.
+  The fastest team with the fewest penalty points to reach the delivery
+  zone wins this challenge. All other teams are ranked according to
+  how fast they were and how many penalties they conceived.
+  
+  \paragraph{Whac-a-Mole.~}
+  A single robot is placed somewhere on the field. It has to detect
+  the single shining signal unit on the play field. As soon as it puts
+  a puck underneath it, the signal unit is switched off and another
+  random signal unit is switched on. The goal of the challenge is to
+  switch as many signal units as possible within a given time
+  frame. Teams are ranked according to the number of turned-off
+  signals.
+  
+
+  \paragraph{Free challenge.~}
+  Each team will be given 5 minutes to showcase their robot team, e.g.
+  show some new robotics developments. The team leaders of
+  non-presenting team will judge the performance and rate it with
+  points between 0--10.  The team with the most points will win this
+  challenge. The other teams are ranked in decreasing point order.
+
+
+  The technical challenge is conducted in the following way: The
+  team leader of each participating team agree on a date and time
+  during the tournament for the Technical Challenge in their first
+  Team leader Meeting. Each team can register for any of the
+  challenges. All team leaders have to be present at the time of the
+  challenge to judge the other teams. The OC is responsible to conduct
+  the Technical Challenge and can appoint team leaders to support in
+  conducting the challenges. Each challenge will have a separate
+  ranking. In each ranking, the team on the last rank will receive 0
+  points, the last-but-one ranked team will receive 1 point etc. The
+  points for each ranking will be added and the team with the most
+  points accrued over all challenges will be awarded with the
+  LLSF Technical Challenge Award.
+
+\end{rulechange}
 
 \begin{table}[thpb]
-  \begin{shaded}
   \centering
-  \begin{tabularx}{\linewidth}{l|X}
+  \mytable{
+    \begin{tabularx}{\linewidth}{l|X}
   \multicolumn{1}{l}{Issue} &\multicolumn{1}{l}{Sanction}\\\hline
   Premature movement & No robot is allowed to move until the referee
   announced the start of the match The faulty robot will be grounded
@@ -1434,74 +1538,13 @@ decision basis of the referees without being exhaustive or binding.
   should be self-explanatory Upon disregard, the referee will impose
   sanctions ranged from time punishments to the team's complete
   removal from the tournament.\\%\hline
-  \end{tabularx}  
+  \end{tabularx}  }
   \caption{Infringements}
   \label{tab:infringements}
     
-  \end{shaded}
-
 \end{table}
 
-The abidance of these rules will be monitored by at least two
-referees.  One ``field'' referee will overlook the competition
-area. The field refereee is allowed to enter the area at any
-time. Accidental moving of a puck or similar unintended tampering
-resulting from the referees present on the field must be coped with. A
-second "station" referee operates the control station for the refbox
-to issue the initial start command and monitor the game flow and the
-correctness of the digital representation and automatical scoring.
 
-\begin{rulechange}
-  \subsection{Technical Challenge}
-  
-  Within the league, the technical advances should be documented from
-  year to year. Therefore, the Technical Challenge is introduced.
-  Each participating team should prepare for participating in any
-  number the following tasks:
-
-
-  \paragraph{Collision avoidance.~}
-  The robot is to show that it avoids other obstacles and robots.
-  Therefore the robot must drive from input storage to the delivery zone.
-  However, the paths between the input storage and the delivery zone will
-  be blocked randomly by static obstacles and the robot must not touch any
-  of the obstacles. For touching an obstacle, the team receives a penalty.
-  The fastest team with the fewest penalty points to reach the delivery
-  zone wins this challenge. All other teams are ranked according to
-  how fast they were and how many penalties they conceived.
-  
-  \paragraph{Whac-a-Mole.~}
-  A single robot is placed somewhere on the field. It has to detect
-  the single shining signal unit on the play field. As soon as it puts
-  a puck underneath it, the signal unit is switched off and another
-  random signal unit is switched on. The goal of the challenge is to
-  switch as many signal units as possible within a given time
-  frame. Teams are ranked according to the number of turned-off
-  signals.
-  
-  \paragraph{Free challenge.~}
-  Each team will be given 5 minutes to showcase their robot team, e.g.
-  show some new robotics developments. The team leaders of
-  non-presenting team will judge the performance and rate it with
-  points between 0--10.  The team with the most points will win this
-  challenge. The other teams are ranked in decreasing point order.
-
-
-  The technical challenge is conducted in the following way: The
-  team leader of each participating team agree on a date and time
-  during the tournament for the Technical Challenge in their first
-  Team leader Meeting. Each team can register for any of the
-  challenges. All team leaders have to be present at the time of the
-  challenge to judge the other teams. The OC is responsible to conduct
-  the Technical Challenge and can appoint team leaders to support in
-  conducting the challenges. Each challenge will have a separate
-  ranking. In each ranking, the team on the last rank will receive 0
-  points, the last-but-one ranked team will receive 1 point etc. The
-  points for each ranking will be added and the team with the most
-  points accrued over all challenges will be awarded with the
-  LLSF Technical Challenge Award.
-
-\end{rulechange}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%
@@ -1634,7 +1677,7 @@ motor rotation.
 The motor and gear arrangement is shown in
 Figure~\ref{apx:fig:driveunit}.
 
-\begin{figure}[tbhp]
+\begin{figure}[tbh]
 \centering
 \includegraphics{driveunit.png}
 \caption{Drive unit with motor (1), encoder (2), omnidirectional wheel
@@ -1800,7 +1843,7 @@ compression, e.g. use the low cost Logitech web camera C250.
       Voltage					&	\SI{24}{\volt} \\
       Current					&	3 $\times$ \SI{40}{\milli\ampere} \\
       Kind of current			&	DC \\
-      Operating mode			&	\SI{-20}{\degreeCelsius} to \SI{+50}{\degreeCelsius} \\
+      Operating mode			&	\SIrange{-20}{+50}{\degreeCelsius} \\
       Signaltype				&	Static LED \\
       Signal					&	Ultrabright LED\\
       Source					&	Festo \# 549843 \\
@@ -1826,7 +1869,7 @@ compression, e.g. use the low cost Logitech web camera C250.
       Housing material Plastic					& 	PBT-GF30-V0, black \\
       Material active face Plastic				& 	PA6-GF30, yellow \\
       Operating voltage
-      & 	\si{10} $\ldots$ \SI{30}{\volt DC} \\
+      & 	\SIrange{10}{30}{\volt.DC} \\
       DC rated operational current				& 	$\le$ \SI{80}{\milli\ampere} \\
       Data transfer								& 	inductance coupling \\
       Working frequency							& 	\SI{13.56}{\mega\hertz} \\
@@ -1845,14 +1888,16 @@ compression, e.g. use the low cost Logitech web camera C250.
 \end{table}
 
 \subsubsection{Wifi equipment}
+\label{sec:wifi-equipment}
 \begin{table}[H]
   \centering
-  \mytable{\begin{tabularx}{1\linewidth}{l|X}
+  \mytable{
+    \begin{tabularx}{1\linewidth}{l|X}
       \hline
       Festo AP		&	LANCOM L-322agn \\
-      Transfer rate		&	Up to 108 Mbps \\
+      Transfer rate		&	Up to \SI{108}{\mega\bit\per\second} \\
       Data link protocol	&	802.11 a/g/n \\
-      Frequency			&	5.0 Ghz \\
+      Frequency			&	\SI{5.0}{\giga\hertz} \\
       IP-distribution		&	172.26.200.xxx for LAN clients(DHCP) \\
       &	172.26.101.xxx for the Robotino devices \\
       &	172.26.1.xxx for Robotinos \\
@@ -1862,13 +1907,13 @@ compression, e.g. use the low cost Logitech web camera C250.
       &	RobotinoEvent.1 \\
       & RobotinoEvent.2 \\
       Festo Clients		&	3COM WL-560 \\
-      Power Supply		&	Clients: 12 VDC, 1A,\\
+      Power Supply		&	Clients: \SI{12}{\volt}, \SI{1}{\ampere},\\
       & 	Most Laptops cannot power them \\
       & 	via USB! \\
       Connector			&	Ethernet \\
       
 %      \hline
-    \end{tabularx}}
+    \end{tabularx} }
     \caption{Technical specification of the signal}
 	\label{apx:tab:wifi}
 \end{table}
@@ -1876,20 +1921,21 @@ compression, e.g. use the low cost Logitech web camera C250.
 \subsubsection{Data carrier}
 \begin{table}[H]
   \centering
-  \mytable{\begin{tabularx}{\linewidth}{l|X}
+  \mytable{
+    \begin{tabularx}{\linewidth}{l|X}
       \hline
-      Dimension									&	\diameter  20 mm \\
-      height										&	2.5 mm \\
+      Dimension									&	\diameter  \SI{20}{\milli\metre} \\
+      Height										&	\SI{2.5}{\milli\metre} \\
       Data transfer								&	inductance coupling \\
-      Working frequency							&	13.56 MHz \\
+      Working frequency							&	\SI{13.56}{\mega\hertz} \\
       Memory 										&	read/write \\	
       Memory type									&	EEPROM \\
-      Memory size									&	128 Byte \\
-      Freely usable memory						&	112 Byte \\
+      Memory size									&	\SI{128}{\byte} \\
+      Freely usable memory						&	\SI{112}{\byte} \\
       Number of read operations					&	unlimited \\
       Number of write operations					&	105 \\
-      Typical read time							&	2 ms/byte \\
-      Typical write time							&	3 ms/byte \\
+      Typical read time							&	\SI{2}{\milli\second\per\byte} \\
+      Typical write time							&	\SI{3}{\milli\second\per\byte} \\
       Radio communication and protocol standards	&	ISO 15693 \\
       
       % \hline
