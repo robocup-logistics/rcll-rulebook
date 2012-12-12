@@ -1600,32 +1600,41 @@ correctness of the digital representation and automatical scoring.
 The mobile robot system Robotino® is a platform with an open
 mechanical interface for the integration of additional mechanical
 devices and an open electrical interface to integrate easily
-additional sensors or motors of devices. Power is supplied via two 12
-[V] lead gel batteries which permit a running time of up to two hours.
-The scope of delivery likewise includes a charging device. Robotino®
-is driven by 3 independent, omnidirectional drive units. They are
-mounted at an angle of 120° to each other. The three omnidirectional
-drive units of Robotino® , defines the robot as being holonomic,
-meaning that the controllable degrees of freedom equals the total
-degrees of freedom of the robot. The drive units are integrated in a
-sturdy, laser welded steel chassis. The chassis is protected by a
-rubber bumper with integrated switching sensor.
+additional sensors or motors of devices. Power is supplied via two
+\SI{12}{\volt} lead gel batteries which permit a running time of up to
+two hours.  The scope of delivery likewise includes a charging
+device. Robotino® is driven by 3 independent, omnidirectional drive
+units. They are mounted at an angle of \ang{120} to each other. The
+three omnidirectional drive units of Robotino® , defines the robot as
+being holonomic, meaning that the controllable degrees of freedom
+equals the total degrees of freedom of the robot. The drive units are
+integrated in a sturdy, laser welded steel chassis. The chassis is
+protected by a rubber bumper with integrated switching sensor.
 
 \subsubsection{Robot dimensions}
-\begin{description}
-	\item[Diameter] 370 mm
-	\item[Height including housing] 210 mm
- 	\item[Overall weight] approx. 11 kg
- 	\item[Maximal payload] about 6 kg
- \end{description}
+\begin{itemize}
+	\item[] \textbf{Diameter:} \SI{370}{\milli\metre}
+	\item[] \textbf{Height including housing:} \SI{210}{\milli\metre}
+ 	\item[] \textbf{Overall weight:} approx. \SI{11}{\kilogram}
+ 	\item[] \textbf{Maximal payload:} about \SI{6}{\kilogram}
+ \end{itemize}
 
 \subsubsection{Drive Unit}
-Each of the 3 drive units consists of the following components:
- DC Dunker motor with nominal speed of 3600 rpm and nominal torque of 3.8 Ncm. Integrated planetary gear unit with a gear ratio of 4:1. Omnidirectional wheels of diameter of 80 mm. Toothed belt with gear wheels providing a transmission ratio of 4:1.
+Each of the 3 drive units consists of the following components: DC
+Dunker motor with nominal speed of \SI{3600}{rpm} and nominal torque
+of \SI{3.8}{\newton\centi\metre}. Integrated planetary gear unit with
+a gear ratio of 4:1. Omnidirectional wheels of diameter of
+\SI{80}{\milli\metre}. Toothed belt with gear wheels providing a
+transmission ratio of 4:1.
+%
+Altogether this provides a gear transmission ratio of
+16:1. Incremental encoder with a resolution of 2048 increments per
+motor rotation.
+%
+The motor and gear arrangement is shown in
+Figure~\ref{apx:fig:driveunit}.
 
-Altogether this provides a gear transmission ratio of 16:1. Incremental encoder with a resolution of 2048 increments per motor rotation.
-
-\begin{figure}[h]
+\begin{figure}[tbhp]
 \centering
 \includegraphics{driveunit.png}
 \caption{Drive unit with motor (1), encoder (2), omnidirectional wheel
@@ -1639,38 +1648,40 @@ a Atmel microprocessor of the controller board of Robotino®.
 \subsubsection{Sensors}
 
 Robotino® is equipped with 9 infrared distance measuring sensors which
-are mounted in the chassis at an angle of 40° to one another. Robotino®
-can scrutinise all surrounding areas for objects with these sensors.
-Each of the sensors can be queried individually via the controller
-board. Obstacles can thus be avoided, clearances can be maintained and
-bearings can be taken on a selected target. The sensors are capable of
-accurate or relative distance measurements to objects at distances of 4
-to 30 cm. Sensor connection is especially simple including just one
-analogue output signal and supply power. The sensors’ evaluation
-electronics determines distance and read it out as an analogue signal.
-The anti-collision sensor is comprised of a switching strip which is
-secured around the entire circumference of the chassis. A reliably
-recognisable signal is thus transmitted to the controller unit.
-Collisions with objects at any point on the housing are detected and,
-for example, Robotino® is brought to a standstill. The inductive
-proximity sensor is supplied as an additional component. It serves to
-detect metallic objects on the floor and is used for continuous-path
-control, e.g. it might be used to detect the blue lines (metallic
-stripes) on hockey field. It reads out signals of varying strength
-depending upon whether it is located in the middle or at the edge of
-the metal strip. Path tracking can thus be controlled in a
-differentiated fashion.
+are mounted in the chassis at an angle of \ang{40} to one
+another. Robotino® can scrutinise all surrounding areas for objects
+with these sensors.  Each of the sensors can be queried individually
+via the controller board. Obstacles can thus be avoided, clearances
+can be maintained and bearings can be taken on a selected target. The
+sensors are capable of accurate or relative distance measurements to
+objects at distances of \SI{4}{\centi\metre} to
+\SI{30}{\centi\metre}. Sensor connection is especially simple
+including just one analogue output signal and supply power. The
+sensors’ evaluation electronics determines distance and read it out as
+an analogue signal.  The anti-collision sensor is comprised of a
+switching strip which is secured around the entire circumference of
+the chassis. A reliably recognisable signal is thus transmitted to the
+controller unit.  Collisions with objects at any point on the housing
+are detected and, for example, Robotino® is brought to a
+standstill. The inductive proximity sensor is supplied as an
+additional component. It serves to detect metallic objects on the
+floor and is used for continuous-path control, e.g. it might be used
+to detect the blue lines (metallic stripes) on hockey field. It reads
+out signals of varying strength depending upon whether it is located
+in the middle or at the edge of the metal strip. Path tracking can
+thus be controlled in a differentiated fashion.
 
 The inductive proximity sensor must be attached to the mounting
-furnished for this purpose, and must be connected to the I/O interface.
-The output voltage is 0 to 10 [V]. The sensing range is 0 to 6 mm. Path
-tracking can also be implemented with the two included diffuse sensors.
-Flexible fibre optic cables are connected to a fibre-optics unit which
-works with visible red light. Reflected light is detected. Different
-surfaces and colours produce different degrees of reflection. However,
-gradual differences in reflected light cannot be detected. The sensors
-must be attached to the mountings furnished for this purpose, and must
-be connected to the I/O interface.
+furnished for this purpose, and must be connected to the I/O
+interface.  The output voltage is \SI{0}{\volt} to \SI{10}{\volt}. The
+sensing range is \SI{0}{\milli\metre} to \SI{6}{\milli\metre}. Path
+tracking can also be implemented with the two included diffuse
+sensors.  Flexible fibre optic cables are connected to a fibre-optics
+unit which works with visible red light. Reflected light is
+detected. Different surfaces and colours produce different degrees of
+reflection. However, gradual differences in reflected light cannot be
+detected. The sensors must be attached to the mountings furnished for
+this purpose, and must be connected to the I/O interface.
 
 Robotino® is equipped with a colour webcam. The webcam is equipped with
 a USB interface. Also, there will be integrated a digital Gyroscope
@@ -1697,14 +1708,13 @@ a 1 GB flash card. There are numerous communication interfaces on
 board:
 
 \begin{itemize}
-	\item 2x 100 Mbit Ethernet
-	\item	2x external USB, 1x on-board USB-connector
-	\item	2 x RS232
-	\item	Parallel port and VGA port
-	\item	Wireless LAN Access Point following the standards 802.11.g and
-		802.11.b. 
-	\item	The access point can be switched into a client mode.
-		As an option you may use WPA2- coding.
+\item 2 $\times$ 100 Mbit Ethernet
+\item 2 $\times$ q external USB, 1 $\times$ on-board USB-connector
+\item 2 $\times$  RS232
+\item 1 $\times$ Parallel port and 1 $\times$ VGA port
+\item Wireless LAN Access Point following the standards 802.11/b/g.
+\item The access point can be switched into a client mode.  As an
+  option you may use WPA2-coding.
 \end{itemize}
 
 \subsubsection{Software}
@@ -1779,17 +1789,18 @@ compression, e.g. use the low cost Logitech web camera C250.
   \centering
   \mytable{\begin{tabularx}{\linewidth}{l|X}
       \hline
-      Dimension \&	diameter&	36 mm \\
-      height(total)		 	&	147 mm \\
-      Segment height 			&	34 mm, including 5 mm unlighted border \\
-      Lifespan				&	max. 50.000 h \\
-      Connector				&	Bottom, 2m supplied 
+      Dimension \&	diameter&	\SI{36}{\milli\metre} \\
+      height(total)		 	&	\SI{147}{\milli\metre} \\
+      Segment height 			&	\SI{34}{\milli\metre},
+      including \SI{5}{\milli\metre} unlighted border \\
+      Lifespan				&	max. \SI{50.000}{\hour} \\
+      Connector				&	Bottom, \SI{2}{\metre} supplied 
       Compatible to the I/O-Terminal of MPS(r) units. \\
       Safety					&	IP65 \\
-      Voltage					&	24V \\
-      Current					&	3 times 40 mA \\
+      Voltage					&	\SI{24}{\volt} \\
+      Current					&	3 $\times$ \SI{40}{\milli\ampere} \\
       Kind of current			&	DC \\
-      Operating mode			&	-20°C to +50°C \\
+      Operating mode			&	\SI{-20}{\degreeCelsius} to \SI{+50}{\degreeCelsius} \\
       Signaltype				&	Static LED \\
       Signal					&	Ultrabright LED\\
       Source					&	Festo \# 549843 \\
@@ -1806,25 +1817,28 @@ compression, e.g. use the low cost Logitech web camera C250.
   \mytable{\begin{tabularx}{1\linewidth}{l|X}
       \hline
       Technical data of the read/write head		&	Housing rectangular \\
-      Housing and working dimensions 				&	40*40 mm with the centred RFID
+      Housing and working dimensions 				&
+      \SI{40x40}{\milli\metre}  with the centred RFID
       tag. \\
-      Housing height								& 	65 mm \\
+      Housing height
+      & \SI{65}{\milli\metre} \\ 
       Operating voltage							&	DC \\
       Housing material Plastic					& 	PBT-GF30-V0, black \\
       Material active face Plastic				& 	PA6-GF30, yellow \\
-      Operating voltage							& 	10…30 VDC \\
-      DC rated operational current				& 	$\le$ 80 mA \\
+      Operating voltage
+      & 	\si{10} $\ldots$ \SI{30}{\volt DC} \\
+      DC rated operational current				& 	$\le$ \SI{80}{\milli\ampere} \\
       Data transfer								& 	inductance coupling \\
-      Working frequency							& 	13.56 MHz \\
+      Working frequency							& 	\SI{13.56}{\mega\hertz} \\
       Radio communication and protocol standards	&	ISO 15693 \\
-      Read/write distance							&	max. 115 mm \\
+      Read/write distance							&	max. \SI{115}{\milli\metre} \\
       Output function								&	4-wire, read/write \\
-      Electrical connection 						&	Connectors M12 x 1 \\
-      Vibration resistance						&	55 Hz (1 mm) \\
-      Shock resistance							&	30 g (11 ms) \\
-      Protection class							&	IP67 \\
-      Operating voltage display					& 	LED green \\
-%      \hline
+      Electrical connection 						&	Connectors M12 $\times$ 1 \\
+       Vibration resistance						&	\SI{55}{\hertz} (\SI{1} {\milli\metre}) \\
+       Shock resistance							&	\SI{30}{\gram} (\SI{11}{ \milli\second}) \\
+       Protection class							&	IP67 \\
+       Operating voltage display					& 	LED green \\
+% %      \hline
     \end{tabularx}}
   \caption{Technical specification of the signal}
   \label{apx:tab:rfidproperties}
