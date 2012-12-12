@@ -17,7 +17,6 @@
 \usepackage{fourier}
 %\newcommand\rulechange[1]{\begin{shaded}#1\end{shaded}\marginpar{\LARGE\danger}}
 
-
 %% MACROS %%%%%%%%%%%%%%%%%%%
 
 % does not work for me, gives:
@@ -30,17 +29,25 @@
 % { \endMakeFramed}
 \newenvironment{rulechange}{}{}
 
+\usepackage{siunitx}
 
 \usepackage{framed,xcolor}
 \colorlet{shadecolor}{gray!25}
 \newcommand{\Robotino}{Robotino\textregistered}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
 
+\newsavebox{\myt}
+\newcommand{\mytable}[1]{\savebox{\myt}{#1}\tikz\node[fill=gray!25!white]{\usebox{\myt}};}
 
 \newcommand{\refsec}[1]{Section~\ref{#1}}
 \newcommand{\reffig}[1]{Figure~\ref{#1}}
 \newcommand{\refdef}[1]{Definition~\ref{#1}}
 %\newcommand{\reflst}[1]{Listing~\ref{#1}}
 \newcommand{\reflst}[1]{Figure~\ref{#1}}
+
+\usepackage{floatrow}
+\newfloatcommand{capbtabbox}{table}[][\FBwidth]
 
 
 %% GRAPHICSX %%%%%%%%%%%%%%%%%%%
@@ -97,6 +104,7 @@
 \usepackage{float}
 \restylefloat{table}
 
+\usepackage[TABBOTCAP]{subfigure}
 %% INPUTENC %%%%%%%%%%%%%%%%%%%
 \usepackage{wasysym}
 \usepackage[utf8]{inputenc}
@@ -152,24 +160,25 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction} \label{sec:intro}
 
-\subsection{Preamble} \label{sec:preamble}
+\subsection*{Preamble} \label{sec:preamble}
 
 The future of Production Industry lies with smarter systems.  With
 current developments pursuing the goal of more aware, more
 decentralised behaviours in factories, a scientific platform for
-applied research was required.  LLSF is determined to develop into a
-state-of-the-art platform for mobile robotics education. This
-industrial motivated league keeps the focus on challenges promoting
-precise actions, further encouraging external data supported autonomy.
+applied research was required.  The RoboCup Logistics League Sponsored
+by Festo (LLSF) is determined to develop into a state-of-the-art
+platform for mobile robotics education. This industrial motivated
+league keeps the focus on challenges promoting precise actions,
+further encouraging external data supported autonomy.
 
 This year’s competition environment is laid out in the pages to come.
 It ensures the same and fair circumstances for all participants, it
-however is neither meant to dictate nor suggest the way of approach to
-fulfill the task, but is meant to develop LLSF further towards the
-motivation of Automated Guided Vehicles (AGV) in industrial
-applications. Current challenges in developing industry wide standards
-for Cyber Physical Production Systems (CPPS) ask for plug \& produce
-able systems.
+however is neither meant to dictate nor suggest the way how to fulfill
+the task, but is meant to develop the LLSF further towards deploying
+Automated Guided Vehicles (AGV) in industrial applications. Current
+challenges in developing industry-wide standards for Cyber Physical
+Production Systems (CPPS) are, for instance, to design
+plug-and-produce systems.
 
 After an exciting Robocup in Mexico, we look forward to a new scale of
 competition that will emerge from initiatives around the globe. In
@@ -184,10 +193,10 @@ issues you like to discuss or gaps that might have an impact on the
 competition, so we can keep the necessity for rule discussions at the
 RoboCup event to a minimum. We are open for all kinds of suggestions;
 the set of rules will be fixed at 01/01/2013 and revised in April 2013
-once the German Open is over.
+after the German Open 2013 competition.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{The Task -- A challenge of precision within a flexible
+\subsection{The task --- a challenge of precision within a flexible
   deployment system} \label{sec:task}
 
 Our aim is to simulate autonomous guided vehicles (AGV). In opposition
@@ -198,42 +207,51 @@ against the clock.
 
 The main task is a staged production cycle of different product
 variants with self-crafted intermediate products and the transport of
-the final product to the designated zone. This is the genuine goal and
+the final product to the delivery zone. This is the genuine goal and
 will be rewarded considerably higher than partial fulfillment of the
-task. The Robotinos transport hockey pucks depicting the (intermediate)
-products between single processing machines. Generally a machine is a
-signal light with a RFID reader as described in appendix \ref{apx:sec:engref}. If a
-puck is fed into the machine, it reads it's id and reacts according to
-it's particular specification. If possible, the product is then
+task. The Robotinos transport hockey pucks which act as a placeholder
+for (intermediate) products between the processing
+machines. Basically, a machine is a signal light with an RFID reader
+as described in Appendix \ref{apx:sec:engref}. If a puck is fed into
+the machine, its ID tag is read and the machine reacts according to
+its particular machine specification. If possible, the product is then
 transformed into a new state: a new subassembly is produced. For each
-product variant (see \refsec{sec:prodportfolio} for details) it is
-required to produce the related subassemblies step-by-step. Transformations can rely on more than one puck as input to be
-triggered.
+product variant (cf. \refsec{sec:prodportfolio} for details), it is
+required to produce the related subassemblies
+step-by-step. Transformations can rely on more than one puck as input
+to be triggered.
 
-This game flow is controlled by an referee box broadcasting
-information via wifi (see \refsec{sec:refbox}). It is separated in
-different phases: In a first exploration phase (see 
-\refsec{sec:expphase}), the robotinos can receive scores for
-discovering and publishing the until then unknown types of machines. After this
-initial phase, the refbox then announces the types of all machines and
-the actual production task as described in detail in 
-\refsec{sec:match-startup} begins.
+This game flow is controlled by a referee box broadcasting information
+via wifi (see \refsec{sec:refbox}). It is divided into two different
+phases: in an exploration phase (see \refsec{sec:expphase}) where the
+Robotinos can receive scores for discovering and publishing the yet
+unknown types of the different machines on the field. After this
+initial phase, the referee box then announces the types of all
+machines and the the second phase of the game, the actual production
+task as described in detail in \refsec{sec:match-startup}, begins.
 
-The whole factory area can be used as an intermediate storage. Finally,
-the successfully assembled product has to be delivered to the correct
-delivery gate and get dismounted into its delivery slot. The factory
-area has to be treated in the best possible way. Theoretical damage
-will result in minor punishment. This includes machines as well as
-pallet carriers.
+The whole factory area can be used as an intermediate
+storage. Finally, the successfully assembled product has to be
+delivered to the correct delivery gate and get dismounted into its
+delivery slot. The factory area has to be treated in the best possible
+way. Any possible damage to the field or the machines will be avenged
+by the referee.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Agreements \& Regulations} \label{sec:agreements}
 
 The Logistics League follows a certain design philosophy. All teams
-are obliged to use the Robotino robotic system of Festo Didactic Gmbh
-\& Co. KG with certain freedoms and limitations. The usage of all
-currently publicly available revisions is in
-order, see chapter \ref{sec:robotino} for details.
+are obliged to use the Robotino robotic system from Festo Didactic
+Gmbh \& Co. KG with certain freedoms and limitations. The usage of all
+currently publicly available revisions is in order, see Section
+\ref{sec:robotino} and Appendix~\ref{apx:sec:engref} for further
+details.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{League Administration} \label{sec:commitees}
 \subsection{Technical Committee 2013} \label{sec:tc}
 % Alphabetical order by last name
@@ -246,76 +264,83 @@ Germany\\
 
 \medskip
 
-\hspace{-\parindent}To reach the TC use
-\url{robocup-logistics-tc@lists.kbsg.rwth-aachen.de}.
+\noindent
+To get into contact with the TC use the mailing list\\
+\centerline{\url{robocup-logistics-tc@lists.kbsg.rwth-aachen.de}.}
 
-\subsection{Organizing Committee 2013} \label{sec:oc}
-\emph{Alexander Ferrein}, FH Aachen University of Applied Sciences,
+\subsection{Organizing Committee 2013} \label{sec:oc} \emph{Alexander
+  Ferrein}, FH Aachen University of Applied Sciences,
 Aachen, Germany\\
-\emph{Ulrich Karras}, Festo Didactic GmbH
-\textbf{Add missing members}
+\emph{Ulrich Karras}, Festo Didactic GmbH, Denkendorf, Germany
+\todo[inline]{Add missing members}
 
 \medskip
 
-\hspace{-\parindent}To reach the OC use
-\url{robocup-logistics-oc@lists.kbsg.rwth-aachen.de}.
+\noindent
+To get into contact with the OC use the mailing list\\
+\centerline{\url{robocup-logistics-oc@lists.kbsg.rwth-aachen.de}.}
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \section{Competition Area} \label{sec:area}
 
+
+\subsection{Field sizes} \label{sec:competition-area}
 The point of origin for each statement within this rulebook that uses
 relative coordinates is the bottom left corner of the competition area
 namely the corner near the recycling unit to the left of the outgoing
 goods area. All indicated sizes of mark-ups are to be considered
 outside dimensions.
 
-The competition area is a 5.625m * 5.625m large arena with several
-RFID-mounted machines, mark-ups, a stock of raw-material and a
-delivery zone. It is surrounded by boards, 0.5 m of height to reduce
+The competition area is a \SI{5.625 x 5.625}{\metre} large arena with
+several RFID-mounted machines, mark-ups, a stock of raw-material and a
+delivery zone. It is surrounded by boards, \SI{0.5}{\metre} of height to reduce
 object interference from outside the area. The default width for
-mark-ups is 19 mm, the default color is black.
+mark-ups is \SI{19}{\milli\metre}, the default color is black.
 
-The factory area spans across 5.625 m x 4.8 m. There are two
-boundaries, set by two mark-ups, 0.4 m from the top and bottom borders
-of the competition area. The factory area is joined by two opposing
-0.4 m x 1.0 m zones at the top and bottom middle. The top zone is
-painted blue marking the input store area with the late order
-insertion point to the right. The insertion point is 0.6 m of width
-with the insertion slot in its middle. This spot is a 0.1 m times 0.1
-m empty square that will be equipped with a pallet carrier to start
-the late order challenge. The space between the recycling unit and
-the late order insertion point, as well as the space to the left of
-the input store area is called robot insertion area.
+The factory area spans across \SI{5.625 x 4.8}{\metre}. There are two
+boundaries, set by two mark-ups, \SI{0.4}{\metre} from the top and
+bottom borders of the competition area. The factory area is joined by
+two opposing \SI{0.4 x 1.0}{\metre} zones at the top and bottom
+middle. The top zone is painted blue marking the \textit{input storage
+  area} with the \textit{late order insertion point} to the right. The
+insertion area is \SI{0.6}{\metre} of width with the insertion slot in
+its middle. This spot is a \SI{0.1 x 0.1}{\metre} empty square that
+will be equipped with a pallet carrier to start the late order
+challenge. The space between the recycling unit and the late order
+insertion point, as well as the space to the left of the input storage
+area is called \textit{robot insertion area}.
 
-The bottom zone is marked green and houses the three delivery gates.
-Each gate is of 0.3m width with 0.1m space to the next delivery gate
-separated by black mark-ups.
+The bottom zone is marked green and houses the three \textit{delivery
+  gates}.  Each gate is of \SI{0.3}{\metre} width with
+\SI{0.1}{\metre} space to the next delivery gate separated by black
+mark-ups.
 
-The delivery gates feature one signal per gate placed middle of each
-gate zone. The delivery slot resides below a unit that is identical in
-construction to a production machine. The three RFID devices within
-these gates feature a black centered square of 0.1 m x 0.1 m called
-delivery slot and residing exactly below the RFID device. Only a
-pallet carrier that is delivered into the slot completely will be
-considered for scoring, i.e. no part of the pallet carrier may leave
-the outer slot boundary.
+The delivery gates feature one signal per gate placed in middle of
+each gate zone. The delivery slot resides below a unit that is
+identical in construction to a production machine. The three RFID
+devices within these gates feature a black centered square of \SI{0.1
+  x 0.1}{\metre} called delivery slot and residing exactly below the
+RFID device. Only a pallet carrier that is delivered into the slot
+completely will be considered for scoring, i.e. no part of the pallet
+carrier may be outside the slot boundary.
 
 A total of 13 machines are placed within the competition area. 10
 machines representing the 3 staged production processes, 2 machines to
 recycle consumed pallet carrier and 1 test station. The machines of
 the production process are placed within the factory area as stated in
-the table below. They are aligned in a 90$^\circ$ angle. Each production
+the table below. They are aligned in a \ang{90} angle. Each production
 machine resides in the centre of a squared machine space spanned by
-standard mark-ups with 0.6 m each side.
+standard mark-ups with \SI{0.6}{\metre} each side.
 
 The 3 additional machines are arranged in the corners of the
-competition area, and aligned 45$^\circ$, facing the center of the factory
-area. The top left corner will remain empty.
+competition area, and aligned at \ang{45}, facing the center of the
+factory area. The top left corner will remain empty. The competition
+area is shown in Figure~\ref{fig:competition-area}
 
-\begin{figure}[h]
+\begin{figure}[tbhp]
   \centering
   \begin{tikzpicture}[scale=2.6]
     % field outline
@@ -402,122 +427,200 @@ area. The top left corner will remain empty.
 \subsection{Coordinates of the Production Machines}
 \label{sec:coordinates}
 
-\begin{table}[h]
-  \centering
-  \begin{tabular}{l|r|r}
-    \multicolumn{1}{l}{Number} & \multicolumn{1}{l}{$X~[m]$} & \multicolumn{1}{l}{$Y~[m]$}\\ \hline
-    Machine 1 & 1.68 & 1.68 \\
-    Machine 2 & 3.92 & 1.68 \\
-    Machine 3 & 0.56 & 2.80 \\
-    Machine 4 & 1.68 & 2.80 \\
-    Machine 5 & 2.80 & 2.80 \\
-    Machine 6 & 3.92 & 2.80 \\
-    Machine 7 & 5.04 & 2.80 \\
-    Machine 8 & 1.68 & 3.92 \\
-    Machine 9 & 3.92 & 3.92 \\
-    Machine 10 & 5.04 & 3.92 \\
-    Recycling unit 1 & 0.20 & 0.20 \\
-    Recycling unit 2 & 5.40 & 5.40 \\
-    Test station &	5.40  &0.20 \\
-    Late order insertion point / slot & 	3.60 & 	5.35 \\
-    Delivery slot 1 & 	3.15 & 0.26 \\
-    Delivery slot 2 &	2.80 & 0.26 \\ 
-    Delivery slot 3 &	2.45 & 0.26 \\\hline
-  \end{tabular}
+The coordinates of the machine centres and the centres of the
+different field slotes are given in Table~\ref{tab:coordinates}.
 
-  \caption{Coordinates of production machines}
-  \label{tab:coordinates}
-\end{table}
+
+\begin{figure}
+\begin{floatrow}
+\begin{minipage}[b]{0.5\linewidth}
+  \capbtabbox{%
+    \centering
+    \mytable{
+    \begin{tabularx}{\linewidth}{l|R|R}
+      \multicolumn{1}{l}{Unit} & \multicolumn{1}{l}{$x$~[\si{\metre}]} & \multicolumn{1}{l}{$y$~[\si{\metre}]}\\ \hline
+      Machine 1 & 1.68 & 1.68 \\
+      Machine 2 & 3.92 & 1.68 \\
+      Machine 3 & 0.56 & 2.80 \\
+      Machine 4 & 1.68 & 2.80 \\
+      Machine 5 & 2.80 & 2.80 \\
+      Machine 6 & 3.92 & 2.80 \\
+      Machine 7 & 5.04 & 2.80 \\
+      Machine 8 & 1.68 & 3.92 \\
+      Machine 9 & 3.92 & 3.92 \\
+      Machine 10 & 5.04 & 3.92 \\
+      Recycling unit 1 & 0.20 & 0.20 \\
+      Recycling unit 2 & 5.40 & 5.40 \\
+      Test station &	5.40  &0.20 \\
+      Late order insertion point / slot & 	3.60 & 	5.35 \\
+      Delivery slot 1 & 	3.15 & 0.26 \\
+      Delivery slot 2 &	2.80 & 0.26 \\ 
+      Delivery slot 3 &	2.45 & 0.26 \\%\hline
+    \end{tabularx}  
+}
+      
+  }{%
+    \caption{Coordinates of production machines}
+    \label{tab:coordinates} %
+  }
+
+  \end{minipage}
+  \quad\quad
+  \begin{minipage}[b]{0.2\linewidth}
+  \ffigbox{%
+    \centering
+    \includegraphics[width=\linewidth]{125px-Puck}    
+    
+  }{%
+  \caption{Puck}
+    \label{fig:puck}
+}
+\bigskip
+\ffigbox{
+%\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{Machine}
+%  \caption{Machine}
+%  \label{fig:machine}
+%\end{figure}
+
+}
+{  \caption{Machine}
+  \label{fig:machine}
+}
+\end{minipage}
+\end{floatrow}
+\end{figure}
+
+
+% \begin{table}[h]
+%   \centering
+%   \begin{tabular}{l|r|r}
+%     \multicolumn{1}{l}{Number} & \multicolumn{1}{l}{$X~[m]$} & \multicolumn{1}{l}{$Y~[m]$}\\ \hline
+%     Machine 1 & 1.68 & 1.68 \\
+%     Machine 2 & 3.92 & 1.68 \\
+%     Machine 3 & 0.56 & 2.80 \\
+%     Machine 4 & 1.68 & 2.80 \\
+%     Machine 5 & 2.80 & 2.80 \\
+%     Machine 6 & 3.92 & 2.80 \\
+%     Machine 7 & 5.04 & 2.80 \\
+%     Machine 8 & 1.68 & 3.92 \\
+%     Machine 9 & 3.92 & 3.92 \\
+%     Machine 10 & 5.04 & 3.92 \\
+%     Recycling unit 1 & 0.20 & 0.20 \\
+%     Recycling unit 2 & 5.40 & 5.40 \\
+%     Test station &	5.40  &0.20 \\
+%     Late order insertion point / slot & 	3.60 & 	5.35 \\
+%     Delivery slot 1 & 	3.15 & 0.26 \\
+%     Delivery slot 2 &	2.80 & 0.26 \\ 
+%     Delivery slot 3 &	2.45 & 0.26 \\\hline
+%   \end{tabular}
+
+%   \caption{Coordinates of production machines}
+%   \label{tab:coordinates}
+% \end{table}
+
+% \begin{figure}
+%   \centering
+%   \includegraphics[height=3cm]{125px-Puck}
+%   \caption{Puck}
+%   \label{fig:puck}
+% \end{figure}
+
 
 \subsection{The Pallet Carrier Puck}
-The data carrying RFID tag is mounted to a hockey puck. The tournament
-puck features a diameter of 7.5cm.
+The data-carrying RFID tag is attached to top of a hockey puck. The tournament
+puck features a diameter of \SI{7.5}{\centi\metre} and is shown in Figure~\ref{fig:puck}.
 
-\begin{figure}[h!]
-  \centering
-  \includegraphics[height=3cm]{125px-Puck}
-  \caption{Puck}
-  \label{fig:puck}
-\end{figure}
+% \begin{figure}
+%   \centering
+%   \includegraphics[height=3cm]{125px-Puck}
+%   \caption{Puck}
+%   \label{fig:puck}
+% \end{figure}
 
 \subsection{Machines}
 \label{sec:machines}
 
 \subsubsection{General Information}
 
-\begin{figure}[h]
-  \centering
-  \includegraphics[height=6cm]{Machine}
-  \caption{Machine}
-  \label{fig:machine}
-\end{figure}
+% \begin{figure}[h]
+%   \centering
+%   \includegraphics[height=6cm]{Machine}
+%   \caption{Machine}
+%   \label{fig:machine}
+% \end{figure}
 
 All machines are identical devices consisting of 
 \begin{itemize}
 \item one plate housing the RFID read/write device and
-\item one signal unit according to the figure above.
+\item one signal unit according to Figure~\ref{fig:machine}.
 \end{itemize}
 
 They share the same design and the same RFID device, with the overall
-size of 280 mm height, 160 mm of width and 100 mm of depth, see the
-engineering reference for further details. The default operating mode
-of all machines implies that only the green LED is turned on. This
-signals the machine being ready for input. The reading and writing
-process generally is a delicate process. To avoid corruption of the
-data carrier, it should not leave the working range of the RFID device
-once the processing or consuming is started. To enable the production
-process it is necessary to transport the pallet carrier accurately to
-the RFID device. A consumed pallet carrier has to stay within the
-machine space borders(no part of the puck being outside the mark-up)
-until the production cycle of that very machine has been
-completed. Production resulting from violating this requirement is
-considered junk and will not be rewarded. The machine always processes
-the required pallet carrier delivered last, all prior components will
-be consumed. All machines will start processing the data carrier as
-soon as they enter the diameter named below and change their operating
-mode according to the tables provided.
+size of (height $\times$ width $\times$ depth) \SI{280 x 160 x
+  100}{\milli\metre}. Confer also Appendix~\ref{apx:sec:engref} for
+  further details. The default operating mode of all machines implies
+  that only the green LED is turned on. This signals that the machine
+  is ready for input. The reading and writing process is a delicate
+  process. To avoid corruption of the data carrier, it should not
+  leave the working range of the RFID device once the processing or
+  consuming is started. To enable the production process it is
+  necessary to transport the pallet carrier accurately to the RFID
+  device. A consumed pallet carrier has to stay within the machine
+  space borders (no part of the puck being outside the mark-up) until
+  the production cycle of that very machine has been
+  completed. Products resulting from violating this requirement is
+  considered junk and will not be rewarded. The machine always
+  processes the required pallet carrier delivered last, all prior
+  components will be consumed. All machines will start processing the
+  data carrier as soon as it enters the machining zone as stated in
+  Section~\ref{sec:competition-area} and the machine changed its
+  operating mode according to the
+  Tables~\ref{tab:production-machines}, \ref{tab:recycling-unit} and
+  \ref{tab:reading-device}.
 
 
 \subsubsection{Production Machines}
-After processing the current data carrier: Yellow LED turned on The
-machine has finished processing the current data carrier and is
-waiting for the next subassembly. Green LED turned on The machine has
-finished the work order and is ready to receive the next batch of
-carriers. In order to complete the machines' work order the input
-materials have to be delivered one-by-one into the RFID device's
-action range. Multiple data carriers in range of the device will
-result in erroneous behavior of the device. Consumption of materials,
-like \s0 used in the production of \s2, will take 2 seconds. Unloading
-the machine can be done immediately after the operating mode changes
-away from processing. As long as the machines are used properly, they
-will not produce any junk.
+After processing the current data carrier, the yellow LED is turned
+on.  The machine has finished processing the current data carrier and
+is waiting for the next subassembly. If the green LED is turned on,
+the machine has finished the work order and is ready to receive the
+next batch of carriers. In order to complete the machines' work order
+the input materials have to be delivered one-by-one into the RFID
+device's action range. Multiple data carriers in range of the device
+will result in erroneous behaviour of the device. Consumption of
+materials, such as \s0 used in the production of \s2, will take 2
+seconds. Unloading the machine can be done immediately after the
+operating mode changes away from processing. As long as the machines
+are used properly, they will not produce any junk.
 
 \begin{table}[h]
   \centering
-  \begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
-    \multicolumn{1}{l}{Optical Feedback} &
-    \multicolumn{1}{l}{Operating mode} \\ \hline
-    All LEDs turned off &  	The machine is physically offline, caused by a real error which should not happen during the competition. \\
-    Red LED turned on &  	The machine is out of order \\
-    Green LED turned on &  	The machine is idle and ready.\\
-    Green and yellow LED turned on &  	The machine is processing or consuming the current data carrier. \\
-    Yellow LED flashing(at 2 Hz) & The machine detects wrong material.
-    This can be caused by data carriers that are already consumed,
-    subassemblies that do not fit to this machine type's work order or
-    corrupted data carriers. \\\hline
-  \end{tabularx}
+  \subtable[Optical Feedback]{\mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
+        \multicolumn{1}{l}{Optical Feedback} &
+        \multicolumn{1}{l}{Operating mode} \\ \hline
+        All LEDs turned off &  	The machine is physically offline, caused by a real error which should not happen during the competition. \\
+        Red LED turned on &  	The machine is out of order. \\
+        Green LED turned on &  	The machine is idle and ready.\\
+        Green and yellow LED turned on &  	The machine is processing or consuming the current data carrier. \\
+        Yellow LED flashing (at 2 Hz) & The machine detects wrong material.
+        This can be caused by data carriers that are already consumed,
+        subassemblies that do not fit to this machine type's work order or
+        corrupted data carriers. \\%\hline
+  \end{tabularx}}}
 
 
 \bigskip
 \begin{rulechange}
-  \begin{tabularx}{\linewidth}{l|X|X|X|l}
+\subtable[Machine Types]{\mytable{  \begin{tabularx}{\linewidth}{l|X|X|X|l}
     \multicolumn{1}{l}{ Type} & \multicolumn{1}{l}{Distribution} & \multicolumn{1}{l}{Input} & \multicolumn{1}{l}{Output} & \multicolumn{1}{l}{(Final)processing time[s]}\\\hline
     \m1 & 4 times & \s0 (Raw-material) & \s1 & $WT_1 = 3 \mbox{ to } 8~\mathrm{sec}$\\
     \m2 & 3 times & \s0; \s1 \s2; & \s2; one consumed container & $WT_2 = 15 \mbox{ to } 25~\mathrm{sec}$\\
     \m3 & 1 times &	\s0;\s1;\s2 & \p1; two consumed containers &$WT_3 = 40 \mbox{ to } 60~\mathrm{sec}$\\
     \m4 & 1 times &\s0;\s1;\s2 & \p2; two consumed containers &$WT_4 = 40\mbox{ to } 60~\mathrm{sec}$\\
     \m5 & 1 times &	\s0; & \p3; one consumed container &$WT_5 =40\mbox{ to } 60~\mathrm{sec}$
-  \end{tabularx}
+  \end{tabularx}}}
 \end{rulechange}
   \caption{Production Machines}
   \label{tab:production-machines}
@@ -533,19 +636,21 @@ will be randomly placed resulting in a the total of 10 court machines.
 
 \subsubsection{Recycling Unit (former market place)}
 The recycling unit processes all supplied loading carriers back to
-raw-material (\s0) within 2 seconds.
+raw-material (\s0) within 2 seconds. The optical feedback provided by
+the recycling unit differs from an ordinary production machines and is
+shown in Table~\ref{tab:recycling-unit}.
 
-\begin{table}[h]
+\begin{table}[tbhp]
   \centering
-  \begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
+  \mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
     \multicolumn{1}{l}{Optical Feedback} &\multicolumn{1}{l}{Operating
       mode}\\\hline
     All LEDs turned off & 	The machine is physically offline, caused by a real error which should not happen during the competition.\\
     Red LED turned on & 	The machine is out of order\\
     Green LED turned on & 	The machine is idle and ready.\\
     Green and yellow LED turned on & The machine is processing the
-    current data carrier.\\\hline
-  \end{tabularx}
+    current data carrier.\\%\hline
+  \end{tabularx}}
   \caption{Recycling Unit}
   \label{tab:recycling-unit}
 \end{table}
@@ -553,13 +658,14 @@ raw-material (\s0) within 2 seconds.
 
 
 \subsubsection{Reading device}
-The reading and visualizing the data carriers content happens almost
+Reading and visualizing the data carrier's content happens almost
 instantly after delivering the pallet carrier to the action range of
-the device.
+the device. The optical feedback is shown in
+Table~\ref{tab:reading-device}.
 
-\begin{table}[h]
+\begin{table}[tbhp]
   \centering
-  \begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
+  \mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
     \multicolumn{1}{l}{Optical Feedback} &\multicolumn{1}{l}{Stored
       data on the data carrier}\\\hline
     Green LED turned on &	The station is ready to read the next data carrier.\\
@@ -567,29 +673,32 @@ the device.
     Yellow LED turned on &	Raw-material (\s0) \\
     Red and yellow LEDs turned on & 	Subassembly 1 (\s1)\\
     Red LED turned on &	Subassembly 2 (\s2)\\
-    All LEDs turned on & The final product (\p{})\\\hline
-  \end{tabularx}
+    All LEDs turned on & The final product (\p{})\\%\hline
+  \end{tabularx}}
   \caption{Reading Device}
   \label{tab:reading-device}
 \end{table}
 
-\subsubsection{Delivery Gates} \begin{table}[h]
+\subsubsection{Delivery Gates} 
+
+\begin{table}[tbhp]
   \centering
-  \begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
+  \mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
     \multicolumn{1}{l}{Optical Feedback} &\multicolumn{1}{l}{Stored
       data on the data carrier}\\\hline
     Red LED turned on & This delivery gate is inactive.\\
     Red and green LED turned on & This gate is active, namely the designated gate.\\
-    \hline
-  \end{tabularx}
+%    \hline
+  \end{tabularx}}
   \caption{Delivery Gates}
   \label{tab:delivery-gates}
 \end{table}
 
 As soon as a pallet carrier is successfully delivered to the active
-gate, it will show the state of the data carrier as described above.
-This state will only long for some seconds and only for scoring
-reasons. There will be only one active gate at a time.
+gate, it will show the state of the data carrier as in
+Table~\ref{tab:delivery-gates}.  This state will only lasts for some
+seconds and only for indicating the score to the referee. There will
+be only one active gate at a time.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -600,21 +709,21 @@ reasons. There will be only one active gate at a time.
 All participants have to design their competition Robotinos within
 the following specifications:
 
-Any kind of sensors can be changed or added to the Robotino platform.
-However, it is not possible to implement sensors that require
-modifications outside the Robotino area (e.g. Northstar, indoor GPS).
-It is furthermore strictly forbidden to implement any kind of RFID
-device into the Robotino. There must be no changes to the controller
-or mechanical system. The pushing device is defined as a passive,
-non-mechanical load handling attachment. The robots peripherals must
-neither exceed the maximum total height of 0.7 m nor the 0.4 m
-diameter of the body cylinder. The only exception to this is the one
-default mounted pushing device per robot. The pushing device can be
-modified; it however must not exceed the following outside dimensions:
-0.25 m x 0.15 m x 0.05 m.
-
-\begin{rulechange}
-  It is allowed to install additional computing power on the
+\begin{itemize}
+\item Any kind of sensors can be changed or added to the Robotino
+  platform.  However, it is not possible to implement sensors that
+  require modifications outside the Robotino area (e.g. Northstar,
+  indoor GPS).  It is furthermore strictly forbidden to implement any
+  kind of RFID device into the Robotino. There must be no changes to
+  the controller or mechanical system. The pushing device is defined
+  as a passive, non-mechanical load handling attachment. The robots
+  peripherals must neither exceed the maximum total height of
+  \SI{0.7}{\metre} nor the \SI{0.4}{\metre} diameter of the body
+  cylinder. The only exception to this is the one default mounted
+  pushing device per robot. The pushing device can be modified; it
+  however must not exceed the following outside dimensions: \SI{0.25 x
+    0.15 x 0.05}{\metre}.
+\item It is allowed to install additional computing power on the
   \Robotino. This may either be in form of a notebook/laptop device or
   any other computing device that suits the size requirement of the
   \Robotino{} competition system. Furthermore, it is allowed to
@@ -622,10 +731,10 @@ modified; it however must not exceed the following outside dimensions:
   device may be used for team coordination and/or other
   purposes. However, communication among the robots and the off-field
   device is not granted during the competition.
-\end{rulechange}
+\end{itemize}
 
-For a detailed technical description, refer to the Engineering
-Specifications Chapter 1.1 
+For a detailed technical description, refer to the
+Appendix~\ref{apx:sec:engref}.
 
 \section{Communication}
 Robots have to operate autonomously, that is without any human
@@ -845,41 +954,120 @@ Table~\ref{tab:production-table} and in
 Fig.~\ref{fig:production-diagram}, which presents the same information
 as a production graph.
 
-\begin{table}[tbhp]
-  \centering
-  \begin{tabular}{c|c|c|c}
-    \multicolumn{1}{c}{Subassembly} & \multicolumn{1}{c}{Deployable} & 	\multicolumn{1}{c}{Prerequisites} & \multicolumn{1}{c}{Result}\\\hline
-    \s{0} &	\m{1}, \m{2}, \m{3}, \dg{} & 	none &	\s{1} or \TAG{consumed}\\
-    \s{1} &	\m{2}, \m{3}, \dg{} &  	\s{0} & 	\s{2} or \TAG{consumed}\\
-    \s{2} & \m{3}, \dg & 	\s{0}, \s{1} &	\p{}\\ %
-    \TAG{Late ORder} &  	\m{1} & none &  \TAG{Finished Late Order}\\
-    \hline
-  \end{tabular} 
-  \caption{The production table}
-  \label{tab:production-table}
-\end{table}
+
+
+% \begin{table}[tbp]
+%   \centering
+%   \mytable{\begin{tabularx}{\linewidth}{c|c|c|C}
+%     \multicolumn{1}{c}{Subassembly} & \multicolumn{1}{c}{Deployable} & 	\multicolumn{1}{c}{Prerequisites} & \multicolumn{1}{c}{Result}\\\hline
+%     \s{0} &	\m{1}, \m{2}, \m{3}, \dg{} & 	none &	\s{1} or \TAG{consumed}\\
+%     \s{1} &	\m{2}, \m{3}, \dg{} &  	\s{0} & 	\s{2} or \TAG{consumed}\\
+%     \s{2} & \m{3}, \dg & 	\s{0}, \s{1} &	\p{}\\ %
+%     \TAG{Late Order} &  	\m{1} & none &  \TAG{Finished Late Order}\\
+%     \hline
+%   \end{tabularx} }
+%   \caption{The production table}
+%   \label{tab:production-table}
+% \end{table}
+
+
+% \begin{figure}[tbhp]
+%   \centering
+
+% \tikzstyle{M}=[rectangle, draw=blue, thick, fill=blue!20, text width=2em,align=center, rounded corners, 
+%   minimum height=2em]
+% %
+% \tikzstyle{P}=[draw=red, thick, circle,fill=red!20, minimum height=1.5em]
+
+% \begin{tikzpicture}[level distance=4em,sibling distance=5em]
+%   \node[P] {$S_1$}  [grow=left,thick]
+%   child { node[M] {$M_1$}
+%     child { node[P] {$S_0$}}};
+% \end{tikzpicture}
+% \hspace*{1em}
+% \begin{tikzpicture}[level distance=4em,sibling distance=5em]
+%   \node[P] {$C$}  [grow=left,thick]
+%   child { node[M] {$M_1$}
+%     child { node[P] {$S_0$}}};
+% \end{tikzpicture}
+
+% \begin{tikzpicture}[level distance=4em,sibling distance=5em]
+%   \node[P] {$C$}  [grow=left,thick]
+%   child { node[M] {$M_2$}
+%     child { node[P] {$S_0$}}
+%     child { node[P] {$S_1$}}
+%     child { node[P] {$S_2$}}
+%     };
+% \end{tikzpicture}
+
+% \begin{tikzpicture}[node distance=4em,level distance=4em,sibling distance=5em]
+
+%   \node[P] (p) {$P$}  [grow=left,thick]
+%   child { node[M] (m) {$M_3$}
+%     child { node[P] {$S_0$}}
+%     child { node[P] {$S_1$}}
+%     child { node[P] {$S_2$}}
+%    };
+  
+% \end{tikzpicture}
+
+
+%   \caption{The production diagram}
+% \label{fig:production-diagram}  
+% \end{figure}
 
 
 
-\begin{figure}[tbhp]
-  \centering
 
-\tikzstyle{M}=[rectangle, draw=blue, thick, fill=blue!20, text width=2em,align=center, rounded corners, 
-  minimum height=2em]
-%
-\tikzstyle{P}=[draw=red, thick, circle,fill=red!20, minimum height=1.5em]
 
-\begin{tikzpicture}[level distance=4em,sibling distance=5em]
+\begin{figure}
+\begin{floatrow}
+  \capbtabbox{%
+    \centering
+    \mytable{\begin{tabular}{c|c|c|c}
+        \multicolumn{1}{c}{Subassembly} & \multicolumn{1}{c}{Deployable} & \multicolumn{1}{c}{Prerequisites} & \multicolumn{1}{c}{Result}\\\hline
+        \s{0} &	\m{1}, \m{2}, \m{3}, \dg{} & 	none &	\s{1} or \TAG{consumed}\\
+        \s{1} &	\m{2}, \m{3}, \dg{} &  	\s{0} & 	\s{2} or \TAG{consumed}\\
+        \s{2} & \m{3}, \dg & 	\s{0}, \s{1} &	\p{}\\ %
+        \TAG{Late Order} &  	\m{1} & none &  \TAG{Finished Late Order}\\
+%        \hline
+      \end{tabular}
+    }      
+  }{%
+    \caption{The production table}
+    \label{tab:production-table}
+  }
+\end{floatrow}
+  
+\bigskip
+\bigskip
+\begin{floatrow}
+  \ffigbox{%
+    \centering
+    
+    \tikzstyle{M}=[rectangle, draw=blue, thick, fill=blue!20, text width=2em,align=center, rounded corners, 
+    minimum height=2em]
+    % 
+    \tikzstyle{P}=[draw=red, thick, circle,fill=red!20, minimum height=1.5em]
+    
+    \begin{tikzpicture}[level distance=4em,sibling distance=5em]
   \node[P] {$S_1$}  [grow=left,thick]
   child { node[M] {$M_1$}
     child { node[P] {$S_0$}}};
 \end{tikzpicture}
+
+\bigskip
+\bigskip
 \hspace*{1em}
 \begin{tikzpicture}[level distance=4em,sibling distance=5em]
   \node[P] {$C$}  [grow=left,thick]
   child { node[M] {$M_1$}
     child { node[P] {$S_0$}}};
 \end{tikzpicture}
+
+\bigskip
+\bigskip
+
 
 \begin{tikzpicture}[level distance=4em,sibling distance=5em]
   \node[P] {$C$}  [grow=left,thick]
@@ -889,6 +1077,10 @@ as a production graph.
     child { node[P] {$S_2$}}
     };
 \end{tikzpicture}
+
+
+\bigskip
+\bigskip
 
 \begin{tikzpicture}[node distance=4em,level distance=4em,sibling distance=5em]
 
@@ -902,9 +1094,17 @@ as a production graph.
 \end{tikzpicture}
 
 
+
+}{%
   \caption{The production diagram}
-\label{fig:production-diagram}  
+  \label{fig:production-diagram}  
+}
+\end{floatrow}
 \end{figure}
+
+
+
+
 
 % \newcommand{\varone} {
 %   \begin{tikzpicture}[level distance=4em,sibling distance=5em]
@@ -966,7 +1166,8 @@ as a production graph.
 \subsubsection{The production table}
 
 The table above shows the production table concerning the main
-challenge; the three staged production process as well as the Late Order challenge. The main challenge can be repeated as long as enough
+challenge; the three staged production process as well as the Late
+Order challenge. The main challenge can be repeated as long as enough
 pallet carriers can be provided to complete the cycle. The different
 machine types are specified in Sect.~\ref{sec:machines}.
 
@@ -1012,16 +1213,16 @@ phase will start at minute 5, the third at minute 10.
 
 \end{rulechange} 
 
-\begin{table}[h]
+\begin{table}[tbph]
   \centering
-  \begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
+  \mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
     \multicolumn{1}{l}{Product Variant} &\multicolumn{1}{l}{Demanded number of items } \\
     \hline 
     Product Variant \p1 &	$N_1 = 1 \mbox{ to } 10$ items \\
     Product Variant \p2 &	$N_2 = 1 \mbox{ to } 10$ items \\
     Product Variant \p3 &	$N_3 = 1 \mbox{ to } 10$ items \\
-	\hline
-  \end{tabularx}
+    %	\hline
+  \end{tabularx}}
   \caption{Production plan}
   \label{tab:production-plan}
 \end{table}
@@ -1087,6 +1288,39 @@ The detailed seeding will be created at the event. Although the idea
 is to allow each participant to challenge each other team the league
 can be adjusted to meet time requirements.
 
+\begin{table}[thbp]
+  \centering
+  \subtable[Scoring scheme for the main challenge]{\mytable{\begin{tabularx}{\linewidth}{p{6em}|X|p{4em}}
+      \multicolumn{1}{l}{Subtask } &\multicolumn{1}{l}{Main challenge} &
+      \multicolumn{1}{l}{Scoring [Point]}\\\hline
+      Produce \s2 & Finish the work order of a machine type 2 & $+4$\\
+      Produce \p  & Finish the work order of a machine type 3 & $+12$ \\
+      Deliver & Deliver the final product to the designated loading zone & $+5$\\
+      Recycle & Clean up a polluted machine (\m2 or \m3) by recycling all
+      of the 3 consumed loading carriers. Partial recycling(\m3) will not
+      be rewarded.&
+      \multirow{3}{*}{$\begin{array}{l}+3 - \m2\\
+          +6 - \m3\end{array}$}\\
+      Sum &Total points a team will receive for a produced and correctly
+      delivered final product with its consumed loading carrier
+      recycled. & $30$\\%\hline
+    \end{tabularx}  }}
+
+
+  \bigskip
+  \subtable[Scoring scheme for the Late order challenge]{\mytable{\begin{tabularx}{\linewidth}{p{6em}|X|p{4em}}
+    \multicolumn{1}{l}{Subtask } &\multicolumn{1}{l}{LOC - Late Order
+      Challenge} & \multicolumn{1}{l}{Scoring [Point]}\\\hline
+    Finish the EG &	Deliver the EG to a machine of type 1 and process the late order in time if the machine type was identified by an earlier production process. &	+5\\
+    Deliver the EG & Deliver the processed the late order to the active
+    delivery gate in time. &  +10\\
+    Sum & In time delivery of a correct late order. & 15\\%\hline
+  \end{tabularx} }}
+  \caption{Scoring Scheme}
+  \label{tab:scoring}
+    
+
+\end{table}
 
 
 \subsubsection{Tournament challenge}
@@ -1146,36 +1380,6 @@ from the game by the administration and therefore cannot be recycled.
 Table \ref{tab:scoring} provides the itemized clearance of all task
 related processes.
 
-\begin{table}[thbp]
-  \centering
-\begin{tabularx}{\linewidth}{p{6em}|X|p{4em}}
-  \multicolumn{1}{l}{Subtask } &\multicolumn{1}{l}{Main challenge} &
-  \multicolumn{1}{l}{Scoring [Point]}\\\hline
-  Produce \s2 & Finish the work order of a machine type 2 & $+4$\\
-  Produce \p  & Finish the work order of a machine type 3 & $+12$ \\
-  Deliver & Deliver the final product to the designated loading zone & $+5$\\
-  Recycle & Clean up a polluted machine (\m2 or \m3) by recycling all
-  of the 3 consumed loading carriers. Partial recycling(\m3) will not
-  be rewarded.&
-  \multirow{3}{*}{$\begin{array}{l}+3 - \m2\\
-      +6 - \m3\end{array}$}\\
-  Sum &Total points a team will receive for a produced and correctly
-  delivered final product with its consumed loading carrier
-  recycled. & $30$\\\hline
-  \end{tabularx}  
-
-\bigskip
-\begin{tabularx}{\linewidth}{p{6em}|X|p{4em}}
-  \multicolumn{1}{l}{Subtask } &\multicolumn{1}{l}{LOC - Late Order
-    Challenge} & \multicolumn{1}{l}{Scoring [Point]}\\\hline
-  Finish the EG &	Deliver the EG to a machine of type 1 and process the late order in time if the machine type was identified by an earlier production process. &	+5\\
-  Deliver the EG & Deliver the processed the late order to the active
-  delivery gate in time. &  +10\\
-  Sum & In time delivery of a correct late order. & 15\\\hline
-  \end{tabularx}  
-  \caption{Scoring Scheme}
-  \label{tab:scoring}
-\end{table}
 
 
 
@@ -1185,6 +1389,7 @@ This catalogue in Table~\ref{tab:infringements} represents the
 decision basis of the referees without being exhaustive or binding.
 
 \begin{table}[thpb]
+  \begin{shaded}
   \centering
   \begin{tabularx}{\linewidth}{l|X}
   \multicolumn{1}{l}{Issue} &\multicolumn{1}{l}{Sanction}\\\hline
@@ -1228,10 +1433,13 @@ decision basis of the referees without being exhaustive or binding.
   Disregarding rules of conduct & Following the rules of conduct
   should be self-explanatory Upon disregard, the referee will impose
   sanctions ranged from time punishments to the team's complete
-  removal from the tournament.\\\hline
+  removal from the tournament.\\%\hline
   \end{tabularx}  
   \caption{Infringements}
   \label{tab:infringements}
+    
+  \end{shaded}
+
 \end{table}
 
 The abidance of these rules will be monitored by at least two
@@ -1569,111 +1777,111 @@ compression, e.g. use the low cost Logitech web camera C250.
 
 \begin{table}[H]
   \centering
-  \begin{tabular}{|l|l|}
-  	\hline
-   	Dimension \&	diameter&	36 mm \\
- 	height(total)		 	&	147 mm \\
-	Segment height 			&	34 mm, including 5 mm unlighted border \\
-	Lifespan				&	max. 50.000 h \\
-	Connector				&	Bottom, 2m supplied 
-	Compatible to the I/O-Terminal of MPS(r) units. \\
-	Safety					&	IP65 \\
-	Voltage					&	24V \\
-	Current					&	3 times 40 mA \\
-	Kind of current			&	DC \\
-	Operating mode			&	-20°C to +50°C \\
-	Signaltype				&	Static LED \\
-	Signal					&	Ultrabright LED\\
-	Source					&	Festo \# 549843 \\
-	\hline
-  \end{tabular}
-	\caption{Technical specification of the signal}
-	\label{apx:tab:signalproperties}
+  \mytable{\begin{tabularx}{\linewidth}{l|X}
+      \hline
+      Dimension \&	diameter&	36 mm \\
+      height(total)		 	&	147 mm \\
+      Segment height 			&	34 mm, including 5 mm unlighted border \\
+      Lifespan				&	max. 50.000 h \\
+      Connector				&	Bottom, 2m supplied 
+      Compatible to the I/O-Terminal of MPS(r) units. \\
+      Safety					&	IP65 \\
+      Voltage					&	24V \\
+      Current					&	3 times 40 mA \\
+      Kind of current			&	DC \\
+      Operating mode			&	-20°C to +50°C \\
+      Signaltype				&	Static LED \\
+      Signal					&	Ultrabright LED\\
+      Source					&	Festo \# 549843 \\
+%      \hline
+    \end{tabularx}}
+  \caption{Technical specification of the signal}
+  \label{apx:tab:signalproperties}
 \end{table}
 
 \subsubsection{RFID device}
 
 \begin{table}[H]
   \centering
-    \begin{tabular}{|l|l|}
-  	\hline
-Technical data of the read/write head		&	Housing rectangular \\
-Housing and working dimensions 				&	40*40 mm with the centred RFID
-tag. \\
-Housing height								& 	65 mm \\
-Operating voltage							&	DC \\
-Housing material Plastic					& 	PBT-GF30-V0, black \\
-Material active face Plastic				& 	PA6-GF30, yellow \\
-Operating voltage							& 	10…30 VDC \\
-DC rated operational current				& 	$\le$ 80 mA \\
-Data transfer								& 	inductance coupling \\
-Working frequency							& 	13.56 MHz \\
-Radio communication and protocol standards	&	ISO 15693 \\
-Read/write distance							&	max. 115 mm \\
-Output function								&	4-wire, read/write \\
-Electrical connection 						&	Connectors M12 x 1 \\
-Vibration resistance						&	55 Hz (1 mm) \\
-Shock resistance							&	30 g (11 ms) \\
-Protection class							&	IP67 \\
-Operating voltage display					& 	LED green \\
-	\hline
-  \end{tabular}
-	\caption{Technical specification of the signal}
-	\label{apx:tab:rfidproperties}
+  \mytable{\begin{tabularx}{1\linewidth}{l|X}
+      \hline
+      Technical data of the read/write head		&	Housing rectangular \\
+      Housing and working dimensions 				&	40*40 mm with the centred RFID
+      tag. \\
+      Housing height								& 	65 mm \\
+      Operating voltage							&	DC \\
+      Housing material Plastic					& 	PBT-GF30-V0, black \\
+      Material active face Plastic				& 	PA6-GF30, yellow \\
+      Operating voltage							& 	10…30 VDC \\
+      DC rated operational current				& 	$\le$ 80 mA \\
+      Data transfer								& 	inductance coupling \\
+      Working frequency							& 	13.56 MHz \\
+      Radio communication and protocol standards	&	ISO 15693 \\
+      Read/write distance							&	max. 115 mm \\
+      Output function								&	4-wire, read/write \\
+      Electrical connection 						&	Connectors M12 x 1 \\
+      Vibration resistance						&	55 Hz (1 mm) \\
+      Shock resistance							&	30 g (11 ms) \\
+      Protection class							&	IP67 \\
+      Operating voltage display					& 	LED green \\
+%      \hline
+    \end{tabularx}}
+  \caption{Technical specification of the signal}
+  \label{apx:tab:rfidproperties}
 \end{table}
 
 \subsubsection{Wifi equipment}
 \begin{table}[H]
   \centering
-    \begin{tabular}{|l|l|}
-  	\hline
-	Festo AP		&	LANCOM L-322agn \\
-Transfer rate		&	Up to 108 Mbps \\
-Data link protocol	&	802.11 a/g/n \\
-Frequency			&	5.0 Ghz \\
-IP-distribution		&	172.26.200.xxx for LAN clients(DHCP) \\
-					&	172.26.101.xxx for the Robotino devices \\
-					&	172.26.1.xxx for Robotinos \\
-Subnetmask			&	255.255.0.0 \\
-Encryption			&	Unsecured \\
-SSID				&	Separated for both teams:\\
-					&	RobotinoEvent.1 \\
-					& RobotinoEvent.2 \\
-Festo Clients		&	3COM WL-560 \\
-Power Supply		&	Clients: 12 VDC, 1A,\\
-					& 	Most Laptops cannot power them \\
-					& 	via USB! \\
-Connector			&	Ethernet \\
-
-	\hline
-  \end{tabular}
-	\caption{Technical specification of the signal}
+  \mytable{\begin{tabularx}{1\linewidth}{l|X}
+      \hline
+      Festo AP		&	LANCOM L-322agn \\
+      Transfer rate		&	Up to 108 Mbps \\
+      Data link protocol	&	802.11 a/g/n \\
+      Frequency			&	5.0 Ghz \\
+      IP-distribution		&	172.26.200.xxx for LAN clients(DHCP) \\
+      &	172.26.101.xxx for the Robotino devices \\
+      &	172.26.1.xxx for Robotinos \\
+      Subnetmask			&	255.255.0.0 \\
+      Encryption			&	Unsecured \\
+      SSID				&	Separated for both teams:\\
+      &	RobotinoEvent.1 \\
+      & RobotinoEvent.2 \\
+      Festo Clients		&	3COM WL-560 \\
+      Power Supply		&	Clients: 12 VDC, 1A,\\
+      & 	Most Laptops cannot power them \\
+      & 	via USB! \\
+      Connector			&	Ethernet \\
+      
+%      \hline
+    \end{tabularx}}
+    \caption{Technical specification of the signal}
 	\label{apx:tab:wifi}
 \end{table}
 
 \subsubsection{Data carrier}
 \begin{table}[H]
   \centering
-    \begin{tabular}{|l|l|}
-  		\hline
-Dimension									&	\diameter  20 mm \\
-height										&	2.5 mm \\
-Data transfer								&	inductance coupling \\
-Working frequency							&	13.56 MHz \\
-Memory 										&	read/write \\	
-Memory type									&	EEPROM \\
-Memory size									&	128 Byte \\
-Freely usable memory						&	112 Byte \\
-Number of read operations					&	unlimited \\
-Number of write operations					&	105 \\
-Typical read time							&	2 ms/byte \\
-Typical write time							&	3 ms/byte \\
-Radio communication and protocol standards	&	ISO 15693 \\
-  		
-  		\hline
-	\end{tabular}
-	\caption{Technical specification of the signal}
-	\label{apx:tab:datacarrier}
+  \mytable{\begin{tabularx}{\linewidth}{l|X}
+      \hline
+      Dimension									&	\diameter  20 mm \\
+      height										&	2.5 mm \\
+      Data transfer								&	inductance coupling \\
+      Working frequency							&	13.56 MHz \\
+      Memory 										&	read/write \\	
+      Memory type									&	EEPROM \\
+      Memory size									&	128 Byte \\
+      Freely usable memory						&	112 Byte \\
+      Number of read operations					&	unlimited \\
+      Number of write operations					&	105 \\
+      Typical read time							&	2 ms/byte \\
+      Typical write time							&	3 ms/byte \\
+      Radio communication and protocol standards	&	ISO 15693 \\
+      
+      % \hline
+    \end{tabularx}}
+  \caption{Technical specification of the signal}
+  \label{apx:tab:datacarrier}
 \end{table}
 
 
