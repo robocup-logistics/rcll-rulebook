@@ -114,7 +114,6 @@
 \input{macros.tex}
 
 
-
 \begin{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -925,39 +924,28 @@ active delivery gate will also be randomized prior to each match but
 during a match the active gate can switch.
 
 
-\subsubsection{Radio Interference}
-\label{sec:radio-interference}
-The referee will induce a connection breakdown between the command
-unit and the Robotinos at certain points of a match. This will not
-affect the wifi connection between the Robotinos and will neither
-happen during the first minute of a match. Once switched off, the link
-between LAN and wifi will stay severed for 100 seconds. The link will
-be reactivated swiftly in case of emergency to interrupt the autonomy
-of the process.
-
-
-\subsection{Exploration Phase} \label{sec:expphase} 
+\subsection{Game phases} \label{sec:game-phases}
+\subsubsection{Exploration Phase} \label{sec:expphase} 
 %
 Before the actual game starts, the machines will indicate their types
 with the signal lights for two minutes. The robots are to roam the
 environment and announce detected signals to the referee box. Each
 properly reported signal scores two points, each signal reported
-wrongly will give \num{-1} points penalty.  A minimum of zero points
-will be accounted for this exploration phase.  Production or moving
+wrongly will give \num{-1} points penalty. A minimum of zero points
+will be accounted for this exploration phase. Production or moving
 pucks is not allowed during the exploration phase.
 
 
-\subsection{Match startup}
-\label{sec:match-startup}
+\subsubsection{Production phase}
+\label{sec:production phase}
 
-All matches will start at the exact time scheduled by the organization
-team. From this point on, the teams involved are allowed to start
-their robots to work autonomously. This can be done by one click per
-robot on any kind of interface. 
-%
-As a start signal the referee box will initially announce the true
-assignment of all machines to the robots.
-
+With the end of the exploration phase, the actual production begins,
+which lasts \num{15} minutes The refbox publishes all information
+regarding product and machines. All matches will start at the exact time scheduled by the organization team.
+From this point on, the teams involved are allowed to start their
+ robots to work autonomously within one minute. This can be done by one
+ click per robot on any kind of interface. Robots which remain inactive
+ after this minute will be extracted from the field.
 
 
 \subsection{Production portfolio} \label{sec:prodportfolio}
@@ -1214,14 +1202,16 @@ requires prior knowledge concerning the machine distribution.
 
 \subsection{During a match}
 
-The referee can interrupt the match at any time. Then, both teams have
-5 seconds to stop all robot movement. The match time will be paused
-during the interruption. A team can decide to stop the autonomy
-process of each robot individually at any time of the match. Doing so
-has to be announced notably in order to inform the referee, as this is
-considered a shut down request according to
+Any referee can interrupt the match at any time. After the referee box
+is stopped, both teams have 5 seconds to stop all robot movement. The
+match time will be paused during the interruption. A team can decide to
+stop the autonomy process of each robot individually at any time of the
+match. Doing so has to be announced notably in order to inform the
+referee, as this is considered a shut down request according to
 \ref{sec:team-setup}. Robots that do not stop within the time limit
-will be treated in the same way.
+will be treated in the same way. Any robot can only be stopped one
+time. A second stop announcement leads to permanent extraction of the
+related robot.
 
 \subsubsection{Out-of-order}
 
