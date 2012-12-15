@@ -1085,7 +1085,6 @@ as a production graph.
 \bigskip
 
 \begin{tikzpicture}[node distance=4em,level distance=4em,sibling distance=5em]
-
   \node[P] (p) {$P_1$}  [grow=left,thick]
   child { node[M] (m) {$T_3$}
     child { node[P] {$S_0$}}
@@ -1097,7 +1096,6 @@ as a production graph.
 \bigskip
 
 \begin{tikzpicture}[node distance=4em,level distance=4em,sibling distance=5em]
-
   \node[P] (p) {$P_2$}  [grow=left,thick]
   child { node[M] (m) {$T_4$}
     child { node[P] {$S_0$}}
@@ -1246,16 +1244,14 @@ process.
 
 \subsubsection{Production Plan}
 
-The referee box will announce a production plan for three different
+The referee box will announce a production plan for different
 phases of the match. The production plan specifies how many items of
-different product variant have to be produced in the current
-production phase. Only products which are covered by the production
-plan score. In 2013 each of the three phases will last 5 minutes. The
-first phase will start with the match startup.  The second phase will
-start at minute 5, the third at minute 10. The production plan is
-shown in Table~\ref{tab:production-plan}.
-
-
+different product variant have to be produced in the current production phase.
+The number of items can range from 1 to 10 items per phase. Only products which
+are covered by the production plan score. In 2013 there will be three phases.
+Each of the three phases will last 5 minutes. The first phase will start with
+the match startup. The second phase will start at minute 5, the third at minute
+10. The production plan is shown in Table~\ref{tab:production-plan}.
 
 % \begin{table}[t]
 %   \centering
@@ -1271,14 +1267,12 @@ shown in Table~\ref{tab:production-plan}.
 %   \label{tab:production-plan}
 % \end{table}
 
-
-
 \subsubsection{Late order challenge}
 
 The challenge will be induced by the referee box sending an late order
 message to the robots. The message specifies the demanded product
 variant, a time window and the delivery gate. As a first step, the late
-good challenge of 2013 will only demand for product variant
+order challenge of 2013 will only demand for product variant
 \p3. Furthermore, in 2013 the challenge has to be completed within a
 time window of 120 seconds and the late order has to be delivered to
 the active delivery gate. 
@@ -1291,7 +1285,7 @@ the active delivery gate.
 % participants and a second stage with playoffs featuring the top 4
 % teams.
 
-\paragraph{Round-Robin phase.} 
+\paragraph{Round-Robin phase} 
 There will be two stages in the competition. The first stage is a
 group phase and will be played as a round-robin. The best 4 teams of
 the round-robin stage will advange to a playoff round.
@@ -1302,7 +1296,7 @@ competition. The points will be accumulated in this phase and the
 teams will be ranked according to the accumulated point in descending
 order.
 
-\paragraph{Playoffs. } At the payoff stage, the scoring scheme will be
+\paragraph{Playoffs} At the payoff stage, the scoring scheme will be
 different. As each team in this phase directly competes with an
 opposing team, the team that scores more points as the direct
 opponent, will be announced as the winner and 3 points will be awarded
@@ -1370,7 +1364,7 @@ late order challenge setup:
 \paragraph{League phase}
 \begin{itemize}
 \item The active delivery gate will not switch during a match.
-\item There will be 3 late oderd challenges.
+\item There will be 3 late order challenges.
 \item No challenge will be initialised during the first or within the
   last two match minutes.
 \end{itemize} 
@@ -1511,7 +1505,7 @@ correctness of the digital representation and automatical scoring.
 
   \paragraph{Collision avoidance.~}
   The robot is to show that it avoids other obstacles and robots.
-  Therefore the robot must drive from input storage to the delivery zone.
+  Therefore the robot must drive from the input storage to the delivery zone.
   However, the paths between the input storage and the delivery zone will
   be blocked randomly by static obstacles and the robot must not touch any
   of the obstacles. For touching an obstacle, the team receives a penalty.
