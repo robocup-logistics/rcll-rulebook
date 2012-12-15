@@ -534,8 +534,9 @@ different field slotes are given in Table~\ref{tab:coordinates}.
 
 
 \subsection{The Pallet Carrier Puck}
-The data-carrying RFID tag is attached to top of a hockey puck. The tournament
-puck features a diameter of \SI{7.5}{\centi\metre} and is shown in Figure~\ref{fig:puck}.
+The data-carrying RFID tag is attached to top of a hockey puck. Each
+pallet carrier can be identified by a unique number. The tournament puck
+features a diameter of \SI{7.5}{\centi\metre} and is shown in Figure~\ref{fig:puck}.
 
 % \begin{figure}
 %   \centering
@@ -584,8 +585,13 @@ size of (height $\times$ width $\times$ depth) \SI{280 x 160 x
   operating mode according to 
   Tables~\ref{tab:production-machines}--\ref{tab:reading-device}.
 
+\subsubsection{Production Machines - during exploration phase}
+During the exploration pase the machines will indicate their type by individual
+light signals. The light signals are defined in
+Table~\ref{tab:production-machines}. Corresponding machine types will be induced
+by the RefBox.
 
-\subsubsection{Production Machines}
+\subsubsection{Production Machines - during production phase}
 After processing the current data carrier, the yellow LED is turned
 on.  The machine has finished processing the current data carrier and
 is waiting for the next subassembly. If the green LED is turned on,
@@ -600,11 +606,20 @@ operating mode changes away from processing. As long as the machines
 are used properly, they will not produce any junk.
 
 \begin{table}[tp]
-  \centering
-  \subtable[Optical Feedback]{\mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
-        \multicolumn{1}{l}{Optical Feedback} &
-        \multicolumn{1}{l}{Operating mode} \\ \hline
-        All LEDs turned off &  	The machine is physically offline, caused by a real error which should not happen during the competition. \\
+\centering
+\subtable[Optical Feedback during exploration phase]{\mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}\multicolumn{1}{l}{Optical Feedback} & \multicolumn{1}{l}{Operating mode} \\ \hline
+  	    All LEDs turned off &  	Machine type will be induced by RefBox. \\
+	    Red LED turned on &  	Machine type will be induced by RefBox. \\
+        Green LED turned on &  	Machine type will be induced by RefBox. \\
+        Red and Green LED turned on &  	Machine type will be induced by RefBox.\\
+        All LEDs turned on  &  	Machine type will be induced by RefBox. \\
+        \hline
+\end{tabularx}}}
+
+\bigskip
+\subtable[Optical Feedback during production phase]{\mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
+  \multicolumn{1}{l}{Optical Feedback} & \multicolumn{1}{l}{Operating mode} \\ \hline 
+  		All LEDs turned off &  	The machine is physically offline, caused by a real error which should not happen during the competition. \\
         Red LED turned on &  	The machine is out of order. \\
         Green LED turned on &  	The machine is idle and ready.\\
         Green and yellow LED turned on &  	The machine is processing or consuming the current data carrier. \\
@@ -612,17 +627,16 @@ are used properly, they will not produce any junk.
         This can be caused by data carriers that are already consumed,
         subassemblies that do not fit to this machine type's work order or
         corrupted data carriers. \\%\hline
-  \end{tabularx}}}
-
+\end{tabularx}}}
 
 \bigskip
 \subtable[Machine Types]{\mytable{  \begin{tabularx}{\linewidth}{l|X|X|X|l}
     \multicolumn{1}{l}{ Type} & \multicolumn{1}{l}{Distribution} & \multicolumn{1}{l}{Input} & \multicolumn{1}{l}{Output} & \multicolumn{1}{l}{(Final)processing time[s]}\\\hline
-    \m1 & 4 times & \s0 (Raw-material) & \s1 & $WT_1 = 3 \mbox{ to } 8~\mathrm{sec}$\\
-    \m2 & 3 times & \s0; \s1 \s2; & \s2; one consumed container & $WT_2 = 15 \mbox{ to } 25~\mathrm{sec}$\\
-    \m3 & 1 times &	\s0;\s1;\s2 & \p1; two consumed containers &$WT_3 = 40 \mbox{ to } 60~\mathrm{sec}$\\
-    \m4 & 1 times &\s0;\s1;\s2 & \p2; two consumed containers &$WT_4 = 40\mbox{ to } 60~\mathrm{sec}$\\
-    \m5 & 1 times &	\s0; & \p3; one consumed container &$WT_5 =40\mbox{ to } 60~\mathrm{sec}$
+    \T1 & 4 times & \s0 (Raw-material) & \s1 & $t_1 = 3 \mbox{ to } 8~\mathrm{sec}$\\
+    \T2 & 3 times & \s0; \s1; & \s2; one consumed container & $t_2 = 15 \mbox{ to } 25~\mathrm{sec}$\\
+    \T3 & 1 times &	\s0;\s1;\s2 & \p1; two consumed containers &$t_3 = 40 \mbox{ to } 60~\mathrm{sec}$\\
+    \T4 & 1 times &\s0;\s1;\s2 & \p2; two consumed containers &$t_4 = 40\mbox{ to } 60~\mathrm{sec}$\\
+    \T5 & 1 times &	\s0; & \p3 &$t_5 =40\mbox{ to } 60~\mathrm{sec}$
   \end{tabularx}}}
   \caption{Production Machines}
   \label{tab:production-machines}  
@@ -676,11 +690,9 @@ are used properly, they will not produce any junk.
 \end{table}
 
 
-
-
-
 The distribution describes how many machines of the respective types
-will be randomly placed resulting in a the total of 10 court machines.
+will be randomly placed resulting in a the total of 10 court machines. During
+th
 
 
 
@@ -1027,10 +1039,11 @@ as a production graph.
     \centering
     \mytable{\begin{tabularx}{\textwidth}{C|C|C|c}
         \multicolumn{1}{c}{Subassembly} & \multicolumn{1}{c}{Deployable} & \multicolumn{1}{c}{Prerequisites} & \multicolumn{1}{c}{Result}\\\hline
-        \s{0} &	\m{1}, \m{2}, \m{3}, \dg{} & 	none &	\s{1} or \TAG{consumed}\\
-        \s{1} &	\m{2}, \m{3}, \dg{} &  	\s{0} & 	\s{2} or \TAG{consumed}\\
-        \s{2} & \m{3}, \dg & 	\s{0}, \s{1} &	\p{}\\ %
-        \TAG{Late Order} &  	\m{1} & none &  \TAG{Finished Late Order}\\
+        \s{0} &	\T{1}, \T{2}, \T{3}, \T{4}, \T{5} & none & \s{1}, \p{3} or
+        \TAG{consumed}\\
+        \s{1} &	\T{2}, \T{3}, \T{4} &  	\s{0} & 	\s{2} or \TAG{consumed} \\
+        \s{2} & \T{3}, \T{4} & \s{0}, \s{1} &	\p{1}, \p{2} \\
+        \TAG{Late Order} & \T{1} & none &  \TAG{Finished Late Order}\\
 %        \hline
       \end{tabularx}
     }      
@@ -1050,31 +1063,20 @@ as a production graph.
     % 
     \tikzstyle{P}=[draw=red, thick, circle,fill=red!20, minimum height=1.5em]
     
-    \begin{tikzpicture}[level distance=4em,sibling distance=5em]
+\begin{tikzpicture}[level distance=4em,sibling distance=5em]
   \node[P] {$S_1$}  [grow=left,thick]
-  child { node[M] {$M_1$}
-    child { node[P] {$S_0$}}};
-\end{tikzpicture}
-
-\bigskip
-\bigskip
-\hspace*{1em}
-\begin{tikzpicture}[level distance=4em,sibling distance=5em]
-  \node[P] {$C$}  [grow=left,thick]
-  child { node[M] {$M_1$}
+  child { node[M] {$T_1$}
     child { node[P] {$S_0$}}};
 \end{tikzpicture}
 
 \bigskip
 \bigskip
 
-
 \begin{tikzpicture}[level distance=4em,sibling distance=5em]
-  \node[P] {$C$}  [grow=left,thick]
-  child { node[M] {$M_2$}
+  \node[P] {$S_2$}  [grow=left,thick]
+  child { node[M] {$T_2$}
     child { node[P] {$S_0$}}
     child { node[P] {$S_1$}}
-    child { node[P] {$S_2$}}
     };
 \end{tikzpicture}
 
@@ -1084,16 +1086,34 @@ as a production graph.
 
 \begin{tikzpicture}[node distance=4em,level distance=4em,sibling distance=5em]
 
-  \node[P] (p) {$P$}  [grow=left,thick]
-  child { node[M] (m) {$M_3$}
+  \node[P] (p) {$P_1$}  [grow=left,thick]
+  child { node[M] (m) {$T_3$}
     child { node[P] {$S_0$}}
     child { node[P] {$S_1$}}
     child { node[P] {$S_2$}}
-   };
-  
+   };  
+\end{tikzpicture}
+\bigskip
+\bigskip
+
+\begin{tikzpicture}[node distance=4em,level distance=4em,sibling distance=5em]
+
+  \node[P] (p) {$P_2$}  [grow=left,thick]
+  child { node[M] (m) {$T_4$}
+    child { node[P] {$S_0$}}
+    child { node[P] {$S_1$}}
+    child { node[P] {$S_2$}}
+   };  
 \end{tikzpicture}
 
+\bigskip
+\bigskip
 
+\begin{tikzpicture}[level distance=4em,sibling distance=5em]
+  \node[P] {$P_3$}  [grow=left,thick]
+  child { node[M] {$T_5$}
+    child { node[P] {$S_0$}}};
+\end{tikzpicture}
 
 }{%
   \caption{The production diagram}
@@ -1261,7 +1281,7 @@ variant, a time window and the delivery gate. As a first step, the late
 good challenge of 2013 will only demand for product variant
 \p3. Furthermore, in 2013 the challenge has to be completed within a
 time window of 120 seconds and the late order has to be delivered to
-the active delivery gate.
+the active delivery gate. 
 
 \subsection{Mode}
 \subsubsection{Tournament scoring specifications}
