@@ -1,12 +1,7 @@
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %% Ruebook RoboCup Logistics League Sponsored by Festo %% Draft for
-% 2013 Competition %% %% $URL:
-% https://dewert@svn.kbsg.rwth-aachen.de/repos/LLSF-RuleBook/rulebook2012.tex
-% $ %% $Id$ %% $Rev: 10
-% $ %% $Author$ %% $Date: 2012-12-07 00:53:32 +0100 (Fr, 07 Dez
-% 2012) $ %%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Ruebook RoboCup Logistics League Sponsored by Festo
+%% Draft for 2013 Competition
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[12pt,twoside]{article}
 
@@ -201,8 +196,8 @@ the set of rules will be fixed at 01/01/2013 and revised in April 2013
 after the German Open 2013 competition.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{The task --- a challenge of precision within a flexible
-  deployment system} \label{sec:task}
+\subsection{The Task}
+\label{sec:task}
 
 Our aim is to simulate autonomous guided vehicles (AGV). In opposition
 to regular automatic guided vehicles, a team, consisting of a maximum
@@ -292,39 +287,39 @@ To get into contact with the OC use the mailing list\\
 \section{Competition Area} \label{sec:area}
 
 
-\subsection{Field dimensions} \label{sec:competition-area}
-The point of origin for each statement within this rulebook that uses
-relative coordinates is the bottom left corner of the competition area
-namely the corner near the recycling unit to the left of the outgoing
-goods area. All indicated sizes of mark-ups are to be considered
-outside dimensions.
+\subsection{Field dimensions} \label{sec:competition-area} The point
+of origin for each statement within this rulebook that uses relative
+coordinates is the bottom left corner of the competition area namely
+the corner near robot insertion area below the blue input storage
+area. All indicated sizes of mark-ups are to be considered outside
+dimensions.
 
 The competition area is a \SI{5.625 x 5.625}{\metre} large arena with
 several RFID-mounted machines, mark-ups, a stock of raw-material and a
-delivery zone. It is surrounded by boards, \SI{0.5}{\metre} of height to reduce
-object interference from outside the area. The default width for
-mark-ups is \SI{19}{\milli\metre}, the default color is black.
+delivery zone. It is surrounded by boards, \SI{0.5}{\metre} of height
+to reduce object interference from outside the area. The default width
+for mark-ups is \SI{19}{\milli\metre}, the default color is black.
 
-The factory area spans across \SI{5.625 x 4.8}{\metre}. There are two
-boundaries, set by two mark-ups, \SI{0.4}{\metre} from the top and
-bottom borders of the competition area. The factory area is joined by
-two opposing \SI{0.4 x 1.0}{\metre} zones at the top and bottom
-middle. The top zone is painted blue marking the \textit{input storage
-  area} with the \textit{late order insertion point} to the right. The
-insertion area is \SI{0.6}{\metre} of width with the insertion slot in
-its middle. This spot is a \SI{0.1 x 0.1}{\metre} empty square that
-will be equipped with a pallet carrier to start the late order
-challenge. The space between the recycling unit and the late order
-insertion point, as well as the space to the left of the input storage
-area is called \textit{robot insertion area}.
+The factory area spans across \SI{4.8 x 5.625}{\metre}. There are two
+boundaries, set by two mark-ups, \SI{0.4}{\metre} from the left and
+right borders of the competition area. The factory area is joined by
+two opposing \SI{0.4 x 1.0}{\metre} zones at the left and right
+middle. The left zone is painted blue marking the \textit{input
+  storage area} with the \textit{late order insertion point} to the
+top. The insertion area is \SI{0.6}{\metre} of height with the
+insertion slot in its middle. This spot is a \SI{0.1 x 0.1}{\metre}
+empty square that will be equipped with a pallet carrier to start the
+late order challenge. The space between the recycling unit and the
+late order insertion point, as well as the space to the left of the
+input storage area is called \textit{robot insertion area}.
 
-The bottom zone is marked green and houses the three \textit{delivery
-  gates}.  Each gate is of \SI{0.3}{\metre} width with
+The right zone is marked green and houses the three \textit{delivery
+  gates}.  Each gate is of \SI{0.3}{\metre} height with
 \SI{0.1}{\metre} space to the next delivery gate separated by black
 mark-ups.
 
 The delivery gates feature one signal per gate placed in middle of
-each gate zone. The delivery slot resides below a unit that is
+each gate zone. The delivery slot resides besides a unit that is
 identical in construction to a production machine. The three RFID
 devices within these gates feature a black centered square of \SI{0.1
   x 0.1}{\metre} called delivery slot and residing exactly below the
@@ -336,13 +331,14 @@ A total of 13 machines are placed within the competition area. 10
 machines representing the 3 staged production processes, 2 machines to
 recycle consumed pallet carrier and 1 test station. The machines of
 the production process are placed within the factory area as stated in
-the table below. They are aligned in a \ang{90} angle. Each production
-machine resides in the centre of a squared machine space spanned by
-standard mark-ups with \SI{0.6}{\metre} each side.
+the table below. They are aligned in a \ang{90} angle (but which may
+change during the tournament). Each production machine resides in the
+centre of a squared machine space spanned by standard mark-ups with
+\SI{0.6}{\metre} each side.
 
 The 3 additional machines are arranged in the corners of the
 competition area, and aligned at \ang{45}, facing the center of the
-factory area. The top left corner will remain empty. The competition
+factory area. The lower left corner will remain empty. The competition
 area is shown in Figure~\ref{fig:competition-area}
 
 \begin{figure}[tb]
@@ -351,35 +347,43 @@ area is shown in Figure~\ref{fig:competition-area}
     % field outline
     \draw [thick] (0,0) rectangle (5.6,5.6);
     %\draw [fill=black!8] (0,0.4) rectangle (5.6,5.2);
-    \draw [fill=black!8] (0,0) rectangle +(5.6,0.4);
-    \draw [fill=black!8] (0,5.2) rectangle +(5.6,0.4);
+    \draw [fill=black!8] (0,0) rectangle +(0.4,5.6);
+    \draw [fill=black!8] (5.2,0) rectangle +(0.4,5.6);
+
+    % coordinate system and origin
+    \draw [line width=3pt,red,>=latex,->] (0,0) -- +(1,0);
+    \draw [line width=3pt,red,>=latex,->] (0,0) -- +(0,1);
+    \node [red,anchor=north] at (0.95,-0.05) {\sffamily\textbf{X}};
+    \node [red,anchor=east] at (-0.05, 0.95) {\sffamily\textbf{Y}};
+    \node [anchor=north east] at (0,0) {\sffamily\textbf{(0,0)}};
+    \draw (0,0) [fill=red,draw=red] circle (0.03);
 
     % margin areas
-    \draw (0,0.4) -- (5.6,0.4);
-    \draw (0,5.2) -- (5.6,5.2);
-    \draw (0.4,0) -- +(0, 0.4);
-    \draw (5.2,0) -- +(0, 0.4);
-    \draw (5.2,5.2) -- +(0, 0.4);
-    \draw (3.9,5.2) -- +(0, 0.4); % express good area vertical line
-    \draw (2.3,0) [fill=green] rectangle +(1,0.4);
-    \draw (2.3,5.2) [fill=blue] rectangle +(1,0.4);
+    \draw (5.2,0) -- (5.2,5.6);
+    \draw (0.4,0) -- (0.4,5.6);
+    \draw (5.2,0.4) -- +(0.4,0);
+    \draw (5.2,5.2) -- +(0.4,0);
+    \draw (0,5.2) -- +(0.4,0);
+    \draw (0,3.9) -- +(0.4,0); % express good area vertical line
+    \draw (5.2,2.3) [fill=green] rectangle +(0.4,1);
+    \draw (0,2.3) [fill=blue] rectangle +(0.4,1);
     % express good slot
-    \draw (3.55,5.35) rectangle +(0.1,0.1);
-    \draw (3.6,5.4) [fill=red,draw=red] circle (0.035);
+    \draw (0.15,3.55) rectangle +(0.1,0.1);
+    \draw (0.2,3.6) [fill=red,draw=red] circle (0.035);
 
     \foreach \m/\t/\x/\y/\ori/\paintbox in
     % row 1, M1 M2
-    { M1/2/1.68/1.68/180/1, M2/1/3.92/1.68/90/1,
+    { M1/2/3.92/1.68/-90/1, M2/1/3.92/3.92/180/1,
     % row 2, M3 M4 M5
-      M3/3/0.56/2.80/-90/1, M4/1/1.68/2.80/180/1, M5/2/2.80/2.80/0/1,
+      M3/3/2.80/0.56/0/1, M4/1/2.80/1.68/-90/1, M5/2/2.80/2.80/90/1,
     % row 2, M6 M7
-      M6/1/3.92/2.80/90/1, M7/3/5.04/2.80/0/1,
+      M6/1/2.80/3.92/180/1, M7/3/2.80/5.04/90/1,
     % row 3, M8 M9 M10
-      M8/2/1.68/3.92/-90/1, M9/1/3.92/3.92/90/1, M10/3/5.04/3.92/180/1,
+      M8/2/1.68/1.68/0/1, M9/1/1.68/3.92/180/1, M10/3/1.68/5.04/-90/1,
     % recycling 1, recycling 2, test station
-      R1/R/0.20/0.20/45/0, R2/R/5.40/5.40/-135/0, Test/T/5.40/0.20/135/0,
+      R1/R/5.4/0.20/135/0, R2/R/0.2/5.40/-45/0, T/T/5.40/5.40/225/0,
     % delivery stations
-      D1/D/3.15/0.26/90/0, D2/D/2.80/0.26/90/0, D3/D/2.45/0.26/90/0
+      D1/D/5.34/3.15/180/2, D2/D/5.34/2.80/180/2, D3/D/5.34/2.45/180/2%
     }
     {
       \draw [ultra thick] (\x,\y) -- +($ (\ori-90:0.06)$);
@@ -391,42 +395,58 @@ area is shown in Figure~\ref{fig:competition-area}
           node (\m) {\selectfont\sffamily\textbf{\m}};
         \draw [anchor=north west,inner sep=1pt] ($ (\x,\y) + (-0.27,0.27) $)
           node (\m-\t) {\color{black!75}\selectfont\sffamily\textbf{\t}};
+      \else
+        \if\paintbox2
+          \draw [anchor=west,inner sep=1pt] ($ (\x,\y) + (0.05,0) $)
+            node (\m)
+            {\fontsize{10pt}{10pt}\selectfont\sffamily\textbf{\m}};
+        \fi
       \fi
     }
 
+    % R and T machine descriptions
+    \node [anchor=south east,inner sep=2.5pt] at (5.62,0.0) (R1)
+    {\fontsize{10pt}{10pt}\selectfont\sffamily\textbf{R1}};
+    \node [anchor=north west,inner sep=2.5pt] at (0,5.6) (R2)
+    {\fontsize{10pt}{10pt}\selectfont\sffamily\textbf{R2}};
+    \node [anchor=north east,inner sep=2.5pt] at (5.6,5.6) (R2)
+    {\fontsize{10pt}{10pt}\selectfont\sffamily\textbf{T}};
+
+    % Pucks
     \foreach \x in {1,2,...,10}
     {
-      \draw ($ (2.25,5.48) + (\x*0.10,0) $) [fill=red,draw=red] circle (0.035);
-      \draw ($ (2.25,5.32) + (\x*0.10,0) $) [fill=red,draw=red] circle (0.035);
+      \draw ($ (0.12,2.25) + (0,\x*0.10) $) [fill=red,draw=red] circle (0.035);
+      \draw ($ (0.28,2.25) + (0,\x*0.10) $) [fill=red,draw=red] circle (0.035);
     }
 
+    \node [anchor=south west,rotate=90] at (0.33,0.2) {\large\sffamily Robot Insertion};
+    \node [anchor=north,rotate=90] at (0.4,2.8) {\large\sffamily Input Storage};
 
-    \node [anchor=south west] at (0.2,5.27) {\large\sffamily Robot Insertion};
-    \node [anchor=north] at (2.8,5.2) {\large\sffamily Input Storage};
+    \draw [<->,red,thick,ultra thick] (3.62,3.74) -- +(0.6,0);
+    \node [anchor=north] at (3.92,3.6) {\sffamily Machine Space};
 
-    \draw [<->,red,thick,ultra thick] (3.62,1.53) -- +(0.6,0);
-    \node [anchor=north] at (3.92,1.35) {\sffamily Machine Space};
+    \node [anchor=south,rotate=90] at (5.2,2.8) {\large\sffamily Delivery Zone};
 
-    \node [anchor=south] at (2.8,0.4) {\large\sffamily Delivery Zone};
-
-    \draw [->,red,ultra thick] (0.56,2.65) -- +(0,-0.3);
-    \draw [->,red,ultra thick] (1.53,1.68) -- +(-0.3,0);
-    \node [anchor=north west,text width=1cm] at (0.2,2.1)
+    \draw [->,red,ultra thick] (2.95,0.56) -- +(0.3,0);
+    \draw [->,red,ultra thick] (3.92,1.53) -- +(0,-0.3);
+    \node [anchor=south west,text width=1cm] at (3.5,0.3)
     {\sffamily Machine\\Facing\\Direction};
 
-    \node (name) [anchor=north,inner sep=0pt] at (1.99,4.75) {\sffamily Name};
-    \node (type) [anchor=north,inner sep=0pt] at (1.35,4.75) {\sffamily Type};
+    % Name/Type explanation and arrows
+    \node (name) [anchor=base west,inner sep=0pt]
+    at ($ (M2.north) + (-0.05,0.4) $) {\sffamily Name};
+    \node (type) [anchor=base east,inner sep=0pt]
+    at ($ (M2-1.north) + (0.05,0.4) $) {\sffamily Type};
 
     \draw [->,black,ultra thick]
-    ($ (name.south west) + (0.05,-0.05) $) -- ($ (M8.north) + (0,0.05) $);
+    ($ (name.base west) + (0.05,-0.05) $) -- ($ (M2.north) + (0,0.05) $);
     \draw [->,black,ultra thick]
-    ($ (type.south east) + (-0.05,0) $) -- ($ (M8-2.north) + (0,0.05) $);
+    ($ (type.base east) + (-0.05,-0.05) $) -- ($ (M2-1.north) + (0,0.05) $);
 
   \end{tikzpicture}
   \caption{Competition Area}
   \label{fig:competition-area}
 \end{figure}
-
 
 
 \subsection{Coordinates of the Production Machines}
@@ -444,23 +464,23 @@ different field slotes are given in Table~\ref{tab:coordinates}.
     \mytable{
     \begin{tabularx}{\linewidth}{l|R|R}
       \multicolumn{1}{l}{Unit} & \multicolumn{1}{l}{$x$~[\si{\metre}]} & \multicolumn{1}{l}{$y$~[\si{\metre}]}\\ \hline
-      Machine 1 & 1.68 & 1.68 \\
-      Machine 2 & 3.92 & 1.68 \\
-      Machine 3 & 0.56 & 2.80 \\
-      Machine 4 & 1.68 & 2.80 \\
+      Machine 1 & 3.92 & 1.68 \\
+      Machine 2 & 3.92 & 3.92 \\
+      Machine 3 & 2.80 & 0.56 \\
+      Machine 4 & 2.80 & 1.68 \\
       Machine 5 & 2.80 & 2.80 \\
-      Machine 6 & 3.92 & 2.80 \\
-      Machine 7 & 5.04 & 2.80 \\
-      Machine 8 & 1.68 & 3.92 \\
-      Machine 9 & 3.92 & 3.92 \\
-      Machine 10 & 5.04 & 3.92 \\
-      Recycling unit 1 & 0.20 & 0.20 \\
-      Recycling unit 2 & 5.40 & 5.40 \\
-      Test station &	5.40  &0.20 \\
-      Late order insertion point / slot & 	3.60 & 	5.35 \\
-      Delivery slot 1 & 	3.15 & 0.26 \\
-      Delivery slot 2 &	2.80 & 0.26 \\ 
-      Delivery slot 3 &	2.45 & 0.26 \\%\hline
+      Machine 6 & 2.80 & 3.92 \\
+      Machine 7 & 2.80 & 5.04 \\
+      Machine 8 & 1.68 & 1.68 \\
+      Machine 9 & 1.68 & 3.92 \\
+      Machine 10 & 1.68 & 5.04 \\
+      Recycling unit 1 & 5.40 & 0.20 \\
+      Recycling unit 2 & 0.20 & 5.40 \\
+      Test station & 5.40 &	5.40 \\
+      Late order insertion point / slot & 0.20 & 	3.60 \\
+      Delivery slot 1 & 5.34 & 	3.15 \\
+      Delivery slot 2 & 5.34 &	2.80 \\ 
+      Delivery slot 3 & 5.34 &	2.45 \\%\hline
     \end{tabularx}  
 }
       
