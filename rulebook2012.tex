@@ -133,10 +133,10 @@
   \end{center}
   \vspace*{4cm}
   
-  \noindent
-  \svn{$Rev$}\\[2ex]
-  \svn{$Author$}\\[2ex]
-  \svn{$Date$}\\[2ex]  
+  %\noindent
+  %\svn{$Rev$}\\[2ex]
+  %\svn{$Author$}\\[2ex]
+  %\svn{$Date$}\\[2ex]  
 \end{titlepage}
 \thispagestyle{empty}
 \pagebreak
@@ -164,23 +164,23 @@
 
 The future of Production Industry lies with smarter systems.  With
 current developments pursuing the goal of more aware, more
-decentralised behaviours in factories, a scientific platform for
+decentralized behaviors in factories, a scientific platform for
 applied research was required.  The RoboCup Logistics League Sponsored
 by Festo (LLSF) is determined to develop into a state-of-the-art
 platform for mobile robotics education. This industrial motivated
 league keeps the focus on challenges promoting precise actions,
 further encouraging external data supported autonomy.
 
-This year’s competition environment is laid out in the pages to come.
+This year's competition environment is laid out in the pages to come.
 It ensures the same and fair circumstances for all participants, it
 however is neither meant to dictate nor suggest the way how to fulfill
 the task, but is meant to develop the LLSF further towards deploying
 Automated Guided Vehicles (AGV) in industrial applications. Current
 challenges in developing industry-wide standards for Cyber Physical
-Production Systems (CPPS) are, for instance, to design
+Systems in Production (CPSP) are, for instance, to design
 plug-and-produce systems.
 
-After an exciting Robocup in Mexico, we look forward to a new scale of
+After an exciting RoboCup in Mexico, we look forward to a new scale of
 competition that will emerge from initiatives around the globe. In
 2012 we had our first Logistics League World Champion.  In 2013 we
 introduce the Referee Box changing the competition at its core by
@@ -215,9 +215,9 @@ machines. Basically, a machine is a signal light with an RFID reader
 as described in Appendix \ref{apx:sec:engref}. If a puck is fed into
 the machine, its ID tag is read and the machine reacts according to
 its particular machine specification. If possible, the product is then
-transformed into a new state: a new subassembly is produced. For each
+transformed into a new state: a new sub-assembly is produced. For each
 product variant (cf. \refsec{sec:prodportfolio} for details), it is
-required to produce the related subassemblies
+required to produce the related sub-assemblies
 step-by-step. Transformations can rely on more than one puck as input
 to be triggered.
 
@@ -242,7 +242,7 @@ by the referee.
 
 The Logistics League follows a certain design philosophy. All teams
 are obliged to use the Robotino robotic system from Festo Didactic
-Gmbh \& Co. KG with certain freedoms and limitations. The usage of all
+GmbH \& Co. KG with certain freedoms and limitations. The usage of all
 currently publicly available revisions is in order, see Section
 \ref{sec:robotino} and Appendix~\ref{apx:sec:engref} for further
 details.
@@ -453,7 +453,7 @@ area is shown in Figure~\ref{fig:competition-area}
 \label{sec:coordinates}
 
 The coordinates of the machine centres and the centres of the
-different field slotes are given in Table~\ref{tab:coordinates}.
+different field slots are given in Table~\ref{tab:coordinates}.
 
 
 \begin{figure}
@@ -606,20 +606,20 @@ size of (height $\times$ width $\times$ depth) \SI{280 x 160 x
   Tables~\ref{tab:production-machines}--\ref{tab:reading-device}.
 
 \subsubsection{Production Machines - during exploration phase}
-During the exploration pase the machines will indicate their type by individual
+During the exploration phase the machines will indicate their type by individual
 light signals. The light signals are defined in
 Table~\ref{tab:production-machines}. Corresponding machine types will be induced
-by the RefBox.
+by the refbox.
 
 \subsubsection{Production Machines - during production phase}
 After processing the current data carrier, the yellow LED is turned
 on.  The machine has finished processing the current data carrier and
-is waiting for the next subassembly. If the green LED is turned on,
+is waiting for the next sub-assembly. If the green LED is turned on,
 the machine has finished the work order and is ready to receive the
 next batch of carriers. In order to complete the machines' work order
 the input materials have to be delivered one-by-one into the RFID
 device's action range. Multiple data carriers in range of the device
-will result in erroneous behaviour of the device. Consumption of
+will result in erroneous behavior of the device. Consumption of
 materials, such as \s0 used in the production of \s2, will take 2
 seconds. Unloading the machine can be done immediately after the
 operating mode changes away from processing. As long as the machines
@@ -628,11 +628,11 @@ are used properly, they will not produce any junk.
 \begin{table}[tp]
 \centering
 \subtable[Optical Feedback during exploration phase]{\mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}\multicolumn{1}{l}{Optical Feedback} & \multicolumn{1}{l}{Operating mode} \\ \hline
-  	    All LEDs turned off &  	Machine type will be induced by RefBox. \\
-	    Red LED turned on &  	Machine type will be induced by RefBox. \\
-        Green LED turned on &  	Machine type will be induced by RefBox. \\
-        Red and Green LED turned on &  	Machine type will be induced by RefBox.\\
-        All LEDs turned on  &  	Machine type will be induced by RefBox. \\
+  	    All LEDs turned off &  	Machine type will be induced by refbox. \\
+	    Red LED turned on &  	Machine type will be induced by refbox. \\
+        Green LED turned on &  	Machine type will be induced by refbox. \\
+        Red and Green LED turned on &  	Machine type will be induced by refbox.\\
+        All LEDs turned on  &  	Machine type will be induced by refbox. \\
         \hline
 \end{tabularx}}}
 
@@ -645,7 +645,7 @@ are used properly, they will not produce any junk.
         Green and yellow LED turned on &  	The machine is processing or consuming the current data carrier. \\
         Yellow LED flashing (at 2 Hz) & The machine detects wrong material.
         This can be caused by data carriers that are already consumed,
-        subassemblies that do not fit to this machine type's work order or
+        sub-assemblies that do not fit to this machine type's work order or
         corrupted data carriers. \\%\hline
 \end{tabularx}}}
 
@@ -701,8 +701,8 @@ are used properly, they will not produce any junk.
     Green LED turned on &	The station is ready to read the next data carrier.\\
     All LEDs turned off &	Consumed pallet carrier.\\
     Yellow LED turned on &	Raw-material (\s0) \\
-    Red and yellow LEDs turned on & 	Subassembly 1 (\s1)\\
-    Red LED turned on &	Subassembly 2 (\s2)\\
+    Red and yellow LEDs turned on & 	Sub-assembly 1 (\s1)\\
+    Red LED turned on &	Sub-assembly 2 (\s2)\\
     All LEDs turned on & The final product (\p{})\\%\hline
   \end{tabularx}}
   \caption{Reading Device}
@@ -712,7 +712,7 @@ are used properly, they will not produce any junk.
 
 The distribution describes how many machines of the respective types
 will be randomly placed resulting in a the total of 10 court machines. During
-th
+th \textbf{This sentence has no...}
 
 
 
@@ -806,8 +806,8 @@ monitors feedback from team robot, and awards points. It is instructed
 by an assisting human referee and keeps a log of all relevant game
 events. The final game report will be produced by the refbox. While we
 strive for a maximum of automation of this control task, we rely on
-the human referee for final judgement, in particular for border or
-underspecified cases, and will provide the largest set of override
+the human referee for final judgment, in particular for border or
+under-specified cases, and will provide the largest set of override
 abilities feasible.
 
 The refbox is the single point of instruction for robots during the
@@ -832,7 +832,7 @@ in the RoboCup Logistics League Referee Box Specification.
 \label{sec:remote-control}
 Remote operation or instruction of any kind of the robots is forbidden
 at all times during a game. The only allowed interaction is for the
-single button click startup (cf.~\refsec{sec:match-startup}). Any
+single button click start-up (cf.~\refsec{sec:match-startup}). Any
 failure to comply with this rule will lead to immediate
 disqualification of the infringing team.
 
@@ -902,11 +902,12 @@ tournament.
 \subsection{Wifi regulations}
 \label{sec:wifi-regulations}
 In order to provide the optimal possible solution for wireless
-communication during the event, all teams are required to use the \SI{5}{\giga\hertz} wifi equipment. They are furthermore required to connect their
-Robotinos wifi unit to the access point provided. All teams can also
-relay on wifi clients supplied by Festo but are not required to. A
-detailed description concerning the infrastructure can be found in
-Appendix~\ref{sec:wifi-equipment}.
+communication during the event, all teams are required to use the
+\SI{5}{\giga\hertz} wifi equipment. They are furthermore required to
+connect their Robotinos wifi unit to the access point provided. All
+teams can also relay on wifi clients supplied by Festo but are not
+required to. A detailed description concerning the infrastructure can
+be found in Appendix~\ref{sec:wifi-equipment}.
 
 % Please refer to Sect.~\ref{sec:radio-interference} for further details.
 
@@ -1058,7 +1059,7 @@ as a production graph.
   \capbtabbox{%
     \centering
     \mytable{\begin{tabularx}{\textwidth}{C|C|C|c}
-        \multicolumn{1}{c}{Subassembly} & \multicolumn{1}{c}{Deployable} & \multicolumn{1}{c}{Prerequisites} & \multicolumn{1}{c}{Result}\\\hline
+        \multicolumn{1}{c}{Sub-assembly} & \multicolumn{1}{c}{Deployable} & \multicolumn{1}{c}{Prerequisites} & \multicolumn{1}{c}{Result}\\\hline
         \s{0} &	\T{1}, \T{2}, \T{3}, \T{4}, \T{5} & none & \s{1}, \p{3} or
         \TAG{consumed}\\
         \s{1} &	\T{2}, \T{3}, \T{4} &  	\s{0} & 	\s{2} or \TAG{consumed} \\
@@ -1270,7 +1271,7 @@ different product variant have to be produced in the current production phase.
 The number of items can range from 1 to 10 items per phase. Only products which
 are covered by the production plan score. In 2013 there will be three phases.
 Each of the three phases will last 5 minutes. The first phase will start with
-the match startup. The second phase will start at minute 5, the third at minute
+the match start-up. The second phase will start at minute 5, the third at minute
 10. The production plan is shown in Table~\ref{tab:production-plan}.
 
 % \begin{table}[t]
@@ -1308,7 +1309,7 @@ the active delivery gate.
 \paragraph{Round-Robin phase} 
 There will be two stages in the competition. The first stage is a
 group phase and will be played as a round-robin. The best 4 teams of
-the round-robin stage will advange to a playoff round.
+the round-robin stage will advance to a playoff round.
 %
 At the round-robin stage, the teams will be receive the true point
 they scored by delivering and producing goods during the
@@ -1385,7 +1386,7 @@ late order challenge setup:
 \begin{itemize}
 \item The active delivery gate will not switch during a match.
 \item There will be 3 late order challenges.
-\item No challenge will be initialised during the first or within the
+\item No challenge will be initialized during the first or within the
   last two match minutes.
 \end{itemize} 
 
@@ -1396,7 +1397,7 @@ late order challenge setup:
   and 11. A delivery made to the old active gate will be still
   valid for the next 10 seconds.
 \item There will be 4 late order challenges. 
-\item No challenge will be initialised during the first or within
+\item No challenge will be initialized during the first or within
   the last two match minutes.
 \end{itemize}    
 
@@ -1439,7 +1440,7 @@ from the game by the administration and therefore cannot be recycled.
 \end{table}
 
 
-\subsubsection{Task fulfilment}
+\subsubsection{Task fulfillment}
 
 Table \ref{tab:scoring} provides the itemized clearance of all task
 related processes.
@@ -1449,17 +1450,17 @@ related processes.
 
 \subsection{Penalties}
 
-The catalogue in Table~\ref{tab:infringements} represents the decision
+The catalog in Table~\ref{tab:infringements} represents the decision
 basis for the referees without being exhaustive or binding.
 %
 The abidance of these rules will be monitored by at least two
 referees.  One ``field'' referee will overlook the competition
-area. The field refereee is allowed to enter the area at any
+area. The field referee is allowed to enter the area at any
 time. Accidental moving of a puck or similar unintended tampering
 resulting from the referees present on the field must be coped with. A
 second "station" referee operates the control station for the refbox
 to issue the initial start command and monitor the game flow and the
-correctness of the digital representation and automatical scoring.
+correctness of the digital representation and automatic scoring.
 
 
 \begin{table}[th]
@@ -1474,7 +1475,7 @@ correctness of the digital representation and automatical scoring.
 %
   Damaging factory equipment & Theoretical damage to the real
   factory equipment as a result of collisions and negligent actions.
-  This behaviour will be punished as a minor rule break.\\[1ex]
+  This behavior will be punished as a minor rule break.\\[1ex]
   % The team will be punished with a score reduction. The total score
   % cannot  drop below zero.\\[1ex]
 %
@@ -1533,7 +1534,7 @@ correctness of the digital representation and automatical scoring.
   zone wins this challenge. All other teams are ranked according to
   how fast they were and how many penalties they conceived.
   
-  \paragraph{Whac-a-Mole.~}
+  \paragraph{Whack-a-Mole.~}
   A single robot is placed somewhere on the field. It has to detect
   the single shining signal unit on the play field. As soon as it puts
   a puck underneath it, the signal unit is switched off and another
@@ -1662,15 +1663,15 @@ correctness of the digital representation and automatical scoring.
 
 \section{Engineering reference} \label{apx:sec:engref}
 \subsection{The Mobile Robot System}
-The mobile robot system Robotino® is a platform with an open
+The mobile robot system Robotino is a platform with an open
 mechanical interface for the integration of additional mechanical
 devices and an open electrical interface to integrate easily
 additional sensors or motors of devices. Power is supplied via two
 \SI{12}{\volt} lead gel batteries which permit a running time of up to
 two hours.  The scope of delivery likewise includes a charging
-device. Robotino® is driven by 3 independent, omnidirectional drive
+device. Robotino is driven by 3 independent, omni-directional drive
 units. They are mounted at an angle of \ang{120} to each other. The
-three omnidirectional drive units of Robotino® , defines the robot as
+three omni-directional drive units of Robotino , defines the robot as
 being holonomic, meaning that the controllable degrees of freedom
 equals the total degrees of freedom of the robot. The drive units are
 integrated in a sturdy, laser welded steel chassis. The chassis is
@@ -1688,7 +1689,7 @@ protected by a rubber bumper with integrated switching sensor.
 Each of the 3 drive units consists of the following components: DC
 Dunker motor with nominal speed of \SI{3600}{rpm} and nominal torque
 of \SI{3.8}{\newton\centi\metre}. Integrated planetary gear unit with
-a gear ratio of 4:1. Omnidirectional wheels of diameter of
+a gear ratio of 4:1. Omni-directional wheels of diameter of
 \SI{80}{\milli\metre}. Toothed belt with gear wheels providing a
 transmission ratio of 4:1.
 %
@@ -1702,19 +1703,19 @@ Figure~\ref{apx:fig:driveunit}.
 \begin{figure}[tbh]
 \centering
 \includegraphics{driveunit.png}
-\caption{Drive unit with motor (1), encoder (2), omnidirectional wheel
+\caption{Drive unit with motor (1), encoder (2), omni-directional wheel
 (3)}
 \label{apx:fig:driveunit}
 \end{figure}
 
 The motor speed will be controlled via a PID controller implemented on
-a Atmel microprocessor of the controller board of Robotino®.
+a Atmel microprocessor of the controller board of Robotino.
 
 \subsubsection{Sensors}
 
-Robotino® is equipped with 9 infrared distance measuring sensors which
+Robotino is equipped with 9 infrared distance measuring sensors which
 are mounted in the chassis at an angle of \ang{40} to one
-another. Robotino® can scrutinise all surrounding areas for objects
+another. Robotino can scrutinize all surrounding areas for objects
 with these sensors.  Each of the sensors can be queried individually
 via the controller board. Obstacles can thus be avoided, clearances
 can be maintained and bearings can be taken on a selected target. The
@@ -1722,12 +1723,12 @@ sensors are capable of accurate or relative distance measurements to
 objects at distances of \SI{4}{\centi\metre} to
 \SI{30}{\centi\metre}. Sensor connection is especially simple
 including just one analogue output signal and supply power. The
-sensors’ evaluation electronics determines distance and read it out as
+sensors' evaluation electronics determines distance and read it out as
 an analogue signal.  The anti-collision sensor is comprised of a
 switching strip which is secured around the entire circumference of
-the chassis. A reliably recognisable signal is thus transmitted to the
+the chassis. A reliably recognizable signal is thus transmitted to the
 controller unit.  Collisions with objects at any point on the housing
-are detected and, for example, Robotino® is brought to a
+are detected and, for example, Robotino is brought to a
 standstill. The inductive proximity sensor is supplied as an
 additional component. It serves to detect metallic objects on the
 floor and is used for continuous-path control, e.g. it might be used
@@ -1741,14 +1742,14 @@ furnished for this purpose, and must be connected to the I/O
 interface.  The output voltage is \SI{0}{\volt} to \SI{10}{\volt}. The
 sensing range is \SI{0}{\milli\metre} to \SI{6}{\milli\metre}. Path
 tracking can also be implemented with the two included diffuse
-sensors.  Flexible fibre optic cables are connected to a fibre-optics
+sensors.  Flexible fiber optic cables are connected to a fiber-optics
 unit which works with visible red light. Reflected light is
-detected. Different surfaces and colours produce different degrees of
+detected. Different surfaces and colors produce different degrees of
 reflection. However, gradual differences in reflected light cannot be
 detected. The sensors must be attached to the mountings furnished for
 this purpose, and must be connected to the I/O interface.
 
-Robotino® is equipped with a colour webcam. The webcam is equipped with
+Robotino is equipped with a color webcam. The webcam is equipped with
 a USB interface. Also, there will be integrated a digital Gyroscope
 providing a high accuracy of the odometry in the virtual factory.
 
@@ -1764,9 +1765,9 @@ providing a high accuracy of the odometry in the virtual factory.
 The controller housing is connected to the wiring in the chassis via
 one plug-in. Thus you can easily take off the controller housing and
 you have direct access to the mechanical system. The controller system
-of Robotino® is divided into two parts – an embedded PC and a
-microcontroller interface card: The Controller of Robotino® consists of
-an embedded PC and a microcontroller interface board. The main
+of Robotino is divided into two parts – an embedded PC and a
+micro-controller interface card: The Controller of Robotino consists of
+an embedded PC and a micro-controller interface board. The main
 controller is the embedded PC 104 plus controller with the 500 MHz
 processor AMD LX800. The PC has a SDRAM of 128 MB and is provided with
 a 1 GB flash card. There are numerous communication interfaces on
@@ -1785,35 +1786,36 @@ board:
 \subsubsection{Software}
 Preinstalled is an Ubuntu Linux operating system with real time kernel
 running on the embedded PC 104. The main part of the controller is the
-Robotino® server, a real time Linux application. It controls the drive
+Robotino server, a real time Linux application. It controls the drive
 units and provides interfaces to communicate with external PC
-applications via WiFi. There is an API with libraries which allow you
-to create applications for Robotino® in numerous programming languages:
+applications via wifi. There is an API with libraries which allow you
+to create applications for Robotino in numerous programming languages:
 
 \begin{itemize}
-	\item C++ und C 
+	\item C++ and C 
 	\item C\# 
 	\item .net and JAVA 
 	\item MatLab and Simulink
 	\item Labview
 \end{itemize}
 
-You may find a lot of examples concerning using the different API’s in
-the public forum “Openrobotino”, http://www.openrobotino.org .
+You may find a lot of examples concerning using the different API's in
+the public forum ``Openrobotino'' at
+\url{http://www.openrobotino.org}.
 
-\paragraph{Robotino® View} 
+\paragraph{Robotino View} 
 
-Robotino® View is a graphical programming language with numerous
+Robotino View is a graphical programming language with numerous
 prepared function blocks you can easily connect via input and output
 parameters to establish more complicated function diagrams. You can use
 these function diagrams as subprograms for more complex programming
-sequences. To build up general programming sequences Robotino® View
-follows the international standard IEC 61131-3. You may run Robotino®
-View on an external PC and Robotino® View communicates directly with
-the Robotino® Server on the PC 104 via WiFi in order to control the
+sequences. To build up general programming sequences Robotino View
+follows the international standard IEC 61131-3. You may run Robotino
+View on an external PC and Robotino View communicates directly with
+the Robotino Server on the PC 104 via wifi in order to control the
 robot system. The function blocks receive a direct feedback of the
 hardware components such that you can live interact with the robot
-system. On the other hand you can download Robotino® View programs into
+system. On the other hand you can download Robotino View programs into
 the PC 104 in order to run the applications completely autonomously.
 There is a well defined interface to develop own function blocks in C++
 or Lua.
@@ -1821,13 +1823,13 @@ or Lua.
 \paragraph{Image Processing}
 
 Depending on the Robotino version it might happen that the standard web
-camera only provides image data by jpeg compression. This is very
+camera only provides image data by JPEG compression. This is very
 useful if you run your image processing on the PC and exchange the data
-via WiFi. However, if you would like to run your image processing
+via wifi. However, if you would like to run your image processing
 algorithms on the Robotino controller then the processor is not
 powerful enough in order to pack and to unpack the image data in a
 reasonable time. Thus we recommend for running image processing
-algorithms on the Robotino controller to use a camera without jpeg
+algorithms on the Robotino controller to use a camera without JPEG
 compression, e.g. use the low cost Logitech web camera C250.
 
 \subsection{Machines} \label{abx:sec:machine}
@@ -1866,8 +1868,8 @@ compression, e.g. use the low cost Logitech web camera C250.
       Current					&	3 $\times$ \SI{40}{\milli\ampere} \\
       Kind of current			&	DC \\
       Operating mode			&	\SIrange{-20}{+50}{\degreeCelsius} \\
-      Signaltype				&	Static LED \\
-      Signal					&	Ultrabright LED\\
+      Signal type				&	Static LED \\
+      Signal					&	Ultra-bright LED\\
       Source					&	Festo \# 549843 \\
 %      \hline
     \end{tabularx}}
@@ -1883,7 +1885,7 @@ compression, e.g. use the low cost Logitech web camera C250.
       \hline
       Technical data of the read/write head		&	Housing rectangular \\
       Housing and working dimensions 				&
-      \SI{40x40}{\milli\metre}  with the centred RFID
+      \SI{40x40}{\milli\metre}  with the centered RFID
       tag. \\
       Housing height
       & \SI{65}{\milli\metre} \\ 
@@ -1923,7 +1925,7 @@ compression, e.g. use the low cost Logitech web camera C250.
       IP-distribution		&	172.26.200.xxx for LAN clients(DHCP) \\
       &	172.26.101.xxx for the Robotino devices \\
       &	172.26.1.xxx for Robotinos \\
-      Subnetmask			&	255.255.0.0 \\
+      Subnet Mask			&	255.255.0.0 \\
       Encryption			&	Unsecured \\
       SSID				&	Separated for both teams:\\
       &	RobotinoEvent.1 \\
