@@ -604,10 +604,11 @@ size of (height $\times$ width $\times$ depth) \SI{280 x 160 x
   Tables~\ref{tab:production-machines}--\ref{tab:reading-device}.
 
 \subsubsection{Production Machines - during exploration phase}
-During the exploration phase the machines will indicate their type by individual
-light signals. The light signals are defined in
-Table~\ref{tab:production-machines}. Corresponding machine types will be induced
-by the refbox.
+\label{sec:production-machines-exp}
+ During the exploration pase the
+machines will indicate their type by individual light signals. The
+light signals are defined in Table~\ref{tab:production-machines}.
+Corresponding machine types will be induced by the RefBox.
 
 \subsubsection{Production Machines - during production phase}
 After processing the current data carrier, the yellow LED is turned
@@ -943,12 +944,36 @@ competition area the robot cannot be reinserted during the same match.
 %A team can also decide to remove their robot from the competition area
 %at any time of the match.
 
-\subsubsection{Exploration Phase} \label{sec:expphase}
-%
-Before the actual game starts, the machines will indicate their types
-with the signal lights for two minutes. The robots are to roam the
-environment and announce detected signals to the referee box. Each
-properly reported signal scores two points, each signal reported
+\subsection{Setup environment}
+\subsubsection{Machine Initialization}
+
+The physical distribution of the production machines is fixed. Their
+alignment will be randomized during the event setup but will stay that
+way through the whole event. The machine type of each production
+machine will be randomized prior to each match. The processing time of
+each machine type will be determined in the same way, so the waiting
+time during a match will be static for each machine of the three
+machine types (e.g. all M1 could have 7 seconds processing time). The
+active delivery gate will also be randomized prior to each match but
+during a match the active gate can switch.
+
+
+\subsection{Game phases} \label{sec:game-phases}
+\subsubsection{Game start} \label{sec:game-start}
+All matches will start at the exact time scheduled by the organization
+team. From this point on, the teams involved are allowed to start their
+robots to work autonomously within one minute. This can be done by
+issueing one single distinct command via any kind of interface. Robots
+which remain inactive after this minute will be extracted from the field.
+
+\subsubsection{Exploration Phase} \label{sec:expphase} 
+With the start of the game, the exploration phase begins. For two
+minutes all machines indicate their type using the signal lights. The
+signal light encoding of machine types will be published by the refbox
+as described in \refsec{sec:production-machines-exp} and in detail in
+the RoboCup Logistics League Referee Box Specification. The robots are
+to roam the environment and announce the detected types to the refbox.
+Each properly reported signal scores two points, each signal reported
 wrongly will give \num{-1} points penalty. A minimum of zero points
 will be accounted for this exploration phase. Production or moving
 pucks is not allowed during the exploration phase.
@@ -958,13 +983,11 @@ pucks is not allowed during the exploration phase.
 \label{sec:production-phase}
 
 With the end of the exploration phase, the actual production begins,
-which lasts \num{15} minutes The refbox publishes all information
-regarding product and machines. All matches will start at the exact
-time scheduled by the organization team.  From this point on, the
-teams involved are allowed to start their robots to work autonomously
-within one minute. This can be done by one click per robot on any kind
-of interface. Robots which remain inactive after this minute will be
-extracted from the field.
+which lasts \num{15} minutes. The refbox publishes all information
+regarding products and machines. This includes position, orientation,
+and type of each machine, as well as the different product variants
+that can be produced and the time windows for production of each
+variant. 
 
 
 \subsection{Production portfolio}
@@ -1148,10 +1171,12 @@ different machine types are specified in Sect.~\ref{sec:machines}.
 
 \subsubsection{Late order}
 
-The late order challenge will be announced by the referee box. The
-challenge requires a fast paced processing and delivery of the
-requested product within a specified time window. The challenge also
-requires prior knowledge concerning the machine distribution.
+The late order challenge is the derived from the former express good
+rule. It will be announced at a random time by the refbox in form of a
+request for a specified product to be delivered within a specified time
+window. The challenge requires a fast paced processing and delivery of
+the requested product in time. The challenge also requires prior
+knowledge concerning the machine distribution.
 
 \subsection{Environment Setup}
 The physical distribution of the production machines is fixed. Their
