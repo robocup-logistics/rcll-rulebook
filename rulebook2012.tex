@@ -220,12 +220,12 @@ step-by-step. Transformations can rely on more than one puck as input
 to be triggered.
 
 This game flow is controlled by a referee box broadcasting information
-via wifi (see \refsec{sec:refbox}). It is divided into two different
+via wifi (see \refsec{sec:referee box}). It is divided into two different
 phases: in an exploration phase (see \refsec{sec:expphase}) where the
 Robotinos can receive scores for discovering and publishing the yet
 unknown types of the different machines on the field. After this
 initial phase, the referee box then announces the types of all
-machines and the the second phase of the game, the actual production
+machines and the second phase of the game, the actual production
 task as described in detail in \refsec{sec:production-phase}, begins.
 
 The whole factory area can be used as an intermediate
@@ -304,7 +304,7 @@ right borders of the competition area. The factory area is joined by
 two opposing \SI{0.4 x 1.0}{\metre} zones at the left and right
 middle. The left zone is painted blue marking the \textit{input
   storage area} with the \textit{late order insertion point} to the
-top. The insertion area is \SI{0.6}{\metre} of height with the
+top. The insertion area is \SI{0.6}{\metre} of depth with the
 insertion slot in its middle. This spot is a \SI{0.1 x 0.1}{\metre}
 empty square that will be equipped with a pallet carrier to start the
 late order challenge. The space between the recycling unit and the
@@ -326,7 +326,7 @@ completely will be considered for scoring, i.e. no part of the pallet
 carrier may be outside the slot boundary.
 
 A total of 13 machines are placed within the competition area. 10
-machines representing the 3 staged production processes, 2 machines to
+machines representing the staged production processes, 2 machines to
 recycle consumed pallet carrier and 1 test station. The machines of
 the production process are placed within the factory area as stated in
 the table below. They are aligned in a \ang{90} angle (but which may
@@ -583,55 +583,51 @@ All machines are identical devices consisting of
 
 They share the same design and the same RFID device, with the overall
 size of (height $\times$ width $\times$ depth) \SI{280 x 160 x
-  100}{\milli\metre}. Confer also Appendix~\ref{apx:sec:engref} for
-  further details. The default operating mode of all machines implies
-  that only the green LED is turned on. This signals that the machine
-  is ready for input. The reading and writing process is a delicate
-  process. To avoid corruption of the data carrier, it should not
-  leave the working range of the RFID device once the processing or
-  consuming is started. To enable the production process it is
-  necessary to transport the pallet carrier accurately to the RFID
-  device. A consumed pallet carrier has to stay within the machine
-  space borders (no part of the puck being outside the mark-up) until
-  the production cycle of that very machine has been
-  completed. Products resulting from violating this requirement is
-  considered junk and will not be rewarded. The machine always
-  processes the required pallet carrier delivered last, all prior
-  components will be consumed. All machines will start processing the
-  data carrier as soon as it enters the machining zone as stated in
-  Section~\ref{sec:competition-area} and the machine changed its
-  operating mode according to 
-  Tables~\ref{tab:production-machines}--\ref{tab:reading-device}.
+100}{\milli\metre}. Confer also Appendix~\ref{apx:sec:engref} for further
+details. Machines can be in different states which are communicated by their
+signal lights. The reading and writing process is a delicate process. To avoid
+corruption of the data carrier, it should not leave the working range of the
+RFID device once the processing or consuming is started. To enable the
+production process it is necessary to transport the pallet carrier accurately to
+the RFID device. A consumed pallet carrier has to stay within the machine space
+borders (no part of the puck being outside the mark-up) until the production
+cycle of that very machine has been completed. Products resulting from violating
+this requirement is considered junk and will not be rewarded. The machine always
+processes the required pallet carrier delivered last, all prior components will
+be consumed. All machines will start processing the data carrier as soon as it
+enters the machining zone as stated in Section~\ref{sec:competition-area} and
+the machine changed its operating mode according to
+Tables~\ref{tab:production-machines}--\ref{tab:reading-device}.
 
 \subsubsection{Production Machines - during exploration phase}
 \label{sec:production-machines-exp}
  During the exploration pase the
 machines will indicate their type by individual light signals. The
 light signals are defined in Table~\ref{tab:production-machines}.
-Corresponding machine types will be induced by the RefBox.
+Corresponding machine types will be induced by the referee box.
 
 \subsubsection{Production Machines - during production phase}
-After processing the current data carrier, the yellow LED is turned
-on.  The machine has finished processing the current data carrier and
-is waiting for the next sub-assembly. If the green LED is turned on,
-the machine has finished the work order and is ready to receive the
-next batch of carriers. In order to complete the machines' work order
-the input materials have to be delivered one-by-one into the RFID
-device's action range. Multiple data carriers in range of the device
-will result in erroneous behavior of the device. Consumption of
-materials, such as \s0 used in the production of \s2, will take 2
-seconds. Unloading the machine can be done immediately after the
-operating mode changes away from processing. As long as the machines
-are used properly, they will not produce any junk.
+The default operating mode of all machines implies that only the green LED is
+turned on. This signals that the machine is ready for input. After processing
+the current data carrier, the yellow LED is turned on.  The machine has finished
+processing the current data carrier and is waiting for the next sub-assembly. If
+the green LED is turned on, the machine has finished the work order and is ready
+to receive the next batch of carriers. In order to complete the machines' work
+order the input materials have to be delivered one-by-one into the RFID device's
+action range. Multiple data carriers in range of the device will result in
+erroneous behavior of the device. Consumption of materials, such as \s0 used in
+the production of \s2, will take 2 seconds. Unloading the machine can be done
+immediately after the operating mode changes away from  processing. As long as
+the machines are used properly, they will not produce any junk.
 
 \begin{table}[tp]
 \centering
 \subtable[Optical Feedback during exploration phase]{\mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}\multicolumn{1}{l}{Optical Feedback} & \multicolumn{1}{l}{Operating mode} \\ \hline
-  	    All LEDs turned off &  	Machine type will be induced by refbox. \\
-	    Red LED turned on &  	Machine type will be induced by refbox. \\
-        Green LED turned on &  	Machine type will be induced by refbox. \\
-        Red and Green LED turned on &  	Machine type will be induced by refbox.\\
-        All LEDs turned on  &  	Machine type will be induced by refbox. \\
+  	    All LEDs turned off &  	Machine type will be induced by referee box. \\
+	    Red LED turned on &  	Machine type will be induced by referee box. \\
+        Green LED turned on &  	Machine type will be induced by referee box. \\
+        Red and Green LED turned on &  	Machine type will be induced by referee box.\\
+        All LEDs turned on  &  	Machine type will be induced by referee box. \\
         \hline
 \end{tabularx}}}
 
@@ -710,10 +706,7 @@ are used properly, they will not produce any junk.
 
 
 The distribution describes how many machines of the respective types
-will be randomly placed resulting in a the total of 10 court machines. During
-th \textbf{This sentence has no...}
-
-
+will be randomly placed resulting in a the total of 10 court machines. 
 
 \subsubsection{Recycling Unit (former market place)}
 The recycling unit processes all supplied loading carriers back to
@@ -798,30 +791,30 @@ due to outer circumstances, the TC can monitor the network traffic and
 demand reduction in communicated data as necessary.
 
 \subsection{Referee Box}
-\label{sec:refbox}
-The referee box (refbox) is a software system that runs on a system
+\label{sec:referee box}
+The referee box (referee box) is a software system that runs on a system
 provided by the Organization Committee. It controls the overall game,
 monitors feedback from team robot, and awards points. It is instructed
 by an assisting human referee and keeps a log of all relevant game
-events. The final game report will be produced by the refbox. While we
+events. The final game report will be produced by the referee box. While we
 strive for a maximum of automation of this control task, we rely on
 the human referee for final judgment, in particular for border or
 under-specified cases, and will provide the largest set of override
 abilities feasible.
 
-The refbox is the single point of instruction for robots during the
+The referee box is the single point of instruction for robots during the
 game. After game setup has finished, game state information and orders
-are announced by the refbox. Commands must be acknowledged. In certain
+are announced by the referee box. Commands must be acknowledged. In certain
 situations (for example during the exploration phase) for successful
-and true communication with the refbox points are awarded. The aim is
+and true communication with the referee box points are awarded. The aim is
 to reduce human interference year by year to a minimum as to exhibit
-the widest autonomy during the game possible. Ultimately, the refbox
+the widest autonomy during the game possible. Ultimately, the referee box
 should be able to fully control the game by itself, transforming all
 participants, team members, and visitors alike into pure spectators of
 the game, sometimes providing maintenance and crisis intervention when
 necessary.
 
-The communication from the refbox to the robot is a datagram-oriented
+The communication from the referee box to the robot is a datagram-oriented
 broadcast protocol based on Google protocol buffers\footnote{Available
   at \url{https://code.google.com/p/protobuf/}} (protobuf). The
 protocol definition and technical parameters are described in detail
@@ -921,6 +914,18 @@ settings, including the late order challenge and other random events,
 will be the exact same for both parties of a match. The three phases
 of the game are detailed below.
 
+\subsection{Environment Setup}
+\label{sec:}
+
+The physical distribution of the production machines is fixed. Their
+alignment will be randomized during the tournament setup. The machine type of each production
+machine will be randomized prior to each match. The processing time of
+each machine type will be determined in the same way, so the waiting
+time during a match will be static for each machine of the three
+machine types (e.g. all M1 could have 7 seconds processing time). The
+active delivery gate will also be randomized prior to each match but
+during a match the active gate can switch.
+
 \subsection{Game Phases}
 \label{sec:game-phases}
 
@@ -944,21 +949,6 @@ competition area the robot cannot be reinserted during the same match.
 %A team can also decide to remove their robot from the competition area
 %at any time of the match.
 
-\subsection{Setup environment}
-\subsubsection{Machine Initialization}
-
-The physical distribution of the production machines is fixed. Their
-alignment will be randomized during the event setup but will stay that
-way through the whole event. The machine type of each production
-machine will be randomized prior to each match. The processing time of
-each machine type will be determined in the same way, so the waiting
-time during a match will be static for each machine of the three
-machine types (e.g. all M1 could have 7 seconds processing time). The
-active delivery gate will also be randomized prior to each match but
-during a match the active gate can switch.
-
-
-\subsection{Game phases} \label{sec:game-phases}
 \subsubsection{Game start} \label{sec:game-start}
 All matches will start at the exact time scheduled by the organization
 team. From this point on, the teams involved are allowed to start their
@@ -969,10 +959,10 @@ which remain inactive after this minute will be extracted from the field.
 \subsubsection{Exploration Phase} \label{sec:expphase} 
 With the start of the game, the exploration phase begins. For two
 minutes all machines indicate their type using the signal lights. The
-signal light encoding of machine types will be published by the refbox
+signal light encoding of machine types will be published by the referee box
 as described in \refsec{sec:production-machines-exp} and in detail in
 the RoboCup Logistics League Referee Box Specification. The robots are
-to roam the environment and announce the detected types to the refbox.
+to roam the environment and announce the detected types to the referee box.
 Each properly reported signal scores two points, each signal reported
 wrongly will give \num{-1} points penalty. A minimum of zero points
 will be accounted for this exploration phase. Production or moving
@@ -983,7 +973,7 @@ pucks is not allowed during the exploration phase.
 \label{sec:production-phase}
 
 With the end of the exploration phase, the actual production begins,
-which lasts \num{15} minutes. The refbox publishes all information
+which lasts \num{15} minutes. The referee box publishes all information
 regarding products and machines. This includes position, orientation,
 and type of each machine, as well as the different product variants
 that can be produced and the time windows for production of each
@@ -1162,8 +1152,8 @@ as a production graph.
 \subsubsection{The production table}
 
 Table~\ref{tab:production-table} shows the production table for the
-main challenge; the three staged production process as well as the
-Late Order challenge. The main challenge can be repeated as long as
+main challenge; the three staged production processes as well as the
+Late Order Challenge. The main challenge can be repeated as long as
 enough pallet carriers can be provided to complete the cycle. The
 different machine types are specified in Sect.~\ref{sec:machines}.
 
@@ -1171,24 +1161,12 @@ different machine types are specified in Sect.~\ref{sec:machines}.
 
 \subsubsection{Late order}
 
-The late order challenge is the derived from the former express good
-rule. It will be announced at a random time by the refbox in form of a
+The late order challenge is derived from the former express good
+rule. It will be announced at a random time by the referee box in form of a
 request for a specified product to be delivered within a specified time
 window. The challenge requires a fast paced processing and delivery of
 the requested product in time. The challenge also requires prior
 knowledge concerning the machine distribution.
-
-\subsection{Environment Setup}
-The physical distribution of the production machines is fixed. Their
-alignment will be randomized during the event setup but will stay that
-way through the whole event. The machine type of each production
-machine will be randomized prior to each match. The processing time of
-each machine type will be determined in the same way, so the waiting
-time during a match will be static for each machine of the three
-machine types (e.g. all M1 could have 7 seconds processing time). The
-active delivery gate will also be randomized prior to each match but
-during a match the active gate can switch.
-
 
 \subsection{During a match}
 
@@ -1218,7 +1196,7 @@ process.
 
 The referee box will announce a production plan for different
 phases of the match. The production plan specifies how many items of
-different product variant have to be produced in the current production phase.
+different product variants have to be produced in the current phase.
 The number of items can range from 1 to 10 items per phase. Only products which
 are covered by the production plan score. In 2013 there will be three phases.
 Each of the three phases will last 5 minutes. The first phase will start with
@@ -1257,7 +1235,7 @@ the match start-up. The second phase will start at minute 5, the third at minute
 %   \label{tab:production-plan}
 % \end{table}
 
-\subsubsection{Late order challenge}
+\subsubsection{Late Order Challenge}
 
 The challenge will be induced by the referee box sending an late order
 message to the robots. The message specifies the demanded product
@@ -1284,10 +1262,10 @@ There will be two stages in the competition. The first stage is a
 group phase and will be played as a round-robin. The best 4 teams of
 the round-robin stage will advance to a playoff round.
 %
-At the round-robin stage, the teams will be receive the true point
+At the round-robin stage, the teams will  receive the true points
 they scored by delivering and producing goods during the
 competition. The points will be accumulated in this phase and the
-teams will be ranked according to the accumulated point in descending
+teams will be ranked according to the accumulated points in descending
 order.
 
 \paragraph{Playoffs} At the payoff stage, the scoring scheme will be
@@ -1431,7 +1409,7 @@ referees.  One ``field'' referee will overlook the competition
 area. The field referee is allowed to enter the area at any
 time. Accidental moving of a puck or similar unintended tampering
 resulting from the referees present on the field must be coped with. A
-second "station" referee operates the control station for the refbox
+second "station" referee operates the control station for the referee box
 to issue the initial start command and monitor the game flow and the
 correctness of the digital representation and automatic scoring.
 
