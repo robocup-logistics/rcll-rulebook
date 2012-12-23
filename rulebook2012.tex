@@ -173,10 +173,9 @@ This year's competition environment is laid out in the pages to come.
 It ensures the same and fair circumstances for all participants, it
 however is neither meant to dictate nor suggest the way how to fulfill
 the task, but is meant to develop the LLSF further towards deploying
-Automated Guided Vehicles (AGV) in industrial applications. Current
-challenges in developing industry-wide standards for Cyber Physical
-Systems (CPS) in production environments are, for instance, to design
-plug-and-produce systems.
+Automated Guided Vehicles (AGV) in industrial applications. This includes current
+challenges of developing industry-wide standards for Cyber Physical Production
+Systems (CPPS) like designing plug-and-produce capable systems.
 
 After an exciting RoboCup in Mexico, we look forward to a new scale of
 competition that will emerge from initiatives around the globe. In
@@ -197,42 +196,38 @@ after the German Open 2013 competition.
 \subsection{The Task}
 \label{sec:task}
 
-Our aim is to simulate autonomous guided vehicles (AGV). In opposition
-to regular automatic guided vehicles, a team, consisting of a maximum
-of three Robotinos, shall complete the following task without human
-interference as successful as possible competing with a second team
+Our aim is to simulate autonomous guided vehicles (AGV) in industrial applications. 
+In opposition to regular automatic guided vehicles teams shall complete the following task
+without human interference as successful as possible, competing with a second team
 against the clock.
 
-The main task is a staged production cycle of different product
-variants with self-crafted intermediate products and the transport of
-the final product to the delivery zone. This is the genuine goal and
-will be rewarded considerably higher than partial fulfillment of the
-task. The Robotinos transport hockey pucks which act as a placeholder
+LLSF main challenge is a staged production cycle of different product
+variants with self-crafted intermediate products, as well as delivery of
+the final product. This genuine goal will be rewarded considerably higher
+than partial fulfillment of the task.
+Autonomous robots transport hockey pucks which act as a placeholder
 for (intermediate) products between the processing
-machines. Basically, a machine is a signal light with an RFID reader
-as described in Appendix \ref{apx:sec:engref}. If a puck is fed into
-the machine, its ID tag is read and the machine reacts according to
-its particular machine specification. If possible, the product is then
-transformed into a new state: a new sub-assembly is produced. For each
-product variant (cf. \refsec{sec:prodportfolio} for details), it is
-required to produce the related sub-assemblies
-step-by-step. Transformations can rely on more than one puck as input
+machines. A machine can basically understood as a signal light with an RFID reader
+as described in Appendix \ref{apx:sec:engref}. Mounted to a machine the ID tag 
+on the puck will be read and processed according to the machine's specification.
+If procurable this will lead to a new puck state: a new sub-assembly is produced or prepared.
+Complete workorders require all related sub-assemblies of dynamic product variants (cf. \refsec{sec:prodportfolio} for details). Transformations can rely on more than one puck as input
 to be triggered.
 
-This game flow is controlled by a referee box broadcasting information
+This material flow is controlled by a referee box broadcasting information
 via wifi (see \refsec{sec:referee box}). It is divided into two different
-phases: in an exploration phase (see \refsec{sec:expphase}) where the
-Robotinos can receive scores for discovering and publishing the yet
-unknown types of the different machines on the field. After this
-initial phase, the referee box then announces the types of all
-machines and the second phase of the game, the actual production
-task as described in detail in \refsec{sec:production-phase}, begins.
+phases: in an exploration phase (see \refsec{sec:expphase}) where robots
+receive scores for correctly discovering and publishing the yet
+unknown types of the different machines on the field. The referee box will announce
+all machine types and designations after expiration.
+Succeeding into the second game phase the actual production
+tasks as described in detail in \refsec{sec:production-phase} is disclosed to the teams and their robots.
 
 The whole factory area can be used as an intermediate
-storage. Finally, the successfully assembled product has to be
-delivered to the correct delivery gate and get dismounted into its
+storage. Finally successfully assembled products are to be
+delivered to the correct delivery gate and get unloaded into its
 delivery slot. The factory area has to be treated in the best possible
-way. Any possible damage to the field or the machines will be avenged
+way. Any possible damage to the field or the machines will be penalized
 by the referee.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -241,9 +236,9 @@ by the referee.
 The Logistics League follows a certain design philosophy. All teams
 are obliged to use the Robotino robotic system from Festo Didactic
 GmbH \& Co. KG with certain freedoms and limitations. The usage of all
-currently publicly available revisions is in order, see Section
+currently publicly available revisions is in order see Section
 \ref{sec:robotino} and Appendix~\ref{apx:sec:engref} for further
-details.
+details. All available Sensor equipment that does neither exceed Robotino's diameter~\ref{apx:sec:robot}  not require external assistance (like Indoor GPS) is permitted.
 
 
 
@@ -1628,7 +1623,7 @@ equals the total degrees of freedom of the robot. The drive units are
 integrated in a sturdy, laser welded steel chassis. The chassis is
 protected by a rubber bumper with integrated switching sensor.
 
-\subsubsection{Robot dimensions}
+\subsubsection{Robot dimensions}\label{apx:sec:robot}
 \begin{itemize}
 	\item[] \textbf{Diameter:} \SI{370}{\milli\metre}
 	\item[] \textbf{Height including housing:} \SI{210}{\milli\metre}
