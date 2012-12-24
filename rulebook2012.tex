@@ -580,53 +580,62 @@ They share the same design and the same RFID device, with the overall
 size of (height $\times$ width $\times$ depth) \SI{280 x 160 x
 100}{\milli\metre}. Confer also Appendix~\ref{apx:sec:engref} for further
 details. Machines can be in different states which are communicated by their
-signal lights. The reading and writing process is a delicate process. To avoid
-corruption of the data carrier, it should not leave the working range of the
-RFID device once the processing or consuming is started. To enable the
-production process it is necessary to transport the pallet carrier accurately to
-the RFID device. A consumed pallet carrier has to stay within the machine space
-borders (no part of the puck being outside the mark-up) until the production
-cycle of that very machine has been completed. Products resulting from violating
-this requirement is considered junk and will not be rewarded. The machine always
-processes the required pallet carrier delivered last, all prior components will
-be consumed. All machines will start processing the data carrier as soon as it
-enters the machining zone as stated in Section~\ref{sec:competition-area} and
-the machine changed its operating mode according to
-Tables~\ref{tab:production-machines}--\ref{tab:reading-device}.
+signal lights. If a (intermediate) product is fed into a machine, the machine
+reads the RFID tag and checkt whether or not the product can be processed and
+induces the result by its signal light. The reading and writing process is a
+delicate process. To avoid corruption of the data carrier, it should not leave
+the working range of the RFID device once the processing or consuming is
+started. To enable the production process it is necessary to transport the
+pallet carrier accurately to the RFID device. A consumed pallet carrier has to
+stay within the machine space borders (no part of the puck being outside the
+mark-up) until the production cycle of that very machine has been completed.
+Products resulting from violating this requirement is considered junk and will
+not be rewarded. The machine always processes the required pallet carrier
+delivered last, all prior components will be consumed. All machines will start
+processing the data carrier as soon as it enters the machining zone as stated in
+Section~\ref{sec:competition-area} and the machine changed its operating mode
+according to Tables~\ref{tab:production-machines}--\ref{tab:test-machine}.
 
 \subsubsection{Production Machines - during exploration phase}
 \label{sec:production-machines-exp}
- During the exploration pase the
-machines will indicate their type by individual light signals. The
-light signals are defined in Table~\ref{tab:production-machines}.
-Corresponding machine types will be induced by the referee box.
+During the exploration pase the machines will indicate their type by individual
+light signals. Therefore all machines of the same type will indicate the same
+light scheme. The light schemes are:
+\begin{itemize}
+\item all LEDs turned off
+\item red LED turned on
+\item yellow LED turned on
+\item grenn LED turned on
+\item all LEDs turned on
+\end{itemize}
+The corresponding light signal to the five different machine types will be
+induced by the referee box. Please consult the RoboCup Logistics League Referee
+Box Specification for a detailled definition of the message type.
 
 \subsubsection{Production Machines - during production phase}
 The default operating mode of all machines implies that only the green LED is
-turned on. This signals that the machine is ready for input. After processing
-the current data carrier, the yellow LED is turned on.  The machine has finished
-processing the current data carrier and is waiting for the next sub-assembly. If
-the green LED is turned on, the machine has finished the work order and is ready
-to receive the next batch of carriers. In order to complete the machines' work
-order the input materials have to be delivered one-by-one into the RFID device's
-action range. Multiple data carriers in range of the device will result in
-erroneous behavior of the device. Consumption of materials, such as \s0 used in
-the production of \s2, will take 2 seconds. Unloading the machine can be done
-immediately after the operating mode changes away from  processing. As long as
-the machines are used properly, they will not produce any junk.
+turned on. This signals that the machine is ready for input. If an appropriate
+product is fed to the machine, the yellow LED turnes on indicating that the
+machine is processing the product (green and yellow LED on). If the machine needs another
+sub-assembly to generate an output, the green LED turns off and the yellow light
+indicates that the machine is waiting for the next subassembly. If the yellow
+LED is turned off after further input materials are fed to the machine, the
+green LED indicates that the machine has finished the work order and the last
+carrier is transformed to its corresponding output. If a product is fed to a
+machine which is not appropriate, the machine reacts with a yellow light
+flashing at 2 Hz. A red light indicates that the machine is in an error state.
+In this case no products can be processed on the machine.
+
+In order to complete the machines' work order the input materials have to be
+delivered one-by-one into the RFID device's action range. Multiple data
+carriers in range of the device will result in erroneous behavior of the
+device. Consumption of materials, such as \s0 used in the production of \s2,
+will take 2 seconds. Unloading the machine can be done immediately after the
+operating mode changes away from  processing. As long as the machines are used
+properly, they will not produce any junk.
 
 \begin{table}[tp]
 \centering
-\subtable[Optical Feedback during exploration phase]{\mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}\multicolumn{1}{l}{Optical Feedback} & \multicolumn{1}{l}{Operating mode} \\ \hline
-  	    All LEDs turned off &  	Machine type will be induced by referee box. \\
-	    Red LED turned on &  	Machine type will be induced by referee box. \\
-        Green LED turned on &  	Machine type will be induced by referee box. \\
-        Red and Green LED turned on &  	Machine type will be induced by referee box.\\
-        All LEDs turned on  &  	Machine type will be induced by referee box. \\
-        \hline
-\end{tabularx}}}
-
-\bigskip
 \subtable[Optical Feedback during production phase]{\mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
   \multicolumn{1}{l}{Optical Feedback} & \multicolumn{1}{l}{Operating mode} \\ \hline 
   		All LEDs turned off &  	The machine is physically offline, caused by a real error which should not happen during the competition. \\
@@ -691,42 +700,43 @@ the machines are used properly, they will not produce any junk.
     Green LED turned on &	The station is ready to read the next data carrier.\\
     All LEDs turned off &	Consumed pallet carrier.\\
     Yellow LED turned on &	Raw-material (\s0) \\
-    Red and yellow LEDs turned on & 	Sub-assembly 1 (\s1)\\
+    Red and yellow LEDs turned on &	Sub-assembly 1 (\s1)\\
     Red LED turned on &	Sub-assembly 2 (\s2)\\
-    All LEDs turned on & The final product (\p{})\\%\hline
+    Green LED flashing (at 2 Hz) & Finished product variant 1 (\p1{})\\%\hline
+    Yellow LED flashing (at 2 Hz) & Finished product variant 2 (\p1{})\\%\hline
+    Red LED flashing (at 2 Hz) & Finished product variant 3 (\p1{})\\%\hline
   \end{tabularx}}
-  \caption{Reading Device}
-  \label{tab:reading-device}
+  \caption{Test machine}
+  \label{tab:test-machine}
 \end{table}
-
 
 The distribution describes how many machines of the respective types
 will be randomly placed resulting in a the total of 10 court machines. 
 
 \subsubsection{Recycling Unit (former market place)}
-The recycling unit processes all supplied loading carriers back to
-raw-material (\s0) within 2 seconds. The optical feedback provided by
-the recycling unit differs from an ordinary production machines and is
-shown in Table~\ref{tab:recycling-unit}.
+During the staged production process raw-material is transformed or consumed by
+the machines. To refeed consumed raw-materials, the robots can use one of the
+two recycling units placed in the corners of the competition area. the staged
+production process. The recycling unit processes all supplied loading carriers
+back to raw-material (\s0) within 2 seconds. The optical feedback provided by
+the recycling unit differs from an ordinary production machines and is shown in
+Table~\ref{tab:recycling-unit}.
 
 \subsubsection{Delivery Gates} 
 
-As soon as a pallet carrier is successfully delivered to the active
-gate, it will show the state of the data carrier as in
-Table~\ref{tab:delivery-gates}.  This state will only lasts for some
-seconds and only for indicating the score to the referee. There will
-be only one active gate at a time.
+If a variant of a final product is finished, it has to be delivered to the
+customer through one of three delivery gates. As soon as a pallet carrier is
+successfully delivered to the active gate, it will show the state of the data
+carrier as in Table~\ref{tab:delivery-gates}. This state will only lasts for
+some seconds and only for indicating the score to the referee. There will be
+only one active gate at a time.
 
+\subsubsection{Test machine}
 
-
-\subsubsection{Reading device}
-Reading and visualizing the data carrier's content happens almost
-instantly after delivering the pallet carrier to the action range of
-the device. The optical feedback is shown in
-Table~\ref{tab:reading-device}.
-
-
-
+Whether or not a sub-assembly is corrupted can be ensured by a check in the test
+machine in one of the corners of the competition area. The test machine reads
+the RFID of the pallet carrier and visualizesinduceby a light signal. The
+optical feedback is shown in Table~\ref{tab:test-machine}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%
@@ -819,7 +829,7 @@ in the RoboCup Logistics League Referee Box Specification.
 \label{sec:remote-control}
 Remote operation or instruction of any kind of the robots is forbidden
 at all times during a game. The only allowed interaction is for the
-single button click start-up (cf.~\refsec{sec:match-startup}). Any
+single button click start-up (cf.~\refsec{sec:game-start}). Any
 failure to comply with this rule will lead to immediate
 disqualification of the infringing team.
 
@@ -948,8 +958,9 @@ competition area the robot cannot be reinserted during the same match.
 All matches will start at the exact time scheduled by the organization
 team. From this point on, the teams involved are allowed to start their
 robots to work autonomously within one minute. This can be done by
-issueing one single distinct command via any kind of interface. Robots
-which remain inactive after this minute will be extracted from the field.
+issueing one single distinct command via any kind of interface or pressing a
+button on the robot. Robots which remain inactive after this minute will be
+extracted from the field.
 
 \subsubsection{Exploration Phase} \label{sec:expphase} 
 With the start of the game, the exploration phase begins. For two
@@ -1359,27 +1370,28 @@ from the game by the administration and therefore cannot be recycled.
       \multicolumn{1}{l}{Subtask } &\multicolumn{1}{l}{Main challenge} &
       \multicolumn{1}{l}{Scoring [Point]}\\\hline
       Produce \s2 & Finish the work order of a machine type 2 & $+4$\\
-      Produce \p  & Finish the work order of a machine type 3 & $+12$ \\
-      Deliver & Deliver the final product to the designated loading zone & $+5$\\
-      Recycle & Clean up a polluted machine (\m2 or \m3) by recycling all
-      of the 3 consumed loading carriers. Partial recycling(\m3) will not
+      Produce product variant \p1  & Finish the work order of a machine type 3 & $+12$ \\
+      Produce product variant \p2  & Finish the work order of a machine type 4 & $+12$ \\
+      Produce product variant \p3  & Finish the work order of a machine type 5 & $+6$ \\
+      Deliver & Deliver one of the final product variants to the designated loading zone & $+5$\\
+      Recycle & Clean up a polluted machine (\T2, \T3, \T4) by recycling
+      all of the consumed loading carriers. Partial recycling(\T3, \T4) will not
       be rewarded.&
-      \multirow{3}{*}{$\begin{array}{l}+3 - \m2\\
-          +6 - \m3\end{array}$}\\
-      Sum &Total points a team will receive for a produced and correctly
-      delivered final product with its consumed loading carrier
-      recycled. & $30$\\%\hline
+      \multirow{3}{*}{$\begin{array}{l}+3  (\T2)\\
+          +6 - (\T3,\T4)\end{array}$}\\
+ 		%\hline
     \end{tabularx}  }}
 
 
   \bigskip
-  \subtable[Scoring scheme for the Late order challenge]{\mytable{\begin{tabularx}{\linewidth}{p{6em}|X|p{4em}}
-    \multicolumn{1}{l}{Subtask } &\multicolumn{1}{l}{LOC - Late Order
+  \subtable[Scoring scheme for the late order
+  challenge]{\mytable{\begin{tabularx}{\linewidth}{p{6em}|X|p{4em}} \multicolumn{1}{l}{Subtask } &\multicolumn{1}{l}{LOC - Late Order
       Challenge} & \multicolumn{1}{l}{Scoring [Point]}\\\hline
-    Finish the EG &	Deliver the EG to a machine of type 1 and process the late order in time if the machine type was identified by an earlier production process. &	+5\\
-    Deliver the EG & Deliver the processed the late order to the active
+    Finish the LO &	Deliver the late order (LO) to a machine of type 5 (\T5)
+    and process the late order. &	+5\\
+    Deliver the LO & Deliver the processed late order (LO) to the active
     delivery gate in time. &  +10\\
-    Sum & In time delivery of a correct late order. & 15\\%\hline
+    Sum & In time delivery of a correct late order (LO). & 15\\%\hline
   \end{tabularx} }}
   \caption{Scoring Scheme}
   \label{tab:scoring}   
