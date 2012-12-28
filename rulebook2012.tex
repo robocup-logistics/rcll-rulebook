@@ -163,8 +163,8 @@
 The future of Production Industry lies with smarter systems.  With
 current developments pursuing the goal of more aware, more
 decentralized behaviors in factories, a scientific platform for
-applied research was required.  The RoboCup Logistics League Sponsored
-by Festo (LLSF) is determined to develop into a state-of-the-art
+applied research was required.  The RoboCup Logistics League sponsored
+by Festo is determined to develop into a state-of-the-art
 platform for mobile robotics education. This industrial motivated
 league keeps the focus on challenges promoting precise actions,
 further encouraging external data supported autonomy.
@@ -172,10 +172,10 @@ further encouraging external data supported autonomy.
 This year's competition environment is laid out in the pages to come.
 It ensures the same and fair circumstances for all participants, it
 however is neither meant to dictate nor suggest the way how to fulfill
-the task, but is meant to develop the LLSF further towards deploying
-Automated Guided Vehicles (AGV) in industrial applications. This includes current
+the task, but is meant to develop the Logistics League further towards deploying
+Automated Guided Vehicles in industrial applications. This includes current
 challenges of developing industry-wide standards for Cyber Physical Production
-Systems (CPPS) like designing plug-and-produce capable systems.
+Systems like designing plug-and-produce capable systems.
 
 After an exciting RoboCup in Mexico, we look forward to a new scale of
 competition that will emerge from initiatives around the globe. In
@@ -196,13 +196,13 @@ after the German Open 2013 competition.
 \subsection{The Task}
 \label{sec:task}
 
-Our aim is to simulate autonomous guided vehicles (AGV) in industrial applications. 
+Our aim is to simulate autonomous guided vehicles in industrial applications. 
 In opposition to regular automatic guided vehicles teams shall complete the following task
 without human interference as successful as possible, competing with a second team
 against the clock.
 
-LLSF main challenge is a multistaged production cycle of different product
-variants with self-crafted intermediate products, as well as delivery of
+The Logistics Leagues main challenge is a multistaged production cycle of
+different product variants with self-crafted intermediate products, as well as delivery of
 the final product. This genuine goal will be rewarded considerably higher
 than partial fulfillment of the task.
 Autonomous robots transport hockey pucks which act as a placeholder
@@ -598,9 +598,12 @@ according to Tables~\ref{tab:production-machines}--\ref{tab:test-machine}.
 
 \subsubsection{Production Machines - during exploration phase}
 \label{sec:production-machines-exp}
-During the exploration pase the machines will indicate their type by individual
-light signals. Therefore all machines of the same type will indicate the same
-light scheme. The light schemes are:
+During the exploration phase the robots have to explore the unknown factory
+environment and have to identify the positions of different machine types on the
+competition area. The frequency of machine types is defined in
+Table~\ref{tab:production-machines}. The machines will indicate their different
+types by individual light signals. The different light
+signals are:
 \begin{itemize}
 \item all LEDs turned off
 \item red LED turned on
@@ -608,9 +611,11 @@ light scheme. The light schemes are:
 \item grenn LED turned on
 \item all LEDs turned on
 \end{itemize}
-The corresponding light signal to the five different machine types will be
-induced by the referee box. Please consult the RoboCup Logistics League Referee
-Box Specification for a detailled definition of the message type.
+The corresponding machine types to the five different light signals are
+initially unknown. The referee box will assign a machine type to a light signal
+and publish it to the robots on start up of the exploration phase. Please
+consult the RoboCup Logistics League Referee Box Specification for a detailled
+definition of the message type.
 
 \subsubsection{Production Machines - during production phase}
 The default operating mode of all machines implies that only the green LED is
@@ -625,6 +630,8 @@ carrier is transformed to its corresponding output. If a product is fed to a
 machine which is not appropriate, the machine reacts with a yellow light
 flashing at 2 Hz. A red light indicates that the machine is in an error state.
 In this case no products can be processed on the machine.
+Table~\ref{tab:production-machines} summarizes the operating modes of the
+production machines and the corresponding signal lights
 
 In order to complete the machines' work order the input materials have to be
 delivered one-by-one into the RFID device's action range. Multiple data
@@ -632,7 +639,9 @@ carriers in range of the device will result in erroneous behavior of the
 device. Consumption of materials, such as \s0 used in the production of \s2,
 will take 2 seconds. Unloading the machine can be done immediately after the
 operating mode changes away from  processing. As long as the machines are used
-properly, they will not produce any junk.
+properly, they will not produce any junk. The distribution describes how many
+machines of the respective types will be randomly placed resulting in a total of
+10 court machines. 
 
 \begin{table}[tp]
 \centering
@@ -709,9 +718,6 @@ properly, they will not produce any junk.
   \caption{Test machine}
   \label{tab:test-machine}
 \end{table}
-
-The distribution describes how many machines of the respective types
-will be randomly placed resulting in a the total of 10 court machines. 
 
 \subsubsection{Recycling Unit (former market place)}
 During the staged production process raw-material is transformed or consumed by
@@ -946,11 +952,12 @@ down the robot. If this motion has been forwarded within the first 15
 seconds of the very robot's movement and without this robot scoring
 points, the referee will move it to a point of insertion of the team's
 choice, once. Otherwise or on second occasion the robot will be
-removed from the competition area. Resetting or removing a robot will
-not cause an interruption of the game. The referee will only interrupt
-the game if there is no other way to reset the robot without
-interfering with the other ongoing processes. Once removed from the
-competition area the robot cannot be reinserted during the same match.
+removed from the competition area. A shut down may take a maximum of 60 seconds.
+Otherwise the robot will be removed. Resetting or removing a robot will not
+cause an interruption of the game. The referee will only interrupt the game if
+there is no other way to reset the robot without interfering with the other
+ongoing processes. Once removed from the competition area the robot cannot be
+reinserted during the same match.
 %A team can also decide to remove their robot from the competition area
 %at any time of the match.
 
@@ -1343,7 +1350,7 @@ late order challenge setup:
 \begin{itemize}
 \item The active delivery gate will not switch during a match.
 \item There will be 3 late order challenges.
-\item No challenge will be initialized during the first or within the
+\item No late order challenge will be initialized during the first or within the
   last two match minutes.
 \end{itemize} 
 
@@ -1354,7 +1361,7 @@ late order challenge setup:
   and 11. A delivery made to the old active gate will be still
   valid for the next 10 seconds.
 \item There will be 4 late order challenges. 
-\item No challenge will be initialized during the first or within
+\item No late order challenge will be initialized during the first or within
   the last two match minutes.
 \end{itemize}    
 
@@ -1522,7 +1529,7 @@ correctness of the digital representation and automatic scoring.
   points, the last-but-one ranked team will receive 1 point etc. The
   points for each ranking will be added and the team with the most
   points accrued over all challenges will be awarded with the
-  LLSF Technical Challenge Award.
+  Logistic Leagues Technical Challenge Award.
 
 
 
