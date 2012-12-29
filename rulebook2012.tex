@@ -196,49 +196,54 @@ after the German Open 2013 competition.
 \subsection{The Task}
 \label{sec:task}
 
-Our aim is to simulate autonomous guided vehicles in industrial applications. 
-In opposition to regular automatic guided vehicles teams shall complete the following task
-without human interference as successful as possible, competing with a second team
-against the clock.
+Our aim is to simulate autonomous guided vehicles in industrial
+applications. In opposition to regular automatic guided vehicles teams
+shall complete the following task without human interference as
+successful as possible, competing with a second team against the clock.
 
-The Logistics Leagues main challenge is a multistaged production cycle of
-different product variants with self-crafted intermediate products, as well as delivery of
-the final product. This genuine goal will be rewarded considerably higher
-than partial fulfillment of the task.
-Autonomous robots transport hockey pucks which act as a placeholder
-for (intermediate) products between the processing
-machines. A machine can basically understood as a signal light with an RFID reader
-as described in Appendix \ref{apx:sec:engref}. Mounted to a machine the ID tag 
-on the puck will be read and processed according to the machine's specification.
-If procurable this will lead to a new puck state: a new sub-assembly is produced or prepared.
-Complete workorders require all related sub-assemblies of dynamic product variants (cf. \refsec{sec:prodportfolio} for details). Transformations can rely on more than one puck as input
-to be triggered.
+The Logistics Leagues main challenge is a multistaged production cycle
+of different product variants with self-crafted intermediate products
+and delivery of the final product. This genuine goal will be
+rewarded considerably higher than partial fulfillment of the task.
+Autonomous robots transport hockey pucks which act as a placeholder for
+(intermediate) products between the processing machines. A machine can
+basically be understood as a signal light with an attached RFID reader
+as described in Appendix \ref{apx:sec:engref}. Each puck carries an ID
+tag which will be read and processed according to the related machine's
+specification. If procurable this will lead to a new puck state: a new
+sub-assembly is produced or prepared. Complete workorders require all
+related sub-assemblies of dynamic product variants (cf.
+\refsec{sec:prodportfolio} for details). Transformations can rely on
+more than one puck as input to be triggered.
 
-This material flow is controlled by a referee box broadcasting information
-via wifi (see \refsec{sec:referee box}). It is divided into two different
-phases: in an exploration phase (see \refsec{sec:expphase}) where robots
-receive scores for correctly discovering and publishing the yet
-unknown types of the different machines on the field. The referee box will announce
-all machine types and designations after expiration.
-Succeeding into the second game phase the actual production
-tasks as described in detail in \refsec{sec:production-phase} is disclosed to the teams and their robots.
+This work flow is controlled by a referee box broadcasting information
+via wifi (see \refsec{sec:referee box}). The work flow itsself is
+divided into two different phases: in an exploration phase (see
+\refsec{sec:expphase}) robots receive scores for correctly discovering
+and publishing the yet unknown types of the different machines on the
+field. After expiration of this phase the referee box will announce all
+machine types and designations. Succeeding into the second game phase
+the actual production tasks as described in detail in
+\refsec{sec:production-phase} is disclosed to the teams and their
+robots.
 
-The whole factory area can be used as an intermediate
-storage. Finally successfully assembled products are to be
-delivered to the correct delivery gate and get unloaded into its
-delivery slot. The factory area has to be treated in the best possible
-way. Any possible damage to the field or the machines will be penalized
-by the referee.
+The whole factory area can be used as an intermediate storage. Finally
+successfully assembled products are to be delivered to the correct
+delivery gate and get unloaded into its delivery slot. The factory area
+has to be treated in the best possible way. Any possible damage to the
+field or the machines will be penalized by the referee.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Agreements \& Regulations} \label{sec:agreements}
 
-The Logistics League follows a certain design philosophy. All teams
-are obliged to use the Robotino robotic system from Festo Didactic
-GmbH \& Co. KG with certain freedoms and limitations. The usage of all
-currently publicly available revisions is in order see Section
-\ref{sec:robotino} and Appendix~\ref{apx:sec:engref} for further
-details. All available Sensor equipment that does neither exceed Robotino's diameter~\ref{apx:sec:robot}  not require external assistance (like Indoor GPS) is permitted.
+The Logistics League follows a certain design philosophy. All teams are
+obliged to use the Robotino robotic system from Festo Didactic GmbH \&
+Co. KG with certain freedoms and limitations. The usage of all
+currently publicly available revisions is in order see
+\refsec{sec:robotino} and Appendix~\ref{apx:sec:engref} for further
+details. All available sensor equipment that does neither exceed
+Robotino's diameter~\ref{apx:sec:robot}  nor require external
+assistance (like Indoor GPS) is permitted.
 
 
 
@@ -593,7 +598,7 @@ Products resulting from violating this requirement is considered junk and will
 not be rewarded. The machine always processes the required pallet carrier
 delivered last, all prior components will be consumed. All machines will start
 processing the data carrier as soon as it enters the machining zone as stated in
-Section~\ref{sec:competition-area} and the machine changed its operating mode
+section~\ref{sec:competition-area} and the machine changed its operating mode
 according to Tables~\ref{tab:production-machines}--\ref{tab:test-machine}.
 
 \subsubsection{Production Machines - during exploration phase}
@@ -920,7 +925,7 @@ be found in Appendix~\ref{sec:wifi-equipment}.
 \section{Gameplay}
 A match is defined by two contesting teams competing at two separated
 identical competition areas. Each consists of 5 minutes of setup time,
-a 5 minute exploration phase, and a 15 minute production phase. All
+a 3 minute exploration phase, and a 15 minute production phase. All
 settings, including the late order challenge and other random events,
 will be the exact same for both parties of a match. The three phases
 of the game are detailed below.
@@ -970,7 +975,7 @@ button on the robot. Robots which remain inactive after this minute will be
 extracted from the field.
 
 \subsubsection{Exploration Phase} \label{sec:expphase} 
-With the start of the game, the exploration phase begins. For two
+With the start of the game, the exploration phase begins. For three
 minutes all machines indicate their type using the signal lights. The
 signal light encoding of machine types will be published by the referee box
 as described in \refsec{sec:production-machines-exp} and in detail in
