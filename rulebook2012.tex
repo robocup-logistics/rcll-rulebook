@@ -24,9 +24,9 @@
 % { \endMakeFramed}
 \newenvironment{rulechange}{}{}
 
-%\usepackage[load-configurations=binary]{siunitx}
+\usepackage[load-configurations=binary]{siunitx}
 % may be
-\usepackage[binary-units=true]{siunitx}
+%\usepackage[binary-units=true]{siunitx}
 % depending on siunitx package version
 
 %\usepackage{framed,xcolor}
@@ -924,7 +924,8 @@ be found in Appendix~\ref{sec:wifi-equipment}.
 
 \section{Gameplay}
 A match is defined by two contesting teams competing at two separated
-identical competition areas. Each consists of 5 minutes of setup time,
+identical competition areas. Each team consist of a maximum of 3
+robots. Each match consists of 5 minutes of setup time,
 a 3 minute exploration phase, and a 15 minute production phase. All
 settings, including the late order challenge and other random events,
 will be the exact same for both parties of a match. The three phases
@@ -1495,7 +1496,7 @@ correctness of the digital representation and automatic scoring.
 
 
   \paragraph{Collision avoidance.~}
-  The robot is to show that it avoids other obstacles and robots.
+  The single robot is to show that it avoids other obstacles and robots.
   Therefore the robot must drive from the input storage to the delivery zone.
   However, the paths between the input storage and the delivery zone will
   be blocked randomly by static obstacles and the robot must not touch any
