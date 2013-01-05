@@ -266,11 +266,14 @@ Germany\\
 To get into contact with the TC use the mailing list\\
 \centerline{\url{robocup-logistics-tc@lists.kbsg.rwth-aachen.de}.}
 
-\subsection{Organizing Committee 2013} \label{sec:oc} \emph{Alexander
-  Ferrein}, FH Aachen University of Applied Sciences,
+\subsection{Organizing Committee 2013} \label{sec:oc} 
+\emph{Alexander Ferrein}, FH Aachen University of Applied Sciences,
 Aachen, Germany\\
-\emph{Ulrich Karras}, Festo Didactic GmbH, Denkendorf, Germany
-\todo[inline]{Add missing members}
+\emph{Ulrich Karras}, Festo Didactic GmbH, Denkendorf, Germany\\
+\emph{Guilherme Cano Lopes}, UNESP - São Paulo State University, São Paulo,
+Brazil\\
+\emph{Alexander Ratai}, TU Magdeburg, Magdeburg, Germany\\
+\emph{Sebastian Reuter}, RWTH Aachen University, Aachen, Germany
 
 \medskip
 
@@ -607,20 +610,19 @@ During the exploration phase the robots have to explore the unknown factory
 environment and have to identify the positions of different machine types on the
 competition area. The frequency of machine types is defined in
 Table~\ref{tab:production-machines}. The machines will indicate their different
-types by individual light signals. The different light
-signals are:
-\begin{itemize}
-\item all LEDs turned off
-\item red LED turned on
-\item yellow LED turned on
-\item grenn LED turned on
-\item all LEDs turned on
-\end{itemize}
-The corresponding machine types to the five different light signals are
-initially unknown. The referee box will assign a machine type to a light signal
-and publish it to the robots on start up of the exploration phase. Please
+types by individual light signals. In total there are seven light signals
+possible with at least one led switched on. The light signals and the
+corresponding machine types are initially unknown. The Referee Box will assign
+every machine type to a light signal and publish it to the robots. The
+exploration phase starts with the \emph{exploration phase start-up message}
+published by the Referee Box which defines the light signals of the machine types, e.g.,
+red and green LED switched on indicate machine type \T1. If a robot perceives
+the red and green LED light switched on at machine \m1, the robot has to
+announce that machine \m1 is of type \T1 to the Referee Box. Therefore, the
+robot has to send a \emph{machine identified message} to the Referee Box. Please
 consult the RoboCup Logistics League Referee Box Specification for a detailled
-definition of the message type.
+definition of the message types.
+
 
 \subsubsection{Production Machines - during production phase}
 The default operating mode of all machines implies that only the green LED is
