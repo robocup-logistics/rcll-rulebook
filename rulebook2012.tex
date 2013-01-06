@@ -201,7 +201,7 @@ applications. In opposition to regular automatic guided vehicles teams
 shall complete the following task without human interference as
 successful as possible, competing with a second team against the clock.
 
-The Logistics Leagues main challenge is a multistaged production cycle
+The Logistics League's main challenge is a multistaged production cycle
 of different product variants with self-crafted intermediate products
 and delivery of the final product. This genuine goal will be
 rewarded considerably higher than partial fulfillment of the task.
@@ -217,7 +217,7 @@ related sub-assemblies of dynamic product variants (cf.
 more than one puck as input to be triggered.
 
 This work flow is controlled by a referee box broadcasting information
-via wifi (see \refsec{sec:referee box}). The work flow itsself is
+via wifi (see \refsec{sec:referee box}). The work flow itself is
 divided into two different phases: in an exploration phase (see
 \refsec{sec:expphase}) robots receive scores for correctly discovering
 and publishing the yet unknown types of the different machines on the
@@ -321,26 +321,25 @@ mark-ups.
 
 The delivery gates feature one signal per gate placed in middle of
 each gate zone. The delivery slot resides besides a unit that is
-identical in construction to a production machine. The three RFID
+identical in construction to a production machine. Each of the three RFID
 devices within these gates feature a black centered square of \SI{0.1
-  x 0.1}{\metre} called delivery slot and residing exactly below the
+  x 0.1}{\metre} called delivery slot, which resides exactly below the
 RFID device. Only a pallet carrier that is delivered into the slot
 completely will be considered for scoring, i.e. no part of the pallet
 carrier may be outside the slot boundary.
 
-A total of 13 machines are placed within the competition area. 10
-machines representing the multistaged production processes, 2 machines to
-recycle consumed pallet carrier and 1 test station. The machines of
+A total of 13 machines are placed within the competition area: 10
+machines representing the multistaged production process, two machines to
+recycle consumed pallet carrier and one test station. The machines of
 the production process are placed within the factory area as stated in
-the table below. They are aligned in a \ang{90} angle (but which may
-change during the tournament). Each production machine resides in the
+the table below. They are aligned in a \ang{90} angle (the facing direction may change during the tournament). Each production machine resides in the
 centre of a squared machine space spanned by standard mark-ups with
 \SI{0.6}{\metre} each side.
 
 The 3 additional machines are arranged in the corners of the
 competition area, and aligned at \ang{45}, facing the center of the
 factory area. The lower left corner will remain empty. The competition
-area is shown in Figure~\ref{fig:competition-area}
+area is shown in Figure~\ref{fig:competition-area}.
 
 \begin{figure}[tb]
   \centering
@@ -450,11 +449,11 @@ area is shown in Figure~\ref{fig:competition-area}
 \end{figure}
 
 
-\subsection{Coordinates of the Production Machines}
+\subsection{Coordinates of the Machines and Field Slots}
 \label{sec:coordinates}
 
 The coordinates of the machine centres and the centres of the
-different field slots are given in Table~\ref{tab:coordinates}.
+different field slots are presented in Table~\ref{tab:coordinates}.
 
 
 \begin{figure}
@@ -486,7 +485,7 @@ different field slots are given in Table~\ref{tab:coordinates}.
 }
       
   }{%
-    \caption{Coordinates of production machines}
+    \caption{Coordinates of achines and field slots}
     \label{tab:coordinates} %
   }
 
@@ -555,7 +554,7 @@ different field slots are given in Table~\ref{tab:coordinates}.
 
 
 \subsection{The Pallet Carrier Puck}
-The data-carrying RFID tag is attached to top of a hockey puck. Each
+The data-carrying RFID tag is attached on top of a hockey puck. Each
 pallet carrier can be identified by a unique number. The tournament puck
 features a diameter of \SI{7.5}{\centi\metre} and is shown in Figure~\ref{fig:puck}.
 
@@ -589,25 +588,24 @@ size of (height $\times$ width $\times$ depth) \SI{280 x 160 x
 100}{\milli\metre}. Confer also Appendix~\ref{apx:sec:engref} for further
 details. Machines can be in different states which are communicated by their
 signal lights. If a (intermediate) product is fed into a machine, the machine
-reads the RFID tag and checkt whether or not the product can be processed and
+reads the RFID tag and checks whether or not the product can be processed and
 induces the result by its signal light. The reading and writing process is a
 delicate process. To avoid corruption of the data carrier, it should not leave
-the working range of the RFID device once the processing or consuming is
-started. To enable the production process it is necessary to transport the
+the working range of the RFID device once the processing or consuming is started. To enable the production process it is necessary to transport the
 pallet carrier accurately to the RFID device. A consumed pallet carrier has to
 stay within the machine space borders (no part of the puck being outside the
 mark-up) until the production cycle of that very machine has been completed.
-Products resulting from violating this requirement is considered junk and will
+Products resulting from violating this requirement are considered junk and will
 not be rewarded. The machine always processes the required pallet carrier
 delivered last, all prior components will be consumed. All machines will start
-processing the data carrier as soon as it enters the machining zone as stated in
-section~\ref{sec:competition-area} and the machine changed its operating mode
+processing the data carrier as soon as it enters the machine zone as stated in
+section~\ref{sec:competition-area}. They will change their operating mode
 according to Tables~\ref{tab:production-machines}--\ref{tab:test-machine}.
 
 \subsubsection{Production Machines - during exploration phase}
 \label{sec:production-machines-exp}
 During the exploration phase the robots have to explore the unknown factory
-environment and have to identify the positions of different machine types on the
+environment and identify the positions of different machine types on the
 competition area. The frequency of machine types is defined in
 Table~\ref{tab:production-machines}. The machines will indicate their different
 types by individual light signals. In total there are seven light signals
@@ -620,7 +618,7 @@ red and green LED switched on indicate machine type \T1. If a robot perceives
 the red and green LED light switched on at machine \m1, the robot has to
 announce that machine \m1 is of type \T1 to the Referee Box. Therefore, the
 robot has to send a \emph{machine identified message} to the Referee Box. Please
-consult the RoboCup Logistics League Referee Box Specification for a detailled
+consult the RoboCup Logistics League Referee Box Specification for a detailed
 definition of the message types.
 
 
@@ -638,7 +636,7 @@ machine which is not appropriate, the machine reacts with a yellow light
 flashing at 2 Hz. A red light indicates that the machine is in an error state.
 In this case no products can be processed on the machine.
 Table~\ref{tab:production-machines} summarizes the operating modes of the
-production machines and the corresponding signal lights
+production machines and the corresponding signal lights.
 
 In order to complete the machines' work order the input materials have to be
 delivered one-by-one into the RFID device's action range. Multiple data
@@ -719,18 +717,17 @@ machines of the respective types will be randomly placed resulting in a total of
     Red and yellow LEDs turned on &	Sub-assembly 1 (\s1)\\
     Red LED turned on &	Sub-assembly 2 (\s2)\\
     Green LED flashing (at 2 Hz) & Finished product variant 1 (\p1{})\\%\hline
-    Yellow LED flashing (at 2 Hz) & Finished product variant 2 (\p1{})\\%\hline
-    Red LED flashing (at 2 Hz) & Finished product variant 3 (\p1{})\\%\hline
+    Yellow LED flashing (at 2 Hz) & Finished product variant 2 (\p2{})\\%\hline
+    Red LED flashing (at 2 Hz) & Finished product variant 3 (\p3{})\\%\hline
   \end{tabularx}}
-  \caption{Test machine}
-  \label{tab:test-machine}
+  \caption{Test Station}
+  \label{tab:test-station}
 \end{table}
 
 \subsubsection{Recycling Unit (former market place)}
 During the staged production process raw-material is transformed or consumed by
 the machines. To refeed consumed raw-materials, the robots can use one of the
-two recycling units placed in the corners of the competition area. the staged
-production process. The recycling unit processes all supplied loading carriers
+two recycling units placed in the corners of the competition area. The recycling unit processes all supplied loading carriers
 back to raw-material (\s0) within 2 seconds. The optical feedback provided by
 the recycling unit differs from an ordinary production machines and is shown in
 Table~\ref{tab:recycling-unit}.
@@ -738,18 +735,17 @@ Table~\ref{tab:recycling-unit}.
 \subsubsection{Delivery Gates} 
 
 If a variant of a final product is finished, it has to be delivered to the
-customer through one of three delivery gates. As soon as a pallet carrier is
+customer through one of the three delivery gates. As soon as a pallet carrier is
 successfully delivered to the active gate, it will show the state of the data
-carrier as in Table~\ref{tab:delivery-gates}. This state will only lasts for
-some seconds and only for indicating the score to the referee. There will be
+carrier as described in Table~\ref{tab:delivery-gates}. This state will only last for
+some seconds for indicating the score to the referee. There will be
 only one active gate at a time.
 
-\subsubsection{Test machine}
+\subsubsection{Test Station}
 
-Whether or not a sub-assembly is corrupted can be ensured by a check in the test
-machine in one of the corners of the competition area. The test machine reads
-the RFID of the pallet carrier and visualizesinduceby a light signal. The
-optical feedback is shown in Table~\ref{tab:test-machine}.
+Whether or not a sub-assembly is corrupted can be ensured by checking the test
+station in the corresponding corner of the competition area. The test station reads
+the RFID of the pallet carrier and visualizes the product type with the light signal as shown in Table~\ref{tab:test-station}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%
@@ -791,7 +787,7 @@ Robots have to operate autonomously, that is, without any human
 interference during the game. Communication among robots and to
 off-board computing units is allowed only using wifi
 (cf.~\refsec{sec:wifi-regulations}). Communication is not guaranteed
-and maybe unavailable during parts of the game. Interruptions must be
+and may be unavailable during parts of the game. Interruptions must be
 expected and are no reason to pause or abort a game, even if they
 endure for long periods of the game.
 
@@ -849,7 +845,7 @@ disqualification of the infringing team.
 \subsection{Monitoring}
 \label{sec:monitoring}
 \emph{Passive} monitoring, i.e. receive-only communication from a base
-station, of the robots' performance is allowed. However, the overall
+station of the robots' performance is allowed. However, the overall
 bandwidth limit may not be exceeded.
 %, this includes in particular, but
 %is not limited to, images and other raw data.
@@ -926,7 +922,7 @@ be found in Appendix~\ref{sec:wifi-equipment}.
 
 \section{Gameplay}
 A match is defined by two contesting teams competing at two separated
-identical competition areas. Each team consist of a maximum of 3
+identical competition areas. Each team consists of a maximum of 3
 robots. Each match consists of 5 minutes of setup time,
 a 3 minute exploration phase, and a 15 minute production phase. All
 settings, including the late order challenge and other random events,
@@ -990,7 +986,7 @@ will be accounted for this exploration phase. Production or moving
 pucks is not allowed during the exploration phase.
 
 
-\subsubsection{Production phase}
+\subsubsection{Production Phase}
 \label{sec:production-phase}
 
 With the end of the exploration phase, the actual production begins,
@@ -1258,7 +1254,7 @@ the match start-up. The second phase will start at minute 5, the third at minute
 
 \subsubsection{Late Order Challenge}
 
-The challenge will be induced by the referee box sending an late order
+The challenge will be induced by the referee box sending a late order
 message to the robots. The message specifies the demanded product
 variant, a time window and the delivery gate. As a first step, the late
 order challenge of 2013 will only demand for product variant
@@ -1324,8 +1320,9 @@ can be adjusted to meet time requirements.
 
 
 \subsection{Gameplay Challenge}
-Proceeding to the playoffs will result in the following changes to the
-late order challenge setup:
+
+Both the round-robin phase and the playoffs do have the following different gameplay challenges:
+
 % \begin{table}[h]
 %   \centering
 %   \begin{tabularx}{\linewidth}{l|X}
@@ -1354,7 +1351,7 @@ late order challenge setup:
 %   \label{tab:phases}
 % \end{table}
 
-\paragraph{League phase}
+\paragraph{Round-Robin phase}
 \begin{itemize}
 \item The active delivery gate will not switch during a match.
 \item There will be 3 late order challenges.
@@ -1393,7 +1390,7 @@ from the game by the administration and therefore cannot be recycled.
       all of the consumed loading carriers. Partial recycling(\T3, \T4) will not
       be rewarded.&
       \multirow{3}{*}{$\begin{array}{l}+3  (\T2)\\
-          +6 - (\T3,\T4)\end{array}$}\\
+          +6  (\T3,\T4)\end{array}$}\\
  		%\hline
     \end{tabularx}  }}
 
@@ -1416,7 +1413,7 @@ from the game by the administration and therefore cannot be recycled.
 \subsubsection{Task fulfillment}
 
 Table \ref{tab:scoring} provides the itemized clearance of all task
-related processes.
+related processes and their scoring.
 
 
 
@@ -1443,8 +1440,7 @@ correctness of the digital representation and automatic scoring.
   \multicolumn{1}{l}{Issue} &\multicolumn{1}{l}{Sanction}\\\hline
   Premature movement & No robot is allowed to move until the referee
   announced the start of the match The faulty robot will be grounded
-  for
-  2 minutes\\[1ex]
+  for 2 minutes.\\[1ex]
 %
   Damaging factory equipment & Theoretical damage to the real
   factory equipment as a result of collisions and negligent actions.
@@ -1494,7 +1490,7 @@ correctness of the digital representation and automatic scoring.
   Within the league, the technical advances should be documented from
   year to year. Therefore, the Technical Challenge is introduced.
   Each participating team should prepare for participating in any
-  number the following tasks:
+  number of the following tasks:
 
 
   \paragraph{Collision avoidance.~}
@@ -1524,7 +1520,7 @@ correctness of the digital representation and automatic scoring.
   points between 0--10.  The team with the most points will win this
   challenge. The other teams are ranked in decreasing point order.
 
-
+\paragraph{}
   The technical challenge is conducted in the following way: The
   team leader of each participating team agree on a date and time
   during the tournament for the Technical Challenge in their first
