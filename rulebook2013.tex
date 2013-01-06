@@ -131,6 +131,7 @@
     \begin{Large}
       The Technical Committee\\[6ex]
     \end{Large}
+    Revision Date: 07/01/2013
   \end{center}
   \vspace*{4cm}
   
@@ -212,7 +213,7 @@ as described in Appendix \ref{apx:sec:engref}. Each puck carries an ID
 tag which will be read and processed according to the related machine's
 specification. If procurable this will lead to a new puck state: a new
 sub-assembly is produced or prepared. Complete workorders require all
-related sub-assemblies of dynamic product variants (cf.
+related sub-assemblies of product variants (cf.
 \refsec{sec:prodportfolio} for details). Transformations can rely on
 more than one puck as input to be triggered.
 
@@ -242,7 +243,7 @@ Co. KG with certain freedoms and limitations. The usage of all
 currently publicly available revisions is in order see
 \refsec{sec:robotino} and Appendix~\ref{apx:sec:engref} for further
 details. All available sensor equipment that does neither exceed
-Robotino's diameter~\ref{apx:sec:robot}  nor require external
+Robotino's diameter (see Appendix~\ref{apx:sec:robot})  nor require external
 assistance (like Indoor GPS) is permitted.
 
 
@@ -315,7 +316,7 @@ late order insertion point, as well as the space to the left of the
 input storage area is called \textit{robot insertion area}.
 
 The right zone is marked green and houses the three \textit{delivery
-  gates}.  Each gate is of \SI{0.3}{\metre} height with
+  gates}.  Each gate is of \SI{0.3}{\metre} width with
 \SI{0.1}{\metre} space to the next delivery gate separated by black
 mark-ups.
 
@@ -332,8 +333,8 @@ A total of 13 machines are placed within the competition area: 10
 machines representing the multistaged production process, two machines to
 recycle consumed pallet carrier and one test station. The machines of
 the production process are placed within the factory area as stated in
-the table below. They are aligned in a \ang{90} angle (the facing direction may change during the tournament). Each production machine resides in the
-centre of a squared machine space spanned by standard mark-ups with
+Figure~\ref{fig:competition-area}. They are aligned in a \ang{90} angle (the
+facing direction may change during the tournamen). Each production machine resides in the centre of a squared machine space spanned by standard mark-ups with
 \SI{0.6}{\metre} each side.
 
 The 3 additional machines are arranged in the corners of the
@@ -485,7 +486,7 @@ different field slots are presented in Table~\ref{tab:coordinates}.
 }
       
   }{%
-    \caption{Coordinates of achines and field slots}
+    \caption{Coordinates of machines and field slots}
     \label{tab:coordinates} %
   }
 
@@ -556,7 +557,9 @@ different field slots are presented in Table~\ref{tab:coordinates}.
 \subsection{The Pallet Carrier Puck}
 The data-carrying RFID tag is attached on top of a hockey puck. Each
 pallet carrier can be identified by a unique number. The tournament puck
-features a diameter of \SI{7.5}{\centi\metre} and is shown in Figure~\ref{fig:puck}.
+features a diameter of \SI{7.5}{\centi\metre} and is shown in
+Figure~\ref{fig:puck}. Please consult Appendix~\ref{sec:data-carrier} for
+further information of the RFID tag.
 
 % \begin{figure}
 %   \centering
@@ -639,8 +642,9 @@ Table~\ref{tab:production-machines} summarizes the operating modes of the
 production machines and the corresponding signal lights.
 
 In order to complete the machines' work order the input materials have to be
-delivered one-by-one into the RFID device's action range. Multiple data
-carriers in range of the device will result in erroneous behavior of the
+delivered one-by-one into the RFID device's action range. The sequence of
+delivered input materials is irrelevant (e.g., \s0-\s1 or \s1-\s0). Multiple
+data carriers in range of the device will result in erroneous behavior of the
 device. Consumption of materials, such as \s0 used in the production of \s2,
 will take 2 seconds. Unloading the machine can be done immediately after the
 operating mode changes away from  processing. As long as the machines are used
@@ -727,25 +731,26 @@ machines of the respective types will be randomly placed resulting in a total of
 \subsubsection{Recycling Unit (former market place)}
 During the staged production process raw-material is transformed or consumed by
 the machines. To refeed consumed raw-materials, the robots can use one of the
-two recycling units placed in the corners of the competition area. The recycling unit processes all supplied loading carriers
-back to raw-material (\s0) within 2 seconds. The optical feedback provided by
-the recycling unit differs from an ordinary production machines and is shown in
-Table~\ref{tab:recycling-unit}.
+two recycling units placed in the corners of the competition area. The recycling
+unit processes all supplied loading carriers back to raw-material (\s0) within 2
+seconds. The optical feedback provided by the recycling unit differs from
+production machines and is shown in Table~\ref{tab:recycling-unit}.
 
 \subsubsection{Delivery Gates} 
 
 If a variant of a final product is finished, it has to be delivered to the
 customer through one of the three delivery gates. As soon as a pallet carrier is
 successfully delivered to the active gate, it will show the state of the data
-carrier as described in Table~\ref{tab:delivery-gates}. This state will only last for
-some seconds for indicating the score to the referee. There will be
+carrier as defined in Table~\ref{tab:delivery-gates}. This state will only last
+for some seconds for indicating the score to the referee. There will be
 only one active gate at a time.
 
 \subsubsection{Test Station}
 
 Whether or not a sub-assembly is corrupted can be ensured by checking the test
 station in the corresponding corner of the competition area. The test station reads
-the RFID of the pallet carrier and visualizes the product type with the light signal as shown in Table~\ref{tab:test-station}.
+the RFID of the pallet carrier and visualizes the product type with the light
+signal as shown in Table~\ref{tab:test-station}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%
@@ -806,9 +811,9 @@ demand reduction in communicated data as necessary.
 
 \subsection{Referee Box}
 \label{sec:referee box}
-The referee box (referee box) is a software system that runs on a system
+The referee box is a software system that runs on a system
 provided by the Organization Committee. It controls the overall game,
-monitors feedback from team robot, and awards points. It is instructed
+monitors feedback from the robots, and awards points. It is instructed
 by an assisting human referee and keeps a log of all relevant game
 events. The final game report will be produced by the referee box. While we
 strive for a maximum of automation of this control task, we rely on
@@ -837,10 +842,9 @@ in the RoboCup Logistics League Referee Box Specification.
 \subsection{Remote Control}
 \label{sec:remote-control}
 Remote operation or instruction of any kind of the robots is forbidden
-at all times during a game. The only allowed interaction is for the
-single button click start-up (cf.~\refsec{sec:game-start}). Any
-failure to comply with this rule will lead to immediate
-disqualification of the infringing team.
+at all times during a game. The only allowed interaction is for the start-up
+(cf.~\refsec{sec:game-start}). Any failure to comply with this rule will lead to
+immediate disqualification of the infringing team.
 
 \subsection{Monitoring}
 \label{sec:monitoring}
@@ -1254,8 +1258,8 @@ the match start-up. The second phase will start at minute 5, the third at minute
 
 \subsubsection{Late Order Challenge}
 
-The challenge will be induced by the referee box sending a late order
-message to the robots. The message specifies the demanded product
+The challenge will be induced by the referee box sending a \emph{late order
+message} to the robots. The message specifies the demanded product
 variant, a time window and the delivery gate. As a first step, the late
 order challenge of 2013 will only demand for product variant
 \p3. Furthermore, in 2013 the challenge has to be completed within a
@@ -1264,8 +1268,11 @@ the active delivery gate.
 
 \section{Tournament}
 \label{sec:tournament}
-\subsection{Playing Mode}
-\textbf{Explain the overall different phases of the tournament.}
+
+%\subsection{Playing Mode}
+%\textbf{Explain the overall different phases of the tournament.}
+% Commented this subsection as there is no content - should/could be added in
+% revision for 2014
 
 \subsection{Tournament scoring specifications}
 
@@ -1291,7 +1298,7 @@ opposing team, the team that scores more points as the direct
 opponent, will be announced as the winner and 3 points will be awarded
 to this team. A loss will be awarded with 0 points. Additionally, if
 both teams are unable to score any points during the match by
-delivering or producing goods, both team will receive 0 points.
+delivering or producing goods, both teams will receive 0 points.
 %
 % Each match will be resulted with the score of each team. The winning
 % team will be awarded 2 major points. In case of a draw both teams will
@@ -1390,7 +1397,7 @@ from the game by the administration and therefore cannot be recycled.
       all of the consumed loading carriers. Partial recycling(\T3, \T4) will not
       be rewarded.&
       \multirow{3}{*}{$\begin{array}{l}+3  (\T2)\\
-          +6  (\T3,\T4)\end{array}$}\\
+          +6(\T3,\T4)\end{array}$}\\
  		%\hline
     \end{tabularx}  }}
 
@@ -1520,7 +1527,7 @@ correctness of the digital representation and automatic scoring.
   points between 0--10.  The team with the most points will win this
   challenge. The other teams are ranked in decreasing point order.
 
-\paragraph{}
+\paragraph{ }
   The technical challenge is conducted in the following way: The
   team leader of each participating team agree on a date and time
   during the tournament for the Technical Challenge in their first
@@ -1640,7 +1647,7 @@ additional sensors or motors of devices. Power is supplied via two
 two hours.  The scope of delivery likewise includes a charging
 device. Robotino is driven by 3 independent, omni-directional drive
 units. They are mounted at an angle of \ang{120} to each other. The
-three omni-directional drive units of Robotino , defines the robot as
+three omni-directional drive units of Robotino, defines the robot as
 being holonomic, meaning that the controllable degrees of freedom
 equals the total degrees of freedom of the robot. The drive units are
 integrated in a sturdy, laser welded steel chassis. The chassis is
@@ -1700,11 +1707,7 @@ controller unit.  Collisions with objects at any point on the housing
 are detected and, for example, Robotino is brought to a
 standstill. The inductive proximity sensor is supplied as an
 additional component. It serves to detect metallic objects on the
-floor and is used for continuous-path control, e.g. it might be used
-to detect the blue lines (metallic stripes) on hockey field. It reads
-out signals of varying strength depending upon whether it is located
-in the middle or at the edge of the metal strip. Path tracking can
-thus be controlled in a differentiated fashion.
+floor.
 
 The inductive proximity sensor must be attached to the mounting
 furnished for this purpose, and must be connected to the I/O
@@ -1876,7 +1879,7 @@ compression, e.g. use the low cost Logitech web camera C250.
        Operating voltage display					& 	LED green \\
 % %      \hline
     \end{tabularx}}
-  \caption{Technical specification of the signal}
+  \caption{Technical specification of the RFID device}
   \label{apx:tab:rfidproperties}
 \end{table}
 
@@ -1907,11 +1910,12 @@ compression, e.g. use the low cost Logitech web camera C250.
       
 %      \hline
     \end{tabularx} }
-    \caption{Technical specification of the signal}
+    \caption{Technical specification of the wifi equipment}
 	\label{apx:tab:wifi}
 \end{table}
 
 \subsubsection{Data carrier}
+\label{sec:data-carrier}
 \begin{table}[H]
   \centering
   \mytable{
@@ -1933,7 +1937,7 @@ compression, e.g. use the low cost Logitech web camera C250.
       
       % \hline
     \end{tabularx}}
-  \caption{Technical specification of the signal}
+  \caption{Technical specification of the data carrier}
   \label{apx:tab:datacarrier}
 \end{table}
 
