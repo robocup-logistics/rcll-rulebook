@@ -959,16 +959,22 @@ a 3 minute exploration phase, and a 15 minute production phase.
 of the game are detailed below.
 
 \subsection{Environment Setup}
-\label{sec:}
+\label{sec:env-setup}
 
 The physical distribution of the production machines is fixed. Their
-alignment will be randomized during the tournament setup. The machine type of each production
-machine will be randomized prior to each match. The processing time of
-each machine type will be determined in the same way, so the waiting
-time during a match will be static for each machine of all machine types
-(e.g. all T1 could have 7 seconds processing time). The
-active delivery gate will also be randomized prior to each match but
-during a match the active gate can switch.
+alignment will be randomized during the tournament setup. The machine
+type of each production machine will be randomized prior to each
+match. The processing time of each machine type will be determined in
+the same way, so the waiting time during a match will be static for
+each machine of all machine types (e.g. all T1 could have 7 seconds
+processing time). The active delivery gate will also be randomized
+prior to each match but during a match the active gate can switch.  At
+the beginning, 20 raw materials (pucks in $S_0$ state) will be placed
+in the input storage initially spread as shown in
+\reffig{fig:competition-area}. The pucks may only be touched by a
+robot after the game has started. In particular, they may not be
+repositioned for better alignment if they have been pushed or moved by
+a robot during the game.
 
 \subsection{Game Phases}
 \label{sec:game-phases}
@@ -1236,11 +1242,14 @@ different machine types are specified in Sect.~\ref{sec:machines}.
 
 \subsubsection{Late order}
 The late order challenge is derived from the former express good
-rule. It will be announced at a random time by the referee box in form of a
-request for a specified product to be delivered within a specified time
-window. The challenge requires a fast paced processing and delivery of
-the requested product in time. The challenge also requires prior
-knowledge concerning the machine distribution.
+rule. It will be announced at a random time by the referee box in form
+of a request for a specified product to be delivered within a
+specified time window. The challenge requires a fast paced processing
+and delivery of the requested product in time. The challenge also
+requires prior knowledge concerning the machine distribution. The puck
+will be placed in the later order insertion slot above the input
+storage. Note however, that a robot may not be initially placed next
+to the insertion slot, but only in the robot insertion area.
 
 \subsection{During a match}
 \label{sec:during-match}
@@ -1356,7 +1365,8 @@ teams will receive 0 points.
 % no major points will be awarded.
 %
 In case of a draw within the playoffs, the game time will be extended
-by 5 minutes unless both teams scored zero points.
+by 5 minutes unless both teams scored zero points. This will be
+announced by the refbox instead of a game closed message.
 %
 If this extension leads to a draw too the overall regular points of
 the teams will determine the match winner. If the overall points are
@@ -1440,19 +1450,21 @@ from the game by the administration and therefore cannot be recycled.
 \begin{table}[tb]
   \centering
   \subtable[Scoring scheme for the main challenge]{\mytable{\begin{tabularx}{\linewidth}{p{6em}|X|p{4em}}
-      \multicolumn{1}{l}{Subtask } &\multicolumn{1}{l}{Main challenge} &
-      \multicolumn{1}{l}{Scoring [Point]}\\\hline
-      Produce \s2 & Finish the work order of a machine type 2 & $+4$\\
-      Produce product variant \p1  & Finish the work order of a machine type 3 & $+12$ \\
-      Produce product variant \p2  & Finish the work order of a machine type 4 & $+12$ \\
-      Produce product variant \p3  & Finish the work order of a machine type 5 & $+6$ \\
-      Deliver & Deliver one of the final product variants to the designated loading zone & $+5$\\
-      Recycle & Clean up a polluted machine (\T2, \T3, \T4) by recycling
-      all of the consumed loading carriers. Partial recycling(\T3, \T4) will not
-      be rewarded.&
-      \multirow{3}{*}{$\begin{array}{l}+3  (\T2)\\
-          +6(\T3,\T4)\end{array}$}\\
- 		%\hline
+        \multicolumn{1}{l}{Subtask } &\multicolumn{1}{l}{Main challenge} &
+        \multicolumn{1}{l}{Scoring [Point]}\\\hline
+        Produce \s2 & Finish the work order of a machine type 2 & $+4$\\
+        Produce product variant \p1  & Finish the work order of a machine type 3 & $+12$ \\
+        Produce product variant \p2  & Finish the work order of a machine type 4 & $+12$ \\
+        Produce product variant \p3  & Finish the work order of a machine type 5 & $+6$ \\
+        Deliver & Deliver one of the final product variants to the
+        designated loading zone at the time specified in the order & $+10$\\
+        Wrong Deliver & Deliver one of the final product variants to the
+        designated loading zone out of the requested time range or after
+        all products requested in the period have already been delivered
+        & $+1$\\
+        False Deliver & Deliver an intermediate product & $0$\\
+        Recycle & Taking a consumed material from a machine that completed
+        its work cycle to the recycling machine& $+3$\\
     \end{tabularx}  }}
 
 
@@ -1551,16 +1563,20 @@ team should prepare for participating in any number of the following
 tasks:
 
 
-\paragraph{Collision avoidance.~}
-The single robot is to show that it avoids other obstacles and robots.
-Therefore the robot must drive from the input storage to the delivery
-zone.  However, the paths between the input storage and the delivery
-zone will be blocked randomly by static obstacles and the robot must
-not touch any of the obstacles. For touching an obstacle, the team
-receives a penalty.  The fastest team with the fewest penalty points
-to reach the delivery zone wins this challenge. All other teams are
-ranked according to how fast they were and how many penalties they
-conceived.
+\paragraph{Navigation and collision avoidance.~}
+The single robot is to show that it avoids other obstacles and robots
+while moving along specified points. Therefore the robot must drive
+from the input storage to the delivery zone. However, the paths
+between the input storage and the delivery zone will be blocked
+randomly by static obstacles and the robot must not touch any of the
+obstacles. For touching an obstacle, the team receives a penalty.  The
+fastest team with the fewest penalty points to reach the delivery zone
+wins this challenge. All other teams are ranked according to how fast
+they were and how many penalties they conceived. Initially, the robot
+will be placed by a team leader of a different team anywhere adjacent
+to the input storage. The team has 15 seconds to perform a quick setup
+after the robot has been placed. The robot has completed the challenge
+as soon as it touches the delivery zone at any point.
   
 \paragraph{Whack-a-Mole.~}
 A single robot is placed somewhere on the field. It has to detect the
