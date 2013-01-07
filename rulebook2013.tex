@@ -143,7 +143,7 @@
 \end{titlepage}
 \thispagestyle{empty}
 \pagebreak
-\cleardoublepage
+\clearpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Table of Contents
@@ -205,7 +205,7 @@ shall complete the following task without human interference as
 successful as possible, competing with a second team against the
 clock.
 
-The Logistics League's main challenge is a multistaged production
+The Logistics League's main challenge is a multistage production
 cycle of different product variants with self-crafted intermediate
 products and delivery of the final product. This genuine goal will be
 rewarded considerably higher than partial fulfillment of the task.
@@ -216,7 +216,7 @@ reader as described in Appendix \ref{apx:sec:engref}. Each puck
 carries an ID tag which will be read and processed according to the
 related machine's specification. If procurable this will lead to a new
 puck state: a new sub-assembly is produced or prepared. Complete
-workorders require all related sub-assemblies of product variants (cf.
+work orders require all related sub-assemblies of product variants (cf.
 \refsec{sec:prodportfolio} for details). Such transformations can rely
 on more than one puck as input to be triggered.
 
@@ -337,7 +337,7 @@ process, two machines to recycle consumed pallet carrier and one test
 station. The machines of the production process are placed within the
 factory area as stated in Figure~\ref{fig:competition-area}. They are
 aligned in a \ang{90} angle (the facing direction may change during
-the tournamen). Each production machine resides in the centre of a
+the tournament). Each production machine resides in the center of a
 squared machine space spanned by standard mark-ups with
 \SI{0.6}{\metre} each side.
 
@@ -458,7 +458,7 @@ area is shown in Figure~\ref{fig:competition-area}.
 \subsection{Coordinates of the Machines and Field Slots}
 \label{sec:coordinates}
 
-The coordinates of the machine centres and the centres of the
+The coordinates of the machine centers and the centers of the
 different field slots are presented in Table~\ref{tab:coordinates}.
 
 
@@ -625,11 +625,11 @@ pallet carrier accurately to the RFID device.
 If a (intermediate) product is fed into a machine, the machine reads
 the RFID tag and checks whether or not the product can be processed
 and induces the result by its signal light. If an appropriate product
-is fed to the machine, the yellow LED turnes on indicating that the
+is fed to the machine, the yellow LED turns on indicating that the
 machine is processing the product (green and yellow LED on). If the
 machine needs another sub-assembly to generate an output, the green
 LED turns off and the yellow light indicates that the machine is
-waiting for the next subassembly. A consumed pallet carrier has to
+waiting for the next sub-assembly. A consumed pallet carrier has to
 stay within the machine space borders (no part of the puck being
 outside the mark-up) until the production cycle of that very machine
 has been completed.  Products resulting from violating this
@@ -941,7 +941,7 @@ be found in Appendix~\ref{sec:wifi-equipment}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%
 
-\section{Gameplay}
+\section{Game play}
 A match is defined by two contesting teams competing at two separated
 identical competition areas. Each team consists of a maximum of 3
 robots. Each match consists of 5 minutes of setup time,
@@ -967,7 +967,7 @@ the beginning, 20 raw materials (pucks in $S_0$ state) will be placed
 in the input storage initially spread as shown in
 \reffig{fig:competition-area}. The pucks may only be touched by a
 robot after the game has started. In particular, they may not be
-repositioned for better alignment if they have been pushed or moved by
+re-positioned for better alignment if they have been pushed or moved by
 a robot during the game.
 
 \subsection{Game Phases}
@@ -980,7 +980,7 @@ during a match. The robots can be set up within the robot insertion
 area as long as they are outside the factory area and have not been
 elevated into their autonomous state. Any necessary setup routine can
 be performed as long as the robot remains within the insertion
-area. This includes, but is not limited to, remote startup of
+area. This includes, but is not limited to, remote start-up of
 programs, localization procedures, or vision calibration.
 
 \subsubsection{Interruptions and Robot Maintenance}
@@ -1008,7 +1008,7 @@ To return the robot into the game, the team asks the referee to place
 back the robot onto the field. After the referee accepts the motion,
 the robot is placed in the robot insertion area. The team has 15
 seconds quick setup time, which is limited to basic instructions like
-initial localization or software startup.
+initial localization or software start-up.
 
 The referee can interrupt the game at any point in time, but should do
 so rarely as not to interfere with the overall game flow (also
@@ -1029,7 +1029,7 @@ robots and must be taken out of the competition area.
 All matches will start at the exact time scheduled by the organization
 team. From this point on, the teams involved are allowed to start
 their robots to work autonomously within one minute. This can be done
-by issueing one single distinct command via any kind of interface or
+by issuing one single distinct command via any kind of interface or
 pressing a single button on the robot. Robots which remain inactive
 after this minute will be extracted from the field.
 
@@ -1255,7 +1255,7 @@ to the insertion slot, but only in the robot insertion area.
 Any referee can interrupt the match at any time. After the referee box
 is stopped, all robots have 5 seconds to stop all robot movement.
 Robots that do not stop within the time limit will be treated in the
-same way as misbehavin robots (cf.~\refsec{sec:robot-maintenance}).
+same way as misbehaving robots (cf.~\refsec{sec:robot-maintenance}).
 The match time will be paused during the interruption.
 
 \subsubsection{Out-of-order}
@@ -1355,6 +1355,53 @@ active delivery gate.
 % Commented this subsection as there is no content - should/could be added in
 % revision for 2014
 
+\begin{table}
+  \centering
+  \subtable[Scoring scheme for the main challenge]{\mytable{\begin{tabularx}{\linewidth}{p{7em}|X|p{2.4em}}
+        \multicolumn{1}{l}{Sub-task } &\multicolumn{1}{l}{Main challenge} &
+        \multicolumn{1}{l}{Points}\\\hline
+        Produce \s2 & Finish the work order of a machine type 2 & $+4$\\
+        Produce product variant \p1  & Finish the work order of a machine type 3 & $+12$ \\
+        Produce product variant \p2  & Finish the work order of a machine type 4 & $+12$ \\
+        Produce product variant \p3  & Finish the work order of a machine type 5 & $+6$ \\
+        Deliver & Deliver one of the final product variants to the
+        designated loading zone at the time specified in the order & $+10$\\
+        Wrong Deliver & Deliver one of the final product variants to the
+        designated loading zone out of the requested time range or after
+        all products requested in the period have already been delivered
+        & $+1$\\
+        False Deliver & Deliver an intermediate product & $0$\\
+        Recycle & Taking a consumed material from a machine that completed
+        its work cycle to the recycling machine& $+3$\\
+    \end{tabularx}  }}
+
+
+  \bigskip
+  \subtable[Scoring scheme for the late order
+  challenge]{\mytable{\begin{tabularx}{\linewidth}{p{7em}|X|p{2.4em}} \multicolumn{1}{l}{Sub-task } &\multicolumn{1}{l}{LOC - Late Order
+      Challenge} & \multicolumn{1}{l}{Points}\\\hline
+    Finish the LO &	Deliver the late order (LO) to a machine of type 5 (\T5)
+    and process the late order. &	+5\\
+    Deliver the LO & Deliver the processed late order (LO) to the active
+    delivery gate in time. &  +10\\
+    Sum & In time delivery of a correct late order (LO). & 15\\%\hline
+  \end{tabularx} }}
+
+  \bigskip
+  \subtable[Scoring scheme for the exploration
+  phase]{\mytable{\begin{tabularx}{\linewidth}{p{7em}|X|p{2.4em}}
+        \multicolumn{1}{l}{Reported} &\multicolumn{1}{l}{Exploration Phase} & \multicolumn{1}{l}{Points}\\\hline
+    Correctly & Correctly determine a machine type and
+    report it successfully to the refbox &	+4\\
+    Incorrectly & Wrongly reported machine type &  -2\\
+    Round Total & A maximum of 40 points can be achieved by correctly
+    reporting all ten field machines. A minimum of 0 points is
+    awarded. & 0 -- 40\\%\hline
+  \end{tabularx} }}
+  \caption{Scoring Scheme}
+  \label{tab:scoring}   
+\end{table}
+
 \subsection{Tournament Scoring Specifications}
 \label{sec:tournament-scoring}
 % The tournament features two stages with the first stage being done in
@@ -1414,9 +1461,9 @@ is to allow each participant to challenge each other team the league
 can be adjusted to meet time requirements.
 
 
-\subsection{Gameplay Challenge}
+\subsection{Game play Challenge}
 Both the round-robin phase and the playoffs do have the following
-gameplay challenges:
+game play challenges:
 
 % \begin{table}[h]
 %   \centering
@@ -1470,55 +1517,6 @@ In both cases, delivered or timed out pallet carriers will be removed
 from the game by the administration and therefore cannot be recycled.
 
 
-
-\begin{table}
-  \centering
-  \subtable[Scoring scheme for the main challenge]{\mytable{\begin{tabularx}{\linewidth}{p{7em}|X|p{2.4em}}
-        \multicolumn{1}{l}{Subtask } &\multicolumn{1}{l}{Main challenge} &
-        \multicolumn{1}{l}{Points}\\\hline
-        Produce \s2 & Finish the work order of a machine type 2 & $+4$\\
-        Produce product variant \p1  & Finish the work order of a machine type 3 & $+12$ \\
-        Produce product variant \p2  & Finish the work order of a machine type 4 & $+12$ \\
-        Produce product variant \p3  & Finish the work order of a machine type 5 & $+6$ \\
-        Deliver & Deliver one of the final product variants to the
-        designated loading zone at the time specified in the order & $+10$\\
-        Wrong Deliver & Deliver one of the final product variants to the
-        designated loading zone out of the requested time range or after
-        all products requested in the period have already been delivered
-        & $+1$\\
-        False Deliver & Deliver an intermediate product & $0$\\
-        Recycle & Taking a consumed material from a machine that completed
-        its work cycle to the recycling machine& $+3$\\
-    \end{tabularx}  }}
-
-
-  \bigskip
-  \subtable[Scoring scheme for the late order
-  challenge]{\mytable{\begin{tabularx}{\linewidth}{p{7em}|X|p{2.4em}} \multicolumn{1}{l}{Subtask } &\multicolumn{1}{l}{LOC - Late Order
-      Challenge} & \multicolumn{1}{l}{Points}\\\hline
-    Finish the LO &	Deliver the late order (LO) to a machine of type 5 (\T5)
-    and process the late order. &	+5\\
-    Deliver the LO & Deliver the processed late order (LO) to the active
-    delivery gate in time. &  +10\\
-    Sum & In time delivery of a correct late order (LO). & 15\\%\hline
-  \end{tabularx} }}
-
-  \bigskip
-  \subtable[Scoring scheme for the exploration
-  phase]{\mytable{\begin{tabularx}{\linewidth}{p{7em}|X|p{2.4em}}
-        \multicolumn{1}{l}{Reported} &\multicolumn{1}{l}{Exploration Phase} & \multicolumn{1}{l}{Points}\\\hline
-    Correctly & Correctly determine a machine type and
-    report it successfully to the refbox &	+4\\
-    Incorrectly & Wrongly reported machine type &  -2\\
-    Round Total & A maximum of 40 points can be achieved by correctly
-    reporting all ten field machines. A minimum of 0 points is
-    awarded. & 0 -- 40\\%\hline
-  \end{tabularx} }}
-  \caption{Scoring Scheme}
-  \label{tab:scoring}   
-\end{table}
-
-
 \subsubsection{Task fulfillment}
 Table \ref{tab:scoring} provides the itemized clearance of all task
 related processes and their scoring.
@@ -1539,7 +1537,7 @@ flow and the correctness of the digital representation and automatic
 scoring.
 
 
-\begin{table}[th]
+\begin{table}
   \centering
   \mytable{
     \begin{tabularx}{\linewidth}{l|X}
@@ -1852,8 +1850,8 @@ a 1 GB flash card. There are numerous communication interfaces on
 board:
 
 \begin{itemize}
-\item 2 $\times$ 100 Mbit Ethernet
-\item 2 $\times$ q external USB, 1 $\times$ on-board USB-connector
+\item 2 $\times$ \SI[per-mode=symbol]{100}{\mega\bit\per\second} Ethernet
+\item 2 $\times$ external USB, 1 $\times$ on-board USB-connector
 \item 2 $\times$  RS232
 \item 1 $\times$ Parallel port and 1 $\times$ VGA port
 \item Wireless LAN Access Point following the standards 802.11/b/g.
