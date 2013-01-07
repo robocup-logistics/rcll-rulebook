@@ -293,12 +293,13 @@ To get into contact with the OC use the mailing list\\
 \section{Competition Area} \label{sec:area}
 
 
-\subsection{Field dimensions} \label{sec:competition-area} The point
-of origin for each statement within this rulebook that uses relative
-coordinates is the bottom left corner of the competition area namely
-the corner near robot insertion area below the blue input storage
-area. All indicated sizes of mark-ups are to be considered outside
-dimensions.
+\subsection{Field dimensions}
+\label{sec:competition-area}
+The point of origin for each statement within this rulebook that uses
+relative coordinates is the bottom left corner of the competition area
+namely the corner near robot insertion area below the blue input
+storage area. All indicated sizes of mark-ups are to be considered
+outside dimensions.
 
 The competition area is a \SI{5.6 x 5.6}{\metre} large arena with
 several RFID-mounted machines, mark-ups, a stock of raw-material and a
@@ -576,14 +577,6 @@ further information of the RFID tag.
 \label{sec:machines}
 
 \subsubsection{General Information}
-
-% \begin{figure}[h]
-%   \centering
-%   \includegraphics[height=6cm]{Machine}
-%   \caption{Machine}
-%   \label{fig:machine}
-% \end{figure}
-
 All machines are identical devices consisting of 
 \begin{itemize}
 \item one plate housing the RFID read/write device and
@@ -596,27 +589,29 @@ depth). Confer also Appendix~\ref{apx:sec:engref} for further
 details. Machines can be in different states which are communicated by
 their signal lights.
 
-\subsubsection{Production Machines - during exploration phase}
+\subsubsection{Production Machines -- during exploration phase}
 \label{sec:production-machines-exp}
-During the exploration phase the robots have to explore the unknown factory
-environment and identify the positions of different machine types on the
-competition area. The frequency of machine types is defined in
-Table~\ref{tab:production-machines}. The machines will indicate their different
-types by individual light signals. In total there are seven light signals
-possible with at least one LED switched on. The light signals and the
-corresponding machine types are initially unknown. The Referee Box will assign
-every machine type to a light signal and publish it to the robots. The
-exploration phase starts with the \emph{exploration phase start-up message}
-published by the Referee Box which defines the light signals of the machine types, e.g.,
-red and green LED switched on indicate machine type \T1. If a robot perceives
-the red and green LED light switched on at machine \m1, the robot has to
-announce that machine \m1 is of type \T1 to the Referee Box. Therefore, the
-robot has to send a \emph{machine identified message} to the Referee Box. Please
-consult the RoboCup Logistics League Referee Box Specification for a detailed
-definition of the message types.
+During the exploration phase the robots have to explore the unknown
+factory environment and identify the positions of different machine
+types on the competition area. The frequency of machine types is
+defined in Table~\ref{tab:production-machines}. The machines will
+indicate their different types by individual light signals. In total
+there are seven light signals possible with at least one LED switched
+on. The light signals and the corresponding machine types are
+initially unknown. The Referee Box will assign every machine type to a
+light signal and publish it to the robots. The exploration phase
+starts with the \emph{exploration phase start-up message} published by
+the Referee Box which defines the light signals of the machine types,
+e.g., red and green LED switched on indicate machine type \T1. If a
+robot perceives the red and green LED light switched on at machine
+\m1, the robot has to announce that machine \m1 is of type \T1 to the
+Referee Box. Therefore, the robot has to send a \emph{machine
+  identified message} to the Referee Box. Please consult the RoboCup
+Logistics League Referee Box Specification for a detailed definition
+of the message types.
 
 
-\subsubsection{Production Machines - during production phase}
+\subsubsection{Production Machines -- during production phase}
 The default operating mode of all machines implies that only the green
 LED is turned on. This signals that the machine is ready for input.
 To enable the production process it is necessary to transport the
@@ -955,8 +950,7 @@ a 3 minute exploration phase, and a 15 minute production phase.
 % saves us from synchronizing refboxes on multiple fields
 % All settings, including the late order challenge and other random
 % events, will be the exact same for both parties of a match.
- The three phases
-of the game are detailed below.
+The three phases of the game are detailed below.
 
 \subsection{Environment Setup}
 \label{sec:env-setup}
@@ -1029,25 +1023,30 @@ request or as decided by the referee, it is disqualified from the
 current game. It may no longer communicate with the still active
 robots and must be taken out of the competition area.
 
-\subsubsection{Game start} \label{sec:game-start} All matches will
-start at the exact time scheduled by the organization team. From this
-point on, the teams involved are allowed to start their robots to work
-autonomously within one minute. This can be done by issueing one
-single distinct command via any kind of interface or pressing a single
-button on the robot. Robots which remain inactive after this minute
-will be extracted from the field.
+\subsubsection{Game start}
+\label{sec:game-start}
+%
+All matches will start at the exact time scheduled by the organization
+team. From this point on, the teams involved are allowed to start
+their robots to work autonomously within one minute. This can be done
+by issueing one single distinct command via any kind of interface or
+pressing a single button on the robot. Robots which remain inactive
+after this minute will be extracted from the field.
 
-\subsubsection{Exploration Phase} \label{sec:expphase} 
+\subsubsection{Exploration Phase}
+\label{sec:expphase}
+%
 With the start of the game, the exploration phase begins. For three
 minutes all machines indicate their type using the signal lights. The
-signal light encoding of machine types will be published by the referee box
-as described in \refsec{sec:production-machines-exp} and in detail in
-the RoboCup Logistics League Referee Box Specification. The robots are
-to roam the environment and announce the detected types to the referee box.
-Each properly reported signal scores two points, each signal reported
-wrongly will give \num{-1} points penalty. A minimum of zero points
-will be accounted for this exploration phase. Production or moving
-pucks is not allowed during the exploration phase.
+signal light encoding of machine types will be published by the
+referee box as described in \refsec{sec:production-machines-exp} and
+in detail in the RoboCup Logistics League Referee Box
+Specification. The robots are to roam the environment and announce the
+detected types to the referee box.  Each properly reported signal
+scores \num{+4} points, each signal reported wrongly will give
+\num{-2} points penalty. A minimum of zero points will be accounted
+for this exploration phase. Production or moving pucks is not allowed
+during the exploration phase.
 
 
 \subsubsection{Production Phase}
@@ -1271,26 +1270,51 @@ consumption of mounted a pallet carrier, it will afterwards resume the
 process.
 
 \subsubsection{Production Plan}
-The referee box will announce a production plan for different phases
-of the match. The production plan specifies how many items of
-different product variants have to be produced in the current phase.
-The number of items can range from 1 to 10 items per phase. Only
-products which are covered by the production plan score. There will be
-three phases.  Each of the three phases will last 5 minutes. The first
-phase will start with the match start-up. The second phase will start
-at minute 5, the third at minute 10. The production plan is shown in
-Table~\ref{tab:production-plan}.
+The referee box will announce a production plan. It will consist of
+the products to produce, the amount thereof, and delivery time slots
+for each product. There will be three time slots for the game, each
+enduring 5 minutes. Hence the first time slot will begin on game start
+and last until 4:59. The second slot starts at 5:00 and lasts until
+9:59. The third time slots starts at 10:00 and lasts until 15:00. 
+
+Products which are delivered in the requested time slots score
+considerably higher than the ones delivered outside of the time
+slots. The production plan is shown in
+Table~\ref{tab:production-plan}. The numbers indicate how many
+products of a certain type shall be produced in each time slot. Each
+number is in the range from 0 to 10.
+
+In the round-robin phase (cf.~\refsec{sec:tournament-scoring}) each
+team will get the same production plan depending on the game number,
+i.e. all teams will have the same plan in their first game, but the
+plan will be a different one in the second game (but still the same
+for each team's second game). In the playoff and final phases the
+production plan is the same for the two teams directly competing
+against each other but not for the other two competing teams. This is
+to avoid any potential influence on the result of prior knowledge of
+the later playing teams.
 \begin{figure}
 \begin{floatrow}
   \capbtabbox{%
     \centering
-    \mytable{\begin{tabularx}{0.9\textwidth}{c|X|X}%{p{0.35\textwidth}|p{0.65\textwidth}}
-        \multicolumn{1}{l}{Phase} & \multicolumn{1}{l}{Product variant} &\multicolumn{1}{l}{Demanded number of items } \\
+    \mytable{\begin{tabularx}{0.9\textwidth}{c|l|X}%{p{0.35\textwidth}|p{0.65\textwidth}}
+        \multicolumn{1}{l}{Slot} & \multicolumn{1}{l}{Parameters} &\multicolumn{1}{l}{Demanded number of items } \\
         \hline 
-        1 & Product variant \p{n_1} &	$N_1 = 1 \mbox{ to } 10$ items \\
-        2 & Product variant \p{n_2} &	$N_2 = 1 \mbox{ to } 10$ items \\
-        3 & Product variant \p{n_3} &	$N_3 = 1 \mbox{ to } 10$ items \\
-        %	\hline
+        1 & $N_{1,1}$, $N_{2,1}$, $N_{3,1}$ &
+        $N_{1,1}$ = Number of \p1 to produce in slot 1\newline
+        $N_{2,1}$ = Number of \p2 to produce in slot 1\newline
+        $N_{3,1}$ = Number of \p3 to produce in slot 1
+        \\[1ex]
+        2 & $N_{1,2}$, $N_{2,2}$, $N_{3,2}$ &
+        $N_{1,2}$ = Number of \p1 to produce in slot 2\newline
+        $N_{2,2}$ = Number of \p2 to produce in slot 2\newline
+        $N_{3,2}$ = Number of \p3 to produce in slot 2
+        \\[1ex]
+        3 & $N_{1,3}$, $N_{2,3}$, $N_{3,3}$ &
+        $N_{1,3}$ = Number of \p1 to produce in slot 3\newline
+        $N_{2,3}$ = Number of \p2 to produce in slot 3\newline
+        $N_{3,3}$ = Number of \p3 to produce in slot 3
+        \\
       \end{tabularx}}
   }{
     \caption{Production plan}
@@ -1331,8 +1355,8 @@ active delivery gate.
 % Commented this subsection as there is no content - should/could be added in
 % revision for 2014
 
-\subsection{Tournament scoring specifications}
-
+\subsection{Tournament Scoring Specifications}
+\label{sec:tournament-scoring}
 % The tournament features two stages with the first stage being done in
 % league form with several sequels orientating at the number of
 % participants and a second stage with playoffs featuring the top 4
@@ -1447,11 +1471,11 @@ from the game by the administration and therefore cannot be recycled.
 
 
 
-\begin{table}[tb]
+\begin{table}
   \centering
-  \subtable[Scoring scheme for the main challenge]{\mytable{\begin{tabularx}{\linewidth}{p{6em}|X|p{4em}}
+  \subtable[Scoring scheme for the main challenge]{\mytable{\begin{tabularx}{\linewidth}{p{7em}|X|p{2.4em}}
         \multicolumn{1}{l}{Subtask } &\multicolumn{1}{l}{Main challenge} &
-        \multicolumn{1}{l}{Scoring [Point]}\\\hline
+        \multicolumn{1}{l}{Points}\\\hline
         Produce \s2 & Finish the work order of a machine type 2 & $+4$\\
         Produce product variant \p1  & Finish the work order of a machine type 3 & $+12$ \\
         Produce product variant \p2  & Finish the work order of a machine type 4 & $+12$ \\
@@ -1470,13 +1494,25 @@ from the game by the administration and therefore cannot be recycled.
 
   \bigskip
   \subtable[Scoring scheme for the late order
-  challenge]{\mytable{\begin{tabularx}{\linewidth}{p{6em}|X|p{4em}} \multicolumn{1}{l}{Subtask } &\multicolumn{1}{l}{LOC - Late Order
-      Challenge} & \multicolumn{1}{l}{Scoring [Point]}\\\hline
+  challenge]{\mytable{\begin{tabularx}{\linewidth}{p{7em}|X|p{2.4em}} \multicolumn{1}{l}{Subtask } &\multicolumn{1}{l}{LOC - Late Order
+      Challenge} & \multicolumn{1}{l}{Points}\\\hline
     Finish the LO &	Deliver the late order (LO) to a machine of type 5 (\T5)
     and process the late order. &	+5\\
     Deliver the LO & Deliver the processed late order (LO) to the active
     delivery gate in time. &  +10\\
     Sum & In time delivery of a correct late order (LO). & 15\\%\hline
+  \end{tabularx} }}
+
+  \bigskip
+  \subtable[Scoring scheme for the exploration
+  phase]{\mytable{\begin{tabularx}{\linewidth}{p{7em}|X|p{2.4em}}
+        \multicolumn{1}{l}{Reported} &\multicolumn{1}{l}{Exploration Phase} & \multicolumn{1}{l}{Points}\\\hline
+    Correctly & Correctly determine a machine type and
+    report it successfully to the refbox &	+4\\
+    Incorrectly & Wrongly reported machine type &  -2\\
+    Round Total & A maximum of 40 points can be achieved by correctly
+    reporting all ten field machines. A minimum of 0 points is
+    awarded. & 0 -- 40\\%\hline
   \end{tabularx} }}
   \caption{Scoring Scheme}
   \label{tab:scoring}   
