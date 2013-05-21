@@ -597,7 +597,7 @@ types on the competition area. The frequency of machine types is
 defined in Table~\ref{tab:production-machines}. The machines will
 indicate their different types by individual light signals. In total
 there are seven light signals possible with at least one LED switched
-on. The light signals and the corresponding machine types are
+on (no flashing lights). The light signals and the corresponding machine types are
 initially unknown. The Referee Box will assign every machine type to a
 light signal and publish it to the robots. The exploration phase
 starts with the \emph{exploration phase start-up message} published by
@@ -683,11 +683,11 @@ the respective types will be randomly placed resulting in a total of
 \bigskip
 \subtable[Machine Types]{\mytable{  \begin{tabularx}{\linewidth}{l|X|X|X|l}
     \multicolumn{1}{l}{ Type} & \multicolumn{1}{l}{Distribution} & \multicolumn{1}{l}{Input} & \multicolumn{1}{l}{Output} & \multicolumn{1}{l}{(Final)processing time[s]}\\\hline
-    \T1 & 4 times & \s0 (Raw-material) & \s1 & $t_1 = 3 \mbox{ to } 8~\mathrm{sec}$\\
-    \T2 & 3 times & \s0; \s1; & \s2; one consumed container & $t_2 = 15 \mbox{ to } 25~\mathrm{sec}$\\
-    \T3 & 1 times &	\s0;\s1;\s2 & \p1; two consumed containers &$t_3 = 40 \mbox{ to } 60~\mathrm{sec}$\\
-    \T4 & 1 times &\s0;\s1;\s2 & \p2; two consumed containers &$t_4 = 40\mbox{ to } 60~\mathrm{sec}$\\
-    \T5 & 1 times &	\s0; & \p3 &$t_5 =40\mbox{ to } 60~\mathrm{sec}$
+    \T1 & 4 times & \s0 (raw-material) & \s1 & $t_1 = 3 \mbox{ to } 8~\mathrm{sec}$\\
+    \T2 & 3 times & \s0; \s1 & \s2; one consumed container & $t_2 = 15 \mbox{ to } 25~\mathrm{sec}$\\
+    \T3 & 1 times &	\s0; \s1; \s2 & \p1; two consumed containers &$t_3 = 40 \mbox{ to } 60~\mathrm{sec}$\\
+    \T4 & 1 times & \s0; \s1; \s2 & \p2; two consumed containers &$t_4 = 40\mbox{ to } 60~\mathrm{sec}$\\
+    \T5 & 1 times &	\s0 & \p3 &$t_5 =20\mbox{ to } 40~\mathrm{sec}$
   \end{tabularx}}}
   \caption{Production Machines}
   \label{tab:production-machines}  
@@ -1027,8 +1027,9 @@ robots and must be taken out of the competition area.
 \label{sec:game-start}
 %
 All matches will start at the exact time scheduled by the organization
-team. From this point on, the teams involved are allowed to start
-their robots to work autonomously within one minute. This can be done
+team. From this point on, all robots must be located within the robot 
+insertion area and the teams involved are allowed to start their robots 
+to work autonomously within one minute. This can be done
 by issuing one single distinct command via any kind of interface or
 pressing a single button on the robot. Robots which remain inactive
 after this minute will be extracted from the field.
@@ -1037,14 +1038,14 @@ after this minute will be extracted from the field.
 \label{sec:expphase}
 %
 With the start of the game, the exploration phase begins. For three
-minutes all machines indicate their type using the signal lights. The
+minutes all machines indicate their type using static light signals. The
 signal light encoding of machine types will be published by the
 referee box as described in \refsec{sec:production-machines-exp} and
 in detail in the RoboCup Logistics League Referee Box
 Specification. The robots are to roam the environment and announce the
 detected types to the referee box.  Each properly reported signal
 scores \num{+4} points, each signal reported wrongly will give
-\num{-2} points penalty. A minimum of zero points will be accounted
+\num{-3} points penalty. A minimum of zero points will be accounted
 for this exploration phase. Production or moving pucks is not allowed
 during the exploration phase.
 
@@ -1144,7 +1145,7 @@ as a production graph.
         \TAG{consumed}\\
         \s{1} &	\T{2}, \T{3}, \T{4} &  	\s{0} & 	\s{2} or \TAG{consumed} \\
         \s{2} & \T{3}, \T{4} & \s{0}, \s{1} &	\p{1}, \p{2} \\
-        \TAG{Late Order} & \T{1} & none &  \TAG{Finished Late Order}\\
+        \TAG{Late Order} & \T{5} & none &  \TAG{Processed Late Order}\\
 %        \hline
       \end{tabularx}
     }      
@@ -1244,11 +1245,17 @@ The late order challenge is derived from the former express good
 rule. It will be announced at a random time by the referee box in form
 of a request for a specified product to be delivered within a
 specified time window. The challenge requires a fast paced processing
-and delivery of the requested product in time. The challenge also
-requires prior knowledge concerning the machine distribution. The puck
-will be placed in the late order insertion slot above the input
-storage. Note however, that a robot may not be initially placed next
-to the insertion slot, but only in the robot insertion area.
+and delivery of the requested product in time. 
+
+Currently, any \s0 can be used for the late order. However, in order to allow 
+visually triggered processing as done for the former express good challenge, a \s0 
+will be placed in the late order insertion slot above the input storage as soon as a late order is announced.
+This \s0 puck will not be removed and can also be used for normal production. Note that, if the late order insertion slot already 
+contains a \s0 when the next late order arrives, no further puck is inserted.
+
+Furthermore, it is permitted to pre-produce a late-order, thus only the delivery of the late order has to be in time.
+
+A robot may not be initially placed next to the insertion slot, but only in the robot insertion area (below the input storage).
 
 \subsection{During a match}
 \label{sec:during-match}
@@ -1268,6 +1275,8 @@ for 30 to 120 seconds. Every machine can only be forced out of order
 once per match. If the machine turns offline during processing or
 consumption of mounted a pallet carrier, it will afterwards resume the
 process.
+The refbox will adjust the down times not to collide with late 
+orders to allow production and delivery within the late order time.
 
 \subsubsection{Production Plan}
 The referee box will announce a production plan. It will consist of
@@ -1282,7 +1291,7 @@ considerably higher than the ones delivered outside of the time
 slots. The production plan is shown in
 Table~\ref{tab:production-plan}. The numbers indicate how many
 products of a certain type shall be produced in each time slot. Each
-number is in the range from 0 to 10.
+number is in the range from 1 to 10.
 
 In the round-robin phase (cf.~\refsec{sec:tournament-scoring}) each
 team will get the same production plan depending on the game number,
@@ -1363,7 +1372,7 @@ active delivery gate.
         Produce \s2 & Finish the work order of a machine type 2 & $+4$\\
         Produce product variant \p1  & Finish the work order of a machine type 3 & $+12$ \\
         Produce product variant \p2  & Finish the work order of a machine type 4 & $+12$ \\
-        Produce product variant \p3  & Finish the work order of a machine type 5 & $+6$ \\
+        Produce product variant \p3  & Finish the work order of a machine type 5 & $+0$ \\
         Deliver & Deliver one of the final product variants to the
         designated loading zone at the time specified in the order & $+10$\\
         Wrong Deliver & Deliver one of the final product variants to the
@@ -1372,7 +1381,7 @@ active delivery gate.
         & $+1$\\
         False Deliver & Deliver an intermediate product & $0$\\
         Recycle & Taking a consumed material from a machine that completed
-        its work cycle to the recycling machine& $+3$\\
+        its work cycle to the recycling machine& $+5$\\
     \end{tabularx}  }}
 
 
@@ -1380,11 +1389,8 @@ active delivery gate.
   \subtable[Scoring scheme for the late order
   challenge]{\mytable{\begin{tabularx}{\linewidth}{p{7em}|X|p{2.4em}} \multicolumn{1}{l}{Sub-task } &\multicolumn{1}{l}{LOC - Late Order
       Challenge} & \multicolumn{1}{l}{Points}\\\hline
-    Finish the LO &	Deliver the late order (LO) to a machine of type 5 (\T5)
-    and process the late order. &	+5\\
     Deliver the LO & Deliver the processed late order (LO) to the active
-    delivery gate in time. &  +10\\
-    Sum & In time delivery of a correct late order (LO). & 15\\%\hline
+    delivery gate in time. &  +20\\%\hline
   \end{tabularx} }}
 
   \bigskip
@@ -1393,7 +1399,7 @@ active delivery gate.
         \multicolumn{1}{l}{Reported} &\multicolumn{1}{l}{Exploration Phase} & \multicolumn{1}{l}{Points}\\\hline
     Correctly & Correctly determine a machine type and
     report it successfully to the refbox &	+4\\
-    Incorrectly & Wrongly reported machine type &  -2\\
+    Incorrectly & Wrongly reported machine type &  -3\\
     Round Total & A maximum of 40 points can be achieved by correctly
     reporting all ten field machines. A minimum of 0 points is
     awarded. & 0 -- 40\\%\hline
@@ -1496,9 +1502,7 @@ game play challenges:
 \paragraph{Round-Robin phase}
 \begin{itemize}
 \item The active delivery gate will not switch during a match.
-\item There will be 3 late order challenges.
-\item No late order challenge will be initialized during the first or within the
-  last two match minutes.
+\item There will be two late order challenges. No late order challenge will be initialized during the first or within the last two match minutes.
 \end{itemize} 
 
 
@@ -1507,9 +1511,7 @@ game play challenges:
 \item The active delivery gate will swap twice - after minutes 7
   and 11. A delivery made to the old active gate will be still
   valid for the next 10 seconds.
-\item There will be 4 late order challenges. 
-\item No late order challenge will be initialized during the first or within
-  the last two match minutes.
+\item There will be two late order challenges. No late order challenge will be initialized during the first or within the last two match minutes.
 \end{itemize}    
 
 
@@ -1592,9 +1594,8 @@ scoring.
 \subsection{Technical Challenge}
 \label{sec:technical-challenge}
 Within the league, the technical advances should be documented from
-year to year. Therefore, the Technical Challenge is introduced.  Each
-team should prepare for participating in any number of the following
-tasks:
+year to year. Therefore, the Technical Challenge is introduced. Each team should prepare for participating in any number of the following
+tasks. However, participation has no influence on the normal game results, but the winner will be awarded by a certificate.
 
 
 \paragraph{Navigation and collision avoidance.~}
