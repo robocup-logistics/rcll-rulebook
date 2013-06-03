@@ -196,7 +196,7 @@ the set of rules will be fixed at 01/01/2013 and revised in April 2013
 after the German Open 2013 competition.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{The Task}
+\subsection{The task}
 \label{sec:task}
 
 Our aim is to simulate autonomous guided vehicles in industrial
@@ -239,7 +239,7 @@ has to be treated in the best possible way. Any possible damage to the
 field or the machines will be penalized by the referee.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Agreements \& Regulations} \label{sec:agreements}
+\subsection{Agreements \& regulations} \label{sec:agreements}
 
 The Logistics League follows a certain design philosophy. All teams
 are obliged to use the Robotino robotic system from Festo Didactic
@@ -255,7 +255,7 @@ external assistance (like Indoor GPS) is permitted.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{League Administration} \label{sec:commitees}
+\section{League administration} \label{sec:commitees}
 \subsection{Technical Committee 2013} \label{sec:tc}
 % Alphabetical order by last name
 \emph{Christian Deppe}, Otto-von-Guericke University Magdeburg, Magdeburg,
@@ -559,7 +559,7 @@ different field slots are presented in Table~\ref{tab:coordinates}.
 % \end{figure}
 
 
-\subsection{The Pallet Carrier Puck}
+\subsection{The pallet carrier puck}
 The data-carrying RFID tag is attached on top of a hockey puck. Each
 pallet carrier can be identified by a unique number. The tournament puck
 features a diameter of \SI{7.5}{\centi\metre} and is shown in
@@ -576,7 +576,7 @@ further information of the RFID tag.
 \subsection{Machines}
 \label{sec:machines}
 
-\subsubsection{General Information}
+\subsubsection{General information}
 All machines are identical devices consisting of 
 \begin{itemize}
 \item one plate housing the RFID read/write device and
@@ -589,7 +589,7 @@ depth). Confer also Appendix~\ref{apx:sec:engref} for further
 details. Machines can be in different states which are communicated by
 their signal lights.
 
-\subsubsection{Production Machines -- during exploration phase}
+\subsubsection{Production machines --- during exploration phase}
 \label{sec:production-machines-exp}
 During the exploration phase the robots have to explore the unknown
 factory environment and identify the positions of different machine
@@ -611,7 +611,7 @@ Logistics League Referee Box Specification for a detailed definition
 of the message types.
 
 
-\subsubsection{Production Machines -- during production phase}
+\subsubsection{Production machines --- during production phase}
 The default operating mode of all machines implies that only the green
 LED is turned on. This signals that the machine is ready for input.
 To enable the production process it is necessary to transport the
@@ -716,14 +716,19 @@ the respective types will be randomly placed resulting in a total of
     \multicolumn{1}{l}{Optical Feedback} &\multicolumn{1}{l}{Stored
       data on the data carrier}\\\hline
     Red LED turned on & This delivery gate is inactive.\\
-    Red and green LED turned on & This gate is active, namely the designated gate.\\
+    Red and green LED turned on & This gate is active, namely the
+    designated gate.\\
+    Red and organge LED turned on & False Delelivery to an active
+    gate.\\
+    Red LED turned on and Yellow LED flashing (at \SI{2}{\hertz}) &
+    False delivery to inactive gate. The puck's state changes to consumed.
 %    \hline
   \end{tabularx}}
   \caption{Delivery Gates}
   \label{tab:delivery-gates}
 \end{table}
 
-\subsubsection{Recycling Unit (former market place)}
+\subsubsection{Recycling unit (former market place)}
 During the staged production process raw-material is transformed or
 consumed by the machines. To use consumed raw-materials again, the
 robots can use one of the two recycling units placed in the corners of
@@ -732,7 +737,7 @@ loading carriers back to raw-material (\s0) within 2 seconds. The
 optical feedback provided by the recycling unit differs from
 production machines and is shown in Table~\ref{tab:recycling-unit}.
 
-\subsubsection{Delivery Gates} 
+\subsubsection{Delivery gates} 
 
 If a variant of a final product is finished, it has to be delivered to
 the customer through one of the three delivery gates.  Only a pallet
@@ -742,9 +747,21 @@ slot boundary. As soon as a pallet carrier is successfully delivered
 to the active gate, it will show the state of the data carrier as
 defined in Table~\ref{tab:delivery-gates}. This state will only last
 for some seconds for indicating the score to the referee. There will
-be only one active gate at a time.
+be only one active gate at a time. False deliveries to an active and
+inactive gate will be indicated as well according to
+Table~\ref{tab:delivery-gates}. A pallet carrier which was delivered
+and placed correctly in the delivery area right under the RFID reader
+will be taken out by the referee after the delivery was indicated by
+the respective light signal of the delivery gate. In particular, this
+means that a correct and false delivery causes the pallet carrier to
+be taken out by the referee. In case of a delivery to an active gate,
+the team will be awarded with the points for the delivery; if the gate
+was inactive, no points will be awarded. If, however, a pallet carrier
+was not placed correctly under the RFID reader, the pallet carrier
+will not be taken out by the referee and remain where it is.
 
-\subsubsection{Test Station}
+
+\subsubsection{Test station}
 
 The type of a sub-assembly can be determined at the test station in
 the corresponding corner of the competition area. The test station
@@ -772,7 +789,7 @@ with the light signal as shown in Table~\ref{tab:test-station}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%
 
-\section{The Robotino System} \label{sec:robotino}
+\section{The Robotino system} \label{sec:robotino}
 
 All participants have to design their competition Robotinos within
 the following specifications:
@@ -813,7 +830,7 @@ and may be unavailable during parts of the game. Interruptions must be
 expected and are no reason to pause or abort a game, even if they
 endure for long periods of the game.
 
-\subsection{Bandwidth Allocation}
+\subsection{Bandwidth allocation}
 \label{sec:bandwidth}
 No minimum bandwidth is guaranteed. The amount of communicated data
 over the wifi connection shall not exceed
@@ -826,7 +843,7 @@ limit become known, or if the overall bandwidth limit must be reduced
 due to outer circumstances, the TC can monitor the network traffic and
 demand reduction in communicated data as necessary.
 
-\subsection{Referee Box}
+\subsection{Referee box}
 \label{sec:referee-box}
 The referee box (refbox) is a software system that runs on a system
 provided by the Organization Committee. It controls the overall game,
@@ -856,7 +873,7 @@ broadcast protocol based on Google protocol buffers\footnote{Available
 protocol definition and technical parameters are described in detail
 in the RoboCup Logistics League Referee Box Specification.
 
-\subsection{Remote Control}
+\subsection{Remote control}
 \label{sec:remote-control}
 Remote operation or instruction of any kind of the robots is forbidden
 at all times during a game. The only allowed interaction is for the start-up
@@ -875,7 +892,7 @@ might be used for instruction, he can demand the shutdown of the
 monitoring software (also refer to previous section on Remote
 Control).
 
-\subsection{Inter-Robot Communication}
+\subsection{Inter-robot communication}
 \label{sec:inter-robot-comm}
 Robots currently active on the field can freely exchange any
 information that supports a coordinated team play. Robots not actively
@@ -886,7 +903,7 @@ are not physically attached to the robot, including, for example, but
 not limited to a camera aside the field. Likewise any off-robot
 actuator is forbidden.
 
-\subsection{Communication Eavesdropping and Interference}
+\subsection{Communication eavesdropping and interference}
 \label{sec:comm-tampering}
 % This might sound harsh, but it's based on lessons learned in
 % numerous years of RoboCup, you wouldn't believe what some teams will
@@ -952,7 +969,7 @@ a 3 minute exploration phase, and a 15 minute production phase.
 % events, will be the exact same for both parties of a match.
 The three phases of the game are detailed below.
 
-\subsection{Environment Setup}
+\subsection{Environment setup}
 \label{sec:env-setup}
 
 The physical distribution of the production machines is fixed. Their
@@ -970,10 +987,10 @@ robot after the game has started. In particular, they may not be
 re-positioned for better alignment if they have been pushed or moved by
 a robot during the game.
 
-\subsection{Game Phases}
+\subsection{Game phases}
 \label{sec:game-phases}
 
-\subsubsection{Team Setup}
+\subsubsection{Team setup}
 \label{sec:team-setup}
 No team member is allowed to enter the competition area prior to or
 during a match. The robots can be set up within the robot insertion
@@ -983,26 +1000,29 @@ be performed as long as the robot remains within the insertion
 area. This includes, but is not limited to, remote start-up of
 programs, localization procedures, or vision calibration.
 
-\subsubsection{Interruptions and Robot Maintenance}
+\subsubsection{Interruptions and robot maintenance}
 \label{sec:robot-maintenance}
 During a match and while the robot is active on the field no manual
 interference or manipulation of the robot in hardware, software,
 configuration, instructions, or whatsoever, is allowed.
 
 In the case of a misbehaving or broken robot, a team can ask the
-referee to take out a robot. Note however that one robot interfering
+referee to take out a robot. Note, however, that one robot interfering
 with another is no conduct of misbehavior (unless damage is to be
-expected) and no reason to call out a robot. The final decision
+expected) and no reason to call out a robot. Similarly, to ask to take
+out a robot which is in a software deadlock situation of the own
+control software is not judged as a broken robot. The final decision
 whether a robot can be taken out or not remains with the field
 referee. The referee acts upon this motion at a time of his choosing,
 but as soon as possible.
 
 After a robot has been taken out for the first time, it is handed to
-the team. The team can perform repairs on the robot which is limited
-to adjustments on sensors, checking cable connections, or restarting
-the robot's control software. The repair time may take at most 120
-seconds. If the robot is not returned to the field in time, it is
-banned from the ongoing game.
+the team. The team can perform any repairs to the robot and/or the
+robot's software. %on the robot which is limited
+%to adjustments on sensors, checking cable connections, or restarting
+%the robot's control software. 
+The repair time may take at most 120 seconds. If the robot is not
+returned to the field in time, it is banned from the ongoing game.
 
 To return the robot into the game, the team asks the referee to place
 back the robot onto the field. After the referee accepts the motion,
@@ -1034,7 +1054,7 @@ by issuing one single distinct command via any kind of interface or
 pressing a single button on the robot. Robots which remain inactive
 after this minute will be extracted from the field.
 
-\subsubsection{Exploration Phase}
+\subsubsection{Exploration phase}
 \label{sec:expphase}
 %
 With the start of the game, the exploration phase begins. For three
@@ -1050,7 +1070,7 @@ for this exploration phase. Production or moving pucks is not allowed
 during the exploration phase.
 
 
-\subsubsection{Production Phase}
+\subsubsection{Production phase}
 \label{sec:production-phase}
 
 With the end of the exploration phase, the actual production begins,
@@ -1247,15 +1267,20 @@ of a request for a specified product to be delivered within a
 specified time window. The challenge requires a fast paced processing
 and delivery of the requested product in time. 
 
-Currently, any \s0 can be used for the late order. However, in order to allow 
-visually triggered processing as done for the former express good challenge, a \s0 
-will be placed in the late order insertion slot above the input storage as soon as a late order is announced.
-This \s0 puck will not be removed and can also be used for normal production. Note that, if the late order insertion slot already 
-contains a \s0 when the next late order arrives, no further puck is inserted.
+Currently, any \s0 can be used for the late order. However, in order
+to allow visually triggered processing as done for the former express
+good challenge, an \s0 will be placed in the late order insertion slot
+above the input storage as soon as a late order is announced.  This
+\s0 puck will not be removed and can also be used for normal
+production. Note that, if the late order insertion slot already
+contains an \s0 when the next late order arrives, no further puck is
+inserted.
 
-Furthermore, it is permitted to pre-produce a late-order, thus only the delivery of the late order has to be in time.
+Furthermore, it is permitted to pre-produce a late-order, thus only
+the delivery of the late order has to be in time.
 
-A robot may not be initially placed next to the insertion slot, but only in the robot insertion area (below the input storage).
+A robot may not be initially placed next to the insertion slot, but
+only in the robot insertion area (below the input storage).
 
 \subsection{During a match}
 \label{sec:during-match}
@@ -1282,7 +1307,7 @@ orders to allow production and delivery within the late order time.
 The referee box will announce a production plan. It will consist of
 the products to produce, the amount thereof, and delivery time slots
 for each product. There will be three time slots for the game, each
-enduring 5 minutes. Hence the first time slot will begin on game start
+lasting 5 minutes. Hence the first time slot will begin on game start
 and last until 4:59. The second slot starts at 5:00 and lasts until
 9:59. The third time slots starts at 10:00 and lasts until 15:00. 
 
@@ -1373,24 +1398,24 @@ active delivery gate.
         Produce product variant \p1  & Finish the work order of a machine type 3 & $+12$ \\
         Produce product variant \p2  & Finish the work order of a machine type 4 & $+12$ \\
         Produce product variant \p3  & Finish the work order of a machine type 5 & $+0$ \\
-        Deliver & Deliver one of the final product variants to the
+        Delivery & Deliver one of the final product variants to the
         designated loading zone at the time specified in the order & $+10$\\
-        Wrong Deliver & Deliver one of the final product variants to the
+        Wrong delivery & Deliver one of the final product variants to the
         designated loading zone out of the requested time range or after
         all products requested in the period have already been delivered
         & $+1$\\
-        False Deliver & Deliver an intermediate product & $0$\\
+        False delivery & Deliver an intermediate product & $0$\\
         Recycle & Taking a consumed material from a machine that completed
         its work cycle to the recycling machine& $+5$\\
     \end{tabularx}  }}
 
 
-  \bigskip
-  \subtable[Scoring scheme for the late order
-  challenge]{\mytable{\begin{tabularx}{\linewidth}{p{7em}|X|p{2.4em}} \multicolumn{1}{l}{Sub-task } &\multicolumn{1}{l}{LOC - Late Order
-      Challenge} & \multicolumn{1}{l}{Points}\\\hline
-    Deliver the LO & Deliver the processed late order (LO) to the active
-    delivery gate in time. &  +20\\%\hline
+\bigskip
+\subtable[Scoring scheme for the late order
+challenge]{\mytable{\begin{tabularx}{\linewidth}{p{7em}|X|p{2.4em}} \multicolumn{1}{l}{Sub-task } &\multicolumn{1}{l}{LOC - Late Order
+        Challenge} & \multicolumn{1}{l}{Points}\\\hline
+      Delivery  of LO & Deliver the processed late order (LO) to the active
+      delivery gate in time. &  +20\\%\hline
   \end{tabularx} }}
 
   \bigskip
@@ -1548,6 +1573,8 @@ scoring.
   announced the start of the match The faulty robot will be grounded
   for 2 minutes.\\[1ex]
 %
+  Inactive robot & If a robot is inactive for 2 minutes, the referee
+  can ban the robot from the field.\\[1ex]
   Damaging factory equipment & Theoretical damage to the real
   factory equipment as a result of collisions and negligent actions.
   This behavior will be punished as a minor rule break.\\[1ex]
