@@ -713,22 +713,23 @@ the respective types will be randomly placed resulting in a total of
 \begin{table}[tp]
   \centering
   \mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
-    \multicolumn{1}{l}{Optical Feedback} &\multicolumn{1}{l}{Stored
-      data on the data carrier}\\\hline
-    Red LED turned on & This delivery gate is inactive.\\
-    Red and green LED turned on & This gate is active, namely the
-    designated gate.\\
-    Red and organge LED turned on & False Delelivery to an active
-    gate.\\
-    Red LED turned on and Yellow LED flashing (at \SI{2}{\hertz}) &
-    False delivery to inactive gate. The puck's state changes to consumed.
+      \multicolumn{1}{l}{Optical Feedback} &\multicolumn{1}{l}{Stored
+        data on the data carrier}\\\hline
+      Red turned on & This delivery gate is inactive.\\
+      Green turned on & This gate is active, namely the
+      designated gate.\\
+      Yellow blinking & False deliver to active gate.\\
+      Red on, Yellow flashing (at \SI{2}{\hertz}) &
+      False delivery to inactive gate. The puck's state changes to
+      consumed.\\
+      Red, Yellow, Green turned on & Successful delivery\\
 %    \hline
   \end{tabularx}}
   \caption{Delivery Gates}
   \label{tab:delivery-gates}
 \end{table}
 
-\subsubsection{Recycling unit (former market place)}
+\subsubsection{Recycling unit}
 During the staged production process raw-material is transformed or
 consumed by the machines. To use consumed raw-materials again, the
 robots can use one of the two recycling units placed in the corners of
@@ -740,26 +741,24 @@ production machines and is shown in Table~\ref{tab:recycling-unit}.
 \subsubsection{Delivery gates} 
 
 If a variant of a final product is finished, it has to be delivered to
-the customer through one of the three delivery gates.  Only a pallet
-carrier that is delivered into the slot completely will be considered
-for scoring, i.e. no part of the pallet carrier may be outside the
-slot boundary. As soon as a pallet carrier is successfully delivered
-to the active gate, it will show the state of the data carrier as
-defined in Table~\ref{tab:delivery-gates}. This state will only last
-for some seconds for indicating the score to the referee. There will
-be only one active gate at a time. False deliveries to an active and
-inactive gate will be indicated as well according to
-Table~\ref{tab:delivery-gates}. A pallet carrier which was delivered
-and placed correctly in the delivery area right under the RFID reader
-will be taken out by the referee after the delivery was indicated by
-the respective light signal of the delivery gate. In particular, this
-means that a correct and false delivery causes the pallet carrier to
-be taken out by the referee. In case of a delivery to an active gate,
-the team will be awarded with the points for the delivery; if the gate
-was inactive, no points will be awarded. If, however, a pallet carrier
-was not placed correctly under the RFID reader, the pallet carrier
-will not be taken out by the referee and remain where it is.
-
+the customer through one of the three delivery gates.  Only if the
+machine signal successful delivery (all lights steadily on) points are
+awarded. This state will last until the puck is removed by the
+referee. The puck may no longer be used in the game.  There will be
+only one active gate at a time. A gate is active between 60 and 180
+seconds. After the gate switches, there is a grace period of 3 seconds
+in which delivery will still be accepted to the formerly active
+delivery gate. False deliveries to an active gate will be indicated by
+a flashing yellow light (e.g. taking a \s0 puck to the active
+gate). False delivery to an inactive gate will result in the immediate
+consumption of the puck and will be indicated by a steady red and
+blinking yellow light. The puck must be recycled to be re-used. In
+case of a delivery to an active gate, the team will be awarded with
+the points for the delivery; if the gate was inactive, no points will
+be awarded. If, however, a pallet carrier was not successfully
+delivered, the pallet carrier will remain where it is. See
+Table~\ref{tab:delivery-gates} for the possible delivery gate signal
+states.
 
 \subsubsection{Test station}
 
