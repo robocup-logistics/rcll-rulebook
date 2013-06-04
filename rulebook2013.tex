@@ -1261,23 +1261,24 @@ different machine types are specified in Sect.~\ref{sec:machines}.
 
 
 \subsubsection{Late order}
+\label{sec:late-order}
 The late order challenge is derived from the former express good
 rule. It will be announced at a random time by the referee box in form
-of a request for a specified product to be delivered within a
-specified time window. The challenge requires a fast paced processing
-and delivery of the requested product in time. 
+of an updated order information message listing a new order for a \p3
+product to be delivered within a specified time window of 120\,sec
+length. The order will be added to the periodically order information
+message as soon as the delivery time window begins. The challenge
+requires a fast paced processing and delivery of the requested product
+in time.
 
-Currently, any \s0 can be used for the late order. However, in order
-to allow visually triggered processing as done for the former express
-good challenge, an \s0 will be placed in the late order insertion slot
-above the input storage as soon as a late order is announced.  This
-\s0 puck will not be removed and can also be used for normal
+The \p3 product can be produced from any \s0 puck at a T5 machine at
+any time (it may be pre-produced). In order to allow visually
+triggered processing an \s0 will be placed in the late order insertion
+slot above the input storage as soon as a late order is announced.
+This \s0 puck will not be removed and can also be used for normal
 production. Note that, if the late order insertion slot already
-contains an \s0 when the next late order arrives, no further puck is
-inserted.
-
-Furthermore, it is permitted to pre-produce a late-order, thus only
-the delivery of the late order has to be in time.
+contains an \s0 when the next late order arrives an additional \s0
+puck is placed in the input storage.
 
 A robot may not be initially placed next to the insertion slot, but
 only in the robot insertion area (below the input storage).
@@ -1299,9 +1300,9 @@ events during a match. The machines affected will remain out of order
 for 30 to 120 seconds. Every machine can only be forced out of order
 once per match. If the machine turns offline during processing or
 consumption of mounted a pallet carrier, it will afterwards resume the
-process.
-The refbox will adjust the down times not to collide with late 
-orders to allow production and delivery within the late order time.
+process.  The refbox will adjust the down times of T5 machines not to
+collide with late orders to allow production and delivery within the
+late order time.
 
 \subsubsection{Production Plan}
 The referee box will announce a production plan. It will consist of
@@ -1309,7 +1310,9 @@ the products to produce, the amount thereof, and delivery time slots
 for each product. There will be three time slots for the game, each
 lasting 5 minutes. Hence the first time slot will begin on game start
 and last until 4:59. The second slot starts at 5:00 and lasts until
-9:59. The third time slots starts at 10:00 and lasts until 15:00. 
+9:59. The third time slots starts at 10:00 and lasts until 15:00.  The
+later order is added to the production plan as soon as its delivery
+time slot starts (cf.~\refsec{sec:late-order}).
 
 Products which are delivered in the requested time slots score
 considerably higher than the ones delivered outside of the time
@@ -1370,16 +1373,6 @@ the later playing teams.
 %   \caption{Production plan}
 %   \label{tab:production-plan}
 % \end{table}
-
-\subsubsection{Late Order Challenge}
-
-The challenge will be induced by the referee box sending a \emph{late
-  order message} to the robots. The message specifies the demanded
-product variant, a time window and the delivery gate. As a first step,
-the late order challenge will only demand for product variant
-\p3. Furthermore, the challenge has to be completed within a time
-window of 120 seconds and the late order has to be delivered to the
-active delivery gate.
 
 \section{Tournament}
 \label{sec:tournament}
