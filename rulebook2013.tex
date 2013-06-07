@@ -719,10 +719,9 @@ the respective types will be randomly placed resulting in a total of
       Red turned on & This delivery gate is inactive.\\
       Green turned on & This gate is active, namely the
       designated gate.\\
-      Yellow blinking & False deliver to active gate.\\
+      Yellow blinking & False delivery to active gate.\\
       Red on, Yellow flashing (at \SI{2}{\hertz}) &
-      False delivery to inactive gate. The puck's state changes to
-      consumed.\\
+      False delivery to inactive gate.\\
       Red, Yellow, Green turned on & Successful delivery\\
 %    \hline
   \end{tabularx}}
@@ -751,9 +750,8 @@ seconds. After the gate switches, there is a grace period of 3 seconds
 in which delivery will still be accepted to the formerly active
 delivery gate. False deliveries to an active gate will be indicated by
 a flashing yellow light (e.g. taking a \s0 puck to the active
-gate). False delivery to an inactive gate will result in the immediate
-invalidation of the puck and will be indicated by a steady red and
-blinking yellow light. The puck will be taken out by the referee and
+gate) and false deliveries to an inactive gate by a steady red and
+blinking yellow light. In both cases, the puck will be taken out by the referee and
 it may no longer be used in production or delivered. In case of a
 delivery to an active gate, the team will be awarded with the points
 for the delivery; if the gate was inactive, no points will be
@@ -1611,15 +1609,15 @@ results, but the winner will be awarded by a certificate.
 \paragraph{Navigation and collision avoidance.~}
 The single robot is to show that it avoids other obstacles and robots
 while moving along specified points. Therefore the robot must drive
-from the input storage to the delivery zone within 60
-seconds. However, the paths between the input storage and the delivery
+from the robot insertion area to the delivery zone within 60
+seconds. However, the paths between the robot insertion area and the delivery
 zone will be blocked randomly by static obstacles and the robot must
 not touch any of the obstacles. For touching an obstacle, the team
-receives a penalty.  The fastest team with the fewest penalty points
+receives a penalty. The fastest team with the fewest penalty points
 to reach the delivery zone wins this challenge. All other teams are
 ranked according to how fast they were and how many penalties they
 conceived. Initially, the robot will be placed by a team leader of a
-different team anywhere in the input storage. The team has 15 seconds
+different team anywhere in the robot insertion area. The team has 15 seconds
 to perform a quick setup after the robot has been placed. The robot
 has completed the challenge as soon as it touches the delivery zone at
 any point. In 2013, the robotino transport cases will be used as
@@ -1630,16 +1628,17 @@ distributions).  A roll of dice will decide the actual distribution of
 obstacles.
   
 \paragraph{Whack-a-Mole.~}
-A single robot is placed somewhere on the field. The team has 15
-seconds to perform a quick setup after the robot has been placed. It
+A single robot is placed by a team leader of a different team anywhere 
+in the robot insertion area. The team has 15 seconds to perform a quick 
+setup after the robot has been placed. It
 then has to detect the single shining signal unit on the play
 field. The regarding unit will have all lights - green,yellow, and red
 - switched on. As soon as the robot enters the related machine area of
-that signal, the signal unit has been as whacked, is switched off and
+that signal, the signal unit has been marked as whacked, is switched off and
 another random signal unit is switched on. A robot is inside a machine
-area if and only if it's center is within the area. This is detected
+area if and only if its center is within the area. This is detected
 by the visual tracking system if available, or the human
-referee. Partaking robots must therefore be equipped with the
+referee. Participating robots must therefore be equipped with the
 appropriate markers. The goal of the challenge is to switch off as
 many signal units as possible within a given time frame. Teams are
 ranked according to the number of turned-off signals.
