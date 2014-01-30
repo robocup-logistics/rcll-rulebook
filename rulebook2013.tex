@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Rulebook RoboCup Logistics League Sponsored by Festo
-%% 2013 Competitions
+%% 2014 Competitions
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[12pt,twoside]{article}
@@ -24,9 +24,9 @@
 % { \endMakeFramed}
 \newenvironment{rulechange}{}{}
 
-\usepackage[load-configurations=binary]{siunitx}
+%\usepackage[load-configurations=binary]{siunitx}
 % may be
-%\usepackage[binary-units=true]{siunitx}
+\usepackage[binary-units=true]{siunitx}
 % depending on siunitx package version
 
 %\usepackage{framed,xcolor}
@@ -64,7 +64,7 @@
 %% HYPERREF %%%%%%%%%%%%%%%%%%%
 \usepackage{hyperref}
 \hypersetup{
-  pdftitle      = {The Logistics League 2013 sponsored by Festo Rulebook for 2013},
+  pdftitle      = {The Logistics League 2014 sponsored by Festo Rulebook for 2014},
   pdfauthor     = {LLSF TC},
   pdfkeywords   = {LLSF, Rulebook},
   pdfsubject    = {},
@@ -123,7 +123,7 @@
     \begin{LARGE}
       
       {\bf RoboCup Logistics League sponsored by Festo}\\[2ex]
-      {\Large Rules and Regulations 2013}\\[4ex]
+      {\Large Rules and Regulations 2014}\\[4ex]
     \end{LARGE}
     \hrule
     
@@ -132,7 +132,7 @@
       The Technical Committee\\[6ex]
     \end{Large}
     \vfill
-    Revision Date: June 7$^\mathrm{th}$ 2013
+    Revision Date: January 30$^\mathrm{th}$ 2014
     %Revision \svn{$Date$}
   \end{center}
   %\vspace*{4cm}
@@ -347,14 +347,14 @@ competition area, and aligned at \ang{45}, facing the center of the
 factory area. The lower left corner will remain empty. The competition
 area is shown in Figure~\ref{fig:competition-area}.
 
-\begin{figure}[tb]
+\begin{figure}[tbh]
   \centering
-  \begin{tikzpicture}[scale=2.6]
+  \begin{tikzpicture}[scale=2.0]
     % field outline
-    \draw [thick] (0,0) rectangle (5.6,5.6);
+    \draw [thick] (0,0) rectangle (5.6,11.2);
     %\draw [fill=black!8] (0,0.4) rectangle (5.6,5.2);
-    \draw [fill=black!8] (0,0) rectangle +(0.4,5.6);
-    \draw [fill=black!8] (5.2,0) rectangle +(0.4,5.6);
+    %\draw [fill=black!8] (0,0) rectangle +(0.4,11.2);
+    %\draw [fill=black!8] (5.2,0) rectangle +(0.4,5.6);
 
     % coordinate system and origin
     \draw [line width=3pt,red,>=latex,->] (0,0) -- +(1,0);
@@ -365,90 +365,239 @@ area is shown in Figure~\ref{fig:competition-area}.
     \draw (0,0) [fill=red,draw=red] circle (0.03);
 
     % margin areas
-    \draw (5.2,0) -- (5.2,5.6);
-    \draw (0.4,0) -- (0.4,5.6);
-    \draw (5.2,0.4) -- +(0.4,0);
-    \draw (5.2,5.2) -- +(0.4,0);
-    \draw (0,5.2) -- +(0.4,0);
-    \draw (0,3.9) -- +(0.4,0); % express good area vertical line
-    \draw (5.2,2.3) [fill=green] rectangle +(0.4,1);
-    \draw (0,2.3) [fill=blue] rectangle +(0.4,1);
-    % express good slot
-    \draw (0.15,3.55) rectangle +(0.1,0.1);
-    \draw (0.2,3.6) [fill=red,draw=red] circle (0.035);
+    %\draw (5.2,0) -- (5.2,5.6);
+    \draw (0.4,0) -- (0.4,11.2);
+    \draw (2.3,0) [fill=green] rectangle +(1,0.4);
+	\draw (2.3,10.8) [fill=green] rectangle +(1,0.4);
+    \draw (0,3.42) [fill=blue] rectangle +(0.4,1);		% was 2.3
+    \draw (0,6.78) [fill=blue] rectangle +(0.4,1);
 
     \foreach \m/\t/\x/\y/\ori/\paintbox in
-    % row 1, M1 M2
-    { M1/2/3.92/1.68/-90/1, M2/1/3.92/3.92/180/1,
-    % row 2, M3 M4 M5
-      M3/3/2.80/0.56/0/1, M4/1/2.80/1.68/-90/1, M5/2/2.80/2.80/90/1,
-    % row 2, M6 M7
-      M6/1/2.80/3.92/180/1, M7/3/2.80/5.04/90/1,
-    % row 3, M8 M9 M10
-      M8/2/1.68/1.68/0/1, M9/1/1.68/3.92/180/1, M10/3/1.68/5.04/-90/1,
-    % recycling 1, recycling 2, test station
-      R1/R/5.4/0.20/135/0, R2/R/0.2/5.40/-45/0, T/T/5.40/5.40/225/0,
+    % row 1
+    { M1/1/1.68/5.04/180/1, M2/2/3.92/5.04/180/1, M3/3/5.04/5.04/-90/1, 
+    % row 2
+      M4/1/1.68/3.92/-90/1, M5/2/2.80/3.92/90/1, R1/1/5.04/3.92/180/4,
+    % row 3
+      M6/4/1.68/2.80/-90/1, M7/2/3.92/2.80/180/1, M8/1/5.04/2.80/90/1, 
+    % row 4
+      M9/5/1.68/1.68/180/1, M10/3/2.80/1.68/0/1, M11/4/5.04/1.68/180/1, 
+    % row 5
+      M12/1/5.04/0.56/180/1,
+    % Team 2:
+    % row 5
+      M13/1/1.68/6.16/180/1, M14/2/3.92/6.16/180/1, M15/3/5.04/6.16/90/1, 
+    % row 6
+      M16/1/1.68/7.28/90/1, M17/2/2.80/7.28/-90/1, R2/1/5.04/7.28/180/4,
+    % row 7
+      M18/4/1.68/8.40/90/1, M19/2/3.92/8.40/180/1, M20/1/5.04/8.40/-90/1, 
+    % row 8
+      M21/5/1.68/9.52/180/1, M22/3/2.80/9.52/0/1, M23/4/5.04/9.52/180/1, 
+    % row 9
+      M24/1/5.04/10.64/180/1,
     % delivery stations
-      D1/D/5.34/3.15/180/2, D2/D/5.34/2.80/180/2, D3/D/5.34/2.45/180/2%
+      D1/D/2.45/0.2/90/2, D2/D/2.80/0.2/90/2, D3/D/3.15/0.2/90/2,		%0.26 instead of 0.2?!
+      D4/D/2.45/11.0/-90/3, D5/D/2.80/11.0/-90/3, D6/D/3.15/11.0/-90/3%	%(respectively)
     }
     {
       \draw [ultra thick] (\x,\y) -- +($ (\ori-90:0.06)$);
       \draw [ultra thick] (\x,\y) -- +($ (\ori+90:0.06)$);
       \draw [ultra thick] (\x,\y) -- +(\ori:0.05);
       \if\paintbox1
-        \draw [ultra thick] ($ (\x,\y) - (0.3,0.3) $) rectangle +(0.6,0.6);
-        \draw [anchor=north east,inner sep=1pt] ($ (\x,\y) + (0.27,0.27) $)
-          node (\m) {\selectfont\sffamily\textbf{\m}};
-        \draw [anchor=south west,inner sep=1pt] ($ (\x,\y) + (-0.27,-0.27) $)
-          node (\m-\t) {\color{black!75}\selectfont\sffamily\textbf{T\t}};
-      \else
-        \if\paintbox2
-          \draw [anchor=west,inner sep=1pt] ($ (\x,\y) + (0.05,0) $)
+        \draw [ultra thick] ($ (\x,\y) - (0.25,0.25) $) rectangle +(0.5,0.5);
+        \draw [anchor=north east,inner sep=1pt] ($ (\x,\y) + (0.25,0.23) $)
+          node (\m) {\fontsize{10pt}{10pt}\selectfont\sffamily\textbf{\m}};
+        \draw [anchor=south west,inner sep=1pt] ($ (\x,\y) + (-0.24,-0.25) $)
+          node (\m-\t) {\fontsize{10pt}{10pt}\color{black!75}\selectfont\sffamily\textbf{T\t}};
+      \fi
+      \if\paintbox2
+          \draw [anchor=north,inner sep=3pt] ($ (\x,\y) + (0,0) $)
             node (\m)
             {\fontsize{10pt}{10pt}\selectfont\sffamily\textbf{\m}};
-        \fi
+      \fi
+      \if\paintbox3
+          \draw [anchor=south,inner sep=2pt] ($ (\x,\y) + (0,0) $)
+            node (\m)
+            {\fontsize{10pt}{10pt}\selectfont\sffamily\textbf{\m}};
+      \fi
+      \if\paintbox4
+        \draw [ultra thick] ($ (\x,\y) - (0.25,0.25) $) [draw=green] rectangle +(0.5,0.5);
+        \draw [anchor=north east,inner sep=1pt] ($ (\x,\y) + (0.25,0.23) $)
+          node (\m) {\fontsize{10pt}{10pt}\selectfont\sffamily\textbf{\m}};
       \fi
     }
 
-    % R and T machine descriptions
-    \node [anchor=south east,inner sep=2.5pt] at (5.62,0.0) (R1)
-    {\fontsize{10pt}{10pt}\selectfont\sffamily\textbf{R1}};
-    \node [anchor=north west,inner sep=2.5pt] at (0,5.6) (R2)
-    {\fontsize{10pt}{10pt}\selectfont\sffamily\textbf{R2}};
-    \node [anchor=north east,inner sep=2.5pt] at (5.6,5.6) (R2)
-    {\fontsize{10pt}{10pt}\selectfont\sffamily\textbf{T}};
-
-    % Pucks
+    % Pucks at Zone 1
     \foreach \x in {1,2,...,10}
     {
-      \draw ($ (0.12,2.25) + (0,\x*0.10) $) [fill=red,draw=red] circle (0.035);
-      \draw ($ (0.28,2.25) + (0,\x*0.10) $) [fill=red,draw=red] circle (0.035);
+      \draw ($ (0.12,3.37) + (0,\x*0.10) $) [fill=red,draw=red] circle (0.035);
+      \draw ($ (0.28,3.37) + (0,\x*0.10) $) [fill=red,draw=red] circle (0.035);
     }
+    
+    % Pucks at Zone 2
+    \foreach \x in {1,2,...,10}
+    {
+      \draw ($ (0.12,6.73) + (0,\x*0.10) $) [fill=red,draw=red] circle (0.035);
+      \draw ($ (0.28,6.73) + (0,\x*0.10) $) [fill=red,draw=red] circle (0.035);
+    }
+    
+    \draw (2.24,3.36) [fill=none,draw=red] circle (0.225);	% TODO: new Robotino
+    \draw (3.36,3.36) [fill=none,draw=red] circle (0.185);	% TODO: old Robotino
 
-    \node [anchor=south west,rotate=90] at (0.33,0.2) {\large\sffamily Robot Insertion};
-    \node [anchor=north,rotate=90] at (0.4,2.8) {\large\sffamily Input Storage};
+    \node [anchor=south west,rotate=90] at (0.36,0.25) {\large\sffamily Robot Insertion Team 1};
+    \node [anchor=south west,rotate=90] at (0.36,8.03) {\large\sffamily Robot Insertion Team 2};
+    %\node [anchor=north,rotate=90] at (0.4,2.8) {\large\sffamily Input Storage};			% TODO!!!!!!!
 
     %\draw [<->,red,thick,ultra thick] (3.62,3.74) -- +(0.6,0);
-    \draw [ultra thick,red] ($ (3.92,3.92) - (0.3,0.3) $) rectangle +(0.6,0.6);
-    \node [anchor=north] at (3.92,3.6) {\sffamily Machine Space};
+    %\draw [ultra thick,red] ($ (3.92,3.92) - (0.3,0.3) $) rectangle +(0.6,0.6); 		% TODO!!!!!!!
+    %\node [anchor=north] at (3.92,3.6) {\sffamily Machine Space}; 						% TODO!!!!!!!
 
-    \node [anchor=south,rotate=90] at (5.2,2.8) {\large\sffamily Delivery Zone};
+    %\node [anchor=south,rotate=90] at (5.2,2.8) {\large\sffamily Delivery Zone}; 		% TODO!!!!!!!
 
-    \draw [->,red,ultra thick] (2.95,0.56) -- +(0.3,0);
-    \draw [->,red,ultra thick] (3.92,1.53) -- +(0,-0.3);
-    \node [anchor=south west,text width=1cm] at (3.5,0.3)
-    {\sffamily Machine\\Facing\\Direction};
+    %\draw [->,red,ultra thick] (2.95,0.56) -- +(0.3,0);							% TODO!!!!!!!
+    %\draw [->,red,ultra thick] (3.92,1.53) -- +(0,-0.3);
+    %\node [anchor=south west,text width=1cm] at (3.5,0.3)
+    %{\sffamily Machine\\Facing\\Direction};
 
-    % Name/Type explanation and arrows
-    \node (name) [anchor=base west,inner sep=0pt]
-    at ($ (M2.north) + (-0.05,0.4) $) {\sffamily Name};
-    \node (type) [anchor=base east,inner sep=0pt]
-    at ($ (M2-1.north) + (0.05,0.94) $) {\sffamily Type};
+    % Name/Type explanation and arrows												% TODO!!!!!!!
+    %\node (name) [anchor=base west,inner sep=0pt]
+    %at ($ (M2.north) + (-0.05,0.4) $) {\sffamily Name};
+    %\node (type) [anchor=base east,inner sep=0pt]
+    %at ($ (M2-1.north) + (0.05,0.94) $) {\sffamily Type};
 
-    \draw [->,black,ultra thick]
-    ($ (name.base west) + (0.05,-0.05) $) -- ($ (M2.north) + (0,0.05) $);
-    \draw [->,black,ultra thick]
-    ($ (type.base east) + (-0.05,-0.05) $) -- ($ (M2-1.north) + (0,0.05) $);
+    %\draw [->,black,ultra thick]													% TODO!!!!!!!
+    %($ (name.base west) + (0.05,-0.05) $) -- ($ (M2.north) + (0,0.05) $);
+    %\draw [->,black,ultra thick]
+    %($ (type.base east) + (-0.05,-0.05) $) -- ($ (M2-1.north) + (0,0.05) $);
+
+  \end{tikzpicture}
+  \caption{Competition Area}
+  \label{fig:competition-area}
+\end{figure}
+
+\begin{figure}[tbh]
+  \centering
+  \begin{tikzpicture}[scale=2.0]
+    % field outline
+    \draw [thick] (0,0) rectangle (5.6,11.2);
+    %\draw [fill=black!8] (0,0.4) rectangle (5.6,5.2);
+    %\draw [fill=black!8] (0,0) rectangle +(0.4,11.2);
+    %\draw [fill=black!8] (5.2,0) rectangle +(0.4,5.6);
+
+    % coordinate system and origin
+    \draw [line width=3pt,red,>=latex,->] (0,0) -- +(1,0);
+    \draw [line width=3pt,red,>=latex,->] (0,0) -- +(0,1);
+    \node [red,anchor=north] at (0.95,-0.05) {\sffamily\textbf{X}};
+    \node [red,anchor=east] at (-0.05, 0.95) {\sffamily\textbf{Y}};
+    \node [anchor=north east] at (0,0) {\sffamily\textbf{(0,0)}};
+    \draw (0,0) [fill=red,draw=red] circle (0.03);
+
+    % margin areas
+    %\draw (5.2,0) -- (5.2,5.6);
+    \draw (0.4,0) -- (0.4,11.2);
+    \draw (5.2,0.4) -- +(0.4,0);
+	\draw (5.2,0) -- +(0,0.4);
+    \draw (5.2,10.8) -- +(0.4,0);
+	\draw (5.2,10.8) -- +(0,0.4);
+    \draw (2.3,0) [fill=green] rectangle +(1,0.4);
+	\draw (2.3,10.8) [fill=green] rectangle +(1,0.4);
+    \draw (0,3.42) [fill=blue] rectangle +(0.4,1);		% was 2.3
+    \draw (0,6.78) [fill=blue] rectangle +(0.4,1);
+
+    \foreach \m/\t/\x/\y/\ori/\paintbox in
+    % row 1
+    { M1/1/1.68/5.04/180/1, M2/2/3.92/5.04/180/1, M3/3/5.04/5.04/-90/1, 
+    % row 2
+      M4/1/1.68/3.92/-90/1, M5/2/2.80/3.92/90/1, M6/1/3.92/3.92/0/1,
+    % row 3
+      M7/4/1.68/2.80/-90/1, M8/2/3.92/2.80/180/1, M9/1/5.04/2.80/90/1, 
+    % row 4
+      M10/5/1.68/1.68/180/1, M11/3/2.80/1.68/0/1, M12/4/5.04/1.68/180/1, 
+    % Team 2:
+    % row 5
+      M13/1/1.68/6.16/180/1, M14/2/3.92/6.16/180/1, M15/3/5.04/6.16/90/1, 
+    % row 6
+      M16/1/1.68/7.28/90/1, M17/2/2.80/7.28/-90/1, M18/1/3.92/7.28/0/1,
+    % row 7
+      M19/4/1.68/8.40/90/1, M20/2/3.92/8.40/180/1, M21/1/5.04/8.40/-90/1, 
+    % row 8
+      M22/5/1.68/9.52/180/1, M23/3/2.80/9.52/0/1, M24/4/5.04/9.52/180/1, 
+    % recycling 1, recycling 2
+      R1/R/5.45/0.15/135/0, R2/R/5.45/11.05/225/0,
+    % delivery stations
+      D1/D/2.45/0.2/90/2, D2/D/2.80/0.2/90/2, D3/D/3.15/0.2/90/2,		%0.26 instead of 0.2?!
+      D4/D/2.45/11.0/-90/3, D5/D/2.80/11.0/-90/3, D6/D/3.15/11.0/-90/3%	%(respectively)
+    }
+    {
+      \draw [ultra thick] (\x,\y) -- +($ (\ori-90:0.06)$);
+      \draw [ultra thick] (\x,\y) -- +($ (\ori+90:0.06)$);
+      \draw [ultra thick] (\x,\y) -- +(\ori:0.05);
+      \if\paintbox1
+        \draw [ultra thick] ($ (\x,\y) - (0.25,0.25) $) rectangle +(0.5,0.5);
+        \draw [anchor=north east,inner sep=1pt] ($ (\x,\y) + (0.25,0.23) $)
+          node (\m) {\fontsize{10pt}{10pt}\selectfont\sffamily\textbf{\m}};
+        \draw [anchor=south west,inner sep=1pt] ($ (\x,\y) + (-0.24,-0.25) $)
+          node (\m-\t) {\fontsize{10pt}{10pt}\color{black!75}\selectfont\sffamily\textbf{T\t}};
+      \fi
+      \if\paintbox2
+          \draw [anchor=north,inner sep=3pt] ($ (\x,\y) + (0,0) $)
+            node (\m)
+            {\fontsize{10pt}{10pt}\selectfont\sffamily\textbf{\m}};
+      \fi
+      \if\paintbox3
+          \draw [anchor=south,inner sep=2pt] ($ (\x,\y) + (0,0) $)
+            node (\m)
+            {\fontsize{10pt}{10pt}\selectfont\sffamily\textbf{\m}};
+      \fi
+    }
+
+    % R1 and R2 machine descriptions
+    \node [anchor=south east,inner sep=2.5pt] at (5.2,0.0) (R1)
+    {\fontsize{10pt}{10pt}\selectfont\sffamily\textbf{R1}};
+    \node [anchor=north east,inner sep=2.5pt] at (5.2,11.2) (R2)
+    {\fontsize{10pt}{10pt}\selectfont\sffamily\textbf{R2}};
+
+    % Pucks at Zone 1
+    \foreach \x in {1,2,...,10}
+    {
+      \draw ($ (0.12,3.37) + (0,\x*0.10) $) [fill=red,draw=red] circle (0.035);
+      \draw ($ (0.28,3.37) + (0,\x*0.10) $) [fill=red,draw=red] circle (0.035);
+    }
+    
+    % Pucks at Zone 2
+    \foreach \x in {1,2,...,10}
+    {
+      \draw ($ (0.12,6.73) + (0,\x*0.10) $) [fill=red,draw=red] circle (0.035);
+      \draw ($ (0.28,6.73) + (0,\x*0.10) $) [fill=red,draw=red] circle (0.035);
+    }
+    
+    \draw (2.24,3.36) [fill=none,draw=red] circle (0.225);	% TODO: new Robotino
+    \draw (3.36,3.36) [fill=none,draw=red] circle (0.185);	% TODO: old Robotino
+
+    \node [anchor=south west,rotate=90] at (0.36,0.25) {\large\sffamily Robot Insertion Team 1};
+    \node [anchor=south west,rotate=90] at (0.36,8.03) {\large\sffamily Robot Insertion Team 2};
+    %\node [anchor=north,rotate=90] at (0.4,2.8) {\large\sffamily Input Storage};			% TODO!!!!!!!
+
+    %\draw [<->,red,thick,ultra thick] (3.62,3.74) -- +(0.6,0);
+    %\draw [ultra thick,red] ($ (3.92,3.92) - (0.3,0.3) $) rectangle +(0.6,0.6); 		% TODO!!!!!!!
+    %\node [anchor=north] at (3.92,3.6) {\sffamily Machine Space}; 						% TODO!!!!!!!
+
+    %\node [anchor=south,rotate=90] at (5.2,2.8) {\large\sffamily Delivery Zone}; 		% TODO!!!!!!!
+
+    %\draw [->,red,ultra thick] (2.95,0.56) -- +(0.3,0);							% TODO!!!!!!!
+    %\draw [->,red,ultra thick] (3.92,1.53) -- +(0,-0.3);
+    %\node [anchor=south west,text width=1cm] at (3.5,0.3)
+    %{\sffamily Machine\\Facing\\Direction};
+
+    % Name/Type explanation and arrows												% TODO!!!!!!!
+    %\node (name) [anchor=base west,inner sep=0pt]
+    %at ($ (M2.north) + (-0.05,0.4) $) {\sffamily Name};
+    %\node (type) [anchor=base east,inner sep=0pt]
+    %at ($ (M2-1.north) + (0.05,0.94) $) {\sffamily Type};
+
+    %\draw [->,black,ultra thick]													% TODO!!!!!!!
+    %($ (name.base west) + (0.05,-0.05) $) -- ($ (M2.north) + (0,0.05) $);
+    %\draw [->,black,ultra thick]
+    %($ (type.base east) + (-0.05,-0.05) $) -- ($ (M2-1.north) + (0,0.05) $);
 
   \end{tikzpicture}
   \caption{Competition Area}
@@ -764,32 +913,32 @@ the pallet carrier will remain where it is. See
 Table~\ref{tab:delivery-gates} for the possible delivery gate signal
 states.
 
-\subsubsection{Test station}
-
-The type of a sub-assembly can be determined at the test station in
-the corresponding corner of the competition area. The test station
-reads the RFID of the pallet carrier and visualizes the product type
-with the light signal as shown in Table~\ref{tab:test-station}.
-
-\begin{table}[tp]
-  \centering
-  \mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
-    \multicolumn{1}{l}{Optical Feedback} &\multicolumn{1}{l}{Stored
-      data on the data carrier}\\\hline
-    Green LED turned on &	The station is ready to read the next data carrier.\\
-    All LEDs turned off &	Consumed pallet carrier.\\
-    Yellow LED turned on &	Raw-material (\s0) \\
-    Red and yellow LEDs turned on &	Sub-assembly 1 (\s1)\\
-    Red LED turned on &	Sub-assembly 2 (\s2)\\
-    Green LED flashing (at 2 Hz) & Finished product variant 1 (\p1{})\\%\hline
-    Yellow LED flashing (at 2 Hz) & Finished product variant 2 (\p2{})\\%\hline
-    Red LED flashing (at 2 Hz) & Finished product variant 3 (\p3{})\\%\hline
-    All LED flashing (at 2 Hz) & Puck is out of game after delivery
-    to (in)active gate\\%\hline
-  \end{tabularx}}
-  \caption{Test Station}
-  \label{tab:test-station}
-\end{table}
+%\subsubsection{Test station}
+%
+%The type of a sub-assembly can be determined at the test station in
+%the corresponding corner of the competition area. The test station
+%reads the RFID of the pallet carrier and visualizes the product type
+%with the light signal as shown in Table~\ref{tab:test-station}.
+%
+%\begin{table}[tp]
+%  \centering
+%  \mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
+%    \multicolumn{1}{l}{Optical Feedback} &\multicolumn{1}{l}{Stored
+%      data on the data carrier}\\\hline
+%    Green LED turned on &	The station is ready to read the next data carrier.\\
+%    All LEDs turned off &	Consumed pallet carrier.\\
+%    Yellow LED turned on &	Raw-material (\s0) \\
+%    Red and yellow LEDs turned on &	Sub-assembly 1 (\s1)\\
+%    Red LED turned on &	Sub-assembly 2 (\s2)\\
+%    Green LED flashing (at 2 Hz) & Finished product variant 1 (\p1{})\\%\hline
+%    Yellow LED flashing (at 2 Hz) & Finished product variant 2 (\p2{})\\%\hline
+%    Red LED flashing (at 2 Hz) & Finished product variant 3 (\p3{})\\%\hline
+%    All LED flashing (at 2 Hz) & Puck is out of game after delivery
+%    to (in)active gate\\%\hline
+%  \end{tabularx}}
+%  \caption{Test Station}
+%  \label{tab:test-station}
+%\end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%
