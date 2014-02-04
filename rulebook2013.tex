@@ -632,8 +632,6 @@ different field slots are presented in Table~\ref{tab:coordinates}.
       M10 & Machine 10 & 1.68 & 5.04 \\
       R1 & Recycling unit 1 & 5.40 & 0.20 \\
       R2 & Recycling unit 2 & 0.20 & 5.40 \\
-      T & Test station & 5.40 &	5.40 \\
-         & Late order insertion point / slot & 0.20 & 	3.60 \\
       D1 & Delivery slot 1 & 5.34 & 	3.15 \\
       D2 & Delivery slot 2 & 5.34 &	2.80 \\ 
       D3 & Delivery slot 3 & 5.34 &	2.45 \\%\hline
@@ -1763,42 +1761,48 @@ tasks. However, participation has no influence on the normal game
 results, but the winner will be awarded by a certificate.
 
 
-\paragraph{Navigation and collision avoidance.~}
-The single robot is to show that it avoids other obstacles and robots
-while moving along specified points. Therefore the robot must drive
-from the robot insertion area to the delivery zone within 60
-seconds. However, the paths between the robot insertion area and the delivery
-zone will be blocked randomly by static obstacles and the robot must
-not touch any of the obstacles. For touching an obstacle, the team
-receives a penalty. The fastest team with the fewest penalty points
-to reach the delivery zone wins this challenge. All other teams are
-ranked according to how fast they were and how many penalties they
-conceived. Initially, the robot will be placed by a team leader of a
-different team anywhere in the robot insertion area. The team has 15 seconds
-to perform a quick setup after the robot has been placed. The robot
-has completed the challenge as soon as it touches the delivery zone at
-any point. In 2013, the robotino transport cases will be used as
-static obstacles. The total number of obstacles will be the same for
-all teams. Possible distributions of the obstacles will be defined by
-the team leaders before the challenge starts (e.g. 6 possible
-distributions).  A roll of dice will decide the actual distribution of
-obstacles.
+\paragraph{Navigation and dynamic collision avoidance.~}
+A robot fleet has to show that it can reach a certain goal location avoiding collision with obstacles and other robots. Two teams compete against each other at the same time. One team places their robots near the delivery gate at the bottom, the other near the delivery gate at the top. All robots from each team must then reach the opposite delivery gate faster than the opposing fleet. For each robot not participating in the robot fleet consisting of three robots, the team has to travel another distance from one delivery gate to the other. Robot collisions will be handled the same as in the normal game, and are therefore punished accordingly. The team, which reaches the goal location the fastest, wins. If no team reaches the goal within three minutes, the robot fleet, which has the shortest distance to the goal wins. All teams participating will compete against each other.
+
+%The single robot is to show that it avoids other obstacles and robots
+%while moving along specified points. Therefore the robot must drive
+%from the robot insertion area to the delivery zone within 60
+%seconds. However, the paths between the robot insertion area and the delivery
+%zone will be blocked randomly by static obstacles and the robot must
+%not touch any of the obstacles. For touching an obstacle, the team
+%receives a penalty. The fastest team with the fewest penalty points
+%to reach the delivery zone wins this challenge. All other teams are
+%ranked according to how fast they were and how many penalties they
+%conceived. Initially, the robot will be placed by a team leader of a
+%different team anywhere in the robot insertion area. The team has 15 seconds
+%to perform a quick setup after the robot has been placed. The robot
+%has completed the challenge as soon as it touches the delivery zone at
+%any point. In 2013, the robotino transport cases will be used as
+%static obstacles. The total number of obstacles will be the same for
+%all teams. Possible distributions of the obstacles will be defined by
+%the team leaders before the challenge starts (e.g. 6 possible
+%distributions).  A roll of dice will decide the actual distribution of
+%obstacles.
+
+\paragraph{Collaboration with RoboCup@Work~} \todo[inline]{Fill with information}
   
-\paragraph{Whack-a-Mole.~}
-A single robot is placed by a team leader of a different team anywhere 
-in the robot insertion area. The team has 15 seconds to perform a quick 
-setup after the robot has been placed. It
-then has to detect the single shining signal unit on the play
-field. The regarding unit will have all lights - green,yellow, and red
-- switched on. As soon as the robot enters the related machine area of
-that signal, the signal unit has been marked as whacked, is switched off and
-another random signal unit is switched on. A robot is inside a machine
-area if and only if its center is within the area. This is detected
-by the visual tracking system if available, or the human
-referee. Participating robots must therefore be equipped with the
-appropriate markers. The goal of the challenge is to switch off as
-many signal units as possible within a given time frame. Teams are
-ranked according to the number of turned-off signals.
+%\paragraph{Whack-a-Mole.~}
+%A single robot is placed by a team leader of a different team anywhere 
+%in the robot insertion area. The team has 15 seconds to perform a quick 
+%setup after the robot has been placed. It
+%then has to detect the single shining signal unit on the play
+%field. The regarding unit will have all lights - green,yellow, and red
+%- switched on. As soon as the robot enters the related machine area of
+%that signal, the signal unit has been marked as whacked, is switched off and
+%another random signal unit is switched on. A robot is inside a machine
+%area if and only if its center is within the area. This is detected
+%by the visual tracking system if available, or the human
+%referee. Participating robots must therefore be equipped with the
+%appropriate markers. The goal of the challenge is to switch off as
+%many signal units as possible within a given time frame. Teams are
+%ranked according to the number of turned-off signals.
+
+\paragraph{Approaching the MPS station~} \todo[inline]{Fill with information}
   
 
 \paragraph{Free challenge.~}
