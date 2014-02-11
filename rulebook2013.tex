@@ -775,10 +775,10 @@ only one active gate at a time. A gate is active between 60 and 180
 seconds. After the gate switches, there is a grace period of 3 seconds
 in which delivery will still be accepted to the formerly active
 delivery gate. False deliveries to an active gate will be indicated by
-a flashing yellow light (e.g. taking a \s0 puck to the active
-gate) and false deliveries to an inactive gate by a steady red and
-blinking yellow light. In both cases, the puck will be taken out by the referee and
-it may no longer be used in production or delivered. In case of a
+a flashing yellow light (e.g. taking a \s0 puck to the active gate)
+and false deliveries to an inactive gate by a steady red and blinking
+yellow light. In both cases, the puck will be taken out by the referee
+and it may no longer be used in production or delivered. In case of a
 delivery to an active gate, the team will be awarded with the points
 for the delivery; if the gate was inactive, no points will be
 awarded. If, however, a pallet carrier was not successfully delivered,
@@ -932,14 +932,14 @@ endure for long periods of the game.
 \label{sec:bandwidth}
 No minimum bandwidth is guaranteed. The amount of communicated data
 over the wifi connection shall not exceed
-\SI[per-mode=symbol]{2}{\mega\bit\per\second}. Even though the lower layers could
-provide for more bandwidth, the overall available frequency spectrum
-and wifi channels have to be shared, not only within our own
-league. Generally, a conservative use of bandwidth resources is
-advised. Should a frequently or endured exceedance of the bandwidth
-limit become known, or if the overall bandwidth limit must be reduced
-due to outer circumstances, the TC can monitor the network traffic and
-demand reduction in communicated data as necessary.
+\SI[per-mode=symbol]{2}{\mega\bit\per\second}. Even though the lower
+layers could provide for more bandwidth, the overall available
+frequency spectrum and wifi channels have to be shared, not only
+within our own league. Generally, a conservative use of bandwidth
+resources is advised. Should a frequently or endured exceedance of the
+bandwidth limit become known, or if the overall bandwidth limit must
+be reduced due to outer circumstances, the TC can monitor the network
+traffic and demand reduction in communicated data as necessary.
 
 \subsection{Referee box}
 \label{sec:referee-box}
@@ -974,9 +974,10 @@ in the RoboCup Logistics League Referee Box Integrator's Manual.
 \subsection{Remote control}
 \label{sec:remote-control}
 Remote operation or instruction of any kind of the robots is forbidden
-at all times during a game. The only allowed interaction is for the start-up
-(cf.~\refsec{sec:game-start}). Any failure to comply with this rule will lead to
-immediate disqualification of the infringing team.
+at all times during a game. The only allowed interaction is for the
+start-up (cf.~\refsec{sec:game-start}). Any failure to comply with
+this rule will lead to immediate disqualification of the infringing
+team.
 
 \subsection{Monitoring}
 \label{sec:monitoring}
@@ -1687,7 +1688,20 @@ results, but the winner will be awarded by a certificate.
 
 
 \paragraph{Navigation and dynamic collision avoidance.~}
-A robot fleet has to show that it can reach a certain goal location avoiding collision with obstacles and other robots. Two teams compete against each other at the same time. One team places their robots near the delivery gate at the bottom, the other near the delivery gate at the top. All robots from each team must then reach the opposite delivery gate faster than the opposing fleet. For each robot not participating in the robot fleet consisting of three robots, the team has to travel another distance from one delivery gate to the other. Robot collisions will be handled the same as in the normal game, and are therefore punished accordingly. The team, which reaches the goal location the fastest, wins. If no team reaches the goal within three minutes, the robot fleet, which has the shortest distance to the goal wins. All teams participating will compete against each other.
+A robot fleet has to show that it can reach a certain goal location
+avoiding collision with obstacles and other robots. Two teams compete
+against each other at the same time. One team places their robots near
+the delivery gate at the bottom, the other near the delivery gate at
+the top. All robots from each team must then reach the opposite
+delivery gate faster than the opposing fleet. For each robot not
+participating in the robot fleet consisting of three robots, the team
+has to travel another distance from one delivery gate to the
+other. Robot collisions will be handled the same as in the normal
+game, and are therefore punished accordingly. The team, which reaches
+the goal location the fastest, wins. If no team reaches the goal
+within three minutes, the robot fleet, which has the shortest distance
+to the goal wins. All teams participating will compete against each
+other.
 
 %The single robot is to show that it avoids other obstacles and robots
 %while moving along specified points. Therefore the robot must drive
