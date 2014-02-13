@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Rulebook RoboCup Logistics League Sponsored by Festo
-%% 2014 Competitions
+%% 2013 Competitions
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[12pt,twoside]{article}
@@ -24,9 +24,9 @@
 % { \endMakeFramed}
 \newenvironment{rulechange}{}{}
 
-%\usepackage[load-configurations=binary]{siunitx}
+\usepackage[load-configurations=binary]{siunitx}
 % may be
-\usepackage[binary-units=true]{siunitx}
+%\usepackage[binary-units=true]{siunitx}
 % depending on siunitx package version
 
 %\usepackage{framed,xcolor}
@@ -64,7 +64,7 @@
 %% HYPERREF %%%%%%%%%%%%%%%%%%%
 \usepackage{hyperref}
 \hypersetup{
-  pdftitle      = {The Logistics League 2014 sponsored by Festo Rulebook for 2014},
+  pdftitle      = {The Logistics League 2013 sponsored by Festo Rulebook for 2013},
   pdfauthor     = {LLSF TC},
   pdfkeywords   = {LLSF, Rulebook},
   pdfsubject    = {},
@@ -87,7 +87,7 @@
 }
 
 %% SVN-MULTI %%%%%%%%%%%%%%%%%%%
-%\usepackage{svn-multi}
+\usepackage{svn-multi}
 
 %% TODONOTES %%%%%%%%%%%%%%%%%%%
 \usepackage{todonotes}
@@ -123,22 +123,24 @@
     \begin{LARGE}
       
       {\bf RoboCup Logistics League sponsored by Festo}\\[2ex]
-      {\Large Rules and Regulations 2014}\\[4ex]
+      {\Large Rules and Regulations 2013}\\[4ex]
     \end{LARGE}
     \hrule
     
     {\LARGE\vspace*{4ex}}
     \begin{Large}
-      The Technical Committee 2012--2014\\[6ex]
+      The Technical Committee\\[6ex]
     \end{Large}
-    \begin{tabular}{lll}
-    \emph{Christian Deppe}&Daniel Ewert&\emph{Nils Harder}\\
-    \emph{S\"oren Jentzsch}&\emph{Nicolas Meier}&\emph{Tim Niemueller}\\
-      Sebastian Reuter&\emph{Alain Rohr}&\emph{Wataru Uemura}\\
-    \end{tabular}
     \vfill
-    Revision Date: January 30$^\mathrm{th}$ 2014
+    Revision Date: June 7$^\mathrm{th}$ 2013
+    %Revision \svn{$Date$}
   \end{center}
+  %\vspace*{4cm}
+  
+  %\noindent
+  %\svn{$Rev$}\\[2ex]
+  %\svn{$Author$}\\[2ex]
+%  \svn{$Date$}\\[2ex]  
 \end{titlepage}
 \thispagestyle{empty}
 \pagebreak
@@ -250,41 +252,34 @@ Robotino's diameter (see Appendix~\ref{apx:sec:robot}) nor require
 external assistance (like Indoor GPS) is permitted.
 
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Rules Philosophy}
-
-We are located in the Logistics League (Industrial). Thus the goal is to complete the tasks as quickly and reliably as possible. Each team should act within the meaning of a cooperative and fair behaviour, even if everyone wants to be the better one.
-
-Teams should avoid searching for rulebook gaps or inconsistencies to achieve advantages in the competition. Instead they are explicitly requested to report such gaps to the Technical Committee.
-
-Due to the not completely all cases covering rule book, we consider a general gentleman agreement.
-The golden rule of ethic: "One should treat others as one would like others to treat oneself".
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{League administration} \label{sec:commitees}
-\subsection{Technical Committee 2014} \label{sec:tc}
+\subsection{Technical Committee 2013} \label{sec:tc}
 % Alphabetical order by last name
-\emph{Christian Deppe}, Festo Didactic, Denkendorf, Germany\\
+\emph{Christian Deppe}, Otto-von-Guericke University Magdeburg, Magdeburg,
+Germany\\
+\emph{Daniel Ewert}, RWTH Aachen University, Aachen, Germany\\
 \emph{S\"oren Jentzsch}, Technical University of Munich, Munich, Germany\\
 \emph{Tim Niemueller}, RWTH Aachen University, Aachen, Germany\\
-\emph{Alain Rohr}, Höhere Fachschule für Technik Mittelland, Biel, Switzerland\\
-\emph{Nicolas Meier}, Leuphana University Lüneburg, Germany\\
-\emph{Wataru Uemura}, Ryukoku University, Kyoto, Japan\\
-\emph{Nils Harder}, TU Magdeburg, Magdeburg, Germany\\
+\emph{Sebastian Reuter}, RWTH Aachen University, Aachen, Germany
+
 \medskip
 
 \noindent
 To get into contact with the TC use the mailing list\\
 \centerline{\url{robocup-logistics-tc@lists.kbsg.rwth-aachen.de}}
 
-\subsection{Organizing Committee 2014} \label{sec:oc} 
+\subsection{Organizing Committee 2013} \label{sec:oc} 
 \emph{Alexander Ferrein}, FH Aachen University of Applied Sciences,
 Aachen, Germany\\
 \emph{Ulrich Karras}, Festo Didactic GmbH, Denkendorf, Germany\\
-\emph{Sebastian Reuter}, RWTH Aachen University, Aachen, Germany\\
-\emph{Thomas Zuercher}, Höhere Fachschule für Technik Mittelland, Biel, Switzerland\\
-\emph{Eren Karaman}, Leuphana University Lüneburg, Germany\\
+\emph{Guilherme Cano Lopes}, UNESP - São Paulo State University, São Paulo,
+Brazil\\
+\emph{Alexander Ratai}, TU Magdeburg, Magdeburg, Germany\\
+\emph{Sebastian Reuter}, RWTH Aachen University, Aachen, Germany
 
 \medskip
 
@@ -352,14 +347,14 @@ competition area, and aligned at \ang{45}, facing the center of the
 factory area. The lower left corner will remain empty. The competition
 area is shown in Figure~\ref{fig:competition-area}.
 
-\begin{figure}[tbh]
+\begin{figure}[tb]
   \centering
-  \begin{tikzpicture}[scale=2.0]
+  \begin{tikzpicture}[scale=2.6]
     % field outline
-    \draw [thick] (0,0) rectangle (5.6,11.2);
+    \draw [thick] (0,0) rectangle (5.6,5.6);
     %\draw [fill=black!8] (0,0.4) rectangle (5.6,5.2);
-    %\draw [fill=black!8] (0,0) rectangle +(0.4,11.2);
-    %\draw [fill=black!8] (5.2,0) rectangle +(0.4,5.6);
+    \draw [fill=black!8] (0,0) rectangle +(0.4,5.6);
+    \draw [fill=black!8] (5.2,0) rectangle +(0.4,5.6);
 
     % coordinate system and origin
     \draw [line width=3pt,red,>=latex,->] (0,0) -- +(1,0);
@@ -370,109 +365,90 @@ area is shown in Figure~\ref{fig:competition-area}.
     \draw (0,0) [fill=red,draw=red] circle (0.03);
 
     % margin areas
-    %\draw (5.2,0) -- (5.2,5.6);
-    \draw (0.4,0) -- (0.4,11.2);
-    \draw (2.3,0) [fill=green] rectangle +(1,0.4);
-	\draw (2.3,10.8) [fill=green] rectangle +(1,0.4);
-    \draw (0,3.42) [fill=blue] rectangle +(0.4,1);		% was 2.3
-    \draw (0,6.78) [fill=blue] rectangle +(0.4,1);
+    \draw (5.2,0) -- (5.2,5.6);
+    \draw (0.4,0) -- (0.4,5.6);
+    \draw (5.2,0.4) -- +(0.4,0);
+    \draw (5.2,5.2) -- +(0.4,0);
+    \draw (0,5.2) -- +(0.4,0);
+    \draw (0,3.9) -- +(0.4,0); % express good area vertical line
+    \draw (5.2,2.3) [fill=green] rectangle +(0.4,1);
+    \draw (0,2.3) [fill=blue] rectangle +(0.4,1);
+    % express good slot
+    \draw (0.15,3.55) rectangle +(0.1,0.1);
+    \draw (0.2,3.6) [fill=red,draw=red] circle (0.035);
 
     \foreach \m/\t/\x/\y/\ori/\paintbox in
-    % row 1
-    { M1/1/1.68/5.04/180/1, M2/2/2.80/5.04/0/1, R1/3/5.04/5.04/-90/4, 
-    % row 2
-      M3/1/1.68/3.92/-90/1, M4/2/2.80/3.92/90/1, M5/1/3.92/3.92/90/1,
-    % row 3
-      M6/4/1.68/2.80/0/1, M7/2/3.92/2.80/180/1, M8/1/5.04/2.80/90/1, 
-    % row 4
-      M9/5/1.68/1.68/-90/1, M10/3/2.80/1.68/0/1, M11/4/5.04/1.68/180/1, 
-    % row 5
-      M12/1/5.04/0.56/180/1,
-    % Team 2:
-    % row 5
-      M13/1/1.68/6.16/180/1, M14/2/2.80/6.16/0/1, R2/3/5.04/6.16/90/4, 
-    % row 6
-      M15/1/1.68/7.28/90/1, M16/2/2.80/7.28/-90/1, M17/1/3.92/7.28/-90/1,
-    % row 7
-      M18/4/1.68/8.40/0/1, M19/2/3.92/8.40/180/1, M20/1/5.04/8.40/-90/1, 
-    % row 8
-      M21/5/1.68/9.52/90/1, M22/3/2.80/9.52/0/1, M23/4/5.04/9.52/180/1, 
-    % row 9
-      M24/1/5.04/10.64/180/1,
+    % row 1, M1 M2
+    { M1/2/3.92/1.68/-90/1, M2/1/3.92/3.92/180/1,
+    % row 2, M3 M4 M5
+      M3/3/2.80/0.56/0/1, M4/1/2.80/1.68/-90/1, M5/2/2.80/2.80/90/1,
+    % row 2, M6 M7
+      M6/1/2.80/3.92/180/1, M7/3/2.80/5.04/90/1,
+    % row 3, M8 M9 M10
+      M8/2/1.68/1.68/0/1, M9/1/1.68/3.92/180/1, M10/3/1.68/5.04/-90/1,
+    % recycling 1, recycling 2, test station
+      R1/R/5.4/0.20/135/0, R2/R/0.2/5.40/-45/0, T/T/5.40/5.40/225/0,
     % delivery stations
-      D1/D/2.45/0.2/90/2, D2/D/2.80/0.2/90/2, D3/D/3.15/0.2/90/2,		%0.26 instead of 0.2?!
-      D4/D/2.45/11.0/-90/3, D5/D/2.80/11.0/-90/3, D6/D/3.15/11.0/-90/3%	%(respectively)
+      D1/D/5.34/3.15/180/2, D2/D/5.34/2.80/180/2, D3/D/5.34/2.45/180/2%
     }
     {
       \draw [ultra thick] (\x,\y) -- +($ (\ori-90:0.06)$);
       \draw [ultra thick] (\x,\y) -- +($ (\ori+90:0.06)$);
       \draw [ultra thick] (\x,\y) -- +(\ori:0.05);
       \if\paintbox1
-        \draw [ultra thick] ($ (\x,\y) - (0.25,0.25) $) rectangle +(0.5,0.5);
-        \draw [anchor=north east,inner sep=1pt] ($ (\x,\y) + (0.25,0.23) $)
-          node (\m) {\fontsize{10pt}{10pt}\selectfont\sffamily\textbf{\m}};
-        \draw [anchor=south west,inner sep=1pt] ($ (\x,\y) + (-0.24,-0.25) $)
-          node (\m-\t) {\fontsize{10pt}{10pt}\color{black!75}\selectfont\sffamily\textbf{T\t}};
-      \fi
-      \if\paintbox2
-          \draw [anchor=north,inner sep=3pt] ($ (\x,\y) + (0,0) $)
+        \draw [ultra thick] ($ (\x,\y) - (0.3,0.3) $) rectangle +(0.6,0.6);
+        \draw [anchor=north east,inner sep=1pt] ($ (\x,\y) + (0.27,0.27) $)
+          node (\m) {\selectfont\sffamily\textbf{\m}};
+        \draw [anchor=south west,inner sep=1pt] ($ (\x,\y) + (-0.27,-0.27) $)
+          node (\m-\t) {\color{black!75}\selectfont\sffamily\textbf{T\t}};
+      \else
+        \if\paintbox2
+          \draw [anchor=west,inner sep=1pt] ($ (\x,\y) + (0.05,0) $)
             node (\m)
             {\fontsize{10pt}{10pt}\selectfont\sffamily\textbf{\m}};
-      \fi
-      \if\paintbox3
-          \draw [anchor=south,inner sep=2pt] ($ (\x,\y) + (0,0) $)
-            node (\m)
-            {\fontsize{10pt}{10pt}\selectfont\sffamily\textbf{\m}};
-      \fi
-      \if\paintbox4
-        \draw [ultra thick] ($ (\x,\y) - (0.25,0.25) $) [draw=green] rectangle +(0.5,0.5);
-        \draw [anchor=north east,inner sep=1pt] ($ (\x,\y) + (0.25,0.23) $)
-          node (\m) {\fontsize{10pt}{10pt}\selectfont\sffamily\textbf{\m}};
+        \fi
       \fi
     }
 
-    % Pucks at Zone 1
-    \foreach \x in {1,2,...,10}
-    {
-      \draw ($ (0.12,3.37) + (0,\x*0.10) $) [fill=red,draw=red] circle (0.035);
-      \draw ($ (0.28,3.37) + (0,\x*0.10) $) [fill=red,draw=red] circle (0.035);
-    }
-    
-    % Pucks at Zone 2
-    \foreach \x in {1,2,...,10}
-    {
-      \draw ($ (0.12,6.73) + (0,\x*0.10) $) [fill=red,draw=red] circle (0.035);
-      \draw ($ (0.28,6.73) + (0,\x*0.10) $) [fill=red,draw=red] circle (0.035);
-    }
-    
-    \draw (2.24,3.36) [fill=none,draw=red] circle (0.225);	% TODO: new Robotino
-    \draw (3.36,3.36) [fill=none,draw=red] circle (0.185);	% TODO: old Robotino
+    % R and T machine descriptions
+    \node [anchor=south east,inner sep=2.5pt] at (5.62,0.0) (R1)
+    {\fontsize{10pt}{10pt}\selectfont\sffamily\textbf{R1}};
+    \node [anchor=north west,inner sep=2.5pt] at (0,5.6) (R2)
+    {\fontsize{10pt}{10pt}\selectfont\sffamily\textbf{R2}};
+    \node [anchor=north east,inner sep=2.5pt] at (5.6,5.6) (R2)
+    {\fontsize{10pt}{10pt}\selectfont\sffamily\textbf{T}};
 
-    \node [anchor=south west,rotate=90] at (0.36,0.25) {\large\sffamily Robot Insertion Team 1};
-    \node [anchor=south west,rotate=90] at (0.36,8.03) {\large\sffamily Robot Insertion Team 2};
-    %\node [anchor=north,rotate=90] at (0.4,2.8) {\large\sffamily Input Storage};			% TODO!!!!!!!
+    % Pucks
+    \foreach \x in {1,2,...,10}
+    {
+      \draw ($ (0.12,2.25) + (0,\x*0.10) $) [fill=red,draw=red] circle (0.035);
+      \draw ($ (0.28,2.25) + (0,\x*0.10) $) [fill=red,draw=red] circle (0.035);
+    }
+
+    \node [anchor=south west,rotate=90] at (0.33,0.2) {\large\sffamily Robot Insertion};
+    \node [anchor=north,rotate=90] at (0.4,2.8) {\large\sffamily Input Storage};
 
     %\draw [<->,red,thick,ultra thick] (3.62,3.74) -- +(0.6,0);
-    %\draw [ultra thick,red] ($ (3.92,3.92) - (0.3,0.3) $) rectangle +(0.6,0.6); 		% TODO!!!!!!!
-    %\node [anchor=north] at (3.92,3.6) {\sffamily Machine Space}; 						% TODO!!!!!!!
+    \draw [ultra thick,red] ($ (3.92,3.92) - (0.3,0.3) $) rectangle +(0.6,0.6);
+    \node [anchor=north] at (3.92,3.6) {\sffamily Machine Space};
 
-    %\node [anchor=south,rotate=90] at (5.2,2.8) {\large\sffamily Delivery Zone}; 		% TODO!!!!!!!
+    \node [anchor=south,rotate=90] at (5.2,2.8) {\large\sffamily Delivery Zone};
 
-    %\draw [->,red,ultra thick] (2.95,0.56) -- +(0.3,0);							% TODO!!!!!!!
-    %\draw [->,red,ultra thick] (3.92,1.53) -- +(0,-0.3);
-    %\node [anchor=south west,text width=1cm] at (3.5,0.3)
-    %{\sffamily Machine\\Facing\\Direction};
+    \draw [->,red,ultra thick] (2.95,0.56) -- +(0.3,0);
+    \draw [->,red,ultra thick] (3.92,1.53) -- +(0,-0.3);
+    \node [anchor=south west,text width=1cm] at (3.5,0.3)
+    {\sffamily Machine\\Facing\\Direction};
 
-    % Name/Type explanation and arrows												% TODO!!!!!!!
-    %\node (name) [anchor=base west,inner sep=0pt]
-    %at ($ (M2.north) + (-0.05,0.4) $) {\sffamily Name};
-    %\node (type) [anchor=base east,inner sep=0pt]
-    %at ($ (M2-1.north) + (0.05,0.94) $) {\sffamily Type};
+    % Name/Type explanation and arrows
+    \node (name) [anchor=base west,inner sep=0pt]
+    at ($ (M2.north) + (-0.05,0.4) $) {\sffamily Name};
+    \node (type) [anchor=base east,inner sep=0pt]
+    at ($ (M2-1.north) + (0.05,0.94) $) {\sffamily Type};
 
-    %\draw [->,black,ultra thick]													% TODO!!!!!!!
-    %($ (name.base west) + (0.05,-0.05) $) -- ($ (M2.north) + (0,0.05) $);
-    %\draw [->,black,ultra thick]
-    %($ (type.base east) + (-0.05,-0.05) $) -- ($ (M2-1.north) + (0,0.05) $);
+    \draw [->,black,ultra thick]
+    ($ (name.base west) + (0.05,-0.05) $) -- ($ (M2.north) + (0,0.05) $);
+    \draw [->,black,ultra thick]
+    ($ (type.base east) + (-0.05,-0.05) $) -- ($ (M2-1.north) + (0,0.05) $);
 
   \end{tikzpicture}
   \caption{Competition Area}
@@ -507,6 +483,8 @@ different field slots are presented in Table~\ref{tab:coordinates}.
       M10 & Machine 10 & 1.68 & 5.04 \\
       R1 & Recycling unit 1 & 5.40 & 0.20 \\
       R2 & Recycling unit 2 & 0.20 & 5.40 \\
+      T & Test station & 5.40 &	5.40 \\
+         & Late order insertion point / slot & 0.20 & 	3.60 \\
       D1 & Delivery slot 1 & 5.34 & 	3.15 \\
       D2 & Delivery slot 2 & 5.34 &	2.80 \\ 
       D3 & Delivery slot 3 & 5.34 &	2.45 \\%\hline
@@ -679,7 +657,7 @@ last, all prior components will be consumed. All machines will start
 processing the data carrier as soon as it enters the machine zone as
 stated in section~\ref{sec:competition-area}. They will change their
 operating mode according to Tables~\ref{tab:production-machines} to
-\ref{tab:delivery-gates}.
+\ref{tab:test-station}.
 
 In order to complete the machines' work order the input materials have
 to be delivered one-by-one into the RFID device's action range. The
@@ -775,10 +753,10 @@ only one active gate at a time. A gate is active between 60 and 180
 seconds. After the gate switches, there is a grace period of 3 seconds
 in which delivery will still be accepted to the formerly active
 delivery gate. False deliveries to an active gate will be indicated by
-a flashing yellow light (e.g. taking a \s0 puck to the active gate)
-and false deliveries to an inactive gate by a steady red and blinking
-yellow light. In both cases, the puck will be taken out by the referee
-and it may no longer be used in production or delivered. In case of a
+a flashing yellow light (e.g. taking a \s0 puck to the active
+gate) and false deliveries to an inactive gate by a steady red and
+blinking yellow light. In both cases, the puck will be taken out by the referee and
+it may no longer be used in production or delivered. In case of a
 delivery to an active gate, the team will be awarded with the points
 for the delivery; if the gate was inactive, no points will be
 awarded. If, however, a pallet carrier was not successfully delivered,
@@ -786,85 +764,35 @@ the pallet carrier will remain where it is. See
 Table~\ref{tab:delivery-gates} for the possible delivery gate signal
 states.
 
-%\subsubsection{Test station}
-%
-%The type of a sub-assembly can be determined at the test station in
-%the corresponding corner of the competition area. The test station
-%reads the RFID of the pallet carrier and visualizes the product type
-%with the light signal as shown in Table~\ref{tab:test-station}.
-%
-%\begin{table}[tp]
-%  \centering
-%  \mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
-%    \multicolumn{1}{l}{Optical Feedback} &\multicolumn{1}{l}{Stored
-%      data on the data carrier}\\\hline
-%    Green LED turned on &	The station is ready to read the next data carrier.\\
-%    All LEDs turned off &	Consumed pallet carrier.\\
-%    Yellow LED turned on &	Raw-material (\s0) \\
-%    Red and yellow LEDs turned on &	Sub-assembly 1 (\s1)\\
-%    Red LED turned on &	Sub-assembly 2 (\s2)\\
-%    Green LED flashing (at 2 Hz) & Finished product variant 1 (\p1{})\\%\hline
-%    Yellow LED flashing (at 2 Hz) & Finished product variant 2 (\p2{})\\%\hline
-%    Red LED flashing (at 2 Hz) & Finished product variant 3 (\p3{})\\%\hline
-%    All LED flashing (at 2 Hz) & Puck is out of game after delivery
-%    to (in)active gate\\%\hline
-%  \end{tabularx}}
-%  \caption{Test Station}
-%  \label{tab:test-station}
-%\end{table}
+\subsubsection{Test station}
+
+The type of a sub-assembly can be determined at the test station in
+the corresponding corner of the competition area. The test station
+reads the RFID of the pallet carrier and visualizes the product type
+with the light signal as shown in Table~\ref{tab:test-station}.
+
+\begin{table}[tp]
+  \centering
+  \mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
+    \multicolumn{1}{l}{Optical Feedback} &\multicolumn{1}{l}{Stored
+      data on the data carrier}\\\hline
+    Green LED turned on &	The station is ready to read the next data carrier.\\
+    All LEDs turned off &	Consumed pallet carrier.\\
+    Yellow LED turned on &	Raw-material (\s0) \\
+    Red and yellow LEDs turned on &	Sub-assembly 1 (\s1)\\
+    Red LED turned on &	Sub-assembly 2 (\s2)\\
+    Green LED flashing (at 2 Hz) & Finished product variant 1 (\p1{})\\%\hline
+    Yellow LED flashing (at 2 Hz) & Finished product variant 2 (\p2{})\\%\hline
+    Red LED flashing (at 2 Hz) & Finished product variant 3 (\p3{})\\%\hline
+    All LED flashing (at 2 Hz) & Puck is out of game after delivery
+    to (in)active gate\\%\hline
+  \end{tabularx}}
+  \caption{Test Station}
+  \label{tab:test-station}
+\end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%
-
-\section{Referees}
-
-At the first day before the tournament begins, there is a short meeting with the briefing of all 
-named referees. (See next Point) 
-
-\subsection{Referee Delegation}
-Each participating team of the tournament has to provide at least two team members as referees. These referees should perform the following criteria:
-
-\begin{itemize}
-  \item Available in each round until the final (otherwisemore than one team member)
-  \item Good knowledge of the rulebook and the applied rules.
-  \item Has participated at the referee briefing (see above)
-  \item Is able to lead a competition in English.
-\end{itemize}
-
-\subsection{Tasks and Responsibilities}
-There are 3 referees for each competition. 
-One refbox referee and two field referees which are each assigned to a particular field half. One of the Field-Referee is also the Head-Referee namely the deciding vote. 
-
-The referees have to perform the following tasks:
-\begin{itemize}
-  \item Operating the refbox
-  \item Starting, interrupting or cancel a competition
-  \item Decide whether a robot can or must be taken out 
-  \item Reposition of pushed pucks
-  \item Removing the pucks delivered
-\end{itemize}
-
-\subsection{Complaint procedure}
-\begin{enumerate}
-\item If a team does not agree with the decisions of the referees, it can start a complaint procedure.
-\item If a referee is cancelling a competition then must follow a mandatory complaint procedure.
-\end{enumerate}
-\begin{itemize}
-\item Contact a TC member within 10min after the competition ended.
-\item The TC member invokes a team leader conference; 
-\begin{itemize}
-\item invited are: referees of the game in question, team leaders (majority must be present), TC (counseling only), 
-\item votes are performed by team leaders only, majority of present team leaders is sufficient.
-\end{itemize}
-\end{itemize}
-
-\subsection{Liability waiver}
-Referees are not liable for:
-\begin{itemize}
-\item any kind of injury suffered by a player, offcial or spectator
-\item any damage to property of any kind
-\item any other loss suffered by any individual, club, company, association or other body, which is due or which may be due to any decision which he may take under the terms of the Laws of the Game or in respect of the normal procedures required to hold, play and control a match.
-\end{itemize}
 
 \section{The Robotino system} \label{sec:robotino}
 
@@ -932,14 +860,14 @@ endure for long periods of the game.
 \label{sec:bandwidth}
 No minimum bandwidth is guaranteed. The amount of communicated data
 over the wifi connection shall not exceed
-\SI[per-mode=symbol]{2}{\mega\bit\per\second}. Even though the lower
-layers could provide for more bandwidth, the overall available
-frequency spectrum and wifi channels have to be shared, not only
-within our own league. Generally, a conservative use of bandwidth
-resources is advised. Should a frequently or endured exceedance of the
-bandwidth limit become known, or if the overall bandwidth limit must
-be reduced due to outer circumstances, the TC can monitor the network
-traffic and demand reduction in communicated data as necessary.
+\SI[per-mode=symbol]{2}{\mega\bit\per\second}. Even though the lower layers could
+provide for more bandwidth, the overall available frequency spectrum
+and wifi channels have to be shared, not only within our own
+league. Generally, a conservative use of bandwidth resources is
+advised. Should a frequently or endured exceedance of the bandwidth
+limit become known, or if the overall bandwidth limit must be reduced
+due to outer circumstances, the TC can monitor the network traffic and
+demand reduction in communicated data as necessary.
 
 \subsection{Referee box}
 \label{sec:referee-box}
@@ -974,10 +902,9 @@ in the RoboCup Logistics League Referee Box Integrator's Manual.
 \subsection{Remote control}
 \label{sec:remote-control}
 Remote operation or instruction of any kind of the robots is forbidden
-at all times during a game. The only allowed interaction is for the
-start-up (cf.~\refsec{sec:game-start}). Any failure to comply with
-this rule will lead to immediate disqualification of the infringing
-team.
+at all times during a game. The only allowed interaction is for the start-up
+(cf.~\refsec{sec:game-start}). Any failure to comply with this rule will lead to
+immediate disqualification of the infringing team.
 
 \subsection{Monitoring}
 \label{sec:monitoring}
@@ -1373,11 +1300,38 @@ as a production graph.
 %\todo[inline]{What is a C??}
 
 \subsubsection{The production table}
+
 Table~\ref{tab:production-table} shows the production table for the
 main challenge; the multistaged production processes as well as the
 Late Order Challenge. The main challenge can be repeated as long as
 enough pallet carriers can be provided to complete the cycle. The
 different machine types are specified in Sect.~\ref{sec:machines}.
+
+
+
+\subsubsection{Late order}
+\label{sec:late-order}
+The late order challenge is derived from the former express good
+rule. It will be announced at a random time by the referee box in form
+of an updated order information message listing a new order for a \p3
+product to be delivered within a specified time window of 120\,sec
+length. The order will be added to the periodically order information
+message as soon as the delivery time window begins. The challenge
+requires a fast paced processing and delivery of the requested product
+in time. There will be two late orders per game at randomized
+times.
+
+The \p3 product can be produced from any \s0 puck at a T5 machine at
+any time (it may be pre-produced). In order to allow visually
+triggered processing an \s0 will be placed in the late order insertion
+slot above the input storage as soon as a late order is announced.
+This \s0 puck will not be removed and can also be used for normal
+production. Note that, if the late order insertion slot already
+contains an \s0 when the next late order arrives an additional \s0
+puck is placed in the input storage.
+
+A robot may not be initially placed next to the insertion slot, but
+only in the robot insertion area (below the input storage).
 
 \subsection{During a match}
 \label{sec:during-match}
@@ -1402,28 +1356,57 @@ late orders to allow production and delivery within the late order
 time.
 
 \subsubsection{Production Plan}
-The referee box will announce orders throughout the game in an
-incremental fahion. Each order will consist of the products to
-produce, the amount thereof, and delivery time slots for each
-product. In each game, there will be a fixed maximum number of points
-that can be scored. \todo{Number of points} These points will be
-distributed among orders posted by the referee box. Each order will
-require one or more products of a specified product type to be
-delivered. The delivery time slot will have a randomized start time
-and a randomized duration between 30 to 180 seconds. The end time
-shall be within the game time. The duration shall be long enough to
-cover at least the production time of he final machine in the
-production chain and 30 seconds of travel time. The orders shall be
-posted with a uniform distribution over the whole game time (but there
-is not necessarily an open order for a particular product at a
-specific time, or any order at all). The first order will be posted
-within the first 120 seconds of the game (but not necessarily at the
-beginning of the game). An order will be announced between 10 and 60
-seconds before the delivery time slots starts.
+The referee box will announce a production plan. It will consist of
+the products to produce, the amount thereof, and delivery time slots
+for each product. There will be three time slots for the game, each
+lasting 5 minutes. Hence the first time slot will begin on game start
+and last until 4:59. The second slot starts at 5:00 and lasts until
+9:59. The third time slots starts at 10:00 and lasts until 15:00.  The
+later order is added to the production plan as soon as its delivery
+time slot starts (cf.~\refsec{sec:late-order}).
 
-In all tournament phases (cf.~\refsec{sec:tournament-scoring}) the
-teams playing on the field at the same time will get the same
-production plans but other games will have their own.
+Products which are delivered in the requested time slots score
+considerably higher than the ones delivered outside of the time
+slots. The production plan is shown in
+Table~\ref{tab:production-plan}. The numbers indicate how many
+products of a certain type shall be produced in each time slot. Each
+number is in the range from 3 to 10.
+
+In the round-robin phase (cf.~\refsec{sec:tournament-scoring}) each
+team will get a randomized production plan. In the playi-off and final
+phases the production plan is the same for the two teams directly
+competing against each other but not for the other two competing
+teams. This is to avoid any potential influence on the result of prior
+knowledge of the later playing teams.
+\begin{figure}
+\begin{floatrow}
+  \capbtabbox{%
+    \centering
+    \mytable{\begin{tabularx}{0.9\textwidth}{c|l|X}%{p{0.35\textwidth}|p{0.65\textwidth}}
+        \multicolumn{1}{l}{Slot} & \multicolumn{1}{l}{Parameters} &\multicolumn{1}{l}{Demanded number of items } \\
+        \hline 
+        1 & $N_{1,1}$, $N_{2,1}$, $N_{3,1}$ &
+        $N_{1,1}$ = Number of \p1 to produce in slot 1\newline
+        $N_{2,1}$ = Number of \p2 to produce in slot 1\newline
+        $N_{3,1}$ = Number of \p3 to produce in slot 1
+        \\[1ex]
+        2 & $N_{1,2}$, $N_{2,2}$, $N_{3,2}$ &
+        $N_{1,2}$ = Number of \p1 to produce in slot 2\newline
+        $N_{2,2}$ = Number of \p2 to produce in slot 2\newline
+        $N_{3,2}$ = Number of \p3 to produce in slot 2
+        \\[1ex]
+        3 & $N_{1,3}$, $N_{2,3}$, $N_{3,3}$ &
+        $N_{1,3}$ = Number of \p1 to produce in slot 3\newline
+        $N_{2,3}$ = Number of \p2 to produce in slot 3\newline
+        $N_{3,3}$ = Number of \p3 to produce in slot 3
+        \\
+      \end{tabularx}}
+  }{
+    \caption{Production plan}
+    \label{tab:production-plan}
+  }
+\end{floatrow}
+\end{figure}
 
 % \begin{table}[t]
 %   \centering
@@ -1631,61 +1614,42 @@ tasks. However, participation has no influence on the normal game
 results, but the winner will be awarded by a certificate.
 
 
-\paragraph{Navigation and dynamic collision avoidance.~}
-A robot fleet has to show that it can reach a certain goal location
-avoiding collision with obstacles and other robots. Two teams compete
-against each other at the same time. One team places their robots near
-the delivery gate at the bottom, the other near the delivery gate at
-the top. All robots from each team must then reach the opposite
-delivery gate faster than the opposing fleet. For each robot not
-participating in the robot fleet consisting of three robots, the team
-has to travel another distance from one delivery gate to the
-other. Robot collisions will be handled the same as in the normal
-game, and are therefore punished accordingly. The team, which reaches
-the goal location the fastest, wins. If no team reaches the goal
-within three minutes, the robot fleet, which has the shortest distance
-to the goal wins. All teams participating will compete against each
-other.
-
-%The single robot is to show that it avoids other obstacles and robots
-%while moving along specified points. Therefore the robot must drive
-%from the robot insertion area to the delivery zone within 60
-%seconds. However, the paths between the robot insertion area and the delivery
-%zone will be blocked randomly by static obstacles and the robot must
-%not touch any of the obstacles. For touching an obstacle, the team
-%receives a penalty. The fastest team with the fewest penalty points
-%to reach the delivery zone wins this challenge. All other teams are
-%ranked according to how fast they were and how many penalties they
-%conceived. Initially, the robot will be placed by a team leader of a
-%different team anywhere in the robot insertion area. The team has 15 seconds
-%to perform a quick setup after the robot has been placed. The robot
-%has completed the challenge as soon as it touches the delivery zone at
-%any point. In 2013, the robotino transport cases will be used as
-%static obstacles. The total number of obstacles will be the same for
-%all teams. Possible distributions of the obstacles will be defined by
-%the team leaders before the challenge starts (e.g. 6 possible
-%distributions).  A roll of dice will decide the actual distribution of
-%obstacles.
-
-\paragraph{Collaboration with RoboCup@Work~} \todo[inline]{Fill with information}
+\paragraph{Navigation and collision avoidance.~}
+The single robot is to show that it avoids other obstacles and robots
+while moving along specified points. Therefore the robot must drive
+from the robot insertion area to the delivery zone within 60
+seconds. However, the paths between the robot insertion area and the delivery
+zone will be blocked randomly by static obstacles and the robot must
+not touch any of the obstacles. For touching an obstacle, the team
+receives a penalty. The fastest team with the fewest penalty points
+to reach the delivery zone wins this challenge. All other teams are
+ranked according to how fast they were and how many penalties they
+conceived. Initially, the robot will be placed by a team leader of a
+different team anywhere in the robot insertion area. The team has 15 seconds
+to perform a quick setup after the robot has been placed. The robot
+has completed the challenge as soon as it touches the delivery zone at
+any point. In 2013, the robotino transport cases will be used as
+static obstacles. The total number of obstacles will be the same for
+all teams. Possible distributions of the obstacles will be defined by
+the team leaders before the challenge starts (e.g. 6 possible
+distributions).  A roll of dice will decide the actual distribution of
+obstacles.
   
-%\paragraph{Whack-a-Mole.~}
-%A single robot is placed by a team leader of a different team anywhere 
-%in the robot insertion area. The team has 15 seconds to perform a quick 
-%setup after the robot has been placed. It
-%then has to detect the single shining signal unit on the play
-%field. The regarding unit will have all lights - green,yellow, and red
-%- switched on. As soon as the robot enters the related machine area of
-%that signal, the signal unit has been marked as whacked, is switched off and
-%another random signal unit is switched on. A robot is inside a machine
-%area if and only if its center is within the area. This is detected
-%by the visual tracking system if available, or the human
-%referee. Participating robots must therefore be equipped with the
-%appropriate markers. The goal of the challenge is to switch off as
-%many signal units as possible within a given time frame. Teams are
-%ranked according to the number of turned-off signals.
-
-\paragraph{Approaching the MPS station~} \todo[inline]{Fill with information}
+\paragraph{Whack-a-Mole.~}
+A single robot is placed by a team leader of a different team anywhere 
+in the robot insertion area. The team has 15 seconds to perform a quick 
+setup after the robot has been placed. It
+then has to detect the single shining signal unit on the play
+field. The regarding unit will have all lights - green,yellow, and red
+- switched on. As soon as the robot enters the related machine area of
+that signal, the signal unit has been marked as whacked, is switched off and
+another random signal unit is switched on. A robot is inside a machine
+area if and only if its center is within the area. This is detected
+by the visual tracking system if available, or the human
+referee. Participating robots must therefore be equipped with the
+appropriate markers. The goal of the challenge is to switch off as
+many signal units as possible within a given time frame. Teams are
+ranked according to the number of turned-off signals.
   
 
 \paragraph{Free challenge.~}
