@@ -299,60 +299,40 @@ To get into contact with the OC use the mailing list\\
 \section{Competition Area} \label{sec:area}
 
 
-\subsection{Field dimensions}
+\subsection{Field layout and dimensions}
 \label{sec:competition-area}
-The point of origin for each statement within this rulebook that uses
-relative coordinates is the bottom left corner of the competition area
-namely the corner near robot insertion area below the blue input
-storage area. All indicated sizes of mark-ups are to be considered
-outside dimensions.
 
-The competition area is a \SI{5.6 x 5.6}{\metre} large arena with
+The competition area is shown in Figure \ref{fig:competition-area} and features a \SI{5.6 x 11.2}{\metre} large arena with
 several RFID-mounted machines, mark-ups, a stock of raw-material and a
-delivery zone. It is surrounded by boards, \SI{0.5}{\metre} of height
-to reduce object interference from outside the area. The default width
-for mark-ups is \SI{19}{\milli\metre}, the default color is black.
+delivery zone. It is surrounded by boards with \SI{0.5}{\metre} of height
+to reduce object interference from outside the area. 
 
-The factory area spans across \SI{4.8 x 5.6}{\metre}. There are two
-boundaries, set by two mark-ups, \SI{0.4}{\metre} from the left and
-right borders of the competition area. The factory area is joined by
-two opposing \SI{0.4 x 1.0}{\metre} zones at the left and right
-middle. The left zone is painted blue marking the \textit{input
-  storage area} with the \textit{late order insertion point} to the
-top. The insertion area is \SI{0.6}{\metre} of depth with the
-insertion slot in its middle. This spot is a \SI{0.1 x 0.1}{\metre}
-empty square that will be equipped with a pallet carrier for the late
-order challenge. The space below the input storage area is called
-\textit{robot insertion area}.
+The point of origin for each statement within this rulebook that uses
+relative coordinates is the bottom left corner of the competition area. All indicated sizes of mark-ups are to be considered
+outside dimensions. The default width for mark-ups is \SI{19}{\milli\metre}, the default color is black.
 
-The right zone is marked green and houses the three \textit{delivery
-  gates}.  Each gate is of \SI{0.3}{\metre} width with
-\SI{0.1}{\metre} space to the next delivery gate separated by black
-mark-ups.
+Both competing teams play within the same competition area. However, each team has its own \textit{input storage area}, \textit{robot insertion area}, \textit{production machines}, \textit{recycling machine}, and \textit{delivery zone}.
 
-The delivery gates feature one signal per gate placed in the middle of
+The factory area spans across \SI{5.2 x 11.2}{\metre} with a boundary set by a mark-up \SI{0.4}{\metre} from the left of the competition area. Inside the left edge area, the robot insertion areas are located in each corner, next to the input storage areas located towards the mid. Each input storage area has a size of \SI{0.4 x 1.0}{\metre}, is painted blue on the wall, and contains a set of 20 pucks.
+
+The delivery zones are located to the bottom and the top of the competition area, respectively, and are painted green on the wall. Each of the three \textit{delivery gates} in each zone is of \SI{0.3}{\metre} width with \SI{0.1}{\metre} space to the next delivery gate separated by black mark-ups. The delivery gates feature one signal per gate placed in the middle of
 each gate zone. The delivery slot resides besides a unit that is
 identical in construction to a production machine. Each of the three
 RFID devices within these gates feature a black centered square of
 \SI{0.1 x 0.1}{\metre} called delivery slot, which resides exactly
 below the RFID device.
 
-Additionally to the delivery gates, 13 machines are placed within the
-competition area: 10 machines representing the multistaged production
-process, two machines to recycle consumed pallet carrier and one test
-station. The machines of the production process are placed within the
-factory area as stated in Figure~\ref{fig:competition-area}. They are
-aligned in a \ang{90} angle (the facing direction may change during
-the tournament). Each production machine resides in the center of a
+Additionally to the delivery gates, 26 machines are placed within the
+competition area: 24 machines representing the multistaged production
+process, and two machines to recycle consumed pallet carriers. All machines are placed within the
+factory area as stated in Figure \ref{fig:competition-area}. They are
+aligned in a \ang{90} angle and reside in the center of a
 squared machine space spanned by standard mark-ups with
-\SI{0.6}{\metre} each side.
+\SI{0.5}{\metre} each side.
 
-The 3 additional machines are arranged in the corners of the
-competition area, and aligned at \ang{45}, facing the center of the
-factory area. The lower left corner will remain empty. The competition
-area is shown in Figure~\ref{fig:competition-area}.
+The distribution and alignment of all machines is axially symmetrical to the x-axis on the middle of the competition area. Thus, each team has exact the same conditions on the upper and the lower half of the competition field. Half of the production and recycling machines belong to the one team, the other half to the other team. However, whereas each recycling machine will always belong to the respective team (i.e., R1 to team 1 and R2 to team 2), production machines from one team can also be located inside the area of the opposing team. We will later discuss the concept of the production machine distribution for each team in detail. For now, note that the conditions for each team will be the same, i.e. the distribution will be a symmetrical one.
 
-\begin{figure}[tbh]
+\begin{figure}[p]
   \centering
   \begin{tikzpicture}[scale=2.0]
     % field outline
@@ -373,13 +353,13 @@ area is shown in Figure~\ref{fig:competition-area}.
     %\draw (5.2,0) -- (5.2,5.6);
     \draw (0.4,0) -- (0.4,11.2);
     \draw (2.3,0) [fill=green] rectangle +(1,0.4);
-	\draw (2.3,10.8) [fill=green] rectangle +(1,0.4);
+		\draw (2.3,10.8) [fill=green] rectangle +(1,0.4);
     \draw (0,3.42) [fill=blue] rectangle +(0.4,1);		% was 2.3
     \draw (0,6.78) [fill=blue] rectangle +(0.4,1);
 
     \foreach \m/\t/\x/\y/\ori/\paintbox in
     % row 1
-    { M1/1/1.68/5.04/180/1, M2/2/2.80/5.04/0/1, R1/3/5.04/5.04/-90/4, 
+    { M1/3/1.68/5.04/180/1, M2/2/2.80/5.04/0/1, R1/3/5.04/5.04/-90/4,
     % row 2
       M3/1/1.68/3.92/-90/1, M4/2/2.80/3.92/90/1, M5/1/3.92/3.92/90/1,
     % row 3
@@ -390,7 +370,7 @@ area is shown in Figure~\ref{fig:competition-area}.
       M12/1/5.04/0.56/180/1,
     % Team 2:
     % row 5
-      M13/1/1.68/6.16/180/1, M14/2/2.80/6.16/0/1, R2/3/5.04/6.16/90/4, 
+      M13/3/1.68/6.16/180/1, M14/2/2.80/6.16/0/1, R2/3/5.04/6.16/90/4, 
     % row 6
       M15/1/1.68/7.28/90/1, M16/2/2.80/7.28/-90/1, M17/1/3.92/7.28/-90/1,
     % row 7
@@ -445,141 +425,89 @@ area is shown in Figure~\ref{fig:competition-area}.
       \draw ($ (0.28,6.73) + (0,\x*0.10) $) [fill=red,draw=red] circle (0.035);
     }
     
-    \draw (2.24,3.36) [fill=none,draw=red] circle (0.225);	% TODO: new Robotino
-    \draw (3.36,3.36) [fill=none,draw=red] circle (0.185);	% TODO: old Robotino
+    %\draw (2.24,3.36) [fill=none,draw=red] circle (0.225);	% new Robotino 3.0
+    %\draw (3.36,2.8) [fill=none,draw=red] circle (0.185);	% old Robotino 2.0
 
     \node [anchor=south west,rotate=90] at (0.36,0.25) {\large\sffamily Robot Insertion Team 1};
     \node [anchor=south west,rotate=90] at (0.36,8.03) {\large\sffamily Robot Insertion Team 2};
-    %\node [anchor=north,rotate=90] at (0.4,2.8) {\large\sffamily Input Storage};			% TODO!!!!!!!
+    \node [anchor=north,rotate=90] at (0.4,3.9) {\large\sffamily Input Storage 1};
+		\node [anchor=north,rotate=90] at (0.4,7.3) {\large\sffamily Input Storage 2};
+		
+    \draw [<->,red,thick,ultra thick] (2.55,6.90) -- +(0.5,0);
+    \draw [ultra thick,red] ($ (2.80,7.28) - (0.25,0.25) $) rectangle +(0.5,0.5);
+    \node [anchor=north] at (2.80,6.86) {\sffamily Machine Space};
 
-    %\draw [<->,red,thick,ultra thick] (3.62,3.74) -- +(0.6,0);
-    %\draw [ultra thick,red] ($ (3.92,3.92) - (0.3,0.3) $) rectangle +(0.6,0.6); 		% TODO!!!!!!!
-    %\node [anchor=north] at (3.92,3.6) {\sffamily Machine Space}; 						% TODO!!!!!!!
+    \node [anchor=north] at (2.8,0.8) {\large\sffamily Delivery Zone 1};
+		\node [anchor=north] at (2.8,10.7) {\large\sffamily Delivery Zone 2};
+		
+		\node [anchor=north,rotate=90] at (4.4,5.6) {\large\sffamily Recycling Machine 1+2};
 
-    %\node [anchor=south,rotate=90] at (5.2,2.8) {\large\sffamily Delivery Zone}; 		% TODO!!!!!!!
+    \draw [->,red,ultra thick] (2.95,1.68) -- +(0.35,0);
+		\draw [->,red,ultra thick] (4.90,1.68) -- +(-0.35,0);
+    \node [anchor=south west,text width=1cm] at (3.5,1.28) {\sffamily Machine\\Facing\\Direction};
 
-    %\draw [->,red,ultra thick] (2.95,0.56) -- +(0.3,0);							% TODO!!!!!!!
-    %\draw [->,red,ultra thick] (3.92,1.53) -- +(0,-0.3);
-    %\node [anchor=south west,text width=1cm] at (3.5,0.3)
-    %{\sffamily Machine\\Facing\\Direction};
-
-    % Name/Type explanation and arrows												% TODO!!!!!!!
-    %\node (name) [anchor=base west,inner sep=0pt]
-    %at ($ (M2.north) + (-0.05,0.4) $) {\sffamily Name};
-    %\node (type) [anchor=base east,inner sep=0pt]
-    %at ($ (M2-1.north) + (0.05,0.94) $) {\sffamily Type};
-
-    %\draw [->,black,ultra thick]													% TODO!!!!!!!
-    %($ (name.base west) + (0.05,-0.05) $) -- ($ (M2.north) + (0,0.05) $);
-    %\draw [->,black,ultra thick]
-    %($ (type.base east) + (-0.05,-0.05) $) -- ($ (M2-1.north) + (0,0.05) $);
+    % Name/Type explanation and arrows
+    \node (name) [anchor=base west,inner sep=0pt] at ($ (M16.north) + (-0.05,0.4) $) {\sffamily Name};
+    \node (type) [anchor=base east,inner sep=0pt] at ($ (M16-2.north) + (0.05,0.94) $) {\sffamily Type};
+    \draw [->,black,ultra thick] ($ (name.base west) + (0.05,-0.05) $) -- ($ (M16.north) + (0,0.05) $);
+    \draw [->,black,ultra thick] ($ (type.base east) + (-0.07,-0.05) $) -- ($ (M16-2.north) + (-0.02,0.05) $);
 
   \end{tikzpicture}
   \caption{Competition Area}
   \label{fig:competition-area}
 \end{figure}
 
-
-\subsection{Coordinates of the Machines and Field Slots}
-\label{sec:coordinates}
-
-The coordinates of the machine centers and the centers of the
-different field slots are presented in Table~\ref{tab:coordinates}.
-
+The center coordinates and alignment of the machine and the different delivery gate slots are presented in Table~\ref{tab:coordinates}.
 
 \begin{figure}
 \begin{floatrow}
-\begin{minipage}[b]{0.55\linewidth}
+\begin{minipage}[b]{0.9\linewidth}
   \capbtabbox{%
     \centering
     \mytable{
-    \begin{tabularx}{\linewidth}{ll|R|R}
-      Abbr. & \multicolumn{1}{l}{Unit} & \multicolumn{1}{r}{$x$~[\si{\metre}]} & \multicolumn{1}{r}{$y$~[\si{\metre}]}\\ \hline
-      M1 & Machine 1 & 3.92 & 1.68 \\
-      M2 & Machine 2 & 3.92 & 3.92 \\
-      M3 & Machine 3 & 2.80 & 0.56 \\
-      M4 & Machine 4 & 2.80 & 1.68 \\
-      M5 & Machine 5 & 2.80 & 2.80 \\
-      M6 & Machine 6 & 2.80 & 3.92 \\
-      M7 & Machine 7 & 2.80 & 5.04 \\
-      M8 & Machine 8 & 1.68 & 1.68 \\
-      M9 & Machine 9 & 1.68 & 3.92 \\
-      M10 & Machine 10 & 1.68 & 5.04 \\
-      R1 & Recycling unit 1 & 5.40 & 0.20 \\
-      R2 & Recycling unit 2 & 0.20 & 5.40 \\
-      D1 & Delivery slot 1 & 5.34 & 	3.15 \\
-      D2 & Delivery slot 2 & 5.34 &	2.80 \\ 
-      D3 & Delivery slot 3 & 5.34 &	2.45 \\%\hline
+    \begin{tabularx}{\linewidth}{ll|R|R|R}
+      Abbr. & \multicolumn{1}{l}{Type} & \multicolumn{1}{r}{$x$~[\si{\metre}]} & \multicolumn{1}{r}{$y$~[\si{\metre}]} & \multicolumn{1}{r}{Alignment}\\ \hline
+      M1 / M13 & Prod. Machine & 1.68 & 5.04 / 6.16 & West \\
+      M2 / M14 & Prod. Machine & 2.80 & 5.04 / 6.16 & East \\
+      M3 / M15 & Prod. Machine & 1.68 & 3.92 / 7.28 & South / North \\
+      M4 / M16 & Prod. Machine & 2.80 & 3.92 / 7.28 & North / South \\
+      M5 / M17 & Prod. Machine & 3.92 & 3.92 / 7.28 & North / South \\
+      M6 / M18 & Prod. Machine & 1.68 & 2.80 / 8.40 & East \\
+      M7 / M19 & Prod. Machine & 3.92 & 2.80 / 8.40 & West \\
+      M8 / M20 & Prod. Machine & 5.04 & 2.80 / 8.40 & North / South \\
+      M9 / M21 & Prod. Machine & 1.68 & 1.68 / 9.52 & South / North \\
+      M10 / M22 & Prod. Machine & 2.80 & 1.68 / 9.52 & East \\
+			M11 / M23 & Prod. Machine & 5.04 & 1.68 / 9.52 & West \\
+			M12 / M24 & Prod. Machine & 5.04 & 0.56 / 10.64 & West \\
+      R1 / R2 & Recycling Machine & 5.04 & 5.04 / 6.16 & South / North \\
+      D1 / D4 & Delivery Gate Slot & 2.45 & 0.26 / 10.94 & North / South \\
+      D2 / D5 & Delivery Gate Slot & 2.80 & 0.26 / 10.94 & North / South \\ 
+      D3 / D6 & Delivery Gate Slot & 3.15 & 0.26 / 10.94 & North / South \\
     \end{tabularx}  
 }
-      
   }{%
-    \caption{Coordinates of machines and field slots}
+    \caption{Coordinates and alignment of machines and delivery gate slots}
     \label{tab:coordinates} %
   }
 
   \end{minipage}
-  \quad\quad
-  \begin{minipage}[b]{0.2\linewidth}
-  \ffigbox{%
-    \centering
-    \includegraphics[width=\linewidth]{125px-Puck}    
-    
-  }{%
-  \caption{Puck}
-    \label{fig:puck}
-}
-\medskip\smallskip
-\ffigbox{
-%\begin{figure}[h]
-  \centering
-  \includegraphics[width=\linewidth]{llsf-signal}
-%  \caption{Machine}
-%  \label{fig:machine}
-%\end{figure}
-
-}
-{  \caption{Machine}
-  \label{fig:machine}
-}
-\end{minipage}
 \end{floatrow}
 \end{figure}
 
 
-% \begin{table}[h]
-%   \centering
-%   \begin{tabular}{l|r|r}
-%     \multicolumn{1}{l}{Number} & \multicolumn{1}{l}{$X~[m]$} & \multicolumn{1}{l}{$Y~[m]$}\\ \hline
-%     Machine 1 & 1.68 & 1.68 \\
-%     Machine 2 & 3.92 & 1.68 \\
-%     Machine 3 & 0.56 & 2.80 \\
-%     Machine 4 & 1.68 & 2.80 \\
-%     Machine 5 & 2.80 & 2.80 \\
-%     Machine 6 & 3.92 & 2.80 \\
-%     Machine 7 & 5.04 & 2.80 \\
-%     Machine 8 & 1.68 & 3.92 \\
-%     Machine 9 & 3.92 & 3.92 \\
-%     Machine 10 & 5.04 & 3.92 \\
-%     Recycling unit 1 & 0.20 & 0.20 \\
-%     Recycling unit 2 & 5.40 & 5.40 \\
-%     Test station &	5.40  &0.20 \\
-%     Late order insertion point / slot & 	3.60 & 	5.35 \\
-%     Delivery slot 1 & 	3.15 & 0.26 \\
-%     Delivery slot 2 &	2.80 & 0.26 \\ 
-%     Delivery slot 3 &	2.45 & 0.26 \\\hline
-%   \end{tabular}
-
-%   \caption{Coordinates of production machines}
-%   \label{tab:coordinates}
-% \end{table}
-
-% \begin{figure}
-%   \centering
-%   \includegraphics[height=3cm]{125px-Puck}
-%   \caption{Puck}
-%   \label{fig:puck}
-% \end{figure}
+\begin{figure}
+	\subfigure[Puck]{
+		\includegraphics[width=0.2\textwidth]{125px-Puck}
+		\label{fig:puck}
+	}
+	\quad\quad
+	\subfigure[Machine]{
+		\includegraphics[width=0.2\textwidth]{llsf-signal}
+		\label{fig:machine}
+	}
+	\caption{Hardware equipment used within the competition field.}
+	\label{fig:}
+\end{figure}
 
 
 \subsection{The pallet carrier puck}
@@ -589,12 +517,6 @@ features a diameter of \SI{7.5}{\centi\metre} and is shown in
 Figure~\ref{fig:puck}. Please consult Appendix~\ref{sec:data-carrier} for
 further information of the RFID tag.
 
-% \begin{figure}
-%   \centering
-%   \includegraphics[height=3cm]{125px-Puck}
-%   \caption{Puck}
-%   \label{fig:puck}
-% \end{figure}
 
 \subsection{Machines}
 \label{sec:machines}
@@ -602,29 +524,29 @@ further information of the RFID tag.
 \subsubsection{General information}
 All machines are identical devices consisting of 
 \begin{itemize}
-\item one plate housing the RFID read/write device and
+\item one plate housing the RFID read/write device
 \item one signal unit according to Figure~\ref{fig:machine}.
 \end{itemize}
 
 They share the same design and RFID device. The overall size is
 \SI{280 x 160 x 100}{\milli\metre} (height $\times$ width $\times$
 depth). Confer also Appendix~\ref{apx:sec:engref} for further
-details. Machines can be in different states which are communicated by
+details. Machines can be in different states, which are communicated by
 their signal lights.
 
-\subsubsection{Production machines --- during exploration phase}
+\subsubsection{Production machines - during exploration phase}
 \label{sec:production-machines-exp}
-During the exploration phase the robots have to explore the unknown
-factory environment and identify the types of the different machine in
-the competition area. The frequency of machine types is defined in
-Table~\ref{tab:production-machines}. The machines will indicate their
+During the exploration phase the robots of each team have to explore their unknown
+factory environment, i.e. identify the types of the different production machines within
+the competition area. The frequency of machine types for each team is defined in
+Table~\ref{tab:production-machines-function}. The machines will indicate their
 different types by individual light signals. In total there are seven
 light signals possible with at least one LED switched on (no flashing
 lights). The light signals and the corresponding machine types are
 initially unknown. The Referee Box will assign every machine type to a
 light signal and publish it to the robots. The exploration phase
 starts with the announcement of the exploration game phase by the
-Referee Box. An exploration information message is sent which defines
+Referee Box. An exploration information message is sent, which defines
 the light signals of the machine types, e.g., red and green LED
 switched on indicate machine type \T1. If a robot perceives the red
 and green LED light switched on at machine \m1, the robot has to
@@ -634,8 +556,25 @@ Box. Therefore, the robot has to send a \emph{machine identified
 League Referee Box Integrator's Manual for a detailed definition of the
 message types.
 
+\begin{table}[tp]
+\centering
+	\mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
+		\multicolumn{1}{l}{Optical Feedback} & \multicolumn{1}{l}{Operating mode} \\ \hline 
+				All LEDs turned off &  	The machine is physically offline, caused by a real error, which should not happen during the competition. \\
+					Red LED turned on &  	The machine is out of order. \\
+					Green LED turned on &  	The machine is idle and ready.\\
+					Green and yellow LED turned on &  	The machine is processing or consuming the current data carrier. \\
+					Yellow LED flashing (at 2 Hz) & The machine detects wrong material.
+					This can be caused by data carriers that are already consumed,
+					sub-assemblies that do not fit to this machine type's work order or
+					corrupted data carriers. \\%\hline
+	\end{tabularx}}
+  \caption{Production Machines - Optical Feedback during production phase}
+  \label{tab:production-machines-feedback}  
+\end{table}
 
-\subsubsection{Production machines --- during production phase}
+
+\subsubsection{Production machines - during production phase}
 The default operating mode of all machines implies that only the green
 LED is turned on. This signals that the machine is ready for input.
 To enable the production process it is necessary to transport the
@@ -670,18 +609,31 @@ If a product is fed to a machine which is not appropriate, the machine
 reacts with a yellow light flashing at 2 Hz. A red light indicates
 that the machine is in an error state.  In this case no products can
 be processed on the machine (for details
-cf.~\refsec{sec:out-of-order}.  Table~\ref{tab:production-machines}
+cf.~\refsec{sec:out-of-order}).  Table~\ref{tab:production-machines-feedback}
 summarizes the operating modes of the production machines and the
 corresponding signal lights.
+
+\begin{table}[tp]
+\centering
+	\mytable{  \begin{tabularx}{\linewidth}{l|X|X|X|l}
+    \multicolumn{1}{l}{ Type} & \multicolumn{1}{l}{Distribution / Team} & \multicolumn{1}{l}{Input} & \multicolumn{1}{l}{Output} & \multicolumn{1}{l}{(Final) processing time[s]}\\\hline
+    \T1 & 4 times & \s0 (raw-material) & \s1 & $t_1 = 3 \mbox{ to } 8~\mathrm{sec}$\\
+    \T2 & 3 times & \s0; \s1 & \s2; one consumed container & $t_2 = 15 \mbox{ to } 25~\mathrm{sec}$\\
+    \T3 & 2 times &	\s0; \s1; \s2 & \p1; two consumed containers &$t_3 = 40 \mbox{ to } 60~\mathrm{sec}$\\
+    \T4 & 2 times & \s0; \s1; \s2 & \p2; two consumed containers &$t_4 = 40\mbox{ to } 60~\mathrm{sec}$\\
+    \T5 & 1 times &	\s0 & \p3 &$t_5 =20\mbox{ to } 40~\mathrm{sec}$
+  \end{tabularx}}
+  \caption{Production Machines - Type, Distribution and working method}
+  \label{tab:production-machines-function}  
+\end{table}
 
 The machine always processes the required pallet carrier delivered
 last, all prior components will be consumed. All machines will start
 processing the data carrier as soon as it enters the machine zone as
-stated in section~\ref{sec:competition-area}. They will change their
-operating mode according to Tables~\ref{tab:production-machines} to
-\ref{tab:delivery-gates}.
+stated in Section~\ref{sec:competition-area}. They will change their
+operating mode according to Tables~\ref{tab:production-machines-feedback}, \ref{tab:recycling-machine}, and \ref{tab:delivery-gates}.
 
-In order to complete the machines' work order the input materials have
+In order to complete the machines' work order, the input materials have
 to be delivered one-by-one into the RFID device's action range. The
 sequence of delivered input materials is irrelevant (e.g., \s0-\s1 or
 \s1-\s0). Multiple data carriers in range of the device will result in
@@ -691,88 +643,42 @@ machine can be done immediately after the operating mode changes away
 from processing. As long as the machines are used properly, they will
 not produce any junk. The distribution describes how many machines of
 the respective types will be randomly placed resulting in a total of
-10 court machines.
+12 court machines for each team.
 
-\begin{table}[tp]
-\centering
-\subtable[Optical Feedback during production phase]{\mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
-  \multicolumn{1}{l}{Optical Feedback} & \multicolumn{1}{l}{Operating mode} \\ \hline 
-  		All LEDs turned off &  	The machine is physically offline, caused by a real error which should not happen during the competition. \\
-        Red LED turned on &  	The machine is out of order. \\
-        Green LED turned on &  	The machine is idle and ready.\\
-        Green and yellow LED turned on &  	The machine is processing or consuming the current data carrier. \\
-        Yellow LED flashing (at 2 Hz) & The machine detects wrong material.
-        This can be caused by data carriers that are already consumed,
-        sub-assemblies that do not fit to this machine type's work order or
-        corrupted data carriers. \\%\hline
-\end{tabularx}}}
 
-\bigskip
-\subtable[Machine Types]{\mytable{  \begin{tabularx}{\linewidth}{l|X|X|X|l}
-    \multicolumn{1}{l}{ Type} & \multicolumn{1}{l}{Distribution} & \multicolumn{1}{l}{Input} & \multicolumn{1}{l}{Output} & \multicolumn{1}{l}{(Final)processing time[s]}\\\hline
-    \T1 & 4 times & \s0 (raw-material) & \s1 & $t_1 = 3 \mbox{ to } 8~\mathrm{sec}$\\
-    \T2 & 3 times & \s0; \s1 & \s2; one consumed container & $t_2 = 15 \mbox{ to } 25~\mathrm{sec}$\\
-    \T3 & 1 times &	\s0; \s1; \s2 & \p1; two consumed containers &$t_3 = 40 \mbox{ to } 60~\mathrm{sec}$\\
-    \T4 & 1 times & \s0; \s1; \s2 & \p2; two consumed containers &$t_4 = 40\mbox{ to } 60~\mathrm{sec}$\\
-    \T5 & 1 times &	\s0 & \p3 &$t_5 =20\mbox{ to } 40~\mathrm{sec}$
-  \end{tabularx}}}
-  \caption{Production Machines}
-  \label{tab:production-machines}  
-\end{table}
-
+\subsubsection{Recycling machines}
+During the staged production process raw-material is transformed or
+consumed by the machines. To use consumed raw-materials again, the
+robots of each team can use their corresponding recycling machine (i.e., R1 for team 1 and R2 for team 2). 
+The recycling machine processes all supplied
+loading carriers back to raw-material (\s0) within 2 seconds. The
+optical feedback provided by the recycling unit differs from
+production machines and is shown in Table~\ref{tab:recycling-machine}.
 
 \begin{table}[tp]
   \centering
   \mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
     \multicolumn{1}{l}{Optical Feedback} &\multicolumn{1}{l}{Operating
       mode}\\\hline
-    All LEDs turned off & 	The machine is physically offline, caused by a real error which should not happen during the competition.\\
+    All LEDs turned off & 	The machine is physically offline, caused by a real error, which should not happen during the competition.\\
     Red LED turned on & 	The machine is out of order\\
     Green LED turned on & 	The machine is idle and ready.\\
     Green and yellow LED turned on & The machine is processing the
     current data carrier.\\%\hline
   \end{tabularx}}
-  \caption{Recycling Unit}
-  \label{tab:recycling-unit}
+  \caption{Recycling Machines - Optical Feedback}
+  \label{tab:recycling-machine}
 \end{table}
-
-
-\begin{table}[tp]
-  \centering
-  \mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
-      \multicolumn{1}{l}{Optical Feedback} &\multicolumn{1}{l}{Stored
-        data on the data carrier}\\\hline
-      Red turned on & This delivery gate is inactive.\\
-      Green turned on & This gate is active, namely the
-      designated gate.\\
-      Yellow blinking & False delivery to active gate.\\
-      Red on, Yellow flashing (at \SI{2}{\hertz}) &
-      False delivery to inactive gate.\\
-      Red, Yellow, Green turned on & Successful delivery\\
-%    \hline
-  \end{tabularx}}
-  \caption{Delivery Gates}
-  \label{tab:delivery-gates}
-\end{table}
-
-\subsubsection{Recycling unit}
-During the staged production process raw-material is transformed or
-consumed by the machines. To use consumed raw-materials again, the
-robots can use one of the two recycling units placed in the corners of
-the competition area. The recycling unit processes all supplied
-loading carriers back to raw-material (\s0) within 2 seconds. The
-optical feedback provided by the recycling unit differs from
-production machines and is shown in Table~\ref{tab:recycling-unit}.
 
 \subsubsection{Delivery gates} 
 \label{sec:delivery-gates}
-If a variant of a final product is finished, it has to be delivered to
-the customer through one of the three delivery gates.  Only if the
-machine signal successful delivery (all lights steadily on) points are
+If a team finishes a variant of a final product, it has to be delivered to
+the customer through one of their three delivery gates. Only if the
+machine signals successful delivery (all lights steadily on) points are
 awarded. This state will last until the puck is removed by the
-referee. The puck may no longer be used in the game.  There will be
-only one active gate at a time. A gate is active between 60 and 180
-seconds. After the gate switches, there is a grace period of 3 seconds
+referee. The puck may no longer be used in the game. There will be
+only one active gate at a time for each team. A gate is active between 60 and 180
+seconds. After the gate switches, there is a grace period of 3 seconds,
 in which delivery will still be accepted to the formerly active
 delivery gate. False deliveries to an active gate will be indicated by
 a flashing yellow light (e.g. taking a \s0 puck to the active gate)
@@ -786,84 +692,74 @@ the pallet carrier will remain where it is. See
 Table~\ref{tab:delivery-gates} for the possible delivery gate signal
 states.
 
-%\subsubsection{Test station}
-%
-%The type of a sub-assembly can be determined at the test station in
-%the corresponding corner of the competition area. The test station
-%reads the RFID of the pallet carrier and visualizes the product type
-%with the light signal as shown in Table~\ref{tab:test-station}.
-%
-%\begin{table}[tp]
-%  \centering
-%  \mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
-%    \multicolumn{1}{l}{Optical Feedback} &\multicolumn{1}{l}{Stored
-%      data on the data carrier}\\\hline
-%    Green LED turned on &	The station is ready to read the next data carrier.\\
-%    All LEDs turned off &	Consumed pallet carrier.\\
-%    Yellow LED turned on &	Raw-material (\s0) \\
-%    Red and yellow LEDs turned on &	Sub-assembly 1 (\s1)\\
-%    Red LED turned on &	Sub-assembly 2 (\s2)\\
-%    Green LED flashing (at 2 Hz) & Finished product variant 1 (\p1{})\\%\hline
-%    Yellow LED flashing (at 2 Hz) & Finished product variant 2 (\p2{})\\%\hline
-%    Red LED flashing (at 2 Hz) & Finished product variant 3 (\p3{})\\%\hline
-%    All LED flashing (at 2 Hz) & Puck is out of game after delivery
-%    to (in)active gate\\%\hline
-%  \end{tabularx}}
-%  \caption{Test Station}
-%  \label{tab:test-station}
-%\end{table}
+\begin{table}[tp]
+  \centering
+  \mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
+      \multicolumn{1}{l}{Optical Feedback} &\multicolumn{1}{l}{Indication}\\\hline
+      Red turned on & This delivery gate is inactive.\\
+      Green turned on & This gate is active, namely the
+      designated gate.\\
+      Yellow blinking & False delivery to active gate.\\
+      Red on, Yellow flashing (at \SI{2}{\hertz}) &
+      False delivery to inactive gate.\\
+      Red, Yellow, Green turned on & Successful delivery\\
+%    \hline
+  \end{tabularx}}
+  \caption{Delivery Gates - Optical Feedback}
+  \label{tab:delivery-gates}
+\end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%
 
 \section{Referees}
 
-At the first day before the tournament begins, there is a short meeting with the briefing of all 
-named referees. (See next Point) 
+At the first day before the tournament begins, there is a short meeting including the briefing of all 
+named referees.
 
 \subsection{Referee Delegation}
 Each participating team of the tournament has to provide at least two team members as referees. These referees should perform the following criteria:
 
 \begin{itemize}
-  \item Available in each round until the final (otherwisemore than one team member)
+  \item Available in each round until the final (otherwise more than one team member)
   \item Good knowledge of the rulebook and the applied rules.
   \item Has participated at the referee briefing (see above)
   \item Is able to lead a competition in English.
 \end{itemize}
 
 \subsection{Tasks and Responsibilities}
-There are 3 referees for each competition. 
-One refbox referee and two field referees which are each assigned to a particular field half. One of the Field-Referee is also the Head-Referee namely the deciding vote. 
+There are 3 referees for each competition: 
+One refbox referee and two field referees, which are each assigned to a particular field half. One of the two field referees has the status of being the head referee. The head referee has the upper hand when there is a referee disagreement and then announces the final decision.
 
 The referees have to perform the following tasks:
 \begin{itemize}
-  \item Operating the refbox
-  \item Starting, interrupting or cancel a competition
+  \item Operate the refbox
+  \item Start, interrupt or cancel a competition
   \item Decide whether a robot can or must be taken out 
-  \item Reposition of pushed pucks
-  \item Removing the pucks delivered
+  \item Reposition pushed pucks
+  \item Remove pucks that were delivered
 \end{itemize}
 
 \subsection{Complaint procedure}
+There are two causes for a complaint procedure:
+\begin{itemize}
+\item If a team does not agree with the decisions of the referees, the affected team can start a complaint procedure.
+\item If the referees are canceling a competition, they must then initiate a mandatory complaint procedure.
+\end{itemize}
+
+The procedure of initiating a complaint procedure is as follows:
 \begin{enumerate}
-\item If a team does not agree with the decisions of the referees, it can start a complaint procedure.
-\item If a referee is cancelling a competition then must follow a mandatory complaint procedure.
+\item Contact a TC member within 10 minutes after the respective competition ended.
+\item The TC member then invokes a team leader conference. Invited are: referees of the game in question, team leaders (majority must be present), TC (counseling only).
+\item Votes on the next steps (e.g., replay the game) are performed by team leaders only, the majority of present team leaders is sufficient.
 \end{enumerate}
-\begin{itemize}
-\item Contact a TC member within 10min after the competition ended.
-\item The TC member invokes a team leader conference; 
-\begin{itemize}
-\item invited are: referees of the game in question, team leaders (majority must be present), TC (counseling only), 
-\item votes are performed by team leaders only, majority of present team leaders is sufficient.
-\end{itemize}
-\end{itemize}
 
 \subsection{Liability waiver}
 Referees are not liable for:
 \begin{itemize}
-\item any kind of injury suffered by a player, offcial or spectator
+\item any kind of injury suffered by a player, official or spectator
 \item any damage to property of any kind
-\item any other loss suffered by any individual, club, company, association or other body, which is due or which may be due to any decision which he may take under the terms of the Laws of the Game or in respect of the normal procedures required to hold, play and control a match.
+\item any other loss suffered by any individual, club, company, association or other body, which is due or which may be due to any decision, which he may take under the terms of the Laws of the Game or in respect of the normal procedures required to hold, play and control a match.
 \end{itemize}
 
 \section{The Robotino system} \label{sec:robotino}
@@ -1292,7 +1188,7 @@ as a production graph.
       \end{tabularx}
     }      
   }{%
-    \caption{The production table}
+    \caption{Production table}
     \label{tab:production-table}
   }
 \end{floatrow}
@@ -1553,6 +1449,25 @@ can be adjusted to meet time requirements.
 \subsection{Task fulfillment}
 Table \ref{tab:scoring} provides the itemized clearance of all task
 related processes and their scoring.
+
+
+\subsection{Pushing Rules}
+\begin{enumerate}
+	\item Robots must drive such that they try to avoid physical contact with robots from the opposing team. However, physical contact per se does not represent an offence.
+	\item All robots should be equipped to detect situations of physical contact with other robots (direct pushing situations).
+	\item If physical contact with other robots cannot be avoided, it must be soft, i.e. at slow speed and with as small physical impact as possible, in order to avoid damage to itself and other robots. Robots moving at high speed must significantly decelerate before a collision occurs with another robot.
+	\item If a destruction collision is immediate and the robots don't react, the referee should use the refbox to send a stop command to all robots. Every team has to react to the stop command by immediately stopping their robots.
+	\item Whenever a robot produces direct physical contact with another robot while moving, it must stop movement immediately in that direction (and choose a new direction for movement).
+	\item If pushing occurs between a moving and a standing robot, the moving robot causes the pushing situation and is responsible for resolving it. If he is not able to do this, a pushing foul will be called.
+	\item If pushing occurs between two moving robots, both robots are responsible for resolving the pushing situation. If one robot continues pushing by moving in its initial direction, while the other robot is recognizably reacting and trying to take another direction, the foul will be called on the pushing robot.
+	\item If two robots encounter physical contact and cannot resolve the situation because they get entangled, the referee may issue a pushing foul on both robots.
+	\item If, in the opinion of the referee, physical contact between two robots is not soft, or if one or both of the robots do not change direction after  encountering physical contact, a pushing foul will be called.
+	\item When a pushing foul is detected the responsible team has to use up their restart for the stuck robot to start at the insertion zone again. The other team can decide whether or not they want to restart their robot in the insertion zone without it counting as a penalty restart.
+	\item If a robot moves a puck from the opposing team within the fenced area (machine area or input area) by at least one diameter, the robot gets a pushing foul and a referee will move the puck back to its original position.
+	\item If a robot loses his puck during the collision avoidance or in case of collision, the puck will not be replaced.
+	\item The rules of pushing occur only between robots of different teams.
+	\item The league reserves its rights to disqualify clearly malicious teams.
+\end{enumerate}
 
 
 \subsection{Penalties}
