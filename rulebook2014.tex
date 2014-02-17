@@ -954,12 +954,9 @@ be found in Appendix~\ref{sec:wifi-equipment}.
 %%%
 
 \section{Game play}
-A match is defined by two contesting teams competing at two separated
-identical competition areas. Each team consists of a maximum of 3
+A match is defined by two contesting teams competing within the same identical competition area. Each team consists of a maximum of 3
 robots. Each match consists of 5 minutes of setup time,
-a 3 minute exploration phase, and a 15 minute production phase.
-% we should assume fair games even on reasonable differences, this
-% saves us from synchronizing refboxes on multiple fields
+a maximum of 4 minute exploration phase, and a 15 minute production phase.
 % All settings, including the late order challenge and other random
 % events, will be the exact same for both parties of a match.
 The three phases of the game are detailed below.
@@ -967,16 +964,15 @@ The three phases of the game are detailed below.
 \subsection{Environment setup}
 \label{sec:env-setup}
 
-The physical distribution of the production machines is fixed. Their
-alignment will be randomized during the tournament setup. The machine
+The physical distribution and alignment of the production machines is fixed. The machine
 type of each production machine will be randomized prior to each
 match. The processing time of each machine type will be determined in
 the same way, so the waiting time during a match will be static for
 each machine of all machine types (e.g. all T1 could have 7 seconds
 processing time). The active delivery gate will also be randomized
-prior to each match but during a match the active gate can switch.  At
+prior to each match, but during a match the active gate can switch. At
 the beginning, 20 raw materials (pucks in $S_0$ state) will be placed
-in the input storage initially spread as shown in
+in each input storage, initially spread as shown in
 \reffig{fig:competition-area}. The pucks may only be touched by a
 robot after the game has started. In particular, they may not be
 re-positioned for better alignment if they have been pushed or moved by
@@ -991,7 +987,7 @@ No team member is allowed to enter the competition area prior to or
 during a match. All robots which are to participate in the game, need
 to be in the game area during setup. All robots are allowed to roam
 through the entire area, autonomously or teleoperated. However, no
-robot is allowed to touch any pallet carried during setup;
+robot is allowed to touch any pallet carrier during setup;
 infringements will be punished as \textit{misbehaving robot}. The
 referee box will control the setup period. When the game starts, all
 robots need to be in the insertion area; no robot is allowed to be in
@@ -1024,7 +1020,7 @@ configuration, instructions, or whatsoever, is allowed.
 Each team is allowed to maintain each robot once per game. The team
 has to call upon the referee for \textit{robot maintenance}. The
 referee should judge the game situation carefully and should allow the
-robot to be taken out for maintenance, if the neither the calling team
+robot to be taken out for maintenance, if neither the calling team
 nor another robot would have any advantage in the current game
 situation from the take-out. An advantage would be, for instance, to
 take out a robot, if two robots are hindering each other. It is up to
@@ -1074,18 +1070,19 @@ button on the robot.
 \subsubsection{Exploration phase}
 \label{sec:expphase}
 %
-With the start of the game, the exploration phase begins. For three
-minutes all machines indicate their type using steady light
+With the start of the game, the exploration phase begins. All machines indicate their type using steady light
 signals. The signal light encoding of machine types will be published
 by the referee box as described in
 \refsec{sec:production-machines-exp} and in detail in the RoboCup
 Logistics League Referee Box Integrator's Manual. The robots are to
-roam the environment and announce the detected types to the referee
+roam the environment and announce the detected types of their production machines to the referee
 box.  Each properly reported signal scores \num{+4} points, each
 signal reported wrongly will give \num{-3} points penalty. A minimum
 of zero points will be accounted for this exploration
 phase. Production or moving pucks is not allowed during the
 exploration phase.
+The exploration phase ends either after four minutes or immediately after all machines have been reported by both teams.
+
 
 
 \subsubsection{Production phase}
@@ -1095,8 +1092,7 @@ With the end of the exploration phase, the actual production begins,
 which lasts \num{15} minutes. The referee box publishes all information
 regarding products and machines. This includes position, orientation,
 and type of each machine, as well as the different product variants
-that can be produced and the time windows for production of each
-variant. 
+that can be produced.
 
 
 \subsection{Production portfolio}
@@ -1104,7 +1100,7 @@ variant.
 
 The production portfolio is presented in
 Table~\ref{tab:production-table} and in
-Fig.~\ref{fig:production-diagram}, which presents the same information
+Figure~\ref{fig:production-diagram}, which presents the same information
 as a production graph.
 
 
@@ -1183,7 +1179,6 @@ as a production graph.
         \TAG{consumed}\\
         \s{1} &	\T{2}, \T{3}, \T{4} &  	\s{0} & 	\s{2} or \TAG{consumed} \\
         \s{2} & \T{3}, \T{4} & \s{0}, \s{1} &	\p{1}, \p{2} \\
-        \TAG{Late Order} & \T{5} & none &  \TAG{Processed Late Order}\\
 %        \hline
       \end{tabularx}
     }      
@@ -1269,11 +1264,9 @@ as a production graph.
 %\todo[inline]{What is a C??}
 
 \subsubsection{The production table}
-Table~\ref{tab:production-table} shows the production table for the
-main challenge; the multistaged production processes as well as the
-Late Order Challenge. The main challenge can be repeated as long as
+Table~\ref{tab:production-table} shows the production table for the multistaged production processes. They can be repeated as long as
 enough pallet carriers can be provided to complete the cycle. The
-different machine types are specified in Sect.~\ref{sec:machines}.
+different machine types are specified in Section~\ref{sec:machines}.
 
 \subsection{During a match}
 \label{sec:during-match}
@@ -1292,14 +1285,11 @@ events during a match. The machines affected will remain out of order
 for 30 to 120 seconds. Every machine can only be forced out of order
 once per match. If the machine turns offline during processing or
 consumption of mounted a pallet carrier, it will afterwards resume the
-process (extending the overall processing time by the down time).  The
-refbox will adjust the down times of T5 machines not to collide with
-late orders to allow production and delivery within the late order
-time.
+process (extending the overall processing time by the down time).
 
 \subsubsection{Production Plan}
 The referee box will announce orders throughout the game in an
-incremental fahion. Each order will consist of the products to
+incremental fashion. Each order will consist of the products to
 produce, the amount thereof, and delivery time slots for each
 product. In each game, there will be a fixed maximum number of points
 that can be scored. \todo{Number of points} These points will be
@@ -1308,7 +1298,7 @@ require one or more products of a specified product type to be
 delivered. The delivery time slot will have a randomized start time
 and a randomized duration between 30 to 180 seconds. The end time
 shall be within the game time. The duration shall be long enough to
-cover at least the production time of he final machine in the
+cover at least the production time of the final machine in the
 production chain and 30 seconds of travel time. The orders shall be
 posted with a uniform distribution over the whole game time (but there
 is not necessarily an open order for a particular product at a
