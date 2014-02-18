@@ -1075,13 +1075,13 @@ signals. The signal light encoding of machine types will be published
 by the referee box as described in
 \refsec{sec:production-machines-exp} and in detail in the RoboCup
 Logistics League Referee Box Integrator's Manual. The robots are to
-roam the environment and announce the detected types of their production machines to the referee
+roam the environment and announce the detected types of their 12 production machines to the referee
 box.  Each properly reported signal scores \num{+4} points, each
 signal reported wrongly will give \num{-3} points penalty. A minimum
 of zero points will be accounted for this exploration
 phase. Production or moving pucks is not allowed during the
 exploration phase.
-The exploration phase ends either after four minutes or immediately after all machines have been reported by both teams.
+The exploration phase ends either after four minutes or immediately after all 12 machines have been reported by both teams.
 
 
 
@@ -1328,15 +1328,24 @@ production plans but other games will have their own.
 \section{Tournament}
 \label{sec:tournament}
 
-%\subsection{Playing Mode}
-%\textbf{Explain the overall different phases of the tournament.}
-% Commented this subsection as there is no content - should/could be added in
-% revision for 2014
-
 \begin{table}
   \centering
-  \subtable[Scoring scheme for the main challenge]{\mytable{\begin{tabularx}{\linewidth}{p{7em}|X|p{2.4em}}
-        \multicolumn{1}{l}{Sub-task } &\multicolumn{1}{l}{Main challenge} &
+  
+    \subtable[Scoring scheme for the exploration
+  phase]{\mytable{\begin{tabularx}{\linewidth}{p{7em}|X|p{2.4em}}
+        \multicolumn{1}{l}{Reported} &\multicolumn{1}{l}{Exploration Phase} & \multicolumn{1}{l}{Points}\\\hline
+    Correctly & Correctly determine a machine type and
+    report it successfully to the refbox &	+4\\
+    Incorrectly & Wrongly reported machine type &  -3\\
+    Round Total & A maximum of 48 points can be achieved by correctly
+    reporting all 12 production machines. A minimum of 0 points is
+    awarded. & 0 -- 48\\%\hline
+  \end{tabularx} }}
+  
+  \bigskip
+  
+  \subtable[Scoring scheme for the production phase]{\mytable{\begin{tabularx}{\linewidth}{p{7em}|X|p{2.4em}}
+        \multicolumn{1}{l}{Sub-task } &\multicolumn{1}{l}{Production Phase} &
         \multicolumn{1}{l}{Points}\\\hline
         Produce \s2 & Finish the work order of a machine type 2 & $+4$\\
         Produce product variant \p1  & Finish the work order of a machine type 3 & $+12$ \\
@@ -1353,27 +1362,13 @@ production plans but other games will have their own.
         its work cycle to the recycling machine& $+5$\\
     \end{tabularx}  }}
 
+	\bigskip
 
-\bigskip
-\subtable[Scoring scheme for the late order
-challenge]{\mytable{\begin{tabularx}{\linewidth}{p{7em}|X|p{2.4em}} \multicolumn{1}{l}{Sub-task } &\multicolumn{1}{l}{LOC - Late Order
-        Challenge} & \multicolumn{1}{l}{Points}\\\hline
-      Delivery  of LO & Deliver the processed late order (LO) to the active
-      delivery gate in time. &  +20\\%\hline
+	\subtable[Scoring scheme for game commentary]{\mytable{\begin{tabularx}{\linewidth}{p{7em}|X|p{2.4em}} \multicolumn{1}{l}{Task} &\multicolumn{1}{l}{Game Commentary} & \multicolumn{1}{l}{Points}\\\hline
+      Accepted Commentary & Commentate at least one half of the game on microphone to the public. &  +10\\%\hline
   \end{tabularx} }}
-
-  \bigskip
-  \subtable[Scoring scheme for the exploration
-  phase]{\mytable{\begin{tabularx}{\linewidth}{p{7em}|X|p{2.4em}}
-        \multicolumn{1}{l}{Reported} &\multicolumn{1}{l}{Exploration Phase} & \multicolumn{1}{l}{Points}\\\hline
-    Correctly & Correctly determine a machine type and
-    report it successfully to the refbox &	+4\\
-    Incorrectly & Wrongly reported machine type &  -3\\
-    Round Total & A maximum of 40 points can be achieved by correctly
-    reporting all ten field machines. A minimum of 0 points is
-    awarded. & 0 -- 40\\%\hline
-  \end{tabularx} }}
-  \caption{Scoring Scheme}
+  
+  \caption{Scoring Schemes}
   \label{tab:scoring}   
 \end{table}
 
@@ -1436,7 +1431,10 @@ is to allow each participant to challenge each other team the league
 can be adjusted to meet time requirements.
 
 
-\subsection{Task fulfillment}
+\subsection{Game Commentary}
+In addition to scoring in the exploration and the production phase, points are also awarded when a team provides a commentary on microphone to the public throughout the game. The commentary should communicate the overall problems to be solved within this league, the actual events taking place, but also give an insight on the own team and how they solved certain tasks. It does neither has to be perfect, nor to be a continuous, flawless stream of information. At the end of the game. the referees decide if the commentary duties were met and award the according team with ten points. If both teams are willing to commentate on the game, the game time is shared according to the team specification (i.e., team 1 commentates the first half, team 2 the second half), if both teams have not decided to halve the game time in some other way.
+
+\subsection{Task fulfillment and scoring}
 Table \ref{tab:scoring} provides the itemized clearance of all task
 related processes and their scoring.
 
@@ -1452,7 +1450,7 @@ related processes and their scoring.
 	\item If pushing occurs between two moving robots, both robots are responsible for resolving the pushing situation. If one robot continues pushing by moving in its initial direction, while the other robot is recognizably reacting and trying to take another direction, the foul will be called on the pushing robot.
 	\item If two robots encounter physical contact and cannot resolve the situation because they get entangled, the referee may issue a pushing foul on both robots.
 	\item If, in the opinion of the referee, physical contact between two robots is not soft, or if one or both of the robots do not change direction after  encountering physical contact, a pushing foul will be called.
-	\item When a pushing foul is detected the responsible team has to use up their restart for the stuck robot to start at the insertion zone again. The other team can decide whether or not they want to restart their robot in the insertion zone without it counting as a penalty restart.
+	\item When a pushing foul is detected the responsible team has to use up their restart for the stuck robot to start at the insertion zone again. The other team can decide within 10 seconds to restart their involved robot in the insertion zone without it counting as a penalty restart.
 	\item If a robot moves a puck from the opposing team within the fenced area (machine area or input area) by at least one diameter, the robot gets a pushing foul and a referee will move the puck back to its original position.
 	\item If a robot loses his puck during the collision avoidance or in case of collision, the puck will not be replaced.
 	\item The rules of pushing occur only between robots of different teams.
