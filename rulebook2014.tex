@@ -9,10 +9,8 @@
 \marginsize{2.5cm}{2cm}{2cm}{2cm}
 
 \setlength{\marginparwidth}{1cm}
-\usepackage{fourier}
+%\usepackage{fourier}
 %\newcommand\rulechange[1]{\begin{shaded}#1\end{shaded}\marginpar{\LARGE\danger}}
-\usepackage[style=numeric,backend=bibtex,maxbibnames=10]{biblatex}
-\addbibresource{rulebook2014}
 
 %% MACROS %%%%%%%%%%%%%%%%%%%
 
@@ -26,10 +24,7 @@
 % { \endMakeFramed}
 \newenvironment{rulechange}{}{}
 
-%\usepackage[load-configurations=binary]{siunitx}
-% may be
 \usepackage[binary-units=true]{siunitx}
-% depending on siunitx package version
 
 %\usepackage{framed,xcolor}
 %\colorlet{shadecolor}{gray!25}
@@ -111,11 +106,15 @@
 \usepackage[utf8]{inputenc}
 \input{macros.tex}
 
+\usepackage[style=numeric,backend=bibtex,maxbibnames=10]{biblatex}
+\addbibresource{rulebook2014}
+
 
 \begin{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Titlepage
+\hypersetup{pageanchor=false}
 \pagenumbering{roman}
 
 
@@ -148,6 +147,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Table of Contents
+\hypersetup{pageanchor=true}
 \setcounter{page}{1}
 \tableofcontents
 \newpage
@@ -197,12 +197,6 @@ throughput production and rather foster production scheduling and
 planning. For 2015, we intend to replace the signal machines by actual
 processing machines as outlined in~\cite{wdrl2013}.
 
-Finally, no rulebook is perfect. Teams should avoid searching for
-rulebook gaps or inconsistencies to achieve advantages in the
-competition. Instead they are explicitly requested to report such gaps
-to the Technical Committee, so we can keep the necessity for rule
-discussions during the RoboCup event to a minimum.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The task}
 \label{sec:task}
@@ -234,11 +228,9 @@ divided into three different phases: a short setup phase, an
 exploration phase (see \refsec{sec:expphase}) during which robots
 receive scores for correctly discovering and publishing the yet
 unknown types of the different machines on the field. After this phase
-the referee box will announce all machine types and
-designations. Succeeding into the second game phase the actual
-production tasks as described in detail in
-\refsec{sec:production-phase} is disclosed to the teams and their
-robots.
+the referee box will announce all machine types and designations. In
+the following production phase orders are announced by the referee box
+which the robots must fulfill automatically.
 
 The whole factory area can be used as an intermediate storage. Finally
 successfully assembled products are to be delivered to the correct
@@ -247,7 +239,8 @@ has to be treated in the best possible way. Any possible damage to the
 field or the machines will be penalized by the referee.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Agreements \& regulations} \label{sec:agreements}
+\subsection{Agreements \& Regulations}
+\label{sec:agreements}
 
 The Logistics League follows a certain design philosophy. All teams
 are obliged to use the Robotino robotic system from Festo Didactic
@@ -261,15 +254,14 @@ external assistance (like Indoor GPS) is permitted.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Rules Philosophy}
-
+\label{sec:rules-philosphy}
 We are located in the Logistics League (Industrial). Thus the goal is
 to complete the tasks as quickly and reliably as possible. Each team
 should act within the meaning of a cooperative and fair behaviour,
-even if everyone wants to be the better one.
-
-Teams should avoid searching for rulebook gaps or inconsistencies to
-achieve advantages in the competition. Instead they are explicitly
-requested to report such gaps to the Technical Committee.
+even if everyone wants to be the better one. Teams should avoid
+searching for rulebook gaps or inconsistencies to achieve advantages
+in the competition. Instead they are explicitly requested to report
+such gaps to the Technical Committee.
 
 Due to the not completely all cases covering rule book, we consider a
 general gentleman agreement.  The golden rule of ethic: "One should
@@ -281,12 +273,12 @@ treat others as one would like others to treat oneself".
 \subsection{Technical Committee 2014} \label{sec:tc}
 % Alphabetical order by last name
 \emph{Christian Deppe}, Festo Didactic, Denkendorf, Germany\\
+\emph{Nils Harder}, TU Magdeburg, Magdeburg, Germany\\
 \emph{S\"oren Jentzsch}, Technical University of Munich, Munich, Germany\\
+\emph{Nicolas Meier}, Leuphana University Lüneburg, Germany\\
 \emph{Tim Niemueller}, RWTH Aachen University, Aachen, Germany\\
 \emph{Alain Rohr}, Höhere Fachschule für Technik Mittelland, Biel, Switzerland\\
-\emph{Nicolas Meier}, Leuphana University Lüneburg, Germany\\
 \emph{Wataru Uemura}, Ryukoku University, Kyoto, Japan\\
-\emph{Nils Harder}, TU Magdeburg, Magdeburg, Germany\\
 \medskip
 
 \noindent
@@ -296,11 +288,10 @@ To get into contact with the TC use the mailing list\\
 \subsection{Organizing Committee 2014} \label{sec:oc} 
 \emph{Alexander Ferrein}, FH Aachen University of Applied Sciences,
 Aachen, Germany\\
+\emph{Eren Karaman}, Leuphana University Lüneburg, Germany\\
 \emph{Ulrich Karras}, Festo Didactic GmbH, Denkendorf, Germany\\
 \emph{Sebastian Reuter}, RWTH Aachen University, Aachen, Germany\\
 \emph{Thomas Zuercher}, Höhere Fachschule für Technik Mittelland, Biel, Switzerland\\
-\emph{Eren Karaman}, Leuphana University Lüneburg, Germany\\
-
 \medskip
 
 \noindent
@@ -563,17 +554,31 @@ further information of the RFID tag.
 \label{sec:machines}
 
 \subsubsection{General information}
-All machines are identical devices consisting of 
-\begin{itemize}
-\item one plate housing the RFID read/write device
-\item one signal unit according to Figure~\ref{fig:machine}.
-\end{itemize}
+All machines are identical devices consisting a plate housing the RFID
+read/write device and a signal unit according to
+Figure~\ref{fig:machine}. They share the same design and RFID
+device. The overall size is \SI{280 x 160 x 100}{\milli\metre} (height
+$\times$ width $\times$ depth). Confer also
+Appendix~\ref{apx:sec:engref} for further details. Machines can be in
+different states, which are communicated by their signal lights.
 
-They share the same design and RFID device. The overall size is
-\SI{280 x 160 x 100}{\milli\metre} (height $\times$ width $\times$
-depth). Confer also Appendix~\ref{apx:sec:engref} for further
-details. Machines can be in different states, which are communicated by
-their signal lights.
+The machine distribution (number of machines per type and team), their
+input(s) and output and their range of processing times is summarized
+in Table~\ref{tab:production-machines-function}.
+
+\begin{table}[tp]
+\centering
+	\mytable{  \begin{tabularx}{\linewidth}{l|X|X|X|l}
+    \multicolumn{1}{l}{ Type} & \multicolumn{1}{l}{Distribution / Team} & \multicolumn{1}{l}{Input} & \multicolumn{1}{l}{Output} & \multicolumn{1}{l}{(Final) processing time[s]}\\\hline
+    \T1 & 4 times & \s0 (raw-material) & \s1 & $t_1 = 3 \mbox{ to } 8~\mathrm{sec}$\\
+    \T2 & 3 times & \s0; \s1 & \s2; one consumed container & $t_2 = 15 \mbox{ to } 25~\mathrm{sec}$\\
+    \T3 & 2 times &	\s0; \s1; \s2 & \p1; two consumed containers &$t_3 = 40 \mbox{ to } 60~\mathrm{sec}$\\
+    \T4 & 2 times & \s0; \s1; \s2 & \p2; two consumed containers &$t_4 = 40\mbox{ to } 60~\mathrm{sec}$\\
+    \T5 & 1 times &	\s0 & \p3 &$t_5 =20\mbox{ to } 40~\mathrm{sec}$
+  \end{tabularx}}
+  \caption{Production Machines - Type, Distribution and working method}
+  \label{tab:production-machines-function}  
+\end{table}
 
 \subsubsection{Production machines - during exploration phase}
 \label{sec:production-machines-exp}
@@ -600,7 +605,7 @@ the message types.
 
 \begin{table}[tp]
 \centering
-	\mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
+\mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
 		\multicolumn{1}{l}{Optical Feedback} & \multicolumn{1}{l}{Operating mode} \\ \hline 
 				All LEDs turned off &  	The machine is physically offline, caused by a real error, which should not happen during the competition. \\
 					Red LED turned on &  	The machine is out of order. \\
@@ -654,20 +659,6 @@ be processed on the machine (for details
 cf.~\refsec{sec:out-of-order}).
 Table~\ref{tab:production-machines-feedback} summarizes the operating
 modes of the production machines and the corresponding signal lights.
-
-\begin{table}[tp]
-\centering
-	\mytable{  \begin{tabularx}{\linewidth}{l|X|X|X|l}
-    \multicolumn{1}{l}{ Type} & \multicolumn{1}{l}{Distribution / Team} & \multicolumn{1}{l}{Input} & \multicolumn{1}{l}{Output} & \multicolumn{1}{l}{(Final) processing time[s]}\\\hline
-    \T1 & 4 times & \s0 (raw-material) & \s1 & $t_1 = 3 \mbox{ to } 8~\mathrm{sec}$\\
-    \T2 & 3 times & \s0; \s1 & \s2; one consumed container & $t_2 = 15 \mbox{ to } 25~\mathrm{sec}$\\
-    \T3 & 2 times &	\s0; \s1; \s2 & \p1; two consumed containers &$t_3 = 40 \mbox{ to } 60~\mathrm{sec}$\\
-    \T4 & 2 times & \s0; \s1; \s2 & \p2; two consumed containers &$t_4 = 40\mbox{ to } 60~\mathrm{sec}$\\
-    \T5 & 1 times &	\s0 & \p3 &$t_5 =20\mbox{ to } 40~\mathrm{sec}$
-  \end{tabularx}}
-  \caption{Production Machines - Type, Distribution and working method}
-  \label{tab:production-machines-function}  
-\end{table}
 
 The machine always processes the required pallet carrier delivered
 last, all prior components will be consumed. All machines will start
