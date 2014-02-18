@@ -11,6 +11,8 @@
 \setlength{\marginparwidth}{1cm}
 \usepackage{fourier}
 %\newcommand\rulechange[1]{\begin{shaded}#1\end{shaded}\marginpar{\LARGE\danger}}
+\usepackage[style=numeric,backend=bibtex,maxbibnames=10]{biblatex}
+\addbibresource{rulebook2014}
 
 %% MACROS %%%%%%%%%%%%%%%%%%%
 
@@ -182,17 +184,24 @@ plug-and-produce capable systems.
 After an exciting RoboCup in Mexico, we look forward to a new scale of
 competition that will emerge from initiatives around the globe. In
 2012 we had our first Logistics League World Champion.  In 2013 we
-introduce the Referee Box changing the competition at its core by
-introducing a flow of information.  This allows for more dynamic games
-and the automatic tracking of scores, and to relax the hitherto
-existing regulations regarding additional computing power.
+introduced the Referee Box changing the competition at its core by
+introducing a flow of information.  This allowed for more dynamic
+games and the automatic tracking of scores, and to relax the hitherto
+existing regulations regarding additional computing power. In 2014, we
+will combine the previously separated playing fields into a single
+one, on which both teams compete at the same time, introducing the
+need for self-localization, collision avoidance, and increased spatial
+coordination complexity. Also, the production plans will be more
+dynamic and we will limit the number of orders to avoid blind maximum
+throughput production and rather foster production scheduling and
+planning. For 2015, we intend to replace the signal machines by actual
+processing machines as outlined in~\cite{wdrl2013}.
 
-Finally, no rulebook is perfect. Feel obliged to inform us about
-issues you like to discuss or gaps that might have an impact on the
-competition, so we can keep the necessity for rule discussions at the
-RoboCup event to a minimum. We are open for all kinds of suggestions;
-the set of rules will be fixed at 01/01/2013 and revised in April 2013
-after the German Open 2013 competition.
+Finally, no rulebook is perfect. Teams should avoid searching for
+rulebook gaps or inconsistencies to achieve advantages in the
+competition. Instead they are explicitly requested to report such gaps
+to the Technical Committee, so we can keep the necessity for rule
+discussions during the RoboCup event to a minimum.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The task}
@@ -2037,6 +2046,7 @@ compression, e.g. use the low cost Logitech web camera C250.
   \label{apx:tab:datacarrier}
 \end{table}
 
+\printbibliography
 
 \end{appendix}
 \end{document}
