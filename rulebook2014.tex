@@ -1522,21 +1522,63 @@ related processes and their scoring.
 
 
 \subsection{Pushing Rules}
+With multiple teams on the field at the same time, robots must
+implement ways for collision avoidance. At the same time, they shall
+not interfere with the goods of the other team. The case where a robot
+of one team bumps into or moves a robot or puck of another team we
+call ``pushing''.
+
+The following rules shall be obeyed by the robots and provide the
+guidelines for referees to call for improper behavior of a robot due
+to pushing.
+
 \begin{enumerate}
-	\item Robots must drive such that they try to avoid physical contact with robots from the opposing team. However, physical contact per se does not represent an offence.
-	\item All robots should be equipped to detect situations of physical contact with other robots (direct pushing situations).
-	\item If physical contact with other robots cannot be avoided, it must be soft, i.e. at slow speed and with as small physical impact as possible, in order to avoid damage to itself and other robots. Robots moving at high speed must significantly decelerate before a collision occurs with another robot.
-	\item If a destruction collision is immediate and the robots don't react, the referee should use the refbox to send a stop command to all robots. Every team has to react to the stop command by immediately stopping their robots.
-	\item Whenever a robot produces direct physical contact with another robot while moving, it must stop movement immediately in that direction (and choose a new direction for movement).
-	\item If pushing occurs between a moving and a standing robot, the moving robot causes the pushing situation and is responsible for resolving it. If he is not able to do this, a pushing foul will be called.
-	\item If pushing occurs between two moving robots, both robots are responsible for resolving the pushing situation. If one robot continues pushing by moving in its initial direction, while the other robot is recognizably reacting and trying to take another direction, the foul will be called on the pushing robot.
-	\item If two robots encounter physical contact and cannot resolve the situation because they get entangled, the referee may issue a pushing foul on both robots.
-	\item If, in the opinion of the referee, physical contact between two robots is not soft, or if one or both of the robots do not change direction after  encountering physical contact, a pushing foul will be called.
-	\item When a pushing foul is detected the responsible team has to use up their restart for the stuck robot to start at the insertion zone again. The other team can decide within 10 seconds to restart their involved robot in the insertion zone without it counting as a penalty restart.
-	\item If a robot moves a puck from the opposing team within the fenced area (machine area or input area) by at least one diameter, the robot gets a pushing foul and a referee will move the puck back to its original position.
-	\item If a robot loses his puck during the collision avoidance or in case of collision, the puck will not be replaced.
-	\item The rules of pushing occur only between robots of different teams.
-	\item The league reserves its rights to disqualify clearly malicious teams.
+\item Pushing occurs only between robots of different teams.
+\item Robots must drive such that they try to avoid physical contact
+  with robots from the opposing team. However, physical contact per se
+  does not represent an offence.
+\item All robots should be equipped to detect situations of physical
+  contact with other robots (direct pushing situations).
+\item If physical contact with other robots cannot be avoided, it must
+  be soft, i.e. at slow speed and with as small physical impact as
+  possible, in order to avoid damage to itself and other
+  robots. Robots moving at high speed must significantly decelerate
+  before a collision occurs with another robot.
+\item If a destruction collision is immediate and the robots don't
+  react, the referee should use the refbox to send a stop command to
+  all robots. Every team has to react to the stop command by
+  immediately stopping their robots.
+\item Whenever a robot produces direct physical contact with another
+  robot while moving, it must stop movement immediately in that
+  direction (and choose a new direction for movement).
+\item If pushing occurs between a moving and a standing robot, the
+  moving robot causes the pushing situation and is responsible for
+  resolving it. If he is not able to do this, a pushing foul will be
+  called.
+\item If pushing occurs between two moving robots, both robots are
+  responsible for resolving the pushing situation. If one robot
+  continues pushing by moving in its initial direction, while the
+  other robot is recognizably reacting and trying to take another
+  direction, the foul will be called on the pushing robot.
+\item If two robots encounter physical contact and cannot resolve the
+  situation because they get entangled, the referee may issue a
+  pushing foul on both robots.
+\item If, in the opinion of the referee, physical contact between two
+  robots is not soft, or if one or both of the robots do not change
+  direction after encountering physical contact, a pushing foul will
+  be called.
+\item When a pushing foul is detected the responsible team has to use
+  up their restart for the stuck robot to start at the insertion zone
+  again. The other team can decide within 10 seconds to restart their
+  involved robot in the insertion zone without it counting as a
+  penalty restart.
+\item Moving a puck of the opposing team within a fenced area (machine
+  or input area) by at least one puck diameter is a pushing foul. The
+  referee will move the puck back to its original position.
+\item If a robot loses his puck during collision avoidance or in case
+  of a collision the puck will not be replaced.
+\item The league reserves its right to disqualify clearly malicious
+  teams.
 \end{enumerate}
 
 
