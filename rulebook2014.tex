@@ -1356,9 +1356,12 @@ process (extending the overall processing time by the down time).
 The referee box will announce orders throughout the game in an
 incremental fashion. Each order will consist of the products to
 produce, the amount thereof, and delivery time slots for each
-product. In each game, there will be a fixed maximum number of points
-that can be scored. \todo{Number of points} These points will be
-distributed among orders posted by the referee box. Each order will
+product. In each game, orders with a fixed delivery value of 150
+points will be placed\footnote{The number can be adjusted during the
+  tournament by the Technical Committee should it be reached reliably
+  by multiple teams}. These points only include the points for the
+final production step and delivery, not counting just-in-time
+production, intermediate machine, or recycling points. Each order will
 require one or more products of a specified product type to be
 delivered. The delivery time slot will have a randomized start time
 and a randomized duration between 30 to 180 seconds. The end time
