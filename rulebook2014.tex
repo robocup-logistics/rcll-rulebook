@@ -181,7 +181,7 @@ includes current challenges of developing industry-wide standards for
 Cyber Physical Systems for production processes like designing
 plug-and-produce capable systems.
 
-After an exciting RoboCup in Mexico, we look forward to a new scale of
+After an exciting RoboCup in Eindhoven, we look forward to a new scale of
 competition that will emerge from initiatives around the globe. In
 2012 we had our first Logistics League World Champion.  In 2013 we
 introduced the Referee Box changing the competition at its core by
@@ -309,28 +309,23 @@ To get into contact with the OC use the mailing list\\
 \label{sec:competition-area}
 
 The competition area is shown in Figure \ref{fig:competition-area} and
-features a \SI{5.6 x 11.2}{\metre} large arena with several
+features a \SI{11.2 x 5.6}{\metre} large arena with several
 RFID-mounted machines, mark-ups, a stock of raw-material and a
 delivery zone. It is surrounded by boards with \SI{0.5}{\metre} of
 height to reduce object interference from outside the area.
 
-The point of origin for each statement within this rulebook that uses
-relative coordinates is the bottom left corner of the competition
-area. All indicated sizes of mark-ups are to be considered outside
+The origin and coordinate system of the competition field is drawn in Figure \ref{fig:competition-area} and will be intrinsically referred to for each statement within this rulebook that uses absolute coordinates. All indicated sizes of mark-ups are to be considered outside
 dimensions. The default width for mark-ups is \SI{19}{\milli\metre},
-the default color is black.
+the default color is black, except for the recycling machines, in which case the machine space is marked with green mark-ups.
 
 Both competing teams play within the same competition area. However,
 each team has its own \textit{input storage area}, \textit{robot
   insertion area}, \textit{production machines}, \textit{recycling
   machine}, and \textit{delivery zone}.
 
-The factory area spans across \SI{5.2 x 11.2}{\metre} with a boundary
-set by a mark-up \SI{0.4}{\metre} from the left of the competition
-area. Inside the left edge area, the robot insertion areas are located
-in each corner, next to the input storage areas located towards the
-mid. Each input storage area has a size of \SI{0.4 x 1.0}{\metre}, is
-painted blue on the wall, and contains a set of 20 pucks.
+The robot insertion areas are located along each corner of the left competition area, with a separate mark-up line \SI{0.4}{\metre} apart from the competition boundary.
+Next to them towards the mid, the input storage areas are located. Each input storage area has a size of \SI{1.1 x 0.4}{\metre}, is
+painted blue on the wall, and contains a set of 22 pucks.
 
 The delivery zones are located to the bottom and the top of the
 competition area, respectively, and are painted green on the
@@ -348,11 +343,10 @@ competition area: 24 machines representing the multistaged production
 process, and two machines to recycle consumed pallet carriers. All
 machines are placed within the factory area as stated in Figure
 \ref{fig:competition-area}. They are aligned in a \ang{90} angle and
-reside in the center of a squared machine space spanned by standard
-mark-ups with \SI{0.5}{\metre} each side.
+reside in the center of a squared machine space spanned by mark-ups with \SI{0.5}{\metre} each side.
 
 The distribution and alignment of all machines is axially symmetrical
-to the x-axis on the middle of the competition area. Thus, each team
+to the y-axis. Thus, each team
 has exact the same conditions on the upper and the lower half of the
 competition field. Half of the production and recycling machines
 belong to the one team, the other half to the other team. However,
@@ -367,6 +361,9 @@ one.
 \begin{figure}[p]
   \centering
   \begin{tikzpicture}[scale=2.0]
+
+	% ATTENTION: the coordinate system here is as follows: nullpoint in the left-bottom-corner; x pointing to the right, y upwards
+  
     % field outline
     \draw [thick] (0,0) rectangle (5.6,11.2);
     %\draw [fill=black!8] (0,0.4) rectangle (5.6,5.2);
@@ -374,20 +371,21 @@ one.
     %\draw [fill=black!8] (5.2,0) rectangle +(0.4,5.6);
 
     % coordinate system and origin
-    \draw [line width=3pt,red,>=latex,->] (0,0) -- +(1,0);
-    \draw [line width=3pt,red,>=latex,->] (0,0) -- +(0,1);
-    \node [red,anchor=north] at (0.95,-0.05) {\sffamily\textbf{X}};
-    \node [red,anchor=east] at (-0.05, 0.95) {\sffamily\textbf{Y}};
-    \node [anchor=north east] at (0,0) {\sffamily\textbf{(0,0)}};
-    \draw (0,0) [fill=red,draw=red] circle (0.03);
+    \draw [line width=3pt,red,>=latex,->] (0,5.6) -- +(1,0);
+    \draw [line width=3pt,red,>=latex,->] (0,5.6) -- +(0,-1);
+    \node [red,anchor=north] at (0.95, 5.55) {\sffamily\textbf{Y}};
+    \node [red,anchor=east] at (-0.05, 4.65) {\sffamily\textbf{X}};
+    \node [anchor=north east] at (0,5.9) {\sffamily\textbf{(0,0)}};
+    \draw (0,5.6) [fill=red,draw=red] circle (0.05);
 
     % margin areas
     %\draw (5.2,0) -- (5.2,5.6);
-    \draw (0.4,0) -- (0.4,11.2);
+    \draw (0.4,0) -- (0.4,3.92);
+    \draw (0.4,7.28) -- (0.4,11.2);
     \draw (2.3,0) [fill=green] rectangle +(1,0.4);
-		\draw (2.3,10.8) [fill=green] rectangle +(1,0.4);
-    \draw (0,3.42) [fill=blue] rectangle +(0.4,1);		% was 2.3
-    \draw (0,6.78) [fill=blue] rectangle +(0.4,1);
+	\draw (2.3,10.8) [fill=green] rectangle +(1,0.4);
+    \draw (0,3.37) [fill=blue] rectangle +(0.4,1.1);		% was 2.3
+    \draw (0,6.73) [fill=blue] rectangle +(0.4,1.1);
 
     \foreach \m/\t/\x/\y/\ori/\paintbox in
     % row 1
@@ -437,24 +435,24 @@ one.
             {\fontsize{10pt}{10pt}\selectfont\sffamily\textbf{\m}};
       \fi
       \if\paintbox4
-        \draw [ultra thick] ($ (\x,\y) - (0.25,0.25) $) [draw=green] rectangle +(0.5,0.5);
+        \draw [ultra thick] ($ (\x,\y) - (0.25,0.25) $) [draw=black!30!green] rectangle +(0.5,0.5);
         \draw [anchor=north east,inner sep=1pt] ($ (\x,\y) + (0.25,0.23) $)
           node (\m) {\fontsize{10pt}{10pt}\selectfont\sffamily\textbf{\m}};
       \fi
     }
 
     % Pucks at Zone 1
-    \foreach \x in {1,2,...,10}
+    \foreach \x in {1,2,...,11}
     {
-      \draw ($ (0.12,3.37) + (0,\x*0.10) $) [fill=red,draw=red] circle (0.035);
-      \draw ($ (0.28,3.37) + (0,\x*0.10) $) [fill=red,draw=red] circle (0.035);
+      \draw ($ (0.12,3.32) + (0,\x*0.10) $) [fill=red,draw=red] circle (0.035);
+      \draw ($ (0.28,3.32) + (0,\x*0.10) $) [fill=red,draw=red] circle (0.035);
     }
     
     % Pucks at Zone 2
-    \foreach \x in {1,2,...,10}
+    \foreach \x in {1,2,...,11}
     {
-      \draw ($ (0.12,6.73) + (0,\x*0.10) $) [fill=red,draw=red] circle (0.035);
-      \draw ($ (0.28,6.73) + (0,\x*0.10) $) [fill=red,draw=red] circle (0.035);
+      \draw ($ (0.12,6.68) + (0,\x*0.10) $) [fill=red,draw=red] circle (0.035);
+      \draw ($ (0.28,6.68) + (0,\x*0.10) $) [fill=red,draw=red] circle (0.035);
     }
     
     %\draw (2.24,3.36) [fill=none,draw=red] circle (0.225);	% new Robotino 3.0
@@ -1176,12 +1174,7 @@ that can be produced.
 \subsection{Production Portfolio}
 \label{sec:prodportfolio}
 
-The production portfolio is presented in
-Table~\ref{tab:production-table} and in
-Figure~\ref{fig:production-diagram}, which presents the same information
-as a production graph.
-
-
+The production portfolio is presented in Figure~\ref{fig:production-diagram}, which shows a production chain diagram with the machines and their respective inputs and outputs. The multistaged production processes can be repeated as long as enough pallet carriers can be provided to complete the cycle. The different machine types are specified in Section~\ref{sec:machines}.
 
 
 % \begin{figure}[tbhp]
@@ -1233,25 +1226,25 @@ as a production graph.
 
 
 
-\begin{figure}
-\begin{floatrow}
-  \capbtabbox{%
-    \centering
-    \mytable{\begin{tabularx}{\textwidth}{C|C|C|c}
-        \multicolumn{1}{c}{Sub-assembly} & \multicolumn{1}{c}{Deployable} & \multicolumn{1}{c}{Prerequisites} & \multicolumn{1}{c}{Result}\\\hline
-        \s{0} &	\T{1}, \T{2}, \T{3}, \T{4}, \T{5} & none & \s{1}, \p{3} or
-        \TAG{consumed}\\
-        \s{1} &	\T{2}, \T{3}, \T{4} &  	\s{0} & 	\s{2} or \TAG{consumed} \\
-        \s{2} & \T{3}, \T{4} & \s{0}, \s{1} &	\p{1}, \p{2} \\
-%        \hline
-      \end{tabularx}
-    }      
-  }{%
-    \caption{Production table}
-    \label{tab:production-table}
-  }
-\end{floatrow}
-\end{figure}
+%\begin{figure}
+%\begin{floatrow}
+%  \capbtabbox{%
+%    \centering
+%    \mytable{\begin{tabularx}{\textwidth}{C|C|C|c}
+%        \multicolumn{1}{c}{Sub-assembly} & \multicolumn{1}{c}{Deployable} & \multicolumn{1}{c}{Prerequisites} & \multicolumn{1}{c}{Result}\\\hline
+%        \s{0} &	\T{1}, \T{2}, \T{3}, \T{4}, \T{5} & none & \s{1}, \p{3} or
+%        \TAG{consumed}\\
+%        \s{1} &	\T{2}, \T{3}, \T{4} &  	\s{0} & 	\s{2} or \TAG{consumed} \\
+%        \s{2} & \T{3}, \T{4} & \s{0}, \s{1} &	\p{1}, \p{2} \\
+%%        \hline
+%      \end{tabularx}
+%    }      
+%  }{%
+%    \caption{Production table}
+%    \label{tab:production-table}
+%  }
+%\end{floatrow}
+%\end{figure}
   
 \begin{figure}
   \ffigbox{%
@@ -1327,12 +1320,6 @@ as a production graph.
 \end{figure}
 %\todo[inline]{What is a C??}
 
-\subsubsection{The Production Table}
-Table~\ref{tab:production-table} shows the production table for the
-multistaged production processes. They can be repeated as long as
-enough pallet carriers can be provided to complete the cycle. The
-different machine types are specified in Section~\ref{sec:machines}.
-
 \subsection{During a Match}
 \label{sec:during-match}
 Any referee can interrupt the match at any time. After the referee box
@@ -1344,11 +1331,11 @@ The match time will be paused during the interruption.
 \subsubsection{Out-of-order}
 \label{sec:out-of-order}
 The downtime generator will take down machines randomly out of the
-pool containing production machines and recycling unit. It will do so
-at random points of time. There will be 6 to 8 of such triggered
+pool containing all production machines. It will do so
+at random points of time and with the same conditions for both teams, i.e., affecting the same machines for both teams. There will be 6 to 8 of such triggered
 events during a match. The machines affected will remain out of order
 for 30 to 120 seconds. Every machine can only be forced out of order
-once per match. If the machine turns offline during processing or
+once per match. The recycling machines will be taken down exactly once per match, with a downtime of 20 to 40 seconds. If the machine turns offline during processing or
 consumption of mounted a pallet carrier, it will afterwards resume the
 process (extending the overall processing time by the down time).
 
