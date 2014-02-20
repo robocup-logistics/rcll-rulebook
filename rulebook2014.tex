@@ -244,8 +244,7 @@ field or the machines will be penalized by the referee.
 
 The Logistics League follows a certain design philosophy. All teams
 are obliged to use the Robotino robotic system from Festo Didactic
-GmbH \& Co. KG with certain freedoms and limitations. The usage of all
-currently publicly available revisions is in order, see
+GmbH \& Co. KG with certain freedoms and limitations. This includes the current version, Robotino 3, as well as the faced out Robotino 2 until decided otherwise by the TC. See
 \refsec{sec:robotino} and Appendix~\ref{apx:sec:engref} for further
 details. All available sensor equipment that does neither exceed
 Robotino's diameter (see Appendix~\ref{apx:sec:robot}) nor require
@@ -273,7 +272,7 @@ treat others as one would like others to treat oneself".
 \subsection{Technical Committee 2014} \label{sec:tc}
 % Alphabetical order by last name
 \emph{Christian Deppe}, Festo Didactic, Denkendorf, Germany\\
-\emph{Nils Harder}, TU Magdeburg, Magdeburg, Germany\\
+\emph{Nils Harder}, OvGU Magdeburg, Magdeburg, Germany\\
 \emph{S\"oren Jentzsch}, Technical University of Munich, Munich, Germany\\
 \emph{Nicolas Meier}, Leuphana University Lüneburg, Germany\\
 \emph{Tim Niemueller}, RWTH Aachen University, Aachen, Germany\\
@@ -309,7 +308,7 @@ To get into contact with the OC use the mailing list\\
 \label{sec:competition-area}
 
 The competition area is shown in Figure \ref{fig:competition-area} and
-features a \SI{11.2 x 5.6}{\metre} large arena with several
+features a \SI{11.25 x 5.625}{\metre} large arena with several
 RFID-mounted machines, mark-ups, a stock of raw-material and a
 delivery zone. It is surrounded by boards with \SI{0.5}{\metre} of
 height to reduce object interference from outside the area.
@@ -1660,8 +1659,61 @@ within three minutes, the robot fleet with the overall shortest distance
 to the goal wins. Depending on the number of participating teams and certain time constraints, the tournament mode will be announced before the competition starts.
 
 \paragraph{Approaching the MPS station~}
-\todo[inline]{Fill with information}
-  
+\begin{figure}[h]
+	\includegraphics[width=.5\textwidth]{MPSDemo.jpg}
+	\caption{Demo Scene (CIROS) of MPS approach}
+	\label{apx:fig:mpstc}
+\end{figure}
+One robot will be required to use any gripping device to handle a workpiece. The challenge will be to
+1. receive one workpiece from a shelf\\
+2. approach a "Pick \& Place" station and hand over the workpiece\\
+3. approach the backside of this station\\
+4. wait to receive the completed workpiece\\
+5. transport it to one empty shelf spot and unmount it.\\
+
+Teams may add markers of any kind to the MPS station and shelf to support their approach. These markers have to be removable residue-free and mounted/unmounted in a reasonable short amount of time before each test run.\\
+
+Each team has a ten minute window to conduct a test run with field exclusivity. Once they choose to begin, they have three minutes to complete the challenge.
+Each step will be awarded with points. If all points are completed in time, the fastest time wins.\\
+
+The installation will be available throughout the whole time of the tournament. Festo will provide one standardized gripper per team over the course of a tournament. Custom constructions are welcome.\\
+
+\subsection{Details:}
+Workpiece:
+\begin{itemize}
+\item Diameter(round): \SI{40}{\milli\metre}
+\item Height: \SI{25}{\milli\metre}
+\item Material: Plastic
+\end{itemize}
+
+\begin{figure}[h]
+	\includegraphics[width=.5\textwidth]{selectionofworkpieces.jpg}
+	\caption{Selection of MPS workpieces}
+	\label{apx:fig:workpiece}
+\end{figure}
+
+MPS station:
+\begin{itemize}
+\item Profile plate dimension: \SI{350}{\milli\metre} $\times$ \SI{700}{\milli\metre}
+\item plate height: \SI{30}{\milli\metre}
+Handover point (centered): 
+\item From Bottom: \SI{375}{\milli\metre}
+\item From Top: \SI{325}{\milli\metre}
+\item Space between guides(center point as middle): \SI{450}{\milli\metre} diameter
+\item Height: \SI{148.165}{\milli\metre} minimum height.
+\end{itemize}
+
+\begin{figure}[h]
+	\includegraphics[width=.5\textwidth]{mps_overview.png}
+	\caption{Overview Pick \& Place}
+	\label{apx:fig:mps overview}
+\end{figure}
+
+\begin{figure}[h]
+	\includegraphics[width=.5\textwidth]{mps_docking.png}
+	\caption{Interface point height}
+	\label{apx:fig:mps dock}
+\end{figure}
 
 \paragraph{Free challenge.~}
 Each team will be given 5 minutes to showcase their robot team, e.g.
@@ -1790,7 +1842,154 @@ Logistic Leagues Technical Challenge Award.
 \newpage
 
 \section{Engineering Reference} \label{apx:sec:engref}
-\subsection{The Mobile Robot System}
+\subsection{The Mobile Robot System: Robotino 3 Premium:}
+The mobile robot system Robotino is a platform with an open
+mechanical interface for the integration of additional mechanical
+devices and an open electrical interface to integrate easily
+additional sensors or motors of devices. By default Power is supplied via two exchangeable
+\SI{12}{\volt} lead gel batteries which permit a running time of up to
+two hours.  The scope of delivery likewise includes a charging
+device. Robotino is driven by 3 independent, omni-directional drive
+units. They are mounted at an angle of \ang{120} to each other. The
+three omni-directional drive units of Robotino, defines the robot as
+being holonomic, meaning that the controllable degrees of freedom
+equals the total degrees of freedom of the robot. The drive units are
+integrated in a sturdy, laser welded steel chassis. The chassis is
+protected by a rubber bumper with integrated switching sensor.
+
+\subsubsection{Robot Dimensions (w/o extension tower)}\label{apx:sec:robot}
+\begin{itemize}
+	\item[] \textbf{Diameter:} \SI{450}{\milli\metre}
+	\item[] \textbf{Height including housing:} \SI{290}{\milli\metre}
+ 	\item[] \textbf{Overall weight:} approx. \SI{22.5}{\kilogram}
+ 	\item[] \textbf{Maximal payload:} about \SI{30}{\kilogram}
+ \end{itemize}
+
+\subsubsection{Drive Unit}
+\begin{itemize}
+	\item[] \textbf{3x omnidrectional wheels:} \SI{120}{\milli\metre}
+	\item[] \textbf{Fed by DC three motors:} \SI{3600}{rpm}
+ 	\item[] \textbf{Gear transmission ratio 32:1} \SI{22.5}{\kilogram}
+ \end{itemize}
+
+\begin{figure}[h]
+\includegraphics[width=.5\textwidth]{Robotino3.jpg}
+\caption{Robotino 3 without extension tower}
+\label{apx:fig:Robotino3}
+\end{figure}
+
+The motor speed will be controlled via a PID controller implemented on
+a Atmel microprocessor of the controller board of Robotino.
+
+\subsubsection{Sensors}
+
+Robotino is equipped with 9 vertical mounted infrared distance measuring sensors which
+are mounted in the chassis at an angle of \ang{40} to one
+another. Robotino can scrutinize all surrounding areas for objects
+with these sensors.  Each of the sensors can be queried individually
+via the controller board. Obstacles can thus be avoided, clearances
+can be maintained and bearings can be taken on a selected target. The
+sensors are capable of accurate or relative distance measurements to
+objects at distances of \SI{4}{\centi\metre} to
+\SI{30}{\centi\metre}. Sensor connection is especially simple
+including just one analogue output signal and supply power. The
+sensors' evaluation electronics determines distance and read it out as
+an analogue signal.  The anti-collision sensor is comprised of a
+switching strip which is secured around the entire circumference of
+the chassis. A reliably recognizable signal is thus transmitted to the
+controller unit.  Collisions with objects at any point on the housing
+are detected and, for example, Robotino is brought to a
+standstill. The inductive proximity sensor is supplied as an
+additional component. It serves to detect metallic objects on the
+floor.
+
+The default webcam camera is plugged in via USB and is capable of full HD 1080p video with auto light correction and two built in microphones for stereo sound with noise-cancelling 
+
+\subsubsection{Controller Board}
+
+Robotino is powered by an exchangeable Embedded PC - COM Express layout combined with a custom made sensor board.
+
+Embedded PC according to COM Express specification:
+
+\begin{itemize}
+\item Embedded Intel Core i5, 2.4 GHz, Dual-Core
+\item 8 GB RAM
+\item 64 GB SSD (exchangeable) 
+\item Operating system: Linux Ubuntu 12.04 (64-bit)
+\end{itemize}
+
+Embedded PC interfaces:
+\begin{itemize}
+\item 1 $\times$ Ethernet
+\item 6 $\times$ USB 2.0
+\item 2 $\times$ PCI Express expansion slot
+\item Wireless Lan according to 802.11g and 802.11b specification in client or access point mode (exchangeable)
+\item 2 $\times$  RS232
+\item 1 $\times$ Parallel port and 1 $\times$ VGA port
+\item Wireless LAN Access Point following the standards 802.11/b/g.
+\item The access point can be switched into a client mode.  As an
+  option you may use WPA2-coding.
+\end{itemize}
+
+Motor control: 
+\begin{itemize}
+\item microcontroller with 32-bit microprocessor and separated Ethernet interface
+\item Including 1 $\times$ additional motor output and encoder connector
+\item 8 $\times$ analog inputs from 0 V to 10 V (50 Hz)
+\item 8 $\times$ digital inputs/outputs with 24 V, short circuit proof and overload protected
+\end{itemize}
+
+\subsubsection{Power supply}
+\begin{itemize}
+\item 2 $\times$ 12 V lead-fleece rechargeable batteries with 9.5 Ah capacity each
+\item Operating time(default batteries): up to 4 hours
+\item Power supply for additional components: 13 x 24 V, 13 x GND
+\item Internal charger for lead-gel and NiMH rechargeable batteries
+\item 24 V power supply for charging batteries
+\end{itemize}
+
+\subsubsection{Software}
+Pre-installed is Ubuntu Linux 12.04 LTS operating system. The main part of the controller is the
+Robotino server, a real time Linux application. It controls the drive
+units and provides interfaces to communicate with external PC
+applications via wifi. Also provided: API 2.0 with libraries which allow you
+to create applications for Robotino in numerous programming languages:
+
+\begin{itemize}
+	\item C++ and C 
+	\item C\# 
+	\item .net and JAVA 
+	\item MatLab and Simulink
+	\item Labview
+	\item Robot Operating System (ROS)
+	\item Microsoft Robotics Developer Studio
+\end{itemize}
+
+You may find a lot of examples concerning using the different API's in
+the public forum ``Openrobotino'' at
+\url{http://www.openrobotino.org}.
+
+\subsubsection{Webinterface:}
+HTML5-baesd user interface provided by webserver running on Embedded PC for setup and configuration using SmartPhone, Tablet or PC/Notebook
+User interface supporting program management, manual control, network setup, status display and options
+Help system: online manual for getting started, details on all components and introduction into programming
+
+\paragraph{Robotino View} 
+For a quick start or Hardware testing there is proprietary drag and drop Software Robotino View.
+Graphical programming environment for external PC running on Windows XP, Vista, Windows 7 or Windows 8.
+
+\begin{itemize}
+	\item Main program using sequential function chart according to IEC 61131
+	\item Reusable subprograms based on function blocks
+	\item Library for function blocks and devices
+	\item Global variables for communication between subprograms
+	\item Program interpreter to run programs on Embedded PC autonomously
+\end{itemize}
+
+Additional information as well as accessories can be obtained through
+\url{http://www.festo-didactic.com/int-en/learning-systems/education-and-research-robots-robotino/scenarios-and-learning-areas.htm?fbid=aW50LmVuLjU1Ny4xNy4xOC44NTguNDc1NQ}
+
+\subsection{Robotino 2.0 (Faceout):}
 The mobile robot system Robotino is a platform with an open
 mechanical interface for the integration of additional mechanical
 devices and an open electrical interface to integrate easily
@@ -1828,7 +2027,7 @@ motor rotation.
 The motor and gear arrangement is shown in
 Figure~\ref{apx:fig:driveunit}.
 
-\begin{figure}[tbh]
+\begin{figure}[h]
 \centering
 \includegraphics{driveunit.png}
 \caption{Drive unit with motor (1), encoder (2), omni-directional wheel
