@@ -214,7 +214,7 @@ rewarded considerably higher than partial fulfillment of the task.
 Autonomous robots transport hockey pucks which act as a placeholder
 for (intermediate) products between the processing machines. A machine
 can basically be understood as a signal light with an attached RFID
-reader as described in Appendix \ref{apx:sec:engref}. Each puck
+reader as described in Appendix \ref{sec:engref}. Each puck
 carries an ID tag which will be read and processed according to the
 related machine's specification. If procurable this will lead to a new
 puck state: a new sub-assembly is produced or prepared. Complete
@@ -245,7 +245,7 @@ field or the machines will be penalized by the referee.
 The Logistics League follows a certain design philosophy. All teams
 are obliged to use the Robotino robotic system from Festo Didactic
 GmbH \& Co. KG with certain freedoms and limitations. This includes the current version, Robotino 3, as well as the faced out Robotino 2 until decided otherwise by the TC. See
-\refsec{sec:robotino} and Appendix~\ref{apx:sec:engref} for further
+\refsec{sec:robotino} and Appendix~\ref{sec:engref} for further
 details. All available sensor equipment that does neither exceed
 Robotino's diameter (see Appendix~\ref{apx:sec:robot}) nor require
 external assistance (like Indoor GPS) is permitted.
@@ -556,7 +556,7 @@ read/write device and a signal unit according to
 Figure~\ref{fig:machine}. They share the same design and RFID
 device. The overall size is \SI{280 x 160 x 100}{\milli\metre} (height
 $\times$ width $\times$ depth). Confer also
-Appendix~\ref{apx:sec:engref} for further details. Machines can be in
+Appendix~\ref{sec:engref} for further details. Machines can be in
 different states, which are communicated by their signal lights.
 
 The machine distribution (number of machines per type and team), their
@@ -844,7 +844,7 @@ should be handled in a fair and forthcoming way.
 
 All participants have to design their competition Robotinos within the
 following specifications. For a detailed technical description of the
-basic hardware, refer to the Appendix~\ref{apx:sec:engref}.
+basic hardware, refer to the Appendix~\ref{sec:engref}.
 
 Any kind of sensors can be changed or added to the Robotino platform.
 However, it is not possible to implement sensors that require
@@ -1841,56 +1841,70 @@ Logistic Leagues Technical Challenge Award.
 \begin{appendix}
 \newpage
 
-\section{Engineering Reference} \label{apx:sec:engref}
-\subsection{The Mobile Robot System: Robotino 3 Premium:}
-The mobile robot system Robotino is a platform with an open
-mechanical interface for the integration of additional mechanical
-devices and an open electrical interface to integrate easily
-additional sensors or motors of devices. By default Power is supplied via two exchangeable
-\SI{12}{\volt} lead gel batteries which permit a running time of up to
-two hours.  The scope of delivery likewise includes a charging
-device. Robotino is driven by 3 independent, omni-directional drive
-units. They are mounted at an angle of \ang{120} to each other. The
-three omni-directional drive units of Robotino, defines the robot as
-being holonomic, meaning that the controllable degrees of freedom
-equals the total degrees of freedom of the robot. The drive units are
-integrated in a sturdy, laser welded steel chassis. The chassis is
-protected by a rubber bumper with integrated switching sensor.
+\section{Engineering Reference}
+\label{sec:engref}
+\subsection{The Mobile Robot System Robotino 3}
+The mobile robot system Robotino is a platform with open mechanical
+and electrical interfaces for the integration of additional devices
+like sensors or motors. By default power is supplied via two
+exchangeable \SI{12}{\volt} lead gel batteries which permit a running
+time of up to two hours. Robotino is driven by 3 independent,
+omni-directional drive units. They are mounted at an angle of
+\ang{120} to each other. The three omni-directional drive units of
+Robotino defines it as being holonomic, meaning that the controllable
+degrees of freedom equals the total degrees of freedom of the
+robot. The drive units are integrated in a sturdy, laser welded steel
+chassis. The chassis is protected by a rubber bumper with integrated
+switching sensor.
 
-\subsubsection{Robot Dimensions (w/o extension tower)}\label{apx:sec:robot}
+\subsubsection{Robot Dimensions (w/o extension tower)}
+\label{apx:sec:robot}
 \begin{itemize}
-	\item[] \textbf{Diameter:} \SI{450}{\milli\metre}
-	\item[] \textbf{Height including housing:} \SI{290}{\milli\metre}
- 	\item[] \textbf{Overall weight:} approx. \SI{22.5}{\kilogram}
- 	\item[] \textbf{Maximal payload:} about \SI{30}{\kilogram}
+\item \textbf{Diameter:} \SI{450}{\milli\metre}
+\item \textbf{Height including housing:} \SI{290}{\milli\metre}
+\item \textbf{Overall weight:} approx. \SI{22.5}{\kilogram}
+\item \textbf{Maximal payload:} about \SI{30}{\kilogram}
  \end{itemize}
 
 \subsubsection{Drive Unit}
 \begin{itemize}
-	\item[] \textbf{3x omnidrectional wheels:} \SI{120}{\milli\metre}
-	\item[] \textbf{Fed by DC three motors:} \SI{3600}{rpm}
- 	\item[] \textbf{Gear transmission ratio 32:1} \SI{22.5}{\kilogram}
+\item \textbf{3$\times$ omni-directional wheels:} \SI{120}{\milli\metre}
+\item \textbf{Fed by DC three motors:} \SI{3600}{rpm}
+\item \textbf{Gear transmission ratio 32:1} \SI{22.5}{\kilogram}
  \end{itemize}
 
 \begin{figure}[h]
-\includegraphics[width=.5\textwidth]{Robotino3.jpg}
-\caption{Robotino 3 without extension tower}
-\label{apx:fig:Robotino3}
+\centering
+\subfigure[Festo Robotino 2]{%
+  \label{fig:robotino-2}%
+  \begin{minipage}[b]{0.3\linewidth}
+    \centering \includegraphics[height=3.5cm]{figures/robotino-shadow}
+  \end{minipage}
+} 
+\quad
+\subfigure[Festo Robotino 3]{%
+  \label{fig:robotino-3}%
+  \begin{minipage}[b]{0.3\linewidth}
+    \centering
+    \includegraphics[height=3.5cm]{Robotino3.jpg}
+  \end{minipage}
+}
+\caption{Robotino 2 and Robotino 3 without extension tower}
+\label{fig:robotinos}
 \end{figure}
 
-The motor speed will be controlled via a PID controller implemented on
+\hskip-\parindent The motor speed will be controlled via a PID controller implemented on
 a Atmel microprocessor of the controller board of Robotino.
 
 \subsubsection{Sensors}
-
-Robotino is equipped with 9 vertical mounted infrared distance measuring sensors which
-are mounted in the chassis at an angle of \ang{40} to one
-another. Robotino can scrutinize all surrounding areas for objects
-with these sensors.  Each of the sensors can be queried individually
-via the controller board. Obstacles can thus be avoided, clearances
-can be maintained and bearings can be taken on a selected target. The
-sensors are capable of accurate or relative distance measurements to
-objects at distances of \SI{4}{\centi\metre} to
+Robotino is equipped with 9 vertical mounted infrared distance
+measuring sensors which are mounted in the chassis at an angle of
+\ang{40} to one another. Robotino can scrutinize all surrounding areas
+for objects with these sensors.  Each of the sensors can be queried
+individually via the controller board. Obstacles can thus be avoided,
+clearances can be maintained and bearings can be taken on a selected
+target. The sensors are capable of accurate or relative distance
+measurements to objects at distances of \SI{4}{\centi\metre} to
 \SI{30}{\centi\metre}. Sensor connection is especially simple
 including just one analogue output signal and supply power. The
 sensors' evaluation electronics determines distance and read it out as
@@ -1906,11 +1920,10 @@ floor.
 The default webcam camera is plugged in via USB and is capable of full HD 1080p video with auto light correction and two built in microphones for stereo sound with noise-cancelling 
 
 \subsubsection{Controller Board}
+Robotino is powered by an exchangeable Embedded PC - COM Express
+layout combined with a custom made sensor board.
 
-Robotino is powered by an exchangeable Embedded PC - COM Express layout combined with a custom made sensor board.
-
-Embedded PC according to COM Express specification:
-
+\paragraph{Embedded PC according to COM Express specification}
 \begin{itemize}
 \item Embedded Intel Core i5, 2.4 GHz, Dual-Core
 \item 8 GB RAM
@@ -1918,30 +1931,33 @@ Embedded PC according to COM Express specification:
 \item Operating system: Linux Ubuntu 12.04 (64-bit)
 \end{itemize}
 
-Embedded PC interfaces:
+\paragraph{Embedded PC interfaces}
 \begin{itemize}
 \item 1 $\times$ Ethernet
 \item 6 $\times$ USB 2.0
 \item 2 $\times$ PCI Express expansion slot
-\item Wireless Lan according to 802.11g and 802.11b specification in client or access point mode (exchangeable)
+\item Wireless LAN according to 802.11b/g, client or access point mode
 \item 2 $\times$  RS232
 \item 1 $\times$ Parallel port and 1 $\times$ VGA port
 \item Wireless LAN Access Point following the standards 802.11/b/g.
-\item The access point can be switched into a client mode.  As an
-  option you may use WPA2-coding.
+\item The access point supports client mode, optional WPA2 encryption.
 \end{itemize}
 
-Motor control: 
+\paragraph{Motor control}
 \begin{itemize}
-\item microcontroller with 32-bit microprocessor and separated Ethernet interface
-\item Including 1 $\times$ additional motor output and encoder connector
+\item microcontroller with 32-bit microprocessor and separated
+  Ethernet interface
+\item Including 1 $\times$ additional motor output and encoder
+  connector
 \item 8 $\times$ analog inputs from 0 V to 10 V (50 Hz)
-\item 8 $\times$ digital inputs/outputs with 24 V, short circuit proof and overload protected
+\item 8 $\times$ digital inputs/outputs with 24 V, short circuit proof
+  and overload protected
 \end{itemize}
 
 \subsubsection{Power supply}
 \begin{itemize}
-\item 2 $\times$ 12 V lead-fleece rechargeable batteries with 9.5 Ah capacity each
+\item 2 $\times$ 12 V lead-fleece rechargeable batteries with 9.5 Ah
+  capacity each
 \item Operating time(default batteries): up to 4 hours
 \item Power supply for additional components: 13 x 24 V, 13 x GND
 \item Internal charger for lead-gel and NiMH rechargeable batteries
@@ -1949,47 +1965,54 @@ Motor control:
 \end{itemize}
 
 \subsubsection{Software}
-Pre-installed is Ubuntu Linux 12.04 LTS operating system. The main part of the controller is the
-Robotino server, a real time Linux application. It controls the drive
-units and provides interfaces to communicate with external PC
-applications via wifi. Also provided: API 2.0 with libraries which allow you
-to create applications for Robotino in numerous programming languages:
+Pre-installed is Ubuntu Linux 12.04 LTS operating system. The main
+part of the controller is the Robotino server, a real time Linux
+application. It controls the drive units and provides interfaces to
+communicate with external PC applications via wifi. Also provided: API
+2.0 with libraries which allow you to create applications for Robotino
+in numerous programming languages:
 
 \begin{itemize}
-	\item C++ and C 
-	\item C\# 
-	\item .net and JAVA 
-	\item MatLab and Simulink
-	\item Labview
-	\item Robot Operating System (ROS)
-	\item Microsoft Robotics Developer Studio
+\item C++ and C 
+\item C\# 
+\item .net and JAVA 
+\item MatLab and Simulink
+\item Labview
+\item Robot Operating System (ROS)
+\item Microsoft Robotics Developer Studio
 \end{itemize}
 
 You may find a lot of examples concerning using the different API's in
 the public forum ``Openrobotino'' at
 \url{http://www.openrobotino.org}.
 
-\subsubsection{Webinterface:}
-HTML5-baesd user interface provided by webserver running on Embedded PC for setup and configuration using SmartPhone, Tablet or PC/Notebook
-User interface supporting program management, manual control, network setup, status display and options
-Help system: online manual for getting started, details on all components and introduction into programming
+\paragraph{Webinterface}
+HTML5-baesd user interface provided by webserver running on Embedded
+PC for setup and configuration using SmartPhone, Tablet or PC/Notebook
+User interface supporting program management, manual control, network
+setup, status display and options Help system: online manual for
+getting started, details on all components and introduction into
+programming
 
 \paragraph{Robotino View} 
-For a quick start or Hardware testing there is proprietary drag and drop Software Robotino View.
-Graphical programming environment for external PC running on Windows XP, Vista, Windows 7 or Windows 8.
+For a quick start or Hardware testing there is proprietary drag and
+drop Software Robotino View. Graphical programming environment for
+external PC running on Windows XP, Vista, Windows 7 or Windows 8.
 
 \begin{itemize}
-	\item Main program using sequential function chart according to IEC 61131
-	\item Reusable subprograms based on function blocks
-	\item Library for function blocks and devices
-	\item Global variables for communication between subprograms
-	\item Program interpreter to run programs on Embedded PC autonomously
+\item Main program using sequential function chart according to IEC 61131
+\item Reusable subprograms based on function blocks
+\item Library for function blocks and devices
+\item Global variables for communication between subprograms
+\item Program interpreter to run programs on Embedded PC autonomously
 \end{itemize}
 
-Additional information as well as accessories can be obtained through
-\url{http://www.festo-didactic.com/int-en/learning-systems/education-and-research-robots-robotino/scenarios-and-learning-areas.htm?fbid=aW50LmVuLjU1Ny4xNy4xOC44NTguNDc1NQ}
+\hskip-\parindent Additional information as well as accessories can be
+obtained through\\
+\url{http://www.robocup-logistics.org/festo-robotino-3}\\
+(redirects to Festo page).
 
-\subsection{Robotino 2.0 (Faceout):}
+\subsection{Robotino 2.0 (phase-out model)}
 The mobile robot system Robotino is a platform with an open
 mechanical interface for the integration of additional mechanical
 devices and an open electrical interface to integrate easily
@@ -2006,11 +2029,11 @@ protected by a rubber bumper with integrated switching sensor.
 
 \subsubsection{Robot Dimensions}\label{apx:sec:robot}
 \begin{itemize}
-	\item[] \textbf{Diameter:} \SI{370}{\milli\metre}
-	\item[] \textbf{Height including housing:} \SI{210}{\milli\metre}
- 	\item[] \textbf{Overall weight:} approx. \SI{11}{\kilogram}
- 	\item[] \textbf{Maximal payload:} about \SI{6}{\kilogram}
- \end{itemize}
+\item \textbf{Diameter:} \SI{370}{\milli\metre}
+\item \textbf{Height including housing:} \SI{210}{\milli\metre}
+\item \textbf{Overall weight:} approx. \SI{11}{\kilogram}
+\item \textbf{Maximal payload:} about \SI{6}{\kilogram}
+\end{itemize}
 
 \subsubsection{Drive Unit}
 Each of the 3 drive units consists of the following components: DC
@@ -2018,28 +2041,15 @@ Dunker motor with nominal speed of \SI{3600}{rpm} and nominal torque
 of \SI{3.8}{\newton\centi\metre}. Integrated planetary gear unit with
 a gear ratio of 4:1. Omni-directional wheels of diameter of
 \SI{80}{\milli\metre}. Toothed belt with gear wheels providing a
-transmission ratio of 4:1.
-%
-Altogether this provides a gear transmission ratio of
-16:1. Incremental encoder with a resolution of 2048 increments per
-motor rotation.
-%
-The motor and gear arrangement is shown in
-Figure~\ref{apx:fig:driveunit}.
-
-\begin{figure}[h]
-\centering
-\includegraphics{driveunit.png}
-\caption{Drive unit with motor (1), encoder (2), omni-directional wheel
-(3)}
-\label{apx:fig:driveunit}
-\end{figure}
+transmission ratio of 4:1. Altogether this provides a gear
+transmission ratio of 16:1. Incremental encoder with a resolution of
+2048 increments per motor rotation. The motor and gear arrangement is
+shown in Figure~\ref{fig:driveunit}.
 
 The motor speed will be controlled via a PID controller implemented on
 a Atmel microprocessor of the controller board of Robotino.
 
 \subsubsection{Sensors}
-
 Robotino is equipped with 9 infrared distance measuring sensors which
 are mounted in the chassis at an angle of \ang{40} to one
 another. Robotino can scrutinize all surrounding areas for objects
@@ -2080,10 +2090,23 @@ providing a high accuracy of the odometry in the virtual factory.
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=.5\textwidth]{RobotinoOpen.jpg}
-\label{apx:fig:robotinoopen}
+\subfigure[Drive unit with motor (1), encoder (2), omni-directional wheel (3)]{%
+  \label{fig:driveunit}%
+  \begin{minipage}[b]{0.4\linewidth}
+    \centering \includegraphics{driveunit.png}
+  \end{minipage}
+} 
+\quad
+\subfigure[Festo Robotino 2 inside view]{%
+  \label{fig:robotino-2-board}%
+  \begin{minipage}[b]{0.45\linewidth}
+    \centering
+    \includegraphics[height=5.5cm]{RobotinoOpen.jpg}
+  \end{minipage}
+}
+\caption{Robotino 2 internals}
+\label{fig:robotino-2-guts}
 \end{figure}
-
 
 The controller housing is connected to the wiring in the chassis via
 one plug-in. Thus you can easily take off the controller housing and
@@ -2115,15 +2138,15 @@ applications via wifi. There is an API with libraries which allow you
 to create applications for Robotino in numerous programming languages:
 
 \begin{itemize}
-	\item C++ and C 
-	\item C\# 
-	\item .net and JAVA 
-	\item MatLab and Simulink
-	\item Labview
+\item C++ and C 
+\item C\# 
+\item .net and JAVA 
+\item MatLab and Simulink
+\item Labview
 \end{itemize}
 
-You may find a lot of examples concerning using the different API's in
-the public forum ``Openrobotino'' at
+\hskip-\parindent You may find a lot of examples concerning using the
+different API's in the public OpenRobotino forum at
 \url{http://www.openrobotino.org}.
 
 \paragraph{Robotino View} 
@@ -2155,26 +2178,30 @@ reasonable time. Thus we recommend for running image processing
 algorithms on the Robotino controller to use a camera without JPEG
 compression, e.g. use the low cost Logitech web camera C250.
 
-\subsection{Machines} \label{abx:sec:machine}
+\subsection{Machines}
+\label{abx:sec:machine}
 
 \begin{figure}[h]
-	\centering
-	\includegraphics[width=.5\textwidth]{machine_measures.png}
-	\caption{Ranges and dimensions of a signal}
-	\label{apx:fig:machinemeasures}
-\end{figure}
-
-\subsubsection{Brackets}
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=.5\textwidth]{bracket.png}
-	\caption{Ranges and dimensions of the supporting brackets}
-	\label{apx:fig:brackets}
+\centering
+\subfigure[Ranges and dimensions of a signal]{%
+  \label{apx:fig:machinemeasures}%
+  \begin{minipage}[b]{0.45\linewidth}
+    \centering \includegraphics[width=\textwidth]{machine_measures.png}
+  \end{minipage}
+}
+\quad
+\subfigure[Ranges and dimensions of the supporting brackets]{%
+  \label{apx:fig:brackets}%
+  \begin{minipage}[b]{0.45\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{bracket.png}
+  \end{minipage}
+}
+\caption{Machine Details}
+\label{fig:machine-details}
 \end{figure}
 
 \subsubsection{Signal}
-
 \begin{table}[H]
   \centering
   \mytable{\begin{tabularx}{\linewidth}{l|X}
