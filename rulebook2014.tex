@@ -698,7 +698,9 @@ The machine always processes the required pallet carrier delivered
 last, all prior components will be consumed. All machines will start
 processing the data carrier as soon as it enters the machine zone as
 stated in Section~\ref{sec:competition-area}. They will change their
-operating mode according to Tables~\ref{tab:production-machines-feedback}, \ref{tab:recycling-machine}, and \ref{tab:delivery-gates}.
+operating mode according to
+Tables~\ref{tab:production-machines-feedback},
+\ref{tab:recycling-machine}, and \ref{tab:delivery-gates}.
 
 In order to complete the machines' work order, the input materials have
 to be delivered one-by-one into the RFID device's action range. The
@@ -725,14 +727,17 @@ Table~\ref{tab:recycling-machine}.
 \begin{table}[tp]
   \centering
   \mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
-    \multicolumn{1}{l}{Optical Feedback} &\multicolumn{1}{l}{Operating
-      mode}\\\hline
-    All LEDs turned off & 	The machine is physically offline, caused by a real error, which should not happen during the competition.\\
-    Red LED turned on & 	The machine is out of order\\
-    Green LED turned on & 	The machine is idle and ready.\\
-    Green and yellow LED turned on & The machine is processing the
-    current data carrier.\\
-		Red and yellow LED flashing (at 2 Hz) & The machine detects a data carrier, which belong to the opposing team. \\%\hline
+      \multicolumn{1}{l}{Optical Feedback} &\multicolumn{1}{l}{Operating
+        mode}\\\hline
+      All LEDs turned off & 	The machine is physically offline,
+      caused by a real error, which should not happen during the
+      competition.\\
+      Red LED turned on & 	The machine is out of order\\
+      Green LED turned on & 	The machine is idle and ready.\\
+      Green and yellow LED turned on & The machine is processing the
+      current data carrier.\\
+      Red and yellow LED flashing (at 2 Hz) & The machine detects a
+      data carrier which belongs to the opposing team. \\%\hline
   \end{tabularx}}
   \caption{Recycling Machines - Optical Feedback}
   \label{tab:recycling-machine}
@@ -1212,7 +1217,12 @@ that can be produced.
 \subsection{Production Portfolio}
 \label{sec:prodportfolio}
 
-The production portfolio is presented in Figure~\ref{fig:production-diagram}, which shows a production chain diagram with the machines and their respective inputs and outputs. The multistaged production processes can be repeated as long as enough pallet carriers can be provided to complete the cycle. The different machine types are specified in Section~\ref{sec:machines}.
+The production portfolio is presented in
+Figure~\ref{fig:production-diagram}, which shows a production chain
+diagram with the machines and their respective inputs and outputs. The
+multistaged production processes can be repeated as long as enough
+pallet carriers can be provided to complete the cycle. The different
+machine types are specified in Section~\ref{sec:machines}.
 
 
 % \begin{figure}[tbhp]
@@ -1369,13 +1379,16 @@ The match time will be paused during the interruption.
 \subsubsection{Out-of-order}
 \label{sec:out-of-order}
 The downtime generator will take down machines randomly out of the
-pool containing all production machines. It will do so
-at random points of time and with the same conditions for both teams, i.e., affecting the same machines for both teams. There will be 6 to 8 of such triggered
-events during a match. The machines affected will remain out of order
-for 30 to 120 seconds. Every machine can only be forced out of order
-once per match. The recycling machines will be taken down exactly once per match, with a downtime of 20 to 40 seconds. If the machine turns offline during processing or
-consumption of mounted a pallet carrier, it will afterwards resume the
-process (extending the overall processing time by the down time).
+pool containing all production machines. It will do so at random
+points of time and with the same conditions for both teams, i.e.,
+affecting the same machines for both teams. There will be 6 to 8 of
+such triggered events during a match. The machines affected will
+remain out of order for 30 to 120 seconds. Every machine can only be
+forced out of order once per match. The recycling machines will be
+taken down exactly once per match, with a downtime of 20 to 40
+seconds. If a machine turns offline during processing or consumption
+of mounted a pallet carrier, it will afterwards resume the process
+(extending the overall processing time by the down time).
 
 \subsubsection{Production Plan}
 The referee box will announce orders throughout the game in an
