@@ -1186,28 +1186,6 @@ machine types are specified in Section~\ref{sec:machines}.
 \end{figure}
 %\todo[inline]{What is a C??}
 
-\subsection{During a Match}
-\label{sec:during-match}
-Any referee can interrupt the match at any time. After the referee box
-is stopped, all robots have 5 seconds to stop all robot movement.
-Robots that do not stop within the time limit will be treated in the
-same way as misbehaving robots (cf.~\refsec{sec:robot-maintenance}).
-The match time will be paused during the interruption.
-
-\subsubsection{Out-of-order}
-\label{sec:out-of-order}
-The downtime generator will take down machines randomly out of the
-pool containing all production machines. It will do so at random
-points of time and with the same conditions for both teams, i.e.,
-affecting the same machines for both teams. There will be 6 to 8 of
-such triggered events during a match. The machines affected will
-remain out of order for 30 to 120 seconds. Every machine can only be
-forced out of order once per match. The recycling machines will be
-taken down exactly once per match, with a downtime of 20 to 40
-seconds. If a machine turns offline during processing or consumption
-of mounted a pallet carrier, it will afterwards resume the process
-(extending the overall processing time by the down time).
-
 \subsubsection{Production Plan}
 The referee box will announce orders throughout the game in an
 incremental fashion. Each order will consist of the products to
@@ -1235,23 +1213,31 @@ In all tournament phases (cf.~\refsec{sec:tournament-phases}) the
 teams playing on the field at the same time will get the same
 production plans but other games will have their own.
 
-% \begin{table}[t]
-%   \centering
-%   \mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
-%     \multicolumn{1}{l}{Product variant} &\multicolumn{1}{l}{Demanded number of items } \\
-%     \hline 
-%     Product variant \p1 &	$N_1 = 1 \mbox{ to } 10$ items \\
-%     Product variant \p2 &	$N_2 = 1 \mbox{ to } 10$ items \\
-%     Product variant \p3 &	$N_3 = 1 \mbox{ to } 10$ items \\
-%     %	\hline
-%   \end{tabularx}}
-%   \caption{Production plan}
-%   \label{tab:production-plan}
-% \end{table}
+\subsection{Special Events during a Match}
+\label{sec:during-match}
+Any referee can interrupt the match at any time. After the referee box
+is stopped, all robots have 5 seconds to stop all robot movement.
+Robots that do not stop within the time limit will be treated in the
+same way as misbehaving robots (cf.~\refsec{sec:robot-maintenance}).
+The match time will be paused during the interruption.
 
-\section{Tournament}
-\label{sec:tournament}
+\subsubsection{Machine Downtime (out of order)}
+\label{sec:out-of-order}
+The downtime generator will take down machines randomly out of the
+pool containing all production machines. It will do so at random
+points of time and with the same conditions for both teams, i.e.,
+affecting the same machines for both teams. There will be 6 to 8 of
+such triggered events during a match. The machines affected will
+remain out of order for 30 to 120 seconds. Every machine can only be
+forced out of order once per match. The recycling machines will be
+taken down exactly once per match, with a downtime of 20 to 40
+seconds. If a machine turns offline during processing or consumption
+of mounted a pallet carrier, it will afterwards resume the process
+(extending the overall processing time by the down time).
 
+\subsection{Task Fulfillment and Scoring}
+Table \ref{tab:scoring} provides the itemized clearance of all task
+related processes and their scoring.
 \begin{table}
   \centering
   
@@ -1300,6 +1286,76 @@ production plans but other games will have their own.
   \caption{Scoring Schemes}
   \label{tab:scoring}   
 \end{table}
+
+\subsection{Obstruction Penalty}
+Teams are penalized with -2 points for obstruction when delivering a
+data carrier to a machine of the opposing team.  In this case, the
+puck becomes junk and cannot be recycled or used afterwards. If the
+robot leaves the machine space without the puck, the puck will be
+removed by a field referee.
+
+\subsection{Pushing Rules}
+With multiple teams on the field at the same time, robots must
+implement ways for collision avoidance. At the same time, they shall
+not interfere with the goods of the other team. The case where a robot
+of one team bumps into or moves a robot or puck of another team we
+call ``pushing''.
+
+The following rules shall be obeyed by the robots and provide the
+guidelines for referees to call for improper behavior of a robot due
+to pushing.
+
+\begin{enumerate}
+\item Pushing occurs only between robots of different teams.
+\item Robots must drive such that they try to avoid physical contact
+  with robots from the opposing team. However, physical contact per se
+  does not represent an offense.
+\item All robots should be equipped to detect situations of physical
+  contact with other robots (direct pushing situations).
+\item If physical contact with other robots cannot be avoided, it must
+  be soft, i.e. at slow speed and with as small physical impact as
+  possible, in order to avoid damage to itself and other
+  robots. Robots moving at high speed must significantly decelerate
+  before a collision occurs with another robot.
+\item If a destruction collision is immediate and the robots don't
+  react, the referee should use the refbox to send a stop command to
+  all robots. Every team has to react to the stop command by
+  immediately stopping their robots.
+\item Whenever a robot produces direct physical contact with another
+  robot while moving, it must stop movement immediately in that
+  direction (and choose a new direction for movement).
+\item If pushing occurs between a moving and a standing robot, the
+  moving robot causes the pushing situation and is responsible for
+  resolving it. If it is not able to do this, a pushing foul will be
+  called.
+\item If pushing occurs between two moving robots, both robots are
+  responsible for resolving the pushing situation. If one robot
+  continues pushing by moving in its initial direction, while the
+  other robot is recognizably reacting and trying to take another
+  direction, the foul will be called on the pushing robot.
+\item If two robots encounter physical contact and cannot resolve the
+  situation because they get entangled, the referee may issue a
+  pushing foul on both robots.
+\item If, in the opinion of the referee, physical contact between two
+  robots is not soft, or if one or both of the robots do not change
+  direction after encountering physical contact, a pushing foul will
+  be called.
+\item When a pushing foul is detected the responsible team has to use
+  up their restart for the stuck robot to start at the insertion zone
+  again. The other team can decide within 10 seconds to restart their
+  involved robot in the insertion zone without it counting as a
+  penalty restart.
+\item Moving a puck of the opposing team within a fenced area (machine
+  or input area) by at least one puck diameter is a pushing foul. The
+  referee will move the puck back to its original position.
+\item If a robot loses his puck during collision avoidance or in case
+  of a collision the puck will not be replaced.
+\item The league reserves its right to disqualify clearly malicious
+  teams.
+\end{enumerate}
+
+\section{Tournament}
+\label{sec:tournament}
 
 \subsection{Tournament Phases}
 \label{sec:tournament-phases}
@@ -1375,78 +1431,6 @@ on the game, the game time is shared according to the team
 specification (e.g., team 1 commentates the first half, team 2 the
 second half). The teams can make custom arrangements to split the
 overall time.
-
-\subsection{Task Fulfillment and Scoring}
-Table \ref{tab:scoring} provides the itemized clearance of all task
-related processes and their scoring.
-
-\subsection{Obstruction Penalty}
-Teams are penalized with -2 points for obstruction when delivering a
-data carrier to a machine of the opposing team.  In this case, the
-puck becomes junk and cannot be recycled or used afterwards. If the
-robot leaves the machine space without the puck, the puck will be
-removed by a field referee.
-
-\subsection{Pushing Rules}
-With multiple teams on the field at the same time, robots must
-implement ways for collision avoidance. At the same time, they shall
-not interfere with the goods of the other team. The case where a robot
-of one team bumps into or moves a robot or puck of another team we
-call ``pushing''.
-
-The following rules shall be obeyed by the robots and provide the
-guidelines for referees to call for improper behavior of a robot due
-to pushing.
-
-\begin{enumerate}
-\item Pushing occurs only between robots of different teams.
-\item Robots must drive such that they try to avoid physical contact
-  with robots from the opposing team. However, physical contact per se
-  does not represent an offense.
-\item All robots should be equipped to detect situations of physical
-  contact with other robots (direct pushing situations).
-\item If physical contact with other robots cannot be avoided, it must
-  be soft, i.e. at slow speed and with as small physical impact as
-  possible, in order to avoid damage to itself and other
-  robots. Robots moving at high speed must significantly decelerate
-  before a collision occurs with another robot.
-\item If a destruction collision is immediate and the robots don't
-  react, the referee should use the refbox to send a stop command to
-  all robots. Every team has to react to the stop command by
-  immediately stopping their robots.
-\item Whenever a robot produces direct physical contact with another
-  robot while moving, it must stop movement immediately in that
-  direction (and choose a new direction for movement).
-\item If pushing occurs between a moving and a standing robot, the
-  moving robot causes the pushing situation and is responsible for
-  resolving it. If it is not able to do this, a pushing foul will be
-  called.
-\item If pushing occurs between two moving robots, both robots are
-  responsible for resolving the pushing situation. If one robot
-  continues pushing by moving in its initial direction, while the
-  other robot is recognizably reacting and trying to take another
-  direction, the foul will be called on the pushing robot.
-\item If two robots encounter physical contact and cannot resolve the
-  situation because they get entangled, the referee may issue a
-  pushing foul on both robots.
-\item If, in the opinion of the referee, physical contact between two
-  robots is not soft, or if one or both of the robots do not change
-  direction after encountering physical contact, a pushing foul will
-  be called.
-\item When a pushing foul is detected the responsible team has to use
-  up their restart for the stuck robot to start at the insertion zone
-  again. The other team can decide within 10 seconds to restart their
-  involved robot in the insertion zone without it counting as a
-  penalty restart.
-\item Moving a puck of the opposing team within a fenced area (machine
-  or input area) by at least one puck diameter is a pushing foul. The
-  referee will move the puck back to its original position.
-\item If a robot loses his puck during collision avoidance or in case
-  of a collision the puck will not be replaced.
-\item The league reserves its right to disqualify clearly malicious
-  teams.
-\end{enumerate}
-
 
 \subsection{Penalties}
 The catalog in Table~\ref{tab:infringements} represents the decision
