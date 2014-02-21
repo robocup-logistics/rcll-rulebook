@@ -212,11 +212,11 @@ The Logistics League's main challenge is a multistage production
 cycle of different product variants with self-crafted intermediate
 products and delivery of the final product. This genuine goal will be
 rewarded considerably higher than partial fulfillment of the task.
-Autonomous robots transport hockey pucks which act as a placeholder
-for (intermediate) products between the processing machines. A machine
+Autonomous robots transport hockey pucks, which act as a placeholder
+for (intermediate) products, between the processing machines. A machine
 can basically be understood as a signal light with an attached RFID
 reader as described in Appendix \ref{sec:engref}. Each puck
-carries an ID tag which will be read and processed according to the
+carries an ID tag, which will be read and processed according to the
 related machine's specification. If procurable this will lead to a new
 puck state: a new sub-assembly is produced or prepared. Complete
 work orders require all related sub-assemblies of product variants (cf.
@@ -230,14 +230,14 @@ exploration phase (see \refsec{sec:expphase}) during which robots
 receive scores for correctly discovering and publishing the yet
 unknown types of the different machines on the field. After this phase
 the referee box will announce all machine types and designations. In
-the following production phase orders are announced by the referee box
+the following production phase orders are announced by the referee box,
 which the robots must fulfill automatically.
 
 The whole factory area can be used as an intermediate storage. Finally
 successfully assembled products are to be delivered to the correct
 delivery gate and get unloaded into its delivery slot. The factory area
 has to be treated in the best possible way. Any possible damage to the
-field or the machines will be penalized by the referee.
+field, opposing robots or the machines will be penalized by the referee.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Agreements \& Regulations}
@@ -262,7 +262,7 @@ to complete the tasks as quickly and reliably as possible. Each team
 should act within the meaning of a cooperative and fair behavior,
 even if everyone wants to be the better one. Teams should avoid
 searching for rulebook gaps or inconsistencies to achieve advantages
-in the competition. Instead they are explicitly requested to report
+in the competition. Instead, they are explicitly requested to report
 such gaps to the Technical Committee.
 
 Since the rulebook cannot cover all possible cases, we consider a
@@ -276,7 +276,7 @@ treat others as one would like others to treat oneself''.
 % Alphabetical order by last name
 \emph{Christian Deppe}, Festo Didactic, Denkendorf, Germany\\
 \emph{Nils Harder}, OvGU Magdeburg, Magdeburg, Germany\\
-\emph{S\"oren Jentzsch}, Technical University of Munich, Munich, Germany\\
+\emph{S\"oren Jentzsch}, fortiss, An-Institut Technische Universit\"at M\"unchen, Munich, Germany\\
 \emph{Nicolas Meier}, Leuphana University Lüneburg, Germany\\
 \emph{Tim Niemueller}, RWTH Aachen University, Aachen, Germany\\
 \emph{Alain Rohr}, Höhere Fachschule für Technik Mittelland, Biel, Switzerland\\
@@ -537,7 +537,7 @@ alignments.
     \end{tabularx}  
 }
   }{%
-    \caption{Coordinates and alignment of machines and delivery gate slots}
+    \caption{Coordinates and alignment of machines and delivery gate slots.}
     \label{tab:coordinates} %
   }
 
@@ -571,10 +571,10 @@ further information of the RFID tag.
 
 \subsection{Machines}
 \label{sec:machines}
-All machines are identical devices consisting a plate housing the RFID
+All machines are identical devices consisting of a plate housing the RFID
 read/write device and a signal unit according to
 Figure~\ref{fig:machine}. They share the same design and RFID
-device. The overall size is \SI{280 x 160 x 100}{\milli\metre} (height
+device type. The overall size is \SI{280 x 160 x 100}{\milli\metre} (height
 $\times$ width $\times$ depth). Confer also
 Appendix~\ref{sec:engref} for further details. Machines can be in
 different states, which are communicated by their signal lights.
@@ -590,7 +590,7 @@ area and raw input storage.
 \label{sec:machine-swapping}
 Depending on the tournament phase
 (cf. \refsec{sec:tournament-phases}), some machines are swapped. That
-is, some machines are exchanged among the teams, so that a team's
+is, some machines are symmetrically exchanged among the teams, so that a team's
 machine is on the half distant from its own delivery gates. For
 example, if in \reffig{fig:competition-area} machine M9 would be
 chosen, then team 1 would need to use M21, and team 2 would need to
@@ -630,7 +630,7 @@ different production machines within the competition area. The
 frequency of machine types for each team is defined in
 Table~\ref{tab:production-machines-function}. The machines will
 indicate their different types by individual light signals. In total
-there are seven light signals possible with at least one LED switched
+there are seven possible light signals with at least one LED switched
 on (no flashing lights). The light signals and the corresponding
 machine types are initially unknown. The Referee Box will assign every
 machine type to a light signal and publish it to the robots. The
@@ -707,7 +707,7 @@ modes of the production machines and the corresponding signal lights.
 
 The machine always processes the required pallet carrier delivered
 last, all prior components will be consumed. All machines will start
-processing the data carrier as soon as it enters the machine zone as
+processing the data carrier as soon as it enters the machine zone (i.e., the RFID device's action range) as
 stated in Section~\ref{sec:competition-area}. They will change their
 operating mode according to
 Tables~\ref{tab:production-machines-feedback},
@@ -722,7 +722,7 @@ erroneous behavior of the device. Consumption of materials, such as
 machine can be done immediately after the operating mode changes away
 from processing. As long as the machines are used properly, they will
 not produce any junk. The distribution describes how many machines of
-the respective types will be randomly placed resulting in a total of
+the respective types will be randomly placed, resulting in a total of
 12 court machines for each team.
 
 \subsubsection{Recycling Machines}
@@ -767,9 +767,8 @@ there is a grace period of 3 seconds, in which delivery will still be
 accepted to the formerly active delivery gate. False deliveries to an
 active gate will be indicated by a flashing yellow light (e.g. taking
 a \s0 puck to the active gate) and false deliveries to an inactive
-gate by a steady red and blinking yellow light. In both cases, the
-puck will be taken out by the referee and it may no longer be used in
-production or delivered. In case of a delivery to an active gate, the
+gate by a steady red and blinking yellow light. Delivering a data carrier to the delivery gate of the opposing team is indicated by red and yellow flashing light. In all three cases, the puck will be taken out by the referee and it may no longer be used in
+production or delivery. In case of a delivery to an active gate, the
 team will be awarded with the points for the delivery; if the gate was
 inactive, no points will be awarded. If, however, a pallet carrier was
 not successfully delivered, the pallet carrier will remain where it
@@ -838,13 +837,13 @@ observe the time remaining to bring back a robot, or announce if a
 robot may no longer participate in the game (second restart).
 
 The field referees observe the game from the side of the field or from
-any position on the field (e.g. to better understand the game
+any position on the field (e.g., to better understand the game
 situation). They shall avoid robots spatially on the field, but
 ultimately robots are expected to avoid collision with human
 referees. Field referees are also responsible for re-positioning pucks
 after pushing or remove pucks that were delivered to a delivery gate
 if and only if the delivery gate has either accepted (all LED steady
-on) or rejected (yellow blinking with or without red light on). Field
+on) or rejected (yellow blinking with or without red light on or blinking). Field
 referees are responsible for making the decision whether a team may
 take out a robot for maintenance.
 
@@ -918,7 +917,7 @@ a robot during the game.
 \subsubsection{Team Setup}
 \label{sec:team-setup}
 No team member is allowed to enter the competition area prior to or
-during a match. All robots which are to participate in the game, need
+during a match. All robots which are to participate in the game need
 to be in the game area during setup. All robots are allowed to roam
 through the entire area, autonomously or teleoperated. However, no
 robot is allowed to touch any pallet carrier during setup;
@@ -1188,8 +1187,8 @@ produce, the amount thereof, and delivery time slots. In each game,
 orders with a fixed delivery value of 80 points will be
 placed\footnote{This number is based on experience from the game
   reports and database logs of the competition in 2013. The number can
-  be adjusted during the tournament by the Technical Committee should
-  this turn out to be necessary.}. These points only include the the
+  be adjusted during the tournament by the Technical Committee, should
+  this turn out to be necessary.}. These points only include the
 final production step and delivery. Each order will require one or
 more products of a specified product type to be delivered. The
 delivery time slot will have a randomized start time and a randomized
@@ -1205,9 +1204,9 @@ for the products $P_1$ and $P_2$ will not begin in the first 300
 seconds. An order will be announced between 10 and 60 seconds before
 the delivery time slots starts.
 
-In all tournament phases (cf.~\refsec{sec:tournament-phases}) the
+In all tournament phases (cf.~\refsec{sec:tournament-phases}), the
 teams playing on the field at the same time will get the same
-production plans but other games will have their own.
+production plans, but other games will have their own.
 
 \subsection{Special Events during a Match}
 \label{sec:during-match}
@@ -1345,30 +1344,30 @@ to pushing.
   or input area) by at least one puck diameter is a pushing foul. The
   referee will move the puck back to its original position.
 \item If a robot loses his puck during collision avoidance or in case
-  of a collision the puck will not be replaced.
+  of a collision, the puck will not be replaced.
 \item The league reserves its right to disqualify clearly malicious
   teams.
 \end{enumerate}
 
 \section{Tournament}
 \label{sec:tournament}
-The tournament is organized in a main competition consisting of three
-phases and three technical challenges. Teams can decide to participate
-in any of those.
+The tournament is organized in a main competition and three technical challenges.
+Teams can decide to participate in any of those.
 
 \subsection{Tournament Phases}
 \label{sec:tournament-phases}
-There will be three stages in the tournament, a round-robin phase for
-all participating teams, playoffs for the best 4 teams from the
-round-robin phase, and the finals. The best 2 teams of the playoffs
-play the final game.
+There will be three stages in the main competition, a round-robin phase for
+all participating teams, playoffs for the best four teams from the
+round-robin phase, and the finals. The best two teams of the playoffs
+play the grand finale to decide which team will become the next Logistics 
+League champion, whereas the other two teams compete in the small final for 
+third place.
 
 \paragraph{Round-Robin phase.~} 
 The first stage is a group phase and will be played as a round-robin.
-The teams will receive the true points they scored by delivering and
-producing goods during the competition. The points will be accumulated
-in this phase and the teams will be ranked according to the
-accumulated points in descending order.
+The teams will receive the true points they scored during the competition. 
+The points will be accumulated in this phase and the teams will be ranked 
+according to the accumulated points in descending order.
 
 \paragraph{Playoffs.~}
 At the playoff stage, the scoring scheme will be different. As each
@@ -1382,16 +1381,15 @@ the game time will be extended by 5 minutes unless both teams scored
 zero points. This will be announced by the refbox instead of a game
 closed message.
 %
-If this extension leads to a draw too the overall regular points of
+If this extension leads to a draw too, the overall regular points of
 the teams will determine the match winner. If the overall points are
 equal too, a direct comparison between the teams in question will
 decide. If this fails to resolve the situation, the teams will
 approach a coin toss to determine the winner.
 
-
-
 \paragraph{Finals.~}
-The best 2 teams of the playoff phase will advance to the finals. The
+The best two teams of the playoff phase will advance to the grand finale, 
+the remaining two teams will compete in the small finals for third place. The
 team that scores more points after the regular game time wins. If
 there is no winner after the regular time, the game continues for 5
 more minutes. If after this time there is still no winner, a coin toss
@@ -1399,7 +1397,7 @@ will decide.
 
 \bigskip \hskip-\parindent
 The detailed seeding will be created at the event. Although the idea
-is to allow each participant to challenge each other team the league
+is to allow each participant to challenge each other team, the league
 can be adjusted to meet time requirements.
 
 
@@ -1416,7 +1414,7 @@ the referees decide if the commentary duties were met and award the
 according team with 10 points. If both teams are willing to commentate
 on the game, the game time is shared according to the team
 specification (e.g., team 1 commentates the first half, team 2 the
-second half). The teams can make custom arrangements to split the
+second half). However, the teams can also make custom arrangements to split the
 overall time.
 
 \subsection{Penalties}
@@ -1430,7 +1428,7 @@ basis for the referees not being exhaustive or binding.
     \begin{tabularx}{\linewidth}{l|X}
   \multicolumn{1}{l}{Issue} &\multicolumn{1}{l}{Sanction}\\\hline
   Premature movement & No robot is allowed to move until the referee
-  announced the start of the match The faulty robot will be grounded
+  announced the start of the match. The faulty robot will be grounded
   for 2 minutes.\\[1ex]
 %
   Damaging factory equipment & Theoretical damage to the real
@@ -1466,7 +1464,7 @@ basis for the referees not being exhaustive or binding.
   team's current or next match.\\[1ex]
 %
   Disregarding rules of conduct & Following the rules of conduct
-  should be self-explanatory Upon disregard, the referee will impose
+  should be self-explanatory. Upon disregard, the referee will impose
   sanctions ranged from time punishments to the team's complete
   removal from the tournament.\\%\hline
   \end{tabularx}  }
@@ -1524,13 +1522,13 @@ handle a workpiece. The challenge will be to
 
 \hskip-\parindent Teams may add markers of any kind to the MPS station
 and shelf to support their approach. These markers have to be
-removable residue-free and mounted/unmounted in a reasonable short
+removable, residue-free and mounted/unmounted in a reasonable short
 amount of time before each test run.
 
-Each team 10 minutes to conduct a test run with field exclusivity.
+Each team has 10 minutes to conduct a test run with field exclusivity.
 Once they choose to begin, they have 3 minutes to complete the
 challenge.  Each step will be awarded with points. If all points are
-completed in time, the fastest time wins.
+completed in time, the fastest team wins.
 
 The installation will be available throughout the whole time of the
 tournament. Festo will provide one standardized gripper per team over
@@ -1554,7 +1552,7 @@ the course of a tournament. Custom constructions are welcome.
     \vspace*{2cm}
   \end{minipage}
 }
-\caption{The challenge scenario and used workpieces}
+\caption{Approaching an MPS station: The challenge scenario and used workpieces}
 \label{fig:mps-challenge}
 \end{figure}
 
@@ -1598,7 +1596,7 @@ development of custom manipulation devices.
 \label{fig:mps-station}
 \end{figure}
 
-\subsubsection{Free challenge.~}
+\subsubsection{Free challenge~}
 Each team will be given 5 minutes to showcase their robot team, e.g.
 show some new robotics developments. This may involve any task as long
 as it is performed with at most three Robotino robots within the
@@ -1613,11 +1611,11 @@ rate it with points between 0--10.  The team with the highest sum of
 points will win this challenge. The other teams are ranked in
 decreasing point order.
 
-\subsubsection{Conducting the Challenges.~}
+\subsubsection{Conducting the Challenges~}
 The technical challenges are conducted in the following way. The team
-leader of each participating team agree on a date and time during the
+leaders of each participating team agree on a date and time during the
 tournament for the Technical Challenge in their first team leader
-meeting. For each type of challenge, a time slot is assigned in which
+meeting. For each type of challenge, a time slot is assigned, in which
 teams can participate once in the challenge. Each team can register
 for any of the challenges. All team leaders have to be present at the
 time of the challenge to judge the other teams. The OC is responsible
@@ -1993,7 +1991,7 @@ floor.
 
 The default webcam camera is plugged in via USB and is capable of full
 HD 1080p video with auto light correction and two built in microphones
-for stereo sound with noise-cancelling
+for stereo sound with noise-canceling.
 
 \subsubsection{Controller Board}
 Robotino is powered by an exchangeable Embedded PC - COM Express
