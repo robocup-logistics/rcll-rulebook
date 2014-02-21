@@ -1189,7 +1189,7 @@ orders with a fixed delivery value of 80 points will be
 placed\footnote{This number is based on experience from the game
   reports and database logs of the competition in 2013. The number can
   be adjusted during the tournament by the Technical Committee should
-  this turns out to be necessary.}. These points only include the the
+  this turn out to be necessary.}. These points only include the the
 final production step and delivery. Each order will require one or
 more products of a specified product type to be delivered. The
 delivery time slot will have a randomized start time and a randomized
@@ -1200,9 +1200,10 @@ seconds of travel time. The orders shall be posted with a uniform
 distribution over the whole game time (but there is not necessarily an
 open order for a particular product at a specific time, or any order
 at all). The first order will be posted within the first 120 seconds
-of the game (but not necessarily at the beginning of the game). An
-order will be announced between 10 and 60 seconds before the delivery
-time slots starts.
+of the game (but not necessarily at the beginning of the game). Orders
+for the products $P_1$ and $P_2$ will not begin in the first 300
+seconds. An order will be announced between 10 and 60 seconds before
+the delivery time slots starts.
 
 In all tournament phases (cf.~\refsec{sec:tournament-phases}) the
 teams playing on the field at the same time will get the same
@@ -1218,17 +1219,17 @@ The match time will be paused during the interruption.
 
 \subsubsection{Machine Downtime (out of order)}
 \label{sec:out-of-order}
-The downtime generator will take down machines randomly out of the
-pool containing all production machines. It will do so at random
-points of time and with the same conditions for both teams, i.e.,
-affecting the same machines for both teams. There will be 6 to 8 of
-such triggered events during a match. The machines affected will
-remain out of order for 30 to 120 seconds. Every machine can only be
-forced out of order once per match. The recycling machines will be
-taken down exactly once per match, with a downtime of 20 to 40
-seconds. If a machine turns offline during processing or consumption
-of mounted a pallet carrier, it will afterwards resume the process
-(extending the overall processing time by the down time).
+The refbox will take down machines randomly out of the pool containing
+all production machines. It will do so at random points of time and
+with the same conditions for both teams, i.e., affecting the same
+machines for both teams. There will be 6 to 8 of such triggered events
+during a match. The machines affected will remain out of order for 30
+to 120 seconds. Every machine can only be forced out of order once per
+match. The recycling machines will be taken down exactly once per
+match, with a downtime of 20 to 40 seconds. If a machine turns offline
+during processing or consumption of mounted a pallet carrier, it will
+afterwards resume the process (extending the overall processing time
+by the down time).
 
 \subsection{Task Fulfillment and Scoring}
 Table \ref{tab:scoring} provides the itemized clearance of all task
@@ -1351,43 +1352,35 @@ to pushing.
 
 \section{Tournament}
 \label{sec:tournament}
+The tournament is organized in a main competition consisting of three
+phases and three technical challenges. Teams can decide to participate
+in any of those.
 
 \subsection{Tournament Phases}
 \label{sec:tournament-phases}
-% The tournament features two stages with the first stage being done in
-% league form with several sequels orientating at the number of
-% participants and a second stage with playoffs featuring the top 4
-% teams.
+There will be three stages in the tournament, a round-robin phase for
+all participating teams, playoffs for the best 4 teams from the
+round-robin phase, and the finals. The best 2 teams of the playoffs
+play the final game.
 
-\paragraph{Round-Robin phase} 
-There will be three stages in the tournament. The first stage is a
-group phase and will be played as a round-robin. The best 4 teams of
-the round-robin stage will advance to a playoff round. The best 2
-teams of this phase play the final game.
+\paragraph{Round-Robin phase.~} 
+The first stage is a group phase and will be played as a round-robin.
+The teams will receive the true points they scored by delivering and
+producing goods during the competition. The points will be accumulated
+in this phase and the teams will be ranked according to the
+accumulated points in descending order.
 
-%
-At the round-robin stage, the teams will receive the true points they
-scored by delivering and producing goods during the competition. The
-points will be accumulated in this phase and the teams will be ranked
-according to the accumulated points in descending order.
-
-\paragraph{Playoffs}
+\paragraph{Playoffs.~}
 At the playoff stage, the scoring scheme will be different. As each
 team in this phase directly competes with an opposing team, the team
 that scores more points as the direct opponent, will be announced as
 the winner and 3 points will be awarded to this team. A loss will be
 awarded with 0 points. Additionally, if both teams are unable to score
 any points during the match by delivering or producing goods, both
-teams will receive 0 points.
-%
-% Each match will be resulted with the score of each team. The winning
-% team will be awarded 2 major points. In case of a draw both teams will
-% be awarded with 1 major point. In case both teams scored zero points,
-% no major points will be awarded.
-%
-In case of a draw within the playoffs, the game time will be extended
-by 5 minutes unless both teams scored zero points. This will be
-announced by the refbox instead of a game closed message.
+teams will receive 0 points. In case of a draw within the playoffs,
+the game time will be extended by 5 minutes unless both teams scored
+zero points. This will be announced by the refbox instead of a game
+closed message.
 %
 If this extension leads to a draw too the overall regular points of
 the teams will determine the match winner. If the overall points are
@@ -1397,15 +1390,14 @@ approach a coin toss to determine the winner.
 
 
 
-\paragraph{Finals.}
-The best 2 teams of the playoff phase will advance to the finals.
-The two teams compete directly in concurrent games. The team that
-scores more points after the regular game time wins. If there is no
-winner after the regular time, the game continues for 5 more
-minutes. If after this time there is still no winner, a coin toss will
-decide.
+\paragraph{Finals.~}
+The best 2 teams of the playoff phase will advance to the finals. The
+team that scores more points after the regular game time wins. If
+there is no winner after the regular time, the game continues for 5
+more minutes. If after this time there is still no winner, a coin toss
+will decide.
 
-\bigskip
+\bigskip \hskip-\parindent
 The detailed seeding will be created at the event. Although the idea
 is to allow each participant to challenge each other team the league
 can be adjusted to meet time requirements.
@@ -1429,7 +1421,7 @@ overall time.
 
 \subsection{Penalties}
 The catalog in Table~\ref{tab:infringements} represents the decision
-basis for the referees without being exhaustive or binding.
+basis for the referees not being exhaustive or binding.
 %
 
 \begin{table}
@@ -1617,7 +1609,7 @@ developments of the league and to highlight particular advances in the
 system of the presenting team.
 
 The team leaders of non-presenting team will judge the performance and
-rate it with points between 0--10.  The team with the most sum of
+rate it with points between 0--10.  The team with the highest sum of
 points will win this challenge. The other teams are ranked in
 decreasing point order.
 
@@ -1625,17 +1617,16 @@ decreasing point order.
 The technical challenges are conducted in the following way. The team
 leader of each participating team agree on a date and time during the
 tournament for the Technical Challenge in their first team leader
-Meeting. For each type of challenge, a time slot is assigned in which
+meeting. For each type of challenge, a time slot is assigned in which
 teams can participate once in the challenge. Each team can register
 for any of the challenges. All team leaders have to be present at the
 time of the challenge to judge the other teams. The OC is responsible
-to conduct the Technical Challenge and can appoint team leaders to
-support in conducting the challenges. Each challenge will have a
-separate ranking. In each ranking, the team on the last rank will
-receive 0 points, the last-but-one ranked team will receive 1 point
-etc. The points for each ranking will be added and the team with the
-most points accrued over all challenges will be awarded with the
-Logistic Leagues Technical Challenge Award.
+to conduct the Technical Challenge and can appoint team leaders as
+support. Each challenge will have a separate ranking. In each ranking,
+the team on the last rank will receive 0 points, the last-but-one
+ranked team will receive 1 point etc. The points for each ranking will
+be added and the team with the most points accrued over all challenges
+will be awarded with the Logistic Leagues Technical Challenge Award.
 
 
 \section{The Robotino System}
@@ -1686,9 +1677,9 @@ To allow identification by the overhead camera system of the referee
 box, all robots must wear unique colored labels on top of the
 robot. The labels will be provided by the organizing committee. Teams
 must provide appropriate mounting capabilities such that the labels
-are freely and completely visible from above. The marker in 2013 will
-be round labels of approximately \SI{20}{\centi\meter} in diameter
-printed on paperboard.
+are freely and completely visible from above. The markers are round
+labels of approximately \SI{20}{\centi\meter} in diameter printed on
+paperboard.
 
 \section{Communication}
 \label{sec:communication}
