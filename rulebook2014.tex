@@ -309,67 +309,7 @@ To get into contact with the OC use the mailing list\\
 
 \subsection{Field Layout and Dimensions}
 \label{sec:competition-area}
-
-The competition area is shown in Figure \ref{fig:competition-area} and
-features a \SI{11.25 x 5.625}{\metre} large arena with several
-RFID-mounted machines, mark-ups, stocks of raw-material and 
-delivery zones. It is surrounded by boards with \SI{0.5}{\metre} of
-height to reduce object interference from outside the area.
-
-The origin and coordinate system of the competition field is drawn in
-Figure \ref{fig:competition-area} and will be intrinsically referred
-to for each statement within this rulebook that uses absolute
-coordinates. All indicated sizes of mark-ups are to be considered
-outside dimensions. The default width for mark-ups is
-\SI{19}{\milli\metre}, the default color is black, except for the
-recycling machines, in which case the machine space is marked with
-green mark-ups.
-
-Both competing teams play within the same competition area. However,
-each team has its own \textit{input storage area}, \textit{robot
-  insertion area}, \textit{production machines}, \textit{recycling
-  machine}, and \textit{delivery zone}.
-
-The robot insertion areas are located along each corner of the left
-competition area, with a separate mark-up line \SI{0.4}{\metre} apart
-from the competition boundary.  Next to them towards the mid, the
-input storage areas are located. Each input storage area has a size of
-\SI{1.1 x 0.4}{\metre}, is painted blue on the wall, and contains a
-set of 22 pucks.
-
-The delivery zones are located to the bottom and the top of the
-competition area, respectively, and are painted green on the
-wall. Each of the three \textit{delivery gates} in each zone is of
-\SI{0.3}{\metre} width with \SI{0.1}{\metre} space to the next
-delivery gate separated by black mark-ups. The delivery gates feature
-one signal per gate placed in the middle of each gate zone. The
-delivery slot resides besides a unit that is identical in construction
-to a production machine. Each of the three RFID devices within these
-gates features a black centered square of \SI{0.1 x 0.1}{\metre} called
-delivery slot, which resides exactly below the RFID device.
-
-Additionally to the delivery gates, 26 machines are placed within the
-competition area: 24 machines representing the multistaged production
-process, and two machines to recycle consumed pallet carriers. All
-machines are placed within the factory area as stated in Figure
-\ref{fig:competition-area}. They are aligned in a \ang{90} angle and
-reside in the center of a squared machine space spanned by mark-ups
-with \SI{0.5}{\metre} each side.
-
-The distribution and alignment of all machines is axially symmetrical
-to the y-axis. Thus, each team
-has exact the same conditions on the upper and the lower half of the
-competition field. Half of the production and recycling machines
-belong to the one team, the other half to the other team. However,
-whereas each recycling machine will always belong to the respective
-team (i.e., R1 to team 1 and R2 to team 2), production machines from
-one team can also be located inside the area of the opposing team. We
-will later discuss the concept of the production machine distribution
-for each team in detail. For now, note that the conditions for each
-team will be the same, i.e. the distribution will be a symmetrical
-one.
-
-\begin{figure}[p]
+\begin{figure}
   \centering
   \begin{tikzpicture}[scale=2.0]
 
@@ -497,17 +437,78 @@ one.
   \caption{Competition Area}
   \label{fig:competition-area}
 \end{figure}
+The competition area is shown in Figure \ref{fig:competition-area} and
+features a \SI{11.25 x 5.625}{\metre} large arena with several
+RFID-mounted machines, mark-ups, stocks of raw-material and delivery
+zones. It is surrounded by boards of \SI{0.5}{\metre} height to reduce
+object interference from outside the area.
+
+The origin and coordinate system of the competition field is drawn in
+Figure \ref{fig:competition-area} and will be intrinsically referred
+to for each statement within this rulebook that uses absolute
+coordinates. All indicated sizes of mark-ups are to be considered
+outside dimensions. The default width for mark-ups is
+\SI{19}{\milli\metre}, the default color is black, except for the
+recycling machines, in which case the machine space is marked with
+green mark-ups.
+
+The whole area is shared among both teams on the field and any robot
+may travel anywhere at any time (while not obstructing or pushing
+other robots or machines). However, there are primary sides (split
+along the y-axis) for each team where a team's \textit{input storage
+  area}, \textit{robot insertion area}, \textit{production machines},
+\textit{recycling machine}, and \textit{delivery zone} are located. We
+will refer to the side with positive coordinates on the x-axis as the
+(primary) half of team 1, and the side with negative coordinates on
+the x-axis as the primary half of team 2.
+
+The robot insertion areas are located along each corner of the left
+competition area, with a separate mark-up line \SI{0.4}{\metre} apart
+from the competition boundary.  Next to them towards the mid, the
+input storage areas are located. Each input storage area has a size of
+\SI{1.1 x 0.4}{\metre}, is painted blue on the wall, and contains a
+set of 22 pucks.
+
+The delivery zones are located to the bottom and the top of the
+competition area, respectively, and are painted green on the
+wall. Each of the three \textit{delivery gates} in each zone is of
+\SI{0.3}{\metre} width with \SI{0.1}{\metre} space to the next
+delivery gate separated by black mark-ups. The delivery gates feature
+one signal per gate placed in the middle of each gate zone. The
+delivery slot resides besides a unit that is identical in construction
+to a production machine. Each of the three RFID devices within these
+gates features a black centered square of \SI{0.1 x 0.1}{\metre} called
+delivery slot, which resides exactly below the RFID device.
+
+Additionally to the delivery gates, 26 machines are placed within the
+competition area: 24 machines representing the multistaged production
+process, and two machines to recycle consumed pallet carriers. All
+machines are placed within the factory area as stated in Figure
+\ref{fig:competition-area}. They are aligned in a \ang{90} angle and
+reside in the center of a squared machine space spanned by mark-ups
+with \SI{0.5}{\metre} each side.
+
+The distribution and alignment of all machines is axially symmetrical
+to the y-axis. Thus, each team has exact the same conditions on the
+upper and the lower half of the competition field. Half of the
+production and recycling machines belong to the one team, the other
+half to the other team. However, whereas each recycling machine will
+always belong to the respective team (i.e., R1 to team 1 and R2 to
+team 2), production machines from one team can also be located inside
+the area of the opposing team. We will later discuss the concept of
+the production machine distribution for each team in detail. For now,
+note that the conditions for each team will be the same, i.e. the
+distribution will be a symmetrical one.
 
 The center coordinates and alignment of the machine and the different
 delivery gate slots are presented in Table~\ref{tab:coordinates}. Note
 that this field layout should be seen as a proposal for the actual
 competition area layout, accounting for symmetry and avoiding
 clustering of machine access nodes and unapproachable
-machines. However, in case of comprehensible reasons (e.g. hardware or
-exhibition issues), the field layout can still change before the
-actual tournament starts. Thus, teams should focus on a generic
-approach for production, allowing for easy adaptation of machine
-positions and alignments.
+machines. However, the field layout can still change before the actual
+tournament starts. Thus, teams should focus on a generic approach for
+production, allowing for easy adaptation of machine positions and
+alignments.
 
 \begin{figure}
 \begin{floatrow}
