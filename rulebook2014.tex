@@ -159,28 +159,25 @@
 \pagenumbering{arabic}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Introduction} \label{sec:intro}
-
-\subsection*{Preamble} \label{sec:preamble}
-
+\section{Introduction}
+\label{sec:intro}
 The future of Production Industry lies with smarter systems.  With
 current developments pursuing the goal of more aware, more
 decentralized behaviors in factories, a scientific platform for
 applied research is required.  The RoboCup Logistics League sponsored
-by Festo is determined to develop into a state-of-the-art platform for
-mobile robotics education and research. This industrial motivated
-league keeps the focus on challenges promoting precise actions and
-robust long-enduring execution, and further encourages external data
-supported autonomy.
+by Festo (LLSF) is determined to develop into a state-of-the-art
+platform for mobile robotics education and research. This industrial
+motivated league keeps the focus on challenges promoting precise
+actions and robust long-enduring execution, and further encourages
+external data supported autonomy.
 
-This year's competition environment is laid out in the pages to come.
-It ensures the same and fair circumstances for all participants, it
-however is neither meant to dictate nor suggest the way how to fulfill
-the task, but is meant to develop the Logistics League further towards
-deploying Automated Guided Vehicles in industrial applications. This
-includes current challenges of developing industry-wide standards for
-Cyber Physical Systems for production processes like designing
-plug-and-produce capable systems.
+This year's competition is laid out in the pages to come. It ensures
+the same and fair circumstances for all participants. It neither
+dictates nor suggests the way how to fulfill the task, but is meant to
+develop the LLSF further towards deploying Automated Guided Vehicles
+in industrial applications. This includes current challenges of
+developing industry-wide standards for Cyber Physical Systems for
+production processes like designing plug-and-produce capable systems.
 
 After an exciting RoboCup in Eindhoven, we look forward to a new scale
 of competition that will emerge from initiatives around the globe. In
@@ -208,20 +205,20 @@ shall complete the following task without human interference as
 successful as possible, competing with a second team against the
 clock.
 
-The Logistics League's main challenge is a multistage production
-cycle of different product variants with self-crafted intermediate
-products and delivery of the final product. This genuine goal will be
-rewarded considerably higher than partial fulfillment of the task.
-Autonomous robots transport hockey pucks, which act as a placeholder
-for (intermediate) products, between the processing machines. A machine
+The Logistics League's main challenge is a multistage production cycle
+of different product variants with self-crafted intermediate products
+and delivery of the final product. This genuine goal will be rewarded
+considerably higher than partial fulfillment of the task.  Autonomous
+robots transport hockey pucks, which act as a placeholder for
+(intermediate) products, between the processing machines. A machine
 can basically be understood as a signal light with an attached RFID
-reader as described in Appendix \ref{sec:engref}. Each puck
-carries an ID tag, which will be read and processed according to the
-related machine's specification. If procurable this will lead to a new
-puck state: a new sub-assembly is produced or prepared. Complete
-work orders require all related sub-assemblies of product variants (cf.
-\refsec{sec:prodportfolio} for details). Such transformations can rely
-on more than one puck as input to be triggered.
+reader. Each puck carries an ID tag, which will be read and processed
+according to the related machine's specification. If procurable this
+will lead to a new puck state: a new sub-assembly is produced or
+prepared. Complete work orders require all related sub-assemblies of
+product variants (cf.  \refsec{sec:prodportfolio}). Such
+transformations can rely on more than one puck as input to be
+triggered.
 
 This work flow is controlled by a referee box broadcasting information
 via wifi (see \refsec{sec:referee-box}). The work flow itself is
@@ -230,44 +227,37 @@ exploration phase (see \refsec{sec:expphase}) during which robots
 receive scores for correctly discovering and publishing the yet
 unknown types of the different machines on the field. After this phase
 the referee box will announce all machine types and designations. In
-the following production phase orders are announced by the referee box,
-which the robots must fulfill automatically.
+the following production phase orders are announced by the referee
+box, which the robots must fulfill automatically.
 
 The whole factory area can be used as an intermediate storage. Finally
 successfully assembled products are to be delivered to the correct
-delivery gate and get unloaded into its delivery slot. The factory area
-has to be treated in the best possible way. Any possible damage to the
-field, opposing robots or the machines will be penalized by the referee.
+delivery gate and get unloaded into its delivery slot. The factory
+area has to be treated in the best possible way. Any possible damage
+to the field, opposing robots or the machines will be penalized by the
+referee.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Agreements \& Regulations}
 \label{sec:agreements}
-
-The Logistics League follows a certain design philosophy. All teams
-are obliged to use the Robotino robotic system from Festo Didactic
-GmbH \& Co. KG with certain freedoms and limitations. This includes
-the current version, Robotino 3, as well as the phased-out Robotino 2
-until decided otherwise by the TC. See \refsec{sec:robotino} and
-Appendix~\ref{sec:engref} for further details. All available sensor
-equipment that does neither exceed Robotino's diameter (see
-Appendix~\ref{apx:sec:robot}) nor require external assistance (like
-Indoor GPS) is permitted.
-
+In the LLSF, all teams are obliged to use the Robotino robotic system
+from Festo Didactic GmbH \& Co. KG with certain freedoms and
+limitations. This includes the current version, Robotino 3, as well as
+the phased-out Robotino 2. \refsec{sec:robotino} describes the
+specific constraints.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Rules Philosophy}
 \label{sec:rules-philosphy}
-We are located in the Logistics League (Industrial). Thus the goal is
-to complete the tasks as quickly and reliably as possible. Each team
-should act within the meaning of a cooperative and fair behavior,
-even if everyone wants to be the better one. Teams should avoid
-searching for rulebook gaps or inconsistencies to achieve advantages
-in the competition. Instead, they are explicitly requested to report
-such gaps to the Technical Committee.
-
-Since the rulebook cannot cover all possible cases, we consider a
-general gentleman agreement. The golden rule of ethic: ``One should
-treat others as one would like others to treat oneself''.
+The goal of this industrially inspired league is to complete the tasks
+as quickly and reliably as possible. Each team should act within the
+meaning of a cooperative and fair behavior, even if everyone wants to
+be the better one. Teams should not search for gaps or inconsistencies
+in the rulebook to achieve advantages in the competition. Instead, we
+ask explicitly to bring such gabs to our attention. Since the rulebook
+cannot cover all possible cases, we consider a general gentleman
+agreement: ``One should treat others as one would like others to treat
+oneself''.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -277,11 +267,10 @@ treat others as one would like others to treat oneself''.
 \emph{Christian Deppe}, Festo Didactic, Denkendorf, Germany\\
 \emph{Nils Harder}, OvGU Magdeburg, Magdeburg, Germany\\
 \emph{S\"oren Jentzsch}, fortiss, An-Institut Technische Universit\"at M\"unchen, Munich, Germany\\
-\emph{Nicolas Meier}, Leuphana University Lüneburg, Germany\\
+\emph{Nicolas Meier}, Leuphana University L\"uneburg, Germany\\
 \emph{Tim Niemueller}, RWTH Aachen University, Aachen, Germany\\
-\emph{Alain Rohr}, Höhere Fachschule für Technik Mittelland, Biel, Switzerland\\
+\emph{Alain Rohr}, H\"ohere Fachschule für Technik Mittelland, Biel, Switzerland\\
 \emph{Wataru Uemura}, Ryukoku University, Shiga, Japan\\
-\medskip
 
 \noindent
 To get into contact with the TC use the mailing list\\
@@ -290,11 +279,10 @@ To get into contact with the TC use the mailing list\\
 \subsection{Organizing Committee 2014} \label{sec:oc} 
 \emph{Alexander Ferrein}, FH Aachen University of Applied Sciences,
 Aachen, Germany\\
-\emph{Eren Karaman}, Leuphana University Lüneburg, Germany\\
+\emph{Eren Karaman}, Leuphana University L\"uneburg, Germany\\
 \emph{Ulrich Karras}, Festo Didactic GmbH, Denkendorf, Germany\\
 \emph{Sebastian Reuter}, RWTH Aachen University, Aachen, Germany\\
-\emph{Thomas Zuercher}, Höhere Fachschule für Technik Mittelland, Biel, Switzerland\\
-\medskip
+\emph{Thomas Zuercher}, H\"ohere Fachschule für Technik Mittelland, Biel, Switzerland\\
 
 \noindent
 To get into contact with the OC use the mailing list\\
@@ -477,8 +465,8 @@ delivery gate separated by black mark-ups. The delivery gates feature
 one signal per gate placed in the middle of each gate zone. The
 delivery slot resides besides a unit that is identical in construction
 to a production machine. Each of the three RFID devices within these
-gates features a black centered square of \SI{0.1 x 0.1}{\metre} called
-delivery slot, which resides exactly below the RFID device.
+gates features a black centered square of \SI{0.1 x 0.1}{\metre}
+called delivery slot, which resides exactly below the RFID device.
 
 Additionally to the delivery gates, 26 machines are placed within the
 competition area: 24 machines representing the multistaged production
@@ -543,9 +531,32 @@ alignments.
 
   \end{minipage}
 \end{floatrow}
+\vspace*{-2mm}
 \end{figure}
 
+\subsection{The Pallet Carrier Puck}
+The data-carrying RFID tag is attached on top of a hockey puck. Each
+pallet carrier can be identified by a unique number. The tournament
+puck features a diameter of \SI{7.5}{\centi\metre} and is shown in
+Figure~\ref{fig:puck}. Please consult Appendix~\ref{sec:data-carrier}
+for further information of the RFID tag.
 
+\subsection{Machines}
+\label{sec:machines}
+All machines are identical devices consisting of a plate housing the
+RFID read/write device and a signal unit according to
+Figure~\ref{fig:machine}. They share the same design and RFID device
+type. The overall size is \SI{280 x 160 x 100}{\milli\metre} (height
+$\times$ width $\times$ depth). Confer also Appendix~\ref{sec:engref}
+for further details. Machines can be in different states, which are
+communicated by their signal lights.
+
+The machine distribution (number of machines per type and team), their
+input(s) and output and their range of processing times is summarized
+in Table~\ref{tab:production-machines-function}. The machines are
+evenly divided among both playing teams. Delivery and recycling
+machines for a team are always on the same side as its robot insertion
+area and raw input storage.
 \begin{figure}
   \subfigure[Puck]{
     \includegraphics[width=0.2\textwidth]{125px-Puck}
@@ -560,55 +571,32 @@ alignments.
   \label{fig:puck-machine}
 \end{figure}
 
-
-\subsection{The Pallet Carrier Puck}
-The data-carrying RFID tag is attached on top of a hockey puck. Each
-pallet carrier can be identified by a unique number. The tournament puck
-features a diameter of \SI{7.5}{\centi\metre} and is shown in
-Figure~\ref{fig:puck}. Please consult Appendix~\ref{sec:data-carrier} for
-further information of the RFID tag.
-
-
-\subsection{Machines}
-\label{sec:machines}
-All machines are identical devices consisting of a plate housing the RFID
-read/write device and a signal unit according to
-Figure~\ref{fig:machine}. They share the same design and RFID
-device type. The overall size is \SI{280 x 160 x 100}{\milli\metre} (height
-$\times$ width $\times$ depth). Confer also
-Appendix~\ref{sec:engref} for further details. Machines can be in
-different states, which are communicated by their signal lights.
-
-The machine distribution (number of machines per type and team), their
-input(s) and output and their range of processing times is summarized
-in Table~\ref{tab:production-machines-function}. The machines are
-evenly divided among both playing teams. Delivery and recycling
-machines for a team are always on the same side as its robot insertion
-area and raw input storage.
-
 \subsubsection{Machine Swapping}
 \label{sec:machine-swapping}
 Depending on the tournament phase
 (cf. \refsec{sec:tournament-phases}), some machines are swapped. That
-is, some machines are symmetrically exchanged among the teams, so that a team's
-machine is on the half distant from its own delivery gates. For
-example, if in \reffig{fig:competition-area} machine M9 would be
+is, some machines are symmetrically exchanged among the teams, so that
+a team's machine is on the half distant from its own delivery
+gates. For example, if in \reffig{fig:competition-area} machine M9 is
 chosen, then team 1 would need to use M21, and team 2 would need to
-use M9 respectively (the type remains unchanged).
+use M9 respectively (type remains unchanged).
 
+\vspace*{-1ex}
 \paragraph{Round-robin phase.~}
 One machine type out of the set ${T_3, T_4, T_5}$ is chosen
 randomly. All machines of that particular type are swapped.
 
+\vspace*{-1ex}
 \paragraph{Play-offs.~}
 Half of all machines (of any type) will be chosen randomly and
 swapped.
 
+\vspace*{-1ex}
 \paragraph{Finals.~}
 For each machine (of any type) the referee box will randomly determine
 if it is swapped.
 
-\begin{table}[tp]
+\begin{table}[bp]
 \centering
 	\mytable{  \begin{tabularx}{\linewidth}{l|X|X|X|l}
     \multicolumn{1}{l}{ Type} & \multicolumn{1}{l}{Distribution / Team} & \multicolumn{1}{l}{Input} & \multicolumn{1}{l}{Output} & \multicolumn{1}{l}{(Final) processing time[s]}\\\hline
@@ -660,10 +648,10 @@ the message types.
 					Red and yellow LED flashing (at 2 Hz) & The machine detects a data carrier, which belong to the opposing team. \\%\hline
 	\end{tabularx}}
   \caption{Production Machines - Optical Feedback during production phase}
-  \label{tab:production-machines-feedback}  
+  \label{tab:production-machines-feedback}
 \end{table}
 
-
+\vspace*{-2mm}
 \subsubsection{Production Machines -- During Production Phase}
 The default operating mode of all machines implies that only the green
 LED is turned on. This signals that the machine is ready for input.
@@ -707,10 +695,10 @@ modes of the production machines and the corresponding signal lights.
 
 The machine always processes the required pallet carrier delivered
 last, all prior components will be consumed. All machines will start
-processing the data carrier as soon as it enters the machine zone (i.e., the RFID device's action range) as
-stated in Section~\ref{sec:competition-area}. They will change their
-operating mode according to
-Tables~\ref{tab:production-machines-feedback},
+processing the data carrier as soon as it enters the machine zone
+(i.e., the RFID device's action range) as stated in
+Section~\ref{sec:competition-area}. They will change their operating
+mode according to Tables~\ref{tab:production-machines-feedback},
 \ref{tab:recycling-machine}, and \ref{tab:delivery-gates}.
 
 In order to complete the machines' work order, the input materials have
@@ -767,11 +755,14 @@ there is a grace period of 3 seconds, in which delivery will still be
 accepted to the formerly active delivery gate. False deliveries to an
 active gate will be indicated by a flashing yellow light (e.g. taking
 a \s0 puck to the active gate) and false deliveries to an inactive
-gate by a steady red and blinking yellow light. Delivering a data carrier to the delivery gate of the opposing team is indicated by red and yellow flashing light. In all three cases, the puck will be taken out by the referee and it may no longer be used in
-production or delivery. In case of a delivery to an active gate, the
-team will be awarded with the points for the delivery; if the gate was
-inactive, no points will be awarded. If, however, a pallet carrier was
-not successfully delivered, the pallet carrier will remain where it
+gate by a steady red and blinking yellow light. Delivering a data
+carrier to the delivery gate of the opposing team is indicated by red
+and yellow flashing light. In all three cases, the puck will be taken
+out by the referee and it may no longer be used in production or
+delivery. In case of a delivery to an active gate, the team will be
+awarded with the points for the delivery; if the gate was inactive, no
+points will be awarded. If, however, a pallet carrier was not
+successfully delivered, the pallet carrier will remain where it
 is. See Table~\ref{tab:delivery-gates} for the possible delivery gate
 signal states.
 
@@ -896,21 +887,20 @@ The three phases of the game are detailed below.
 
 \subsection{Environment Setup}
 \label{sec:env-setup}
-
-The physical distribution and alignment of the production machines is fixed. The machine
-type of each production machine will be randomized prior to each
-match. The processing time of each machine type will be determined in
-the same way, so the waiting time during a match will be static for
-each machine of all machine types (e.g. all T1 could have 7 seconds
-processing time). The active delivery gate will also be randomized
-prior to each match, but during a match the active gate can switch. At
-the beginning, each team has the responsibility to place up to 22 
-raw materials (pucks in $S_0$ state) in their input storage, initially 
-spread as shown in \reffig{fig:competition-area} or in another fashion 
-as chosen by the team. The pucks may only be touched by a
-robot after the game has started. In particular, they may not be
-re-positioned for better alignment if they have been pushed or moved by
-a robot during the game.
+The physical distribution and alignment of the production machines is
+fixed. The machine type of each production machine will be randomized
+prior to each match. The processing time of each machine type will be
+determined in the same way, so the waiting time during a match will be
+static for each machine of all machine types (e.g. all T1 could have 7
+seconds processing time). The active delivery gate will also be
+randomized prior to each match, but during a match the active gate can
+switch. At the beginning, each team has the responsibility to place up
+to 22 raw materials (pucks in $S_0$ state) in their input storage,
+initially spread as shown in \reffig{fig:competition-area} or in
+another fashion as chosen by the team. The pucks may only be touched
+by a robot after the game has started. In particular, they may not be
+re-positioned for better alignment if they have been pushed or moved
+by a robot during the game.
 
 \subsection{Game Phases}
 \label{sec:game-phases}
@@ -1019,11 +1009,11 @@ respective set of 12 field machines.
 
 \subsubsection{Production Phase}
 \label{sec:production-phase}
-With the end of the exploration phase, the actual production begins,
-which lasts \num{15} minutes. The referee box publishes all information
-regarding products and machines. This includes position, orientation,
-and type of each machine, as well as the different product variants
-that can be produced.
+With the end of the exploration phase production begins, which lasts
+\num{15} minutes. The referee box publishes all information regarding
+products and machines. This includes position, orientation, and type
+of each machine, as well as the different product variants that can be
+produced.
 
 
 \subsection{Production Portfolio}
@@ -1416,8 +1406,8 @@ the referees decide if the commentary duties were met and award the
 according team with 10 points. If both teams are willing to commentate
 on the game, the game time is shared according to the team
 specification (e.g., team 1 commentates the first half, team 2 the
-second half). However, the teams can also make custom arrangements to split the
-overall time.
+second half). However, the teams can also make custom arrangements to
+split the overall time.
 
 \subsection{Penalties}
 The catalog in Table~\ref{tab:infringements} represents the decision
