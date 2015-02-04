@@ -58,6 +58,145 @@
 \usetikzlibrary{snakes,shapes}
 \usetikzlibrary{shapes.callouts}
 
+\tikzset{
+  pics/.cd,
+  base/.style = {
+    code = {
+      \foreach \i in {0,2,...,30}
+        \fill [black, fill opacity = 1/60] (0,-1.1)
+          ellipse [x radius = 1+\i/80, y radius = 1/3+\i/120];
+      \begin{scope}[scale=.5]
+      \fill [base-#1!50!white] ellipse [x radius = 2, y radius = 2/3];
+      % lower separation ring ("shadow")
+      \path [left color = base-#1!50!black, right color = base-#1!50!black,
+        middle color = base-#1!75!black]
+        (-2+.05,-2.1) arc (180:360:2-.05 and 2/3-.05*2/3) -- cycle;
+      % Top plate
+      \path [top color = base-#1!50, bottom color = base-#1]
+        (0,.05*2/3) ellipse [x radius = 2-.05, y radius =
+        2/3-.05*2/3];
+      % outer hull/front
+      \path [left color = base-#1!75, right color = base-#1!75,
+        middle color = base-#1!100] (-2,0) -- (-2,-2) arc (180:360:2 and 2/3)
+        -- (2,0) arc (360:180:2 and 2/3);
+       \foreach \r in {225}
+         \foreach \i [evaluate = {\s=30;}] in {0,2,...,30}
+           \fill [black, fill opacity = 1/50]
+             (-1.15,-.55) -- (\r+\s-\i:2 and 2/3) -- ++(0,-2)
+             arc (\r+\s-\i:\r-\s+\i:2 and 2/3) -- ++(0,2) -- cycle;
+       \foreach \r in {315}
+         \foreach \i [evaluate = {\s=30;}] in {0,2,...,30}
+           \fill [black, fill opacity = 1/50]
+             (1.15,-.55) -- (\r+\s-\i:2 and 2/3) -- ++(0,-2)
+             arc (\r+\s-\i:\r-\s+\i:2 and 2/3) -- ++(0,2) -- cycle;
+      \end{scope}
+    }
+  },
+  any-base/.style = {
+    code = {
+      \foreach \i in {0,2,...,30}
+        \fill [black, fill opacity = 1/60] (0,-1.1)
+          ellipse [x radius = 1+\i/80, y radius = 1/3+\i/120];
+      \begin{scope}[scale=.5]
+      \fill [base-red!50!white] ellipse [x radius = 2, y radius = 2/3];
+      % lower separation ring ("shadow")
+      \path [left color = base-black!50!black, right color = base-black!50!black,
+        middle color = base-black!75!black]
+        (-2+.05,-2.1) arc (180:360:2-.05 and 2/3-.05*2/3) -- cycle;
+      % Top plate
+      \path [top color = base-red!50, bottom color = base-red]
+        (0,.05*2/3) ellipse [x radius = 2-.05, y radius = 2/3-.05*2/3];
+      % outer hull/front
+      \foreach \t/\b/\c in {0/-.65/red, -.65/-1.3/silver, -1.3/-2/black}
+        \path [left color = base-\c!75, right color = base-\c!75,
+          middle color = base-\c!100] (-2,\t) -- (-2,\b) arc (180:360:2 and 2/3)
+          -- (2,\t) arc (360:180:2 and 2/3);
+
+      \foreach \r in {225}
+        \foreach \i [evaluate = {\s=30;}] in {0,2,...,30}
+           \fill [black, fill opacity = 1/50]
+             (-1.15,-.55) -- (\r+\s-\i:2 and 2/3) -- ++(0,-2)
+             arc (\r+\s-\i:\r-\s+\i:2 and 2/3) -- ++(0,2) -- cycle;
+       \foreach \r in {315}
+         \foreach \i [evaluate = {\s=30;}] in {0,2,...,30}
+           \fill [black, fill opacity = 1/50]
+             (1.15,-.55) -- (\r+\s-\i:2 and 2/3) -- ++(0,-2)
+             arc (\r+\s-\i:\r-\s+\i:2 and 2/3) -- ++(0,2) -- cycle;
+      \end{scope}
+    }
+  },
+  ring/.style = {
+    code = {
+      \begin{scope}[scale=.5]
+      \fill [ring-#1!50!white] ellipse [x radius = 2, y radius = 2/3];
+      % lower separation ring ("shadow")
+      \path [left color = ring-#1!50!black, right color = ring-#1!50!black,
+        middle color = ring-#1!75!black]
+        (-2+.05,-1.1) arc (180:360:2-.05 and 2/3-.05*2/3) -- cycle;
+      % Top plate
+      \path [top color = ring-#1!50, bottom color = ring-#1]
+        (0,.05*2/3) ellipse [x radius = 2-.05, y radius = 2/3-.05*2/3];
+      % outer hull/front
+      \path [left color = ring-#1!75, right color = ring-#1!75,
+        middle color = ring-#1!100] (-2,0) -- (-2,-1) arc (180:360:2 and 2/3)
+        -- (2,0) arc (360:180:2 and 2/3);
+       \foreach \r in {225}
+         \foreach \i [evaluate = {\s=30;}] in {0,2,...,30}
+           \fill [black, fill opacity = 1/50]
+             (-1.15,-.55) -- (\r+\s-\i:2 and 2/3) -- ++(0,-1)
+             arc (\r+\s-\i:\r-\s+\i:2 and 2/3) -- ++(0,1) -- cycle;
+       \foreach \r in {315}
+         \foreach \i [evaluate = {\s=30;}] in {0,2,...,30}
+           \fill [black, fill opacity = 1/50]
+             (1.15,-.55) -- (\r+\s-\i:2 and 2/3) -- ++(0,-1)
+             arc (\r+\s-\i:\r-\s+\i:2 and 2/3) -- ++(0,1) -- cycle;
+      \end{scope}
+    }
+  },
+  ring bottom/.style = {
+    code = {
+      \path pic {ring=#1};
+    }
+  },
+  cap/.style = {
+    code = {
+      \begin{scope}[scale=.5]
+      \fill [#1!50!white] ellipse [x radius = 2, y radius = 2/3];
+      % lower separation ring ("shadow")
+      \path [left color = #1!50!black, right color = #1!50!black,
+        middle color = #1!75!black]
+        (-2+.05,0) arc (180:360:2-.05 and 2/3-.05*2/3) -- cycle;
+      % Top plate
+      \path [top color = #1!50, bottom color = #1]
+        (0,.05*2/3) ellipse [x radius = 2, y radius = 2/3-.05*2/3];
+      % outer hull/front
+      \path [left color = #1!75, right color = #1!75,
+        middle color = #1!100] (-2,0) -- (-2,-.3) arc (180:360:2 and 2/3)
+        -- (2,0) arc (360:180:2 and 2/3);
+       \foreach \r in {225}
+         \foreach \i [evaluate = {\s=30;}] in {0,2,...,30}
+           \fill [black, fill opacity = 1/50]
+             (-1.15,-.55) -- (\r+\s-\i:2 and 2/3) -- ++(0,-.3)
+             arc (\r+\s-\i:\r-\s+\i:2 and 2/3) -- ++(0,.3) -- cycle;
+       \foreach \r in {315}
+         \foreach \i [evaluate = {\s=30;}] in {0,2,...,30}
+           \fill [black, fill opacity = 1/50]
+             (1.15,-.55) -- (\r+\s-\i:2 and 2/3) -- ++(0,-.3)
+             arc (\r+\s-\i:\r-\s+\i:2 and 2/3) -- ++(0,.3) -- cycle;
+      \end{scope}
+    }
+  },
+}
+
+%% COLORS %%%%%%%%%%%%%%%%%%%
+\definecolor{base-black}{rgb}{0, 0, 0}
+\definecolor{base-red}{rgb}{0.8, 0.05, 0.05}
+\definecolor{base-silver}{rgb}{0.95,0.95,0.95}
+\definecolor{ring-green}{rgb}{0.05, 0.8, 0.05}
+\definecolor{ring-yellow}{rgb}{0.9, 0.9, 0.05}
+\definecolor{ring-blue}{rgb}{0.05, 0.05, 0.8}
+\definecolor{ring-orange}{rgb}{1, 0.5, 0.2}
+
 %% HYPERREF %%%%%%%%%%%%%%%%%%%
 \usepackage{hyperref}
 \hypersetup{
@@ -1098,71 +1237,204 @@ machine types are specified in Section~\ref{sec:machines}.
   \ffigbox{%
     \centering
     
-    \tikzstyle{M}=[rectangle, draw=blue!50, thick, fill=blue!20, text width=2em,align=center, rounded corners=2pt, 
-    minimum height=2em]
-    % 
-    \tikzstyle{P}=[draw=orange, thick, circle,fill=orange!20, minimum height=1.5em]
+    \hfill
+    \subfigure[$C_0$]{\label{fig:prod-compl-0}%
+      \begin{tikzpicture}
+        \path pic {base=black} ++(0,.195) pic {cap=gray};
+      \end{tikzpicture}
+    }
+    \hfill
+    \subfigure[$C_1$]{\label{fig:prod-compl-1}%
+      \begin{tikzpicture}
+        \path pic {base=red} ++(0,.55) pic {ring=blue} ++(0,.195) pic {cap=black};
+      \end{tikzpicture}
+    }
+    \hfill
+    \subfigure[$C_2$]{\label{fig:prod-compl-2}%
+      \begin{tikzpicture}
+        \path pic {base=silver} ++(0,.55) pic {ring=blue} ++(0,.55) pic {ring=green} ++(0,.195) pic {cap=black};
+      \end{tikzpicture}
+    }
+    \hfill
+    \subfigure[$C_3$]{\label{fig:prod-compl-3}%
+      \begin{tikzpicture}
+        \path pic {base=red} ++(0,.55) pic {ring=yellow} ++(0,.55)
+          pic {ring=orange} ++(0,.55) pic {ring=green} ++(0,.195) pic {cap=gray};
+      \end{tikzpicture}
+    }
+    \hfill\,
     
-    \hfill
-    \begin{minipage}[b]{0.26\linewidth}
-      \subfigure[$P_3$]{\label{fig:prod-chain-S1a}%
-        \begin{tikzpicture}[level distance=4em,sibling distance=5em,draw=orange!80]
-          \node[P] {$P_3$}  [grow=left,thick]
-          child { node[M] {$T_5$}
-            child { node[P] {$S_0$}}};
-        \end{tikzpicture}
-      }
-
-      \medskip
-
-      \subfigure[$S_1$]{\label{fig:prod-chain-S1b}%
-        \begin{tikzpicture}[level distance=4em,sibling distance=5em,draw=orange!80]
-          \node[P] {$S_1$}  [grow=left,thick]
-          child { node[M] {$T_1$}
-            child { node[P] {$S_0$}}};
-        \end{tikzpicture}%
-      }
-    \end{minipage}
-    \hfill
-    \subfigure[$S_2$]{\label{fig:prod-chain-S2}%
-      \begin{tikzpicture}[level distance=4em,sibling distance=4em,draw=orange!80]
-        \node[P] {$S_2$}  [grow=left,thick]
-        child { node[M] {$T_2$}
-          child { node[P] {$S_0$}}
-          child { node[P] {$S_1$}}
-        };
-      \end{tikzpicture}
-    }
-    \hfill\,
-
-    \bigskip
-
-    \hfill
-    \subfigure[$P_1$]{\label{fig:prod-chain-P1}%
-      \begin{tikzpicture}[node distance=4em,level distance=4em,sibling distance=4em,draw=orange!80]
-        \node[P] (p) {$P_1$}  [grow=left,thick]
-        child { node[M] (m) {$T_3$}
-          child { node[P] {$S_0$}}
-          child { node[P] {$S_1$}}
-          child { node[P] {$S_2$}}
-        };
-      \end{tikzpicture}
-    }
-    \hfill
-    \subfigure[$P_2$]{\label{fig:prod-chain-P2}%
-      \begin{tikzpicture}[node distance=4em,level distance=4em,sibling distance=4em,draw=orange!80]
-        \node[P] (p) {$P_2$}  [grow=left,thick]
-        child { node[M] (m) {$T_4$}
-          child { node[P] {$S_0$}}
-          child { node[P] {$S_1$}}
-          child { node[P] {$S_2$}}
-        };  
-      \end{tikzpicture}
-    }
-    \hfill\,
 }{%
-  \caption{Production Chain Diagrams showing the machines and inputs
-    relative to their outputs.}
+  \caption{Products are composed of a base element and a cap with
+    zero, one, two, or three intermediate rings representing the
+    product complexity. The complexity level is states as the numer of
+    required intermediate rings. The base element colors are red,
+    black, and silver, the ring colors are blue, green, yellow, and
+    orange, and the cap colors are gray and black.}
+  \label{fig:production-complexities}
+}
+\vspace{-1mm}
+\end{figure}
+
+\begin{figure}
+  \ffigbox{%
+    \centering
+    \tikzstyle{M}=[rectangle, draw=blue!50, thick, fill=blue!20, minimum height=2em,
+      text width=3em, align=center, rounded corners=2pt]
+    \tikzstyle{P}=[draw=orange, thick, circle,fill=orange, minimum height=1mm, inner sep=0]
+    
+    \subfigure[Production of complexity $C_0$ only mounting a cap on a
+    BE as shown in \reffig{fig:prod-compl-0}.]{
+      \label{fig:prod-chain-C0}%
+      \begin{minipage}{1.0\linewidth}
+        \centering
+      \begin{tikzpicture}[node distance=4em,level distance=1.6cm,sibling distance=5mm,draw=orange!80]
+        \node[M] (bs) {BS}  [thick]
+        child[grow=right] { node[P] (be) {}
+          child[grow=right,->] { node[M] (cs2) {CS 2}
+            child[grow=up,level distance=1.2cm,<-]  { node [P] (cs-input) {} }
+            child[grow=right] { node[P] (be-cap) {} }
+          }
+        };
+        \draw (be) pic [scale=.3] {base=black};
+        \draw [every pic/.style={scale=0.3}] (be-cap) pic {base=black} ++(0,.06) pic {cap=gray};
+        \draw [every pic/.style={scale=0.3}] (cs-input) pic {any-base} ++(0,.06) pic {cap=gray};
+      \end{tikzpicture}
+      \end{minipage}
+    }
+
+    \medskip 
+
+    \subfigure[Production of complexity $C_1$ with a single intermediate
+    ring according to \reffig{fig:prod-compl-1}.]{\label{fig:prod-chain-C1}%
+      \begin{minipage}{1.0\linewidth}
+        \centering
+      \begin{tikzpicture}[node distance=4em,level distance=1.6cm,sibling distance=5mm,draw=orange!80]
+        \node[M] (bs) {BS}  [thick]
+        child[grow=right] { node[P] (be) {}
+          child[grow=right,->] { node[M] (rs1-1) {RS 1}
+            child[grow=right] { node[P] (be-blue) {}
+              child[grow=right,->] { node[M] (cs1) {CS 1}
+                child[grow=up,level distance=1.2cm,<-]  { node [P] (cs-input) {} }
+                child[grow=right] { node[P] (be-blue-cap) {} }
+              }
+            }
+          }
+        };
+        \draw (be) pic [scale=.3] {base=red};
+        \draw [every pic/.style={scale=0.3}] (be-blue) pic {base=red} ++(0,.175) pic {ring=blue};
+        \draw [every pic/.style={scale=0.3}] (be-blue-cap)
+          pic {base=red} ++(0,.17) pic {ring=blue} ++(0,.06) pic {cap=black};
+        \draw [every pic/.style={scale=0.3}] (cs-input) pic {any-base} ++(0,.06) pic {cap=black};
+      \end{tikzpicture}
+      \end{minipage}
+    }
+
+    \medskip
+
+    \subfigure[Production of complexity $C_2$ with a two intermediate
+    ring according to \reffig{fig:prod-compl-2}. Note that RS 2
+    requires an additional BE (of any color) for the green ring.]{\label{fig:prod-chain-C2}%
+      \begin{minipage}{1.0\linewidth}
+        \centering
+      \begin{tikzpicture}[node distance=4em,level distance=1.6cm,sibling distance=5mm,draw=orange!80]
+        \node[M] (bs) {BS}  [thick]
+        child[grow=right] { node[P] (be) {}
+          child[grow=right,->] { node[M] (rs1-1) {RS 1}
+            child[grow=right] { node[P] (be-blue) {}
+              child[grow=right,->] { node[M] (rs2-1) {RS 2}
+                child[grow=up,level distance=1.2cm,<-]  { node [P] (rs2-1-ae1) {} }
+                child[grow=right] { node[P] (be-blue-green) {}
+                  child[grow=right,->] { node[M] (cs1) {CS 1}
+                    child[grow=up,level distance=1.2cm,<-]  { node [P] (cs-input) {} }
+                    child[grow=right] { node[P] (be-blue-green-cap) {} }
+                  }
+                }
+              }
+            }
+          }
+        };
+        \draw (be) pic [scale=.3] {base=silver};
+        \draw [every pic/.style={scale=0.3}] (be-blue) pic {base=silver} ++(0,.175) pic {ring=blue};
+        \draw [every pic/.style={scale=0.3}] (be-blue-green)
+          pic {base=silver} ++(0,.17) pic {ring=blue} ++(0,.17) pic {ring=green};
+        \draw [every pic/.style={scale=0.3}] (be-blue-green-cap)
+          pic {base=silver} ++(0,.17) pic {ring=blue} ++(0,.17) pic {ring=green} ++(0,.06) pic {cap=black};
+        \draw (rs2-1-ae1) pic [scale=.3] {any-base};
+        \draw [every pic/.style={scale=0.3}] (cs-input) pic {any-base} ++(0,.06) pic {cap=black};
+      \end{tikzpicture}
+      \end{minipage}
+    }
+
+    \medskip
+
+    \subfigure[Production of the highest complexity $C_3$ with a three
+    intermediate rings according to \reffig{fig:prod-compl-3}. Note
+    that RS 2 requires two additional BE (of any color) for the orange
+    ring and another one for the green
+    ring.]{\label{fig:prod-chain-C3}%
+      \begin{minipage}{1.0\linewidth}
+        \centering
+      \begin{tikzpicture}[node distance=4em,level distance=1.6cm,sibling distance=5mm,draw=orange!80]
+        % \node[P] (cap) {Cap}  [thick]
+        % child[grow=left] { node[M] (r1) {Yellow}
+        %   child[grow=up,left,level distance=4em] { node [P,left=.8] {AE1} }
+        %   child[grow=up,level distance=4em] { node [P] {AE2} }
+        %   child[grow=left] { node[M] (r2) {Blue}
+        %     child[grow=left] { node[M] (be) {BE} }
+        %   }
+        % };
+        \node[M] (bs) {BS}  [thick]
+        child[grow=right] { node[P] (be) {}
+          child[grow=right,->] { node[M] (rs1-1) {RS 1}
+            child[grow=right] { node[P] (be-yellow) {}
+              child[grow=right,->] { node[M] (rs2-1) {RS 2}
+                child[grow=up,left,level distance=1.2cm,<-]  { node [P,left=.4] (rs2-1-ae1) {} }
+                child[grow=up,right,level distance=1.2cm,<-] { node [P,right=.4] (rs2-1-ae2) {} }
+                child[grow=right] { node[P] (be-yellow-orange) {}
+                  child[grow=right,->] { node[M] (rs2-2) {RS 2}
+                    child[grow=up,level distance=1.2cm,<-]  { node [P] (rs2-2-ae1) {} }
+                    child[grow=right] { node[P] (be-yellow-orange-green) {}
+                      child[grow=right,->] { node[M] (cs2) {CS 2}
+                        child[grow=up,level distance=1.2cm,<-]  { node [P] (cs-input) {} }
+                        child[grow=right] { node[P] (be-yellow-orange-green-cap) {} }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        };
+        \draw (be) pic [scale=.3] {base=red};
+        \draw [every pic/.style={scale=0.3}] (be-yellow) pic {base=red} ++(0,.175) pic {ring=yellow};
+        \draw [every pic/.style={scale=0.3}] (be-yellow-orange)
+          pic {base=red} ++(0,.17) pic {ring=yellow} ++(0,.17) pic {ring=orange};
+        \draw [every pic/.style={scale=0.3}] (be-yellow-orange-green)
+          pic {base=red} ++(0,.17) pic {ring=yellow} ++(0,.17) pic {ring=orange} ++(0,.17) pic {ring=green};
+        \draw [every pic/.style={scale=0.3}] (be-yellow-orange-green-cap)
+          pic {base=red} ++(0,.17) pic {ring=yellow} ++(0,.17) pic {ring=orange} ++(0,.17) pic {ring=green}
+          ++(0,.06) pic {cap=gray};
+        \draw (rs2-1-ae1) pic [scale=.3] {any-base};
+        \draw (rs2-1-ae2) pic [scale=.3] {any-base};
+        \draw (rs2-2-ae1) pic [scale=.3] {any-base};
+        \draw [every pic/.style={scale=0.3}] (cs-input) pic {any-base} ++(0,.06) pic {cap=gray};
+      \end{tikzpicture}
+      \end{minipage}
+    }
+
+}{%
+  \caption{These Production Chain Diagrams show the production steps
+    of four example products
+    (cf. \reffig{fig:production-complexities}). Blue boxes represent
+    the machines that are used. RS 1 can mount yellow and blue rings
+    and RS 2 can mount orange and green caps. Mounting an orange ring
+    requires one additional BE (of any color). Similarly two
+    additional BE are required for a yellow ring. Cap stations require
+    a BE (of any color) with a cap of the matching required color.
+    \emph{Note that this is a particular example. The actual
+      production chains and requirements for additionale BEs are
+      determined randomly by the referee box for each game}.}
   \label{fig:production-diagram}  
 }
 \vspace{-1mm}
