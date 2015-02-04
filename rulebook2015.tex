@@ -1153,84 +1153,6 @@ variants that can be produced.
 
 \subsection{Production Portfolio}
 \label{sec:prodportfolio}
-
-The production portfolio is presented in
-Figure~\ref{fig:production-diagram}, which shows a production chain
-diagram with the machines and their respective inputs and outputs. The
-multi-staged production processes can be repeated as long as enough
-pallet carriers can be provided to complete the cycle. The different
-machine types are specified in Section~\ref{sec:machines}.
-
-
-% \begin{figure}[tbhp]
-%   \centering
-
-% \tikzstyle{M}=[rectangle, draw=blue, thick, fill=blue!20, text width=2em,align=center, rounded corners, 
-%   minimum height=2em]
-% %
-% \tikzstyle{P}=[draw=red, thick, circle,fill=red!20, minimum height=1.5em]
-
-% \begin{tikzpicture}[level distance=4em,sibling distance=5em]
-%   \node[P] {$S_1$}  [grow=left,thick]
-%   child { node[M] {$M_1$}
-%     child { node[P] {$S_0$}}};
-% \end{tikzpicture}
-% \hspace*{1em}
-% \begin{tikzpicture}[level distance=4em,sibling distance=5em]
-%   \node[P] {$C$}  [grow=left,thick]
-%   child { node[M] {$M_1$}
-%     child { node[P] {$S_0$}}};
-% \end{tikzpicture}
-
-% \begin{tikzpicture}[level distance=4em,sibling distance=5em]
-%   \node[P] {$C$}  [grow=left,thick]
-%   child { node[M] {$M_2$}
-%     child { node[P] {$S_0$}}
-%     child { node[P] {$S_1$}}
-%     child { node[P] {$S_2$}}
-%     };
-% \end{tikzpicture}
-
-% \begin{tikzpicture}[node distance=4em,level distance=4em,sibling distance=5em]
-
-%   \node[P] (p) {$P$}  [grow=left,thick]
-%   child { node[M] (m) {$M_3$}
-%     child { node[P] {$S_0$}}
-%     child { node[P] {$S_1$}}
-%     child { node[P] {$S_2$}}
-%    };
-  
-% \end{tikzpicture}
-
-
-%   \caption{The production diagram}
-% \label{fig:production-diagram}  
-% \end{figure}
-
-
-
-
-
-%\begin{figure}
-%\begin{floatrow}
-%  \capbtabbox{%
-%    \centering
-%    \mytable{\begin{tabularx}{\textwidth}{C|C|C|c}
-%        \multicolumn{1}{c}{Sub-assembly} & \multicolumn{1}{c}{Deployable} & \multicolumn{1}{c}{Prerequisites} & \multicolumn{1}{c}{Result}\\\hline
-%        \s{0} &	\T{1}, \T{2}, \T{3}, \T{4}, \T{5} & none & \s{1}, \p{3} or
-%        \TAG{consumed}\\
-%        \s{1} &	\T{2}, \T{3}, \T{4} &  	\s{0} & 	\s{2} or \TAG{consumed} \\
-%        \s{2} & \T{3}, \T{4} & \s{0}, \s{1} &	\p{1}, \p{2} \\
-%%        \hline
-%      \end{tabularx}
-%    }      
-%  }{%
-%    \caption{Production table}
-%    \label{tab:production-table}
-%  }
-%\end{floatrow}
-%\end{figure}
-  
 \begin{figure}
   \ffigbox{%
     \centering
@@ -1273,11 +1195,54 @@ machine types are specified in Section~\ref{sec:machines}.
 }
 \vspace{-1mm}
 \end{figure}
+The production portfolio is composed of three elements (cf. appendix
+\textbf{XXX} for the physical specifications):
+\begin{description}
+\item[Base] The base is the lowermost element in each production. Only
+  a base shall be grasped by a robot. Therefore it is neither
+  necessary nor allowed to grab any other elements of a product. Bases
+  are dispensed by the base station (BS) and bases with mounted caps
+  are available on the cap stations (CS). Bases are available in the
+  colors red, black, and silver.
+\item[Ring] Rings are mounted in intermediate production steps at ring
+  stations (RS). A production features, zero, one, two, or three
+  intermediate rings of distinct color. The order of the rings
+  matters. The rings come in the colors blue, green, yellow, and
+  orange. Each RS is responsible for two specific colors. Some colors
+  require loading the RS with additional bases.
+\item[Cap] Caps are the topmost element in each production. They are
+  obtained by taking pre-assembled base-cap combinations available on
+  the shelf to the cap station (CS). The CS unmounts the cap and loads
+  it to its internal buffer. Then, the actual production element
+  (consisting of a base and up to three rings) must be placed in the
+  machine and the cap is mounted.
+\end{description}
 
+\subsection{Production and Color Complexities}
+\label{sec:production-complexities}
+The portfolio comprises many different product variants and is
+categorized by the four available \emph{product complexity} levels
+shown in \reffig{fig:production-complexities}. The lowest complexity
+$C_0$ requires to load the CS with the proper cap color and then
+processing a properly colored base at that machine. The highest
+complecity $C_3$ requires a base with three mounted rings and a
+cap. For a product, the colors of base, rings, and cap as well as the
+order of the rings are of importance.
+
+The product complexities do not account for additional bases that are
+required for some colors. We distinguish \emph{color complexities} as
+$CC_0$, $CC_1$, and $CC_2$ depending on whether no, one, or two
+additional bases are required for a color. The referee box ensures
+that there will always be some orders for $C_1$ products where the
+ring color does not require additional bases, i.e. with color
+complexity $CC_0$ -- but not necessarily all $C_1$ orders have this
+constraint.
+
+\subsubsection{Production Plan}
 \begin{figure}
   \ffigbox{%
     \centering
-    \tikzstyle{M}=[rectangle, draw=blue!50, thick, fill=blue!20, minimum height=2em,
+    \tikzstyle{M}=[rectangle, draw=blue!50, thick, fill=blue!20, minimum height=1.8em,
       text width=3em, align=center, rounded corners=2pt]
     \tikzstyle{P}=[draw=orange, thick, circle,fill=orange, minimum height=1mm, inner sep=0]
     
@@ -1300,8 +1265,6 @@ machine types are specified in Section~\ref{sec:machines}.
       \end{tikzpicture}
       \end{minipage}
     }
-
-    \medskip 
 
     \subfigure[Production of complexity $C_1$ with a single intermediate
     ring according to \reffig{fig:prod-compl-1}.]{\label{fig:prod-chain-C1}%
@@ -1328,11 +1291,9 @@ machine types are specified in Section~\ref{sec:machines}.
       \end{minipage}
     }
 
-    \medskip
-
-    \subfigure[Production of complexity $C_2$ with a two intermediate
-    ring according to \reffig{fig:prod-compl-2}. Note that RS 2
-    requires an additional BE (of any color) for the green ring.]{\label{fig:prod-chain-C2}%
+    \subfigure[Complexity $C_2$ with two rings
+    (cf. \reffig{fig:prod-compl-2}). RS 2 requires an additional base
+    (of any color) for the green ring.]{\label{fig:prod-chain-C2}%
       \begin{minipage}{1.0\linewidth}
         \centering
       \begin{tikzpicture}[node distance=4em,level distance=1.6cm,sibling distance=5mm,draw=orange!80]
@@ -1363,8 +1324,6 @@ machine types are specified in Section~\ref{sec:machines}.
       \end{tikzpicture}
       \end{minipage}
     }
-
-    \medskip
 
     \subfigure[Production of the highest complexity $C_3$ with a three
     intermediate rings according to \reffig{fig:prod-compl-3}. Note
@@ -1422,50 +1381,59 @@ machine types are specified in Section~\ref{sec:machines}.
     }
 
 }{%
-  \caption{These Production Chain Diagrams show the production steps
-    of four example products
+  \caption{Production Chains of four example products
     (cf. \reffig{fig:production-complexities}). Blue boxes represent
-    the machines that are used. RS 1 can mount yellow and blue rings
-    and RS 2 can mount orange and green caps. Mounting an orange ring
-    requires one additional BE (of any color). Similarly two
-    additional BE are required for a yellow ring. Cap stations require
-    a BE (of any color) with a cap of the matching required color.
-    \emph{Note that this is a particular example. The actual
-      production chains and requirements for additionale BEs are
-      determined randomly by the referee box for each game}.}
-  \label{fig:production-diagram}  
+    machines. RS 1 mounts yellow and blue, and RS 2 orange and green
+    rings. Mounting an orange ring requires one additional BE (of any
+    %color). Similarly two additional BE are required for a yellow
+    %ring. Cap stations require a BE (of any color) with a cap of the
+    %matching required color.  \emph{Note that this is a particular
+    %  example. The actual production chains and requirements for
+    %  additionale BEs are determined randomly by the referee box for
+    %  each game}.}
+    }
+  \label{fig:production-chains}  
 }
 \vspace{-1mm}
 \end{figure}
-%\todo[inline]{What is a C??}
-
-\subsubsection{Production Plan}
 The referee box will announce orders throughout the game in an
-incremental fashion. Each order will consist of the products to
-produce, the amount thereof, and delivery time slots. In each game,
-orders with a fixed delivery value of 80 points will be
+incremental fashion. Each order will consist of the product to
+produce, the amount thereof, and a delivery time slot. An order
+therefore specifies a production chain to be accomplished for
+fulfillment. \reffig{fig:production-chains} shows some example
+production chains of the four different complexities.
+
+In each game, orders with a fixed delivery value of 80 points will be
 placed\footnote{This number is based on experience from the game
-  reports and database logs of the competition in 2013. The number can
+  reports and database logs of the competition in 2014. The number can
   be adjusted during the tournament by the Technical Committee, should
   this turn out to be necessary.}. These points only include the final
-production step and delivery. Each order will require one or more
-products of a specified product type to be delivered. The delivery
-time slot will have a randomized start time. The duration will be
-randomized between 30 to 180 seconds. The end time shall be within the
-game time. The duration shall be long enough to cover at least the
-production time of the final machine in the production chain and 30
-seconds of travel time. The orders shall be posted with a uniform
-distribution over the whole game time (but there is not necessarily an
-open order for a particular product at a specific time, or any order
-at all). The first order will be posted within the first 120 seconds
-of the game (but not necessarily at the beginning of the game). Orders
-for the products $P_1$ and $P_2$ will not begin in the first 300
-seconds. An order will be announced between 10 and 60 seconds before
-the delivery time slots starts.
+production step and delivery. The complexities of orders will be
+similar for all games within a phase. But the actual production chains
+are randomized. Each order will require one or more products of a
+specified product type to be delivered. The product is specified in
+terms of base color, rings (color and order), cap color, and possibly
+delivery gate. The delivery time slot will have a randomized start
+time. The duration will be randomized between 30 to 180 seconds. The
+end time shall be within the game time. The duration shall be long
+enough to cover at least the production time of the final machine in
+the production chain and 30 seconds of travel time. The orders shall
+be posted with a uniform distribution over the whole game time (but
+there is not necessarily an open order for a particular product at a
+specific time, or any order at all). The first order will be posted
+within the first 120 seconds of the game (but not necessarily at the
+beginning of the game). Orders for the products of complexity $C_2$ or
+$C_3$ will not begin in the first 300 seconds. An order will be
+announced between 10 and 60 seconds before the delivery time slots
+starts.
 
 In all tournament phases (cf.~\refsec{sec:tournament-phases}), the
 teams playing on the field at the same time will get the same
 production plans, but other games will have their own.
+
+The multi-staged production processes can be repeated as long as
+enough material can be provided to complete the cycle. The different
+machine types are specified in Section~\ref{sec:machines}.
 
 \subsection{Special Events during a Match}
 \label{sec:during-match}
