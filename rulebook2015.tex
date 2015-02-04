@@ -1025,19 +1025,18 @@ The three phases of the game are detailed below.
 \subsection{Environment Setup}
 \label{sec:env-setup}
 The physical distribution and alignment of the production machines is
-fixed. The machine type of each production machine will be randomized
-prior to each match. The processing time of each machine type will be
-determined in the same way, so the waiting time during a match will be
-static for each machine of all machine types (e.g. all T1 could have 7
-seconds processing time). The active delivery gate will also be
-randomized prior to each match, but during a match the active gate can
-switch. At the beginning, each team has the responsibility to place up
-to 22 raw materials (pucks in $S_0$ state) in their input storage,
-initially spread as shown in \reffig{fig:competition-area} or in
-another fashion as chosen by the team. The pucks may only be touched
-by a robot after the game has started. In particular, they may not be
-re-positioned for better alignment if they have been pushed or moved
-by a robot during the game.
+dynamic. The field will be organized in $6\times4$ zones. The referee
+box will determine the assignment of the machines to the zones at the
+beginning of a game randomly. The machines will then be placed
+anywhere within their assigned zone (similar on both sides of the
+field). The color for cap and ring stations will be randomized prior
+to each match. The processing time of each production step (i.e. per
+ring color and per cap mounting machine) will be determined in the
+same way. The active delivery gate will also be randomized prior to
+each match, but during a match the active gate can switch. At the
+beginning, each team has the responsibility to fill the input
+magazines on their base station. The elements may only be touched by a
+robot after the game has started.
 
 \subsection{Game Phases}
 \label{sec:game-phases}
@@ -1048,7 +1047,7 @@ No team member is allowed to enter the competition area prior to or
 during a match. All robots which are to participate in the game need
 to be in the game area during setup. All robots are allowed to roam
 through the entire area, autonomously or teleoperated. However, no
-robot is allowed to touch any pallet carrier during setup;
+robot is allowed to touch any machine or base element during setup;
 infringements will be punished as \textit{misbehaving robot}. The
 referee box will control the setup period. When the game starts, all
 robots need to be in the insertion area; no robot is allowed to be in
@@ -1121,8 +1120,8 @@ robots and must be taken out of the competition area.
 \label{sec:game-start}
 %
 All matches will start at the exact time scheduled by the organization
-team. From this point on, all robots must be located within the robot
-insertion area and the teams involved are allowed to start their
+committee. From this point on, all robots must be located within the
+robot insertion area and the teams involved are allowed to start their
 robots to work autonomously within one minute (the game time will
 already start during this time). This can be done by issuing one
 single distinct command via any kind of interface or pressing a single
@@ -1148,10 +1147,9 @@ respective set of 12 field machines.
 \label{sec:production-phase}
 With the end of the exploration phase production begins, which lasts
 \num{15} minutes. The referee box publishes all information regarding
-products and machines. This includes position, orientation, and type
-of each machine, as well as the different product variants that can be
-produced.
-
+products and machines. This includes coarse position and ring and cap
+colors of ring and cap stations, as well as the different product
+variants that can be produced.
 
 \subsection{Production Portfolio}
 \label{sec:prodportfolio}
