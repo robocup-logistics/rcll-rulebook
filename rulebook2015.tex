@@ -1487,13 +1487,17 @@ related processes and their scoring.
   
   \bigskip
   
-  \subtable[Scoring scheme for the production phase]{\mytable{\begin{tabularx}{\linewidth}{p{7em}|X|p{2.4em}}
+  \subtable[Scoring scheme for the production phase]{
+    \mytable{
+      \begin{tabularx}{\linewidth}{p{7em}|X|p{2.4em}}
         \multicolumn{1}{l}{Sub-task } &\multicolumn{1}{l}{Production Phase} &
         \multicolumn{1}{l}{Points}\\\hline
-        Produce \s2 & Finish the work order of a machine type 2 & $+4$\\
-        Produce product variant \p1  & Finish the work order of a machine type 3 & $+12$ \\
-        Produce product variant \p2  & Finish the work order of a machine type 4 & $+12$ \\
-        Produce product variant \p3  & Finish the work order of a machine type 5 & $+0$ \\
+        Finish $CC_1$ step & Finish the work order for a color requiring one additional base & $+4$\\
+        Finish $CC_2$ step  & Finish the work order for a color requiring two additional bases & $+8$ \\
+        Finish $C_0$ pre-cap & Mount the last ring of a $C_0$ product & $+0$ \\
+        Finish $C_1$ pre-cap & Mount the last ring of a $C_1$ product & $+4$ \\
+        Finish $C_2$ pre-cap & Mount the last ring of a $C_2$ product & $+8$ \\
+        Finish $C_3$ pre-cap & Mount the last ring of a $C_3$ product & $+12$ \\
         Delivery & Deliver one of the final product variants to the
         designated loading zone at the time specified in the order & $+10$\\
         Wrong delivery & Deliver one of the final product variants to the
@@ -1501,13 +1505,15 @@ related processes and their scoring.
         all products requested in the period have already been delivered
         & $+1$\\
         False delivery & Deliver an intermediate product & $0$\\
-        Just-in-time Production & The final production step of a
-        successfully delivered good has been completed within the
+        Just-in-time Production & The cap of a
+        successfully delivered good has been mounted within the
         order time window& $+5$\\
-        Recycle & Taking a consumed material from a machine that completed
-        its work cycle to the recycling machine& $+5$\\
-				Obstruction Penalty & Deliver a data carrier to a machine, which belongs to the opposing team. & $-2$ \\
-    \end{tabularx}  }}
+        Recycle & Taking a consumed material from a machine that
+                  completed its work cycle to the recycling machine& $+5$\\
+        Obstruction Penalty & Deliver a data carrier to a machine, which belongs to the opposing team. & $-2$ \\
+      \end{tabularx}
+    }
+  }
 
 	\bigskip
 
