@@ -1443,19 +1443,30 @@ Robots that do not stop within the time limit will be treated in the
 same way as misbehaving robots (cf.~\refsec{sec:robot-maintenance}).
 The match time will be paused during the interruption.
 
-\subsubsection{Machine Downtime (out of order)}
+\subsubsection{Scheduled Machine Downtime}
 \label{sec:out-of-order}
 The refbox will take down machines randomly out of the pool containing
-all production machines. It will do so at random points of time and
-with the same conditions for both teams, i.e., affecting the same
-machines for both teams. There will be 6 to 8 of such triggered events
-during a match. The machines affected will remain out of order for 30
-to 120 seconds. Every machine can only be forced out of order once per
-match. The recycling machines will be taken down exactly once per
-match, with a downtime of 20 to 40 seconds. If a machine turns offline
-during processing or consumption of mounted a pallet carrier, it will
-afterwards resume the process (extending the overall processing time
-by the down time).
+the RS and CS. It will do so at random points of time and with the
+same conditions for both teams, i.e., affecting the same machines for
+both teams. There will be 2 to 4 of such triggered events during a
+match. The machines affected will remain out of order for 30 to 60
+seconds. Every machine can only be forced out of order once per
+match. If a machine turns offline during processing or consumption of
+mounted a pallet carrier, it will afterwards resume the process
+(extending the overall processing time by the down time). The downtime
+is indicated by a steady red light.
+
+\subsubsection{Broken Machine Downtime}
+\label{sec:broken-machine}
+If a machine is improperly instructed or used, the machine will go
+into a failure state. The machine cannot be used for 30 seconds and
+until repaired. That is, if damage was inflicted on the machine or the
+referee needs longer to repair the machine the game continues and the
+machine will be offline for a longer time. Any production that was
+running will be aborted and any product which was being processed is
+no longer available and will be removed by the referee. Any additional
+bases delivered to the machine will be void. The downtime is indicated
+by a flashing red light.
 
 \subsection{Task Fulfillment and Scoring}
 Table \ref{tab:scoring} provides the itemized clearance of all task
