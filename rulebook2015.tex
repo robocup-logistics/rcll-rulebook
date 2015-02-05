@@ -435,7 +435,7 @@ The competition area is shown in Figure \ref{fig:competition-area} and
 features a \SI{12 x 6}{\metre} large arena with 24 elliptical zones of \SI{2 x 1.5}{\metre}
 with 12 randomly distributed machines inside.
 
-The field is mostly surrounded (\~60\%) by wall elements of \SI{0.5}{\metre} height.
+The field is mostly surrounded (about 60\%) by wall elements of \SI{0.5}{\metre} height.
 The origin and coordinate system of the competition field is drawn in
 Figure \ref{fig:competition-area} and will be intrinsically referred
 to for each statement within this rulebook that uses absolute coordinates.
@@ -581,11 +581,10 @@ if it is swapped.
 \centering
 	\mytable{  \begin{tabularx}{\linewidth}{l|X|X|X|l}
     \multicolumn{1}{l}{ Type} & \multicolumn{1}{l}{Distribution / Team} & \multicolumn{1}{l}{Input} & \multicolumn{1}{l}{Output} & \multicolumn{1}{l}{(Final) processing time[s]}\\\hline
-    \T1 & 4 times & \s0 (raw-material) & \s1 & $t_1 = 3 \mbox{ to } 8~\mathrm{sec}$\\
-    \T2 & 3 times & \s0; \s1 & \s2; one consumed container & $t_2 = 15 \mbox{ to } 25~\mathrm{sec}$\\
-    \T3 & 2 times &	\s0; \s1; \s2 & \p1; two consumed containers &$t_3 = 40 \mbox{ to } 60~\mathrm{sec}$\\
-    \T4 & 2 times & \s0; \s1; \s2 & \p2; two consumed containers &$t_4 = 40\mbox{ to } 60~\mathrm{sec}$\\
-    \T5 & 1 times &	\s0 & \p3 &$t_5 =20\mbox{ to } 40~\mathrm{sec}$
+    Base Station (BS) & 1 times & \s0 (raw-material) & \s1 & $t_1 = 3 \mbox{ to } 8~\mathrm{sec}$\\
+    Cap Station (CS) & 2 times & \s0; \s1 & \s2; one consumed container & $t_2 = 15 \mbox{ to } 25~\mathrm{sec}$\\
+    Ring Station (RS) & 2 times &	\s0; \s1; \s2 & \p1; two consumed containers &$t_3 = 40 \mbox{ to } 60~\mathrm{sec}$\\
+    Delivery Station (DS) & 1 times &	\s0 & \p3 &$t_5 =20\mbox{ to } 40~\mathrm{sec}$
   \end{tabularx}}
   \caption{Production Machines - Type, Distribution and working method}
   \label{tab:production-machines-function}  
@@ -594,25 +593,32 @@ if it is swapped.
 \subsubsection{Production Machines -- During Exploration Phase}
 \label{sec:production-machines-exp}
 During the exploration phase the robots of each team have to explore
-their unknown factory environment, i.e. identify the types of the
-different production machines within the competition area. The
-frequency of machine types for each team is defined in
-Table~\ref{tab:production-machines-function}. The machines will
-indicate their different types by individual light signals. In total
-there are seven possible light signals with at least one LED switched
-on (no flashing lights). The light signals and the corresponding
-machine types are initially unknown. The Referee Box will assign every
-machine type to a light signal and publish it to the robots. The
-exploration phase starts with the announcement of the exploration game
-phase by the Referee Box. An exploration information message is sent,
-which defines the light signals of the machine types, e.g., red and
-green LED switched on indicate machine type \T1. If a robot perceives
-the red and green LED light switched on at machine \m1, the robot has
-to announce that machine \m1 is of type \T1 to the Referee
-Box. Therefore, the robot has to send a \emph{machine identified
-  message} to the Referee Box. Please consult the RoboCup Logistics
-League Referee Box Integrator's Manual for a detailed definition of
-the message types.
+their unknown factory environment, i.e. identify where each of their six 
+different MPS stations is located within the competition area.
+
+The exploration phase starts with the announcement of the exploration 
+game phase by the Referee Box. An exploration information message is sent, 
+which assigns each elliptical zone to a team respecting that all MPS are 
+placed within a zone belonging to the same team. Note that out of the 24 
+zones only half of them are actually occupied by an MPS, the robots have 
+to distinguish between occupied and free areas on their own.
+
+Both teams have 3 minutes to explore the competition court. The task is to 
+scan an AR tag of each MPS belonging to your team and detect the light of 
+the signal lamp on top of the respective MPS. There are seven possible light 
+signals with at least one LED switched on (no flashing lights).
+
+Considering a mapping also send by the Referee Box at the start of the 
+exploration phase, the robot can relate both the machine AR tag ID and 
+the light state to a code which is then send back to the Referee Box for 
+announcing the exploration of a machine. For example, if a robot detects 
+red and green LED switched on at MPS with tag id 3, he looks up a code of 
+e.g. 23 and announces that to the Referee Box. Therefore, the robot has to 
+send a \emph{machine identified message} to the Referee Box. Please consult 
+the RoboCup Logistics League Referee Box Integrator's Manual for a detailed 
+definition of the message types. Note that the code is arbitrary just for 
+the sake of the exploration phase and is not connected to the physical type 
+of the machine.
 
 \begin{table}[tp]
 \centering
@@ -974,18 +980,27 @@ button on the robot.
 \subsubsection{Exploration Phase}
 \label{sec:expphase}
 With the start of the game, the exploration phase begins. All machines
-indicate their type using steady light signals. The signal light
-encoding of machine types will be published by the referee box as
+indicate their code type using steady light signals together with their 
+static AR tag ids on the side. The signal light plus AR tag id
+encoding of MPS code types will be published by the Referee Box as
 described in \refsec{sec:production-machines-exp} and in detail in the
 RoboCup Logistics League Referee Box Integrator's Manual. The robots
-are to roam the environment and announce the detected types of their
-12 production machines to the referee box.  Each properly reported
-signal scores \num{+4} points, each signal reported wrongly will give
-\num{-3} points penalty. A minimum of zero points will be accounted
-for the exploration phase. Production or moving pucks is not allowed
-during the exploration phase.  The exploration phase ends either after
-four minutes or immediately after both teams have each reported their
-respective set of 12 field machines.
+are to roam the environment and announce the detected codes of their
+six MPS to the Referee Box. Each properly reported
+code scores \num{+8} points, each code reported wrongly will give
+\num{-6} points penalty. A minimum of zero points will be accounted
+for the exploration phase.
+
+As teams' robots might also want to explore machines of the opposing team, 
+all teams are required to follow the "Give Way" rule. The "Give Way" rule 
+states that a robot must give way to robots of the opposing team when 
+approaching a machine of the opposing team. Concretely, this robot has 
+to leave within a time window of 10 seconds.
+
+The exploration phase ends either after three minutes or immediately after 
+both teams have each reported their respective set of six MPS.
+
+Moving or producing workpieces during the exploration phase is not allowed.
 
 \subsubsection{Production Phase}
 \label{sec:production-phase}
@@ -1031,10 +1046,10 @@ variants that can be produced.
 }{%
   \caption{Products are composed of a base element and a cap with
     zero, one, two, or three intermediate rings representing the
-    product complexity. The complexity level is states as the numer of
+    product complexity. The complexity level is stated as the number of
     required intermediate rings. The base element colors are red,
     black, and silver, the ring colors are blue, green, yellow, and
-    orange, and the cap colors are gray and black.}
+    orange, and the cap colors are either gray or black.}
   \label{fig:production-complexities}
 }
 \vspace{-1mm}
@@ -1321,11 +1336,11 @@ related processes and their scoring.
     \subtable[Scoring scheme for the exploration
   phase]{\mytable{\begin{tabularx}{\linewidth}{p{7em}|X|p{2.4em}}
         \multicolumn{1}{l}{Reported} &\multicolumn{1}{l}{Exploration Phase} & \multicolumn{1}{l}{Points}\\\hline
-    Correctly & Correctly determine a machine type and
-    report it successfully to the refbox &	+4\\
-    Incorrectly & Wrongly reported machine type &  -3\\
+    Correctly & Correctly determine a machine type of your team and
+    report it successfully to the refbox &	+8\\
+    Incorrectly & Wrongly reported machine type &  -6\\
     Round Total & A maximum of 48 points can be achieved by correctly
-    reporting all 12 production machines. A minimum of 0 points is
+    reporting all 6 production machines. A minimum of 0 points is
     awarded. & 0 -- 48\\%\hline
   \end{tabularx} }}
   
