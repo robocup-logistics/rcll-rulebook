@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"> 
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    version="1.1"
+    width="1400"
+    height="800">
+    <defs
+        id="defs3004" >
+        <marker id="pf1"
+                viewBox="0 0 12 12" refX="0" refY="5"
+                markerUnits="strokeWidth"
+                markerWidth="5" markerHeight="5"
+                fill="red"
+                orient="auto">
+            <path d="M 0,0 l 10,5 l -10,5 z" />
+        </marker>
+        <marker id="pf2"
+                viewBox="0 0 10 10" refX="0" refY="5"
+                markerUnits="strokeWidth"
+                markerWidth="10" markerHeight="10"
+                orient="auto">
+            <path d="M 0,0 l 10,5 l -10,5 z" />
+        </marker>
+        <!--       
+        <symbol id="machine">
+            <rect id="machine" x="50" y="50" width="70" height="35"/>
+            <circle cx="50" cy="50" r="50" />
+        </symbol> -->
+    </defs>
+    <pattern
+        id="pattern"
+        x="50"
+        y="50"
+        width="200"
+        height="150"
+        patternUnits="userSpaceOnUse">
+        <rect
+            id="area"
+            x="0"
+            y="0"
+            width="200"
+            height="150"
+            fill="none"
+            stroke-width="0.5"
+            stroke="black" />
+    </pattern>
+    <text x="40" y="115" transform="rotate(-90 40,115)" fill="blue">1m</text>
+    <polyline
+        points="50,150 50,50 250,50"
+        style="fill:none;stroke:#0000ff;stroke-width:5"
+        id="cornerLeftTop" />
+    <polyline
+        points="1050,50 1250,50 1250,150"
+        style="fill:none;stroke:#0000ff;stroke-width:5"
+        id="cornerRightTop" />
+    <polyline
+        points="50,350 50,650 250,650"
+        style="fill:none;stroke:#0000ff;stroke-width:5"
+        id="cornerLeftBottom" />
+    <polyline
+        points="1050,650 1250,650 1250,350"
+        style="fill:none;stroke:#0000ff;stroke-width:5"
+        id="cornerRightBottom" />
+    <line x1="450" y1="50" x2="850" y2="50" style="stroke:#0000ff;stroke-width:5" id="edgeTop" />
+ 
+    <polyline
+        points="150,750 350,750 350,650 550 650"
+        style="fill:none;stroke:#0000ff;stroke-width:5"
+        id="edgeBottomLeft" />
+    <text x="940" y="710" transform="rotate(-90 940,710)" fill="blue">1m</text>
+        <polyline
+        points="750 650 950 650 950,750 1150,750"
+        style="fill:none;stroke:#0000ff;stroke-width:5"
+        id="edgeBottomRight" />
+       
+    <!--Axes and Coordinatesystem-->
+    <polyline points="650,665 650,610"
+              marker-end="url(#pf1)"  style="fill:none;stroke:#ff0000;stroke-width:4" />
+    <polyline points="635,650 700,650"
+              marker-end="url(#pf1)"  style="fill:none;stroke:#ff0000;stroke-width:4" /> 
+    <text x="685" y="665" style="fill:red;">x</text>
+    <text x="655" y="625" style="fill:red;">y</text>
+    <text x="615" y="665">(0,0)</text>
+    <!--Zones Pattern-->
+    <rect id="field"
+          x="50"
+          y="50"
+          width="1200"
+          height="600"
+          stroke-width="0"
+          stroke="black"
+          fill="url(#pattern)" />
+    <!--Zones Content-->
+    <!--<use x = "150" y = "140" xlink:href = "#machine"/>-->
+    <text x="740" y="640">Z1</text>
+    <text x="740" y="490">Z2</text>
+    <polyline points="750,210 750,340"
+              marker-end="url(#pf2)"  style="fill:none;stroke:#000000;" />
+    <polyline points="750,340 750,210"
+              marker-end="url(#pf2)"  style="fill:none;stroke:#000000;" />
+    <text x="740" y="290" transform = "rotate(-90 740 290)">1.5m</text>
+    <text x="720" y="340">Z3</text>
+    <text x="740" y="190">Z4</text>
+    
+    <text x="940" y="640">Z5</text>
+    <text x="940" y="490">Z6</text>
+    <text x="940" y="340">Z7</text>
+    <text x="940" y="190">Z8</text>
+    
+    <text x="1140" y="640">Z9</text>
+    <text x="1140" y="490">Z10</text>
+    <text x="1140" y="340">Z11</text>
+    <text x="1140" y="190">Z12</text>
+    
+    <text x="540" y="640">Z13</text>
+    <text x="540" y="490">Z14</text>
+    <text x="540" y="340">Z15</text>
+    <!--Sizes of zone-->
+    <polyline points="460,275 640,275"
+              marker-end="url(#pf2)"  style="fill:none;stroke:#000000;" />
+    <polyline points="640,275 460,275"
+              marker-end="url(#pf2)"  style="fill:none;stroke:#000000;" />
+    <text x="540" y="270">2m</text>
+    
+    <text x="540" y="190">Z16</text>
+    
+    <text x="340" y="625">Z17</text>
+    <text x="340" y="475">Z18</text>
+    <text x="340" y="325">Z19</text>
+    <text x="340" y="175">Z20</text>
+    
+    <text x="140" y="625">Z21</text>
+    <text x="140" y="475">Z22</text>
+    <text x="140" y="325">Z23</text>
+    <text x="140" y="175">Z24</text>
+    
+    <rect x="95" y="75" transform = "rotate(-45 150 122)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+    <rect x="165" y="285" transform = "rotate(30 235 285)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+    <!--<rect x="115" y="405" transform = "rotate(0 90 160)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+    --> 
+    <rect x="115" y="555" transform = "rotate(0 1175 150)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+    
+    <!--<rect x="315" y="105" transform = "rotate(0 0 0)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+        <rect x="315" y="255" transform = "rotate(0 0 0)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+    --> 
+    <rect x="255" y="405" transform = "rotate(90 290 422)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+    <!--<rect x="315" y="555" transform = "rotate(0 0 0)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+    -->    
+    <rect x="515" y="105" transform = "rotate(90 550 122)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+    <!--<rect x="515" y="255" transform = "rotate(0 0 150)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+    --> 
+    <rect x="545" y="365" transform = "rotate(-45 615 400)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+    <!--<rect x="515" y="555" transform = "rotate(0 0 150)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+    -->    
+    <rect x="715" y="105" transform = "rotate(90 750 122)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+    <!--<rect x="715" y="255" transform = "rotate(0 1175 150)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+    --> 
+    <rect x="685" y="365" transform = "rotate(45 685 400)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+    <!--<rect x="715" y="555" transform = "rotate(0 1175 150)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+    -->   
+    <!--<rect x="915" y="105" transform = "rotate(0 90 160)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+        <rect x="915" y="255" transform = "rotate(0 1175 150)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+    --> 
+    <rect x="975" y="405" transform = "rotate(90 1010 422)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+    <!--   <rect x="915" y="555" transform = "rotate(0 1175 150)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+    -->   
+    <rect x="1115" y="75" transform = "rotate(45 1130 122)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+    <rect x="1065" y="285" transform = "rotate(-30 1065 285)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+    <!--<rect x="1115" y="405" transform = "rotate(0 90 160)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+    --> 
+    <rect x="1115" y="555" transform = "rotate(0 1175 150)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+    
+    <!--Robotinos-->
+    <!--  <rect id="insertArea1" x="950" y="650" width="300" height="100" fill="lightgreen"/> 
+      <rect id="insertArea2" x="50" y="650" width="300" height="100" fill="lightgreen"/>
+    -->  
+    <circle id="robi" cx="100" cy="700" r="23" fill="pink" stroke-width="1" stroke="black" />
+    <circle id="robi" cx="200" cy="700" r="23" fill="pink" stroke-width="1" stroke="black" />
+    <circle id="robi" cx="300" cy="700" r="23" fill="pink" stroke-width="1" stroke="black" />
+    <circle id="robi" cx="1000" cy="700" r="23" fill="pink" stroke-width="1" stroke="black" />
+    <circle id="robi" cx="1100" cy="700" r="23" fill="pink" stroke-width="1" stroke="black" />
+    <circle id="robi" cx="1200" cy="700" r="23" fill="pink" stroke-width="1" stroke="black" />        
+</svg>
