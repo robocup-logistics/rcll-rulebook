@@ -453,7 +453,7 @@ The robot insertion areas (green area on figure) are outside, but just following
 bottom of the field.
 All 12 machines, 6 per team are placed within the factory area as stated in Figure
 \ref{fig:competition-area}.
-The positions and alignments in the figure are just exemplarly.
+The positions and alignments in the figure are just exemplary.
 In competition they are arbitrarily and can change from match to match.
 Machines have two kind of sides: active (wide, where the robot
 interacts) and ignored (narrow) edges.
@@ -489,7 +489,7 @@ alignments.
 
 \begin{figure}
   \includegraphics[keepaspectratio, angle=90, origin=c, scale=0.9]{field.pdf}
-   \label{fig:puck}
+   \label{fig:field}
 \end{figure}
 
 \begin{figure}
@@ -594,33 +594,24 @@ if it is swapped.
 
 \subsubsection{Production Machines -- During Exploration Phase}
 \label{sec:production-machines-exp}
-During the exploration phase the robots of each team have to explore
-their unknown factory environment, i.e. identify where each of their six 
-different MPS stations is located within the competition area.
+During the exploration phase the robots of each team can explore
+their unknown factory environment by identifying where the  
+different MPS are located exactly.
 
-The exploration phase starts with the announcement of the exploration 
-game phase by the Referee Box. An exploration information message is sent, 
-which assigns each elliptical zone to a team respecting that all MPS are 
-placed within a zone belonging to the same team. Note that out of the 24 
-zones only half of them are actually occupied by an MPS, the robots have 
-to distinguish between occupied and free areas on their own.
+Whereas the Referee Box assigns each rectangular zone 
+(Figure \ref{fig:field}) to a team number with the start of the 
+exploration phase, the exact position and alignment within these 
+and if this zone contains an MPS at all will not be communicated.
 
-Both teams have 3 minutes to explore the competition court. The task is to 
-scan an AR tag of each MPS belonging to your team and detect the light of 
-the signal lamp on top of the respective MPS. There are seven possible light 
-signals with at least one LED switched on (no flashing lights).
+To reward a successful exploration of an MPS and to allow for automated 
+evaluation of these, the Referee Box determines a randomly chosen but 
+static light state for each MPS, which the robots can then recognize and 
+announce to the Referee Box (see Section \ref{sec:expphase}). During the 
+exploration phase, there are seven possible light 
+states with at least one LED switched on (no flashing lights) for each MPS.
 
-Considering a mapping also send by the Referee Box at the start of the 
-exploration phase, the robot can relate both the machine AR tag ID and 
-the light state to a code which is then send back to the Referee Box for 
-announcing the exploration of a machine. For example, if a robot detects 
-red and green LED switched on at MPS with tag id 3, he looks up a code of 
-e.g. 23 and announces that to the Referee Box. Therefore, the robot has to 
-send a \emph{machine identified message} to the Referee Box. Please consult 
-the RoboCup Logistics League Referee Box Integrator's Manual for a detailed 
-definition of the message types. Note that the code is arbitrary just for 
-the sake of the exploration phase and is not connected to the physical type 
-of the machine.
+After a successful report, the respective MPS will perform a dry run, 
+indicating visually for spectators that the MPS was indeed explored successfully.
 
 \begin{table}[tp]
 \centering
@@ -981,25 +972,33 @@ button on the robot.
 
 \subsubsection{Exploration Phase}
 \label{sec:expphase}
-With the start of the game, the exploration phase begins. All machines
-indicate their code type using steady light signals together with their 
-static AR tag ids on the side. The signal light plus AR tag id
-encoding of MPS code types will be published by the Referee Box as
-described in \refsec{sec:production-machines-exp} and in detail in the
-RoboCup Logistics League Referee Box Integrator's Manual. The robots
-are to roam the environment and announce the detected codes of their
-six MPS to the Referee Box. Each properly reported
-code scores \num{+8} points, each code reported wrongly will give
-\num{-6} points penalty. A minimum of zero points will be accounted
-for the exploration phase
 
+With the start of the game, the Referee Box announces the exploration 
+game phase and the mapping from zones to teams, and thus the exploration 
+phase begins. As described in Section \refsec{sec:production-machines-exp}, 
+all MPS now show a steady light signal as randomly chosen by the Referee Box. 
+
+The robots have four minutes to roam the environment and announce their 
+six MPS for a successful exploration to the Referee Box. Concretely, 
+the Referee Box expects a \emph{machine identified message} with a 
+tuple consisting of zone id, machine id (as encoded in the AR tags) 
+and light state. Please consult the RoboCup Logistics League Referee 
+Box Integrator's Manual for a detailed definition of the message types.
+
+Only reports where robots and MPS are on the same team, and only the 
+first report for each MPS is counted (if robot is on the same team). 
+Each properly reported MPS scores \num{+8} points, each MPS reported 
+wrongly will give \num{-6} points penalty. A minimum of zero points will 
+be accounted for the exploration phase.
+
+% TODO: merge with obstruction rule!
 As teams' robots might also want to explore machines of the opposing team, 
 all teams are required to follow the "Give Way" rule. The "Give Way" rule 
 states that a robot must give way to robots of the opposing team when 
 approaching a machine of the opposing team. Concretely, this robot has 
 to leave within a time window of 10 seconds.
 
-The exploration phase ends either after three minutes or immediately after 
+The exploration phase ends either after four minutes or immediately after 
 both teams have each reported their respective set of six MPS.
 
 Moving or producing workpieces during the exploration phase is not allowed.
