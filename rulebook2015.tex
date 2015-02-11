@@ -485,11 +485,9 @@ tournament starts. Thus, teams should focus on a generic approach for
 production, allowing for dynamic adaption of machine positions and
 alignments.
 
-
-
 \begin{figure}
-  \includegraphics[keepaspectratio, angle=90, origin=c, scale=0.9]{field.pdf}
-   \label{fig:field}
+  \label{fig:competition-area}
+  \includegraphics[angle=-90, trim = 0 60 30 0, scale=0.85]{field.pdf}
 \end{figure}
 
 \begin{figure}
@@ -904,7 +902,8 @@ insertion area, the team has to call upon the referee for
 % be performed. This includes, but is not limited to, remote start-up of
 % programs, localization procedures, or vision calibration.
 
-\subsubsection{Interruptions and Robot Maintenance}
+
+\subsubsection{Interruptions, Robot Maintenance and Machine Refill}
 \label{sec:robot-maintenance}
 During a match and while the robot is active on the field no manual
 interference or manipulation of the robot in hardware, software,
@@ -920,15 +919,26 @@ configuration, instructions, or whatsoever, is allowed.
 % referee. The referee acts upon this motion at a time of his choosing,
 % but as soon as possible.
 
-Each team is allowed to maintain each robot once per game. The team
-has to call upon the referee for \textit{robot maintenance}. The
-referee should judge the game situation carefully and should allow the
+The teams will be responsible for refilling the machines (Base Elements) themselves.
+Each team has to designate one team-member as a \textit{field-operator}.
+This field-operator must be specified to the referee before each game. 
+Only this team member will be allowed to access the field area and only in case 
+of a recent refill procedure or a robot maintenance. 
+The field-operator must not obstruct other robots and should interfere as little
+as possible. 
+The machines can only be refilled when a magazine is empty and the machine 
+indicates this (flashing red light). In this case the field-operator may enter the 
+competition-area without asking the referee.
+
+ 
+Each team is allowed to maintain each robot once per game. Again the 
+team-operator has to call upon the referee for \textit{robot maintenance}. 
+The referee should judge the game situation carefully and should allow the
 robot to be taken out for maintenance, if neither the calling team
 nor another robot would have any advantage in the current game
 situation from the take-out. An advantage would be, for instance, to
 take out a robot, if two robots are hindering each other. It is up to
 the discretion of the referee when to allow the robot maintenance.
-
 
 After a robot has been taken out for the first time, it is handed to
 the team. The team can perform any repairs to the robot and/or the
@@ -938,6 +948,7 @@ robot's software. %on the robot which is limited
 The repair time may take at most 120 seconds. If the robot is not
 returned to the field in time, it is disqualified from the ongoing
 game.
+
 
 To return the robot into the game, the team asks the referee to place
 back the robot onto the field. After the referee accepts the motion,
