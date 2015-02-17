@@ -1,0 +1,24 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx,xcolor}
+\usepackage[active,tightpage]{preview}
+\input{tikz_products}
+\PreviewEnvironment{tikzpicture}
+\begin{document}
+\begin{tikzpicture}[node distance=4em,level distance=1.6cm,sibling distance=5mm,draw=orange!80]
+  \node[M] (bs) {BS}  [thick]
+  child[grow=right] { node[P] (be) {}
+    child[grow=right,->] { node[M] (cs2) {CS 2}
+      child[grow=up,level distance=1.2cm,<-]  { node [P] (cs-input) {} }
+      child[grow=right] { node[P] (be-cap) {} }
+    }
+  };
+  \draw (be) pic [scale=.3] {base=black};
+  \draw [every pic/.style={scale=0.3}] (be-cap) pic {base=black} ++(0,.06) pic {cap=gray};
+  \draw [every pic/.style={scale=0.3}] (cs-input) pic {any-base} ++(0,.06) pic {cap=gray};
+\end{tikzpicture}
+\end{document}
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
