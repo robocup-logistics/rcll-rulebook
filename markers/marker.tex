@@ -1,0 +1,21 @@
+\documentclass{article}
+
+\usepackage[a4paper]{anysize}
+\marginsize{2cm}{2cm}{1cm}{2cm}
+
+\usepackage{tikz}
+
+\begin{document}
+\pagestyle{empty}
+\centering
+\vspace*{\fill}
+\begin{tikzpicture}[x=1.5cm,y=1.5cm,fill=black]
+  \fill [black] rectangle +(9,9);  
+  \fill [white] (2,2) rectangle +(5,5);
+  \begin{scope}[xshift=1.5cm, yshift=1.5cm]
+    \foreach \x/\y in @MARKER@
+      \fill [draw=black] (\x,\y) rectangle +(1,1);
+  \end{scope}
+\end{tikzpicture}
+\vspace*{\fill}  
+\end{document}
