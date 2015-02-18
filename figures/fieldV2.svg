@@ -82,6 +82,9 @@
     <text x="685" y="665" style="fill:red;">x</text>
     <text x="655" y="625" style="fill:red;">y</text>
     <text x="615" y="665">(0,0)</text>
+    
+    <text x="410" y="680" font-size = "18" style="fill:magenta" font-weight = "bold">MAGENTA</text>
+    <text x="825" y="680" font-size = "18" style="fill:cyan" font-weight = "bold">CYAN</text>
     <!--Zones Pattern-->
     <rect id="field"
           x="50"
