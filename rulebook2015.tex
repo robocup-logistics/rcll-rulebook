@@ -399,19 +399,6 @@ in Table~\ref{tab:production-machines-function}. The machines are
 evenly divided among both playing teams. Delivery and recycling
 machines for a team are always on the same side as its robot insertion
 area and raw input storage.
-\begin{figure}
-  \subfigure[Puck]{
-    \includegraphics[width=0.2\textwidth]{125px-Puck}
-    \label{fig:puck}
-  }
-  \quad\quad
-  \subfigure[Machine]{
-    \includegraphics[width=0.2\textwidth]{llsf-signal}
-    \label{fig:machine}
-  }
-  \caption{Hardware equipment used within the competition field.}
-  \label{fig:puck-machine}
-\end{figure}
 
 \begin{table}[bp]
   \centering
@@ -767,7 +754,7 @@ determined in the same way. The active delivery gate will also be
 randomized prior to each match, but during a match the active gate can
 switch. At the beginning, each team has the responsibility to fill the
 input magazines on their base station. The elements may only be
-touched by a robot after the game has started.
+touched by a robot or by designated persons after the game has started.
 
 \subsection{Game Phases}
 \label{sec:game-phases}
@@ -906,13 +893,6 @@ first report for each MPS is counted (if robot is on the same team).
 Each properly reported MPS scores \num{+8} points, each MPS reported 
 wrongly will give \num{-6} points penalty. A minimum of zero points will 
 be accounted for the exploration phase.
-
-% TODO: merge with obstruction rule!
-As teams' robots might also want to explore machines of the opposing team, 
-all teams are required to follow the "Give Way" rule. The "Give Way" rule 
-states that a robot must give way to robots of the opposing team when 
-approaching a machine of the opposing team. Concretely, this robot has 
-to leave within a time window of 10 seconds.
 
 The exploration phase ends either after four minutes or immediately after 
 both teams have each reported their respective set of six MPS.
@@ -1209,17 +1189,33 @@ ordered products has been delivered.
 \end{table}
 
 \subsection{Obstruction Penalty}
-Teams are penalized with -2 points for obstruction when delivering a
-data carrier to a machine of the opposing team.  In this case, the
-puck becomes junk and cannot be recycled or used afterwards. If the
-robot leaves the machine space without the puck, the puck will be
+\label{sec:obstruction-penalty}
+
+As the Logistics League follows the idea of having both active teams 
+compete alongside each other, instead of directly against each other, we 
+punish intentional obstruction of the opposing team.
+
+Especially, this applies to the input and output area in front of any MPS. 
+All robots are allowed to enter this space, but robots must not obstruct 
+opposing robots which intend to approach their MPS. Concretely, that robot 
+must give way and release an approachable path to the MPS within a time window 
+of 10 seconds. If a robot cannot follow this rule, a pushing foul will 
+be called according to Section \ref{sec:pushing-rules}.
+
+% old ?!
+Furthermore, teams are penalized with -2 points for obstruction when delivering a
+workpiece to a machine of the opposing team.  In this case, the
+workpiece becomes junk and cannot be recycled or used afterwards. If the
+robot leaves the machine space without the workpiece, the workpiece will be
 removed by a field referee.
 
 \subsection{Pushing Rules}
+\label{sec:pushing-rules}
+
 With multiple teams on the field at the same time, robots must
 implement ways for collision avoidance. At the same time, they shall
 not interfere with the goods of the other team. The case where a robot
-of one team bumps into or moves a robot or puck of another team we
+of one team bumps into or moves a robot of another team we
 call ``pushing''.
 
 The following rules shall be obeyed by the robots and provide the
@@ -1231,8 +1227,8 @@ to pushing.
 \item Robots must drive such that they try to avoid physical contact
   with robots from the opposing team. However, physical contact per se
   does not represent an offense.
-\item All robots should be equipped to detect situations of physical
-  contact with other robots (direct pushing situations).
+\item All robots should be equipped with appropriate sensors to detect 
+situations of physical contact with other robots (direct pushing situations).
 \item If physical contact with other robots cannot be avoided, it must
   be soft, i.e. at slow speed and with as small physical impact as
   possible, in order to avoid damage to itself and other
@@ -1247,7 +1243,7 @@ to pushing.
   direction (and choose a new direction for movement).
 \item If pushing occurs between a moving and a standing robot, the
   moving robot causes the pushing situation and is responsible for
-  resolving it. If it is not able to do this, a pushing foul will be
+  resolving it. If it is not able to do so, a pushing foul will be
   called.
 \item If pushing occurs between two moving robots, both robots are
   responsible for resolving the pushing situation. If one robot
@@ -1266,11 +1262,13 @@ to pushing.
   again. The other team can decide within 10 seconds to restart their
   involved robot in the insertion zone without it counting as a
   penalty restart.
-\item Moving a puck of the opposing team within a fenced area (machine
-  or input area) by at least one puck diameter is a pushing foul. The
-  referee will move the puck back to its original position.
-\item If a robot loses his puck during collision avoidance or in case
-  of a collision, the puck will not be replaced.
+\item Moving a workpiece of the opposing team at their MPS is a pushing 
+foul. The referee will move the workpiece back to its original position.
+\item Intentional obstruction of the opposing team is a pushing foul, as 
+described in Section \ref{sec:obstruction-penalty}.
+\item If a robot is restarted or called to maintenance, loses his 
+workpiece during collision avoidance or in case of a collision, the 
+workpiece will not be replaced and is removed by the referee.
 \item The league reserves its right to disqualify clearly malicious
   teams.
 \end{enumerate}
@@ -1600,8 +1598,11 @@ adhesive labels placed on top or the sides of the robot. The number
 must be the same as is announced in the beacon signal to the referee
 box (cf.~\refsec{sec:referee-box}).
 
-For audiences, all robots must wear unique colored labels which are 
-cyan and magenta on both top and side of the robot.
+For audiences and observers to distinguish both teams, all robots must 
+wear their respective unique colored label which is either cyan or magenta. 
+The Velcro will be provided and is suggested to be placed on the tower's side 
+of each robot, the actual color-coded rings are then dynamically divided among 
+the playing teams.
 
 \section{Communication}
 \label{sec:communication}
