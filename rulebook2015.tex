@@ -264,7 +264,7 @@ oneself''.
 \section{League Administration} \label{sec:commitees}
 \subsection{Technical Committee 2015} \label{sec:tc}
 % Alphabetical order by last name
-\emph{Christian Deppe}, Festo Didactic, Denkendorf, Germany\\
+\emph{Christian Deppe}, Festo Didactic Gmbh \& Co. KG, Denkendorf, Germany\\
 \emph{S\"oren Jentzsch}, fortiss, An-Institut Technische Universit\"at M\"unchen, Munich, Germany\\
 \emph{Tim Niemueller}, RWTH Aachen University, Aachen, Germany\\
 \emph{Alain Rohr}, HFTM Technical Institute of Applied Science Mittelland, Biel, Switzerland\\
@@ -277,7 +277,7 @@ To get into contact with the TC use the mailing list\\
 \subsection{Organizing Committee 2015} \label{sec:oc} 
 \emph{Alexander Ferrein}, FH Aachen University of Applied Sciences, Aachen, Germany\\
 \emph{Eren Karaman}, Leuphana University L\"uneburg, Germany\\
-\emph{Ulrich Karras}, Festo Didactic GmbH, Denkendorf, Germany\\
+\emph{Ulrich Karras}, priv. Dozent Essen, Germany\\
 \emph{Sebastian Reuter}, RWTH Aachen University, Aachen, Germany\\
 \emph{Thomas Zuercher}, HFTM Technical Institute of Applied Science Mittelland, Biel, Switzerland\\
 
@@ -385,20 +385,30 @@ alignments.
 
 \subsection{Machines}
 \label{sec:machines}
-All machines are identical devices consisting of a plate housing the
-RFID read/write device and a signal unit according to
-Figure~\ref{fig:machine}. They share the same design and RFID device
-type. The overall size is \SI{280 x 160 x 100}{\milli\metre} (height
-$\times$ width $\times$ depth). Confer also Appendix~\ref{sec:engref}
-for further details. Machines can be in different states, which are
-communicated by their signal lights.
+Machines base on MPS(r) by Festo Didactic Gmbh \& Co. KG. Mounted on a \SI{0,35 x 0,7 x 1}{\metre} LWH trolley the machine's application modules provide different functionallity, while sharing one conveyor and signal light unit, always mounted at the exact same spot. 
+For 2015 there are four kinds of machines:
+\begin{table}
+\centering
+Base Station(BS) - Consists of three magazines that can be requested to feed one workpiece to the Input- or Outputside.\\
+Cap Station(CS) - Deploys one final cap to a supplied intermediate product through vacuum pick \& place. Has to be set up with the cap, which is supplied on a temporary base unit on shelves, before every deployment\\
+Ring Station(RS) (x2) - Consists of two vacuum based pick \& place units, deploys rings as requested by a robot.\\
+Delviery Station (DS) - Accepts completed products, features three lanes. Upon delivery, after the robot decided on which lane to put the product, it is varified against open orders throuch an external vision system.\\
+\end{table}
 
-The machine distribution (number of machines per type and team), their
-input(s) and output and their range of processing times is summarized
-in Table~\ref{tab:production-machines-function}. The machines are
-evenly divided among both playing teams. Delivery and recycling
-machines for a team are always on the same side as its robot insertion
-area and raw input storage.
+%All machines are identical devices consisting of a plate housing the
+%RFID read/write device and a signal unit according to
+%Figure~\ref{fig:machine}. They share the same design and RFID device
+%type. The overall size is \SI{280 x 160 x 100}{\milli\metre} (height
+%$\times$ width $\times$ depth). Confer also Appendix~\ref{sec:engref}
+%for further details. Machines can be in different states, which are
+%communicated by their signal lights.
+%
+%The machine distribution (number of machines per type and team), their
+%input(s) and output and their range of processing times is summarized
+%in Table~\ref{tab:production-machines-function}. The machines are
+%evenly divided among both playing teams. Delivery and recycling
+%machines for a team are always on the same side as its robot insertion
+%area and raw input storage.
 
 \begin{table}[bp]
   \centering
@@ -2175,88 +2185,88 @@ reasonable time. Thus we recommend for running image processing
 algorithms on the Robotino controller to use a camera without JPEG
 compression, e.g. use the low cost Logitech web camera C250.
 
-\subsection{Machines}
-\label{abx:sec:machine}
-
-\begin{figure}[h]
-\centering
-\subfigure[Ranges and dimensions of a signal]{%
-  \label{apx:fig:machinemeasures}%
-  \begin{minipage}[b]{0.45\linewidth}
-    \centering \includegraphics[width=\textwidth]{machine_measures.png}
-  \end{minipage}
-}
-\quad
-\subfigure[Ranges and dimensions of the supporting brackets]{%
-  \label{apx:fig:brackets}%
-  \begin{minipage}[b]{0.45\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{bracket.png}
-  \end{minipage}
-}
-\caption{Machine Details}
-\label{fig:machine-details}
-\end{figure}
-
-\subsubsection{Signal}
-\begin{table}[H]
-  \centering
-  \mytable{\begin{tabularx}{\linewidth}{l|X}
-      \hline
-      Dimension \&	diameter&	\SI{36}{\milli\metre} \\
-      height(total)		 	&	\SI{147}{\milli\metre} \\
-      Segment height 			&	\SI{34}{\milli\metre},
-      including \SI{5}{\milli\metre} unlighted border \\
-      Lifespan				&	max. \SI{50.000}{\hour} \\
-      Connector				&	Bottom, \SI{2}{\metre} supplied 
-      Compatible to the I/O-Terminal of MPS(r) units. \\
-      Safety					&	IP65 \\
-      Voltage					&	\SI{24}{\volt} \\
-      Current					&	3 $\times$ \SI{40}{\milli\ampere} \\
-      Kind of current			&	DC \\
-      Operating mode			&	\SIrange{-20}{+50}{\degreeCelsius} \\
-      Signal type				&	Static LED \\
-      Signal					&	Ultra-bright LED\\
-      Source					&	Festo \# 549843 \\
+%\subsection{Machines}
+%\label{abx:sec:machine}
+%
+%\begin{figure}[h]
+%\centering
+%\subfigure[Ranges and dimensions of a signal]{%
+%  \label{apx:fig:machinemeasures}%
+%  \begin{minipage}[b]{0.45\linewidth}
+%    \centering \includegraphics[width=\textwidth]{machine_measures.png}
+%  \end{minipage}
+%}
+%\quad
+%\subfigure[Ranges and dimensions of the supporting brackets]{%
+%  \label{apx:fig:brackets}%
+%  \begin{minipage}[b]{0.45\linewidth}
+%    \centering
+%    \includegraphics[width=\textwidth]{bracket.png}
+%  \end{minipage}
+%}
+%\caption{Machine Details}
+%\label{fig:machine-details}
+%\end{figure}
+%
+%\subsubsection{Signal}
+%\begin{table}[H]
+%  \centering
+%  \mytable{\begin{tabularx}{\linewidth}{l|X}
 %      \hline
-    \end{tabularx}}
-  \caption{Technical specification of the signal}
-  \label{apx:tab:signalproperties}
-\end{table}
-
-\subsubsection{RFID device}
-
-\begin{table}[H]
-  \centering
-  \mytable{\begin{tabularx}{1\linewidth}{l|X}
-      \hline
-      Technical data of the read/write head		&	Housing rectangular \\
-      Housing and working dimensions 				&
-      \SI{40x40}{\milli\metre}  with the centered RFID
-      tag. \\
-      Housing height
-      & \SI{65}{\milli\metre} \\ 
-      Operating voltage							&	DC \\
-      Housing material Plastic					& 	PBT-GF30-V0, black \\
-      Material active face Plastic				& 	PA6-GF30, yellow \\
-      Operating voltage
-      & 	\SIrange{10}{30}{\volt.DC} \\
-      DC rated operational current				& 	$\le$ \SI{80}{\milli\ampere} \\
-      Data transfer								& 	inductance coupling \\
-      Working frequency							& 	\SI{13.56}{\mega\hertz} \\
-      Radio communication and protocol standards	&	ISO 15693 \\
-      Read/write distance							&	max. \SI{115}{\milli\metre} \\
-      Output function								&	4-wire, read/write \\
-      Electrical connection 						&	Connectors M12 $\times$ 1 \\
-       Vibration resistance						&	\SI{55}{\hertz} (\SI{1} {\milli\metre}) \\
-       Shock resistance							&	\SI{30}{\gram} (\SI{11}{ \milli\second}) \\
-       Protection class							&	IP67 \\
-       Operating voltage display					& 	LED green \\
-% %      \hline
-    \end{tabularx}}
-  \caption{Technical specification of the RFID device}
-  \label{apx:tab:rfidproperties}
-\end{table}
+%      Dimension \&	diameter&	\SI{36}{\milli\metre} \\
+%      height(total)		 	&	\SI{147}{\milli\metre} \\
+%      Segment height 			&	\SI{34}{\milli\metre},
+%      including \SI{5}{\milli\metre} unlighted border \\
+%      Lifespan				&	max. \SI{50.000}{\hour} \\
+%      Connector				&	Bottom, \SI{2}{\metre} supplied 
+%      Compatible to the I/O-Terminal of MPS(r) units. \\
+%      Safety					&	IP65 \\
+%      Voltage					&	\SI{24}{\volt} \\
+%      Current					&	3 $\times$ \SI{40}{\milli\ampere} \\
+%      Kind of current			&	DC \\
+%      Operating mode			&	\SIrange{-20}{+50}{\degreeCelsius} \\
+%      Signal type				&	Static LED \\
+%      Signal					&	Ultra-bright LED\\
+%      Source					&	Festo \# 549843 \\
+%%      \hline
+%    \end{tabularx}}
+%  \caption{Technical specification of the signal}
+%  \label{apx:tab:signalproperties}
+%\end{table}
+%
+%\subsubsection{RFID device}
+%
+%\begin{table}[H]
+%  \centering
+%  \mytable{\begin{tabularx}{1\linewidth}{l|X}
+%      \hline
+%      Technical data of the read/write head		&	Housing rectangular \\
+%      Housing and working dimensions 				&
+%      \SI{40x40}{\milli\metre}  with the centered RFID
+%      tag. \\
+%      Housing height
+%      & \SI{65}{\milli\metre} \\ 
+%      Operating voltage							&	DC \\
+%      Housing material Plastic					& 	PBT-GF30-V0, black \\
+%      Material active face Plastic				& 	PA6-GF30, yellow \\
+%      Operating voltage
+%      & 	\SIrange{10}{30}{\volt.DC} \\
+%      DC rated operational current				& 	$\le$ \SI{80}{\milli\ampere} \\
+%      Data transfer								& 	inductance coupling \\
+%      Working frequency							& 	\SI{13.56}{\mega\hertz} \\
+%      Radio communication and protocol standards	&	ISO 15693 \\
+%      Read/write distance							&	max. \SI{115}{\milli\metre} \\
+%      Output function								&	4-wire, read/write \\
+%      Electrical connection 						&	Connectors M12 $\times$ 1 \\
+%       Vibration resistance						&	\SI{55}{\hertz} (\SI{1} {\milli\metre}) \\
+%       Shock resistance							&	\SI{30}{\gram} (\SI{11}{ \milli\second}) \\
+%       Protection class							&	IP67 \\
+%       Operating voltage display					& 	LED green \\
+%% %      \hline
+%    \end{tabularx}}
+%  \caption{Technical specification of the RFID device}
+%  \label{apx:tab:rfidproperties}
+%\end{table}
 
 \subsubsection{Wifi equipment}
 \label{sec:wifi-equipment}
@@ -2289,32 +2299,7 @@ compression, e.g. use the low cost Logitech web camera C250.
 	\label{apx:tab:wifi}
 \end{table}
 
-\subsubsection{Data carrier} 	
-\label{sec:data-carrier}
-\begin{table}[H]
-  \centering
-  \mytable{
-    \begin{tabularx}{\linewidth}{l|X}
-      \hline
-      Dimension									&	\diameter  \SI{20}{\milli\metre} \\
-      Height										&	\SI{2.5}{\milli\metre} \\
-      Data transfer								&	inductance coupling \\
-      Working frequency							&	\SI{13.56}{\mega\hertz} \\
-      Memory 										&	read/write \\	
-      Memory type									&	EEPROM \\
-      Memory size									&	\SI{128}{\byte} \\
-      Freely usable memory						&	\SI{112}{\byte} \\
-      Number of read operations					&	unlimited \\
-      Number of write operations					&	105 \\
-      Typical read time							&	\SI{2}{\milli\second\per\byte} \\
-      Typical write time							&	\SI{3}{\milli\second\per\byte} \\
-      Radio communication and protocol standards	&	ISO 15693 \\
-      
-      % \hline
-    \end{tabularx}}
-  \caption{Technical specification of the data carrier}
-  \label{apx:tab:datacarrier}
-\end{table}
+
 
 \printbibliography
 
