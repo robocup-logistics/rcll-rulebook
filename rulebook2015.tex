@@ -224,18 +224,15 @@ The Logistics League's main challenge is a multistage production cycle
 of different product variants with self-crafted intermediate products
 and delivery of the final product. This genuine goal will be rewarded
 considerably higher than partial fulfillment of the task.  Autonomous
-robots transport hockey pucks, which act as a placeholder for
-(intermediate) products, between the processing machines. A machine
-can basically be understood as a signal light with an attached RFID
-reader. Each puck carries an ID tag, which will be read and processed
-according to the related machine's specification. If procurable this
-will lead to a new puck state: a new sub-assembly is produced or
-prepared. Complete work orders require all related sub-assemblies of
+robots transport products in various states of manufacturing between 
+different processing machines. 
+Complete work orders require all related sub-assemblies of
 product variants (cf.  \refsec{sec:prodportfolio}). Such
-transformations can rely on more than one puck as input to be
+transformations can rely on more than one product as input to be
 triggered.
-
-This work flow is controlled by a referee box broadcasting information
+The work flow is controlled by a referee box broadcasting information.
+Final products are controlled by the delivery stations comparing to the 
+pending jobs from the referee box broadcasting information
 via wifi (see \refsec{sec:referee-box}). The work flow itself is
 divided into three different phases: a short setup phase, an
 exploration phase (see \refsec{sec:expphase}) during which robots
@@ -245,7 +242,7 @@ the referee box will announce all machine types and designations. In
 the following production phase orders are announced by the referee
 box, which the robots must fulfill automatically.
 
-The whole factory area can be used as an intermediate storage. Finally
+The cap-station can be used as an intermediate storage. Finally
 successfully assembled products are to be delivered to the correct
 delivery gate and get unloaded into its delivery slot. The factory
 area has to be treated in the best possible way. Any possible damage
@@ -372,7 +369,7 @@ alignments.
   \capbtabbox{%
     \centering
     \mytable{
-    \begin{tabularx}{\linewidth}{ll|R|R|R}
+    \begin{tabularx}{\linewidth}{l|R|R|R}
       Abbr. & \multicolumn{1}{l}{Type} & \multicolumn{1}{r}{$x$~[\si{\metre}]} & \multicolumn{1}{r}{$y$~[\si{\metre}]} \\ \hline
       Z1 / Z13 & Zone & $\pm$ 1.00 & 0.75  \\
       Z2 / Z14 & Zone & $\pm$ 1.00 & 2.25  \\
@@ -403,7 +400,6 @@ alignments.
 Machines base on MPS(r) by Festo Didactic Gmbh \& Co. KG. Mounted on a \SI{0,35 x 0,7 x 1}{\metre} LWH trolley the machine's application modules provide different functionallity, while sharing one conveyor and signal light unit, always mounted at the exact same spot. 
 For 2015 there are four kinds of machines:
 \begin{table}
-\centering
 Base Station(BS) - Consists of three magazines that can be requested to feed one workpiece to the Input- or Outputside.\\
 Cap Station(CS) - Deploys one final cap to a supplied intermediate product through vacuum pick \& place. Has to be set up with the cap, which is supplied on a temporary base unit on shelves, before every deployment\\
 Ring Station(RS) (x2) - Consists of two vacuum based pick \& place units, deploys rings as requested by a robot.\\
@@ -498,7 +494,7 @@ their unknown factory environment by identifying where the
 different MPS are located exactly.
 
 Whereas the Referee Box assigns each rectangular zone 
-(Figure \ref{fig:field}) to a team number with the start of the 
+(Figure \ref{fig:competition-area}) to a team number with the start of the 
 exploration phase, the exact position and alignment within these 
 and if this zone contains an MPS at all will not be communicated.
 
@@ -710,11 +706,8 @@ The field referees observe the game from the side of the field or from
 any position on the field (e.g., to better understand the game
 situation). They shall avoid robots spatially on the field, but
 ultimately robots are expected to avoid collision with human
-referees. Field referees are also responsible for re-positioning pucks
-after pushing or remove pucks that were delivered to a delivery gate
-if and only if the delivery gate has either accepted (all LED steady
-on) or rejected (yellow blinking with or without red light on or
-blinking). Field referees are responsible for making the decision
+referees. Field referees are also responsible for removing fallen products
+from the playing-ground. Field referees are responsible for making the decision
 whether a team may take out a robot for maintenance.
 
 Each referee may call a pause of the game at any time, e.g. if robots
@@ -787,7 +780,8 @@ touched by a robot or by designated persons after the game has started.
 \subsubsection{Team Setup}
 \label{sec:team-setup}
 No team member is allowed to enter the competition area prior to or
-during a match. All robots which are to participate in the game need
+during a match, except in cases described below(Maintenance and Refill). 
+All robots which are to participate in the game need
 to be in the game area during setup. All robots are allowed to roam
 through the entire area, autonomously or teleoperated. However, no
 robot is allowed to touch any machine or base element during setup;
@@ -839,7 +833,8 @@ Human commands must be mapped directly to motor commands.
 In both cases (driving out and taking out) the robot must leave the field through
 the closest opening in the wall unless this would interfering the game, therefore the 
 next closest exit maybe chosen (referee decides).
-There will be a corridor around the field where the robots can drive or can be worn 
+There will be a corridor (about 1m) around the field where the robots can drive 
+or can be worn 
 to the maintenance area for re-participation.
 
 The repair time may take at most 120 seconds, starting from the moment of
