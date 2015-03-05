@@ -1,0 +1,44 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx,xcolor}
+\usepackage[active,tightpage]{preview}
+\input{tikz_products}
+\PreviewEnvironment{tikzpicture}
+\begin{document}
+\begin{tikzpicture}[node distance=4em]
+  \node (base) {};
+  \node [text width=2cm,align=left,anchor=west,yshift=-1ex,xshift=.5em] (base-label) at (base.east) {\footnotesize Base Element \\[-1ex](specific color)};
+  \draw (base) pic [scale=.3] {base=red};
+
+  \node (any-base) at (0,-.7) {};
+  \node [text width=2cm,align=left,anchor=west,yshift=-1ex,xshift=.5em] (any-base-label) at (any-base.east) {\footnotesize Base Element \\[-1ex](any color)};
+  \draw (any-base) pic [scale=.3] {any-base};
+
+  \node (rings) at (0,-1.7) {};
+  \node [text width=2cm,align=left,anchor=west,yshift=.5ex,xshift=.5em]
+  (rings-label) at (rings.east) {\footnotesize Up to 3 rings \\[-1ex](four colors)};
+  \draw [every pic/.style={scale=0.3}] (rings) pic {ring=yellow}
+  ++(0,.17) pic {ring=orange} ++(0,.17) pic {ring=green};
+
+  \node (cap) at (0,-2.2) {};
+  \node [text width=2cm,align=left,anchor=west,yshift=-.3ex,xshift=.5em]
+  (rings-label) at (cap.east) {\footnotesize Top-most cap};
+  \draw [every pic/.style={scale=0.3}] (cap) pic {cap=gray};
+
+  \node (machine) [rectangle, draw=blue!50, thick, fill=blue!20, minimum height=1.8em,
+  text width=1.2em, align=center, rounded corners=2pt] at (0,-2.8) {CS};
+  \node [text
+  width=2cm,align=left,anchor=west,yshift=0ex,xshift=.1em,inner sep=2pt]
+  (machine-label) at (machine.east) {\footnotesize Machine Type\\[-1ex]\{BS,DS,CS,RS\}};
+
+\end{tikzpicture}
+\end{document}
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
