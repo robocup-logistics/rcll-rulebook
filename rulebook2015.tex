@@ -401,32 +401,125 @@ Machines are based on the Modular Production System (MPS)\footnote{For
   \url{http://www.robocup-logistics.org/links/festo-mps}.} by Festo
 Didactic Gmbh \& Co. KG. The MPS provides a number of stations which
 make up the machines used in the competition. The stations have a
-rectangular base shape of \SI{0,35 x 0,7}{\metre} with a height of
-\SI{1}{\metre}. The machine have individual application modules that
-provide different functionallity. Each has a conveyor belt always
-mounted at the exact same spotand a signal light. There are four kinds
-of machines:
+rectangular base shape of \SI{0,35 x 0,7}{\metre} with a height of about
+\SI{1}{\metre} depending on machine type. Conveyor  The machine have individual application modules that
+provide different functionallity.
+All machines share a basic Layout: Trolley, conveyor belt and Signal unit are identical. The trolley also features identical positions for ALVAR tags. The trolley is movable by four wheels with  \SI{0,1}{\metre} clearance body has Both sides of the trolley are closed by plexiglass with a handle. This measures the total dimensions to \SI{0,35 x 0,7088}{\metre}. All physical interfaces (conveyor belt input and output, shelves and set up slides for ring stations are accessible at \SI{0,898}{\metre} height. Working space between guiding lanes is \SI{0,045}{\metre}. Set up lanes and shelves feature approximately the same space for handling and adjusting. If observed from the Output side of machines(where the signal unit is placed) the conveyor space opens up at half of the aluminium proflile (visible by abreak in the black plastic below), thus starting at \SI{0,35}{\metre}. Based on these shared properties, there are four kinds of machines:
+
+\begin{figure}[h]
+\centering
+\subfigure[General Layout]{%
+  \label{fig:MPS_Layout}%
+  \begin{minipage}[b]{\linewidth}
+    \centering
+    \includegraphics[height=7cm]{MPS2015/MPS_Layout.jpg}
+  \end{minipage}
+}
+\caption{Machine Layout}
+\label{fig:MPS-Layout}
+\end{figure}
+
 \begin{description}
 \item[Base Station (BS)] acts as dispenser of base
   elements (cf.\refsec{sec:prodportfolio}). The application modules
   are three magazines of base elements. There is a single BS per team.
+
+\begin{figure}[h]
+\centering
+\subfigure[Base Station Portrait]{%
+  \label{fig:BS_portrait}%
+  \begin{minipage}[b]{0.3\linewidth}
+    \centering
+    \includegraphics[height=7cm]{MPS2015/BS_portrait.png}
+  \end{minipage}
+} 
+\quad
+\subfigure[Base Station Output side]{%
+  \label{fig:BS_Output}%
+  \begin{minipage}[b]{0.35\linewidth}
+    \centering
+    \includegraphics[height=7cm]{MPS2015/BS_Output.png}
+  \end{minipage}
+}
+\caption{Base Station}
+\label{fig:BS}
+\end{figure}
+
 \item[Cap Station (CS)] mounts a cap as the final step in production
   on an intermediate product. The application module is a vacuum pick
   \& place module. A base element with a cap must be taken to the
   machine and is then unmounted and buffered in the machine. The cap
   is then mounted on the next intermediate product taken to the
   machine. There are two CS per team.
+
+\begin{figure}[h]
+\centering
+\subfigure[Cap Station Portrait]{%
+  \label{fig:CS_portrait}%
+  \begin{minipage}[b]{0.3\linewidth}
+    \centering
+    \includegraphics[height=7cm]{MPS2015/CS_portrait.png}
+  \end{minipage}
+} 
+\quad
+\subfigure[Cap Station Output side]{%
+  \label{fig:BS_Output}%
+  \begin{minipage}[b]{0.35\linewidth}
+    \centering
+    \includegraphics[height=7cm]{MPS2015/BS_Output.png}
+  \end{minipage}
+}
+\caption{Cap Station}
+\label{fig:CS-portrait}
+\end{figure}
+
 \item[Ring Station (RS)] mounts one colored ring out of two available
   colors on an intermediate product. Each RS has two vacuum pick \&
   place units as application modules with separate unique colors which
   are determined new for each game. There is an additionally pre-fill
   slide which is used for some colors (specified anew for each game)
   to add base elements. There are two RS per team.
+
+\begin{figure}[h]
+\centering
+\subfigure[Ring Station Portrait]{%
+  \label{fig:RS_portrait}%
+  \begin{minipage}[b]{0.3\linewidth}
+    \centering
+    \includegraphics[height=7cm]{MPS2015/RS_portrait.png}
+  \end{minipage}
+} 
+\quad
+\subfigure[Ring Station Output side]{%
+  \label{fig:BS_Output}%
+  \begin{minipage}[b]{0.35\linewidth}
+    \centering
+    \includegraphics[height=7cm]{MPS2015/RS_Output.png}
+  \end{minipage}
+}
+\caption{Cap Station}
+\label{fig:RS-portrait}
+\end{figure}
+
 \item[Delivery Station (DS)] Accepts completed products. The stations
   contains three conveyor belts. The robot has to choose the proper
   one for a specific orer. The delivered products are verified by
   either the referees or an automated external vision system. There is
   one DS per team.
+
+\begin{figure}[h]
+\centering
+\subfigure[Delivery Station Portrait]{%
+  \label{fig:RS_portrait}%
+  \begin{minipage}[b]{0.3\linewidth}
+    \centering
+    \includegraphics[height=7cm]{MPS2015/DS_portrait.jpg}
+  \end{minipage}
+}
+\caption{Delivery Station}
+\label{fig:DS-portrait}
+\end{figure}
+
 \end{description}
 
 \begin{table}[bp]
@@ -522,13 +615,11 @@ indicating visually for spectators that the MPS was indeed explored successfully
 		\multicolumn{1}{l}{Optical Feedback} & \multicolumn{1}{l}{Operating mode} \\ \hline 
 				All LEDs turned off &  	The machine is physically offline, caused by a real error, which should not happen during the competition. \\
 					Red LED turned on &  	The machine is out of order. \\
+					Red LED flashing (at 2 Hz)  &  	Machine signals that it ran out of stock on any required item. \\
 					Green LED turned on &  	The machine is idle and ready.\\
-					Green and yellow LED turned on &  	The machine is processing or consuming the current data carrier. \\
-					Yellow LED flashing (at 2 Hz) & The machine detects wrong material.
-					This can be caused by data carriers that are already consumed,
-					sub-assemblies that do not fit to this machine type's work order or
-					corrupted data carriers. \\
+					Yellow LED turned on & The machine is currently busy.\\
 					Red and yellow LED flashing (at 2 Hz) & The machine detects a data carrier, which belong to the opposing team. \\%\hline
+%%keep Red any Yellow one?
 	\end{tabularx}}
   \caption{Production Machines - Optical Feedback during production phase}
   \label{tab:production-machines-feedback}
@@ -538,73 +629,42 @@ indicating visually for spectators that the MPS was indeed explored successfully
 \subsubsection{Production Machines -- During Production Phase}
 The default operating mode of all machines implies that only the green
 LED is turned on. This signals that the machine is ready for input.
-To enable the production process it is necessary to transport the
-pallet carrier accurately to the RFID device.
-% we will not write anymore to the puck, we're safe
-% The reading and writing process is a delicate process.  To avoid
-% corruption of the data carrier, it should not leave the working
-% range of the RFID device once the processing or consuming is
-% started.
+To enable the production process. Afterwards the machine will turn back to showing green lights.
 
-If a (intermediate) product is fed into a machine, the machine reads
-the RFID tag and checks whether or not the product can be processed
-and indicates the result by its signal light. If an appropriate
-product is fed to the machine, the yellow LED turns on indicating that
-the machine is processing the product (green and yellow LED on). If
-the machine needs another sub-assembly to generate an output, the
-green LED turns off and the yellow light indicates that the machine is
-waiting for the next sub-assembly. A consumed pallet carrier has to
-stay within the machine space borders (no part of the puck being
-outside the mark-up, note that if the overhead camera system is used
-there might be a small tolerance, but the team may not rely on this)
-until the production cycle of that very machine has been completed.
-Products resulting from violating this requirement are considered junk
-and will not be rewarded.
+%If a product is fed to a machine which is not appropriate, the machine
+%reacts with a yellow light flashing at 2 Hz. A red light indicates
+%that the machine is in an error state.  In this case no products can
+%be processed on the machine (for details
+%cf.~\refsec{sec:out-of-order}). In case a data carrier is fed to a
+%machine, which belongs to the opposing team, the red and the yellow
+%LEDs are flashing at 2 Hz and the puck is marked as junk.
+%Table~\ref{tab:production-machines-feedback} summarizes the operating
+%modes of the production machines and the corresponding signal lights.
+%
+%The machine always processes the required pallet carrier delivered
+%last, all prior components will be consumed. All machines will start
+%processing the data carrier as soon as it enters the machine zone
+%(i.e., the RFID device's action range) as stated in
+%Section~\ref{sec:competition-area}. They will change their operating
+%mode according to Tables~\ref{tab:production-machines-feedback},
+%\ref{tab:recycling-machine}, and \ref{tab:delivery-gates}.
+%
+%In order to complete the machines' work order, the input materials have
+%to be delivered one-by-one into the RFID device's action range. The
+%sequence of delivered input materials is irrelevant (e.g., \s0-\s1 or
+%\s1-\s0). Multiple data carriers in range of the device will result in
+%erroneous behavior of the device. Consumption of materials, such as
+%\s0 used in the production of \s2, will take 2 seconds. Unloading the
+%machine can be done immediately after the operating mode changes away
+%from processing. As long as the machines are used properly, they will
+%not produce any junk. The distribution describes how many machines of
+%the respective types will be randomly placed, resulting in a total of
+%12 court machines for each team.
 
-If the yellow LED is turned off after processing, further input
-materials are fed to the machine, the green LED indicates that the
-machine has finished the work order and the last carrier is
-transformed to its corresponding output.
-
-If a product is fed to a machine which is not appropriate, the machine
-reacts with a yellow light flashing at 2 Hz. A red light indicates
-that the machine is in an error state.  In this case no products can
-be processed on the machine (for details
-cf.~\refsec{sec:out-of-order}). In case a data carrier is fed to a
-machine, which belongs to the opposing team, the red and the yellow
-LEDs are flashing at 2 Hz and the puck is marked as junk.
-Table~\ref{tab:production-machines-feedback} summarizes the operating
-modes of the production machines and the corresponding signal lights.
-
-The machine always processes the required pallet carrier delivered
-last, all prior components will be consumed. All machines will start
-processing the data carrier as soon as it enters the machine zone
-(i.e., the RFID device's action range) as stated in
-Section~\ref{sec:competition-area}. They will change their operating
-mode according to Tables~\ref{tab:production-machines-feedback},
-\ref{tab:recycling-machine}, and \ref{tab:delivery-gates}.
-
-In order to complete the machines' work order, the input materials have
-to be delivered one-by-one into the RFID device's action range. The
-sequence of delivered input materials is irrelevant (e.g., \s0-\s1 or
-\s1-\s0). Multiple data carriers in range of the device will result in
-erroneous behavior of the device. Consumption of materials, such as
-\s0 used in the production of \s2, will take 2 seconds. Unloading the
-machine can be done immediately after the operating mode changes away
-from processing. As long as the machines are used properly, they will
-not produce any junk. The distribution describes how many machines of
-the respective types will be randomly placed, resulting in a total of
-12 court machines for each team.
+%%This should be partly covered by RefBox MMI
 
 \subsubsection{Recycling Machines}
-During the staged production process raw-material is transformed or
-consumed by the machines. To use consumed raw-materials again, the
-robots of each team can use their corresponding recycling machine
-(i.e., R1 for team 1 and R2 for team 2).  The recycling machine
-processes all supplied loading carriers back to raw-material (\s0)
-within 2 seconds. The optical feedback provided by the recycling unit
-differs from production machines and is shown in
-Table~\ref{tab:recycling-machine}.
+Once a Cap station(CS) has been supplied with set up material, the empty base unit can be used to set up a Ring Station(RS) or be recycled right away. It will not be possible to use the emtpy base unit for further production.
 
 \begin{table}[tp]
   \centering
@@ -625,47 +685,9 @@ Table~\ref{tab:recycling-machine}.
   \label{tab:recycling-machine}
 \end{table}
 
-\subsubsection{Delivery Gates} 
-\label{sec:delivery-gates}
-If a team finishes a variant of a final product, it has to be
-delivered to the customer through one of their three delivery
-gates. Only if the machine signals successful delivery (all lights
-steadily on) points are awarded. This state will last until the puck
-is removed by the referee. The puck may no longer be used in the
-game. There will be only one active gate at a time for each team. A
-gate is active between 60 and 180 seconds. After the gate switches,
-there is a grace period of 3 seconds, in which delivery will still be
-accepted to the formerly active delivery gate. False deliveries to an
-active gate will be indicated by a flashing yellow light (e.g. taking
-a \s0 puck to the active gate) and false deliveries to an inactive
-gate by a steady red and blinking yellow light. Delivering a data
-carrier to the delivery gate of the opposing team is indicated by red
-and yellow flashing light. In all three cases, the puck will be taken
-out by the referee and it may no longer be used in production or
-delivery. In case of a delivery to an active gate, the team will be
-awarded with the points for the delivery; if the gate was inactive, no
-points will be awarded. If, however, a pallet carrier was not
-successfully delivered, the pallet carrier will remain where it
-is. See Table~\ref{tab:delivery-gates} for the possible delivery gate
-signal states.
-
-\begin{table}[tp]
-  \centering
-  \mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
-      \multicolumn{1}{l}{Optical Feedback} &\multicolumn{1}{l}{Indication}\\\hline
-      Red turned on & This delivery gate is inactive.\\
-      Green turned on & This gate is active, namely the
-      designated gate.\\
-      Yellow blinking & False delivery to active gate.\\
-      Red on, yellow flashing (at \SI{2}{\hertz}) &
-      False delivery to inactive gate.\\
-			Red and yellow LED flashing (at 2 Hz) & False delivery with a data carrier belonging to the opposing team. \\
-      Red, yellow, and green turned on & Successful delivery.\\
-%    \hline
-  \end{tabularx}}
-  \caption{Delivery Gates - Optical Feedback}
-  \label{tab:delivery-gates}
-\end{table}
+\subsubsection{Delivery Station} 
+\label{sec:delivery-station}
+Once an order is completed, the product is has to be shipped to Delivery Station(DS). After the physical interface, the Robot has to command which of the three lanes is to be used to store the product(which truck to load it on). More than one lane can be correct, depending on the relevant order.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%
