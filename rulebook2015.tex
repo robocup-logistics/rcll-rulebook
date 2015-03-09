@@ -660,30 +660,19 @@ To enable the production process. Afterwards the machine will turn back to showi
 %%This should be partly covered by RefBox MMI
 
 \subsubsection{Recycling Machines}
-Once a Cap station(CS) has been supplied with set up material, the empty base unit can be used to set up a Ring Station(RS) or be recycled right away. It will not be possible to use the emtpy base unit for further production.
+Once a Cap Station (CS) has been supplied with set up material, the
+empty base unit can be used to set up a Ring Station (RS) or be
+recycled right away. It will not be possible to use the emtpy base
+unit for further production.
 
-\begin{table}[tp]
-  \centering
-  \mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
-      \multicolumn{1}{l}{Optical Feedback} &\multicolumn{1}{l}{Operating
-        mode}\\\hline
-      All LEDs turned off & 	The machine is physically offline,
-      caused by a real error, which should not happen during the
-      competition.\\
-      Red LED turned on & 	The machine is out of order\\
-      Green LED turned on & 	The machine is idle and ready.\\
-      Green and yellow LED turned on & The machine is processing the
-      current data carrier.\\
-      Red and yellow LED flashing (at 2 Hz) & The machine detects a
-      data carrier which belongs to the opposing team. \\%\hline
-  \end{tabularx}}
-  \caption{Recycling Machines - Optical Feedback}
-  \label{tab:recycling-machine}
-\end{table}
 
 \subsubsection{Delivery Station} 
 \label{sec:delivery-station}
-Once an order is completed, the product is has to be shipped to Delivery Station(DS). After the physical interface, the Robot has to command which of the three lanes is to be used to store the product(which truck to load it on). More than one lane can be correct, depending on the relevant order.
+Once an order is completed, the product is has to be shipped to
+Delivery Station (DS). After the physical interface, the Robot has to
+command which of the three lanes is to be used to store the
+product(which truck to load it on). More than one lane can be correct,
+depending on the relevant order.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%
