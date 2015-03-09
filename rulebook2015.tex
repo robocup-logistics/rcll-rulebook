@@ -242,8 +242,8 @@ than one puck as input to be triggered.
 This work flow is controlled by a referee box broadcasting information
 via wifi (see \refsec{sec:referee-box}). The work flow itself is
 divided into three different phases: a short setup phase, an
-exploration phase (see \refsec{sec:expphase}) during which robots
-receive scores for correctly discovering and publishing the yet
+exploration phase (see \refsec{sec:exploration-phase}) during which
+robots receive scores for correctly discovering and publishing the yet
 unknown types of the different machines on the field. After this phase
 the referee box will announce all machine types and designations. In
 the following production phase orders are announced by the referee
@@ -571,7 +571,9 @@ but the exact position and alignment within these and if this zone
 contains an MPS at all will not be communicated. Each MPS is assigned
 an individual light signal randomly. The light signal consists of a
 steady light pattern, i.e. no flashing lights, resulting in seven
-possible light states with at least one LED switched on.
+possible light states with at least one LED switched on. For details
+how to perform the exploration phase
+cf.~\refsec{sec:exploration-phase}.
 
 After a successful report, the respective MPS will perform a dry run,
 indicating visually for spectators that the MPS was indeed explored
@@ -755,37 +757,19 @@ switch. At the beginning, each team has the responsibility to fill the
 input magazines on their base station. The elements may only be
 touched by a robot or by designated persons after the game has started.
 
-\subsection{Game Phases}
-\label{sec:game-phases}
-
-\subsubsection{Team Setup}
-\label{sec:team-setup}
-No team member is allowed to enter the competition area prior to or
-during a match, except in cases described below(Maintenance and Refill). 
-All robots which are to participate in the game need
-to be in the game area during setup. All robots are allowed to roam
-through the entire area, autonomously or teleoperated. However, no
-robot is allowed to touch any machine or base element during setup;
-infringements will be punished as \textit{misbehaving robot}. The
-referee box will control the setup period. When the game starts, all
-robots need to be in the insertion area; no robot is allowed to be in
-the factory area at start-up. If a robot is not able to move to the
-insertion area, the team has to call upon the referee for
-\textit{robot maintenance}.
-
-
 % The robots can be set up within the factory area and have not been
 % elevated into their autonomous state. Any necessary setup routine can
 % be performed. This includes, but is not limited to, remote start-up of
 % programs, localization procedures, or vision calibration.
 
-\subsubsection{Interruptions, Robot Maintenance }
+\subsection{Interruptions and Robot Maintenance}
 \label{sec:robot-maintenance}
 During a match and while the robot is active on the field no manual
 interference or manipulation of the robot in hardware, software,
 configuration, instructions, or whatsoever, is allowed.
-Team-Computers may visualize the robots, but existing keyboards must be 
-covered with a sheet of paper in order to exclude interactivity and cheating.
+Team-Computers may visualize the robots, but existing keyboards must
+be covered with a sheet of paper in order to exclude interactivity and
+cheating.
 
 % In the case of a misbehaving or broken robot, a team can ask the
 % referee to take out a robot. Note, however, that one robot interfering
@@ -797,41 +781,41 @@ covered with a sheet of paper in order to exclude interactivity and cheating.
 % referee. The referee acts upon this motion at a time of his choosing,
 % but as soon as possible.
 
-Each team is allowed to maintain each robot once per game. Again the 
-team-operator has to call upon the referee for \textit{robot maintenance}. 
-The referee should judge the game situation carefully and should allow the
-robot to be taken out for maintenance, if neither the calling team
-nor another robot would have any advantage in the current game
-situation from the take-out. An advantage would be, for instance, to
-take out a robot, if two robots are hindering each other. It is up to
-the discretion of the referee when to allow the robot maintenance.
+Each team is allowed to maintain each robot once per game. Again the
+team-operator has to call upon the referee for \textit{robot
+  maintenance}.  The referee should judge the game situation carefully
+and should allow the robot to be taken out for maintenance, if neither
+the calling team nor another robot would have any advantage in the
+current game situation from the take-out. An advantage would be, for
+instance, to take out a robot, if two robots are hindering each
+other. It is up to the discretion of the referee when to allow the
+robot maintenance.
 
-Because the new generation of Robotinos is relatively heavy and bulky, 
-up to two team members are allowed to remove a robot from the field. 
+Because the new generation of Robotinos is relatively heavy and bulky,
+up to two team members are allowed to remove a robot from the field.
 Or the robots may be driven out manually by remote controlled drive
-(joystick, gamepad...)
-Human commands must be mapped directly to motor commands. 
-In both cases (driving out and taking out) the robot must leave the field through
-the closest opening in the wall unless this would interfering the game, therefore the 
-next closest exit maybe chosen (referee decides).
-There will be a corridor (about 1m) around the field where the robots can drive 
-or can be worn 
-to the maintenance area for re-participation.
+(joystick, gamepad...)  Human commands must be mapped directly to
+motor commands.  In both cases (driving out and taking out) the robot
+must leave the field through the closest opening in the wall unless
+this would interfering the game, therefore the next closest exit maybe
+chosen (referee decides).  There will be a corridor (about 1m) around
+the field where the robots can drive or can be worn to the maintenance
+area for re-participation.
 
-The repair time may take at most 120 seconds, starting from the moment of
-driving or taking out the robot. 
-After a robot has been taken out for the first time, it is handed to
-the team. The team can perform any repairs to the robot and/or the
-robot's software. %on the robot which is limited
+The repair time may take at most 120 seconds, starting from the moment
+of driving or taking out the robot.  After a robot has been taken out
+for the first time, it is handed to the team. The team can perform any
+repairs to the robot and/or the robot's
+software. %on the robot which is limited
 %to adjustments on sensors, checking cable connections, or restarting
 %the robot's control software.
- To return the robot into the game, the team asks the referee to place
+To return the robot into the game, the team asks the referee to place
 back the robot onto the field. After the referee accepts the motion,
 the robot is placed in the robot insertion area. The team has 15
 seconds quick setup time, which is limited to basic instructions like
-initial localization or software start-up.
-If the robot is not returned to the field in time, it is disqualified from 
-the ongoing game.
+initial localization or software start-up.  If the robot is not
+returned to the field in time, it is disqualified from the ongoing
+game.
 
 The referee can interrupt the game at any point in time, but should do
 so rarely as not to interfere with the overall game flow (also
@@ -848,59 +832,68 @@ current game. It may no longer communicate with the still active
 robots and must be taken out of the competition area.
 
 
-\subsubsection{Machine Refill}
+\subsection{Machine Refill}
 \label{sec:machine-refill}
-
-The teams will be responsible for refilling the machines (base-, ring- and cap-elements) themselves.
-Each team has to designate one team-member as a \textit{"replenisher"}.
-This replenisher must be specified to the referee before each game. 
-Only this team member will be allowed to access the field area and only in case 
-of a recent refill procedure.
-The replenisher must not obstruct other robots and should interfere as little
-as possible. 
-The machines can only be refilled when a magazine is empty and the machine 
-indicates this (flashing red light). In this case the field-operator may enter the 
+The teams will be responsible for refilling the machines (base-, ring-
+and cap-elements) themselves.  Each team has to designate one
+team-member as a \textit{"replenisher"}.  This replenisher must be
+specified to the referee before each game.  Only this team member will
+be allowed to access the field area and only in case of a recent
+refill procedure.  The replenisher must not obstruct other robots and
+should interfere as little as possible.  The machines can only be
+refilled when a magazine is empty and the machine indicates this
+(flashing red light). In this case the field-operator may enter the
 competition-area without asking the referee.
 
 
-\subsubsection{Game Start}
+\subsection{Game Start}
 \label{sec:game-start}
 %
 All matches will start at the exact time scheduled by the organization
-committee. From this point on, all robots must be located within the
-robot insertion area and the teams involved are allowed to start their
-robots to work autonomously within one minute (the game time will
-already start during this time). This can be done by issuing one
-single distinct command via any kind of interface or pressing a single
-button on the robot.
+committee with the setup phase (cf.~\refsec{sec:setup-phase}). Once
+the exploration phase starts, no more interference with the robot is
+allowed. The robot must react to the referee box game state messages
+to start the game play autonomously.
 
-\subsubsection{Exploration Phase}
-\label{sec:expphase}
+\subsection{Setup Phase}
+\label{sec:setup-phase}
+No team member is allowed to enter the competition area prior to or
+during a match, except in cases described below(Maintenance and
+Refill).  All robots which are to participate in the game need to be
+in the game area during setup. All robots are allowed to roam through
+the entire area, autonomously or teleoperated. However, no robot is
+allowed to touch any machine or base element during setup;
+infringements will be punished as \textit{misbehaving robot}. The
+referee box will control the setup period. When the game starts, all
+robots need to be in the insertion area; no robot is allowed to be in
+the factory area at start-up. If a robot is not able to move to the
+insertion area, the team has to call upon the referee for
+\textit{robot maintenance}.
 
-With the start of the game, the Referee Box announces the exploration 
-game phase and the mapping from zones to teams, and thus the exploration 
-phase begins. As described in Section \refsec{sec:production-machines-exp}, 
-all MPS now show a steady light signal as randomly chosen by the Referee Box. 
+\subsection{Exploration Phase}
+\label{sec:exploration-phase}
+With the start of the exploration phase, the Referee Box announces the
+mapping from zones to teams. As described in Section
+\refsec{sec:production-machines-exp}, all MPS now show a steady light
+signal as randomly chosen by the Referee Box. The robots have four
+minutes to roam the environment and announce their six MPS for a
+successful exploration to the Referee Box. Concretely, the Referee Box
+expects a \emph{machine identified message} with a tuple consisting of
+zone id, machine id (as encoded in the markers) and light
+pattern. Please consult the RoboCup Logistics League Referee Box
+Integrator's Manual for a detailed definition of the message
+types. Reports are only accepted for MPS of the respective team over
+the private encrypted team channel. Only the first report for each MPS
+is counted. The scoring is shown in
+\reftab{tab:scoring-exploration}. A minimum of zero points will be
+accounted for the exploration phase. The exploration phase ends either
+after four minutes or immediately after both teams have each reported
+their respective set of six MPS.
 
-The robots have four minutes to roam the environment and announce their 
-six MPS for a successful exploration to the Referee Box. Concretely, 
-the Referee Box expects a \emph{machine identified message} with a 
-tuple consisting of zone id, machine id (as encoded in the AR tags) 
-and light state. Please consult the RoboCup Logistics League Referee 
-Box Integrator's Manual for a detailed definition of the message types.
+Moving or producing workpieces during the exploration phase is not
+allowed.
 
-Only reports where robots and MPS are on the same team, and only the 
-first report for each MPS is counted (if robot is on the same team). 
-Each properly reported MPS scores \num{+8} points, each MPS reported 
-wrongly will give \num{-6} points penalty. A minimum of zero points will 
-be accounted for the exploration phase.
-
-The exploration phase ends either after four minutes or immediately after 
-both teams have each reported their respective set of six MPS.
-
-Moving or producing workpieces during the exploration phase is not allowed.
-
-\subsubsection{Production Phase}
+\subsection{Production Phase}
 \label{sec:production-phase}
 With the end of the exploration phase production begins, which lasts
 \num{15} minutes. The referee box publishes all information regarding
@@ -908,7 +901,7 @@ products and machines. This includes coarse position and contained
 colors of ring and cap stations, as well as the different product
 variants that can be produced.
 
-\subsection{Production Portfolio}
+\subsubsection{Production Portfolio}
 \label{sec:prodportfolio}
 \begin{figure}
   \ffigbox{%
@@ -966,7 +959,7 @@ The production portfolio is composed of three elements (cf. appendix
   machine and the cap is mounted.
 \end{description}
 
-\subsection{Production and Color Complexities}
+\subsubsection{Production and Color Complexities}
 \label{sec:production-complexities}
 The portfolio comprises many different product variants and is
 categorized by the four available \emph{product complexity} levels
@@ -1140,8 +1133,10 @@ ordered products has been delivered.
 \begin{table}
   \centering
   
-    \subtable[Scoring scheme for the exploration
-  phase]{\mytable{\begin{tabularx}{\linewidth}{p{7em}|X|p{4em}}
+    \subtable[Scoring scheme for the exploration phase]{%
+      \label{tab:scoring-exploration}   
+
+      \mytable{\begin{tabularx}{\linewidth}{p{7em}|X|p{4em}}
         \multicolumn{1}{l}{Reported} &\multicolumn{1}{l}{Exploration Phase} & \multicolumn{1}{l}{Points}\\\hline
     Correctly & Correctly determine a machine type of your team and
     report it successfully to the refbox &	+8\\
@@ -1154,6 +1149,7 @@ ordered products has been delivered.
 \bigskip%
 
   \subtable[Scoring scheme for the production phase]{
+    \label{tab:scoring-production}   
     \mytable{
       \begin{tabularx}{\linewidth}{p{7em}|X|p{4em}}
         \multicolumn{1}{l}{Sub-task } &\multicolumn{1}{l}{Production
