@@ -605,15 +605,16 @@ indicating visually for spectators that the MPS was indeed explored
 successfully.\footnote{This feature is optional and may be left out.}
 
 \begin{table}[tp]
-\centering
-\mytable{\begin{tabularx}{\linewidth}{p{0.35\linewidth}|X}
-		\multicolumn{1}{l}{Optical Feedback} & \multicolumn{1}{l}{Operating mode} \\ \hline 
-				All LEDs turned off &  	The machine is physically offline, caused by a real error, which should not happen during the competition. \\
-					Red LED turned on &  	The machine is out of order. \\
-					Red LED flashing (at 2 Hz)  &  	Machine signals that it ran out of stock on any required item. \\
-					Green LED turned on &  	The machine is idle and ready.\\
-					Yellow LED turned on & The machine is currently busy.\\
-					Red and yellow LED flashing (at 2 Hz) & The machine detects a data carrier, which belong to the opposing team. \\%\hline
+  \centering
+  \mytable{\begin{tabularx}{\linewidth}{p{0.36\linewidth}|X}
+      \multicolumn{1}{l}{Optical Feedback} & \multicolumn{1}{l}{Operating mode} \\ \hline 
+      All LEDs turned off & The machine is physically offline, caused by a real error, which should not happen during the competition. \\
+      Red LED turned on & The machine is out of order. \\
+      Red LED flashing (at 2 Hz)  & Machine signals that it ran out of stock on any required item. \\
+      Green LED turned on & The machine is idle and ready.\\
+      Yellow LED turned on & The machine is currently busy.\\
+      Red and yellow LED flashing (2 Hz) & A product was fed without
+      proper setup of the machine \\%\hline
 %%keep Red any Yellow one?
 	\end{tabularx}}
   \caption{Production Machines - Optical Feedback during production phase}
