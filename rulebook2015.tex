@@ -353,8 +353,9 @@ note that the conditions for each team will be the same, i.e. the
 distribution will be a symmetrical one.
 
 The center coordinates and the size of the zones in which the machines could
-be placed are presented in Table~\ref{tab:coordinates}. Note
-that this field layout should be seen as a proposal for the actual
+be read out from the figure \ref{fig:competition-area}. The grid size 
+(smallest step) is 0.5m. 
+Note that this field layout should be seen as a proposal for the actual
 competition area layout, accounting for symmetry and avoiding
 clustering of machine access nodes and unapproachable
 machines. However, the field layout can still change before the actual
@@ -362,42 +363,10 @@ tournament starts. Thus, teams should focus on a generic approach for
 production, allowing for dynamic adaption of machine positions and
 alignments.
 
-\begin{figure}
+\begin{figure}[H]
   \label{fig:competition-area}
-  \includegraphics[angle=-90, trim = 0 60 30 0, scale=0.85]{field.pdf}
-\end{figure}
-
-
-\begin{figure}
-\begin{floatrow}
-\begin{minipage}[b]{0.9\linewidth}
-  \capbtabbox{%
-    \centering
-    \mytable{
-    \begin{tabularx}{\linewidth}{l|R|R|R}
-      Abbr. & \multicolumn{1}{l}{Type} & \multicolumn{1}{r}{$x$~[\si{\metre}]} & \multicolumn{1}{r}{$y$~[\si{\metre}]} \\ \hline
-      Z1 / Z13 & Zone & $\pm$ 1.00 & 0.75  \\
-      Z2 / Z14 & Zone & $\pm$ 1.00 & 2.25  \\
-      Z3 / Z15 & Zone & $\pm$ 1.00 & 3.75  \\
-      Z4 / Z16 & Zone & $\pm$ 1.00 & 5.25  \\
-      Z5 / Z17 & Zone & $\pm$ 3.00 & 0.75  \\
-      Z6 / Z18 & Zone & $\pm$ 3.00 & 2.25  \\
-      Z7 / Z19 & Zone & $\pm$ 3.00 & 3.75  \\
-      Z8 / Z20 & Zone & $\pm$ 3.00 & 5.25  \\
-      Z9 / Z21 & Zone & $\pm$ 5.00 & 0.75  \\
-      Z10 / Z22 & Zone & $\pm$ 5.00 & 2.25 \\
-	Z11 / Z23 & Zone & $\pm$ 5.00 &  3.75 \\
-	Z12 / Z24 & Zone & $\pm$ 5.00 & 5.25  \\
-    \end{tabularx}  
-}
-  }{%
-    \caption{Center coordinates of the zones.}
-    \label{tab:coordinates} %
-  }
-
-  \end{minipage}
-\end{floatrow}
-\vspace*{-2mm}
+  \includegraphics[angle=-90 , trim = 50 50 10 0, scale=0.85]{field.pdf}
+  \caption{Competition Area}
 \end{figure}
 
 \subsection{Machines}
