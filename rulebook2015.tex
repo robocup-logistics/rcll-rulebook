@@ -529,6 +529,9 @@ there are four kinds of machines:
 \label{fig:DS}
 \end{figure}
 
+\noindent
+Machines of type CS and RS are called production machines as they
+perform refinement steps on a product during the production phase.
 
 \subsubsection{Machine Swapping}
 \label{sec:machine-swapping}
@@ -582,6 +585,8 @@ successfully.\footnote{This feature is optional and may be left out.}
       Red LED turned on & The machine is out of order. \\
       Red LED flashing (at 2 Hz)  & Machine signals that it ran out of stock on any required item. \\
       Green LED turned on & The machine is idle and ready.\\
+      Green LED flashing & The machine has accepted the setup command
+      (flashes for up to 3 seconds).\\
       Yellow LED turned on & The machine is currently busy.\\
       Red and yellow LED flashing (2 Hz) & A product was fed without
       proper setup of the machine \\%\hline
@@ -593,46 +598,37 @@ successfully.\footnote{This feature is optional and may be left out.}
 
 \vspace*{-2mm}
 \subsubsection{Production Machines -- During Production Phase}
-The default operating mode of all machines implies that only the green
-LED is turned on. This signals that the machine is ready for input.
-To enable the production process. Afterwards the machine will turn back to showing green lights.
+In the production phase production machine perform refinement steps on
+a product such as mounting an additional ring or a cap. Machines
+operate in a transaction style. That is, before using a machine it
+must be setup for a specific mode. Then the input products can be fed
+into the machine and the refinement step commences. Eventually, after
+the production period is completed, the resulting product is delivered
+on the output lane.
 
-%If a product is fed to a machine which is not appropriate, the machine
-%reacts with a yellow light flashing at 2 Hz. A red light indicates
-%that the machine is in an error state.  In this case no products can
-%be processed on the machine (for details
-%cf.~\refsec{sec:out-of-order}). In case a data carrier is fed to a
-%machine, which belongs to the opposing team, the red and the yellow
-%LEDs are flashing at 2 Hz and the puck is marked as junk.
-%Table~\ref{tab:production-machines-feedback} summarizes the operating
-%modes of the production machines and the corresponding signal lights.
-%
-%The machine always processes the required pallet carrier delivered
-%last, all prior components will be consumed. All machines will start
-%processing the data carrier as soon as it enters the machine zone
-%(i.e., the RFID device's action range) as stated in
-%Section~\ref{sec:competition-area}. They will change their operating
-%mode according to Tables~\ref{tab:production-machines-feedback},
-%\ref{tab:recycling-machine}, and \ref{tab:delivery-gates}.
-%
-%In order to complete the machines' work order, the input materials have
-%to be delivered one-by-one into the RFID device's action range. The
-%sequence of delivered input materials is irrelevant (e.g., \s0-\s1 or
-%\s1-\s0). Multiple data carriers in range of the device will result in
-%erroneous behavior of the device. Consumption of materials, such as
-%\s0 used in the production of \s2, will take 2 seconds. Unloading the
-%machine can be done immediately after the operating mode changes away
-%from processing. As long as the machines are used properly, they will
-%not produce any junk. The distribution describes how many machines of
-%the respective types will be randomly placed, resulting in a total of
-%12 court machines for each team.
-
-%%This should be partly covered by RefBox MMI
+A light signal mounted near the output lane
+(cf. \refsec{sec:machines}) to indicate the state of the machine. In
+the default operating mode, the green light is turned on. This signals
+that the machine is ready for setup or input. When setup is performed,
+the green light will flash the green LED for up to 3 seconds (it
+immediately switches to a new state, e.g. if a product is fed into the
+machine before the three seconds are finished). When a product is fed
+to the input, several light states indicate the processing
+condition. If the machine accepts the input and starts processing the
+green and yellow LEDs will be turned on steadily for as long as the
+processing is performed. Once processing completes, the machine
+switches back to a steady green LED only. If a product is fed for
+which additional bases were required but which have not been
+delivered, the machine will flash the red and yellow LED and will be
+out of order (cf. \refsec{sec:broken-machine}). If an additional base
+(cf.~\refsec{sec:production-phase}) is added to a machine the light
+signal will change to steady orange. The light signals are summarized
+in \reftab{tab:production-machines-feedback}.
 
 \subsubsection{Recycling Machines}
 Once a Cap Station (CS) has been supplied with set up material, the
-empty base unit can be used to set up a Ring Station (RS) or be
-recycled right away. It will not be possible to use the emtpy base
+empty base unit can be used to setup a Ring Station (RS) or be
+recycled right away. It will not be possible to use the empty base
 unit for further production.
 
 
