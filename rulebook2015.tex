@@ -575,14 +575,14 @@ remain unchanged).
 
 \begin{table}[bp]
 \centering
-	\mytable{  \begin{tabularx}{\linewidth}{l|X|X|X|l}
-    \multicolumn{1}{l}{ Type} & \multicolumn{1}{l}{Distribution / Team} & \multicolumn{1}{l}{Input} & \multicolumn{1}{l}{Output} & \multicolumn{1}{l}{(Final) processing time[s]}\\\hline
-    Base Station (BS) & 1 times & \s0 (raw-material) & \s1 & $t_1 = 3 \mbox{ to } 8~\mathrm{sec}$\\
-    Cap Station (CS) & 2 times & \s0; \s1 & \s2; one consumed container & $t_2 = 15 \mbox{ to } 25~\mathrm{sec}$\\
-    Ring Station (RS) & 2 times &	\s0; \s1; \s2 & \p1; two consumed containers &$t_3 = 40 \mbox{ to } 60~\mathrm{sec}$\\
-    Delivery Station (DS) & 1 times &	\s0 & \p3 &$t_5 =20\mbox{ to } 40~\mathrm{sec}$
+	\mytable{  \begin{tabularx}{\linewidth}{l|l|X}
+    Type & Distribution & (Final) processing time[s]\\\hline
+    Base Station (BS) & 1 per team & minimum physical time\\
+    Cap Station (CS) & 2 per team & $t_2 = 15 \mbox{ to } 25~\mathrm{sec}$\\
+    Ring Station (RS) & 2 per team &$t_3 = 40 \mbox{ to } 60~\mathrm{sec}$\\
+    Delivery Station (DS) & 1 per team &$t_5 =20\mbox{ to } 40~\mathrm{sec}$
   \end{tabularx}}
-  \caption{Production Machines - Type, Distribution and working method}
+  \caption{Production Machines - Type, Distribution and processing times}
   \label{tab:production-machines-function}  
 \end{table}
 
