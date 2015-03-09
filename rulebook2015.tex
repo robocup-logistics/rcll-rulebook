@@ -191,20 +191,20 @@ plug-and-produce capable systems.
 After an exciting RoboCup in Jo\~ao Pessoa, we look forward to a new
 scale of competition that will emerge from initiatives around the
 globe. In 2012 we had our first Logistics League World Champion.  In
-2013 we introduced the Referee Box changing the competition at its
-core by introducing a flow of information. This allowed for more
-dynamic games and the automatic tracking of scores, and to relax the
-hitherto existing regulations regarding additional computing power. In
-2014 we merged the formerly separate playing fields into a single one,
-on which both teams compete at the same time, introducing the need for
-self-localization, collision avoidance, and increased spatial
-coordination complexity. Additionally, the production schedules became
-more dynamic in that orders were posted dynamically and less
-frequently and there were times with no orders. This year, in 2015, we
-introduce actual physical processing machines based on the Festo
-Modular Production System (MPS). This will make the game easier to
-understand for the audience and introduce new challenges. For one, the
-production schedule has again become more flexible and dynamic, by
+2013 we introduced the Referee Box (refbox) changing the competition
+at its core by introducing a flow of information. This allowed for
+more dynamic games and the automatic tracking of scores, and to relax
+the hitherto existing regulations regarding additional computing
+power. In 2014 we merged the formerly separate playing fields into a
+single one, on which both teams compete at the same time, introducing
+the need for self-localization, collision avoidance, and increased
+spatial coordination complexity. Additionally, the production
+schedules became more dynamic in that orders were posted dynamically
+and less frequently and there were times with no orders. This year, in
+2015, we introduce actual physical processing machines based on the
+Festo Modular Production System (MPS). This will make the game easier
+to understand for the audience and introduce new challenges. For one,
+the production schedule has again become more flexible and dynamic, by
 introducing color-coded rings of which a varying number can be
 requested to be mounted in a specific order for a certain
 product. Additionally, the league makes its first steps towards
@@ -872,16 +872,16 @@ insertion area, the team has to call upon the referee for
 
 \subsection{Exploration Phase}
 \label{sec:exploration-phase}
-With the start of the exploration phase, the Referee Box announces the
+With the start of the exploration phase, the referee box announces the
 mapping from zones to teams. As described in Section
 \refsec{sec:production-machines-exp}, all MPS now show a steady light
-signal as randomly chosen by the Referee Box. The robots have four
+signal as randomly chosen by the referee box. The robots have four
 minutes to roam the environment and announce their six MPS for a
-successful exploration to the Referee Box. Concretely, the Referee Box
+successful exploration to the referee box. Concretely, the referee box
 expects a \emph{machine identified message} with a tuple consisting of
 zone id, machine id (as encoded in the markers) and light
-pattern. Please consult the RoboCup Logistics League Referee Box
-Integrator's Manual for a detailed definition of the message
+pattern. Please consult the referee box Integrator's
+Manual~\cite{RefBoxIntManual} for a detailed definition of the message
 types. Reports are only accepted for MPS of the respective team over
 the private encrypted team channel. Only the first report for each MPS
 is counted. The scoring is shown in
@@ -1632,7 +1632,7 @@ bandwidth limit become known, or if the overall bandwidth limit must
 be reduced due to outer circumstances, the TC can monitor the network
 traffic and demand reduction in communicated data as necessary.
 
-\subsection{Referee Box}
+\subsection{Referee Box (refbox)}
 \label{sec:referee-box}
 The referee box (refbox) is a software system that runs on a system
 provided by the Organization Committee. It controls the overall game,
@@ -1660,7 +1660,8 @@ The communication from the refbox to the robot is a datagram-oriented
 broadcast protocol based on Google protocol buffers\footnote{Available
   at \url{https://code.google.com/p/protobuf/}} (protobuf). The
 protocol definition and technical parameters are described in detail
-in the RoboCup Logistics League Referee Box Integrator's Manual.
+in the RoboCup Logistics League Referee Box Integrator's
+Manual~\cite{RefBoxIntManual}
 
 \subsection{Remote Control}
 \label{sec:remote-control}
