@@ -445,9 +445,10 @@ there are four kinds of machines:
 \end{figure}
 
 \begin{description}
-\item[Base Station (BS)] acts as dispenser of base
-  elements (\reffig{fig:BS}, cf.~\refsec{sec:prodportfolio}). The application modules
-  are three magazines of base elements. There is a single BS per team.
+\item[Base Station (BS)] acts as dispenser of base elements
+  (\reffig{fig:BS}, cf.~\refsec{sec:production-portfolio}). The
+  application modules are three magazines of base elements. There is a
+  single BS per team.
 
 \item[Cap Station (CS)] mounts a cap as the final step in production
   on an intermediate product (\reffig{fig:CS}). The application module
@@ -595,6 +596,7 @@ successfully.\footnote{This feature is optional and may be left out.}
 
 \vspace*{-2mm}
 \subsubsection{Production Machines -- During Production Phase}
+\label{sec:production-machines-production}
 In the production phase production machine perform refinement steps on
 a product such as mounting an additional ring or a cap. Machines
 operate in a transaction style. That is, before using a machine it
@@ -941,7 +943,7 @@ product variants that can be produced
 (cf.~\refsec{sec:production-plan}) which then must be fulfilled by the
 robot teams. Using production machines requires interaction through
 communication with the refbox described in
-\refsec{sec:production-communication}.
+\refsec{sec:production-machines-production}.
 
 Starting with the play-offs phase of the tournament
 (cf.~\refsec{sec:tournament-phases}) the game must be won by one of
@@ -1107,7 +1109,7 @@ is specified by the number of required intermediate rings from $C_0$
 (no ring) to $C_3$ (three intermediate rings). As specified in
 \refsec{sec:production-complexities}, some specific steps require
 additional bases to be added to the machine after setup
-(cf.~\refsec{sec:production-communication}). This depends on the
+(cf.~\refsec{sec:production-machines-production}). This depends on the
 specific color, it is randomized per game and announced by the refbox.
 
 In each game, orders with a fixed delivery value of 80 points will be
