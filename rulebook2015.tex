@@ -214,25 +214,31 @@ following our long-term evolution goals outlined in~\cite{wdrl2013}.
 \subsection{The Task}
 \label{sec:task}
 
-Our aim is to simulate autonomous guided vehicles in industrial
-applications. In opposition to regular automatic guided vehicles teams
-shall complete the following task without human interference as
+Our aim is to provide a simplified Smart Factory environment. The
+teams must complete the following task without human interference as
 successful as possible, competing with a second team against the
 clock.
 
-The Logistics League's main challenge is a multistage production cycle
-of different product variants with self-crafted intermediate products
-and delivery of the final product. This genuine goal will be rewarded
-considerably higher than partial fulfillment of the task.  Autonomous
-robots transport products in various states of manufacturing between 
-different processing machines. 
-Complete work orders require all related sub-assemblies of
-product variants (cf.  \refsec{sec:prodportfolio}). Such
-transformations can rely on more than one product as input to be
-triggered.
-The work flow is controlled by a referee box broadcasting information.
-Final products are controlled by the delivery stations comparing to the 
-pending jobs from the referee box broadcasting information
+In the Logistics League, autonomous robot agents have to handle the
+logistics of materials through several (dynamic) stages to produce
+final goods to fullfill orders. The machines are specific MPS stations
+
+ The Logistics League's main challenge
+is a multistage production cycle of different product variants with
+self-crafted intermediate products and delivery of the final
+product. This genuine goal will be rewarded considerably higher than
+partial fulfillment of the task.  Autonomous robots transport hockey
+pucks, which act as a placeholder for (intermediate) products, between
+the processing machines. A machine can basically be understood as a
+signal light with an attached RFID reader. Each puck carries an ID
+tag, which will be read and processed according to the related
+machine's specification. If procurable this will lead to a new puck
+state: a new sub-assembly is produced or prepared. Complete work
+orders require all related sub-assemblies of product variants (cf.
+\refsec{sec:prodportfolio}). Such transformations can rely on more
+than one puck as input to be triggered.
+
+This work flow is controlled by a referee box broadcasting information
 via wifi (see \refsec{sec:referee-box}). The work flow itself is
 divided into three different phases: a short setup phase, an
 exploration phase (see \refsec{sec:expphase}) during which robots
@@ -401,125 +407,102 @@ Machines are based on the Modular Production System (MPS)\footnote{For
   \url{http://www.robocup-logistics.org/links/festo-mps}.} by Festo
 Didactic Gmbh \& Co. KG. The MPS provides a number of stations which
 make up the machines used in the competition. The stations have a
-rectangular base shape of \SI{0,35 x 0,7}{\metre} with a height of about
-\SI{1}{\metre} depending on machine type. Conveyor  The machine have individual application modules that
-provide different functionallity.
-All machines share a basic Layout: Trolley, conveyor belt and Signal unit are identical. The trolley also features identical positions for ALVAR tags. The trolley is movable by four wheels with  \SI{0,1}{\metre} clearance body has Both sides of the trolley are closed by plexiglass with a handle. This measures the total dimensions to \SI{0,35 x 0,7088}{\metre}. All physical interfaces (conveyor belt input and output, shelves and set up slides for ring stations are accessible at \SI{0,898}{\metre} height. Working space between guiding lanes is \SI{0,045}{\metre}. Set up lanes and shelves feature approximately the same space for handling and adjusting. If observed from the Output side of machines(where the signal unit is placed) the conveyor space opens up at half of the aluminium proflile (visible by abreak in the black plastic below), thus starting at \SI{0,35}{\metre}. Based on these shared properties, there are four kinds of machines:
+rectangular base shape of \SI{0,35 x 0,7}{\metre} with a height of
+about \SI{1}{\metre} depending on machine type. Conveyor The machine
+have individual application modules that provide different
+functionality.
 
-\begin{figure}[h]
-\centering
-\subfigure[General Layout]{%
-  \label{fig:MPS_Layout}%
-  \begin{minipage}[b]{\linewidth}
-    \centering
-    \includegraphics[height=7cm]{MPS2015/MPS_Layout.jpg}
-  \end{minipage}
-}
-\caption{Machine Layout}
-\label{fig:MPS-Layout}
+All machines share the same basic layout: a trolley, conveyor belt,
+and signal unit. The markers are mounted at the same position on both
+wide sides of the trolley. It is movable by four wheels with
+\SI{0.1}{\metre} clearance. Both narrow sides of the trolley are
+closed by plexiglas and have a handle. All physical interfaces
+(conveyor belt input and output, shelves and set up slides for ring
+stations are accessible at \SI{89.8}{\centi\metre} height. Working
+space between guiding lanes is \SI{4.5}{\centi\metre}. Setup lanes and
+shelves feature approximately the same space for handling and
+adjusting. If observed from the output side of machines (where the
+signal unit is placed) the conveyor space opens up at half of the
+aluminum profile
+% No clue what that means
+%(visible by a break in the black plastic below),
+thus starting at \SI{0,35}{\metre}. Based on these shared properties,
+there are four kinds of machines:
+
+\begin{figure}
+  \centering
+  \includegraphics[height=7cm]{MPS2015/MPS_Layout.jpg}
+
+  \caption{General Machine Layout}
+  \label{fig:MPS-Layout}
 \end{figure}
-
-\begin{description}
-\item[Base Station (BS)] acts as dispenser of base
-  elements (cf.\refsec{sec:prodportfolio}). The application modules
-  are three magazines of base elements. There is a single BS per team.
-
-\begin{figure}[h]
+\begin{figure}
 \centering
 \subfigure[Base Station Portrait]{%
   \label{fig:BS_portrait}%
   \begin{minipage}[b]{0.3\linewidth}
     \centering
-    \includegraphics[height=7cm]{MPS2015/BS_portrait.png}
+    \includegraphics[height=6cm]{MPS2015/BS_portrait.png}
   \end{minipage}
 } 
 \quad
 \subfigure[Base Station Output side]{%
   \label{fig:BS_Output}%
-  \begin{minipage}[b]{0.35\linewidth}
+  \begin{minipage}[b]{0.55\linewidth}
     \centering
-    \includegraphics[height=7cm]{MPS2015/BS_Output.png}
+    \includegraphics[height=6cm]{MPS2015/BS_Output.png}
   \end{minipage}
 }
+\vspace{-1ex}
 \caption{Base Station}
 \label{fig:BS}
 \end{figure}
-
-\item[Cap Station (CS)] mounts a cap as the final step in production
-  on an intermediate product. The application module is a vacuum pick
-  \& place module. A base element with a cap must be taken to the
-  machine and is then unmounted and buffered in the machine. The cap
-  is then mounted on the next intermediate product taken to the
-  machine. There are two CS per team.
-
-\begin{figure}[h]
+\begin{figure}
 \centering
 \subfigure[Cap Station Portrait]{%
   \label{fig:CS_portrait}%
   \begin{minipage}[b]{0.3\linewidth}
     \centering
-    \includegraphics[height=7cm]{MPS2015/CS_portrait.png}
+    \includegraphics[height=6cm]{MPS2015/CS_portrait.png}
   \end{minipage}
 } 
 \quad
 \subfigure[Cap Station Output side]{%
   \label{fig:BS_Output}%
-  \begin{minipage}[b]{0.35\linewidth}
+  \begin{minipage}[b]{0.55\linewidth}
     \centering
-    \includegraphics[height=7cm]{MPS2015/BS_Output.png}
+    \includegraphics[height=6cm]{MPS2015/BS_Output.png}
   \end{minipage}
 }
+\vspace{-1ex}
 \caption{Cap Station}
-\label{fig:CS-portrait}
+\label{fig:CS}
 \end{figure}
+
+\begin{description}
+\item[Base Station (BS)] acts as dispenser of base
+  elements (\reffig{fig:BS}, cf.~\refsec{sec:prodportfolio}). The application modules
+  are three magazines of base elements. There is a single BS per team.
+
+\item[Cap Station (CS)] mounts a cap as the final step in production
+  on an intermediate product (\reffig{fig:CS}). The application module
+  is a vacuum pick \& place module. A base element with a cap must be
+  taken to the machine and is then unmounted and buffered in the
+  machine. The cap is then mounted on the next intermediate product
+  taken to the machine. There are two CS per team.
 
 \item[Ring Station (RS)] mounts one colored ring out of two available
-  colors on an intermediate product. Each RS has two vacuum pick \&
-  place units as application modules with separate unique colors which
-  are determined new for each game. There is an additionally pre-fill
-  slide which is used for some colors (specified anew for each game)
-  to add base elements. There are two RS per team.
-
-\begin{figure}[h]
-\centering
-\subfigure[Ring Station Portrait]{%
-  \label{fig:RS_portrait}%
-  \begin{minipage}[b]{0.3\linewidth}
-    \centering
-    \includegraphics[height=7cm]{MPS2015/RS_portrait.png}
-  \end{minipage}
-} 
-\quad
-\subfigure[Ring Station Output side]{%
-  \label{fig:BS_Output}%
-  \begin{minipage}[b]{0.35\linewidth}
-    \centering
-    \includegraphics[height=7cm]{MPS2015/RS_Output.png}
-  \end{minipage}
-}
-\caption{Cap Station}
-\label{fig:RS-portrait}
-\end{figure}
+  colors on an intermediate product (\reffig{fig:RS}). Each RS has two
+  vacuum pick \& place units as application modules with separate
+  unique colors which are determined new for each game. There is an
+  additionally pre-fill slide which is used for some colors (specified
+  anew for each game) to add base elements. There are two RS per team.
 
 \item[Delivery Station (DS)] Accepts completed products. The stations
-  contains three conveyor belts. The robot has to choose the proper
-  one for a specific orer. The delivered products are verified by
-  either the referees or an automated external vision system. There is
-  one DS per team.
-
-\begin{figure}[h]
-\centering
-\subfigure[Delivery Station Portrait]{%
-  \label{fig:RS_portrait}%
-  \begin{minipage}[b]{0.3\linewidth}
-    \centering
-    \includegraphics[height=7cm]{MPS2015/DS_portrait.jpg}
-  \end{minipage}
-}
-\caption{Delivery Station}
-\label{fig:DS-portrait}
-\end{figure}
-
+  contains three conveyor belts (\reffig{fig:DS}). The robot has to
+  choose the proper one for a specific orer. The delivered products
+  are verified by either the referees or an automated external vision
+  system. There is one DS per team.
 \end{description}
 
 \begin{table}[bp]
@@ -548,6 +531,33 @@ All machines share a basic Layout: Trolley, conveyor belt and Signal unit are id
   \caption{Machine tags are ALVAR tags with the given IDs.}
   \label{tab:machine-tags}  
 \end{table}
+\begin{figure}
+\centering
+\subfigure[Ring Station Portrait]{%
+  \label{fig:RS_portrait}%
+  \begin{minipage}[b]{0.3\linewidth}
+    \centering
+    \includegraphics[height=6cm]{MPS2015/RS_portrait.png}
+  \end{minipage}
+} 
+\quad
+\subfigure[Ring Station Output side]{%
+  \label{fig:BS_Output}%
+  \begin{minipage}[b]{0.3\linewidth}
+    \centering
+    \includegraphics[height=6cm]{MPS2015/RS_Output.png}
+  \end{minipage}
+}
+\vspace{-1ex}
+\caption{Ring Station}
+\label{fig:RS}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[height=6cm]{MPS2015/DS_portrait.jpg}
+\caption{Delivery Station Portrait}
+\label{fig:DS}
+\end{figure}
 
 
 \subsubsection{Machine Swapping}
