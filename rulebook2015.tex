@@ -627,6 +627,49 @@ out of order (cf. \refsec{sec:broken-machine}). If an additional base
 signal will change to steady orange. The light signals are summarized
 in \reftab{tab:production-machines-feedback}.
 
+In the production phase, machines must be setup before they can be
+used. This applies to all machine types BS, DS, CS, and RS. If the
+machine is not properly setup before used, it will go to a temporary
+out-of-order state (cf.~\refsec{sec:broken-machine}).
+
+The following describes the communication and reactions of the
+machines during the production phase. For the actual messages we refer
+to the integrator's manual~\cite{RefBoxIntManual}.
+
+\begin{description}
+\item[BS] The BS setup message denotes the color of the base element
+  that should be dispensed. After receiving the message, the refbox
+  will instruct the MPS to immediately provide a base of the desired
+  color.
+\item[DS] The DS setup message denotes the slide the product should be
+  delivered to. The DS will consume any puck provided, but points can
+  only be scored if the DS was properly setup.
+\item[CS] The CS setup message initiates retrieval of a cap. The next
+  base must be one with a mounted cap from the shelf. The cap is taken
+  off the base and buffered. Afterwards the now cap-less base must be
+  removed. The next intermediate product which is fed into the machine
+  receives the buffered cap.
+\item[RS] The RS setup message must state which of the two colors to
+  prepare and retrieve. If the desired color requires additional bases
+  (cf.~\refsec{sec:production-complexities}), the machine expects to
+  receive them first. Once the required number of additional bases has
+  been received, the intermediate product can be fed into the
+  machine. It receives a ring of the desired color and moves the
+  processed product to the output.
+\end{description}
+
+\noindent
+The setup and use of a machine follows a transaction style. Once the
+machine has been setup, the full cycle can be completed (committed).
+But if a robot desires, it can cancel the production on the machine,
+unless the intermediate product has already been fed into the
+machine. Cancelling will invalidate any additional bases that have
+been taken to the machine. There may be only one transaction running
+at a time. If a second setup is performed without cancelling the
+first, or if more bases are fed than required for the current
+transaction, the machine will be temporarily broken
+(cf.~\refsec{sec:broken-machine}).
+
 \subsubsection{Recycling Machines}
 Once a Cap Station (CS) has been supplied with set up material, the
 empty base unit can be used to setup a Ring Station (RS) or be
