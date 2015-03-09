@@ -888,7 +888,6 @@ refilled when a magazine is empty and the machine indicates this
 (flashing red light). In this case the field-operator may enter the
 competition-area without asking the referee.
 
-
 \subsection{Game Start}
 \label{sec:game-start}
 %
@@ -938,14 +937,27 @@ allowed.
 
 \subsection{Production Phase}
 \label{sec:production-phase}
-With the end of the exploration phase production begins, which lasts
-\num{15} minutes. The referee box publishes all information regarding
-products and machines. This includes coarse position and contained
-colors of ring and cap stations, as well as the different product
-variants that can be produced.
+With the end of the exploration phase the production phase begins,
+which lasts \num{15} minutes. The referee box publishes information
+regarding products and machines. This includes machine zones and
+contained colors of ring and cap stations, as well as the different
+product variants that can be produced
+(cf.~\refsec{sec:production-portfolio}). The refbox posts orders
+(cf.~\refsec{sec:production-plan}) which then must be fulfilled by the
+robot teams. Using production machines requires interaction through
+communication with the refbox described in
+\refsec{sec:production-communication}.
+
+Starting with the play-offs phase of the tournament
+(cf.~\refsec{sec:tournament-phases}) the game must be won by one of
+the teams by a higher score. If after the regular game time there is a
+draw, the game will automatically and without interruption be extended
+by 5 more minutes. If after five minutes there is still no winner, the
+team scoring the first points will win. If no points were scored a
+coin toss decides.
 
 \subsubsection{Production Portfolio}
-\label{sec:prodportfolio}
+\label{sec:production-portfolio}
 \begin{figure}
   \ffigbox{%
     \centering
@@ -1002,7 +1014,7 @@ The production portfolio is composed of three elements (cf. appendix
   machine and the cap is mounted.
 \end{description}
 
-\subsubsection{Production and Color Complexities}
+\subsubsection{Production, Color Complexities, and Additional Bases}
 \label{sec:production-complexities}
 The portfolio comprises many different product variants and is
 categorized by the four available \emph{product complexity} levels
@@ -1013,16 +1025,17 @@ complecity $C_3$ requires a base with three mounted rings and a
 cap. For a product, the colors of base, rings, and cap as well as the
 order of the rings are of importance.
 
-The product complexities do not account for additional bases that are
-required for some colors. We distinguish \emph{color complexities} as
-$CC_0$, $CC_1$, and $CC_2$ depending on whether no, one, or two
-additional bases are required for a color. The referee box ensures
-that there will always be some orders for $C_1$ products where the
-ring color does not require additional bases, i.e. with color
+The product complexities do not account for \emph{additional bases}
+that are required for some colors. We distinguish \emph{color
+  complexities} as $CC_0$, $CC_1$, and $CC_2$ depending on whether no,
+one, or two additional bases are required for a color. The referee box
+ensures that there will always be some orders for $C_1$ products where
+the ring color does not require additional bases, i.e. with color
 complexity $CC_0$ -- but not necessarily all $C_1$ orders have this
 constraint.
 
 \subsubsection{Production Plan}
+\label{sec:production-plan}
 \begin{figure}[h]
   \ffigbox{%
     \centering
@@ -1094,7 +1107,13 @@ incremental fashion. Each order will consist of the product to
 produce, the amount thereof, and a delivery time slot. An order
 therefore specifies a production chain to be accomplished for
 fulfillment. \reffig{fig:production-chains} shows some example
-production chains of the four different complexities.
+production chains of the four different complexities. The complexity
+is specified by the number of required intermediate rings from $C_0$
+(no ring) to $C_3$ (three intermediate rings). As specified in
+\refsec{sec:production-complexities}, some specific steps require
+additional bases to be added to the machine after setup
+(cf.~\refsec{sec:production-communication}). This depends on the
+specific color, it is randomized per game and announced by the refbox.
 
 In each game, orders with a fixed delivery value of 80 points will be
 placed\footnote{This number is based on experience from the game
@@ -1125,8 +1144,9 @@ teams playing on the field at the same time will get the same
 production plans, but other games will have their own.
 
 The multi-staged production processes can be repeated as long as
-enough material can be provided to complete the cycle. The different
-machine types are specified in Section~\ref{sec:machines}.
+enough material can be provided to complete the cycle (also
+cf.~\refsec{sec:machine-refill}). The different machine types are
+specified in Section~\ref{sec:machines}.
 
 \subsection{Special Events during a Match}
 \label{sec:during-match}
