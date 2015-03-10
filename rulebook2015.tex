@@ -359,6 +359,19 @@ tournament starts. Thus, teams should focus on a generic approach for
 production, allowing for dynamic adaption of machine positions and
 alignments.
 
+\subsubsection{Moving on the Field}
+\label{sec:field-movement}
+The robots are free to move on the field. However, robots may not
+leave the main area (surrounded by the partial walls). That is, when
+connecting all wall segments with the shortest possible edges, robots
+may not move such that the base is fully outside this area. For
+example, in \reffig{fig:competition-area}, the red robot is outside
+the intended area and thus in an illegal position.
+
+Robots that leave the competition area illegally are considered as
+\emph{misbehaving robot} and punished accordingly
+(cf.~\refsec{sec:robot-maintenance}).
+
 \begin{figure}[H]
   \label{fig:competition-area}
   \includegraphics[angle=-90 , trim = 50 50 10 0, scale=0.85]{field.pdf}
