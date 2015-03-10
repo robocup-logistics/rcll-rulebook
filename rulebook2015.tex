@@ -231,7 +231,7 @@ machines. Machines are MPS stations which complete a particular
 refinement step like mounting a colored ring or top-most cap. If
 procurable this will lead to a new sub-assembly or final product
 (cap). Complete work orders require all related sub-assemblies of
-product variants (cf.  \refsec{sec:production-portfolio}).
+product variants (cf. \refsec{sec:production-complexities}).
 
 This work flow is controlled by a referee box broadcasting information
 via wifi (see \refsec{sec:referee-box}). The work flow itself is
@@ -396,9 +396,9 @@ there are four kinds of machines:
 
 \begin{description}
 \item[Base Station (BS)] acts as dispenser of base elements
-  (\reffig{fig:BS}, cf.~\refsec{sec:production-portfolio}). The
-  application modules are three magazines of base elements. There is a
-  single BS per team.
+  (\reffig{fig:BS}, cf.~\refsec{sec:products}). The application
+  modules are three magazines of base elements. There is a single BS
+  per team.
 
 \item[Cap Station (CS)] mounts a cap as the final step in production
   on an intermediate product (\reffig{fig:CS}). The application module
@@ -644,15 +644,17 @@ to the integrator's manual~\cite{RefBoxIntManual}.
 \item[CS] The CS setup message initiates retrieval of a cap. The next
   base must be one with a mounted cap from the shelf. The cap is taken
   off the base and buffered. Afterwards the now cap-less base must be
-  removed. The next intermediate product which is fed into the machine
-  receives the buffered cap.
+  removed. The next workpiece which is fed into the machine receives
+  the buffered cap.
 \item[RS] The RS setup message must state which of the two colors to
-  prepare and retrieve. If the desired color requires additional bases
-  (cf.~\refsec{sec:production-complexities}), the machine expects to
-  receive them first. Once the required number of additional bases has
-  been received, the intermediate product can be fed into the
-  machine. It receives a ring of the desired color and moves the
-  processed product to the output.
+  prepare and retrieve. Each RS is responsible for two specific
+  colors. Some colors require loading the RS with additional bases
+  (cf.~\refsec{sec:production-plan}). If the desired color requires
+  additional bases (cf.~\refsec{sec:production-complexities}), the
+  machine expects to receive them first. Once the required number of
+  additional bases has been received, the intermediate product can be
+  fed into the machine. It receives a ring of the desired color and
+  moves the processed product to the output.
 \end{description}
 
 \noindent
@@ -682,10 +684,57 @@ command which of the three lanes is to be used to store the
 product(which truck to load it on). More than one lane can be correct,
 depending on the relevant order.
 
-\subsection{Products}
+\subsection{Products and Workpieces}
 \label{sec:products}
-\todo[inline]{Fill in details about products.}
-The rings come in the colors blue, green, yellow, and orange.
+Workpieces denote raw material and intermediate stages during
+production. These are also named products with emphasis on the
+finished product that can be delivered. For product complexities refer
+to \refsec{sec:production-complexities}, for the compilation of the
+production plan to \refsec{sec:production-plan}.
+
+\begin{figure}[h]
+  \centering
+  \subfigure[Work piece base elements and caps.]{
+    \label{fig:workpieces-base-elements}%
+    \centering
+    \includegraphics[height=5cm]{figures/workpieces}
+  }
+  \quad
+  % 
+  \subfigure[Renderings of intermediate rings (rings are colored in
+  competition).]{
+    \label{fig:workpieces-rings}%
+    \centering
+    \hspace{6mm}
+    \includegraphics[height=3cm]{figures/rings}
+    \hspace{6mm}
+  }
+  \quad
+  \subfigure[Product example]{\label{fig:product-example}%
+    \includegraphics{prod2015/c1_red_blue_black}
+  }
+  \caption{Work piece elements and product example.}
+  \label{fig:workpieces}
+\end{figure}
+
+\noindent
+The workpieces consist of the following elements.
+\begin{description}
+\item[Base] The base is the lowermost element in each production. Only
+  a base shall be grasped by a robot. Bases are dispensed by the base
+  station (BS) and bases with mounted caps are available on the cap
+  stations (CS). Bases are available in the colors red, black, and
+  silver.
+\item[Ring] Rings are mounted in intermediate production steps at ring
+  stations (RS). A production features, zero, one, two, or three
+  intermediate rings of distinct color
+  (cf.~\refsec{sec:production-complexities}). The order of the rings
+  matters. The existing ring colors are blue, green, yellow, and
+  orange.
+\item[Cap] Caps are the topmost element in each production. They are
+  obtained by taking pre-assembled base-cap combinations available on
+  the shelf to the cap station (CS). Caps can be black or gray.
+\end{description}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%
@@ -921,11 +970,10 @@ With the end of the exploration phase the production phase begins,
 which lasts \num{15} minutes. The referee box publishes information
 regarding products and machines. This includes machine zones and
 contained colors of ring and cap stations, as well as the different
-product variants that can be produced
-(cf.~\refsec{sec:production-portfolio}). The refbox posts orders
-(cf.~\refsec{sec:production-plan}) which then must be fulfilled by the
-robot teams. Using production machines requires interaction through
-communication with the refbox described in
+product variants that can be produced (cf.~\refsec{sec:products}). The
+refbox posts orders (cf.~\refsec{sec:production-plan}) which then must
+be fulfilled by the robot teams. Using production machines requires
+interaction through communication with the refbox described in
 \refsec{sec:production-machines-production}.
 
 Starting with the play-offs phase of the tournament
@@ -936,8 +984,26 @@ by 5 more minutes. If after five minutes there is still no winner, the
 team scoring the first points will win. If no points were scored a
 coin toss decides.
 
-\subsubsection{Production Portfolio}
-\label{sec:production-portfolio}
+\subsubsection{Production, Color Complexities, and Additional Bases}
+\label{sec:production-complexities}
+The portfolio comprises many different product variants and is
+categorized by the four available \emph{product complexity} levels
+shown in \reffig{fig:production-complexities}. The lowest complexity
+$C_0$ requires to load the CS with the proper cap color and then
+processing a properly colored base at that machine. The highest
+complexity $C_3$ requires a base with three mounted rings and a
+cap. For a product, the colors of base, rings, and cap as well as the
+order of the rings are of importance.
+
+The product complexities do not account for \emph{additional bases}
+that are required for some colors. We distinguish \emph{color
+  complexities} as $CC_0$, $CC_1$, and $CC_2$ depending on whether
+zero, one, or two additional bases are required for a color. The
+referee box ensures that there will always be some orders for $C_1$
+products where the ring color does not require additional bases,
+i.e. with color complexity $CC_0$ -- but not necessarily all $C_1$
+orders have this constraint.
+
 \begin{figure}
   \ffigbox{%
     \centering
@@ -971,52 +1037,8 @@ coin toss decides.
 }
 \vspace{-1mm}
 \end{figure}
-The production portfolio is composed of three elements
-(cf.~\refsec{sec:products} for specifications) specified below. The
-machine handling is described in~\refsec{sec:machines}.
 
-\begin{description}
-\item[Base] The base is the lowermost element in each production. Only
-  a base shall be grasped by a robot. Bases are dispensed by the base
-  station (BS) and bases with mounted caps are available on the cap
-  stations (CS). Bases are available in the colors red, black, and
-  silver.
-\item[Ring] Rings are mounted in intermediate production steps at ring
-  stations (RS). A production features, zero, one, two, or three
-  intermediate rings of distinct color
-  (cf.~\refsec{sec:production-complexities}). The order of the rings
-  matters. Each RS is responsible for two specific colors. Some colors
-  require loading the RS with additional bases
-  (cf.~\refsec{sec:production-plan}).
-\item[Cap] Caps are the topmost element in each production. They are
-  obtained by taking pre-assembled base-cap combinations available on
-  the shelf to the cap station (CS). The CS unmounts the cap and loads
-  it to its internal buffer. Then, the actual production element
-  (consisting of a base and up to three rings) must be placed in the
-  machine and the cap is mounted.
-\end{description}
-
-\subsubsection{Production, Color Complexities, and Additional Bases}
-\label{sec:production-complexities}
-The portfolio comprises many different product variants and is
-categorized by the four available \emph{product complexity} levels
-shown in \reffig{fig:production-complexities}. The lowest complexity
-$C_0$ requires to load the CS with the proper cap color and then
-processing a properly colored base at that machine. The highest
-complexity $C_3$ requires a base with three mounted rings and a
-cap. For a product, the colors of base, rings, and cap as well as the
-order of the rings are of importance.
-
-The product complexities do not account for \emph{additional bases}
-that are required for some colors. We distinguish \emph{color
-  complexities} as $CC_0$, $CC_1$, and $CC_2$ depending on whether
-zero, one, or two additional bases are required for a color. The
-referee box ensures that there will always be some orders for $C_1$
-products where the ring color does not require additional bases,
-i.e. with color complexity $CC_0$ -- but not necessarily all $C_1$
-orders have this constraint.
-
-\begin{figure}[h]
+\begin{figure}
   \ffigbox{%
     \centering
     \begin{minipage}{0.75\linewidth}
