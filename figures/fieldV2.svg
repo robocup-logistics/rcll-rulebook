@@ -189,6 +189,6 @@
     
     <text x="240" y="22">still in field</text>
     <circle id="robi" cx="300" cy="50" r="23" fill="green" stroke-width="1" stroke="black" />
-    <circle id="robi" cx="400" cy="35" r="23" fill="red" stroke-width="1" stroke="black" />
+    <circle id="robi" cx="400" cy="25" r="23" fill="red" stroke-width="1" stroke="black" />
     <text x="430" y="35">robot out of field</text>
 </svg>
