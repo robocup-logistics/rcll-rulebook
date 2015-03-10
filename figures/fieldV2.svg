@@ -69,7 +69,7 @@
         style="fill:none;stroke:#0000ff;stroke-width:5"
         id="edgeBottomLeft" />
     <text x="940" y="710" transform="rotate(-90 940,710)" fill="blue">1m</text>
-        <polyline
+    <polyline
         points="750 650 950 650 950,750 1150,750"
         style="fill:none;stroke:#0000ff;stroke-width:5"
         id="edgeBottomRight" />
@@ -83,8 +83,6 @@
     <text x="655" y="625" style="fill:red;">y</text>
     <text x="615" y="665">(0,0)</text>
     
-    <text x="410" y="680" font-size = "18" style="fill:magenta" font-weight = "bold">MAGENTA</text>
-    <text x="825" y="680" font-size = "18" style="fill:cyan" font-weight = "bold">CYAN</text>
     <!--Zones Pattern-->
     <rect id="field"
           x="50"
@@ -138,50 +136,59 @@
     <text x="140" y="325">Z23</text>
     <text x="140" y="175">Z24</text>
     
-    <rect x="95" y="75" transform = "rotate(-45 150 122)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
-    <rect x="165" y="285" transform = "rotate(30 235 285)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+    <rect x="95" y="75" transform = "rotate(-45 150 122)" width="70" height="35" stroke-width="1" stroke="black"  fill="cyan"/>
+    <rect x="165" y="285" transform = "rotate(30 235 285)" width="70" height="35" stroke-width="1" stroke="black"  fill="magenta"/>
     <!--<rect x="115" y="405" transform = "rotate(0 90 160)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
     --> 
-    <rect x="115" y="555" transform = "rotate(0 1175 150)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+    <rect x="115" y="555" transform = "rotate(0 1175 150)" width="70" height="35" stroke-width="1" stroke="black"  fill="magenta"/>
     
     <!--<rect x="315" y="105" transform = "rotate(0 0 0)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
         <rect x="315" y="255" transform = "rotate(0 0 0)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
     --> 
-    <rect x="255" y="405" transform = "rotate(90 290 422)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+    <rect x="255" y="405" transform = "rotate(90 290 422)" width="70" height="35" stroke-width="1" stroke="black"  fill="cyan"/>
     <!--<rect x="315" y="555" transform = "rotate(0 0 0)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
     -->    
-    <rect x="515" y="105" transform = "rotate(90 550 122)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+    <rect x="515" y="105" transform = "rotate(90 550 122)" width="70" height="35" stroke-width="1" stroke="black"  fill="magenta"/>
     <!--<rect x="515" y="255" transform = "rotate(0 0 150)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
     --> 
-    <rect x="545" y="365" transform = "rotate(-45 615 400)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+    <rect x="545" y="365" transform = "rotate(-45 615 400)" width="70" height="35" stroke-width="1" stroke="black"  fill="magenta"/>
     <!--<rect x="515" y="555" transform = "rotate(0 0 150)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
     -->    
-    <rect x="715" y="105" transform = "rotate(90 750 122)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+    <rect x="715" y="105" transform = "rotate(90 750 122)" width="70" height="35" stroke-width="1" stroke="black"  fill="cyan"/>
     <!--<rect x="715" y="255" transform = "rotate(0 1175 150)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
     --> 
-    <rect x="685" y="365" transform = "rotate(45 685 400)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+    <rect x="685" y="365" transform = "rotate(45 685 400)" width="70" height="35" stroke-width="1" stroke="black"  fill="cyan"/>
     <!--<rect x="715" y="555" transform = "rotate(0 1175 150)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
     -->   
     <!--<rect x="915" y="105" transform = "rotate(0 90 160)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
         <rect x="915" y="255" transform = "rotate(0 1175 150)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
     --> 
-    <rect x="975" y="405" transform = "rotate(90 1010 422)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+    <rect x="975" y="405" transform = "rotate(90 1010 422)" width="70" height="35" stroke-width="1" stroke="black"  fill="magenta"/>
     <!--   <rect x="915" y="555" transform = "rotate(0 1175 150)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
     -->   
-    <rect x="1115" y="75" transform = "rotate(45 1130 122)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
-    <rect x="1065" y="285" transform = "rotate(-30 1065 285)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+    <rect x="1115" y="75" transform = "rotate(45 1130 122)" width="70" height="35" stroke-width="1" stroke="black"  fill="magenta"/>
+    <rect x="1065" y="285" transform = "rotate(-30 1065 285)" width="70" height="35" stroke-width="1" stroke="black"  fill="cyan"/>
+    
     <!--<rect x="1115" y="405" transform = "rotate(0 90 160)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
     --> 
-    <rect x="1115" y="555" transform = "rotate(0 1175 150)" width="70" height="35" stroke-width="1" stroke="black"  fill="pink"/>
+    <rect x="1115" y="555" transform = "rotate(0 1175 150)" width="70" height="35" stroke-width="1" stroke="black"  fill="cyan"/>
     
     <!--Robotinos-->
-    <!--  <rect id="insertArea1" x="950" y="650" width="300" height="100" fill="lightgreen"/> 
-      <rect id="insertArea2" x="50" y="650" width="300" height="100" fill="lightgreen"/>
-    -->  
-    <circle id="robi" cx="100" cy="700" r="23" fill="pink" stroke-width="1" stroke="black" />
-    <circle id="robi" cx="200" cy="700" r="23" fill="pink" stroke-width="1" stroke="black" />
-    <circle id="robi" cx="300" cy="700" r="23" fill="pink" stroke-width="1" stroke="black" />
-    <circle id="robi" cx="1000" cy="700" r="23" fill="pink" stroke-width="1" stroke="black" />
-    <circle id="robi" cx="1100" cy="700" r="23" fill="pink" stroke-width="1" stroke="black" />
-    <circle id="robi" cx="1200" cy="700" r="23" fill="pink" stroke-width="1" stroke="black" />        
+    <rect id="insertArea2" x="52" y="652" width="296" height="96" fill="lightgray"/>
+    <text x="90" y="740" font-size = "18" font-weight = "bold">Insertion Area MAGENTA</text>
+    
+    <rect id="insertArea1" x="952" y="652" width="296" height="96" fill="lightgray"/>
+    <text x="1020" y="740" font-size = "18" font-weight = "bold">Insertion Area CYAN</text>
+    
+    <circle id="robi" cx="100" cy="700" r="23" fill="magenta" stroke-width="1" stroke="black" />
+    <circle id="robi" cx="200" cy="700" r="23" fill="magenta" stroke-width="1" stroke="black" />
+    <circle id="robi" cx="300" cy="700" r="23" fill="magenta" stroke-width="1" stroke="black" />
+    <circle id="robi" cx="1000" cy="700" r="23" fill="cyan" stroke-width="1" stroke="black" />
+    <circle id="robi" cx="1100" cy="700" r="23" fill="cyan" stroke-width="1" stroke="black" />
+    <circle id="robi" cx="1200" cy="700" r="23" fill="cyan" stroke-width="1" stroke="black" />        
+    
+    <text x="240" y="22">still in field</text>
+    <circle id="robi" cx="300" cy="50" r="23" fill="green" stroke-width="1" stroke="black" />
+    <circle id="robi" cx="400" cy="35" r="23" fill="red" stroke-width="1" stroke="black" />
+    <text x="430" y="35">robot out of field</text>
 </svg>
