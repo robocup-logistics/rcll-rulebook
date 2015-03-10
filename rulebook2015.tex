@@ -1196,7 +1196,10 @@ match. The machines affected will remain out of order for 30 to 60
 seconds. Every machine can only be forced out of order once per
 match. If a machine turns offline during processing a product it will
 afterwards resume the process (extending the overall processing time
-by the down time). The downtime is indicated by a steady red light.
+by the down time). The downtime is indicated by a steady red
+light. Base elements fed into the machine while out-of-order are
+accepted when the machine gets back online, with the same constraints
+mentioned in \refsec{sec:production-machines-production}.
 
 \subsubsection{Broken Machine Downtime}
 \label{sec:broken-machine}
