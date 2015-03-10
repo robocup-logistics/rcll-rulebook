@@ -1475,118 +1475,71 @@ tasks. However, participation has no influence on the normal game
 results, but the winner will be awarded by a certificate.
 
 
-\subsubsection{Navigation and dynamic collision avoidance}
-A robot fleet consisting of three robots has to show that it can reach
-a certain goal location avoiding collisions with static obstacles and
-other moving robots. Two teams compete against each other at the same
-time. Team 1 places their robots inside the competition area with $x >
-4.79$m (i.e., near the delivery gate at the bottom), team 2 at $x <
--4.79$m (i.e., near the delivery gate at the top). All robots from
-each team must then reach the opposite starting area faster than the
-opposing fleet. A robot reaches this area if at least half of the
-robot's volume crossed the border. For each robot not participating in
-the robot fleet consisting of three robots, the team has to travel
-another distance from one delivery gate to the other. Robot collisions
-will be handled the same as for the main challenge of the Logistics
-League, and are therefore punished accordingly. The team, which
-reaches the respective goal location the fastest, wins. If no team
-reaches the goal within three minutes, the robot fleet with the
-overall shortest distance to the goal wins. Depending on the number of
-participating teams and certain time constraints, the tournament mode
-will be announced before the competition starts.
+\subsubsection{Markerless Machine Recognition and Production}
+Currently, machines have markers that allows for recognizing their
+respective types and relative position. The idea of this challenge is,
+to remove the markers and still be able to recognize the type of a
+machine and feed a base element onto the conveyor belt.
 
-\subsubsection{Approaching an MPS station}
-The Modular Production System (MPS) is a toolset to create simplified
-production lines for automation education. In preparation for the
-scheduled introduction of MPS stations in 2015 (cf.~\cite{wdrl2013}),
-this technical challenge requires teams to approach, feed, and unload
-an example MPS station. One robot will be required to use any gripping
-device to handle a workpiece. The challenge will be to
-\begin{enumerate}
-\item receive one workpiece from a shelf
-\item approach a ``Pick \& Place'' station and hand over the workpiece
-\item approach the backside of this station
-\item wait to receive the completed workpiece
-\item transport it to one empty shelf spot and unmount it.
-\end{enumerate}
+For this challenge, the markers will be removed or otherwise
+hidden. Any sensor feedback is allowed to recognize the machine, but
+no kind of markers or other indicators is allowed to be added to the
+machine or the environment. The general idea is to test this as an
+advancement of the league for future events. Distances between robots
+and the machine are measured as the shortest distance from MPS trolley
+to robot base on the ground. The maximum achievable score in this
+challenge is 40 points -- up to 10 for the recognition and production
+parts each, up to 10 for the explanation and methodologies, and up to
+10 for the public release of the source code.
 
-\hskip-\parindent Teams may add markers of any kind to the MPS station
-and shelf to support their approach. These markers have to be
-removable, residue-free and mounted/unmounted in a reasonable short
-amount of time before each test run.
+\vspace{-2ex}\paragraph{Recognition}
+The refbox will randomly select two zones and machine types. The
+machines are placed in the center of the respective zones. The robot
+must approach the machine one after another and use only sensors
+mounted on the robot to recognize the physical type of the
+machine. The machines can be of any type.
 
-Each team has 10 minutes to conduct a test run with field exclusivity.
-Once they choose to begin, they have 3 minutes to complete the
-challenge.  Each step will be awarded with points. If all points are
-completed in time, the fastest team wins.
+The recognition part scores up to 10 points -- 5 points for each
+machine. Of these 5 points, 2 points are awarded for proper approach
+(robot standing at the input or output side of the machine facing
+towards the machine with a distance of no more than \SI{0.5}{\metre})
+and 3 points for correct recognition. The recognition must be provided
+clearly visible on a screen or by text-to-speech output.
 
-The installation will be available throughout the whole time of the
-tournament. Festo will provide one standardized gripper per team over
-the course of a tournament. Custom constructions are welcome.
+\vspace{-2ex}\paragraph{Production}
+The refbox will randomly select a CS machine. The machine will be
+pre-filled with a cap. The robot must then retrieve a base element
+without cap from the shelf of the CS (at least one spot will be filled
+with such a base element), feed it into the cap station, and retrieve
+the finished product on the output side.
 
-\begin{figure}
-\centering
-\subfigure[Demo Scene (CIROS) of MPS approach]{%
-  \label{fig:mps-scenario}%
-  \begin{minipage}[b]{0.6\linewidth}
-    \centering
-    \includegraphics[height=6cm]{MPSDemo.jpg}
-  \end{minipage}
-} 
-\quad
-\subfigure[Selection of MPS workpieces]{%
-  \label{fig:workpiece}%
-  \begin{minipage}[b]{0.3\linewidth}
-    \centering
-    \includegraphics[height=2.5cm]{selectionofworkpieces.jpg}
-    \vspace*{2cm}
-  \end{minipage}
-}
-\caption{Approaching an MPS station: The challenge scenario and used workpieces}
-\label{fig:mps-challenge}
-\end{figure}
+The production part scores up to 10 points. 3 points ar awarded for a
+proper approach (robot standing at the input or output side of the
+machine facing towards the machine with a distance of no more than
+\SI{0.25}{\metre}, note that the distance is shorter than for the
+recognition part). Another 4 points are awarded for properly feeding
+the base into the machine and the final 3 points are awarded for
+successfully retrieving the finished product (moving with the product
+to a minimum distance of \SI{0.5}{\metre} of the machine).
 
-\paragraph{Workpiece.~}
-The workpieces are round objects with a diameter of
-\SI{40}{\milli\metre} and are of red, black, or silver color. They are
-made of plastic, cf. \reffig{fig:workpiece}. The team can choose any
-of the workpieces.
+\vspace{-2ex}\paragraph{Explanation and Methodology}
+%
+The teams need to explain their used methods and techniques. The jury
+of team leaders each gives scores from 0 (insufficient or no
+explanation) to 10 (excellent explanation and useful methods). The
+rounded up average of these points is added. Teams which have released
+the source code to their approach on the web score up to 10
+points. The jury again vote points depending on the documentation and
+wealth of the implementation from 0 (no source code provided) to 10
+(source code provided as readily usable package including all
+necessary dependencies). If a package is only usable within a
+non-disclosed software framework, the release cannot score more than
+five points.
 
-\paragraph{MPS station}
-The MPS station is mounted on a rectangular profile plate of size
-\SI{350}{\milli\metre} $\times$ \SI{700}{\milli\metre} with a height
-of \SI{30}{\milli\metre}. The transfer points (MPS and shelf) are
-\SI{148.165}{\milli\metre} above ground, the workpiece has to be
-lifted completely above this height. The transfer point is the center
-of the conveyor belt. Relative to long side of the base plate it is
-located \SI{375}{\milli\metre} from one side and
-\SI{325}{\milli\metre} from the other. The belt has a width of
-\SI{45}{\milli\metre} and is at the transfer point height. With this
-information teams can create a mockup of this machine for training and
-development of custom manipulation devices.
 
-\begin{figure}[h]
-\centering
-\subfigure[Overview Pick \& Place]{%
-  \label{fig:mps-overview}%
-  \begin{minipage}[b]{0.45\linewidth}
-    \centering
-    \includegraphics[height=7cm]{mps_overview.png}
-  \end{minipage}
-} 
-\quad
-\subfigure[Interface point height]{%
-  \label{fig:mps-docking}%
-  \begin{minipage}[b]{0.45\linewidth}
-    \centering
-    \includegraphics[height=7cm]{mps_docking.png}
-  \end{minipage}
-}
-\caption{The MPS station in detail}
-\label{fig:mps-station}
-\end{figure}
+\subsubsection{Playing in Simulation}
 
-\subsubsection{Free challenge~}
+\subsubsection{Open Challenge~}
 Each team will be given 5 minutes to showcase their robot team, e.g.
 show some new robotics developments. This may involve any task as long
 as it is performed with at most three Robotino robots within the
