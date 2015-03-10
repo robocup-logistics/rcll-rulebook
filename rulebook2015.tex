@@ -394,6 +394,33 @@ aluminum profile
 thus starting at \SI{0,35}{\metre}. Based on these shared properties,
 there are four kinds of machines:
 
+\begin{description}
+\item[Base Station (BS)] acts as dispenser of base elements
+  (\reffig{fig:BS}, cf.~\refsec{sec:production-portfolio}). The
+  application modules are three magazines of base elements. There is a
+  single BS per team.
+
+\item[Cap Station (CS)] mounts a cap as the final step in production
+  on an intermediate product (\reffig{fig:CS}). The application module
+  is a vacuum pick \& place module. A base element with a cap must be
+  taken to the machine and is then unmounted and buffered in the
+  machine. The cap is then mounted on the next intermediate product
+  taken to the machine. There are two CS per team.
+
+\item[Ring Station (RS)] mounts one colored ring out of two available
+  colors on an intermediate product (\reffig{fig:RS}). Each RS has two
+  vacuum pick \& place units as application modules with separate
+  unique colors which are determined new for each game. There is an
+  additionally pre-fill slide which is used for some colors (specified
+  anew for each game) to add base elements. There are two RS per team.
+
+\item[Delivery Station (DS)] Accepts completed products. The stations
+  contains three conveyor belts (\reffig{fig:DS}). The robot has to
+  choose the proper one for a specific orer. The delivered products
+  are verified by either the referees or an automated external vision
+  system. There is one DS per team.
+\end{description}
+
 \begin{figure}
   \centering
   \includegraphics[height=7cm]{MPS2015/MPS_Layout.jpg}
@@ -444,33 +471,6 @@ there are four kinds of machines:
 \label{fig:CS}
 \end{figure}
 
-\begin{description}
-\item[Base Station (BS)] acts as dispenser of base elements
-  (\reffig{fig:BS}, cf.~\refsec{sec:production-portfolio}). The
-  application modules are three magazines of base elements. There is a
-  single BS per team.
-
-\item[Cap Station (CS)] mounts a cap as the final step in production
-  on an intermediate product (\reffig{fig:CS}). The application module
-  is a vacuum pick \& place module. A base element with a cap must be
-  taken to the machine and is then unmounted and buffered in the
-  machine. The cap is then mounted on the next intermediate product
-  taken to the machine. There are two CS per team.
-
-\item[Ring Station (RS)] mounts one colored ring out of two available
-  colors on an intermediate product (\reffig{fig:RS}). Each RS has two
-  vacuum pick \& place units as application modules with separate
-  unique colors which are determined new for each game. There is an
-  additionally pre-fill slide which is used for some colors (specified
-  anew for each game) to add base elements. There are two RS per team.
-
-\item[Delivery Station (DS)] Accepts completed products. The stations
-  contains three conveyor belts (\reffig{fig:DS}). The robot has to
-  choose the proper one for a specific orer. The delivered products
-  are verified by either the referees or an automated external vision
-  system. There is one DS per team.
-\end{description}
-
 \begin{table}[bp]
   \centering
   \begin{tabular}{|l|c|c|c|c|l|}
@@ -497,7 +497,7 @@ there are four kinds of machines:
   \caption{Machine tags are ALVAR tags with the given IDs.}
   \label{tab:machine-tags}  
 \end{table}
-\begin{figure}
+\begin{figure}[h]
 \centering
 \subfigure[Ring Station Portrait]{%
   \label{fig:RS_portrait}%
