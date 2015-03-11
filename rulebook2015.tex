@@ -1570,11 +1570,46 @@ five points.
 
 \subsubsection{Playing in Simulation}
 
-From this year on a simulation of the RCLL will be made available, based on previous work \cite{llsf-sim- rc2014-2014}\footnote{\url{http://www.carologistics.org/publications/2014/llsf-sim-rc2014/} and \url{http://www.fawkesrobotics.org/projects/llsf-sim/}}. The simulation software including technical documentation will be publicly available on GitHub robocup-logistics\footnote{\url{https://github.com/robocup-logistics}}.
+From this year on a simulation of the RCLL will be made available,
+based on previous work \cite{llsf-sim-rc2014-2014}. The simulation
+software\footnote{\url{https://www.fawkesrobotics.org/projects/llsf-sim/}}
+including technical documentation will be publicly available on GitHub
+(\url{https://github.com/robocup-logistics}).
 
-The simulation uses Gazebo and the exact same referee box to simulate the environment reactions similar to the real game. We envision this simulation to be a basis for a simulation RCLL sub-league to attract a wider range of participants, but also to ease entering the robot competition.
+The simulation uses Gazebo and the exact same referee box to simulate
+the environment reactions similar to the real game. We envision this
+simulation to be a basis for a simulation RCLL sub-league to attract a
+wider range of participants, but also to ease entering the robot
+competition.
 
-This year teams will compete within the simulation as a Technical Challenge in a slightly shortened version of the real game. The referee box will immediately start with the production phase and only posts three orders. The maximum game time can be expected to be less than 10 minutes. Depending on the number of participants within this challenge, the OC decides on and can make changes to the playing mode. The same rules of the real game apply to this simulation challenge, if applicable.
+This year teams will compete within the simulation as a Technical
+Challenge in a slightly shortened version of the real game. The
+referee box will immediately start with the production phase and posts
+three orders immediately at the beginning. The maximum game time will
+be less than 10 minutes. Depending on the number of participants
+within this challenge, the OC decides on the playing mode. The same
+rules of the real game apply to this simulation challenge, if
+applicable. Notable differences are, for exampe, that there is no
+robot maintenance. Games in the simulation will run unattended and no
+human interaction is allowed.
+
+The simulation will run on three computers. One machine will be
+provided which runs the simulation itself at real-time factor as close
+to 1.0 as possible with visualization enabled. Each team needs to
+provide one or more computers to run the software for up to three
+simulated robots. The teams connect remotely to the simulation using
+the Gazebo middleware.
+
+\todo[inline]{This is incomplete at best. I'd say no thought through
+  and with too many open issues. For example:
+
+  What robot model will be used? What sensor data and abstraction? How
+  hard would it be to use team-custom models? Use a single one? I'd
+  say we provide higher abstraction for the vision, i.e. ground truth
+  light signal detection, but go otherwise for lower level
+  abstraction, that is, for example, no position information but
+  rather sensor data like laser beams to run a custom
+  self-localization.}
 
 
 \subsubsection{Open Challenge~}
