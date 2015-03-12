@@ -23,17 +23,34 @@ MARKER_TWO = 2/1, 5/1, 2/2, 5/2, 2/3, 4/3
 
 all: $(addprefix marker_,$(addsuffix .pdf,$(MARKERS)))
 
+numbered_markers: $(addprefix numbered_marker_,$(addsuffix .pdf,$(MARKERS)))
+	pdftk $(foreach M,$(MARKERS),numbered_marker_$M.pdf ) cat output numbered_markers.pdf
+
 figures: $(addprefix figure_,$(addsuffix .pdf,$(MARKERS)))
 
+markers: all
+	pdftk $(foreach M,$(MARKERS),marker_$M.pdf ) cat output markers.pdf
+
 marker_%.pdf:
-	sed -e 's|@MARKER@|{$(MARKER_ONE), $(MARKER_$*)}|g' marker.tex > tmp_$*.tex
+	sed -e 's|@MARKER@|{$(MARKER_ONE), $(MARKER_$*)}|g' -e 's|@ID@||g' marker.tex > tmp_$*.tex
 	pdflatex tmp_$*.tex
 	mv tmp_$*.pdf $@
 	rm tmp_$*.*
 
-	sed -e 's|@MARKER@|{$(MARKER_TWO), $(MARKER_$*)}|g' marker.tex > tmp_$$(expr $* + 1).tex
+	sed -e 's|@MARKER@|{$(MARKER_TWO), $(MARKER_$*)}|g' -e 's|@ID@||g' marker.tex > tmp_$$(expr $* + 1).tex
 	pdflatex tmp_$$(expr $* + 1).tex
 	mv tmp_$$(expr $* + 1).pdf marker_$$(expr $* + 1).pdf
+	rm tmp_$$(expr $* + 1).*
+
+numbered_marker_%.pdf:
+	sed -e 's|@MARKER@|{$(MARKER_ONE), $(MARKER_$*)}|g' -e 's|@ID@|$*|g' marker.tex > tmp_$*.tex
+	pdflatex tmp_$*.tex
+	mv tmp_$*.pdf $@
+	rm tmp_$*.*
+
+	sed -e 's|@MARKER@|{$(MARKER_TWO), $(MARKER_$*)}|g' -e 's|@ID@|$(shell expr $* + 1)|g' marker.tex > tmp_$$(expr $* + 1).tex
+	pdflatex tmp_$$(expr $* + 1).tex
+	mv tmp_$$(expr $* + 1).pdf numbered_marker_$$(expr $* + 1).pdf
 	rm tmp_$$(expr $* + 1).*
 
 figure_%.pdf:
