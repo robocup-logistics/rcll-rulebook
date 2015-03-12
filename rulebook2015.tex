@@ -406,21 +406,20 @@ has individual application modules that provide different
 functionality.
 
 All machines share the same basic layout: a trolley, conveyor belt,
-and signal unit. The markers are mounted at the same position on both
-wide sides of the trolley. It is movable by four wheels with
+and signal unit. A machine is movable by four wheels with
 \SI{0.1}{\metre} clearance. Both narrow sides of the trolley are
 closed by plexiglas and have a handle. All physical interfaces
 (conveyor belt input and output, shelves and set up slides for ring
 stations are accessible at \SI{89.8}{\centi\metre} height. Working
 space between guiding lanes is \SI{4.5}{\centi\metre}. Setup lanes and
 shelves feature approximately the same space for handling and
-adjusting. If observed from the output side of machines (where the
-signal unit is placed) the conveyor space opens up at half of the
-aluminum profile
-% No clue what that means
-%(visible by a break in the black plastic below),
-thus starting at \SI{0,35}{\metre}. Based on these shared properties,
-there are four kinds of machines:
+adjusting.
+% Still unclear, thus commenting out.
+% If observed from the output side of machines (where the signal unit
+% is placed) the conveyor space opens up at half of the aluminum
+% profile thus starting at \SI{0,35}{\metre}.
+
+Based on these shared properties, there are four kinds of machines:
 
 \begin{description}
 \item[Base Station (BS)] acts as dispenser of base elements
@@ -523,7 +522,19 @@ there are four kinds of machines:
     &DS&49&\parbox[c]{1.5cm}{\includegraphics[width=1.2cm]{markers/figure_49}}&50&\parbox[c]{1.5cm}{\includegraphics[width=1.2cm]{markers/figure_50}}\\[2.5ex]\hline
   \end{tabular}
   \caption{Machine tags are ALVAR tags with the given IDs.}
-  \label{tab:machine-tags}  
+  \label{tab:markers}  
+\end{table}
+\begin{table}[bp]
+\centering
+	\mytable{  \begin{tabularx}{\linewidth}{l|l|X}
+    Type & Distribution & (Final) processing time[s]\\\hline
+    Base Station (BS) & 1 per team & minimum physical time\\
+    Cap Station (CS) & 2 per team & $t_2 = 15 \mbox{ to } 25~\mathrm{sec}$\\
+    Ring Station (RS) & 2 per team &$t_3 = 40 \mbox{ to } 60~\mathrm{sec}$\\
+    Delivery Station (DS) & 1 per team &$t_5 =20\mbox{ to } 40~\mathrm{sec}$
+  \end{tabularx}}
+  \caption{MPS - Type, Distribution and processing times}
+  \label{tab:production-machines-function}  
 \end{table}
 \begin{figure}[h]
 \centering
@@ -557,6 +568,18 @@ there are four kinds of machines:
 Machines of type CS and RS are called production machines as they
 perform refinement steps on a product during the production phase.
 
+\subsubsection{Markers}
+\label{sec:markers}
+Each machine will feature two \emph{markers} based on ALVAR AR tags,
+one will be placed on the input, another one on the output side. The
+marker will be horizontally centered below the conveyor belt. The
+vertical distance will be about \SI{35}{\centi\metre}. The markers
+will be mounted at the same position on all machines in a best effort
+fashion. But teams should expect to calibrate individually per
+marker. All markers used are depicted in \reftab{tab:markers}. They
+are available for printing on the RoboCup Logistics website.
+
+
 \subsubsection{Machine Swapping}
 \label{sec:machine-swapping}
 Each team has a primary half
@@ -569,19 +592,6 @@ assigned to the one on the non-primary half -- that is two machines in
 total per team. The CS and RS will be swapped with the symmetrically
 positioned machine of the same type of the other team (machine types
 remain unchanged).
-
-\begin{table}[bp]
-\centering
-	\mytable{  \begin{tabularx}{\linewidth}{l|l|X}
-    Type & Distribution & (Final) processing time[s]\\\hline
-    Base Station (BS) & 1 per team & minimum physical time\\
-    Cap Station (CS) & 2 per team & $t_2 = 15 \mbox{ to } 25~\mathrm{sec}$\\
-    Ring Station (RS) & 2 per team &$t_3 = 40 \mbox{ to } 60~\mathrm{sec}$\\
-    Delivery Station (DS) & 1 per team &$t_5 =20\mbox{ to } 40~\mathrm{sec}$
-  \end{tabularx}}
-  \caption{MPS - Type, Distribution and processing times}
-  \label{tab:production-machines-function}  
-\end{table}
 
 \subsubsection{MPS -- During Exploration Phase}
 \label{sec:production-machines-exp}
