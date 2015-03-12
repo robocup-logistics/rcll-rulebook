@@ -237,16 +237,16 @@ This work flow is controlled by a referee box broadcasting information
 via wifi (see \refsec{sec:referee-box}). The work flow itself is
 divided into three different phases: a short setup phase, an
 exploration phase (see \refsec{sec:exploration-phase}) during which
-robots receive scores for correctly discovering and publishing the yet
-unknown types of the different machines on the field. After this phase
-the referee box will announce all machine types and designations. In
-the following production phase (see~\refsec{sec:production-phase})
-orders are announced by the referee box, which the robots must fulfill
-automatically.
+robots receive scores for correctly discovering and publishing the light 
+states of the yet unknown different machines 
+on the field. After this phase the referee box will announce all machine 
+types and designations. In the following production phase 
+(see~\refsec{sec:production-phase}) orders are announced by the referee 
+box, which the robots must fulfill automatically.
 
-The cap station can also be used as an intermediate storage. Finally
+Finally, 
 successfully assembled products are to be delivered to the correct
-delivery gate and get unloaded into its delivery slot. The factory
+conveyor belt of the team's delivery station. The factory
 area has to be treated in the best possible way. Any possible damage
 to the field, opposing robots or the machines will be penalized by the
 referee.
@@ -332,7 +332,7 @@ interacts) and ignored (narrow) edges.
 It is guaranteed that the active sides will be accessible and that 
 two machines always have either sufficient distance for two robots to interact 
 with both machines or that they will not face each other. There are no guarantees of narrow edges. 
-For later tournament phases there might be having two machines directly face to 
+For later tournament phases there might be two machines directly face to 
 face on the narrow edges (that the robots must take into account when 
 approaching/leaving a machine, especially if the machines are from different teams).
 
@@ -346,7 +346,7 @@ the production machine distribution for each team in detail. For now,
 note that the conditions for each team will be the same, i.e. the
 distribution will be a symmetrical one.
 
-The center coordinates and the size of the zones in which the machines could
+The center coordinates and the size of the zones in which the machines are placed can
 be read out from \reffig{fig:competition-area}.
 Note that this field layout should be seen as a proposal for the actual
 competition area layout, accounting for symmetry and avoiding
@@ -426,7 +426,7 @@ there are four kinds of machines:
 
 \item[Delivery Station (DS)] Accepts completed products. The stations
   contains three conveyor belts (\reffig{fig:DS}). The robot has to
-  choose the proper one for a specific orer. The delivered products
+  choose the proper one for a specific order. The delivered products
   are verified by either the referees or an automated external vision
   system. There is one DS per team.
 \end{description}
@@ -561,11 +561,11 @@ remain unchanged).
     Ring Station (RS) & 2 per team &$t_3 = 40 \mbox{ to } 60~\mathrm{sec}$\\
     Delivery Station (DS) & 1 per team &$t_5 =20\mbox{ to } 40~\mathrm{sec}$
   \end{tabularx}}
-  \caption{Production Machines - Type, Distribution and processing times}
+  \caption{MPS - Type, Distribution and processing times}
   \label{tab:production-machines-function}  
 \end{table}
 
-\subsubsection{Production Machines -- During Exploration Phase}
+\subsubsection{MPS -- During Exploration Phase}
 \label{sec:production-machines-exp}
 During the exploration phase the robots of each team can explore their
 unknown factory environment by identifying where the different MPS are
@@ -600,14 +600,14 @@ successfully.\footnote{This feature is optional and may be left out.}
       proper setup of the machine \\%\hline
 %%keep Red any Yellow one?
 	\end{tabularx}}
-  \caption{Production Machines - Optical Feedback during production phase}
+  \caption{MPS - Optical Feedback during production phase}
   \label{tab:production-machines-feedback}
 \end{table}
 
 \vspace*{-2mm}
-\subsubsection{Production Machines -- During Production Phase}
+\subsubsection{MPS -- During Production Phase}
 \label{sec:production-machines-production}
-In the production phase production machine perform refinement steps on
+In the production phase a production machine performs refinement steps on
 a product such as mounting an additional ring or a cap. Machines
 operate in a transaction style. That is, before using a machine it
 must be setup for a specific mode. Then the input products can be fed
@@ -681,10 +681,10 @@ transaction, the machine will be temporarily broken
 
 \subsubsection{Delivery Station} 
 \label{sec:delivery-station}
-Once an order is completed, the product is has to be shipped to
+Once an order is completed, the product has to be shipped to the 
 Delivery Station (DS). After the physical interface, the robot has to
 command which of the three lanes is to be used to store the
-product(which truck to load it on). More than one lane can be correct,
+product (i.e., which truck to load it on). More than one lane can be correct,
 depending on the relevant order.
 
 \subsection{Products and Workpieces}
@@ -697,7 +697,7 @@ production plan to \refsec{sec:production-plan}.
 
 \begin{figure}[h]
   \centering
-  \subfigure[Work piece base elements and caps.]{
+  \subfigure[Workpiece base elements and caps.]{
     \label{fig:workpieces-base-elements}%
     \centering
     \includegraphics[height=5cm]{figures/workpieces}
@@ -716,12 +716,12 @@ production plan to \refsec{sec:production-plan}.
   \subfigure[Product example]{\label{fig:product-example}%
     \includegraphics{prod2015/c1_red_blue_black}
   }
-  \caption{Work piece elements and product example.}
+  \caption{Workpiece elements and product example.}
   \label{fig:workpieces}
 \end{figure}
 
 \noindent
-The workpieces consist of the following elements.
+The workpieces consist of the following elements:
 \begin{description}
 \item[Base] The base is the lowermost element in each production.
   Bases are dispensed by the base station (BS) and bases with mounted 
@@ -989,7 +989,7 @@ Starting with the play-offs phase of the tournament
 the teams by a higher score. If after the regular game time there is a
 draw, the game will automatically and without interruption be extended
 by 5 more minutes. If after five minutes there is still no winner, the
-team scoring the first points will win. If no points were scored a
+team scoring the first points during the extension will win. If no points were scored a
 coin toss decides.
 
 \subsubsection{Production, Color Complexities, and Additional Bases}
@@ -1136,7 +1136,7 @@ production step and delivery. The complexities of orders will be
 similar for all games within a phase. But the actual production chains
 are randomized. Each order will require one or more products of a
 specified product type to be delivered. The product is specified in
-terms of base color, rings (color and order), cap color, and possibly
+terms of base color, rings (color and order), cap color, and possible
 delivery gate. The delivery time slot will have a randomized start
 time. The duration will be randomized between 30 to 180 seconds. The
 end time shall be within the game time. The duration shall be long
@@ -1258,7 +1258,7 @@ ordered products has been delivered.
         Late Delivery & An order delivered within 10 seconds after an
         order is awarded a reduced score. For delivery time slot end
         $T_e$ and actual delivery time $T_d$ in seconds the reduced
-        score is given by $20 - \lfloor T_d - T_e \rfloor * 2$.
+        score is given by $20 - \lfloor T_d - T_e \rfloor * 2$
         & up to $+20$\\
         Wrong delivery & Deliver one of the final product variants to
         the designated loading zone out of the requested time range or
@@ -1269,7 +1269,7 @@ ordered products has been delivered.
         Just-in-time Production & The cap of a successfully delivered
         good has been mounted within the
         order time window& $+5$\\
-        Obstruction Penalty & Deliver a data carrier to a machine, which belongs to the opposing team. & $-2$ \\
+        Obstruction Penalty & Deliver a workpiece to a machine, which belongs to the opposing team & $-2$ \\
       \end{tabularx}
     }
   }
@@ -1278,7 +1278,7 @@ ordered products has been delivered.
 
 	\subtable[Scoring scheme for game commentary]{\mytable{\begin{tabularx}{\linewidth}{p{7em}|X|p{2.4em}} \multicolumn{1}{l}{Task} &\multicolumn{1}{l}{Game Commentary} & \multicolumn{1}{l}{Points}\\\hline
       Accepted Commentary & Commentate at least one half of the game continuously
-      on microphone in English to the public. &  +10\\%\hline
+      on microphone in English to the public &  +10\\%\hline
   \end{tabularx} }}
   
   \caption{Scoring Schemes}
