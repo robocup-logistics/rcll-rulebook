@@ -1622,18 +1622,35 @@ applicable. Notable differences are, for example, that there is no
 robot maintenance. Games in the simulation will run unattended and no
 human interaction is allowed.
 
-\vspace{-2ex}\paragraph{Hardware Setup} The simulation will run on at least three computers. One machine will be
-provided which runs the simulation itself (Gazebo and referee box) at real-time factor as close
-to 1.0 as possible with visualization enabled. Each team needs to
-provide one or more computers to run the software for up to three
-simulated robots of their team. The teams connect remotely to the simulation using
-the Gazebo middleware.
+\vspace{-2ex}\paragraph{Hardware Setup} The simulation will run on at
+least three computers. One machine will be provided which runs the
+simulation itself (Gazebo and referee box) at real-time factor as
+close to 1.0 as possible with visualization enabled. Each team needs
+to provide one or more computers to run the software for up to three
+simulated robots of their team. The teams connect remotely to the
+simulation using the Gazebo middleware.
 
-\vspace{-2ex}\paragraph{Robot Models and Plugins} Teams are allowed to create and use their custom robot model, which they can derive from a standard robot model available with the simulation software. However, custom plugins are not allowed this year, robot models must be fully based on plugins contained within the software or already available in Gazebo. Sensor-wise the available plugins will at least cover the brightness sensor, distance sensor, laserscanner, gripper, and the webcam which all come with the standard Festo Robotino 3.0. Teams are encouraged to contribute to this repository of plugins until 1st May, the RCLL TC will then decide on their admission until 31th May at the latest.
+\vspace{-2ex}\paragraph{Robot Models and Plugins} Teams are allowed to
+create and use their custom robot model, which they can derive from a
+standard robot model available with the simulation software. However,
+custom plugins are not allowed this year, robot models must be fully
+based on plugins contained within the software or already available in
+Gazebo. Sensor-wise the available plugins will at least cover the
+brightness sensor, distance sensor, laser range finder, gripper, and
+the webcam which all come with the standard Festo Robotino 3.0. Teams
+are encouraged to contribute to this repository of plugins until May
+1st 2015, the RCLL TC will then decide on their admission until May
+31st 2015 May.
 
-\vspace{-2ex}\paragraph{Competition Area} The competition area can be expected to be similar to Figure \ref{fig:competition-area}, however, the MPS locations will be randomized as in the real game.
+\vspace{-2ex}\paragraph{Competition Area} The competition area can be
+expected to be similar to Figure \ref{fig:competition-area}, however,
+the MPS locations will be randomized as in the real game.
 
-\vspace{-2ex}\paragraph{Abstraction Level} Teams need to utilize their robot sensors to perceive the environment, there will be no available ground truth published to the robots by the simulation software. That is, robots need to recognize signal lamps via cameras as well as localize themselves via sensors attached to the robot.
+\vspace{-2ex}\paragraph{Abstraction Level} Teams need to utilize their
+robot sensors to perceive the environment, there will be no available
+ground truth published to the robots by the simulation software. That
+is, robots need to recognize signal lamps via cameras as well as
+localize themselves via sensors attached to the robot.
 
 
 \subsubsection{Open Challenge~}
