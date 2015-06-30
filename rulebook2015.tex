@@ -428,12 +428,14 @@ functionality.
 All machines share the same basic layout: a trolley, conveyor belt,
 and signal unit. A machine is movable by four wheels with
 \SI{0.1}{\metre} clearance. Both narrow sides of the trolley are
-closed by plexiglas and have a handle. All physical interfaces
-(conveyor belt input and output, shelves and set up slides for ring
-stations are accessible at \SI{89.8}{\centi\metre} height. Working
-space between guiding lanes is \SI{4.5}{\centi\metre}. Setup lanes and
-shelves feature approximately the same space for handling and
-adjusting.
+closed by plexiglas and have a handle. All physical interfaces like
+conveyor belt input and output, shelves, and slides for additional
+bases on ring stations are accessible at \SI{89.8}{\centi\metre}
+height.\footnote{Note however, that due to small variances and
+  unevenness in the floor there may likewise be small variances in the
+  working height of some or all parts of a station.} Working space between guiding lanes
+is \SI{4.5}{\centi\metre}. Setup lanes and shelves feature
+approximately the same space for handling and adjusting.
 % Still unclear, thus commenting out.
 % If observed from the output side of machines (where the signal unit
 % is placed) the conveyor space opens up at half of the aluminum
@@ -443,9 +445,8 @@ Based on these shared properties, there are four kinds of machines:
 
 \begin{description}
 \item[Base Station (BS)] acts as dispenser of base elements
-  (\reffig{fig:BS}, cf.~\refsec{sec:products}). The application
-  modules are three magazines of base elements. There is a single BS
-  per team.
+  (\reffig{fig:BS}). The application modules are three magazines of
+  base elements. There is a single BS per team.
 
 \item[Cap Station (CS)] mounts a cap as the final step in production
   on an intermediate product (\reffig{fig:CS}). The application module
@@ -463,9 +464,10 @@ Based on these shared properties, there are four kinds of machines:
 
 \item[Delivery Station (DS)] Accepts completed products. The stations
   contains three conveyor belts (\reffig{fig:DS}). The robot has to
-  choose the proper one for a specific order. The delivered products
-  are verified by either the referees or an automated external vision
-  system. There is one DS per team.
+  setup the proper one for a specific order
+  (cf. \refsec{sec:production-machines-production}). The delivered
+  products are verified by either the referees or an automated
+  external vision system. There is one DS per team.
 \end{description}
 
 \begin{figure}
@@ -607,11 +609,11 @@ Each team has a primary half
 swapped, that is, some machines will not be located in the primary
 half.
 
-For each game, a CS and a RS of each team will be chosen randomly and
-assigned to the one on the non-primary half -- that is two machines in
-total per team. The CS and RS will be swapped with the symmetrically
-positioned machine of the same type of the other team (machine types
-remain unchanged).
+For each game, one CS and one RS of each team will be chosen randomly
+and swapped with the corresponding machine of the other team on the
+non-primary half -- that is two machines in total per team. The CS and
+RS will be swapped with the symmetrically positioned machine of the
+same type of the other team.
 
 \subsubsection{MPS -- During Exploration Phase}
 \label{sec:production-machines-exp}
@@ -625,13 +627,14 @@ but the exact position and alignment within these and if this zone
 contains an MPS at all will not be communicated. Each MPS is assigned
 an individual light signal randomly. The light signal consists of a
 steady light pattern, i.e. no flashing lights, resulting in seven
-possible light states with at least one LED switched on. For details
+possible light states with at least one light switched on. For details
 how to perform the exploration phase
 cf.~\refsec{sec:exploration-phase}.
 
-After a successful report, the respective MPS will perform a dry run,
-indicating visually for spectators that the MPS was indeed explored
-successfully.\footnote{This feature is optional and may be left out.}
+After a successful report, the respective MPS will show a blinking
+green signal indicating visually for spectators that the MPS was
+indeed explored successfully. For a wrong report, the station will
+show a red flashing light.
 
 \begin{table}[tp]
   \centering
@@ -639,7 +642,7 @@ successfully.\footnote{This feature is optional and may be left out.}
       \multicolumn{1}{l}{Optical Feedback} & \multicolumn{1}{l}{Operating mode} \\ \hline 
       All LEDs turned off & The machine is physically offline, caused by a real error, which should not happen during the competition. \\
       Red LED turned on & The machine is out of order. \\
-      Red LED flashing (at 2 Hz)  & Machine signals that it ran out of stock on any required item. \\
+      %Red LED flashing (at 2 Hz)  & Machine signals that it ran out of stock on any required item. \\
       Green LED turned on & The machine is idle and ready.\\
       Green LED flashing & The machine has accepted the setup command
       (flashes for up to 3 seconds).\\
@@ -664,23 +667,21 @@ the production period is completed, the resulting product is delivered
 on the output lane.
 
 A light signal mounted near the output lane
-(cf. \refsec{sec:machines}) to indicate the state of the machine. In
-the default operating mode, the green light is turned on. This signals
+(cf. \refsec{sec:machines}) indicates the state of the machine. In the
+default operating mode, the green light is turned on. This signals
 that the machine is ready for setup or input. When setup is performed,
-the green light will flash the green LED for up to 3 seconds (it
+the green light will flash the green light for up to 3 seconds (it
 immediately switches to a new state, e.g. if a product is fed into the
-machine before the three seconds are finished). When a product is fed
-to the input, several light states indicate the processing
-condition. If the machine accepts the input and starts processing the
-green and yellow LEDs will be turned on steadily for as long as the
-processing is performed. Once processing completes, the machine
-switches back to a steady green LED only. If a product is fed for
-which additional bases were required but which have not been
-delivered, the machine will flash the red and yellow LED and will be
-out of order (cf. \refsec{sec:broken-machine}). If an additional base
-(cf.~\refsec{sec:production-phase}) is added to a machine the light
-signal will change to steady orange. The light signals are summarized
-in \reftab{tab:production-machines-feedback}.
+machine before the three seconds have expired). When a product is fed
+to the input, the signal light indicates the processing condition. If
+the machine accepts the input and starts processing the yellow light
+will be turned on steadily for as long as the processing is
+performed. Once processing completes, the machine switches back to a
+steady green light. If a product is fed for which additional bases
+were required but which have not been delivered, the machine will
+flash the red and yellow light and will be out of order
+(cf. \refsec{sec:broken-machine}). The light signals are summarized in
+\reftab{tab:production-machines-feedback}.
 
 In the production phase, machines must be setup before they can be
 used. This applies to all machine types BS, DS, CS, and RS. If the
@@ -699,11 +700,11 @@ to the integrator's manual~\cite{RefBoxIntManual}.
 \item[DS] The DS setup message denotes the slide the product should be
   delivered to. The DS will consume any workpiece provided, but points
   can only be scored if the DS was properly setup.
-\item[CS] The CS setup message initiates retrieval of a cap. The next
-  base must be one with a mounted cap from the shelf. The cap is taken
-  off the base and buffered. Afterwards the now cap-less base must be
-  removed. The next workpiece which is fed into the machine receives
-  the buffered cap.
+\item[CS] The CS setup message initiates either the retrieval or the
+  mounting of a cap. For retrieving, a base from the shelf with an
+  existing cap must be fed into the machine from which the cap is
+  buffered. For mounting, a workpiece must be provided onto which the
+  cap is mounted.
 \item[RS] The RS setup message must state which of the two colors to
   prepare and retrieve. Each RS is responsible for two specific
   colors. Some colors require loading the RS with additional bases
@@ -720,20 +721,18 @@ The setup and use of a machine follows a transaction style. Once the
 machine has been setup, the full cycle can be completed (committed).
 But if a robot desires, it can cancel the production on the machine,
 unless the intermediate product has already been fed into the
-machine. Canceling will invalidate any additional bases that have
-been taken to the machine. There may be only one transaction running
-at a time. If a second setup is performed without canceling the
-first, or if more bases are fed than required for the current
-transaction, the machine will be temporarily broken
-(cf.~\refsec{sec:broken-machine}).
+machine.\footnote{Note that canceling is not available in 2015.}
+Canceling will invalidate any additional bases that have been taken to
+the machine. There may be only one transaction running at a time. If a
+second setup is performed without canceling the first the machine will
+be temporarily broken (cf.~\refsec{sec:broken-machine}).
 
 \subsubsection{Delivery Station} 
 \label{sec:delivery-station}
-Once an order is completed, the product has to be shipped to the 
-Delivery Station (DS). After the physical interface, the robot has to
-command which of the three lanes is to be used to store the
-product (i.e., which truck to load it on). More than one lane can be correct,
-depending on the relevant order.
+Once an order is completed, the product has to be shipped to the
+Delivery Station (DS). Before the workpiece is fed into the machine,
+the robot has to setup the desired delivery lane (i.e., which truck to
+load it on).
 
 \subsection{Products and Workpieces}
 \label{sec:products}
