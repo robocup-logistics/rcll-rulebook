@@ -1008,22 +1008,23 @@ exploration phase after 5 minutes.
 \subsection{Exploration Phase}
 \label{sec:exploration-phase}
 With the start of the exploration phase, the referee box announces the
-mapping from zones to teams. As described in
-\refsec{sec:production-machines-exp}, all MPS show a steady light
-signal as randomly chosen by the referee box. The robots have 4
-minutes to roam the environment and announce their 6 MPS for a
-successful exploration to the referee box. Concretely, the referee box
-expects a \emph{machine identified message} with a tuple consisting of
-zone ID, machine ID (as encoded in the markers) and light
-pattern. Please consult the referee box Integrator's
-Manual~\cite{RefBoxIntManual} for a detailed definition of the message
-types. Reports are only accepted for MPS of the respective team over
-the private encrypted team channel. Only the first report for each MPS
-is processed, all additional ones will be silently ignored. The
-scoring is shown in \reftab{tab:scoring-exploration}. A minimum of
-zero points will be accounted for the exploration phase. The
-exploration phase ends either after the time has passed or immediately
-after both teams have each reported their respective set of 6 MPS.
+mapping from zones to teams and from light patterns to type
+strings. As described in \refsec{sec:production-machines-exp}, all MPS
+show a steady light signal as randomly chosen by the referee box. The
+robots have 4 minutes to roam the environment and announce their 6 MPS
+for a successful exploration to the referee box. Concretely, the
+referee box expects a \emph{machine identification message} with a
+tuple consisting of zone, machine name (as encoded in the markers),
+light pattern, and type string. Please consult the referee box
+Integrator's Manual~\cite{RefBoxIntManual} for a detailed definition
+of the message types. Reports are only accepted for MPS of the
+respective team over the private encrypted team channel. Only the
+first report for each MPS is processed, all additional ones will be
+silently ignored. The scoring is shown in
+\reftab{tab:scoring-exploration}. A minimum of zero points will be
+accounted for the exploration phase. The exploration phase ends either
+after the time has passed or immediately after both teams have each
+reported their respective set of 6 MPS.
 
 Moving or processing workpieces at an MPS is not allowed during the
 exploration phase.
