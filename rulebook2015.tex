@@ -381,10 +381,10 @@ The center coordinates and the size of the zones in which the machines
 are placed can be seen in \reffig{fig:competition-area}. Note that
 this field layout is a proposal for the layout, accounting for
 symmetry and avoiding clustering of machine access nodes and
-unapproachable machines. However, the actual competition area will
-change before the actual game starts. Thus, teams should focus on a
-generic approach for production, allowing for dynamic adaptation of
-machine positions and alignments.
+unapproachable machines. However, the actual distribution and alignment 
+of machines on the competition area will change before the actual game 
+starts. Thus, teams should focus on a generic approach for production, 
+allowing for dynamic adaptation of machine positions and alignments.
 
 \subsubsection{Moving on the Field}
 \label{sec:field-movement}
@@ -426,10 +426,10 @@ has individual application modules that provide different
 functionality.
 
 All machines share the same basic layout: a trolley, conveyor belt,
-and signal unit. A machine is movable by four wheels with
+and signal light. A machine is movable by four wheels with
 \SI{0.1}{\metre} clearance. Both narrow sides of the trolley are
 closed by plexiglas and have a handle. All physical interfaces like
-conveyor belt input and output, shelves, and slides for additional
+conveyor belt inputs and outputs, shelves, and slides for additional
 bases on ring stations are accessible at \SI{89.8}{\centi\metre}
 height.\footnote{Note however, that due to small variances and
   unevenness in the floor there may likewise be small variances in the
@@ -595,11 +595,12 @@ perform refinement steps on a product during the production phase.
 Each machine will feature two \emph{markers} based on ALVAR AR tags,
 one will be placed on the input, another one on the output side. The
 marker will be horizontally centered below the conveyor belt. The
-vertical distance will be about \SI{35}{\centi\metre}. The markers
-will be mounted at the same position on all machines in a best effort
-fashion. But teams should expect to calibrate individually per
-marker. All markers used are depicted in \reftab{tab:markers}. They
-are available for printing on the RoboCup Logistics website.
+vertical distance (between tag and conveyer belt) will be about 
+\SI{35}{\centi\metre}. The markers will be mounted at the same position 
+on all machines in a best effort fashion. But teams should expect to 
+calibrate individually per marker. All markers used are depicted in 
+\reftab{tab:markers}. They are available for printing on the RoboCup 
+Logistics website.
 
 
 \subsubsection{Machine Swapping}
@@ -675,13 +676,13 @@ A light signal mounted near the output lane
 (cf. \refsec{sec:machines}) indicates the state of the machine. In the
 default operating mode, the green light is turned on. This signals
 that the machine is ready for setup or input. When setup is performed,
-the green light will flash the green light for up to 3 seconds (it
+the machine will flash the green light for up to 3 seconds (it
 immediately switches to a new state, e.g. if a product is fed into the
 machine before the three seconds have expired). When a product is fed
 to the input, the signal light indicates the processing condition. If
 the machine accepts the input and starts processing the yellow light
 will be turned on steadily for as long as the processing is
-performed. Once processing completes, the machine switches back to a
+performed. Once processing completes, the signal light switches back to a
 steady green light. If a product is fed for which additional bases
 were required but which have not been delivered, the machine will
 flash the red and yellow light and will be out of order
@@ -706,10 +707,10 @@ to the integrator's manual~\cite{RefBoxIntManual}.
   delivered to. The DS will consume any workpiece provided, but points
   can only be scored if the DS was properly setup.
 \item[CS] The CS setup message initiates either the retrieval or the
-  mounting of a cap. For retrieving, a base from the shelf with an
-  existing cap must be fed into the machine from which the cap is
-  buffered. For mounting, a workpiece must be provided onto which the
-  cap is mounted.
+    mounting of a cap. For retrieving, a base (with a cap mounted on top) 
+    from the machine's shelf must be fed into the machine. The machine will 
+    then take the cap off the base and buffer it. For mounting, a workpiece 
+    must be provided onto which the cap is mounted.
 \item[RS] The RS setup message must state which of the two colors to
   prepare and retrieve. Each RS is responsible for two specific
   colors. Some colors require loading the RS with additional bases
@@ -1051,8 +1052,8 @@ Starting with the play-offs phase of the tournament
 the teams by a higher score. If after the regular game time there is a
 draw, the game will automatically and without interruption be extended
 by 5 more minutes. If after five minutes there is still no winner, the
-team scoring the first points during the extension will win. If no points were scored a
-coin toss decides.
+team scoring the first points during the extension will win. If no 
+points were scored a coin toss decides.
 
 \subsubsection{Production, Color Complexities, and Additional Bases}
 \label{sec:production-complexities}
@@ -1066,13 +1067,15 @@ three mounted rings and a cap. For a product, the colors of base,
 rings, and cap as well as the order of the rings are of importance.
 
 The product complexities do not account for \emph{additional bases}
-that are required for some colors. We therefore distinguish
-\emph{color complexities} as $CC_0$, $CC_1$, and $CC_2$ depending on
-whether zero, one, or two additional bases are required for a
-color. The referee box ensures that there will always be some orders
-for $C_1$ products where the ring color does not require additional
-bases, i.e. with color complexity $CC_0$ -- but not necessarily all
-$C_1$ orders have this constraint.
+that are required for some colors. (Depending on the ring color, the 
+robot has to deliver an \emph{additional cap} to a RS first in order 
+to get a ring.) 
+We therefore distinguish \emph{color complexities} as $CC_0$, $CC_1$, 
+and $CC_2$ depending on whether zero, one, or two additional bases are 
+required for a color. The referee box ensures that there will always be 
+some orders for $C_1$ products where the ring color does not require 
+additional bases, i.e. with color complexity $CC_0$ -- but not necessarily 
+all $C_1$ orders have this constraint.
 
 \begin{figure}
   \ffigbox{%
