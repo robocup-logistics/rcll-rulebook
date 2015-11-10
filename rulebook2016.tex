@@ -1054,9 +1054,10 @@ Starting with the play-offs phase of the tournament
 (cf.~\refsec{sec:tournament-phases}) the game must be won by one of
 the teams by a higher score. If after the regular game time there is a
 draw, the game will automatically and without interruption be extended
-by 5 more minutes. If after five minutes there is still no winner, the
-team scoring the first points during the extension will win. If no 
-points were scored a coin toss decides.
+by 5 more minutes, unless both teams scored zero points. If after five
+minutes there is still no winner, the team scoring the first points
+during the extension will win. If the draw cannot be resolved and a
+winner is required a coin toss decides.
 
 \subsubsection{Production, Color Complexities, and Additional Bases}
 \label{sec:production-complexities}
@@ -1460,22 +1461,29 @@ teams will be ranked according to the accumulated points in descending
 order.
 
 \paragraph{Playoffs.~}
-At the playoff stage, the scoring scheme will be different. As each
-team in this phase directly competes with an opposing team, the team
-that scores more points as the direct opponent, will be announced as
-the winner and 3 points will be awarded to this team. A loss will be
-awarded with 0 points. Additionally, if both teams are unable to score
-any points during the match by delivering or producing goods, both
-teams will receive 0 points. In case of a draw within the playoffs,
-the game time will be extended by 5 minutes unless both teams scored
-zero points. This will be announced by the refbox instead of a game
-closed message.
-%
-If this extension leads to a draw too, the overall regular points of
-the teams will determine the match winner. If the overall points are
-equal too, a direct comparison between the teams in question will
-decide. If this fails to resolve the situation, the teams will
-approach a coin toss to determine the winner.
+At the playoff stage, the scoring scheme will be different. Each team
+in this phase directly competes with an opposing team. To allow a fair
+comparison, teams gain a different game score. These scores are then
+summed up to form a ranking. We now describe this additional scoring
+scheme.
+
+For the \emph{game score}, the winning team gets 3 ranking points, the
+loosing team gets 0. A team wins if it achieves more in-game points
+(cf. Sections~\ref{sec:exploration-phase} and
+\ref{sec:production-phase}) in the game than the other team. In the
+case of a draw (with or without overtime,
+cf.~\refsec{sec:production-phase}). If a non-zero draw is not
+resolved, both teams get 1 ranking point. If both team end with a zero
+score, each team gets 0 ranking points.
+
+The \emph{overall playoffs ranking} is determined by the sum of the
+ranking scores of all games per team, highest first. If two teams have
+the same score, the overall total in-game points are summarized and
+the team with more game points ranks higher. If there still is a draw,
+the direct comparison of the games of the two teams is used to break
+the tie (decided by higher in-game points summed over all games of the
+two teams during the playoffs). If this still is unsuccessful, a coin
+toss determines the higher ranked team.
 
 \paragraph{Finals.~}
 The best two teams of the playoff phase will advance to the grand
