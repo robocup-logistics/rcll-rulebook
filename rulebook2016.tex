@@ -1021,10 +1021,13 @@ mapping from zones to teams and from light patterns to type
 strings. As described in \refsec{sec:production-machines-exp}, all MPS
 show a steady light signal as randomly chosen by the referee box. The
 robots have 4 minutes to roam the environment and announce their 6 MPS
-for a successful exploration to the referee box. Concretely, the
-referee box expects a \emph{machine identification message} with a
+for a successful exploration to the referee box.
+The detection of one MPS can be split in two parts, first the detection of the machines position and type and then the detection of the machines light signal.
+Concretely, the referee box expects a \emph{machine identification message} with a
 tuple consisting of zone, machine name (as encoded in the markers),
-light pattern, and type string. Please consult the referee box
+light pattern, and type string.
+For the two different stages of the detection of one MPS, this message can just be party filled.
+Please consult the referee box
 Integrator's Manual~\cite{RefBoxIntManual} for a detailed definition
 of the message types. Reports are only accepted for MPS of the
 respective team over the private encrypted team channel. Only the
@@ -1302,12 +1305,13 @@ ordered products has been delivered.
     \subtable[Scoring scheme for the exploration phase]{%
       \label{tab:scoring-exploration}   
 
-      \mytable{\begin{tabularx}{\linewidth}{p{7em}|X|p{4em}}
-        \multicolumn{1}{l}{Reported} &\multicolumn{1}{l}{Exploration Phase} & \multicolumn{1}{l}{Points}\\\hline
-    Correctly & Correctly determine a machine type of your team and
-    report it successfully to the refbox &	+8\\
-    Incorrectly & Wrongly reported machine type &  -6\\
-    Round Total & A maximum of 48 points can be achieved by correctly
+      \mytable{\begin{tabularx}{\linewidth}{p{6em}|p{4em}|X|p{4em}}
+          \multicolumn{1}{l}{Report type} &\multicolumn{1}{l}{Correctly} & \multicolumn{1}{l}{Description} & \multicolumn{1}{l}{Points}\\\hline
+          \multirow{2}{*}{Position} & yes & Correctly determine a machine type of your team and report it successfully to the refbox &	+3\\
+    & no & Wrongly reported machine type &  -2\\
+    \multirow{2}{*}{Light} & yes & Correctly determine a machine light pattern of your team and report it successfully to the refbox & +5\\
+    & no & Wrongly reported machine light pattern & -4\\\hline
+    \multicolumn{2}{l|}{Round Total} & A maximum of 48 points can be achieved by correctly
     reporting all 6 production machines. A minimum of 0 points is
     awarded. & 0 -- 48\\%\hline
   \end{tabularx} }}%
