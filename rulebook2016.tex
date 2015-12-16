@@ -1324,12 +1324,14 @@ ordered products has been delivered.
       \begin{tabularx}{\linewidth}{p{7em}|X|p{4em}}
         \multicolumn{1}{l}{Sub-task } &\multicolumn{1}{l}{Production
           Phase} & \multicolumn{1}{l}{Points}\\\hline
-        Finish $CC_1$ step & Finish the work order for a color requiring one additional base & $+5$\\
-        Finish $CC_2$ step  & Finish the work order for a color requiring two additional bases & $+10$ \\
+        Additional base & Feed an additional base into a ring station & $+2$\\
+        Finish $CC_0$ step & Finish the work order for a color requiring no additional base & $+5$\\
+        Finish $CC_1$ step & Finish the work order for a color requiring one additional base & $+10$\\
+        Finish $CC_2$ step  & Finish the work order for a color requiring two additional bases & $+20$ \\
         Finish $C_1$ pre-cap & Mount the last ring of a $C_1$ product & $+10$ \\
         Finish $C_2$ pre-cap & Mount the last ring of a $C_2$ product & $+30$ \\
         Finish $C_3$ pre-cap & Mount the last ring of a $C_3$ product & $+80$ \\
-        Mount cap & Mount the cap on a product & $+2$ \\
+        Mount cap & Mount the cap on a product & $+10$ \\
         Delivery & Deliver one of the final product variants to the
         designated loading zone at the time specified in the order & $+20$\\
         Late Delivery & An order delivered within 10 seconds after an
@@ -1343,7 +1345,7 @@ ordered products has been delivered.
         delivered
         & $+1$\\
         False delivery & Deliver an intermediate product & $0$\\
-        Obstruction Penalty & Deliver a workpiece to a machine, which belongs to the opposing team & $-2$ \\
+        Obstruction Penalty & Deliver a workpiece to a machine, which belongs to the opposing team & $-20$ \\
       \end{tabularx}
     }
   }
