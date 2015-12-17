@@ -1398,11 +1398,12 @@ announcedd cannot be awarded.
         Mount cap & Mount the cap on a product & $+10$ \\
         Delivery & Deliver one of the final product variants to the
         designated loading zone at the time specified in the order & $+20$\\
-        Late Delivery & An order delivered within 10 seconds after an
+        Delayed Delivery & An order delivered within 10 seconds after an
         order is awarded a reduced score. For delivery time slot end
         $T_e$ and actual delivery time $T_d$ in seconds the reduced
-        score is given by $20 - \lfloor T_d - T_e \rfloor * 2$
+        score is given by \newline $\lfloor 15 - \lfloor T_d - T_e \rfloor * 1.5 + 5 \rfloor$
         & up to $+20$\\
+        Late Delivery & An order delivered after 10 seconds & +5 \\
         Wrong delivery & Deliver one of the final product variants to
         the designated loading zone out of the requested time range or
         after all products requested in the period have already been
