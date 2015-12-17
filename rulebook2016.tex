@@ -710,8 +710,13 @@ to the integrator's manual~\cite{RefBoxIntManual}.
   delivered to. The DS will consume any workpiece provided, but points
   can only be scored if the DS was properly setup.
 \item[CS] The CS setup message initiates either the retrieval or the
-    mounting of a cap. For retrieving a preapred base (with a cap mounted on top) 
-    from the machine's shelf must be fed into the machine. All Base Elements prepared on the shelf are special colored workpieces that can only be used for preparing RS or recycling. The machine will take the cap off the base and buffer it, releasing the decapped base to the output side. For mounting, a base(with up to three rings) must be provided onto which the cap is mounted.
+  mounting of a cap. For retrieving a prepared base (with a cap
+  mounted on top) from the machine's shelf must be fed into the
+  machine. All Base Elements prepared on the shelf are special colored
+  workpieces that can only be used for preparing RS or recycling. The
+  machine will take the cap off the base and buffer it, releasing the
+  decapped base to the output side. For mounting, a base(with up to
+  three rings) must be provided onto which the cap is mounted.
 \item[RS] The RS setup message must state which of the two colors to
   prepare and retrieve. Each RS is responsible for two specific
   colors. Some colors require loading the RS with additional bases
@@ -777,10 +782,21 @@ production plan to \refsec{sec:production-plan}.
 \noindent
 The workpieces consist of the following elements:
 \begin{description}
-\item[Base] The base is the lowermost element in each production. All bases are labelled by a horizontally revolving, white glossy tag covering about 50 percent of the bases height (from the centre) containing a white reference area as well as an identifying barcode. %%ADDPICTURE%%
+\item[Base] The base is the lowermost element in each production. All
+  bases are labelled by a horizontally revolving, white glossy tag
+  covering about 50 percent of the bases height (from the centre)
+  containing a white reference area as well as an identifying
+  barcode. %%ADDPICTURE%%
+
   Bases are dispensed by the base station (BS) and bases with mounted
   caps are available on the cap stations (CS). Bases are available in
-  the colors red, black, and silver. There is a fourth base type: Transparent, which is the only base that must be used to prepare shelves mentioned in the CS part (cf.~\refsec{sec:production-machines-production}). These bases cannot be used as workpiece for production. Transparent bases can be used to provide additional bases required by RS, stored on a friendly shelf or recycled at DS. \footnote{Note that \textbf{in
+  the colors red, black, and silver. There is a fourth base type:
+  Transparent, which is the only base that must be used to prepare
+  shelves mentioned in the CS part
+  (cf.~\refsec{sec:production-machines-production}). These bases
+  cannot be used as workpiece for production. Transparent bases can be
+  used to provide additional bases required by RS, stored on a
+  friendly shelf or recycled at DS. \footnote{Note that \textbf{in
       2015}, \textbf{orders} from the referee box \textbf{will only
       mention red bases} as to simplify the task and the transition
     from the 2014 game. This will change in 2016, but the colors may
@@ -1019,22 +1035,22 @@ mapping from zones to teams and from light patterns to type
 strings. As described in \refsec{sec:production-machines-exp}, all MPS
 show a steady light signal as randomly chosen by the referee box. The
 robots have 4 minutes to roam the environment and announce their 6 MPS
-for a successful exploration to the referee box.
-The detection of one MPS can be split in two parts, first the detection of the machines position and type and then the detection of the machines light signal.
-Concretely, the referee box expects a \emph{machine identification message} with a
-tuple consisting of zone, machine name (as encoded in the markers),
-light pattern, and type string.
-For the two different stages of the detection of one MPS, this message can just be party filled.
-Please consult the referee box
-Integrator's Manual~\cite{RefBoxIntManual} for a detailed definition
-of the message types. Reports are only accepted for MPS of the
-respective team over the private encrypted team channel. Only the
-first report for each MPS is processed, all additional ones will be
-silently ignored. The scoring is shown in
-\reftab{tab:scoring-exploration}. A minimum of zero points will be
-accounted for the exploration phase. The exploration phase ends either
-after the time has passed or immediately after both teams have each
-reported their respective set of 6 MPS.
+for a successful exploration to the referee box. The detection of one
+MPS can be split in two parts, first the detection of the machines
+position and type and then the detection of the machines light signal.
+Concretely, the referee box expects a \emph{machine identification
+  message} with a tuple consisting of zone, machine name (as encoded
+in the markers), light pattern, and type string.  For the two
+different stages of the detection of one MPS, this message can just be
+party filled.  Please consult the referee box Integrator's
+Manual~\cite{RefBoxIntManual} for a detailed definition of the message
+types. Reports are only accepted for MPS of the respective team over
+the private encrypted team channel. Only the first report for each MPS
+is processed, all additional ones will be silently ignored. The
+scoring is shown in \reftab{tab:scoring-exploration}. A minimum of
+zero points will be accounted for the exploration phase. The
+exploration phase ends either after the time has passed or immediately
+after both teams have each reported their respective set of 6 MPS.
 
 Moving or processing workpieces at an MPS is not allowed during the
 exploration phase.
@@ -1234,14 +1250,17 @@ specified in Section~\ref{sec:machines}.
 \subsubsection{Machine Refill}
 \label{sec:machine-refill}
 The teams are responsible for restocking all materials(base elements,
-rings, and prepared caps on shelves) before and during matches. Each team has to designate one team-member as a
-\textit{"replenisher"} who must be specified to the corresponding
-"field half/team" referee ahead of each game.  Only this team member
-will be allowed to access the field area and only in case of a recent
-refill procedure.  The replenisher must not obstruct other robots and
-should interfere as little as possible.  The machines can only be
-refilled when a magazine or shelf is empty. In this case the field-operator may
-enter the competition-area without asking the referee. Shelves have to be (re)filled in all three reachable slots. %%%NotesInOfficeLetMeCheckIfWeDecidedOnThis%%%
+rings, and prepared caps on shelves) before and during matches. Each
+team has to designate one team-member as a \textit{"replenisher"} who
+must be specified to the corresponding "field half/team" referee ahead
+of each game.  Only this team member will be allowed to access the
+field area and only in case of a recent refill procedure.  The
+replenisher must not obstruct other robots and should interfere as
+little as possible.  The machines can only be refilled when a magazine
+or shelf is empty. In this case the field-operator may enter the
+competition-area without asking the referee. Shelves have to be
+(re)filled in all three reachable
+slots. %%%NotesInOfficeLetMeCheckIfWeDecidedOnThis%%%
 
 The teams are free to choose their assembly and placement of
 products. For example, teams can fill any number of bases into a BS or
@@ -1422,8 +1441,9 @@ to pushing.
 \item Robots must drive such that they try to avoid physical contact
   with robots from the opposing team. However, physical contact per se
   does not represent an offense.
-\item All robots should be equipped with appropriate sensors to detect 
-situations of physical contact with other robots (direct pushing situations).
+\item All robots should be equipped with appropriate sensors to detect
+  situations of physical contact with other robots (direct pushing
+  situations).
 \item If physical contact with other robots cannot be avoided, it must
   be soft, i.e. at slow speed and with as small physical impact as
   possible, in order to avoid damage to itself and other
@@ -1800,11 +1820,11 @@ adhesive labels placed on top or the sides of the robot. The number
 must be the same as is announced in the beacon signal to the referee
 box (cf.~\refsec{sec:referee-box}).
 
-For audiences and observers to distinguish both teams, all robots must 
-wear their respective unique colored label which is either cyan or magenta. 
-The Velcro will be provided and is suggested to be placed on the tower's side 
-of each robot, the actual color-coded rings are then dynamically divided among 
-the playing teams.
+For audiences and observers to distinguish both teams, all robots must
+wear their respective unique colored label which is either cyan or
+magenta.  The Velcro will be provided and is suggested to be placed on
+the tower's side of each robot, the actual color-coded rings are then
+dynamically divided among the playing teams.
 
 \section{Communication}
 \label{sec:communication}
