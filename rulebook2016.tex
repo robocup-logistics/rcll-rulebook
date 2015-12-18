@@ -182,23 +182,24 @@ autonomous mobile robots.
 
 The RoboCup Logistics League (RCLL) is determined to develop into a
 state-of-the-art platform for mobile robotics education and research
-tackling this problem of flexible and efficient logistics at a
+tackling this problem of flexible and efficient production logistics at a
 comprehensible size. This industrial motivated league keeps the focus
 on challenges promoting precise actions and robust long-enduring
 execution, and further encourages external data supported
-autonomy. Festo acts as the industrial partner for this league
-providing feedback and advice regarding the industrial grounding of
-the league and the basic elements like robots and production machines.
+autonomy. By providing feedback and competition hardware, Industrial 
+partner Festo provides insights into future factory concepts to help
+ uncover relevant future topics for education and research.
 
 This year's competition is laid out in the pages to come.  It ensures
 the same and fair circumstances for all participants. It neither
 dictates nor suggests the way how to fulfill the task, but is meant to
-develop the RCLL further towards a Smart Factory environment where
-robots act as autonomous entities working in an environment with
+develop the RCLL further. Smart Factory environments require new 
+concepts of flexibility, awareness and optimisation from autonomous entities working in an environment with
 specified, yet to some degree uncertain and dynamic, agency. This
 includes current challenges of developing industry-wide standards for
 Cyber Physical Systems for production processes like designing
-plug-and-produce capable systems.
+plug-and-produce capable systems. Opposed to numerous approaches
+regarding production infrastructure, RCLL aims to provide concepts for smart production logistics.
 
 After an exciting RoboCup in Hefei, we look forward to a new scale of
 competition that will emerge from initiatives around the globe. In
@@ -301,7 +302,7 @@ rulebook, to decide on technical questions during the tournament, and
 to communicate with the league stake holders on technical
 advancements. Current members of the TC are (in alphabetical order):\\[.5em]
 % Alphabetical order by last name
-\emph{Christian Deppe}, Festo Didactic GmbH \& Co. KG, Denkendorf, Germany\\
+\emph{Christian Deppe}, Festo Didactic SE, Denkendorf, Germany\\
 \emph{Tobias Neumann}, FH Aachen University of Applied Sciences,
 Aachen, Germany\\
 \emph{Tim Niemueller}, RWTH Aachen University, Aachen, Germany\\
@@ -436,7 +437,7 @@ Robots that leave the competition area illegally are considered as
 Machines are based on the Modular Production System (MPS)\footnote{For
   more information see
   \url{http://www.robocup-logistics.org/links/festo-mps}.} by Festo
-Didactic GmbH \& Co. KG. The MPS provides a number of stations which
+Didactic SE. The MPS provides a number of stations which
 make up the machines used in the competition. The stations have a
 rectangular base shape of \SI{0,35 x 0,7}{\metre} with a height of
 about \SI{1}{\metre} depending on machine type. The machine
@@ -740,9 +741,9 @@ to the integrator's manual~\cite{RefBoxIntManual}.
   mounted on top) from the machine's shelf must be fed into the
   machine. 
   All Base Elements prepared on the shelf are special colored
-  workpieces that can only be used for preparing RS or reuse by repositioning
-  on the shelf. The
-  machine will take the cap off the base and buffer it on the slide, releasing the
+  workpieces that can only be used for providing additional bases to RS
+ (see below), reuse by repositioning on the shelf or recycling at DS.
+ The machine will take the cap off the base and buffer it on the slide, releasing the
   decapped base to the output side. For mounting, a base(with up to
   three rings) must be provided onto which the cap is mounted.
 \item[RS] The RS setup message must state which of the two colors to
@@ -1285,9 +1286,8 @@ little as possible.  The machines can only be refilled when a magazine
 or shelf is empty. In this case the field-operator may enter the
 competition-area without asking the referee. Shelves have to be
 (re)filled in all three reachable
-slots. It is allowed to restock only the caps if the transparent base elements
-have been put back into the shelf.
-%%%NotesInOfficeLetMeCheckIfWeDecidedOnThis%%%
+slots. The replenisher may restock only caps if transparent base elements
+have been put back to the shelf, once no cap is remaining on this shelf.
 
 The teams are free to choose their assembly and placement of
 products. For example, teams can fill any number of bases into a BS or
@@ -2136,7 +2136,7 @@ switching sensor.
     \includegraphics[height=3.5cm]{Robotino3.jpg}
   \end{minipage}
 }
-\caption{Robotino 2 and Robotino 3 without extension tower}
+\caption{Robotino 2 and Robotino 3 without assembly tower}
 \label{fig:robotinos}
 \end{figure}
 
@@ -2215,8 +2215,8 @@ layout combined with a custom made sensor board.
 \end{itemize}
 
 \subsubsection{Software}
-Pre-installed is Ubuntu Linux 12.04 LTS operating system. The main
-part of the controller is the Robotino server, a real time Linux
+Pre-installed is Ubuntu Linux 12.04 LTS operating system, 14.04 LTS available.
+The main part of the controller is the Robotino server, a real time Linux
 application. It controls the drive units and provides interfaces to
 communicate with external PC applications via wifi. Also provided: API
 2.0 with libraries which allow you to create applications for Robotino
