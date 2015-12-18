@@ -12,6 +12,8 @@
 %\usepackage{fourier}
 %\newcommand\rulechange[1]{\begin{shaded}#1\end{shaded}\marginpar{\LARGE\danger}}
 
+\usepackage{wrapfig}
+
 %% MACROS %%%%%%%%%%%%%%%%%%%
 
 % does not work for me, gives:
@@ -810,12 +812,7 @@ production plan to \refsec{sec:production-plan}.
 \noindent
 The workpieces consist of the following elements:
 \begin{description}
-\item[Base] The base is the lowermost element in each production. All
-  bases are labeled by a horizontally revolving, white glossy tag
-  covering about 50 percent of the bases height (from the centre)
-  containing a white reference area as well as an identifying
-  barcode. Each base is equipped with a unique ID which will be scanned at each station. The Referee Box will use Barcodes to track assembly processes, also awarding points.  %%ADDPICTURE%%
-
+\item[Base] The base is the lowermost element in each production.
   Bases are dispensed by the base station (BS) and bases with mounted
   caps are available on the cap stations (CS). Bases are available in
   the colors red, black, and silver. There is a fourth base type:
@@ -840,6 +837,26 @@ transported per robot at once. Storage magazines on the robot or
 similar are prohibited. All products will incorporate exactly one base
 unit allowing a single unified handling device to be used for all
 operations involving workpieces.
+
+\begin{wrapfigure}[8]{r}{0.2\linewidth}
+  \centering
+  \vspace{-2.7ex}
+  \includegraphics[width=\linewidth]{figures/barcode-base}
+  \caption{Prototype base barcode.}
+  \label{fig:barcode}
+\end{wrapfigure}
+\paragraph{Barcodes.}
+All bases are labeled by a horizontally revolving, white glossy tag
+covering about 50 percent of the bases height (from the centre)
+containing a white reference area as well as an identifying
+barcode. Each base is equipped with a unique ID. \reffig{fig:barcode}
+shows a prototype of a barcode labeled workpiece.
+
+The barcodes are scanned at each station and communicated to the
+referee box. The referee box uses the barcodes to track assembly
+processes, i.e. to determine the state of a workpiece. This allows in
+particular to award points for production steps as they happen
+(cf. \refsec{sec:production-scoring}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%
