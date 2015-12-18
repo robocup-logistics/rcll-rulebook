@@ -477,13 +477,13 @@ Based on these shared properties, there are four kinds of machines:
 
 \item[Cap Station (CS)] mounts a cap as the final step in production
   on an intermediate product (\reffig{fig:CS}). The application module
-  is a vacuum pick \& place module. There is a slide to store one cap piece. 
-  At the beginning this slide is empty and has to be filled in the following way.
-  A base element with a cap must be
-  taken to the machine and is then unmounted and buffered in the
-  slide. The cap is then mounted on the next intermediate product
-  taken to the machine. At the beginning the cap slide is empty and has to be filled. 
-  It can hold only one cap at a time. There are two CS per team.
+  is a vacuum pick \& place module. There is a slide to store at most
+  one cap piece at a time. At the beginning this slide is empty and
+  has to be filled in the following way.  A base element with a cap
+  must be taken to the machine and is then unmounted and buffered in
+  the slide. The cap is then mounted on the next intermediate product
+  taken to the machine. At the beginning the cap slide is empty and
+  has to be filled. There are two CS per team.
 
 \item[Ring Station (RS)] mounts one colored ring out of two available
   colors on an intermediate product (\reffig{fig:RS}). Each RS has two
@@ -739,13 +739,13 @@ to the integrator's manual~\cite{RefBoxIntManual}.
 \item[CS] The CS setup message initiates either the retrieval or the
   mounting of a cap. For retrieving a prepared base (with a cap
   mounted on top) from the machine's shelf must be fed into the
-  machine. 
-  All Base Elements prepared on the shelf are special colored
-  workpieces that can only be used for providing additional bases to RS
- (see below), reuse by repositioning on the shelf or recycling at DS.
- The machine will take the cap off the base and buffer it on the slide, releasing the
-  decapped base to the output side. For mounting, a base(with up to
-  three rings) must be provided onto which the cap is mounted.
+  machine. All base elements prepared on the shelf are specially
+  colored workpieces (clear). The machine will take the cap off the
+  base and buffer it on the slide, releasing the decapped base to the
+  output side. This base can only be used for providing an additional
+  base to an RS (see below), reuse by placing it back on the shelf, or
+  discarding it at the DS.  For mounting a cap, a workpiece (without
+  cap) must be provided onto which the cap is mounted.
 \item[RS] The RS setup message must state which of the two colors to
   prepare and retrieve. Each RS is responsible for two specific
   colors. Some colors require loading the RS with additional bases
