@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"> 
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    version="1.1"
+    width="1500"
+    height="900">
+    <defs>
+        <style type="text/css">
+            text{font-size:14px;}
+        </style>
+        <marker id="pf1"
+                viewBox="0 0 12 12" refX="0" refY="5"
+                markerUnits="strokeWidth"
+                markerWidth="5" markerHeight="5"
+                fill="red"
+                orient="auto">
+            <path d="M 0,0 l 10,5 l -10,5 z" />
+        </marker>
+        <marker id="pf2"
+                viewBox="0 0 10 10" refX="0" refY="5"
+                markerUnits="strokeWidth"
+                markerWidth="10" markerHeight="10"
+                orient="auto">
+            <path d="M 0,0 l 10,5 l -10,5 z" />
+        </marker>
+        <pattern id="grid" x="50" y="50" width="100" height="100" patternUnits="userSpaceOnUse">
+            <rect id="area" x="0" y="0" width="100" height="100" fill="none" stroke-width="0.5" stroke="black" />
+        </pattern>
+    
+        <pattern id="mpsM" x="0" y="0" width="35" height="70">
+            <rect x="0" y="0" width="35" height="70" fill="magenta" stroke-width="1" stroke="black"/>
+            <rect y="30" width="35" height="6" fill="lightgrey" stroke-width="1" stroke="black"/>
+            <rect y="37" width="15" height="32" fill="lightgrey" stroke-width="1" stroke="black"/>
+            <circle cx="2" cy="43" r="4" fill="white" stroke-width="1" stroke="black"/>
+            <circle cx="2" cy="53" r="4" fill="white" stroke-width="1" stroke="black"/>
+            <circle cx="2" cy="63" r="4" fill="white" stroke-width="1" stroke="black"/>
+        </pattern>
+        <pattern id="mpsC" x="0" y="0" width="35" height="70">
+            <rect x="0" y="0" width="35" height="70" fill="cyan" stroke-width="1" stroke="black"/>
+            <rect y="30" width="35" height="6" fill="lightgrey" stroke-width="1" stroke="black"/>
+            <rect y="37" width="15" height="32" fill="lightgrey" stroke-width="1" stroke="black"/>
+            <circle cx="2" cy="43" r="4" fill="white" stroke-width="1" stroke="black"/>
+            <circle cx="2" cy="53" r="4" fill="white" stroke-width="1" stroke="black"/>
+            <circle cx="2" cy="63" r="4" fill="white" stroke-width="1" stroke="black"/>
+        </pattern>
+    </defs>
+    
+    <!--Lines and Corners-->
+    <polyline id="cornerLeftTop"
+              points="50,150 50,50 1450,50 1450,150" 
+              style="fill:none;stroke:#0000ff;stroke-width:5"/>
+    <polyline id="cornerLeftBottom"
+              points="50,650 50,750 250,750"
+              style="fill:none;stroke:#0000ff;stroke-width:5"/>
+    <polyline id="cornerRightBottom" 
+              points="1250,750 1450,750 1450,650"
+              style="fill:none;stroke:#0000ff;stroke-width:5"/>
+    <polyline id="edgeBottomLeft" 
+              points="50,850 350,850 350,750"
+              style="fill:none;stroke:#0000ff;stroke-width:5"/>
+    <polyline id="edgeBottomRight" 
+              points="1150,750 1150,850 1450,850"
+              style="fill:none;stroke:#0000ff;stroke-width:5"/>
+    <polyline id="edgeBottomMiddle"
+              points="550,850 950,850"
+              style="fill:none;stroke:#0000ff;stroke-width:5"/>
+       
+    <!--Axes and Coordinatesystem-->
+    <polyline points="750,865 750,810"
+              marker-end="url(#pf1)"  style="fill:none;stroke:#ff0000;stroke-width:4" />
+    <polyline points="735,850 800,850"
+              marker-end="url(#pf1)"  style="fill:none;stroke:#ff0000;stroke-width:4" /> 
+    <text x="785" y="865" style="fill:red;">x</text>
+    <text x="755" y="825" style="fill:red;">y</text>
+    <text x="725" y="865">(0,0)</text>
+    
+    <text x="150" y="720" style="fill:magenta; font-size:20" font-weight = "bold">MAGENTA</text>
+    <text x="1270" y="730" style="fill:cyan; font-size:20" font-weight = "bold">CYAN</text>
+    <!--Zones grid-->
+    <rect id="field"
+          x="50"
+          y="50"
+          width="1400"
+          height="800"
+          stroke-width="0"
+          stroke="black"
+          fill="url(#grid)" />
+    
+    <!--Machines-->   
+    <rect width="35" height="70" fill="url(#mpsM)" stroke-width="1" stroke="black"  transform = "translate(385,165)"/>
+    <rect width="35" height="70" fill="url(#mpsC)" stroke-width="1" stroke="black"  transform = "translate(1120,235) rotate(180)"/>
+    
+    <rect width="35" height="70" fill="url(#mpsM)" stroke-width="1" stroke="black"  transform = "translate(65,315) rotate(-90)"/>
+    <rect width="35" height="70" fill="url(#mpsC)" stroke-width="1" stroke="black"  transform = "translate(1435,280) rotate(90)"/>
+   
+    <rect width="35" height="70" fill="url(#mpsM)" stroke-width="1" stroke="black"  transform = "translate(665,515) rotate(-90)"/>
+    <rect width="35" height="70" fill="url(#mpsC)" stroke-width="1" stroke="black"  transform = "translate(765,515) rotate(-90)"/>
+     
+    <rect width="35" height="70" fill="url(#mpsM)" stroke-width="1" stroke="black"  transform = "translate(515,565) rotate(45)"/>
+    <rect width="35" height="70" fill="url(#mpsC)" stroke-width="1" stroke="black"  transform = "translate(965,585) rotate(-45)"/>
+    
+    <rect width="35" height="70" fill="url(#mpsM)" stroke-width="1" stroke="black"  transform = "translate(265,390) rotate(-45)"/>
+    <rect width="35" height="70" fill="url(#mpsC)" stroke-width="1" stroke="black"  transform = "translate(1190,440) rotate(-135)"/>
+    
+    <rect width="35" height="70" fill="url(#mpsM)" stroke-width="1" stroke="black"  transform = "translate(590,65) rotate(0)"/> 
+    <rect width="35" height="70" fill="url(#mpsC)" stroke-width="1" stroke="black"  transform = "translate(885,65) rotate(0)"/> 
+    
+    <!--Zone&Field Size Arrows -->
+    <text x="20" y="400" transform = "rotate(-90 20 400)">8m</text>
+    <polyline points="30,60 30,840" marker-end="url(#pf2)"  style="fill:none;stroke:#000000;" />
+    <polyline points="30,840 30,60" marker-end="url(#pf2)"  style="fill:none;stroke:#000000;" />
+    
+    <text x="540" y="20">14m</text>
+    <polyline points="60,30 1440,30" marker-end="url(#pf2)"  style="fill:none;stroke:#000000;" />
+    <polyline points="1440,30 60,30" marker-end="url(#pf2)"  style="fill:none;stroke:#000000;" />
+    
+    <text x="590" y="300" transform = "rotate(-90 590 300)">1m</text>
+    <polyline points="600,260 600,340" marker-end="url(#pf2)"  style="fill:none;stroke:#000000;" />
+    <polyline points="600,340 600,260" marker-end="url(#pf2)"  style="fill:none;stroke:#000000;" />
+    
+    <text x="500" y="310">1m</text>
+    <polyline points="460,320 540,320" marker-end="url(#pf2)"  style="fill:none;stroke:#000000;" />
+    <polyline points="540,320 460,320" marker-end="url(#pf2)"  style="fill:none;stroke:#000000;" />
+
+    <text x="825" y="770">Z1</text>
+    <text x="825" y="670">Z2</text>
+    <text x="825" y="570">Z3</text>
+    <text x="825" y="470">Z4</text>
+    <text x="825" y="370">Z5</text>
+    <text x="825" y="270">Z6</text>
+    <text x="825" y="170">Z7</text>
+    <text x="825" y="070">Z8</text>
+
+    <text x="925" y="770">Z9</text>
+    <text x="925" y="670">Z10</text>
+    <text x="925" y="570">Z11</text>
+    <text x="925" y="470">Z12</text>
+    <text x="925" y="370">Z13</text>
+    <text x="925" y="270">Z14</text>
+    <text x="925" y="170">Z15</text>
+    <text x="925" y="070">Z16</text>
+    
+    <text x="1025" y="770">Z17</text>
+    <text x="1025" y="670">Z18</text>
+    <text x="1025" y="570">Z19</text>
+    <text x="1025" y="470">Z20</text>
+    <text x="1025" y="370">Z21</text>
+    <text x="1025" y="270">Z22</text>
+    <text x="1025" y="170">Z23</text>
+    <text x="1025" y="070">Z24</text>
+    
+    <text x="1125" y="770">Z25</text>
+    <text x="1125" y="670">Z26</text>
+    <text x="1125" y="570">Z27</text>
+    <text x="1125" y="470">Z28</text>
+    <text x="1125" y="370">Z29</text>
+    <text x="1125" y="270">Z30</text>
+    <text x="1125" y="170">Z31</text>
+    <text x="1125" y="070">Z32</text>
+    
+    <text x="1225" y="770">Z33</text>
+    <text x="1225" y="670">Z34</text>
+    <text x="1225" y="570">Z35</text>
+    <text x="1225" y="470">Z36</text>
+    <text x="1225" y="370">Z37</text>
+    <text x="1225" y="270">Z38</text>
+    <text x="1225" y="170">Z39</text>
+    <text x="1225" y="070">Z40</text>
+    
+    <text x="1325" y="770">Z41</text>
+    <text x="1325" y="670">Z42</text>
+    <text x="1325" y="570">Z43</text>
+    <text x="1325" y="470">Z44</text>
+    <text x="1325" y="370">Z45</text>
+    <text x="1325" y="270">Z46</text>
+    <text x="1325" y="170">Z47</text>
+    <text x="1325" y="070">Z48</text>
+    
+    <text x="1425" y="770">Z49</text>
+    <text x="1425" y="670">Z50</text>
+    <text x="1425" y="570">Z51</text>
+    <text x="1425" y="470">Z52</text>
+    <text x="1425" y="370">Z53</text>
+    <text x="1425" y="270">Z54</text>
+    <text x="1425" y="170">Z55</text>
+    <text x="1425" y="070">Z56</text>
+
+    <text x="725" y="770">Z57</text>
+    <text x="725" y="670">Z58</text>
+    <text x="725" y="570">Z59</text>
+    <text x="725" y="470">Z60</text>
+    <text x="725" y="370">Z61</text>
+    <text x="725" y="270">Z62</text>
+    <text x="725" y="170">Z63</text>
+    <text x="725" y="070">Z64</text>
+    
+    <text x="625" y="770">Z65</text>
+    <text x="625" y="670">Z66</text>
+    <text x="625" y="570">Z67</text>
+    <text x="625" y="470">Z68</text>
+    <text x="625" y="370">Z69</text>
+    <text x="625" y="270">Z70</text>
+    <text x="625" y="170">Z71</text>
+    <text x="625" y="070">Z72</text>
+
+    <text x="525" y="770">Z73</text>
+    <text x="525" y="670">Z74</text>
+    <text x="525" y="570">Z75</text>
+    <text x="525" y="470">Z76</text>
+    <text x="525" y="370">Z77</text>
+    <text x="525" y="270">Z78</text>
+    <text x="525" y="170">Z79</text>
+    <text x="525" y="070">Z80</text>
+    
+    <text x="425" y="770">Z81</text>
+    <text x="425" y="670">Z82</text>
+    <text x="425" y="570">Z83</text>
+    <text x="425" y="470">Z84</text>
+    <text x="425" y="370">Z85</text>
+    <text x="425" y="270">Z86</text>
+    <text x="425" y="170">Z87</text>
+    <text x="425" y="070">Z88</text>
+
+    <text x="325" y="770">Z89</text>
+    <text x="325" y="670">Z90</text>
+    <text x="325" y="570">Z91</text>
+    <text x="325" y="470">Z92</text>
+    <text x="325" y="370">Z93</text>
+    <text x="325" y="270">Z94</text>
+    <text x="325" y="170">Z95</text>
+    <text x="325" y="070">Z96</text>
+    
+    <text x="220" y="770">Z97</text>
+    <text x="220" y="670">Z98</text>
+    <text x="220" y="570">Z99</text>
+    <text x="220" y="470">Z100</text>
+    <text x="220" y="370">Z101</text>
+    <text x="220" y="270">Z102</text>
+    <text x="220" y="170">Z103</text>
+    <text x="220" y="070">Z104</text>             
+
+    <text x="120" y="770">Z105</text>
+    <text x="120" y="670">Z106</text>
+    <text x="120" y="570">Z107</text>
+    <text x="120" y="470">Z108</text>
+    <text x="120" y="370">Z109</text>
+    <text x="120" y="270">Z110</text>
+    <text x="120" y="170">Z111</text>
+    <text x="120" y="070">Z112</text>              
+        
+    <!--Insertian Area and Robotinos-->
+    <rect id="insertArea1" x="1152" y="752" width="296" height="96" fill="lightgray"/>
+    <text x="1220" y="840" font-size = "18" font-weight = "bold">Insertion Area CYAN</text>       
+    <rect id="insertArea2" x="52" y="752" width="296" height="96" fill="lightgray"/>
+    <text x="90" y="840" font-size = "18" font-weight = "bold">Insertion Area MAGENTA</text>
+    
+    <circle id="robi" cx="100" cy="800" r="23" fill="magenta" stroke-width="1" stroke="black" />
+    <circle id="robi" cx="200" cy="800" r="23" fill="magenta" stroke-width="1" stroke="black" />
+    <circle id="robi" cx="300" cy="800" r="23" fill="magenta" stroke-width="1" stroke="black" />
+    <circle id="robi" cx="1200" cy="800" r="23" fill="cyan" stroke-width="1" stroke="black" />
+    <circle id="robi" cx="1300" cy="800" r="23" fill="cyan" stroke-width="1" stroke="black" />
+    <circle id="robi" cx="1400" cy="800" r="23" fill="cyan" stroke-width="1" stroke="black" />
+    
+    <text x="370" y="820">still in field</text>
+    <circle id="robi" cx="400" cy="850" r="23" fill="green" stroke-width="1" stroke="black" />
+    <circle id="robi" cx="500" cy="875" r="23" fill="red" stroke-width="1" stroke="black" />
+    <text x="453" y="845">robot out of field</text>    
+</svg>
