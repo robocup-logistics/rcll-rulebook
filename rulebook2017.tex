@@ -177,7 +177,8 @@ context-aware facility in which manufacturing steps are considered as
 services that can be combined efficiently in (almost) arbitrary ways
 allowing for the production of various product types and variants
 cost-effectively even in small lot sizes, rather than the more
-traditional chains which produce only a small number of product types
+traditional chains which produce only a small number of produc
+t types
 at high volumes~\cite{RCLL-CPS}. Such factories will require a much
 more capable logistics system, of which the most flexible form are
 autonomous mobile robots.
@@ -225,12 +226,14 @@ again become more flexible and dynamic, by introducing color-coded
 rings of which a varying number can be requested to be mounted in a
 specific order for a certain product. This increased the number of
 products from 3 to about 240. After three years of constant and
-tremendous changes, 2016 will be a year to consolidate our league as a
+tremendous changes, 2016 was a year to consolidate our league as a
 whole by increasing the number of participating teams and allowing
-existing teams to excel in their capabilities. The major modification
-is the introduction of a bar code on workpieces, as to allow to
-recognize specific products by processing stations and award points
-for production steps during the game.
+existing teams to excel in their capabilities. This year we will change 
+the field size and zone layout. Production has to be the main focus by
+making the exploration phase shorter and more insignificant.
+Also the workpieces will be marked with barcodes, to track specific
+products by processing stations and award points for production 
+steps during the game.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The Task}
@@ -360,7 +363,7 @@ league is available at\\
 \subsection{Field Layout and Dimensions}
 \label{sec:competition-area}
 The competition area is shown in \reffig{fig:competition-area} and
-features a \SI{14 x 8}{\metre} large arena with 112 rectangular zones
+features a \SI{14 x 8}{\metre} large arena with 112 square zones
 of \SI{1 x 1}{\metre} with 12 randomly distributed machines. The
 field is partially surrounded (at least 50\% but not more than 70\%)
 by wall elements of at least \SI{0.5}{\metre} height.  The origin and
@@ -398,9 +401,7 @@ to the y-axis. Thus, each team has similar conditions on both halfs of
 the competition field. Both teams have an exclusive set of 6 out of
 the 12 machines each. Machines from one team can also be located on
 primary side of the opposing team. We will later discuss the concept
-of the production machine distribution for each team in detail. For
-now, note that the conditions for each team will be similar, i.e. the
-distribution will be symmetrical.
+of the production machine distribution for each team in detail.
 
 The center coordinates and the size of the zones in which the machines
 are placed can be seen in \reffig{fig:competition-area}. Note that
@@ -425,8 +426,7 @@ Robots that leave the competition area illegally are considered as
 (cf.~\refsec{sec:robot-maintenance}).
 
 \begin{figure}
-  \includegraphics[angle=-90 , trim = 0 0 0 0,
-  scale=0.6]{field2017.pdf}
+  \includegraphics[width=\paperwidth, angle=-90 , trim = 0 0 0 0,]{field2017.pdf}
   \vspace{1ex}
   \caption{Competition area: squares indicate possible machine
     placements, circles denote robots. Cyan and magenta are team
@@ -660,17 +660,13 @@ located and what light signal pattern is shown.
 
 The Referee Box assigns each machine to a team and a zone
 (\reffig{fig:competition-area}) at the start of the exploration
-phase,\footnote{Note that in 2016 the BS and DS are assigned to fixed
-  zones, the mapping is: C-BS in Z9, M-BS in Z21, C-DS in Z4, and M-DS
-  in Z16. The prefix ``C-'' means team cyan, ``M-'' means magenta. The
-  position and orientation within the zone remains variable.}  but the
-exact position and alignment within these and if this zone contains an
-MPS at all will not be communicated. Each MPS is assigned an
-individual light signal pattern randomly. The pattern consists of
-steady lights only, i.e. no flashing lights, resulting in seven
-possible light states with at least one light switched on. For details
-how to perform the exploration phase
-cf.~\refsec{sec:exploration-phase}.
+phase,\footnote{in 2017 ther are no more fixed stations. The prefix ``C-'' means team 
+cyan, ``M-'' means magenta.} 
+The zones and orientation are randomly determined,  and will not be 
+communicated.~\refsec{sec:exploration-phase}. The random algorithm
+has some constraints. Machines at edge positions are aligned exclusively 
+at the 0 or 180 degree angle. In this case the shelves are aligned well 
+accessible to the middle of the field.
 
 After a successful report, the respective MPS will show a blinking
 green signal indicating visually for spectators that the MPS was
