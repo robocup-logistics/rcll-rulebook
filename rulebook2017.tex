@@ -205,7 +205,7 @@ partner Festo provides insights into future factory concepts to help
  systems. Opposed to numerous approaches regarding production
  infrastructure, RCLL aims to provide concepts for smart production
  logistics.
-
+ 	
 After an exciting RoboCup in Hefei, we look forward to a new scale of
 competition that will emerge from initiatives around the globe. In
 2012 we had our first Logistics League World Champion.  In 2013 we
@@ -662,11 +662,13 @@ The Referee Box assigns each machine to a team and a zone
 (\reffig{fig:competition-area}) at the start of the exploration
 phase,\footnote{in 2017 ther are no more fixed stations. The prefix ``C-'' means team 
 cyan, ``M-'' means magenta.} 
-The zones and orientation are randomly determined,  and will not be 
+The zones and orientations (in steps of 45$^\circ$) are randomly determined,  and will not be 
 communicated.~\refsec{sec:exploration-phase}. The random algorithm
 has some constraints. Machines at edge positions are aligned exclusively 
 at the 0 or 180 degree angle. In this case the shelves are aligned well 
 accessible to the middle of the field.
+
+
 
 After a successful report, the respective MPS will show a blinking
 green signal indicating visually for spectators that the MPS was
@@ -1075,13 +1077,13 @@ With the start of the exploration phase, the referee box announces the
 mapping from zones to teams and from light patterns to type
 strings. As described in \refsec{sec:production-machines-exp}, all MPS
 show a steady light signal as randomly chosen by the referee box. The
-robots have 4 minutes to roam the environment and announce their 6 MPS
+robots have 3 minutes to roam the environment and announce their 6 MPS
 for a successful exploration to the referee box. The detection of one
 MPS can be split in two parts, first the detection of the machines
-position and type and then the detection of the machines light signal.
+position and type and then the detection of the orientation.
 Concretely, the referee box expects a \emph{machine identification
   message} with a tuple consisting of zone, machine name (as encoded
-in the markers), light pattern, and type string.  For the two
+in the markers), orientation in degrees, and type string. For the two
 different stages of the detection of one MPS, this message can just be
 party filled.  Please consult the referee box Integrator's
 Manual~\cite{RefBoxIntManual} for a detailed definition of the message
@@ -1389,22 +1391,22 @@ announced cannot be awarded.
 
 \begin{table}
   \centering
-  
-    \subtable[Scoring scheme for the exploration phase]{%
+
+    \subtable[Scoring scheme for the exploration phase]{
       \label{tab:scoring-exploration}   
 
-      \mytable{\begin{tabularx}{\linewidth}{p{6em}|p{4em}|X|p{4em}}
-          \multicolumn{1}{l}{Report type} &\multicolumn{1}{l}{Correct} & \multicolumn{1}{l}{Description} & \multicolumn{1}{l}{Points}\\\hline
-          \multirow{2}{*}{Position} & yes & Correctly determine a machine type of your team and report it successfully to the refbox &	+3\\
-    & no & Wrongly reported machine type &  -2\\
-    \multirow{2}{*}{Light} & yes & Correctly determine a machine light pattern of your team and report it successfully to the refbox & +5\\
-    & no & Wrongly reported machine light pattern & -4\\\hline
-    \multicolumn{2}{l|}{Round Total} & A maximum of 48 points can be achieved by correctly
-    reporting all 6 production machines. A minimum of 0 points is
-    awarded. & 0 -- 48\\%\hline
-  \end{tabularx} }}%
+     \mytable{
+         \begin{tabularx}{\linewidth}{p{7em}|X|p{2.4em}} 
+           \multicolumn{1}{l}{Report type} &\multicolumn{1}{l}{Description} & \multicolumn{1}{l}{Points}\\\hline
+      	Type/Orientation & Correctly determine a machine type and the rotation of your team and report it successfully to the refbox & +2\\ 
+	     Type & only machine type reported & +1\\
+ 	 	& Machine type ok but orientation wrong (1-1=0) & 0\\
+		& wrongly reported machine type (orientation irrelevant) & -1\\\hline
+           Round Total &  A maximum of 12 points can be achieved by correctly reporting all 6 production machines. A minimum of 0 points is
+    awarded. & 0 -- 12\\
+  \end{tabularx} }}
 
-\bigskip%
+\bigskip
 
   \subtable[Scoring scheme for the production phase]{
     \label{tab:scoring-production}   
