@@ -363,8 +363,8 @@ league is available at\\
 \subsection{Field Layout and Dimensions}
 \label{sec:competition-area}
 The competition area is shown in \reffig{fig:competition-area} and
-features a \SI{14 x 8}{\metre} large arena with 112 square zones
-of \SI{1 x 1}{\metre} with 12 randomly distributed machines. The
+features a \SI{14 x 8}{\metre} large arena with 106 square zones
+of \SI{1 x 1}{\metre} with 14 randomly distributed machines. The
 field is partially surrounded (at least 50\% but not more than 70\%)
 by wall elements of at least \SI{0.5}{\metre} height.  The origin and
 coordinate system of the competition field is drawn in
@@ -382,7 +382,7 @@ side with negative coordinates on the x-axis as the primary half of
 team magenta.
 
 The robot insertion areas (gray area on figure) is outside of the main
-game area. All 12 machines, 6 per team are placed within the factory
+game area. All 14 machines, 7 per team are placed within the factory
 area as stated in \reffig{fig:competition-area}. The positions and
 alignments in the figure are just exemplary. During the competition
 these are arbitrary and will change from match to match.  Machines
@@ -398,8 +398,8 @@ machines are from different teams).
 
 The distribution and alignment of all machines is axially symmetrical
 to the y-axis. Thus, each team has similar conditions on both halfs of
-the competition field. Both teams have an exclusive set of 6 out of
-the 12 machines each. Machines from one team can also be located on
+the competition field. Both teams have an exclusive set of 7 out of
+the 14 machines each. Machines from one team can also be located on
 primary side of the opposing team. We will later discuss the concept
 of the production machine distribution for each team in detail.
 
@@ -639,9 +639,41 @@ calibrate individually per marker. All markers used are depicted in
 Logistics website.
 
 
-\subsubsection{Machine Swapping}
+\subsubsection{Machine Positioning}
 \label{sec:machine-swapping}
-Each team has a primary half
+\begin{figure}[tp]
+    \centering
+    \subfigure[For rotations with \ang{0}, \ang{90}, \ang{180} or \ang{270}.]{
+        \label{fig:zone-mps-rotation-straight}%
+        \centering
+        TODO \phantom{TODO TODO TODO TODO TODO}
+%        \includegraphics[width=0.4\textwidth]{figures/workpieces}
+    }
+    \quad
+    % 
+    \subfigure[For rotations with  \ang{45}, \ang{135}, \ang{225} and \ang{315}.]{
+        \label{fig:zone-mps-rotation-odd}%
+        \centering
+        TODO \phantom{TODO TODO TODO TODO TODO}
+%        \includegraphics[width=0.4\textwidth]{figures/TODO}
+    }
+    \caption{Blocked zones regarding the MPS rotation.}
+    \label{fig:zone-mps-blocked}
+\end{figure}
+The MPS zones and rotations will be randomly chosen by the RefBox.
+Each game will have a new randomly generated field layout, the referees will place the MPS in the middle of the zone with given rotation at there best effort but errors of the positioning should be expected.
+
+A MPS can be place in all zones except C-Z52 and M-Z52, the zone needed to drive into the field.
+The rotation of the MPS can have 8 possible angles, starting at \ang{0} with \ang{45} steps.
+For placing of machines, the RefBox will take care of some constrains to ensure all in- and output sides, shelfs and slides are reachable.
+If a machine is rotated with \ang{0}, \ang{90}, \ang{180} or \ang{270} the zones in front the input and output side are blocked as well (fig.~\ref{fig:zone-mps-rotation-straight}).
+For machines with rotations \ang{45}, \ang{135}, \ang{225} and \ang{315} three zones in front of each input and output side are blocked (fig.~\ref{fig:zone-mps-rotation-odd}).
+Blocked zones are not only blocked for MPS but also for the blocked zones of other MPS.
+Machines at edge positions are aligned exclusively 
+at the 0 or 180 degree angle. In this case the shelves are aligned well 
+accessible to the middle of the field.
+
+The MPS will be placed mostly on the primary half of a team
 (cf. \refsec{sec:competition-area}). However, some machines will be
 swapped, that is, some machines will not be located in the primary
 half.
@@ -656,24 +688,19 @@ same type of the other team.
 \label{sec:production-machines-exp}
 During the exploration phase the robots of each team can explore their
 unknown factory environment by identifying where the different MPS are
-located and what light signal pattern is shown.
+located and in which rotations they are positioned.
 
 The Referee Box assigns each machine to a team and a zone
 (\reffig{fig:competition-area}) at the start of the exploration
 phase,\footnote{in 2017 ther are no more fixed stations. The prefix ``C-'' means team 
 cyan, ``M-'' means magenta.} 
 The zones and orientations (in steps of 45$^\circ$) are randomly determined,  and will not be 
-communicated.~\refsec{sec:exploration-phase}. The random algorithm
-has some constraints. Machines at edge positions are aligned exclusively 
-at the 0 or 180 degree angle. In this case the shelves are aligned well 
-accessible to the middle of the field.
+communicated until the production phase.~\refsec{sec:exploration-phase}.
 
-
-
-After a successful report, the respective MPS will show a blinking
-green signal indicating visually for spectators that the MPS was
-indeed explored successfully. For a wrong report, the station will
-show a red flashing light.
+The signal light of the MPS will show a yellow light until a report regarding this machine is send.
+If the wrong MPS zone is send, the light will start red flashing.
+If only the MPS zone is send, the green light will be turn on.
+If the zone and rotation is correctly reported, the green light will be flashing and if the zone is correct but the rotation wrongly reported the red and green light will be on.
 
 \begin{table}[tp]
   \centering
@@ -723,9 +750,9 @@ flash the red and yellow light and will be out of order
 (cf. \refsec{sec:broken-machine}). The light signals are summarized in
 \reftab{tab:production-machines-feedback}.
 
-In the production phase, machines must be setup before they can be
-used. This applies to all machine types BS, DS, CS, and RS. If the
-machine is not properly setup before used, it will go to a temporary
+In the production phase, machines must be setup to be
+used. This applies to all machine types BS, DS, CS, SS and RS.
+When the machine received the setup the conveyor belt starts running for \SI{30}{\second}, if no product reaches the middle sensor within this time the machine goes to a temporary
 out-of-order state (cf.~\refsec{sec:broken-machine}).
 
 The following describes the communication and reactions of the
@@ -759,6 +786,7 @@ to the integrator's manual~\cite{RefBoxIntManual}.
   additional bases has been received, the intermediate product can be
   fed into the machine. It receives a ring of the desired color and
   moves the processed product to the output.
+  \item[SS] TODO.
 \end{description}
 
 \noindent
@@ -769,7 +797,7 @@ unless the intermediate product has already been fed into the
 machine.\footnote{Note that canceling is not available in 2016.}
 Canceling will invalidate any additional bases that have been taken to
 the machine. There may be only one transaction running at a time. If a
-second setup is performed without canceling the first the machine will
+second setup is performed without canceling the first one the machine will
 be temporarily broken (cf.~\refsec{sec:broken-machine}).
 
 \subsubsection{Delivery Station} 
@@ -1101,7 +1129,7 @@ exploration phase.
 \subsection{Production Phase}
 \label{sec:production-phase}
 With the end of the exploration phase the production phase begins,
-which lasts \num{15} minutes. The referee box publishes information
+which lasts \num{16} minutes. The referee box publishes information
 regarding products and machines. This includes machine zones and
 contained colors of ring and cap stations, as well as the different
 product variants that can be produced (cf.~\refsec{sec:products}). The
@@ -1343,14 +1371,14 @@ mentioned in \refsec{sec:production-machines-production}.
 
 \subsubsection{Broken Machine Downtime}
 \label{sec:broken-machine}
-If a machine is improperly instructed or used, the machine will go
+If a machine is improperly instructed or used or a reset msg has been send, the machine will go
 into a failure state. The machine cannot be used for 30 seconds and
 until repaired. That is, if damage was inflicted on the machine or the
 referee needs longer to repair the machine the game continues and the
 machine will be offline for a longer time. Any production that was
 running will be aborted and any product which was being processed is
 no longer available and will be removed by the referee. Any additional
-bases delivered to the machine will be void. The downtime is indicated
+bases delivered to the machine will be void and the gained points removed. The downtime is indicated
 by a flashing red light.
 
 \subsection{Task Fulfillment and Scoring}
