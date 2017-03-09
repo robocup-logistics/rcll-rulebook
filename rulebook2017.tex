@@ -462,7 +462,8 @@ height.\footnote{Note however, that due to small variances and
 between guiding lanes is \SI{4.5}{\centi\metre}. Setup lanes and
 shelves feature approximately the same space for handling and
 adjusting.  To simplify the delivery on the belt, each machine will be
-equipped with a narrowing cone on its input side
+equipped with a narrowing cone on its input side. All diffuse sensors
+ (input side) have been removed to allow for infrared based cameras.
 (\reffig{fig:narrow-cone}). The exact dimensions are specified in the
 near future and announced on the mailing list.
 \begin{figure}
@@ -475,7 +476,7 @@ near future and announced on the mailing list.
 % is placed) the conveyor space opens up at half of the aluminum
 % profile thus starting at \SI{0,35}{\metre}.
 
-Based on these shared properties, there are four kinds of machines:
+Based on these shared properties, there are five kinds of machines:
 
 \begin{description}
 \item[Base Station (BS)] acts as dispenser of base elements
@@ -497,6 +498,11 @@ Based on these shared properties, there are four kinds of machines:
   unique colors which are determined new for each game. There is an
   additionally pre-fill slide which is used for some colors (specified
   anew for each game) to add base elements. There are two RS per team.
+  
+\item[Storage Station (SS)] provides 24 slots of storage divided into 6
+ layers. Items can be shipped in for storing to the input side
+  (disabled for 2017) and shipped out on the output side on request. (\reffig{fig:SS})
+  In 2017 the Storage Station will provide a sample of each C0 configuration.
 
 \item[Delivery Station (DS)] Accepts completed products. The stations
   contains three conveyor belts (\reffig{fig:DS}). The robot has to
@@ -2264,7 +2270,7 @@ layout combined with a custom made sensor board.
 \end{itemize}
 
 \subsubsection{Software}
-Pre-installed is Ubuntu Linux 12.04 LTS operating system, 14.04 LTS available.
+Pre-installed is Ubuntu Linux 12.04 LTS operating system, 16.04 LTS available.
 The main part of the controller is the Robotino server, a real time Linux
 application. It controls the drive units and provides interfaces to
 communicate with external PC applications via wifi. Also provided: API
