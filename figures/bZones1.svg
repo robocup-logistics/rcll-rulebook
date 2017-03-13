@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="297mm"
+   height="210mm"
+   viewBox="0 0 297 210"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.1 r15371"
+   sodipodi:docname="bZones1.svg">
+  <defs
+     id="defs2">
+    <style
+       id="style3754"
+       type="text/css">
+            text{font-size:14px;}
+        </style>
+    <pattern
+       patternUnits="userSpaceOnUse"
+       height="100"
+       width="100"
+       y="0"
+       x="0"
+       id="grid">
+      <rect
+         stroke="black"
+         stroke-width="1"
+         fill="none"
+         height="100"
+         width="100"
+         y="0"
+         x="0"
+         id="area" />
+    </pattern>
+    <pattern
+       height="70"
+       width="35"
+       y="0"
+       x="0"
+       id="mpsC">
+      <rect
+         id="rect3758"
+         stroke="black"
+         stroke-width="1"
+         fill="cyan"
+         height="70"
+         width="35"
+         y="0"
+         x="0" />
+      <rect
+         id="rect3760"
+         stroke="black"
+         stroke-width="1"
+         fill="lightgrey"
+         height="6"
+         width="35"
+         y="35" />
+      <rect
+         id="rect3762"
+         stroke="black"
+         stroke-width="1"
+         fill="lightgrey"
+         height="32"
+         width="15"
+         y="1"
+         x="20" />
+      <circle
+         id="circle3764"
+         stroke="black"
+         stroke-width="1"
+         fill="white"
+         r="4"
+         cy="07"
+         cx="32" />
+      <circle
+         id="circle3766"
+         stroke="black"
+         stroke-width="1"
+         fill="white"
+         r="4"
+         cy="17"
+         cx="32" />
+      <circle
+         id="circle3768"
+         stroke="black"
+         stroke-width="1"
+         fill="white"
+         r="4"
+         cy="27"
+         cx="32" />
+    </pattern>
+    <style
+       id="style3814"
+       type="text/css">
+            text{font-size:14px;}
+        </style>
+    <pattern
+       patternUnits="userSpaceOnUse"
+       height="100"
+       width="100"
+       y="0"
+       x="0"
+       id="grid-3">
+      <rect
+         stroke="black"
+         stroke-width="1"
+         fill="none"
+         height="100"
+         width="100"
+         y="0"
+         x="0"
+         id="area-7" />
+    </pattern>
+    <pattern
+       height="70"
+       width="35"
+       y="0"
+       x="0"
+       id="mpsC-0">
+      <rect
+         id="rect3818"
+         stroke="black"
+         stroke-width="1"
+         fill="cyan"
+         height="70"
+         width="35"
+         y="0"
+         x="0" />
+      <rect
+         id="rect3820"
+         stroke="black"
+         stroke-width="1"
+         fill="lightgrey"
+         height="6"
+         width="35"
+         y="35" />
+      <rect
+         id="rect3822"
+         stroke="black"
+         stroke-width="1"
+         fill="lightgrey"
+         height="32"
+         width="15"
+         y="1"
+         x="20" />
+      <circle
+         id="circle3824"
+         stroke="black"
+         stroke-width="1"
+         fill="white"
+         r="4"
+         cy="07"
+         cx="32" />
+      <circle
+         id="circle3826"
+         stroke="black"
+         stroke-width="1"
+         fill="white"
+         r="4"
+         cy="17"
+         cx="32" />
+      <circle
+         id="circle3828"
+         stroke="black"
+         stroke-width="1"
+         fill="white"
+         r="4"
+         cy="27"
+         cx="32" />
+    </pattern>
+    <style
+       id="style3874"
+       type="text/css">
+            text{font-size:14px;}
+        </style>
+    <pattern
+       patternUnits="userSpaceOnUse"
+       height="100"
+       width="100"
+       y="0"
+       x="0"
+       id="grid-0">
+      <rect
+         stroke="black"
+         stroke-width="1"
+         fill="none"
+         height="100"
+         width="100"
+         y="0"
+         x="0"
+         id="area-5" />
+    </pattern>
+    <pattern
+       height="70"
+       width="35"
+       y="0"
+       x="0"
+       id="mpsC-6">
+      <rect
+         id="rect3878"
+         stroke="black"
+         stroke-width="1"
+         fill="cyan"
+         height="70"
+         width="35"
+         y="0"
+         x="0" />
+      <rect
+         id="rect3880"
+         stroke="black"
+         stroke-width="1"
+         fill="lightgrey"
+         height="6"
+         width="35"
+         y="35" />
+      <rect
+         id="rect3882"
+         stroke="black"
+         stroke-width="1"
+         fill="lightgrey"
+         height="32"
+         width="15"
+         y="1"
+         x="20" />
+      <circle
+         id="circle3884"
+         stroke="black"
+         stroke-width="1"
+         fill="white"
+         r="4"
+         cy="07"
+         cx="32" />
+      <circle
+         id="circle3886"
+         stroke="black"
+         stroke-width="1"
+         fill="white"
+         r="4"
+         cy="17"
+         cx="32" />
+      <circle
+         id="circle3888"
+         stroke="black"
+         stroke-width="1"
+         fill="white"
+         r="4"
+         cy="27"
+         cx="32" />
+    </pattern>
+    <style
+       id="style67"
+       type="text/css">
+            text{font-size:14px;}
+        </style>
+    <pattern
+       patternUnits="userSpaceOnUse"
+       height="100"
+       width="100"
+       y="0"
+       x="0"
+       id="grid-4">
+      <rect
+         stroke="black"
+         stroke-width="1"
+         fill="none"
+         height="100"
+         width="100"
+         y="0"
+         x="0"
+         id="area-2" />
+    </pattern>
+    <pattern
+       height="70"
+       width="35"
+       y="0"
+       x="0"
+       id="mpsC-4">
+      <rect
+         id="rect71"
+         stroke="black"
+         stroke-width="1"
+         fill="cyan"
+         height="70"
+         width="35"
+         y="0"
+         x="0" />
+      <rect
+         id="rect73"
+         stroke="black"
+         stroke-width="1"
+         fill="lightgrey"
+         height="6"
+         width="35"
+         y="35" />
+      <rect
+         id="rect75"
+         stroke="black"
+         stroke-width="1"
+         fill="lightgrey"
+         height="32"
+         width="15"
+         y="1"
+         x="20" />
+      <circle
+         id="circle77"
+         stroke="black"
+         stroke-width="1"
+         fill="white"
+         r="4"
+         cy="07"
+         cx="32" />
+      <circle
+         id="circle79"
+         stroke="black"
+         stroke-width="1"
+         fill="white"
+         r="4"
+         cy="17"
+         cx="32" />
+      <circle
+         id="circle81"
+         stroke="black"
+         stroke-width="1"
+         fill="white"
+         r="4"
+         cy="27"
+         cx="32" />
+    </pattern>
+    <style
+       id="style115"
+       type="text/css">
+            text{font-size:14px;}
+        </style>
+    <pattern
+       patternUnits="userSpaceOnUse"
+       height="100"
+       width="100"
+       y="0"
+       x="0"
+       id="grid-41">
+      <rect
+         stroke="black"
+         stroke-width="1"
+         fill="none"
+         height="100"
+         width="100"
+         y="0"
+         x="0"
+         id="area-3" />
+    </pattern>
+    <pattern
+       height="70"
+       width="35"
+       y="0"
+       x="0"
+       id="mpsC-2">
+      <rect
+         id="rect119"
+         stroke="black"
+         stroke-width="1"
+         fill="cyan"
+         height="70"
+         width="35"
+         y="0"
+         x="0" />
+      <rect
+         id="rect121"
+         stroke="black"
+         stroke-width="1"
+         fill="lightgrey"
+         height="6"
+         width="35"
+         y="35" />
+      <rect
+         id="rect123"
+         stroke="black"
+         stroke-width="1"
+         fill="lightgrey"
+         height="32"
+         width="15"
+         y="1"
+         x="20" />
+      <circle
+         id="circle125"
+         stroke="black"
+         stroke-width="1"
+         fill="white"
+         r="4"
+         cy="07"
+         cx="32" />
+      <circle
+         id="circle127"
+         stroke="black"
+         stroke-width="1"
+         fill="white"
+         r="4"
+         cy="17"
+         cx="32" />
+      <circle
+         id="circle129"
+         stroke="black"
+         stroke-width="1"
+         fill="white"
+         r="4"
+         cy="27"
+         cx="32" />
+    </pattern>
+    <style
+       id="style163"
+       type="text/css">
+            text{font-size:14px;}
+        </style>
+    <pattern
+       patternUnits="userSpaceOnUse"
+       height="100"
+       width="100"
+       y="0"
+       x="0"
+       id="grid-8">
+      <rect
+         stroke="black"
+         stroke-width="1"
+         fill="none"
+         height="100"
+         width="100"
+         y="0"
+         x="0"
+         id="area-0" />
+    </pattern>
+    <pattern
+       height="70"
+       width="35"
+       y="0"
+       x="0"
+       id="mpsC-5">
+      <rect
+         id="rect167"
+         stroke="black"
+         stroke-width="1"
+         fill="cyan"
+         height="70"
+         width="35"
+         y="0"
+         x="0" />
+      <rect
+         id="rect169"
+         stroke="black"
+         stroke-width="1"
+         fill="lightgrey"
+         height="6"
+         width="35"
+         y="35" />
+      <rect
+         id="rect171"
+         stroke="black"
+         stroke-width="1"
+         fill="lightgrey"
+         height="32"
+         width="15"
+         y="1"
+         x="20" />
+      <circle
+         id="circle173"
+         stroke="black"
+         stroke-width="1"
+         fill="white"
+         r="4"
+         cy="07"
+         cx="32" />
+      <circle
+         id="circle175"
+         stroke="black"
+         stroke-width="1"
+         fill="white"
+         r="4"
+         cy="17"
+         cx="32" />
+      <circle
+         id="circle177"
+         stroke="black"
+         stroke-width="1"
+         fill="white"
+         r="4"
+         cy="27"
+         cx="32" />
+    </pattern>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="660.24591"
+     inkscape:cy="379.87778"
+     inkscape:document-units="mm"
+     inkscape:current-layer="g3749"
+     showgrid="true"
+     inkscape:window-width="2160"
+     inkscape:window-height="1377"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid3933" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-87)">
+    <g
+       id="g3749"
+       transform="matrix(0.14300099,0,0,0.14174107,15.874999,43.000001)">
+      <g
+         id="g229"
+         transform="translate(37.004405,-597.33334)">
+        <g
+           transform="matrix(1.8502203,0,0,1.8666667,-37.0044,991.20001)"
+           id="g113">
+          <rect
+             id="field-7"
+             x="0"
+             y="0"
+             width="300"
+             height="300"
+             style="fill:url(#grid-4);stroke:#000000;stroke-width:0" />
+          <rect
+             y="0"
+             x="0"
+             width="35"
+             height="70"
+             transform="translate(135,115)"
+             id="rect87"
+             style="fill:url(#mpsC-4);stroke:#000000;stroke-width:1" />
+          <rect
+             style="fill:#ffb6c1"
+             x="202"
+             y="102"
+             width="96"
+             height="96"
+             id="rect89" />
+          <rect
+             style="fill:#ffb6c1"
+             x="2"
+             y="102"
+             width="96"
+             height="96"
+             id="rect91" />
+        </g>
+        <g
+           transform="matrix(1.8502203,0,0,1.8666667,630.92512,989.33333)"
+           id="g161">
+          <rect
+             id="field-9"
+             x="0"
+             y="0"
+             width="300"
+             height="300"
+             style="fill:url(#grid-41);stroke:#000000;stroke-width:0" />
+          <rect
+             y="0"
+             x="0"
+             width="35"
+             height="70"
+             transform="rotate(-90,140,25)"
+             id="rect135"
+             style="fill:url(#mpsC-2);stroke:#000000;stroke-width:1" />
+          <rect
+             style="fill:#ffb6c1"
+             x="102"
+             y="2"
+             width="96"
+             height="96"
+             id="rect137" />
+          <rect
+             style="fill:#ffb6c1"
+             x="102"
+             y="202"
+             width="96"
+             height="96"
+             id="rect139" />
+        </g>
+        <g
+           transform="matrix(1.8502203,0,0,1.8666667,1284.2503,990.59998)"
+           id="g211">
+          <polyline
+             id="cornerLeftTop-4"
+             points="0,150 0,0 300,0"
+             style="fill:none;stroke:#0000ff;stroke-width:5" />
+          <rect
+             id="field-2"
+             x="0"
+             y="0"
+             width="300"
+             height="300"
+             style="fill:url(#grid-8);stroke:#000000;stroke-width:0" />
+          <rect
+             y="0"
+             x="0"
+             width="35"
+             height="70"
+             transform="rotate(-90,92.5,-22.5)"
+             id="rect184"
+             style="fill:url(#mpsC-5);stroke:#000000;stroke-width:1" />
+          <text
+             style="font-size:14px"
+             x="120"
+             y="20"
+             id="text186">DS or SS</text>
+          <rect
+             style="fill:#ffb6c1"
+             x="102"
+             y="102"
+             width="96"
+             height="96"
+             id="rect188" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
