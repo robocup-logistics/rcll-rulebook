@@ -814,7 +814,9 @@ to the integrator's manual~\cite{RefBoxIntManual}.
   additional bases has been received, the intermediate product can be
   fed into the machine. It receives a ring of the desired color and
   moves the processed product to the output.
-  \item[SS] TODO.
+  \item[SS] The SS setup message denotes the base and cap color of the $C_0$ element that should be dispensed.
+  The products provided from the SS are only allowed to be used for $C_0$ orders with the quantity greater than 1.
+  After receiving the message, the refbox will instruct the MPS to immediately provide the desired $C_0$ and subtract 10 Points.\footnote{The TC is working on the integration of the SS, but for 2017 a working SS will not be promised.}
 \end{description}
 
 \noindent
@@ -822,7 +824,7 @@ The setup and use of a machine follows a transaction style. Once the
 machine has been setup, the full cycle can be completed (committed).
 But if a robot desires, it can cancel the production on the machine,
 unless the intermediate product has already been fed into the
-machine.\footnote{Note that canceling is not available in 2016.}
+machine.\footnote{Note that canceling might not be available in 2017.}
 Canceling will invalidate any additional bases that have been taken to
 the machine. There may be only one transaction running at a time. If a
 second setup is performed without canceling the first one the machine will
@@ -1129,8 +1131,7 @@ exploration phase after 5 minutes.
 \label{sec:exploration-phase}
 With the start of the exploration phase, the referee box announces the
 mapping from zones to teams.
-As described in \refsec{sec:production-machines-exp}, all MPS
-show a steady light signal as randomly chosen by the referee box. The
+The
 robots have 3 minutes to roam the environment and announce their 7 MPS
 for a successful exploration to the referee box. The detection of one
 MPS can be split in two parts, first the detection of the machines
@@ -1172,6 +1173,7 @@ by 5 more minutes, unless both teams scored zero points. If after five
 minutes there is still no winner, the team scoring the first points
 during the extension will win. If the draw cannot be resolved and a
 winner is required a coin toss decides.
+A minimum of zero points will be accounted at the end of the game.
 
 \subsubsection{Production, Color Complexities, and Additional Bases}
 \label{sec:production-complexities}
