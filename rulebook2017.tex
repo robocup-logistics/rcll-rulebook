@@ -499,10 +499,12 @@ Based on these shared properties, there are five kinds of machines:
   additionally pre-fill slide which is used for some colors (specified
   anew for each game) to add base elements. There are two RS per team.
   
-\item[Storage Station (SS)] provides 24 slots of storage divided into 6
- layers. Items can be shipped in for storing to the input side
-  (disabled for 2017) and shipped out on the output side on request. (\reffig{fig:SS_portrait})
-  In 2017 the Storage Station will provide a sample of each C0 configuration.
+\item[Storage Station (SS)] provides 24 slots of storage divided into
+  6 layers (\reffig{fig:SS_portrait}). Items can be shipped in for
+  storing to the input side and shipped out on the output side on
+  request. The Storage Station provides a sample of each possible
+  $C_0$ configuration (one per layer).\footnote{Note that this is the
+    specific content for 2017 and may change in the future.}
 
 \item[Delivery Station (DS)] Accepts completed products. The stations
   contains three conveyor belts (\reffig{fig:DS}). The robot has to
@@ -684,7 +686,8 @@ Logistics website.
         \centering
         \includegraphics[width=\textwidth]{bZones2.pdf}
     }
-    \caption{Blocked zones regarding the MPS rotation.}
+    \caption{Blocked zones regarding the MPS rotation (red zones may
+      not be used for other machines).}
     \label{fig:zone-mps-blocked}
 \end{figure}
 The MPS zones and rotations will be randomly chosen by the RefBox.
@@ -786,39 +789,56 @@ The following describes the communication and reactions of the
 machines during the production phase. For the actual messages we refer
 to the integrator's manual~\cite{RefBoxIntManual}.
 
-\begin{description}
-\item[BS] The BS setup message denotes the color of the base element
-  that should be dispensed. After receiving the message, the refbox
-  will instruct the MPS to immediately provide a base of the desired
-  color.
-\item[DS] The DS setup message denotes the slide the product should be
-  delivered to. The DS will consume any workpiece provided, but points
-  can only be scored if the DS was properly setup.
-\item[CS] The CS setup message initiates either the retrieval or the
-  mounting of a cap. For retrieving a prepared base (with a cap
-  mounted on top) from the machine's shelf must be fed into the
-  machine. All base elements prepared on the shelf are specially
-  colored workpieces (clear). The machine will take the cap off the
-  base and buffer it on the slide, releasing the decapped base to the
-  output side. This base can only be used for providing an additional
-  base to an RS (see below), reuse by placing it back on the shelf, or
-  discarding it at the DS.  For mounting a cap, a workpiece (without
-  cap) must be provided onto which the cap is mounted.
-\item[RS] The RS setup message must state which of the two colors to
-  prepare and retrieve. Each RS is responsible for two specific
-  colors. Some colors require loading the RS with additional bases
-  (cf.~\refsec{sec:production-plan}). If the desired color requires
-  additional bases (cf.~\refsec{sec:production-complexities}), the
-  machine expects to receive them first. Once the required number of
-  additional bases has been received, the intermediate product can be
-  fed into the machine. It receives a ring of the desired color and
-  moves the processed product to the output.
-  \item[SS] The SS setup message denotes the base and cap color of the $C_0$ element that should be dispensed.
-  The products provided from the SS are only allowed to be used for $C_0$ orders with the quantity greater than 1.
-  After receiving the message, the refbox will instruct the MPS to immediately provide the desired $C_0$ and subtract 10 Points.\footnote{The TC is working on the integration of the SS, but for 2017 a working SS will not be promised.}
-\end{description}
+\smallskip
 
-\noindent
+\noindent\textbf{BS}
+The BS setup message denotes the color of the base element that should
+be dispensed. After receiving the message, the refbox will instruct
+the MPS to immediately provide a base of the desired color.
+
+\noindent\textbf{DS}
+The DS setup message denotes the slide the product should be delivered
+to. The DS will consume any workpiece provided, but points can only be
+scored if the DS was properly setup.
+
+\noindent\textbf{CS}
+The CS setup message initiates either the retrieval or the mounting of
+a cap. For retrieving a prepared base (with a cap mounted on top) from
+the machine's shelf must be fed into the machine. All base elements
+prepared on the shelf are specially colored workpieces (clear). The
+machine will take the cap off the base and buffer it on the slide,
+releasing the decapped base to the output side. This base can only be
+used for providing an additional base to an RS (see below), reuse by
+placing it back on the shelf, or discarding it at the DS.  For
+mounting a cap, a workpiece (without cap) must be provided onto which
+the cap is mounted.
+
+\noindent\textbf{RS}
+The RS setup message must state which of the two colors to prepare and
+retrieve. Each RS is responsible for two specific colors. Some colors
+require loading the RS with additional bases
+(cf.~\refsec{sec:production-plan}). If the desired color requires
+additional bases (cf.~\refsec{sec:production-complexities}), the
+machine expects to receive them first. Once the required number of
+additional bases has been received, the intermediate product can be
+fed into the machine. It receives a ring of the desired color and
+moves the processed product to the output.
+
+\noindent\textbf{SS}
+The SS setup message denotes the storage place where to store the next
+input workpiece, or from which place to retrieve an item from. There
+will be designated positions for specific $C_0$ workpieces which will
+be announced at the beginning of the tournament.\footnote{Please note
+  again, this is an assignment specifically for 2017 and may change in
+  future competitions.} The products provided from the SS are only
+allowed to be used for $C_0$ orders with a quantity requested greater
+than 1. Retrieving a base costs 10 points, which will be substracte
+from the final score.\footnote{The TC is working towards the
+  integration of the SS for 2017. Issues arising or the lack of
+  development resources might lead to exclusion of the SS from the
+  tournament on short notice.}
+
+\medskip
 The setup and use of a machine follows a transaction style. Once the
 machine has been setup, the full cycle can be completed (committed).
 But if a robot desires, it can cancel the production on the machine,
