@@ -387,14 +387,8 @@ area as stated in \reffig{fig:competition-area}. The positions and
 alignments in the figure are just exemplary. During the competition
 these are arbitrary and will change from match to match.  Machines
 have two kind of sides: active (wide, where the robot interacts) and
-ignored (narrow) edges.  It is guaranteed that the active sides will
-be accessible and that two machines always have either sufficient
-distance for two robots to interact with both machines or that they
-will not face each other. There are no such guarantees for the narrow
-edges. For later tournament phases there might be two machines
-directly face to face on the narrow edges (that the robots must take
-into account when approaching/leaving a machine, especially if the
-machines are from different teams).
+ignored (narrow) edges.
+The constrains for positioning of the MPS are given in \refsec{sec:machine-swapping}.
 
 The distribution and alignment of all machines is axially symmetrical
 to the y-axis. Thus, each team has similar conditions on both halfs of
@@ -640,7 +634,7 @@ Based on these shared properties, there are five kinds of machines:
   \label{fig:SS_Output}%
   \begin{minipage}[b]{0.3\linewidth}
     \centering
-    \includegraphics[height=6cm]{MPS2015/SS_Output.png}
+%    \includegraphics[height=6cm]{MPS2015/SS_Output.png}
   \end{minipage}
 }
 \vspace{-1ex}
@@ -1148,8 +1142,6 @@ exploration phase after 5 minutes.
 
 \subsection{Exploration Phase}
 \label{sec:exploration-phase}
-With the start of the exploration phase, the referee box announces the
-mapping from zones to teams.
 The
 robots have 3 minutes to roam the environment and announce their 7 MPS
 for a successful exploration to the referee box. The detection of one
