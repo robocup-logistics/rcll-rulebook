@@ -362,6 +362,18 @@ league is available at\\
 \section{Competition Area} \label{sec:area}
 \subsection{Field Layout and Dimensions}
 \label{sec:competition-area}
+\begin{figure}[p]
+    \includegraphics[width=\paperwidth, angle=-90 , trim = 0 0 0 0,]{field2017.pdf}
+    \vspace{1ex}
+    \caption{Competition area: squares indicate possible machine
+        placements, circles denote robots. Cyan and magenta are team
+        assignment colors. Thick blue lines are wall elements. The thin
+        black inner lines indicate zones. The green robot is at an
+        acceptable position, while the red one would have to be penalized
+        for leaving the field. Grey areas are insertion areas where robots
+        start. The light-red areas are blocked for machine placement.}
+    \label{fig:competition-area}
+\end{figure}
 The competition area is shown in \reffig{fig:competition-area} and
 features a \SI{14 x 8}{\metre} large arena with 106 square zones
 of \SI{1 x 1}{\metre} with 14 randomly distributed machines. The
@@ -419,19 +431,6 @@ Robots that leave the competition area illegally are considered as
 \emph{misbehaving robot} and punished accordingly
 (cf.~\refsec{sec:robot-maintenance}).
 
-\begin{figure}
-  \includegraphics[width=\paperwidth, angle=-90 , trim = 0 0 0 0,]{field2017.pdf}
-  \vspace{1ex}
-  \caption{Competition area: squares indicate possible machine
-    placements, circles denote robots. Cyan and magenta are team
-    assignment colors. Thick blue lines are wall elements. The thin
-    black inner lines indicate zones. The green robot is at an
-    acceptable position, while the red one would have to be penalized
-    for leaving the field. Grey areas are insertion areas where robots
-    start. The light-red areas are blocked for machine placement.}
-  \label{fig:competition-area}
-\end{figure}
-
 \subsection{Machines}
 \label{sec:machines}
 Machines are based on the Modular Production System (MPS)\footnote{For
@@ -469,6 +468,15 @@ near future and announced on the mailing list.
 % If observed from the output side of machines (where the signal unit
 % is placed) the conveyor space opens up at half of the aluminum
 % profile thus starting at \SI{0,35}{\metre}.
+
+%\begin{figure}[b!]
+%    \centering
+%    \includegraphics[height=7cm]{MPS2015/MPS_Layout.jpg}
+%    
+%    \caption{General Machine Layout}
+%    \label{fig:MPS-Layout}
+%\end{figure}
+
 
 Based on these shared properties, there are five kinds of machines:
 
@@ -508,57 +516,64 @@ Based on these shared properties, there are five kinds of machines:
   external vision system. There is one DS per team.
 \end{description}
 
-\begin{figure}
-  \centering
-  \includegraphics[height=7cm]{MPS2015/MPS_Layout.jpg}
-
-  \caption{General Machine Layout}
-  \label{fig:MPS-Layout}
-\end{figure}
-\begin{figure}
+\begin{figure}[p!]
 \centering
-\subfigure[Base Station Portrait]{%
+\subfigure[General Machine Layout]{%
+    \label{fig:MPS-Layout}
+    \begin{minipage}[b]{1\linewidth}
+        \centering
+        \includegraphics[height=7cm]{MPS2015/MPS_Layout.jpg}
+    \end{minipage}
+}
+\quad
+\subfigure[Base Station]{%
   \label{fig:BS_portrait}%
+  \label{fig:BS}
   \begin{minipage}[b]{0.3\linewidth}
     \centering
     \includegraphics[height=6cm]{MPS2015/BS_portrait.png}
   \end{minipage}
 } 
 \quad
-\subfigure[Base Station Output side]{%
-  \label{fig:BS_Output}%
-  \begin{minipage}[b]{0.55\linewidth}
-    \centering
-    \includegraphics[height=6cm]{MPS2015/BS_Output.png}
-  \end{minipage}
+\subfigure[Cap Station]{%
+    \label{fig:CS_portrait}
+    \label{fig:CS}
+    \begin{minipage}[b]{0.3\linewidth}
+        \centering
+        \includegraphics[height=6cm]{MPS2015/CS_portrait.png}
+    \end{minipage}
 }
-\vspace{-1ex}
-\caption{Base Station}
-\label{fig:BS}
-\end{figure}
-\begin{figure}
-\centering
-\subfigure[Cap Station Portrait]{%
-  \label{fig:CS_portrait}%
-  \begin{minipage}[b]{0.3\linewidth}
-    \centering
-    \includegraphics[height=6cm]{MPS2015/CS_portrait.png}
-  \end{minipage}
-} 
 \quad
-\subfigure[Cap Station Output side]{%
-  \label{fig:CS_Output}%
-  \begin{minipage}[b]{0.55\linewidth}
-    \centering
-    \includegraphics[height=6cm]{MPS2015/CS_Output.png}
-  \end{minipage}
+\subfigure[Ring Station]{%
+    \label{fig:RS_portrait}
+    \label{fig:RS}
+    \begin{minipage}[b]{0.3\linewidth}
+        \centering
+        \includegraphics[height=6cm]{MPS2015/RS_portrait.png}
+    \end{minipage}
+}
+\quad
+\subfigure[Storage Station]{%
+    \label{fig:SS}
+    \label{fig:SS_portrait}
+    \begin{minipage}[b]{0.3\linewidth}
+        \centering
+        \includegraphics[height=6cm]{MPS2015/SS_portrait.jpg}
+    \end{minipage}
+}
+\quad
+\subfigure[Delivery Station]{%
+    \label{fig:DS}
+    \begin{minipage}[b]{0.3\linewidth}
+        \centering
+        \includegraphics[height=6cm]{MPS2015/DS_Input.png}
+    \end{minipage}
 }
 \vspace{-1ex}
-\caption{Cap Station}
-\label{fig:CS}
+\caption{The different MPS stations}
 \end{figure}
 
-\begin{table}[bh!]
+\begin{table}[tbh!]
   \centering
   \begin{tabular}{|l|c|c|c|c|l|}
     \hline
@@ -586,59 +601,20 @@ Based on these shared properties, there are five kinds of machines:
   \caption{Machine tags are ALVAR tags with the given IDs.}
   \label{tab:markers}  
 \end{table}
-\begin{table}[bp]
-\centering
-	\mytable{  \begin{tabularx}{\linewidth}{l|l|X}
-    Type & Distribution & (Final) processing time[s]\\\hline
-    Base Station (BS) & 1 per team & minimum physical time\\
-    Cap Station (CS) & 2 per team & $t_2 = 15 \mbox{ to } 25~\mathrm{sec}$\\
-    Ring Station (RS) & 2 per team &$t_3 = 40 \mbox{ to } 60~\mathrm{sec}$\\
-    Storage Station (SS) & 1 per team & minimum physical time\\
-    Delivery Station (DS) & 1 per team &$t_5 =20\mbox{ to } 40~\mathrm{sec}$
-  \end{tabularx}}
-  \caption{MPS - Type, Distribution and processing times}
-  \label{tab:production-machines-function}  
+
+\begin{table}[!tb]
+    \centering
+    \mytable{  \begin{tabularx}{\linewidth}{l|l|X}
+            Type & Distribution & (Final) processing time[s]\\\hline
+            Base Station (BS) & 1 per team & minimum physical time\\
+            Cap Station (CS) & 2 per team & $t_2 = 15 \mbox{ to } 25~\mathrm{sec}$\\
+            Ring Station (RS) & 2 per team &$t_3 = 40 \mbox{ to } 60~\mathrm{sec}$\\
+            Storage Station (SS) & 1 per team & minimum physical time\\
+            Delivery Station (DS) & 1 per team &$t_5 =20\mbox{ to } 40~\mathrm{sec}$
+    \end{tabularx}}
+    \caption{MPS - Type, Distribution and processing times}
+    \label{tab:production-machines-function}  
 \end{table}
-\begin{figure}[h]
-\centering
-\subfigure[Ring Station Portrait]{%
-  \label{fig:RS_portrait}%
-  \begin{minipage}[b]{0.3\linewidth}
-    \centering
-    \includegraphics[height=6cm]{MPS2015/RS_portrait.png}
-  \end{minipage}
-} 
-\quad
-\subfigure[Ring Station Output side]{%
-  \label{fig:BS_Output}%
-  \begin{minipage}[b]{0.3\linewidth}
-    \centering
-    \includegraphics[height=6cm]{MPS2015/RS_Output.png}
-  \end{minipage}
-}
-\vspace{-1ex}
-\caption{Ring Station}
-\label{fig:RS}
-\end{figure}
-\begin{figure}[h]
-    \centering
-    \begin{minipage}[b]{0.45\textwidth}
-        \begin{figure}[H]
-            \includegraphics[height=6cm]{MPS2015/SS_portrait.jpg}
-            \caption{Storage Station Portrait}
-            \label{fig:SS}
-            \label{fig:SS_portrait}%
-        \end{figure}
-    \end{minipage}
-    \hfill
-    \begin{minipage}[b]{0.45\textwidth}
-        \begin{figure}[H]
-            \includegraphics[height=6cm]{MPS2015/DS_Input.png}
-            \caption{Delivery Station Portrait}
-            \label{fig:DS}
-        \end{figure}
-    \end{minipage}
-\end{figure}
 
 \noindent
 Machines of type CS and RS are called production machines as they
@@ -659,7 +635,7 @@ Logistics website.
 
 \subsubsection{Machine Positioning}
 \label{sec:machine-swapping}
-\begin{figure}[tp]
+\begin{figure}[b!]
     \centering
     \subfigure[For rotations with \ang{0}, \ang{90}, \ang{180} or \ang{270}.]{
         \label{fig:zone-mps-rotation-straight}%
@@ -718,7 +694,7 @@ If the wrong MPS zone is send, the light will start red flashing.
 If only the MPS zone is send, the green light will be turn on.
 If the zone and rotation is correctly reported, the green light will be flashing and if the zone is correct but the rotation wrongly reported the red and green light will be on.
 
-\begin{table}[tp]
+\begin{table}[bt]
   \centering
   \mytable{\begin{tabularx}{\linewidth}{p{0.36\linewidth}|X}
       \multicolumn{1}{l}{Optical Feedback} & \multicolumn{1}{l}{Operating mode} \\ \hline 
