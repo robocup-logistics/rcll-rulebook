@@ -820,19 +820,23 @@ additional bases has been received, the intermediate product can be
 fed into the machine. It receives a ring of the desired color and
 moves the processed product to the output.
 
-\noindent\textbf{SS}
+\noindent\textbf{SS}\footnote{The TC is working towards the
+  integration of the SS for 2017. Issues arising or the lack of
+  development resources might lead to exclusion of the SS from the
+  tournament on short notice.}
+%
 The SS setup message denotes the storage place where to store the next
 input workpiece, or from which place to retrieve an item from. There
 will be designated positions for specific $C_0$ workpieces which will
 be announced at the beginning of the tournament.\footnote{Please note
   again, this is an assignment specifically for 2017 and may change in
-  future competitions.} The products provided from the SS are only
-allowed to be used for $C_0$ orders with a quantity requested greater
-than 1. Retrieving a base costs 10 points, which will be substracte
-from the final score.\footnote{The TC is working towards the
-  integration of the SS for 2017. Issues arising or the lack of
-  development resources might lead to exclusion of the SS from the
-  tournament on short notice.}
+  future competitions.} If a position is requested for which no
+product has been stored (or has already been retrieved), the machine
+will be broken (cf.~\refsec{sec:broken-machine}). The products
+provided from the SS are only allowed to be used for $C_0$ orders with
+a quantity requested greater than 1. Note the costs for retrieving a
+base outlined in \refsec{sec:production-scoring}.
+
 
 \medskip
 The setup and use of a machine follows a transaction style. Once the
@@ -1458,6 +1462,10 @@ belong to an upcoming (and announced) or on-going order can be
 awarded. Performing a step for a later order which has not yet been
 announced cannot be awarded.
 
+There is a special case regarding the Storage Station. Retrieving a
+workpiece has a cost (see \reftab{tab:scoring}). The cost is
+subtracted as soon as the workpiece is ready for retrieval on the SS.
+
 \begin{table}
   \centering
 
@@ -1491,6 +1499,8 @@ announced cannot be awarded.
         Finish $C_2$ pre-cap & Mount the last ring of a $C_2$ product & $+30$ \\
         Finish $C_3$ pre-cap & Mount the last ring of a $C_3$ product & $+80$ \\
         Mount cap & Mount the cap on a product & $+10$ \\
+        Retrieve from SS & A workpiece has been requested from storage
+        and is ready for retrieval& $-10$ \\
         Delivery & Deliver one of the final product variants to the
         designated loading zone at the time specified in the order & $+20$\\
         Delayed Delivery & An order delivered within 10 seconds after an
@@ -1505,7 +1515,8 @@ announced cannot be awarded.
         delivered
         & $+1$\\
         False delivery & Deliver an intermediate product & $0$\\
-        Obstruction Penalty & Deliver a workpiece to a machine, which belongs to the opposing team & $-20$ \\
+        Obstruction & Deliver a workpiece to a machine of the opposing team & $-20$ \\\hline
+        Round Total & A minimum of 0 points is awarded. & $\geq 0$ \\
       \end{tabularx}
     }
   }
