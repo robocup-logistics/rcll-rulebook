@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"> 
 <svg
-    xmlns="http://www.w3.org/2000/svg"
+    xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink"
     version="1.1"
     width="1500"
     height="900">
@@ -9,113 +9,160 @@
         <style type="text/css">
             text{font-size:14px;}
         </style>
-        <marker id="pf1"
-                viewBox="0 0 12 12" refX="0" refY="5"
-                markerUnits="strokeWidth"
-                markerWidth="5" markerHeight="5"
-                fill="red"
-                orient="auto">
+        <marker id="pf1" viewBox="0 0 12 12" refX="0" refY="5" markerUnits="strokeWidth"
+                markerWidth="5" markerHeight="5" fill="red" orient="auto">
             <path d="M 0,0 l 10,5 l -10,5 z" />
         </marker>
-        <marker id="pf2"
-                viewBox="0 0 10 10" refX="0" refY="5"
-                markerUnits="strokeWidth"
-                markerWidth="10" markerHeight="10"
-                orient="auto">
+        <marker id="pf2" viewBox="0 0 10 10" refX="0" refY="5" markerUnits="strokeWidth"
+                markerWidth="10" markerHeight="10" orient="auto">
             <path d="M 0,0 l 10,5 l -10,5 z" />
         </marker>
         <pattern id="grid" x="50" y="50" width="100" height="100" patternUnits="userSpaceOnUse">
             <rect id="area" x="0" y="0" width="100" height="100" fill="none" stroke-width="0.5" stroke="black" />
         </pattern>
-    
-        <pattern id="mpsM" x="0" y="0" width="35" height="70">
-            <rect x="0" y="0" width="35" height="70" fill="magenta" stroke-width="1" stroke="black"/>
-            <rect y="30" width="35" height="6" fill="lightgrey" stroke-width="1" stroke="black"/>
+        <g id="polar" transform="scale(2.1)">
+            <circle cx="0" cy="0" r="10"
+                style="fill:none;stroke:#000000;stroke-width:0.5" />
+            <path
+                d="M 0,0 V 13.229167"
+                style="fill:none;stroke:#000000;stroke-width:0.5" />
+            <path
+                d="M 0,0 9.3544335,9.3544335"
+                style="fill:none;stroke:#000000;stroke-width:0.5" />
+            <path
+                d="M 0,0 13.229167,0"
+                style="fill:none;stroke:#000000;stroke-width:0.5" />
+            <path
+                d="M 0,0 9.3544335,-9.3544335"
+                style="fill:none;stroke:#000000;stroke-width:0.5" />
+            <path
+                d="M 0,0 0,-13.229167"
+                style="fill:none;stroke:#000000;stroke-width:0.5" />
+            <path
+                d="M 0,0 -9.3544335,-9.3544335"
+                style="fill:none;stroke:#000000;stroke-width:0.5"/>
+            <path
+                d="M 0,0 -13.229167,0"
+                style="fill:none;stroke:#000000;stroke-width:0.5" />
+            <path
+                d="M 0,0 -9.3544335,9.3544335"
+                style="fill:none;stroke:#000000;stroke-width:0.5" />
+            <circle cx="0" cy="0" r="0.7"
+                style="fill:#000000;stroke:#000000;stroke-width:0" />
+            <text
+                style="font-style:normal;font-weight:normal;font-size:6px;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+                x="19"
+                y="2" >0°</text>
+            <text
+                style="font-style:normal;font-weight:normal;font-size:6px;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+                x="13.0"
+                y="-11.0">45°</text>
+            <text
+                style="font-style:normal;font-weight:normal;font-size:6px;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+                x="0"
+                y="-17">90°</text>
+            <text
+                style="font-style:normal;font-weight:normal;font-size:6px;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+                x="-13"
+                y="-11">135°</text>
+            <text
+                style="font-style:normal;font-weight:normal;font-size:6px;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+                x="-19"
+                y="2"
+                id="text1741">180°</text>
+            <text
+                style="font-style:normal;font-weight:normal;font-size:6px;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+                x="-13"
+                y="15"
+                id="text1743">225°</text>
+            <text
+                style="font-style:normal;font-weight:normal;font-size:6px;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+                x="0"
+                y="21"
+                id="text1745">270°</text>
+            <text
+                style="font-style:normal;font-weight:normal;font-size:6px;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+                x="13"
+                y="15"
+                id="text1747">315°</text>
+        </g>
+
+        <g id="mpsContent">
+            <rect y="29" width="35" height="7" fill="lightgrey" stroke-width="1" stroke="black"/>
             <rect y="37" width="15" height="32" fill="lightgrey" stroke-width="1" stroke="black"/>
-            <circle cx="2" cy="43" r="4" fill="white" stroke-width="1" stroke="black"/>
-            <circle cx="2" cy="53" r="4" fill="white" stroke-width="1" stroke="black"/>
-            <circle cx="2" cy="63" r="4" fill="white" stroke-width="1" stroke="black"/>
-        </pattern>
-        <pattern id="mpsC" x="0" y="0" width="35" height="70">
+            <text x="0" y="37" font-size = "16">&#62;&#62;&#62;</text> 
+            <text transform="translate(-12,26)rotate(90)">in</text>
+            <text transform="translate(38,22)rotate(90)">out</text>  
+            <circle cx="3" cy="43" r="3" fill="white" stroke-width="1" stroke="black"/>
+            <circle cx="3" cy="53" r="3" fill="white" stroke-width="1" stroke="black"/>
+            <circle cx="3" cy="63" r="3" fill="white" stroke-width="1" stroke="black"/>
+        </g>
+        <g id="mpsM" x="0" y="0" width="35" height="70">
+            <rect x="0" y="0" width="35" height="70" fill="magenta" stroke-width="1" stroke="black"/>          
+            <use xlink:href="#mpsContent"/>
+        </g>
+        <g id="mpsC" x="0" y="0" width="35" height="70">
             <rect x="0" y="0" width="35" height="70" fill="cyan" stroke-width="1" stroke="black"/>
-            <rect y="30" width="35" height="6" fill="lightgrey" stroke-width="1" stroke="black"/>
-            <rect y="37" width="15" height="32" fill="lightgrey" stroke-width="1" stroke="black"/>
-            <circle cx="2" cy="43" r="4" fill="white" stroke-width="1" stroke="black"/>
-            <circle cx="2" cy="53" r="4" fill="white" stroke-width="1" stroke="black"/>
-            <circle cx="2" cy="63" r="4" fill="white" stroke-width="1" stroke="black"/>
-        </pattern>
+            <use xlink:href="#mpsContent"/>
+        </g>    
     </defs>
-    
+
     <!--Lines and Corners-->
-    <polyline id="cornerLeftTop"
-              points="50,200 50,50 1450,50 1450,200" 
-              style="fill:none;stroke:#0000ff;stroke-width:5"/>
-    <polyline id="cornerLeftBottom"
-              points="50,650 50,750 250,750"
-              style="fill:none;stroke:#0000ff;stroke-width:5"/>
-    <polyline id="cornerRightBottom" 
-              points="1250,750 1450,750 1450,650"
-              style="fill:none;stroke:#0000ff;stroke-width:5"/>
-    <polyline id="edgeBottomLeft" 
-              points="50,850 350,850 350,750"
-              style="fill:none;stroke:#0000ff;stroke-width:5"/>
-    <polyline id="edgeBottomRight" 
-              points="1150,750 1150,850 1450,850"
-              style="fill:none;stroke:#0000ff;stroke-width:5"/>
-    <polyline id="edgeBottomMiddle"
-              points="550,850 950,850"
-              style="fill:none;stroke:#0000ff;stroke-width:5"/>
+    <polyline id="cornerLeftTop" points="50,200 50,50 1450,50 1450,200" style="fill:none;stroke:#0000ff;stroke-width:5"/>
+    <polyline id="cornerLeftBottom" points="50,650 50,750 250,750" style="fill:none;stroke:#0000ff;stroke-width:5"/>
+    <polyline id="cornerRightBottom" points="1250,750 1450,750 1450,650" style="fill:none;stroke:#0000ff;stroke-width:5"/>
+    <polyline id="edgeBottomLeft" points="50,850 350,850 350,750" style="fill:none;stroke:#0000ff;stroke-width:5"/>
+    <polyline id="edgeBottomRight" points="1150,750 1150,850 1450,850" style="fill:none;stroke:#0000ff;stroke-width:5"/>
+    <polyline id="edgeBottomMiddle" points="550,850 950,850" style="fill:none;stroke:#0000ff;stroke-width:5"/>
        
     <!--Axes and Coordinatesystem-->
-    <polyline points="750,865 750,810"
-              marker-end="url(#pf1)"  style="fill:none;stroke:#ff0000;stroke-width:4" />
-    <polyline points="735,850 800,850"
-              marker-end="url(#pf1)"  style="fill:none;stroke:#ff0000;stroke-width:4" /> 
+    <polyline points="750,865 750,730" marker-end="url(#pf1)"  style="fill:none;stroke:#ff0000;stroke-width:4" />
+    <polyline points="735,850 870,850" marker-end="url(#pf1)"  style="fill:none;stroke:#ff0000;stroke-width:4" /> 
     <text x="785" y="865" style="fill:red;">x</text>
     <text x="755" y="825" style="fill:red;">y</text>
     <text x="725" y="865">(0,0)</text>
+    <use x="703" y="800" xlink:href="#polar"/>
     
-    <text x="150" y="720" style="fill:magenta; font-size:20" font-weight = "bold">MAGENTA</text>
-    <text x="1270" y="730" style="fill:cyan; font-size:20" font-weight = "bold">CYAN</text>
+    <text x="150" y="720" style="fill:magenta; font-size:18" font-weight = "bold">MAGENTA</text>
+    <text x="1270" y="730" style="fill:cyan; font-size:18" font-weight = "bold">CYAN</text>
     <!--Zones grid-->
-    <rect id="field"
-          x="50"
-          y="50"
-          width="1400"
-          height="800"
-          stroke-width="0"
-          stroke="black"
-          fill="url(#grid)" />
+    <rect id="field" x="50" y="50" width="1400" height="800" stroke-width="0" stroke="black" fill="url(#grid)" />
     
     <!--Machines-->   
-    <rect width="35" height="70" fill="url(#mpsC)" stroke-width="1" stroke="black"  transform = "translate(585,65) rotate(0)"/> 
+    <use xlink:href="#mpsC" transform = "translate(585,65) rotate(0)"/>
     <text x="590" y="85">180°</text>
-    <rect width="35" height="70" fill="url(#mpsM)" stroke-width="1" stroke="black"  transform = "translate(885,65) rotate(0)"/> 
+    
+    <use xlink:href="#mpsM" transform = "translate(885,65) rotate(0)"/> 
     <text x="890" y="85">180°</text>
   
-    <rect width="35" height="70" fill="url(#mpsM)" stroke-width="1" stroke="black"  transform = "translate(420,235)  rotate(180)"/>
+    <use xlink:href="#mpsM"  transform = "translate(420,235)  rotate(180)"/>
     <text x="395" y="225">0°</text> 
-    <rect width="35" height="70" fill="url(#mpsC)" stroke-width="1" stroke="black"  transform = "translate(1120,235) rotate(180)"/>
+     
+    <use xlink:href="#mpsC"  transform = "translate(1120,235) rotate(180)"/>
     <text x="1090" y="225">0°</text>
     
-    <rect width="35" height="70" fill="url(#mpsM)" stroke-width="1" stroke="black"  transform = "translate(65,315) rotate(-90)"/>
+    <use xlink:href="#mpsM"  transform = "translate(65,315) rotate(-90)"/>
     <text x="68" y="305">270°</text>
-    <rect width="35" height="70" fill="url(#mpsC)" stroke-width="1" stroke="black"  transform = "translate(1435,280) rotate(90)"/>
+    
+    <use xlink:href="#mpsC" transform = "translate(1435,280) rotate(90)"/>
     <text x="1410" y="305">90°</text>
 
-    <rect width="35" height="70" fill="url(#mpsC)" stroke-width="1" stroke="black"  transform = "translate(265,390) rotate(-45)"/>
+    <use xlink:href="#mpsC" transform = "translate(265,390) rotate(-45)"/>
     <text x="275" y="395">225°</text>   
-    <rect width="35" height="70" fill="url(#mpsM)" stroke-width="1" stroke="black"  transform = "translate(1190,440) rotate(-135)"/>
-    <text x="1175" y="420">325°</text>  
+    
+    <use xlink:href="#mpsM" transform = "translate(1190,440) rotate(-135)"/>
+    <text x="1175" y="420">315°</text>  
 
-    <rect width="35" height="70" fill="url(#mpsM)" stroke-width="1" stroke="black"  transform = "translate(665,515) rotate(-90)"/>
+    <use xlink:href="#mpsM"  transform = "translate(665,515) rotate(-90)"/>
     <text x="668" y="505">270°</text>
-    <rect width="35" height="70" fill="url(#mpsC)" stroke-width="1" stroke="black"  transform = "translate(765,515) rotate(-90)"/>
+    
+    <use xlink:href="#mpsC"  transform = "translate(765,515) rotate(-90)"/>
     <text x="768" y="505">270°</text>
 
-    <rect width="35" height="70" fill="url(#mpsM)" stroke-width="1" stroke="black"  transform = "translate(515,565) rotate(45)"/>
-    <text x="502" y="590">135°</text>   
-    <rect width="35" height="70" fill="url(#mpsC)" stroke-width="1" stroke="black"  transform = "translate(965,585) rotate(-45)"/>
+    <use xlink:href="#mpsM"  transform = "translate(515,565) rotate(45)"/>
+    <text x="502" y="590">135°</text>
+       
+    <use xlink:href="#mpsC" transform = "translate(965,585) rotate(-45)"/>
     <text x="975" y="590">225°</text>      
     
     <!--Zone&Field Size Arrows -->
@@ -135,129 +182,129 @@
     <polyline points="460,320 540,320" marker-end="url(#pf2)"  style="fill:none;stroke:#000000;" />
     <polyline points="540,320 460,320" marker-end="url(#pf2)"  style="fill:none;stroke:#000000;" />
 
-    <text x="805" y="770">C-Z11</text>
-    <text x="805" y="670">C-Z12</text>
-    <text x="805" y="570">C-Z13</text>
-    <text x="805" y="470">C-Z14</text>
-    <text x="805" y="370">C-Z15</text>
-    <text x="805" y="270">C-Z16</text>
-    <text x="805" y="170">C-Z17</text>
-    <text x="805" y="070">C-Z18</text>
+    <text x="805" y="765">C-Z11</text>
+    <text x="805" y="665">C-Z12</text>
+    <text x="805" y="565">C-Z13</text>
+    <text x="805" y="465">C-Z14</text>
+    <text x="805" y="365">C-Z15</text>
+    <text x="805" y="265">C-Z16</text>
+    <text x="805" y="165">C-Z17</text>
+    <text x="805" y="065">C-Z18</text>
 
-    <text x="905" y="770">C-Z21</text>
-    <text x="905" y="670">C-Z22</text>
-    <text x="905" y="570">C-Z23</text>
-    <text x="905" y="470">C-Z24</text>
-    <text x="905" y="370">C-Z25</text>
-    <text x="905" y="270">C-Z26</text>
-    <text x="905" y="170">C-Z27</text>
-    <text x="905" y="070">C-Z28</text>
+    <text x="905" y="765">C-Z21</text>
+    <text x="905" y="665">C-Z22</text>
+    <text x="905" y="565">C-Z23</text>
+    <text x="905" y="465">C-Z24</text>
+    <text x="905" y="365">C-Z25</text>
+    <text x="905" y="265">C-Z26</text>
+    <text x="905" y="165">C-Z27</text>
+    <text x="905" y="065">C-Z28</text>
    
-    <text x="1005" y="770">C-Z31</text>
-    <text x="1005" y="670">C-Z32</text>
-    <text x="1005" y="570">C-Z33</text>
-    <text x="1005" y="470">C-Z34</text>
-    <text x="1005" y="370">C-Z35</text>
-    <text x="1005" y="270">C-Z36</text>
-    <text x="1005" y="170">C-Z37</text>
-    <text x="1005" y="070">C-Z38</text>
-
-   <text x="1105" y="770">C-Z41</text>
-    <text x="1105" y="670">C-Z42</text>
-    <text x="1105" y="570">C-Z43</text>
-    <text x="1105" y="470">C-Z44</text>
-    <text x="1105" y="370">C-Z45</text>
-    <text x="1105" y="270">C-Z46</text>
-    <text x="1105" y="170">C-Z47</text>
-    <text x="1105" y="070">C-Z48</text>
+    <text x="1005" y="765">C-Z31</text>
+    <text x="1005" y="665">C-Z32</text>
+    <text x="1005" y="565">C-Z33</text>
+    <text x="1005" y="465">C-Z34</text>
+    <text x="1005" y="365">C-Z35</text>
+    <text x="1005" y="265">C-Z36</text>
+    <text x="1005" y="165">C-Z37</text>
+    <text x="1005" y="065">C-Z38</text>
     
-    <text x="1205" y="770">C-Z51</text>
-    <text x="1205" y="670">C-Z52</text>
-    <text x="1205" y="570">C-Z53</text>
-    <text x="1205" y="470">C-Z54</text>
-    <text x="1205" y="370">C-Z55</text>
-    <text x="1205" y="270">C-Z56</text>
-    <text x="1205" y="170">C-Z57</text>
-    <text x="1205" y="070">C-Z58</text>
+    <text x="1105" y="765">C-Z41</text>
+    <text x="1105" y="665">C-Z42</text>
+    <text x="1105" y="565">C-Z43</text>
+    <text x="1105" y="465">C-Z44</text>
+    <text x="1105" y="365">C-Z45</text>
+    <text x="1105" y="265">C-Z46</text>
+    <text x="1105" y="165">C-Z47</text>
+    <text x="1105" y="065">C-Z48</text>
     
-    <text x="1305" y="770">C-Z61</text>
-    <text x="1305" y="670">C-Z62</text>
-    <text x="1305" y="570">C-Z63</text>
-    <text x="1305" y="470">C-Z64</text>
-    <text x="1305" y="370">C-Z65</text>
-    <text x="1305" y="270">C-Z66</text>
-    <text x="1305" y="170">C-Z67</text>
-    <text x="1305" y="070">C-Z68</text>
+    <text x="1205" y="765">C-Z51</text>
+    <text x="1205" y="665">C-Z52</text>
+    <text x="1205" y="565">C-Z53</text>
+    <text x="1205" y="465">C-Z54</text>
+    <text x="1205" y="365">C-Z55</text>
+    <text x="1205" y="265">C-Z56</text>
+    <text x="1205" y="165">C-Z57</text>
+    <text x="1205" y="065">C-Z58</text>
     
-    <text x="1400" y="770">C-Z71</text>
-    <text x="1400" y="670">C-Z72</text>
-    <text x="1400" y="570">C-Z73</text>
-    <text x="1400" y="470">C-Z74</text>
-    <text x="1400" y="370">C-Z75</text>
-    <text x="1400" y="270">C-Z76</text>
-    <text x="1400" y="170">C-Z77</text>
-    <text x="1400" y="070">C-Z78</text>
+    <text x="1305" y="765">C-Z61</text>
+    <text x="1305" y="665">C-Z62</text>
+    <text x="1305" y="565">C-Z63</text>
+    <text x="1305" y="465">C-Z64</text>
+    <text x="1305" y="365">C-Z65</text>
+    <text x="1305" y="265">C-Z66</text>
+    <text x="1305" y="165">C-Z67</text>
+    <text x="1305" y="065">C-Z68</text>
+    
+    <text x="1400" y="765">C-Z71</text>
+    <text x="1400" y="665">C-Z72</text>
+    <text x="1400" y="565">C-Z73</text>
+    <text x="1400" y="465">C-Z74</text>
+    <text x="1400" y="365">C-Z75</text>
+    <text x="1400" y="265">C-Z76</text>
+    <text x="1400" y="165">C-Z77</text>
+    <text x="1400" y="065">C-Z78</text>
  
-    <text x="700" y="770">M-Z11</text>
-    <text x="700" y="670">M-Z12</text>
-    <text x="700" y="570">M-Z13</text>
-    <text x="700" y="470">M-Z14</text>
-    <text x="700" y="370">M-Z15</text>
-    <text x="700" y="270">M-Z16</text>
-    <text x="700" y="170">M-Z17</text>
-    <text x="700" y="070">M-Z18</text>
+    <!--<text x="700" y="765">M-Z11</text>-->
+    <text x="700" y="665">M-Z12</text>
+    <text x="700" y="565">M-Z13</text>
+    <text x="700" y="465">M-Z14</text>
+    <text x="700" y="365">M-Z15</text>
+    <text x="700" y="265">M-Z16</text>
+    <text x="700" y="165">M-Z17</text>
+    <text x="700" y="065">M-Z18</text>
    
-    <text x="600" y="770">M-Z21</text>
-    <text x="600" y="670">M-Z22</text>
-    <text x="600" y="570">M-Z23</text>
-    <text x="600" y="470">M-Z24</text>
-    <text x="600" y="370">M-Z25</text>
-    <text x="600" y="270">M-Z26</text>
-    <text x="600" y="170">M-Z27</text>
-    <text x="600" y="070">M-Z28</text>
-    <text x="500" y="770">M-Z31</text>
-    <text x="500" y="670">M-Z32</text>
-    <text x="500" y="570">M-Z33</text>
-    <text x="500" y="470">M-Z34</text>
-    <text x="500" y="370">M-Z35</text>
-    <text x="500" y="270">M-Z36</text>
-    <text x="500" y="170">M-Z37</text>
-    <text x="500" y="070">M-Z38</text>
+    <text x="600" y="765">M-Z21</text>
+    <text x="600" y="665">M-Z22</text>
+    <text x="600" y="565">M-Z23</text>
+    <text x="600" y="465">M-Z24</text>
+    <text x="600" y="365">M-Z25</text>
+    <text x="600" y="265">M-Z26</text>
+    <text x="600" y="165">M-Z27</text>
+    <text x="600" y="065">M-Z28</text>
+    <text x="500" y="765">M-Z31</text>
+    <text x="500" y="665">M-Z32</text>
+    <text x="500" y="565">M-Z33</text>
+    <text x="500" y="465">M-Z34</text>
+    <text x="500" y="365">M-Z35</text>
+    <text x="500" y="265">M-Z36</text>
+    <text x="500" y="165">M-Z37</text>
+    <text x="500" y="065">M-Z38</text>
     
-    <text x="400" y="770">M-Z41</text>
-    <text x="400" y="670">M-Z42</text>
-    <text x="400" y="570">M-Z43</text>
-    <text x="400" y="470">M-Z44</text>
-    <text x="400" y="370">M-Z45</text>
-    <text x="400" y="270">M-Z46</text>
-    <text x="400" y="170">M-Z47</text>
-    <text x="400" y="070">M-Z48</text>
-    <text x="300" y="770">M-Z51</text>
-    <text x="300" y="670">M-Z52</text>
-    <text x="300" y="570">M-Z53</text>
-    <text x="300" y="470">M-Z54</text>
-    <text x="300" y="370">M-Z55</text>
-    <text x="300" y="270">M-Z56</text>
-    <text x="300" y="170">M-Z57</text>
-    <text x="300" y="070">M-Z58</text>
+    <text x="400" y="765">M-Z41</text>
+    <text x="400" y="665">M-Z42</text>
+    <text x="400" y="565">M-Z43</text>
+    <text x="400" y="465">M-Z44</text>
+    <text x="400" y="365">M-Z45</text>
+    <text x="400" y="265">M-Z46</text>
+    <text x="400" y="165">M-Z47</text>
+    <text x="400" y="065">M-Z48</text>
+    <text x="300" y="765">M-Z51</text>
+    <text x="300" y="665">M-Z52</text>
+    <text x="300" y="565">M-Z53</text>
+    <text x="300" y="465">M-Z54</text>
+    <text x="300" y="365">M-Z55</text>
+    <text x="300" y="265">M-Z56</text>
+    <text x="300" y="165">M-Z57</text>
+    <text x="300" y="065">M-Z58</text>
 
-    <text x="200" y="770">M-Z61</text>
-    <text x="200" y="670">M-Z62</text>
-    <text x="200" y="570">M-Z63</text>
-    <text x="200" y="470">M-Z64</text>
-    <text x="200" y="370">M-Z65</text>
-    <text x="200" y="270">M-Z66</text>
-    <text x="200" y="170">M-Z67</text>
-    <text x="200" y="070">M-Z68</text>            
+    <text x="200" y="765">M-Z61</text>
+    <text x="200" y="665">M-Z62</text>
+    <text x="200" y="565">M-Z63</text>
+    <text x="200" y="465">M-Z64</text>
+    <text x="200" y="365">M-Z65</text>
+    <text x="200" y="265">M-Z66</text>
+    <text x="200" y="165">M-Z67</text>
+    <text x="200" y="065">M-Z68</text>            
     
-    <text x="100" y="770">M-Z71</text>
-    <text x="100" y="670">M-Z72</text>
-    <text x="100" y="570">M-Z73</text>
-    <text x="100" y="470">M-Z74</text>
-    <text x="100" y="370">M-Z75</text>
-    <text x="100" y="270">M-Z76</text>
-    <text x="100" y="170">M-Z77</text>
-    <text x="100" y="070">M-Z78</text>              
+    <text x="100" y="765">M-Z71</text>
+    <text x="100" y="665">M-Z72</text>
+    <text x="100" y="565">M-Z73</text>
+    <text x="100" y="465">M-Z74</text>
+    <text x="100" y="365">M-Z75</text>
+    <text x="100" y="265">M-Z76</text>
+    <text x="100" y="165">M-Z77</text>
+    <text x="100" y="065">M-Z78</text>              
         
     <!--Insertian Area and Robotinos-->
     <rect id="insertArea1" x="1152" y="752" width="296" height="96" fill="lightgray"/>
@@ -266,10 +313,7 @@
     <rect id="insertArea2" x="52" y="752" width="296" height="96" fill="lightgray"/>
     <rect x="252" y="652" width="96" height="96" fill="lightpink"/>
     <text x="90" y="840" font-size = "18" font-weight = "bold">Insertion Area MAGENTA</text>
-    
-
-    
-    
+   
     <circle id="robi" cx="100" cy="800" r="23" fill="magenta" stroke-width="1" stroke="black" />
     <circle id="robi" cx="200" cy="800" r="23" fill="magenta" stroke-width="1" stroke="black" />
     <circle id="robi" cx="300" cy="800" r="23" fill="magenta" stroke-width="1" stroke="black" />
