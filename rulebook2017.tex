@@ -262,7 +262,7 @@ via wifi (see \refsec{sec:referee-box}). The work flow itself is
 divided into three different phases: a setup
 phase (see \refsec{sec:setup-phase}), an exploration phase (see
 \refsec{sec:exploration-phase}) during which robots receive scores for
-correctly discovering and publishing the light states of the yet
+correctly discovering and publishing the positions of the yet
 unknown different machines on the field. After this phase the referee
 box will announce all machine types and designations. In the following
 production phase (see~\refsec{sec:production-phase}) orders are
@@ -387,7 +387,7 @@ is shared among both teams on the field and any robot may travel
 anywhere at any time (while not obstructing for an extended period of
 time or pushing other robots or machines). However, there are primary
 sides (split along the y-axis) for each team where a team's
-\textit{robot insertion area}, and \textit{Base and Delivery
+\textit{robot insertion area}, and \textit{Base, Storage and Delivery
   Stations}, are located. We will refer to the side with positive
 coordinates on the x-axis as the (primary) half of team cyan, and the
 side with negative coordinates on the x-axis as the primary half of
@@ -454,10 +454,10 @@ height.\footnote{Note however, that due to small variances and
   working height of some or all parts of a station.} Working space
 between guiding lanes is \SI{4.5}{\centi\metre}. Setup lanes and
 shelves feature approximately the same space for handling and
-adjusting.  To simplify the delivery on the belt, each machine will be
-equipped with a narrowing cone on its input side. All diffuse sensors
- (input side) have been removed to allow for infrared based cameras.
-(\reffig{fig:narrow-cone}). You can order them from Festo Didactic SE 
+adjusting. All diffuse sensors (input side) have been removed to allow for infrared based cameras.
+To simplify the delivery on the belt, each machine will be
+equipped with a narrowing cone on its input side (\reffig{fig:narrow-cone}).
+You can order them from Festo Didactic SE 
 (C. Deppe) or download the stl-file from the rcll site.
 \begin{figure}
     \includegraphics[height=8cm]{narrowConeSketch.jpg}
@@ -502,8 +502,7 @@ Based on these shared properties, there are five kinds of machines:
   anew for each game) to add base elements. There are two RS per team.
   
 \item[Storage Station (SS)] provides 24 slots of storage divided into
-  6 layers (\reffig{fig:SS_portrait}). Items can be shipped in for
-  storing to the input side and shipped out on the output side on
+  6 layers (\reffig{fig:SS_portrait}). For now items can be  shipped out on the output side on
   request. The Storage Station provides a sample of each possible
   $C_0$ configuration (one per layer).\footnote{Note that this is the
     specific content for 2017 and may change in the future.}
@@ -662,7 +661,7 @@ If a machine is rotated with \ang{0}, \ang{90}, \ang{180} or \ang{270} the zones
 For machines with rotations \ang{45}, \ang{135}, \ang{225} and \ang{315} three zones in front of each input and output side are blocked (fig.~\ref{fig:zone-mps-rotation-odd}).
 Blocked zones are not only blocked for MPS but also for the blocked zones of other MPS.
 Machines at edge positions are aligned exclusively 
-at the 0 or 180 degree angle. In this case the shelves are aligned well 
+perpendicular towards the wall. For \textit{CS} and \textit{RS} the shelves and slides are aligned well 
 accessible to the middle of the field.
 
 The MPS will be placed mostly on the primary half of a team
@@ -1646,15 +1645,14 @@ can be adjusted to meet time requirements.
 
 \subsection{Game Commentary}
 In addition to scoring in the exploration and the production phase,
-points are also awarded if a team provides an English commentary on
-microphone to the public throughout the game. The commentary should
+points are also awarded if a team provides an commentary on
+microphone to the public throughout the game as stated in \reftab{tab:scoring}. The commentary should
 communicate the overall problems to be solved within this league, the
 actual events taking place, but also give an insight on the own team
 and how they solved certain tasks. It does neither have to be perfect,
 nor to be a flawless stream of information. The commentary should be
 continuous, but short pauses are acceptable. At the end of the game
-the referees decide if the commentary duties were met and award the
-according team with 10 points. If both teams are willing to commentate
+the referees decide if the commentary duties were met. If both teams are willing to commentate
 on the game, the game time is shared according to the team
 specification (e.g., team 1 commentates the first half, team 2 the
 second half). However, the teams can also make custom arrangements to
