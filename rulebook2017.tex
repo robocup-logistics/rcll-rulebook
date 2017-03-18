@@ -393,11 +393,11 @@ coordinates on the x-axis as the (primary) half of team cyan, and the
 side with negative coordinates on the x-axis as the primary half of
 team magenta.
 
-The robot insertion areas (gray area on figure) is outside of the main
-game area. All 14 machines, 7 per team are placed within the factory
+The robot insertion areas (gray area on figure) are outside of the main
+game area. All 14 machines, 7 per team, are placed within the factory
 area as stated in \reffig{fig:competition-area}. The positions and
 alignments in the figure are just exemplary. During the competition
-these are arbitrary and will change from match to match.  Machines
+these positions are arbitrary and will change from match to match.  Machines
 have two kind of sides: active (wide, where the robot interacts) and
 ignored (narrow) edges.
 The constrains for positioning of the MPS are given in \refsec{sec:machine-swapping}.
@@ -405,7 +405,7 @@ The constrains for positioning of the MPS are given in \refsec{sec:machine-swapp
 The distribution and alignment of all machines is axially symmetrical
 to the y-axis. Thus, each team has similar conditions on both halfs of
 the competition field. Both teams have an exclusive set of 7 out of
-the 14 machines each. Machines from one team can also be located on
+the 14 machines each. Machines from one team can also be located on the
 primary side of the opposing team. We will later discuss the concept
 of the production machine distribution for each team in detail.
 
@@ -636,22 +636,22 @@ Logistics website.
 \label{sec:machine-swapping}
 \begin{figure}[b!]
     \centering
-    \subfigure[For rotations with \ang{0}, \ang{90}, \ang{180} or \ang{270}.]{
+    \subfigure[For rotations with \ang{0}, \ang{90}, \ang{180} or \ang{270}. BS, CS, and RS block the zones close to the input as well as the output. DS and SS block the zones close to the input respectively the output.]{
         \label{fig:zone-mps-rotation-straight}%
         \centering
         \includegraphics[width=\textwidth]{bZones1.pdf}
     }
     \quad
-    \subfigure[For rotations with  \ang{45}, \ang{135}, \ang{225} and \ang{315}.]{
+    \subfigure[For rotations with  \ang{45}, \ang{135}, \ang{225} and \ang{315}. BS, CS, and RS block the zones close to the input as well as the output. DS and SS block the zones close to the input respectively the output.]{
         \label{fig:zone-mps-rotation-odd}
         \centering
         \includegraphics[width=\textwidth]{bZones2.pdf}
     }
-    \caption{Blocked zones regarding the MPS rotation (red zones may
-      not be used for other machines).}
+    \caption{Blocked zones regarding the MPS rotation (red zones must
+      not be used as position for other machines and must be located inside the competiton area).}
     \label{fig:zone-mps-blocked}
 \end{figure}
-The MPS zones and rotations will be randomly chosen by the RefBox.
+The zones and rotations for the MPS will be randomly chosen by the RefBox.
 Each game will have a new randomly generated field layout, the referees will place the MPS in the middle of the zone with given rotation at there best effort but errors of the positioning should be expected.
 
 A MPS can be potentially place in all zones except C-Z52 and M-Z52. These zones are needed to access the field.
@@ -659,10 +659,7 @@ The rotation of the MPS can have 8 possible angles, starting at \ang{0} with \an
 For placing of machines, the RefBox will take care of the necessary constrains to ensure that all in- and output sides, shelfs and slides are reachable.
 If a machine is rotated with \ang{0}, \ang{90}, \ang{180} or \ang{270} the zones in front the input and output side are blocked as well (fig.~\ref{fig:zone-mps-rotation-straight}).
 For machines with rotations \ang{45}, \ang{135}, \ang{225} and \ang{315} three zones in front of each input and output side are blocked (fig.~\ref{fig:zone-mps-rotation-odd}).
-Blocked zones are not only blocked for MPS but also for the blocked zones of other MPS.
-Machines at edge positions are aligned exclusively 
-perpendicular towards the wall. For \textit{CS} and \textit{RS} the shelves and slides are aligned well 
-accessible to the middle of the field.
+Blocked zones must not be used as a position for any other MPS. Blocked zones of any MPS must be located within the competition area.
 
 The MPS will be placed mostly on the primary half of a team
 (cf. \refsec{sec:competition-area}). However, some machines will be
