@@ -707,7 +707,8 @@ If the zone and rotation is correctly reported, the green light will be flashing
       Green LED turned on & The machine is idle and ready.\\
       Green LED flashing & The machine has accepted the setup command
       (flashes for up to 3 seconds).\\
-      Yellow LED turned on & The machine is currently busy.\\
+      Green and yellow LED turned on & The machine is currently busy.\\
+      Yellow LED turned on & A workpiece is ready for pickup.\\
       Red and yellow LED flashing (2 Hz) & Machine is broken, for
       example because a product was fed without proper setup of the
       machine.\\%\hline
@@ -736,10 +737,10 @@ the machine will flash the green light for up to 3 seconds (it
 immediately switches to a new state, e.g., if a product is fed into the
 machine before the three seconds have expired). When a product is fed
 to the input, the signal light indicates the processing condition. If
-the machine accepts the input and starts processing the yellow light
+the machine accepts the input and starts processing, the green and yellow lights
 will be turned on steadily for as long as the processing is
-performed. Once processing completes, the signal light switches back to a
-steady green light. If a product is fed for which additional bases
+performed. Once processing completes, the signal light switches to a
+steady yellow light. If a product is fed for which additional bases
 were required but which have not been delivered, the machine will
 flash the red and yellow light and will be out of order
 (cf. \refsec{sec:broken-machine}). The light signals are summarized in
