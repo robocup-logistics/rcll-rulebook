@@ -390,7 +390,7 @@ by wall elements of at least \SI{0.5}{\metre} height.  The origin and
 coordinate system of the competition field is drawn in
 \reffig{fig:competition-area} and will be intrinsically referred to
 for each statement within this rulebook. The normal floor of the
-exposition-rooms is used, it will be reasonable flat. The whole area
+exposition-rooms is used, it will be reasonable flat. The entire area
 is shared among both teams on the field and any robot may travel
 anywhere at any time (while not obstructing for an extended period of
 time or pushing other robots or machines). However, there are primary
@@ -401,11 +401,12 @@ coordinates on the x-axis as the (primary) half of team cyan, and the
 side with negative coordinates on the x-axis as the primary half of
 team magenta.
 
-The robot insertion areas (gray area on figure) are outside of the main
+The robot insertion areas (gray area on \reffig{fig:competition-area}) are 
+outside of the main
 game area. All 14 machines, 7 per team, are placed within the factory
 area as stated in \reffig{fig:competition-area}. The positions and
 alignments in the figure are just exemplary. During the competition
-these positions are arbitrary and will change from match to match.  Machines
+these positions are differnt and will change from match to match.  Machines
 have two kind of sides: active (wide, where the robot interacts) and
 ignored (narrow) edges.
 The constraints for positioning of the MPS are given in \refsec{sec:machine-swapping}.
@@ -660,7 +661,24 @@ The zones and rotations for the MPS will be randomly chosen by the RefBox.
 Each game will have a new randomly generated field layout, the referees will place the MPS in the middle of the zone with given rotation at there best effort but errors of the positioning should be expected.
 
 A MPS can be potentially place in all zones except C-Z52 and M-Z52. These zones are needed to access the field.
-The rotation of the MPS can have 8 possible angles, starting at \ang{0} with \ang{45} steps.
+The rotation of the MPS can have 8 possible angles, starting at \ang{0} with 
+\ang{45} steps. The orientation of the MPS Station is specified as follows. Each 
+MPS Station has a well defined local (x,y)-coordinate system: The x-axis is 
+given by the conveyor and the positive direction is in the direction from the 
+input to the output. The origin is just the center point of the conveyor. The 
+positive y-axis shows in the opposite direction of the light signal. Hence the 
+orientation of a MPS Station is equal 0 if it's local coordinate system is in 
+alignment with the field coordinate system.Further the orientation is e.g. equal 
+\ang{90} if the local coordinate system is in alignment with the competition 
+field coordinate system  after a turning (counter clockwise) of \ang{90} of the 
+field coordinate system etc.
+
+The orientations of the machines on the two halfs of the field are mirrored 
+along the y-axis. Thus, a machine on Magenta with an orientation of \ang{45} 
+(respectively \ang{135}, \ang{225}, \ang{315}) is related to a machine on Cyan 
+with an orientation of \ang{225} (respectively \ang{135}, \ang{225}, 
+\ang{315}). 
+
 For placing of machines, the RefBox will take care of the necessary constraints to ensure that all in- and output sides, shelves and slides are reachable.
 If a machine is rotated with \ang{0}, \ang{90}, \ang{180} or \ang{270} the zones in front the input and output side are blocked as well (fig.~\ref{fig:zone-mps-rotation-straight}).
 For machines with rotations \ang{45}, \ang{135}, \ang{225} and \ang{315} three zones in front of each input and output side are blocked (fig.~\ref{fig:zone-mps-rotation-odd}).
