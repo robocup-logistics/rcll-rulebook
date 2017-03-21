@@ -520,7 +520,12 @@ Based on these shared properties, there are five kinds of machines:
   external vision system. There is one DS per team.
 \end{description}
 
-\begin{figure}[p!]
+\noindent
+Machines of type CS and RS are called production machines as they
+perform refinement steps on a workpiece during the production
+phase. Processing times are outlined in \reftab{tab:processing-times}.
+
+\begin{figure}[bh!]
 \centering
 \subfigure[General Machine Layout]{%
     \label{fig:MPS-Layout}
@@ -577,7 +582,32 @@ Based on these shared properties, there are five kinds of machines:
 \caption{The different MPS stations}
 \end{figure}
 
-\begin{table}[tbh!]
+\begin{table}[!tb]
+    \centering
+    \mytable{  \begin{tabularx}{\linewidth}{l|l|X}
+            Type & Distribution & (Final) processing time[s]\\\hline
+            Base Station (BS) & 1 per team & minimum physical time\\
+            Cap Station (CS) & 2 per team & $t_2 = 15 \mbox{ to } 25~\mathrm{sec}$\\
+            Ring Station (RS) & 2 per team &$t_3 = 40 \mbox{ to } 60~\mathrm{sec}$\\
+            Storage Station (SS) & 1 per team & minimum physical time\\
+            Delivery Station (DS) & 1 per team &$t_5 =20\mbox{ to } 40~\mathrm{sec}$
+    \end{tabularx}}
+    \caption{MPS - Type, Distribution and processing times}
+    \label{tab:processing-times}  
+\end{table}
+
+\subsubsection{Markers}
+\label{sec:markers}
+Each machine will feature two \emph{markers} based on ALVAR AR tags,
+one will be placed on the input, another one on the output side. The
+marker will be horizontally centered below the conveyor belt. The
+vertical distance (between tag and conveyor belt) will be about 
+\SI{35}{\centi\metre}. The markers will be mounted at the same position 
+on all machines in a best effort fashion. But teams should expect to 
+calibrate individually per marker. All markers used are depicted in 
+\reftab{tab:markers}. They are available for printing on the RoboCup 
+Logistics website.
+\begin{table}[bh!]
   \centering
   \begin{tabular}{|l|c|c|c|c|l|}
     \hline
@@ -605,36 +635,6 @@ Based on these shared properties, there are five kinds of machines:
   \caption{Machine tags are ALVAR tags with the given IDs.}
   \label{tab:markers}  
 \end{table}
-
-\begin{table}[!tb]
-    \centering
-    \mytable{  \begin{tabularx}{\linewidth}{l|l|X}
-            Type & Distribution & (Final) processing time[s]\\\hline
-            Base Station (BS) & 1 per team & minimum physical time\\
-            Cap Station (CS) & 2 per team & $t_2 = 15 \mbox{ to } 25~\mathrm{sec}$\\
-            Ring Station (RS) & 2 per team &$t_3 = 40 \mbox{ to } 60~\mathrm{sec}$\\
-            Storage Station (SS) & 1 per team & minimum physical time\\
-            Delivery Station (DS) & 1 per team &$t_5 =20\mbox{ to } 40~\mathrm{sec}$
-    \end{tabularx}}
-    \caption{MPS - Type, Distribution and processing times}
-    \label{tab:production-machines-function}  
-\end{table}
-
-\noindent
-Machines of type CS and RS are called production machines as they
-perform refinement steps on a product during the production phase.
-
-\subsubsection{Markers}
-\label{sec:markers}
-Each machine will feature two \emph{markers} based on ALVAR AR tags,
-one will be placed on the input, another one on the output side. The
-marker will be horizontally centered below the conveyor belt. The
-vertical distance (between tag and conveyor belt) will be about 
-\SI{35}{\centi\metre}. The markers will be mounted at the same position 
-on all machines in a best effort fashion. But teams should expect to 
-calibrate individually per marker. All markers used are depicted in 
-\reftab{tab:markers}. They are available for printing on the RoboCup 
-Logistics website.
 
 
 \subsubsection{Machine Positioning}
