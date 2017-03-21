@@ -178,8 +178,7 @@ context-aware facility in which manufacturing steps are considered as
 services that can be combined efficiently in (almost) arbitrary ways
 allowing for the production of various product types and variants
 cost-effectively even in small lot sizes, rather than the more
-traditional chains which produce only a small number of produc
-t types
+traditional chains which produce only a small number of product types
 at high volumes~\cite{RCLL-CPS}. Such factories will require a much
 more capable logistics system, of which the most flexible form are
 autonomous mobile robots.
@@ -374,13 +373,13 @@ league is available at\\
 \begin{figure}[p]
     \includegraphics[width=\paperwidth, angle=-90 , trim = 0 0 0 0,]{field2017.pdf}
     \vspace{1ex}
-    \caption{Competition area: squares indicate zones for possible machine
-        placements, circles denote robots. Cyan and magenta are team
-        assignment colors. Thick blue lines are wall elements. The green 
-        robot is at an
-        acceptable position, while the red one would have to be penalized
-        for leaving the field. Grey areas are insertion areas where robots
-        start. The light-red areas are blocked for machine placement.}
+    \caption{Competition area: squares indicate zones for possible
+      machine placements, circles denote robots. Cyan and magenta are
+      team assignment colors. Thick blue lines are wall elements. The
+      green robot is at an acceptable position, while the red one
+      would have to be penalized for leaving the field. Grey areas are
+      insertion areas where robots start. No machines may be placed in
+      the light-red areas.}
     \label{fig:competition-area}
 \end{figure}
 The competition area is shown in \reffig{fig:competition-area} and
@@ -412,7 +411,7 @@ ignored (narrow) edges.
 The constrains for positioning of the MPS are given in \refsec{sec:machine-swapping}.
 
 The distribution and alignment of all machines is axially symmetrical
-to the y-axis. Thus, each team has similar conditions on both halfs of
+to the y-axis. Thus, each team has similar conditions on both halves of
 the competition field. Both teams have an exclusive set of 7 out of
 the 14 machines each. Machines from one team can also be located on the
 primary side of the opposing team. We will later discuss the concept
@@ -466,8 +465,8 @@ shelves feature approximately the same space for handling and
 adjusting. All diffuse sensors (input side) have been removed to allow for infrared based cameras.
 To simplify the delivery on the belt, each machine will be
 equipped with a narrowing cone on its input side (\reffig{fig:narrow-cone}).
-You can order them from Festo Didactic SE 
-(C. Deppe) or download the stl-file from the rcll site.
+You can order them from Festo Didactic SE (C. Deppe)
+or download the STL model file from the RCLL site.
 \begin{figure}
     \includegraphics[height=8cm]{narrowConeSketch.jpg}
 \caption{Narrowing cone}
@@ -657,7 +656,7 @@ Logistics website.
         \includegraphics[width=\textwidth]{bZones2.pdf}
     }
     \caption{Blocked zones regarding the MPS rotation (red zones must
-      not be used as position for other machines and must be located inside the competiton area).}
+      not be used as position for other machines and must be located inside the competition area).}
     \label{fig:zone-mps-blocked}
 \end{figure}
 The zones and rotations for the MPS will be randomly chosen by the RefBox.
@@ -665,11 +664,11 @@ Each game will have a new randomly generated field layout, the referees will pla
 
 A MPS can be potentially place in all zones except C-Z52 and M-Z52. These zones are needed to access the field.
 The rotation of the MPS can have 8 possible angles, starting at \ang{0} with \ang{45} steps.
-For placing of machines, the RefBox will take care of the necessary constrains to ensure that all in- and output sides, shelfs and slides are reachable.
+For placing of machines, the RefBox will take care of the necessary constrains to ensure that all in- and output sides, shelves and slides are reachable.
 If a machine is rotated with \ang{0}, \ang{90}, \ang{180} or \ang{270} the zones in front the input and output side are blocked as well (fig.~\ref{fig:zone-mps-rotation-straight}).
 For machines with rotations \ang{45}, \ang{135}, \ang{225} and \ang{315} three zones in front of each input and output side are blocked (fig.~\ref{fig:zone-mps-rotation-odd}).
 Blocked zones must not be used as a position for any other MPS. Blocked zones of any MPS must be located within the competition area.
-Furthermore only two machines will be placed next to each other, a third machine will only be placed with an empty zone spacing inbetween.
+Furthermore only two machines will be placed next to each other, a third machine will only be placed with an empty zone spacing in-between.
 
 The MPS will be placed mostly on the primary half of a team
 (cf. \refsec{sec:competition-area}). However, some machines will be
@@ -690,7 +689,7 @@ located and in which rotations they are positioned.
 
 The Referee Box assigns each machine to a team and a zone
 (\reffig{fig:competition-area}) at the start of the exploration
-phase,\footnote{in 2017 ther are no more fixed stations. The prefix ``C-'' means team 
+phase,\footnote{In 2017 there are no more fixed stations. The prefix ``C-'' means team 
 cyan, ``M-'' means magenta.} 
 The zones and orientations (in steps of 45$^\circ$) are randomly determined,  and will not be 
 communicated until the production phase.~\refsec{sec:exploration-phase}.
@@ -1392,8 +1391,8 @@ mentioned in \refsec{sec:production-machines-production}.
 
 \subsubsection{Broken Machine Downtime}
 \label{sec:broken-machine}
-If a machine is improperly instructed or used or a reset msg has been
-send, the machine will go into a failure state. The machine cannot be
+If a machine is improperly instructed or used, or a reset message has
+been sent, the machine will go into a failure state. The machine cannot be
 used for 30 seconds and until repaired. That is, if damage was
 inflicted on the machine or the referee needs longer to repair the
 machine the game continues and the machine will be offline for a
