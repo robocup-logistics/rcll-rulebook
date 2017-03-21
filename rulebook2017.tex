@@ -408,7 +408,7 @@ alignments in the figure are just exemplary. During the competition
 these positions are arbitrary and will change from match to match.  Machines
 have two kind of sides: active (wide, where the robot interacts) and
 ignored (narrow) edges.
-The constrains for positioning of the MPS are given in \refsec{sec:machine-swapping}.
+The constraints for positioning of the MPS are given in \refsec{sec:machine-swapping}.
 
 The distribution and alignment of all machines is axially symmetrical
 to the y-axis. Thus, each team has similar conditions on both halves of
@@ -476,7 +476,6 @@ or download the STL model file from the RCLL site.
 % If observed from the output side of machines (where the signal unit
 % is placed) the conveyor space opens up at half of the aluminum
 % profile thus starting at \SI{0,35}{\metre}.
-
 %\begin{figure}[b!]
 %    \centering
 %    \includegraphics[height=7cm]{MPS2015/MPS_Layout.jpg}
@@ -484,8 +483,6 @@ or download the STL model file from the RCLL site.
 %    \caption{General Machine Layout}
 %    \label{fig:MPS-Layout}
 %\end{figure}
-
-
 Based on these shared properties, there are five kinds of machines:
 
 \begin{description}
@@ -506,7 +503,7 @@ Based on these shared properties, there are five kinds of machines:
   colors on an intermediate product (\reffig{fig:RS}). Each RS has two
   vacuum pick \& place units as application modules with separate
   unique colors which are determined new for each game. There is an
-  additionally pre-fill slide which is used for some colors (specified
+  additional pre-fill slide which is used for some colors (specified
   anew for each game) to add base elements. There are two RS per team.
   
 \item[Storage Station (SS)] provides 24 slots of storage divided into
@@ -664,7 +661,7 @@ Each game will have a new randomly generated field layout, the referees will pla
 
 A MPS can be potentially place in all zones except C-Z52 and M-Z52. These zones are needed to access the field.
 The rotation of the MPS can have 8 possible angles, starting at \ang{0} with \ang{45} steps.
-For placing of machines, the RefBox will take care of the necessary constrains to ensure that all in- and output sides, shelves and slides are reachable.
+For placing of machines, the RefBox will take care of the necessary constraints to ensure that all in- and output sides, shelves and slides are reachable.
 If a machine is rotated with \ang{0}, \ang{90}, \ang{180} or \ang{270} the zones in front the input and output side are blocked as well (fig.~\ref{fig:zone-mps-rotation-straight}).
 For machines with rotations \ang{45}, \ang{135}, \ang{225} and \ang{315} three zones in front of each input and output side are blocked (fig.~\ref{fig:zone-mps-rotation-odd}).
 Blocked zones must not be used as a position for any other MPS. Blocked zones of any MPS must be located within the competition area.
@@ -683,8 +680,8 @@ same type of the other team.
 
 \subsubsection{MPS -- During Exploration Phase}
 \label{sec:production-machines-exp}
-During the exploration phase the robots of each team can explore their
-unknown factory environment by identifying where the different MPS are
+During the exploration phase the robots of each team must explore the
+unknown factory environment to identify where the different MPS are
 located and in which rotations they are positioned.
 
 The Referee Box assigns each machine to a team and a zone
@@ -692,11 +689,12 @@ The Referee Box assigns each machine to a team and a zone
 phase,\footnote{In 2017 there are no more fixed stations. The prefix ``C-'' means team 
 cyan, ``M-'' means magenta.} 
 The zones and orientations (in steps of 45$^\circ$) are randomly determined,  and will not be 
-communicated until the production phase.~\refsec{sec:exploration-phase}.
+communicated until the production phase. For details about the
+Exploration Phase confer~\refsec{sec:exploration-phase}.
 
-The signal light of the MPS will show a yellow light until a report regarding this machine is send.
-If the wrong MPS zone is send, the light will start red flashing.
-If only the MPS zone is send, the green light will be turn on.
+The signal light of the MPS will show a yellow light until a report regarding this machine is sent.
+If the wrong MPS zone is sent, the light will start red flashing.
+If only the MPS zone is sent, the green light will be turn on.
 If the zone and rotation is correctly reported, the green light will be flashing and if the zone is correct but the rotation wrongly reported the red and green light will be on.
 
 \begin{table}[bt]
