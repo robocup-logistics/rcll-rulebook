@@ -1815,13 +1815,14 @@ challenge game will be played according to the same rules and
 regulations of the ICAPS competition~\cite{LogRobComp-Rules-2017}. The
 rules and regulations, and the reference USB stick image will be
 available on the competition website April 1st
-2017.\footnote{\url{http://www.robocup-logistics.org/sim-comp}}. A
+2017\footnote{\url{http://www.robocup-logistics.org/sim-comp}}. A
 video of the tutorial is available at the competition website.
 
 \vspace{-2ex}\paragraph{Hardware Setup}
 %
 If feasible (and if the required hardware is available), we will use
-the same infrastructure as is used there. This may be a Docker-based
+the same infrastructure as is used in the ICAPS competiton. This may be a 
+Docker-based
 infrastructure, virtual machines, or bare metal machines with a
 standard image which may be extended. The exact setup will be
 announced June 1st 2017 at the latest. Until then, the best option is
@@ -1839,11 +1840,12 @@ details.
 %
 The simulation will be run with the standard set of models and plugins
 of the Carologistics RoboCup team based on the 2016 source code
-release.\footnote{\url{https://www.fawkesrobotics.org/p/rcll2016-release/}}. No
+release.\footnote{\url{https://www.fawkesrobotics.org/p/rcll2016-release/}} No
 custom Gazebo plugins or models may be loaded or used by the competing
 teams. Since no physical simulation of workpiece handling is done and
 the base regarding locomotion is the same, there should be no
-issues. However, teams must make sure that the standard set of sensors
+issues for the teams to implement the flow of the game. However, teams must 
+make sure that the standard set of sensors
 provided is sufficient.
 
 \vspace{-2ex}\paragraph{Competition Area} The competition area can be
@@ -1851,9 +1853,9 @@ expected to be similar to Figure \ref{fig:competition-area}, however,
 the MPS locations will be randomized as in the real game.
 
 \vspace{-2ex}\paragraph{Abstraction Level} Teams need to utilize their
-robot sensors to perceive the environment, there will be no available
+robot sensors to perceive the environment. There will be no available
 ground truth published to the robots by the simulation software. That
-is, robots need to recognize signal lamps via cameras as well as
+is, robots need to localize and recognize the machines as well as
 localize themselves via sensors attached to the robot.
 
 
@@ -1863,7 +1865,7 @@ show some new robotics developments. This may involve any task as long
 as it is performed with at most three Robotino robots within the
 competition area. For the time of the free challenge, any software or
 hardware modification is allowed, even though otherwise disallowed in
-the regular competition. This may be used to showcase ideas for future
+the regular competition. This may be used to motivate ideas for future
 developments of the league and to highlight particular advances in the
 system of the presenting team.
 
