@@ -135,8 +135,8 @@
     <use xlink:href="#mpsM" transform = "translate(885,65) rotate(0)"/> 
     <text x="890" y="85">180°</text>
   
-    <use xlink:href="#mpsM"  transform = "translate(420,235)  rotate(180)"/>
-    <text x="395" y="225">0°</text> 
+    <use xlink:href="#mpsM"  transform = "translate(390,165)  rotate(0)"/>
+    <text x="395" y="185">180°</text> 
      
     <use xlink:href="#mpsC"  transform = "translate(1120,235) rotate(180)"/>
     <text x="1090" y="225">0°</text>
@@ -159,8 +159,8 @@
     <use xlink:href="#mpsC"  transform = "translate(765,515) rotate(-90)"/>
     <text x="768" y="505">270°</text>
 
-    <use xlink:href="#mpsM"  transform = "translate(515,565) rotate(45)"/>
-    <text x="502" y="590">135°</text>
+    <use xlink:href="#mpsM"  transform = "translate(490,640) rotate(225)"/>
+    <text x="475" y="625">135°</text>
        
     <use xlink:href="#mpsC" transform = "translate(965,585) rotate(-45)"/>
     <text x="975" y="590">225°</text>      
