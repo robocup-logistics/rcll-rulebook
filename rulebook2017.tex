@@ -677,7 +677,10 @@ The orientations of the machines on the two halfs of the field are mirrored
 along the y-axis. Thus, a machine on Magenta with an orientation of \ang{45} 
 (respectively \ang{135}, \ang{225}, \ang{315}) is related to a machine on Cyan 
 with an orientation of \ang{225} (respectively \ang{135}, \ang{225}, 
-\ang{315}). 
+\ang{315}).
+An exception from this rule is made for the CS and RS when place directly next to a wall.
+Since the shelfs and slides should be reachable the MPS will be rotated that these sides will be facing towards the field center rather then the wall.
+Therefore all CS and RS which are placed next to walls (zones: C-Z*1, C-Z*8, C-Z7*, M-Z*1, M-Z*8 and M-Z7*) are rotated in a way that the y-axis is facing towards the wall they are places next to.
 
 For placing of machines, the RefBox will take care of the necessary constraints to ensure that all in- and output sides, shelves and slides are reachable.
 If a machine is rotated with \ang{0}, \ang{90}, \ang{180} or \ang{270} the zones in front the input and output side are blocked as well (fig.~\ref{fig:zone-mps-rotation-straight}).
