@@ -19,8 +19,8 @@
 
 % does not work for me, gives:
 %! Undefined control sequence.
-%\@ympar ...lobal \setbox \@currbox \copy \@marbox 
-%                                                  \@xympar 
+%\@ympar ...lobal \setbox \@currbox \copy \@marbox
+%                                                  \@xympar
 %\newenvironment{rulechange}{%
 %  \def\FrameCommand{\fboxsep=\FrameSep \colorbox{shadecolor}}%
 %  \marginpar{\vspace*{2em}\LARGE\danger} \MakeFramed  {\FrameRestore}}%
@@ -126,12 +126,12 @@
   \vspace*{5cm}
   \begin{center}
     \begin{LARGE}
-      
+
       {\bf RoboCup Logistics League}\\[2ex]
       {\Large Rules and Regulations 2017}\\[4ex]
     \end{LARGE}
     \hrule
-    
+
     {\LARGE\vspace*{4ex}}
     \begin{Large}
       The Technical Committee 2012--2017\\[6ex]
@@ -139,7 +139,7 @@
     \begin{tabular}{lll}
       \textbf{Christian Deppe}&\textbf{Ulrich Karras}&\textbf{Tobias Neumann}\\
       \textbf{Tim Niemueller}&\textbf{Alain Rohr}&\textbf{Gerald Steinbauer}\\[.5em]
-      
+
       Daniel Ewert&Nils Harder&S\"oren Jentzsch\\
       Nicolas Meier&Sebastian Reuter&Wataru Uemura\\
     \end{tabular}
@@ -160,7 +160,7 @@
 \cleardoublepage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% 
+%%
 \setcounter{page}{1}
 \pagenumbering{arabic}
 
@@ -189,7 +189,7 @@ tackling this problem of flexible and efficient production logistics at a
 comprehensible size. This industrial motivated league keeps the focus
 on challenges promoting precise actions and robust long-enduring
 execution, and further encourages external data supported
-autonomy. By providing feedback and competition hardware, Industrial 
+autonomy. By providing feedback and competition hardware, Industrial
 partner Festo provides insights into future factory concepts to help
  uncover relevant future topics for education and research.
 
@@ -228,11 +228,11 @@ specific order for a certain product. This increased the number of
 products from 3 to about 240. After three years of constant and
 tremendous changes, 2016 was a year to consolidate our league as a
 whole by increasing the number of participating teams and allowing
-existing teams to excel in their capabilities. This year we will change 
+existing teams to excel in their capabilities. This year we will change
 the field size and zone layout. Production has to be the main focus by
 making the exploration phase shorter and less important.
 The workpieces will be marked with barcodes, to track specific
-products by processing stations and award points for production 
+products by processing stations and award points for production
 steps during the game. Furthermore, the TC is working towards the
 introduction of a new storage station. This is a long-term
 effort. This year, the station will provide pre-assembled products
@@ -273,7 +273,7 @@ production phase (see~\refsec{sec:production-phase}) orders are
 announced by the referee box, which the robots must fulfill
 automatically.
 
-Finally, 
+Finally,
 successfully assembled products are to be delivered to the correct
 conveyor belt of the team's delivery station. The factory
 area has to be treated in the best possible way. Any possible damage
@@ -401,7 +401,7 @@ coordinates on the x-axis as the (primary) half of team cyan, and the
 side with negative coordinates on the x-axis as the primary half of
 team magenta.
 
-The robot insertion areas (gray area on \reffig{fig:competition-area}) are 
+The robot insertion areas (gray area on \reffig{fig:competition-area}) are
 outside of the main
 game area. All 14 machines, 7 per team, are placed within the factory
 area as stated in \reffig{fig:competition-area}. The positions and
@@ -422,9 +422,9 @@ The center coordinates and the size of the zones in which the machines
 are placed can be seen in \reffig{fig:competition-area}. Note that
 this field layout is a proposal for the layout, accounting for
 symmetry and avoiding clustering of machine access nodes and
-unapproachable machines. However, the actual distribution and alignment 
-of machines on the competition area will change before the actual game 
-starts. Thus, teams should focus on a generic approach for production, 
+unapproachable machines. However, the actual distribution and alignment
+of machines on the competition area will change before the actual game
+starts. Thus, teams should focus on a generic approach for production,
 allowing for dynamic adaptation of machine positions and alignments.
 
 \subsubsection{Moving on the Field}
@@ -480,7 +480,7 @@ or download the STL model file from the RCLL site.
 %\begin{figure}[b!]
 %    \centering
 %    \includegraphics[height=7cm]{MPS2015/MPS_Layout.jpg}
-%    
+%
 %    \caption{General Machine Layout}
 %    \label{fig:MPS-Layout}
 %\end{figure}
@@ -506,7 +506,7 @@ Based on these shared properties, there are five kinds of machines:
   unique colors which are determined new for each game. There is an
   additional pre-fill slide which is used for some colors (specified
   anew for each game) to add base elements. There are two RS per team.
-  
+
 \item[Storage Station (SS)] provides 24 slots of storage divided into
   6 layers (\reffig{fig:SS_portrait}). For now items can be  shipped out on the output side on
   request. The Storage Station provides a sample of each possible
@@ -543,7 +543,7 @@ phase. Processing times are outlined in \reftab{tab:processing-times}.
     \centering
     \includegraphics[height=6cm]{MPS2015/BS_portrait.png}
   \end{minipage}
-} 
+}
 \quad
 \subfigure[Cap Station]{%
     \label{fig:CS_portrait}
@@ -594,7 +594,7 @@ phase. Processing times are outlined in \reftab{tab:processing-times}.
             Delivery Station (DS) & 1 per team &$t_5 =20\mbox{ to } 40~\mathrm{sec}$
     \end{tabularx}}
     \caption{MPS - Type, Distribution and processing times}
-    \label{tab:processing-times}  
+    \label{tab:processing-times}
 \end{table}
 
 \subsubsection{Markers}
@@ -602,11 +602,11 @@ phase. Processing times are outlined in \reftab{tab:processing-times}.
 Each machine will feature two \emph{markers} based on ALVAR AR tags,
 one will be placed on the input, another one on the output side. The
 marker will be horizontally centered below the conveyor belt. The
-vertical distance (between tag and conveyor belt) will be about 
-\SI{35}{\centi\metre}. The markers will be mounted at the same position 
-on all machines in a best effort fashion. But teams should expect to 
-calibrate individually per marker. All markers used are depicted in 
-\reftab{tab:markers}. They are available for printing on the RoboCup 
+vertical distance (between tag and conveyor belt) will be about
+\SI{35}{\centi\metre}. The markers will be mounted at the same position
+on all machines in a best effort fashion. But teams should expect to
+calibrate individually per marker. All markers used are depicted in
+\reftab{tab:markers}. They are available for printing on the RoboCup
 Logistics website.
 \begin{table}[bh!]
   \centering
@@ -634,7 +634,7 @@ Logistics website.
     &SS&209&\parbox[c]{1.5cm}{\includegraphics[width=1.2cm]{markers/figure_209}}&210&\parbox[c]{1.5cm}{\includegraphics[width=1.2cm]{markers/figure_210}}\\[2.5ex]\hline
   \end{tabular}
   \caption{Machine tags are ALVAR tags with the given IDs.}
-  \label{tab:markers}  
+  \label{tab:markers}
 \end{table}
 
 
@@ -661,22 +661,21 @@ The zones and rotations for the MPS will be randomly chosen by the RefBox.
 Each game will have a new randomly generated field layout, the referees will place the MPS in the middle of the zone with given rotation at there best effort but errors of the positioning should be expected.
 
 A MPS can be potentially place in all zones except C-Z52 and M-Z52. These zones are needed to access the field.
-The rotation of the MPS can have 8 possible angles, starting at \ang{0} with 
-\ang{45} steps. The orientation of the MPS Station is specified as follows. Each 
-MPS Station has a well defined local (x,y)-coordinate system: The x-axis is 
-given by the conveyor and the positive direction is in the direction from the 
-input to the output. The origin is just the center point of the conveyor. The 
-positive y-axis shows in the opposite direction of the light signal. Hence the 
-orientation of a MPS Station is equal 0 if it's local coordinate system is in 
-alignment with the field coordinate system.Further the orientation is e.g. equal 
-\ang{90} if the local coordinate system is in alignment with the competition 
-field coordinate system  after a turning (counter clockwise) of \ang{90} of the 
+The rotation of the MPS can have 8 possible angles, starting at \ang{0} with
+\ang{45} steps. The orientation of the MPS Station is specified as follows. Each
+MPS Station has a well defined local mathematical (x,y)-coordinate system: The x-axis is
+given by the conveyor and the positive direction is in the direction from the
+output to the input. The origin is just the center point of the conveyor. Hence the
+orientation of a MPS Station is equal 0 if it's local coordinate system is in
+alignment with the field coordinate system.Further the orientation is e.g. equal
+\ang{90} if the local coordinate system is in alignment with the competition
+field coordinate system  after a turning (counter clockwise) of \ang{90} of the
 field coordinate system etc.
 
-The orientations of the machines on the two halfs of the field are mirrored 
-along the y-axis. Thus, a machine on Magenta with an orientation of \ang{45} 
-(respectively \ang{135}, \ang{225}, \ang{315}) is related to a machine on Cyan 
-with an orientation of \ang{225} (respectively \ang{135}, \ang{225}, 
+The orientations of the machines on the two halfs of the field are mirrored
+along the y-axis. Thus, a machine on Magenta with an orientation of \ang{45}
+(respectively \ang{135}, \ang{225}, \ang{315}) is related to a machine on Cyan
+with an orientation of \ang{225} (respectively \ang{135}, \ang{225},
 \ang{315}).
 An exception from this rule is made for the CS and RS when place directly next to a wall.
 Since the shelfs and slides should be reachable the MPS will be rotated that these sides will be facing towards the field center rather then the wall.
@@ -707,9 +706,9 @@ located and in which rotations they are positioned.
 
 The Referee Box assigns each machine to a team and a zone
 (\reffig{fig:competition-area}) at the start of the exploration
-phase,\footnote{In 2017 there are no more fixed stations. The prefix ``C-'' means team 
-cyan, ``M-'' means magenta.} 
-The zones and orientations (in steps of 45$^\circ$) are randomly determined,  and will not be 
+phase,\footnote{In 2017 there are no more fixed stations. The prefix ``C-'' means team
+cyan, ``M-'' means magenta.}
+The zones and orientations (in steps of 45$^\circ$) are randomly determined,  and will not be
 communicated until the production phase. For details about the
 Exploration Phase confer~\refsec{sec:exploration-phase}.
 
@@ -721,7 +720,7 @@ If the zone and rotation is correctly reported, the green light will be flashing
 \begin{table}[bt]
   \centering
   \mytable{\begin{tabularx}{\linewidth}{p{0.36\linewidth}|X}
-      \multicolumn{1}{l}{Optical Feedback} & \multicolumn{1}{l}{Operating mode} \\ \hline 
+      \multicolumn{1}{l}{Optical Feedback} & \multicolumn{1}{l}{Operating mode} \\ \hline
       All LEDs turned off & The machine is physically offline, caused by a real error, which should not happen during the competition. \\
       Red LED turned on & The machine is out of order. \\
       %Red LED flashing (at 2 Hz)  & Machine signals that it ran out of stock on any required item. \\
@@ -842,7 +841,7 @@ the machine. There may be only one transaction running at a time. If a
 second setup is performed without canceling the first one the machine will
 be temporarily broken (cf.~\refsec{sec:broken-machine}).
 
-\subsubsection{Delivery Station} 
+\subsubsection{Delivery Station}
 \label{sec:delivery-station}
 Once an order is completed, the product has to be shipped to the
 Delivery Station (DS). Before the workpiece is fed into the machine,
@@ -865,7 +864,7 @@ production plan to \refsec{sec:production-plan}.
     \includegraphics[height=5cm]{figures/workpieces}
   }
   \quad
-  % 
+  %
   \subfigure[Renderings of intermediate rings (rings are colored in
   competition).]{
     \label{fig:workpieces-rings}%
@@ -902,7 +901,7 @@ The workpieces consist of the following elements:
   matters. The ring colors are blue, green, yellow, and orange.
 \item[Cap] Caps are the topmost element in each production. They are
   obtained by taking pre-assembled base-cap combinations available on
-  the shelf to the cap station (CS). Caps can be black or gray. 
+  the shelf to the cap station (CS). Caps can be black or gray.
 
 \end{description}
 Only one workpiece or a composite product must be grasped and
@@ -962,10 +961,10 @@ Each game requires 3 referees. One referee will run and oversee the
 referee box. Two field referees observe the field, announce rule
 violations, and communicate with the teams and refbox referee. Each
 field referee is assigned to a particular field half. The referee
-named first on the schedule is the head referee and is responsible for the 
+named first on the schedule is the head referee and is responsible for the
 team cyan and their corresponding field half. The head referee has
 the upper hand when there is a referee disagreement and then announces
-the final decision. The second listed referee assumes the liability of the 
+the final decision. The second listed referee assumes the liability of the
 team magenta.
 
 The refbox referee has to operate the control machine during the game,
@@ -1197,20 +1196,20 @@ three mounted rings and a cap. For a product, the colors of base,
 rings, and cap as well as the order of the rings are of importance.
 
 The product complexities do not account for \emph{additional bases}
-that are required for some colors. (Depending on the ring color, the 
-robot has to deliver an \emph{additional cap} to a RS first in order 
-to get a ring.) 
-We therefore distinguish \emph{color complexities} as $CC_0$, $CC_1$, 
-and $CC_2$ depending on whether zero, one, or two additional bases are 
-required for a color. The referee box ensures that there will always be 
-some orders for $C_1$ products where the ring color does not require 
-additional bases, i.e., with color complexity $CC_0$ -- but not necessarily 
+that are required for some colors. (Depending on the ring color, the
+robot has to deliver an \emph{additional cap} to a RS first in order
+to get a ring.)
+We therefore distinguish \emph{color complexities} as $CC_0$, $CC_1$,
+and $CC_2$ depending on whether zero, one, or two additional bases are
+required for a color. The referee box ensures that there will always be
+some orders for $C_1$ products where the ring color does not require
+additional bases, i.e., with color complexity $CC_0$ -- but not necessarily
 all $C_1$ orders have this constraint.
 
 \begin{figure}
   \ffigbox{%
     \centering
-    
+
     \hfill
     \subfigure[$C_0$]{\label{fig:prod-compl-0}%
       \includegraphics{prod2015/c0_black_gray}
@@ -1228,7 +1227,7 @@ all $C_1$ orders have this constraint.
       \includegraphics{prod2015/c3_red_yellow_orange_green_gray}
     }
     \hfill\,
-    
+
 }{%
   \caption{Products are composed of a base element and a cap with
     zero, one, two, or three intermediate rings representing the
@@ -1467,12 +1466,12 @@ subtracted as soon as the workpiece is ready for retrieval on the SS.
   \centering
 
     \subtable[Scoring scheme for the exploration phase]{
-      \label{tab:scoring-exploration}   
+      \label{tab:scoring-exploration}
 
      \mytable{
-         \begin{tabularx}{\linewidth}{p{7em}|X|p{2.4em}} 
+         \begin{tabularx}{\linewidth}{p{7em}|X|p{2.4em}}
            \multicolumn{1}{l}{Report type} &\multicolumn{1}{l}{Description} & \multicolumn{1}{l}{Points}\\\hline
-      	Zone/Orientation & Correctly determine a machine zone and the rotation of your team and report it successfully to the refbox & +2\\ 
+      	Zone/Orientation & Correctly determine a machine zone and the rotation of your team and report it successfully to the refbox & +2\\
 	     Type & only machine zone reported & +1\\
  	 	& Machine zone reported correctly but orientation wrongly (1-1=0) & 0\\
 		& wrongly reported machine zone (orientation irrelevant) & -1\\\hline
@@ -1483,7 +1482,7 @@ subtracted as soon as the workpiece is ready for retrieval on the SS.
 \bigskip
 
   \subtable[Scoring scheme for the production phase]{
-    \label{tab:scoring-production}   
+    \label{tab:scoring-production}
     \mytable{
       \begin{tabularx}{\linewidth}{p{7em}|X|p{4em}}
         \multicolumn{1}{l}{Sub-task } &\multicolumn{1}{l}{Production
@@ -1524,16 +1523,16 @@ subtracted as soon as the workpiece is ready for retrieval on the SS.
       Accepted Commentary & Commentate at least one half of the game continuously
       on microphone in English (or the local language of the venue) to the public &  +10\\%\hline
   \end{tabularx} }}
-  
+
   \caption{Scoring Schemes}
-  \label{tab:scoring}   
+  \label{tab:scoring}
 \end{table}
 
 \subsection{Obstruction Penalty}
 \label{sec:obstruction-penalty}
 
-As the Logistics League follows the idea of having both active teams 
-compete alongside each other, instead of directly against each other, we 
+As the Logistics League follows the idea of having both active teams
+compete alongside each other, instead of directly against each other, we
 punish intentional obstruction of the opposing team.
 
 This applies in particular to the input and output area in front of
@@ -1604,12 +1603,12 @@ to pushing.
   again. The other team can decide within 10 seconds to restart their
   involved robot in the insertion zone without it counting as a
   penalty restart.
-\item Moving a workpiece of the opposing team at their MPS is a pushing 
+\item Moving a workpiece of the opposing team at their MPS is a pushing
 foul. The referee will move the workpiece back to its original position.
-\item Intentional obstruction of the opposing team is a pushing foul, as 
+\item Intentional obstruction of the opposing team is a pushing foul, as
 described in Section \ref{sec:obstruction-penalty}.
-\item If a robot is restarted or called to maintenance, loses his 
-workpiece during collision avoidance or in case of a collision, the 
+\item If a robot is restarted or called to maintenance, loses his
+workpiece during collision avoidance or in case of a collision, the
 workpiece will not be replaced and is removed by the referee.
 \item The league reserves its right to disqualify clearly malicious
   teams.
@@ -1629,7 +1628,7 @@ playoffs play the grand finale to decide which team will become the
 next Logistics League champion, whereas the other two teams compete in
 the small final for the third place.
 
-\paragraph{Round-Robin phase.~} 
+\paragraph{Round-Robin phase.~}
 The first stage is a group phase and will be played as a round-robin.
 The teams will receive the true points they scored during the
 competition. The points will be accumulated in this phase and the
@@ -1725,7 +1724,7 @@ basis for the referees not being exhaustive or binding.
   the infringement will be deducted, at least 5 points. \\[1ex]
   % The referee will
   % decide upon calling a team vote or imposing an adequate punishment.\\[1ex]
-  % 
+  %
   Arguing with the referee & There will be no discussions during a
   match. Each team can make a motion to protest a certain match and
   its result which will be dealt with after the match. There will be a
@@ -1739,7 +1738,7 @@ basis for the referees not being exhaustive or binding.
   \end{tabularx}  }
   \caption{Infringements}
   \label{tab:infringements}
-    
+
 \end{table}
 
 
@@ -1842,7 +1841,7 @@ video of the tutorial is available at the competition website.
 \vspace{-2ex}\paragraph{Hardware Setup}
 %
 If feasible (and if the required hardware is available), we will use
-the same infrastructure as is used in the ICAPS competiton. This may be a 
+the same infrastructure as is used in the ICAPS competiton. This may be a
 Docker-based
 infrastructure, virtual machines, or bare metal machines with a
 standard image which may be extended. The exact setup will be
@@ -1865,7 +1864,7 @@ release.\footnote{\url{https://www.fawkesrobotics.org/p/rcll2016-release/}} No
 custom Gazebo plugins or models may be loaded or used by the competing
 teams. Since no physical simulation of workpiece handling is done and
 the base regarding locomotion is the same, there should be no
-issues for the teams to implement the flow of the game. However, teams must 
+issues for the teams to implement the flow of the game. However, teams must
 make sure that the standard set of sensors
 provided is sufficient.
 
@@ -1917,26 +1916,26 @@ will be awarded with the Logistic Leagues Technical Challenge Award.
 All participants have to design their competition Robotinos within the
 following specifications. For a detailed technical description of the
 basic hardware, refer to the Appendix~\ref{sec:engref}. Robotino 2 is
-still allowed, however, we strongly recommend using the Robotino 3 as 
+still allowed, however, we strongly recommend using the Robotino 3 as
 the robot hardware platform from this year on.
 
 Any kind of sensors can be changed or added to	 the Robotino platform.
-However, it is not possible to implement sensors that require 
+However, it is not possible to implement sensors that require
 modifications outside the Robotino area (e.g., Northstar, indoor GPS).
 There must be no changes to the controller or mechanical system.
-The robots peripherals must not exceed the maximum total height of 
+The robots peripherals must not exceed the maximum total height of
 \SI{1.1}{\metre} including the tower and the table on top. Additional
-hardware (sensors, computing equipment, etc.)  must be within a circle 
-of a diameter of \SI{0.65}{\metre}  (for both, Robotino 2 and 3) or 
-centered at the robot's rotational center-point. Additional hardware 
-may only occupy up to $25\%$ of this additional \SI{0.14}{\metre} 
-(Robotino 2) or \SI{0.10}{\metre} (Robotino 3) wide ring around the 
-robot. The only additional actuator allowed is one gripping device for 
-workpieces which can be the original or a modified one. It also must 
-be within the same diameter of the other additional hardware. The 
-gripper is allowed to transport one workpiece at a time. And the 
-gripper must release the workpiece for safety whenever the referee 
-wants to take out it. For example, if the referee presses the release 
+hardware (sensors, computing equipment, etc.)  must be within a circle
+of a diameter of \SI{0.65}{\metre}  (for both, Robotino 2 and 3) or
+centered at the robot's rotational center-point. Additional hardware
+may only occupy up to $25\%$ of this additional \SI{0.14}{\metre}
+(Robotino 2) or \SI{0.10}{\metre} (Robotino 3) wide ring around the
+robot. The only additional actuator allowed is one gripping device for
+workpieces which can be the original or a modified one. It also must
+be within the same diameter of the other additional hardware. The
+gripper is allowed to transport one workpiece at a time. And the
+gripper must release the workpiece for safety whenever the referee
+wants to take out it. For example, if the referee presses the release
 button or key, the gripper releases the workpiece.
 
 It is allowed to install additional computing power on the
@@ -2079,7 +2078,7 @@ tournament.
 %  specified in the referee box protocol. Further, communication to one
 %  dedicated off-board computing device is allowed. However, wifi
 %  communication should not taken for granted during competition by the
-%  participating teams. 
+%  participating teams.
 %\end{rulechange}
 %The robots are allowed to share information with other devices, but
 %must receive nothing else but the start, pause and stop command
@@ -2116,7 +2115,7 @@ be found in Appendix~\ref{sec:wifi-equipment}.
 % \subsection{Short term ideas}
 
 % These are ideas that could still be incorporated into the rulebook of
-% Istanbul 2011. 
+% Istanbul 2011.
 
 % \subsubsection{Scripted, dynamic obstacles}
 
@@ -2173,7 +2172,7 @@ be found in Appendix~\ref{sec:wifi-equipment}.
 
 % \subsubsection{Collaborative Production}
 % Teams could be required to cooperate with another team to enable a
-% combined supply chain. 
+% combined supply chain.
 
 % \subsubsection{Opponent controlled dynamic obstacles}
 % No scripted obstacle can truly represent challenges of the industrial
@@ -2192,7 +2191,7 @@ be found in Appendix~\ref{sec:wifi-equipment}.
 % and certain time windows.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% 
+%%%
 
 \begin{appendix}
 \newpage
@@ -2236,7 +2235,7 @@ switching sensor.
   \begin{minipage}[b]{0.3\linewidth}
     \centering \includegraphics[height=3.5cm]{figures/robotino-shadow}
   \end{minipage}
-} 
+}
 \quad
 \subfigure[Festo Robotino 3]{%
   \label{fig:robotino-3}%
@@ -2286,7 +2285,7 @@ layout combined with a custom made sensor board.
 \begin{itemize}
 \item Embedded Intel Core i5, 2.4 GHz, Dual-Core
 \item 8 GB RAM
-\item 64 GB SSD (exchangeable) 
+\item 64 GB SSD (exchangeable)
 \item Operating system: Linux Ubuntu 12.04 (64-bit)
 \end{itemize}
 
@@ -2332,9 +2331,9 @@ communicate with external PC applications via wifi. Also provided: API
 in numerous programming languages:
 
 \begin{itemize}
-\item C++ and C 
-\item C\# 
-\item .net and JAVA 
+\item C++ and C
+\item C\#
+\item .net and JAVA
 \item MatLab and Simulink
 \item Labview
 \item Robot Operating System (ROS)
@@ -2352,7 +2351,7 @@ setup, status display and options Help system: online manual for
 getting started, details on all components and introduction into
 programming
 
-\paragraph{Robotino View} 
+\paragraph{Robotino View}
 For a quick start or Hardware testing there is proprietary drag and
 drop Software Robotino View. Graphical programming environment for
 external PC running on Windows XP, Vista, Windows 7 or Windows 8.
@@ -2452,7 +2451,7 @@ obtained through\\
 %  \begin{minipage}[b]{0.4\linewidth}
 %    \centering \includegraphics{driveunit.png}
 %  \end{minipage}
-%} 
+%}
 %\quad
 %\subfigure[Festo Robotino 2 inside view]{%
 %  \label{fig:robotino-2-board}%
@@ -2495,9 +2494,9 @@ obtained through\\
 %to create applications for Robotino in numerous programming languages:
 %
 %\begin{itemize}
-%\item C++ and C 
-%\item C\# 
-%\item .net and JAVA 
+%\item C++ and C
+%\item C\#
+%\item .net and JAVA
 %\item MatLab and Simulink
 %\item Labview
 %\end{itemize}
@@ -2506,7 +2505,7 @@ obtained through\\
 %different API's in the public OpenRobotino forum at
 %\url{http://www.openrobotino.org}.
 %
-%\paragraph{Robotino View} 
+%\paragraph{Robotino View}
 %
 %Robotino View is a graphical programming language with numerous
 %prepared function blocks you can easily connect via input and output
@@ -2568,7 +2567,7 @@ obtained through\\
 %      Segment height 			&	\SI{34}{\milli\metre},
 %      including \SI{5}{\milli\metre} unlighted border \\
 %      Lifespan				&	max. \SI{50.000}{\hour} \\
-%      Connector				&	Bottom, \SI{2}{\metre} supplied 
+%      Connector				&	Bottom, \SI{2}{\metre} supplied
 %      Compatible to the I/O-Terminal of MPS(r) units. \\
 %      Safety					&	IP65 \\
 %      Voltage					&	\SI{24}{\volt} \\
@@ -2595,7 +2594,7 @@ obtained through\\
 %      \SI{40x40}{\milli\metre}  with the centered RFID
 %      tag. \\
 %      Housing height
-%      & \SI{65}{\milli\metre} \\ 
+%      & \SI{65}{\milli\metre} \\
 %      Operating voltage							&	DC \\
 %      Housing material Plastic					& 	PBT-GF30-V0, black \\
 %      Material active face Plastic				& 	PA6-GF30, yellow \\
@@ -2642,7 +2641,7 @@ obtained through\\
       & 	Most Laptops cannot power them \\
       & 	via USB! \\
       Connector			&	Ethernet \\
-      
+
 %      \hline
     \end{tabularx} }
     \caption{Technical specification of the wifi equipment}
