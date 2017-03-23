@@ -667,7 +667,7 @@ MPS Station has a well defined local mathematical (x,y)-coordinate system: The x
 given by the conveyor and the positive direction is in the direction from the
 output to the input. The origin is just the center point of the conveyor. Hence the
 orientation of a MPS Station is equal 0 if it's local coordinate system is in
-alignment with the field coordinate system.Further the orientation is e.g. equal
+alignment with the field coordinate system. Further the orientation is e.g. equal
 \ang{90} if the local coordinate system is in alignment with the competition
 field coordinate system  after a turning (counter clockwise) of \ang{90} of the
 field coordinate system etc.
@@ -679,7 +679,7 @@ with an orientation of \ang{225} (respectively \ang{135}, \ang{225},
 \ang{315}).
 An exception from this rule is made for the CS and RS when place directly next to a wall.
 Since the shelfs and slides should be reachable the MPS will be rotated that these sides will be facing towards the field center rather then the wall.
-Therefore all CS and RS which are placed next to walls (zones: C-Z*1, C-Z*8, C-Z7*, M-Z*1, M-Z*8 and M-Z7*) are rotated in a way that the y-axis is facing towards the wall they are places next to.
+Therefore all CS and RS which are placed next to walls (zones: C-Z*1, C-Z*8, C-Z7*, M-Z*1, M-Z*8 and M-Z7*) are rotated in a way that the y-axis is facing away from the wall they are places next to.
 
 For placing of machines, the RefBox will take care of the necessary constraints to ensure that all in- and output sides, shelves and slides are reachable.
 If a machine is rotated with \ang{0}, \ang{90}, \ang{180} or \ang{270} the zones in front the input and output side are blocked as well (fig.~\ref{fig:zone-mps-rotation-straight}).
@@ -697,6 +697,7 @@ and swapped with the corresponding machine of the other team on the
 non-primary half -- that is two machines in total per team. The CS and
 RS will be swapped with the symmetrically positioned machine of the
 same type of the other team.
+For consecutive games the changed zones for MPSes should be minimal for ease of the referees.
 
 \subsubsection{MPS -- During Exploration Phase}
 \label{sec:production-machines-exp}
@@ -833,13 +834,12 @@ base outlined in \refsec{sec:production-scoring}.
 \medskip
 The setup and use of a machine follows a transaction style. Once the
 machine has been setup, the full cycle can be completed (committed).
-But if a robot desires, it can cancel the production on the machine,
-unless the intermediate product has already been fed into the
-machine.\footnote{Note that canceling might not be available in 2017.}
-Canceling will invalidate any additional bases that have been taken to
-the machine. There may be only one transaction running at a time. If a
-second setup is performed without canceling the first one the machine will
+There may be only one transaction running at a time. If a
+second setup is performed the machine will
 be temporarily broken (cf.~\refsec{sec:broken-machine}).
+
+An MPS can be reset at any time by a dedicated msg (see referee box Integrator's Manual~\cite{RefBoxIntManual}).
+Which cases the MPS to go into an broken state (cf.~\refsec{sec:broken-machine}).
 
 \subsubsection{Delivery Station}
 \label{sec:delivery-station}
@@ -1244,6 +1244,13 @@ all $C_1$ orders have this constraint.
   \ffigbox{%
     \centering
     \begin{minipage}{0.75\linewidth}
+      \subfigure[Production of complexity $C_0$ received from a SS.]{
+        \label{fig:prod-chain-C0-SS}%
+        \begin{minipage}{1.0\linewidth}
+          \centering
+          \includegraphics{prod2015/chain_c0_SS}
+        \end{minipage}
+      }
       \subfigure[Production of complexity $C_0$ only mounting a cap on a
       BE as shown in \reffig{fig:prod-compl-0}.]{
         \label{fig:prod-chain-C0}%
@@ -1350,7 +1357,7 @@ production phase and can be delivered any time in the game. However,
 just one product of this types can be delivered for each order.
 For the $C_0$ order the base color will be red. The cap color will be
 randomized.
-The $C_1$ order will be completely randomized as normally.
+The $C_1$ order will be completely randomized.
 
 In all tournament phases (cf.~\refsec{sec:tournament-phases}), the
 teams playing on the field at the same time will get the same
@@ -1461,6 +1468,7 @@ announced cannot be awarded.
 There is a special case regarding the Storage Station. Retrieving a
 workpiece has a cost (see \reftab{tab:scoring}). The cost is
 subtracted as soon as the workpiece is ready for retrieval on the SS.
+However exploration points gained during the exploration will not be used for this.
 
 \begin{table}
   \centering
