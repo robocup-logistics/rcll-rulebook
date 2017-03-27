@@ -662,22 +662,25 @@ Each game will have a new randomly generated field layout, the referees will pla
 
 A MPS can be potentially place in all zones except C-Z52 and M-Z52. These zones are needed to access the field.
 The rotation of the MPS can have 8 possible angles, starting at \ang{0} with
-\ang{45} steps. The orientation of the MPS Station is specified as follows. Each
-MPS Station has a well defined local mathematical (x,y)-coordinate system: The x-axis is
-given by the conveyor and the positive direction is in the direction from the
-output to the input. The origin is just the center point of the conveyor. Hence the
-orientation of a MPS Station is equal 0 if it's local coordinate system is in
+\ang{45} steps. The orientation of the MPS Station is specified as
+follows. Each MPS Station has a well-defined local right-handed
+(x,y)-coordinate system: The x-axis is given by the conveyor pointing
+from the output to the input. The origin is the center point of the
+conveyor. Hence the
+
+orientation of a MPS Station is equal \ang{0} if its local coordinate system is in
 alignment with the field coordinate system. The orientation is, for
 example, \ang{90} after turning the MPS counter clockwise by \ang{90}.
 
-The orientations of the machines on the two halfs of the field are mirrored
-along the y-axis. Thus, a machine on Magenta with an orientation of \ang{45}
-(respectively \ang{135}, \ang{225}, \ang{315}) is related to a machine on Cyan
-with an orientation of \ang{225} (respectively \ang{135}, \ang{225},
+The orientations of the machines on the two halfs of the field are
+mirrored along the field's y-axis. Thus, a machine on the magenta side
+with an orientation of \ang{45} (respectively \ang{135}, \ang{225},
+\ang{315}) is related to a machine on the cyan side with an
+orientation of \ang{225} (respectively \ang{135}, \ang{225},
 \ang{315}).
 An exception from this rule is made for the CS and RS when place directly next to a wall.
 Since the shelfs and slides should be reachable the MPS will be rotated that these sides will be facing towards the field center rather then the wall.
-Therefore all CS and RS which are placed next to walls (zones: C-Z*1, C-Z*8, C-Z7*, M-Z*1, M-Z*8 and M-Z7*) are rotated in a way that the y-axis is facing away from the wall they are places next to.
+Therefore all CS and RS which are placed next to walls (zones: C-Z*1, C-Z*8, C-Z7*, M-Z*1, M-Z*8 and M-Z7*) are rotated in a way that the y-axis is facing away from the wall they are placed next to.
 
 For placing of machines, the RefBox will take care of the necessary constraints to ensure that all in- and output sides, shelves and slides are reachable.
 If a machine is rotated with \ang{0}, \ang{90}, \ang{180} or \ang{270} the zones in front the input and output side are blocked as well (fig.~\ref{fig:zone-mps-rotation-straight}).
