@@ -660,19 +660,20 @@ Logistics website.
 The zones and rotations for the MPS will be randomly chosen by the RefBox.
 Each game will have a new randomly generated field layout, the referees will place the MPS in the middle of the zone with given rotation at there best effort but errors of the positioning should be expected.
 
-A MPS can be potentially place in all zones except C-Z52 and M-Z52. These zones are needed to access the field.
-The rotation of the MPS can have 8 possible angles, starting at \ang{0} with
-\ang{45} steps. The orientation of the MPS Station is specified as
-follows. Each MPS Station has a well-defined local right-handed
-(x,y)-coordinate system: The x-axis is given by the conveyor pointing
-from the output to the input. The origin is the center point of the
-conveyor. Hence the
+A MPS can be placed in any zones except C-Z52 and M-Z52. These zones
+are needed to enter the field.  Each MPS has one out of 8 possible
+orientations, starting at \ang{0} with steps of \ang{45}. To denote
+the orientation, we assign a local right-handed coordinate system to
+each MPS station. The x-axis is given by the conveyor pointing from
+the output to the input. The origin is the center point of the
+conveyor. The orientation is then the relative rotation of the local
+MPS system compared to the fixed field coordinate system. For example,
+at an MPS orientation of \ang{0}, its local coordinate system is
+aligned with the field (in terms of orientation). Furthermore, an MPS
+at an orientation of \ang{90} will be rotated counter-clockwise a
+quarter turn compared to the field system.
 
-orientation of a MPS Station is equal \ang{0} if its local coordinate system is in
-alignment with the field coordinate system. The orientation is, for
-example, \ang{90} after turning the MPS counter clockwise by \ang{90}.
-
-The orientations of the machines on the two halfs of the field are
+The orientations of the machines on the two halves of the field are
 mirrored along the field's y-axis. Thus, a machine on the magenta side
 with an orientation of \ang{45} (respectively \ang{135}, \ang{225},
 \ang{315}) is related to a machine on the cyan side with an
