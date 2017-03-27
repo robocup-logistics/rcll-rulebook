@@ -22,33 +22,33 @@
         </pattern>
         <g id="polar" transform="scale(2.1)">
             <circle cx="0" cy="0" r="10"
+                    style="fill:none;stroke:#000000;stroke-width:0.5" />
+            <path
+                d="M 0,0 V 13"
                 style="fill:none;stroke:#000000;stroke-width:0.5" />
             <path
-                d="M 0,0 V 13.229167"
+                d="M 0,0 9,9"
                 style="fill:none;stroke:#000000;stroke-width:0.5" />
             <path
-                d="M 0,0 9.3544335,9.3544335"
+                d="M 0,0 13,0"
                 style="fill:none;stroke:#000000;stroke-width:0.5" />
             <path
-                d="M 0,0 13.229167,0"
+                d="M 0,0 9,-9"
                 style="fill:none;stroke:#000000;stroke-width:0.5" />
             <path
-                d="M 0,0 9.3544335,-9.3544335"
+                d="M 0,0 0,-13"
                 style="fill:none;stroke:#000000;stroke-width:0.5" />
             <path
-                d="M 0,0 0,-13.229167"
-                style="fill:none;stroke:#000000;stroke-width:0.5" />
-            <path
-                d="M 0,0 -9.3544335,-9.3544335"
+                d="M 0,0 -9,-9"
                 style="fill:none;stroke:#000000;stroke-width:0.5"/>
             <path
-                d="M 0,0 -13.229167,0"
+                d="M 0,0 -13,0"
                 style="fill:none;stroke:#000000;stroke-width:0.5" />
             <path
-                d="M 0,0 -9.3544335,9.3544335"
+                d="M 0,0 -9,9"
                 style="fill:none;stroke:#000000;stroke-width:0.5" />
             <circle cx="0" cy="0" r="0.7"
-                style="fill:#000000;stroke:#000000;stroke-width:0" />
+                    style="fill:#000000;stroke:#000000;stroke-width:0" />
             <text
                 style="font-style:normal;font-weight:normal;font-size:6px;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
                 x="19"
@@ -87,23 +87,37 @@
                 id="text1747">315°</text>
         </g>
 
-        <g id="mpsContent">
+        <g id="mps">            
             <rect y="29" width="35" height="7" fill="lightgrey" stroke-width="1" stroke="black"/>
-            <rect y="37" width="15" height="32" fill="lightgrey" stroke-width="1" stroke="black"/>
-            <text x="0" y="37" font-size = "16">&#62;&#62;&#62;</text> 
+            <text x="0" y="37" font-size = "16">&#62;&#62;&#62;</text>
+        </g>
+        <g id="mpsContent"> 
             <text transform="translate(-12,26)rotate(90)">in</text>
             <text transform="translate(38,22)rotate(90)">out</text>  
+            <rect y="37" width="15" height="32" fill="lightgrey" stroke-width="1" stroke="black"/>
             <circle cx="3" cy="43" r="3" fill="white" stroke-width="1" stroke="black"/>
             <circle cx="3" cy="53" r="3" fill="white" stroke-width="1" stroke="black"/>
             <circle cx="3" cy="63" r="3" fill="white" stroke-width="1" stroke="black"/>
         </g>
         <g id="mpsM" x="0" y="0" width="35" height="70">
             <rect x="0" y="0" width="35" height="70" fill="magenta" stroke-width="1" stroke="black"/>          
+            <use xlink:href="#mps"/>
             <use xlink:href="#mpsContent"/>
         </g>
         <g id="mpsC" x="0" y="0" width="35" height="70">
             <rect x="0" y="0" width="35" height="70" fill="cyan" stroke-width="1" stroke="black"/>
+            <use xlink:href="#mps"/>
             <use xlink:href="#mpsContent"/>
+        </g>    
+        <g id="mpsMDS" x="0" y="0" width="35" height="70">
+            <text transform="translate(-12,26)rotate(90)">in</text>
+            <rect x="0" y="0" width="35" height="70" fill="magenta" stroke-width="1" stroke="black"/>          
+            <use xlink:href="#mps"/>
+        </g>
+        <g id="mpsCDS" x="0" y="0" width="35" height="70">
+            <text transform="translate(-12,26)rotate(90)">in</text>
+            <rect x="0" y="0" width="35" height="70" fill="cyan" stroke-width="1" stroke="black"/>
+            <use xlink:href="#mps"/>
         </g>    
     </defs>
 
@@ -160,10 +174,17 @@
     <text x="768" y="505">270°</text>
 
     <use xlink:href="#mpsM"  transform = "translate(490,640) rotate(225)"/>
-    <text x="475" y="625">135°</text>
+    <text x="475" y="625">315°</text>
        
     <use xlink:href="#mpsC" transform = "translate(965,585) rotate(-45)"/>
     <text x="975" y="590">225°</text>      
+    
+    <use xlink:href="#mpsMDS"  transform = "translate(140,710) rotate(135)"/>
+    <text x="105" y="720">45°</text>
+       
+    <use xlink:href="#mpsCDS" transform = "translate(1410,660) rotate(45)"/>
+    <text x="1400" y="690">135°</text>      
+    
     
     <!--Zone&Field Size Arrows -->
     <text x="20" y="400" transform = "rotate(-90 20 400)">8m</text>
