@@ -696,17 +696,17 @@ quarter turn compared to the field system.
 To ensure fairness, positions and orientations of the machines are
 mirrored along the field's y-axis. There are two cases that need to be
 handled separately. First, machines in a cell not adjacent to the
-wall, and machines of types BS, DS, and SS are mirrored according to
+wall, and machines of types BS, DS, and SS (even when adjacent to the wall) are mirrored according to
 \reftab{tab:mirror-a}. Second, CS and RS stations must be handled
 slightly different, if oriented next to a wall (zones: C-Z*1, C-Z*8,
 C-Z7*, M-Z*1, M-Z*8 and M-Z7*). The reason being, that the shelf and
 slide of these stations are offset to sideways at the input side. This
 might lead to the situation that for one team the shelf is close to
 the wall, and for the other it is not. To remedy this problem, the RS
-and DS machines adjacent to a wall will always be placed such that the
+and CS machines adjacent to a wall will always be placed such that the
 shelf or slide is on the farther end with respect to the wall. For
 example, in \reffig{fig:competition-area}, the magenta CS in M-Z76
-faces south. Were this setup mirrored, the shelf on the cyan CS in
+with a rotation of \ang{270}. Were this setup mirrored, the shelf on the cyan CS in
 C-Z76 would be close to the wall. Instead, it has a different
 orientation violating the y-symmetry but allowing for easier access to
 the shelf.
