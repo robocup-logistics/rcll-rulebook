@@ -417,13 +417,19 @@ primary side of the opposing team. We will later discuss the concept
 of the production machine distribution for each team in detail.
 
 The center coordinates and the size of the zones in which the machines
-are placed can be seen in \reffig{fig:competition-area}. Note that
-this field layout is a proposal for the layout, accounting for
-symmetry and avoiding clustering of machine access nodes and
-unapproachable machines. However, the actual distribution and alignment
-of machines on the competition area will change before the actual game
-starts. Thus, teams should focus on a generic approach for production,
-allowing for dynamic adaptation of machine positions and alignments.
+are placed can be seen in \reffig{fig:competition-area}. The zone
+names are structured as a team prefix (``C-'' for cyan, ``M-'' for
+magenta), Z to distinguish zone names, and a grid coordinate. For
+example, The zone C-Z23 is the zone on the cyan primary half, which is
+the second along the X-axis and the third along the Y-axis.
+
+Note that this specific field layout is an example for the layout,
+accounting for symmetry and avoiding clustering of machine access
+nodes and unapproachable machines. However, the actual distribution
+and alignment of machines on the competition area will change before
+the actual game starts and will be different for each game. Thus,
+teams should focus on a generic approach for production, allowing for
+dynamic adaptation of machine positions and alignments.
 
 \subsubsection{Moving on the Field}
 \label{sec:field-movement}
@@ -742,8 +748,7 @@ located and in which rotations they are positioned.
 
 The Referee Box assigns each machine to a team and a zone
 (\reffig{fig:competition-area}) at the start of the exploration
-phase,\footnote{In 2017 there are no more fixed stations. The prefix ``C-'' means team
-cyan, ``M-'' means magenta.}
+phase,\footnote{In 2017 there are no more fixed stations.}
 The zones and orientations (in steps of 45$^\circ$) are randomly determined,  and will not be
 communicated until the production phase. For details about the
 Exploration Phase confer~\refsec{sec:exploration-phase}.
