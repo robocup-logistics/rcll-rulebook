@@ -870,17 +870,18 @@ moves the processed product to the output.
   development resources might lead to exclusion of the SS from the
   tournament on short notice.}
 %
-The SS prepare message denotes the storage place where to store the next
-input workpiece, or from which place to retrieve an item from. There
-will be designated positions for specific $C_0$ workpieces which will
-be announced at the beginning of the tournament.\footnote{Please note
-  again, this is an assignment specifically for 2017 and may change in
-  future competitions.} If a position is requested for which no
-product has been stored (or has already been retrieved), the machine
-will be broken (cf.~\refsec{sec:broken-machine}). The products
-provided from the SS are only allowed to be used for $C_0$ orders with
-a quantity requested greater than 1. Note the costs for retrieving a
-base outlined in \refsec{sec:production-scoring}.
+The SS prepare message denotes the storage place where to store the
+next input workpiece, or from which place to retrieve an item
+from. There will be designated positions for specific $C_0$ workpieces
+which will be announced at the beginning of the
+tournament.\footnote{Please note again, this is an assignment
+  specifically for 2017 and may change in future competitions.} If a
+position is requested for which no product has been stored (or has
+already been retrieved), the machine will be broken
+(cf.~\refsec{sec:broken-machine}). The products retrieved from the SS
+are only allowed for some specific order,
+cf.~\refsec{sec:production-plan}. Note the costs for retrieving a base
+outlined in \refsec{sec:production-scoring}.
 
 
 \medskip
@@ -1362,44 +1363,42 @@ incremental fashion. Each order will consist of the product variant to
 produce, the amount thereof, and a delivery time slot. An order
 therefore specifies a production chain to be accomplished for
 fulfillment. \reffig{fig:production-chains} shows some example
-production chains of the four different complexities. The complexity
-is specified by the number of required intermediate rings from $C_0$
-(no ring) to $C_3$ (three intermediate rings). As specified in
-\refsec{sec:production-complexities}, some specific steps require
-additional bases to be added to the machine
-(cf.~\refsec{sec:production-machines-production}). This depends on the
-specific color, it is randomized per game and announced by the refbox.
+production chains of the four different complexities
+(cf.~\refsec{sec:production-complexities}). The ring colors which
+require additional bases are randomized per game and announced by the
+refbox. There will be one color requiring 2 additional bases, one
+requiring 1 base, and two colors requiring no additional base at
+all. Products retrieved from the Storage Station may be used only for
+$C_0$ orders with a requested quantity equal to or greater than two.
 
-In each game, orders with a fixed delivery value of 160 points will be
-placed.\footnote{This number is currently a best guess as experience
-  with the new production plan is not yet available. The number can be
-  adjusted during the tournament by the Technical Committee, should
-  this turn out to be necessary.} These points only include the final
-delivery. The complexities of orders will be similar for all games
-within a phase. But the actual production chains are randomized. Each
-order will require one or more products of a specified product type to
-be delivered. The product is specified in terms of base color, rings
-(color and order), cap color, and possible delivery gate. The delivery
-time slot will have a randomized start time. The duration will be
-randomized between 30 to 180 seconds. The end time shall be within the
-game time. The orders shall be posted with a uniform distribution over
-the whole game time (but there is not necessarily an open order for a
-particular product at a specific time, or any order at all). The first
-order will be posted within the first 120 seconds of the game (but not
-necessarily at the beginning of the game). Orders for the products of
-complexity $C_2$ or $C_3$ will not begin in the first 300 seconds. An
-order will be announced before the delivery time slots starts. For
-$C_0$ products the lead time ahead of the start of the time window is
-60 to 120 seconds, for $C_1$ it is 120 to 300 seconds, and for $C_2$
-and $C_3$ orders the time is between 300 and 600 seconds. Two early
-orders will be posted that are announced in the first third of the
-game with a delivery time window in the last third. Two standing orders
-with the complexity of one $C_0$ and one $C_1$ will be placed at the beginning of the
-production phase and can be delivered any time in the game. However,
-just one product of this types can be delivered for each order.
-For the $C_0$ order the base color will be red. The cap color will be
-randomized.
-The $C_1$ order will be completely randomized.
+In each game, up to 10 orders will be placed.\footnote{There will up
+  to 9 orders in regular game time, and an additional order in the
+  case of overtime. The number can be adjusted during the tournament
+  by the Technical Committee, should this turn out to be necessary.}
+The complexities of orders will be similar for all games within a
+tournament phase. But the actual production chains are
+randomized. Each order will require one or more products of a
+specified product type to be delivered. The product is specified in
+terms of base color, rings (color and order), cap color, and possible
+delivery gate. The delivery time slot will have a randomized start
+time. The duration will be randomized between 30 to 180 seconds. The
+end time shall be within the game time. There is not necessarily an
+open order for a particular product at a specific time, or any order
+at all. The first order will be posted within the first 120 seconds of
+the game (but not necessarily at the beginning of the game). Orders
+for the products of complexity $C_2$ or $C_3$ will not begin in the
+first 300 seconds. An order will be announced before the delivery time
+slots starts. For $C_0$ products the lead time ahead of the start of
+the time window is 60 to 120 seconds, for $C_1$ it is 120 to 300
+seconds, and for $C_2$ and $C_3$ orders the time is between 300 and
+600 seconds. Two early orders will be posted that are announced in the
+first third of the game with a delivery time window in the last
+third. Two standing orders with the complexity of one $C_0$ and one
+$C_1$ will be placed at the beginning of the production phase and can
+be delivered any time in the game. However, just one product of this
+types can be delivered for each order.  For the $C_0$ order the base
+color will be red. The cap color will be randomized.  The $C_1$ order
+will be completely randomized.
 
 In all tournament phases (cf.~\refsec{sec:tournament-phases}), the
 teams playing on the field at the same time will get the same
