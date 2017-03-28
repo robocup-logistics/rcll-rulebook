@@ -817,15 +817,14 @@ flash the red and yellow light and will be out of order
 (cf. \refsec{sec:broken-machine}). The light signals are summarized in
 \reftab{tab:production-machines-feedback}.
 
-In the production phase, machines must be setup to be used. This
-applies to all machine types BS, DS, CS, SS and RS.
-When the DS, CS and RS
-received the setup the conveyor belt starts running for
-\SI{30}{\second}, if no product reaches the middle sensor within this
-time the machine goes to a temporary out-of-order state
-(cf.~\refsec{sec:broken-machine}).
-When the BS and SS received the setup the workpieces are dispensed,
-which may remain for an arbitrary time on the machine.
+In the production phase, machines must be prepared to be used. This
+applies to all machine types.  The DS, CS and RS start the conveyor
+belt upon receiving a prepare message. If no workpiece reaches the
+machine operating point (indicated through the middle belt sensor)
+within \SI{30}{\second}, the machine goes to a temporary out-of-order
+state (cf.~\refsec{sec:broken-machine}). The BS and SS will
+immediately dispense a workpiece upon receiving a prepare message. The
+workpiece may remain on the machine for an arbitrary time.
 
 The following describes the communication and reactions of the
 machines during the production phase. For the actual messages we refer
