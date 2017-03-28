@@ -704,7 +704,7 @@ wall, and machines of types BS, DS, and SS (even when adjacent to the wall) are 
 \reftab{tab:mirror-a}. Second, CS and RS stations must be handled
 slightly different, if oriented next to a wall (zones: C-Z*1, C-Z*8,
 C-Z7*, M-Z*1, M-Z*8 and M-Z7*). The reason being, that the shelf and
-slide of these stations are offset to sideways at the input side. This
+slide of these stations are offset sideways at the input side. This
 might lead to the situation that for one team the shelf is close to
 the wall, and for the other it is not. To remedy this problem, the RS
 and CS machines adjacent to a wall will always be placed such that the
@@ -719,14 +719,14 @@ For placing of machines, the RefBox will take care of the necessary
 constraints to ensure that all in- and output sides, shelves and
 slides are reachable.  If a machine is rotated with \ang{0}, \ang{90},
 \ang{180} or \ang{270} the zones in front the input and output side
-are blocked as well (fig.~\ref{fig:zone-mps-rotation-straight}).  For
+are blocked as well (\reffig{fig:zone-mps-rotation-straight}).  For
 machines with rotations \ang{45}, \ang{135}, \ang{225} and \ang{315}
 three zones in front of each input and output side are blocked
-(fig.~\ref{fig:zone-mps-rotation-odd}). No MPS may be placed in a
+(\reffig{fig:zone-mps-rotation-odd}). No MPS may be placed in a
 blocked zone. All blocked zones of any MPS must be located within the
 competition area. Furthermore, only two machines will ever be placed
-next to each other, a third machine will only be placed with an empty
-zone spacing in-between.
+next to each other, a third machine will only be placed with at least
+one empty zone in-between.
 
 The MPS will be placed mostly on the primary half of a team
 (cf. \refsec{sec:competition-area}). However, some machines will be
