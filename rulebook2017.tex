@@ -522,7 +522,7 @@ Based on these shared properties, there are five kinds of machines:
 
 \item[Delivery Station (DS)] Accepts completed products. The stations
   contains three conveyor belts (\reffig{fig:DS}). The robot has to
-  setup the proper one for a specific order
+  prepare the proper one for a specific order
   (cf. \refsec{sec:production-machines-production}). The delivered
   products are verified by either the referees or an automated
   external vision system. There is one DS per team.
@@ -776,12 +776,12 @@ If the zone and rotation is correctly reported, the green light will be flashing
       Red LED turned on & The machine is out of order. \\
       %Red LED flashing (at 2 Hz)  & Machine signals that it ran out of stock on any required item. \\
       Green LED turned on & The machine is idle and ready.\\
-      Green LED flashing & The machine has accepted the setup command
+      Green LED flashing & The machine has accepted the prepare command
       (flashes for up to 3 seconds).\\
       Green and yellow LED turned on & The machine is currently busy.\\
       Yellow LED turned on & A workpiece is ready for pickup.\\
       Red and yellow LED flashing (2 Hz) & Machine is broken, for
-      example because a product was fed without proper setup of the
+      example because a product was fed without proper preparation of the
       machine.\\%\hline
 %%keep Red any Yellow one?
 	\end{tabularx}}
@@ -795,7 +795,7 @@ If the zone and rotation is correctly reported, the green light will be flashing
 In the production phase a production machine performs refinement steps on
 a product such as mounting an additional ring or a cap. Machines
 operate in a transaction style. That is, before using a machine it
-must be setup for a specific mode. Then the input products can be fed
+must be prepared for a specific mode. Then the input products can be fed
 into the machine and the refinement step commences. Eventually, after
 the production period is completed, the resulting product is delivered
 on the output lane.
@@ -803,7 +803,7 @@ on the output lane.
 A light signal mounted near the output lane
 (cf. \refsec{sec:machines}) indicates the state of the machine. In the
 default operating mode, the green light is turned on. This signals
-that the machine is ready for setup or input. When setup is performed,
+that the machine is ready for preparation. When preparation is performed,
 the machine will flash the green light for up to 3 seconds (it
 immediately switches to a new state, e.g., if a product is fed into the
 machine before the three seconds have expired). When a product is fed
@@ -834,17 +834,17 @@ to the integrator's manual~\cite{RefBoxIntManual}.
 \smallskip
 
 \noindent\textbf{BS}
-The BS setup message denotes the color of the base element that should
+The BS prepare message denotes the color of the base element that should
 be dispensed. After receiving the message, the refbox will instruct
 the MPS to immediately provide a base of the desired color.
 
 \noindent\textbf{DS}
-The DS setup message denotes the slide the product should be delivered
+The DS prepare message denotes the slide the product should be delivered
 to. The DS will consume any workpiece provided, but points can only be
-scored if the DS was properly setup.
+scored if the DS was properly prepared.
 
 \noindent\textbf{CS}
-The CS setup message initiates either the retrieval or the mounting of
+The CS prepare message initiates either the retrieval or the mounting of
 a cap. For retrieving a prepared base (with a cap mounted on top) from
 the machine's shelf must be fed into the machine. All base elements
 prepared on the shelf are specially colored workpieces (clear). The
@@ -856,7 +856,7 @@ mounting a cap, a workpiece (without cap) must be provided onto which
 the cap is mounted.
 
 \noindent\textbf{RS}
-The RS setup message must state which of the two colors to prepare and
+The RS prepare message must state which of the two colors to prepare and
 retrieve. Each RS is responsible for two specific colors. Some colors
 require loading the RS with additional bases
 (cf.~\refsec{sec:production-plan}). If the desired color requires
@@ -871,7 +871,7 @@ moves the processed product to the output.
   development resources might lead to exclusion of the SS from the
   tournament on short notice.}
 %
-The SS setup message denotes the storage place where to store the next
+The SS prepare message denotes the storage place where to store the next
 input workpiece, or from which place to retrieve an item from. There
 will be designated positions for specific $C_0$ workpieces which will
 be announced at the beginning of the tournament.\footnote{Please note
@@ -885,10 +885,10 @@ base outlined in \refsec{sec:production-scoring}.
 
 
 \medskip
-The setup and use of a machine follows a transaction style. Once the
-machine has been setup, the full cycle can be completed (committed).
+The preparation and use of a machine follows a transaction style. Once the
+machine has been prepared, the full cycle can be completed (committed).
 There may be only one transaction running at a time. If a
-second setup is performed the machine will
+second preparation is performed the machine will
 be temporarily broken (cf.~\refsec{sec:broken-machine}).
 
 An MPS may be reset by a team at any time by a dedicated msg (see
@@ -901,7 +901,7 @@ after handling errors (which the robots must recognize themselves).
 \label{sec:delivery-station}
 Once an order is completed, the product has to be shipped to the
 Delivery Station (DS). Before the workpiece is fed into the machine,
-the robot has to setup the desired delivery lane (i.e., which truck to
+the robot has to prepared the desired delivery lane (i.e., which truck to
 load it on).
 
 \subsection{Products and Workpieces}
@@ -1373,7 +1373,7 @@ production chains of the four different complexities. The complexity
 is specified by the number of required intermediate rings from $C_0$
 (no ring) to $C_3$ (three intermediate rings). As specified in
 \refsec{sec:production-complexities}, some specific steps require
-additional bases to be added to the machine after setup
+additional bases to be added to the machine
 (cf.~\refsec{sec:production-machines-production}). This depends on the
 specific color, it is randomized per game and announced by the refbox.
 
