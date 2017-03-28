@@ -1194,24 +1194,22 @@ exploration phase after 5 minutes.
 
 \subsection{Exploration Phase}
 \label{sec:exploration-phase}
-The
-robots have 3 minutes to roam the environment and announce their 7 MPS
-for a successful exploration to the referee box. The detection of one
-MPS can be split in two parts, first the detection of the machines
-position and type and then the detection of the orientation.
+The robots have \SI{3}{\minute} to roam the environment and report
+their 7 MPS to the referee box. The report about an MPS may be split
+in two parts, the position and type of a machine, and its orientation.
 Concretely, the referee box expects a \emph{machine identification
   message} with a tuple consisting of zone, machine name (as encoded
-in the markers), orientation in degrees. For the two
-different stages of the detection of one MPS, this message can just be
-party filled.  Please consult the referee box Integrator's
-Manual~\cite{RefBoxIntManual} for a detailed definition of the message
-types. Reports are only accepted for MPS of the respective team over
-the private encrypted team channel. Only the first report for each MPS
-is processed, all additional ones will be silently ignored. The
-scoring is shown in \reftab{tab:scoring-exploration}. A minimum of
-zero points will be accounted for the exploration phase. The
-exploration phase ends either after the time has passed or immediately
-after both teams have each reported their respective set of 7 MPS.
+in the markers), orientation in degrees. This message bay be partially
+filled to account for the two parts. Please consult the referee box
+Integrator's Manual~\cite{RefBoxIntManual} for a detailed definition
+of the message types. Reports are only accepted for MPS of the
+respective team over the private encrypted team channel. Only the
+first information for each MPS is processed and then never
+updated. The scoring is shown in \reftab{tab:scoring-exploration}. A
+minimum of zero points will be accounted for the exploration
+phase. The exploration phase ends either after the time has passed or
+immediately after both teams have each reported their respective set
+of MPS.
 
 Moving or processing workpieces at an MPS is not allowed during the
 exploration phase.
