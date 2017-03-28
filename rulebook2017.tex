@@ -649,23 +649,6 @@ printing on the RoboCup Logistics website.
 
 \subsubsection{Machine Positioning}
 \label{sec:machine-swapping}
-\begin{figure}[b!]
-    \centering
-    \subfigure[For rotations with \ang{0}, \ang{90}, \ang{180} or \ang{270}. BS, CS, and RS block the zones close to the input as well as the output. DS and SS block the zones close to the input respectively the output.]{
-        \label{fig:zone-mps-rotation-straight}%
-        \centering
-        \includegraphics[width=\textwidth]{bZones1.pdf}
-    }
-    \quad
-    \subfigure[For rotations with  \ang{45}, \ang{135}, \ang{225} and \ang{315}. BS, CS, and RS block the zones close to the input as well as the output. DS and SS block the zones close to the input respectively the output.]{
-        \label{fig:zone-mps-rotation-odd}
-        \centering
-        \includegraphics[width=\textwidth]{bZones2.pdf}
-    }
-    \caption{Blocked zones regarding the MPS rotation (red zones must
-      not be used as position for other machines and must be located inside the competition area).}
-    \label{fig:zone-mps-blocked}
-\end{figure}
 The zones and rotations for the MPS will be randomly chosen by the RefBox.
 Each game will have a new randomly generated field layout, the referees will place the MPS in the middle of the zone with given rotation at there best effort but errors of the positioning should be expected.
 
@@ -720,6 +703,23 @@ C-Z76 would be close to the wall. Instead, it has a different
 orientation violating the y-symmetry but allowing for easier access to
 the shelf.
 
+\begin{figure}[t!]
+    \centering
+    \subfigure[For rotations with \ang{0}, \ang{90}, \ang{180} or \ang{270}. BS, CS, and RS block the zones close to the input as well as the output. DS and SS block the zones close to the input respectively the output.]{
+        \label{fig:zone-mps-rotation-straight}%
+        \centering
+        \includegraphics[width=\textwidth]{bZones1.pdf}
+    }
+    \quad
+    \subfigure[For rotations with  \ang{45}, \ang{135}, \ang{225} and \ang{315}. BS, CS, and RS block the zones close to the input as well as the output. DS and SS block the zones close to the input respectively the output.]{
+        \label{fig:zone-mps-rotation-odd}
+        \centering
+        \includegraphics[width=\textwidth]{bZones2.pdf}
+    }
+    \caption{Blocked zones regarding the MPS rotation (red zones must
+      not be used as position for other machines and must be located inside the competition area).}
+    \label{fig:zone-mps-blocked}
+\end{figure}
 For placing of machines, the RefBox will take care of the necessary
 constraints to ensure that all in- and output sides, shelves and
 slides are reachable.  If a machine is rotated with \ang{0}, \ang{90},
