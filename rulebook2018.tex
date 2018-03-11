@@ -232,13 +232,14 @@ whole by increasing the number of participating teams and allowing
 existing teams to excel in their capabilities. 2017 we changed
 the field size and zone layout. Production had the main focus and
 the exploration phase became shorter and less important.
-In 2018 the goal is to mark the workpieces with barcodes, to track specific
-products by processing stations and award points for production
-steps during the game. Furthermore, the TC is working towards the
-introduction of a new storage station. This is a long-term
-effort. This year, the station will provide pre-assembled products
-that can be bought for delivery. In the following years, we will
-explore ways to extend this.
+Due the maximum points were still a long way off for each team and
+the production phase still offers many more challenges, the year
+2018 will also be a year of consolidation.
+Furthermore, the TC is working towards the introduction of a
+barcode recognition to track products and a new storage station.
+This is a long-term effort. This year, the station
+will provide pre-assembled products that can be bought for delivery.
+In the following years, we will explore ways to extend this.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The Task}
@@ -332,7 +333,7 @@ RoboCup competitions, to communicate to the RoboCup Federation
 trustees and chairs the requirements of the league, and to inform and
 attract new teams to the league. Current members of the OC are (in
 alphabetical order):\\[.5em]
-\emph{Stefan Brandenberger}, HFTM Technical Institute of Applied Science Mittelland, Biel, Switzerland\\[.5em]
+\emph{Stefan Brandenberger}, HFTM Technical Institute of Applied Science Mittelland, Biel, Switzerland\\
 \emph{Christian Deppe}, Festo Didactic SE, Denkendorf, Germany\\
 \emph{Florian Eith}, Friedrich-Alexander University, Erlangen, Germany\\
 \emph{Ulrich Karras}, priv. Dozent, Essen, Germany\\
@@ -518,7 +519,7 @@ Based on these shared properties, there are five kinds of machines:
   6 layers (\reffig{fig:SS_portrait}). For now items can be  shipped out on the output side on
   request. The Storage Station provides a sample of each possible
   $C_0$ configuration (one per layer).\footnote{Note that this is the
-    specific content for 2017 and may change in the future.}
+    specific content for 2018 and may change in the future.}
 
 \item[Delivery Station (DS)] Accepts completed products. The stations
   contains three slides (\reffig{fig:DS}). The robot has to prepare
@@ -758,7 +759,7 @@ located and in which rotations they are positioned.
 
 The Referee Box assigns each machine to a team and a zone
 (\reffig{fig:competition-area}) at the start of the exploration
-phase,\footnote{In 2017 there are no more fixed stations.}
+phase,\footnote{Since 2017 there are no more fixed stations.}
 The zones and orientations (in steps of 45$^\circ$) are randomly determined,  and will not be
 communicated until the production phase. For details about the
 Exploration Phase confer~\refsec{sec:exploration-phase}.
@@ -840,7 +841,8 @@ the MPS to immediately provide a base of the desired color.
 \noindent\textbf{DS}
 The DS prepare message denotes the slide the product should be delivered
 to. The DS will consume any workpiece provided, but points can only be
-scored if the DS was properly prepared.
+scored if the DS was properly prepared before (means the corresponding
+delivery lane which was desired in the refbox order).
 
 \noindent\textbf{CS}
 The CS prepare message initiates either the retrieval or the mounting of
@@ -866,7 +868,7 @@ fed into the machine. It receives a ring of the desired color and
 moves the processed product to the output.
 
 \noindent\textbf{SS}\footnote{The TC is working towards the
-  integration of the SS for 2017. Issues arising or the lack of
+  integration of the SS for 2018. Issues arising or the lack of
   development resources might lead to exclusion of the SS from the
   tournament on short notice.}
 %
@@ -875,14 +877,13 @@ next input workpiece, or from which place to retrieve an item
 from. There will be designated positions for specific $C_0$ workpieces
 which will be announced at the beginning of the
 tournament.\footnote{Please note again, this is an assignment
-  specifically for 2017 and may change in future competitions.} If a
+  specifically for 2018 and may change in future competitions.} If a
 position is requested for which no product has been stored (or has
 already been retrieved), the machine will be broken
 (cf.~\refsec{sec:broken-machine}). The products retrieved from the SS
 are only allowed for some specific order,
 cf.~\refsec{sec:production-plan}. Note the costs for retrieving a base
 outlined in \refsec{sec:production-scoring}.
-
 
 \medskip
 The preparation and use of a machine follows a transaction style. Once the
@@ -896,12 +897,6 @@ referee box Integrator's Manual~\cite{RefBoxIntManual}). This causes
 the MPS to go into the broken state
 (cf.~\refsec{sec:broken-machine}). It allows teams to recover machines
 after handling errors (which the robots must recognize themselves).
-
-\subsubsection{Delivery Station}
-\label{sec:delivery-station}
-Once an order is completed, the product has to be shipped to the
-Delivery Station (DS). Before the workpiece is fed into the machine,
-the robot has to prepare the desired delivery lane (as designated by Refbox).
 
 \subsection{Products and Workpieces}
 \label{sec:products}
@@ -1473,8 +1468,8 @@ production steps and final delivery of goods according to
 
 Points for production steps are awarded as soon as
 completed.\footnote{This relies on the bar code system described in
-  \refsec{sec:products} which will be introduced in 2017. Should this
-  be delayed or proof infeasible, the mode of operation in 2016 will
+  \refsec{sec:products} which will be introduced in 2018. Should this
+  be delayed or proof infeasible, the mode of operation in 2017 will
   be used: all points related to a product, including the points for
   finishing intermediate step like mounting the last ring on higher
   complexity products, are awarded on delivery only. Products, which
