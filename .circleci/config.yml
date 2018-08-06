@@ -8,3 +8,5 @@ jobs:
       - run:
           name: Build rulebook
           command: latexmk -pdf rulebook.tex
+      - store_artifacts:
+          path: rulebook.pdf
