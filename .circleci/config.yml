@@ -1,0 +1,10 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: danteev/texlive:TL2017
+    steps:
+      - checkout
+      - run:
+          name: Build rulebook
+          command: latexmk -pdf rulebook.tex
