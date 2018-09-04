@@ -840,9 +840,10 @@ the MPS to immediately provide a base of the desired color.
 
 \noindent\textbf{DS}
 The DS prepare message denotes the slide the product should be delivered
-to. The DS will consume any workpiece provided, but points can only be
-scored if the DS was properly prepared before (means the corresponding
-delivery lane which was desired in the refbox order).
+to, as well as the order ID of the product that is delivered.  The DS
+will consume any workpiece provided, but points can only be scored if
+the DS has been properly prepared with the correct slide and order ID
+as requested by the refbox.
 
 \noindent\textbf{CS}
 The CS prepare message initiates either the retrieval or the mounting of
