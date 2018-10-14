@@ -1498,11 +1498,19 @@ refbox. There will be one color requiring 2 additional bases, one
 requiring 1 base, and two colors requiring no additional base at
 all. Products retrieved from the Storage Station may be used only for
 $C_0$ orders with a requested quantity equal to or greater than two.
+An order can be \emph{competitive} or \emph{non-competitive}. For a
+competitive order, only the team that delivers first will score points
+for the delivery, and it will score twice the amount of points. The
+other team will not get any points for the delivery, even if it delivers
+in time.  For a non-competitive order, both teams score on delivery with
+a factor of $1$.
 
-In each game, up to 10 orders will be placed.\footnote{There will up
-  to 9 orders in regular game time, and an additional order in the
-  case of overtime. The number can be adjusted during the tournament
-  by the Technical Committee, should this turn out to be necessary.}
+In each game, up to 9 orders will be placed within the regular game.
+4 of those 9 orders will be \emph{competitive}, while the remaining
+orders will be \emph{non-competitive}. In case of overtime, an
+additional competitive order will be placed.\footnote{The numbers can
+be adjusted during the tournament by the Technical Committee, should
+this turn out to be necessary.}
 The complexities of orders will be similar for all games within a
 tournament phase. But the actual production chains are
 randomized. Each order will require one or more products of a
