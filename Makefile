@@ -4,8 +4,12 @@ pdf:
 check: lint check-filetype check-trailing-whitespace
 
 lint:
-	@lacheck rulebook.tex | tee lacheck.log
-	@bash -c 'if [ -s lacheck.log ] ; then exit 1 ; fi'
+	@chktex rulebook.tex | tee chktex.log
+	@bash -c '\
+		if [ -s chktex.log ] ; then \
+			echo "ERROR(lint): chktex found errors"; \
+			exit 1; \
+		fi'
 
 check-filetype:
 	@bash -c '\
