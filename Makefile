@@ -3,8 +3,11 @@ pdf:
 
 check: lint check-filetype check-trailing-whitespace
 
+# warning numbers that chktex should ignore
+chktex_ignore=24 44
+
 lint:
-	@chktex rulebook.tex | tee chktex.log
+	@chktex -q $(foreach w,$(chktex_ignore),-n $w) rulebook.tex | tee chktex.log
 	@bash -c '\
 		if [ -s chktex.log ] ; then \
 			echo "ERROR(lint): chktex found errors"; \
