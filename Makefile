@@ -22,17 +22,19 @@ check-filetype:
 		expected="LaTeX 2e document, UTF-8 Unicode text"; \
 		actual="$$(file -b rulebook.tex)"; \
 		if [ "$$actual" != "$$expected" ] ; then \
-			echo "Unexpected filetype"; \
+			echo "ERROR: Unexpected filetype"; \
 			echo "Expected: $$expected"; \
 			echo "Actual: $$actual"; \
+			exit 1; \
 		fi'
 
 check-trailing-whitespace:
 	@bash -c '\
 		trailing=$$(grep -n "\s$$" rulebook.tex); \
 		if [ $$? -eq 0 ] ; then \
-			echo "Found trailing whitespace:"; \
+			echo "Lines with trailing whitespace:"; \
 			echo "$$trailing"; \
+		  echo "ERROR: Found trailing whitespace"; \
 			exit 1; \
 		fi'
 
@@ -40,7 +42,8 @@ check-line-length:
 	@bash -c '\
 		longlines=$$(grep -n "^..\{${linelength}\}" rulebook.tex); \
 		if [ $$? -eq 0 ] ; then \
-			echo "ERROR: Found lines exceeding the line length ${linelength}:"; \
+			echo "Lines with length > ${linelength}:"; \
 			echo "$$longlines"; \
+			echo "ERROR: Found lines exceeding the max line length ${linelength}:"; \
 			exit 1; \
 		fi'
