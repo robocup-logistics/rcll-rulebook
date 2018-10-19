@@ -46,6 +46,16 @@
 \newcommand{\reflst}[1]{Figure~\ref{#1}}
 \newcommand{\reftab}[1]{Table~\ref{#1}}
 
+\newcommand{\SItextrange}[3][]{
+  \SI[
+  input-quotient=:,
+  output-quotient=\text{ to },
+  quotient-mode=symbol,
+  #1
+  ]
+  {#2}{#3}
+}
+
 \usepackage{floatrow}
 \newfloatcommand{capbtabbox}{table}[][\FBwidth]
 
@@ -158,7 +168,7 @@
 \setcounter{page}{1}
 \tableofcontents
 \newpage
-\cleardoublepage
+\cleardoublepage{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
@@ -206,7 +216,7 @@ partner Festo provides insights into future factory concepts to help
  systems. Opposed to numerous approaches regarding production
  infrastructure, RCLL aims to provide concepts for smart production
  logistics.
- 	
+
 After an exciting RoboCup in Nagoya, we look forward to a new scale of
 competition that will emerge from initiatives around the globe. In
 2012 we had our first Logistics League World Champion.  In 2013 we
@@ -372,7 +382,7 @@ league is available at\\
 \subsection{Field Layout and Dimensions}
 \label{sec:competition-area}
 \begin{figure}[p]
-    \includegraphics[width=\paperwidth, angle=-90 , trim = 0 0 0 0,]{field2017.pdf}
+    \includegraphics[width=\paperwidth, angle=-90, trim = 0 0 0 0,]{field2017.pdf}
     \vspace{1ex}
     \caption{Competition area: squares indicate zones for possible
       machine placements, circles denote robots. Cyan and magenta are
@@ -384,8 +394,8 @@ league is available at\\
     \label{fig:competition-area}
 \end{figure}
 The competition area is shown in \reffig{fig:competition-area} and
-features a \SI{14 x 8}{\metre} large arena with 106 square zones
-of \SI{1 x 1}{\metre} with 14 randomly distributed machines. The
+features a \SI{14 x 8}{\metre} large arena with 106 square zones %chktex 29
+of \SI{1 x 1}{\metre} with 14 randomly distributed machines. The % chktex 29
 field is partially surrounded (at least 50\% but not more than 70\%)
 by wall elements of at least \SI{0.5}{\metre} height.  The origin and
 coordinate system of the competition field is drawn in
@@ -453,9 +463,9 @@ Robots that leave the competition area illegally are considered as
 Machines are based on the Modular Production System (MPS)\footnote{For
   more information see
   \url{http://www.robocup-logistics.org/links/festo-mps}.} by Festo
-Didactic SE. The MPS provides a number of stations which
+Didactic SE\@. The MPS provides a number of stations which
 make up the machines used in the competition. The stations have a
-rectangular base shape of \SI{0,35 x 0,7}{\metre} with a height of
+rectangular base shape of \SI{0,35 x 0,7}{\metre} with a height of % chktex 29
 about \SI{1}{\metre} depending on machine type. The machine
 has individual application modules that provide different
 functionality.
@@ -593,15 +603,18 @@ phase. Processing times are outlined in \reftab{tab:processing-times}.
 
 \begin{table}[!tb]
     \centering
-    \mytable{  \begin{tabularx}{\linewidth}{l|l|X}
+    \mytable{
+        \begin{tabularx}{\linewidth}{l|l|X}
             Type & Distribution & (Final) processing time[s]\\\hline
             Base Station (BS) & 1 per team & minimum physical time\\
-            Cap Station (CS) & 2 per team & $t_2 = 15 \mbox{ to } 25~\mathrm{sec}$\\
-            Ring Station (RS) & 2 per team &$t_3 = 40 \mbox{ to } 60~\mathrm{sec}$\\
+            Cap Station (CS) & 2 per team & $t_2 = \SItextrange{15:25}{\sec}$\\
+            Cap Station (CS) & 2 per team & $t_2 = \SItextrange{15:25}{\sec}$\\
+            Ring Station (RS) & 2 per team &$t_3 = \SItextrange{40:60}{\sec}$\\
             Storage Station (SS) & 1 per team & minimum physical time\\
-            Delivery Station (DS) & 1 per team &$t_5 =20\mbox{ to } 40~\mathrm{sec}$
-    \end{tabularx}}
-    \caption{MPS - Type, Distribution and processing times}
+            Delivery Station (DS) & 1 per team &$t_5 =\SItextrange{20:40}{\sec}$
+        \end{tabularx}
+    }
+    \caption{MPS type, distribution and processing times}
     \label{tab:processing-times}
 \end{table}
 
@@ -744,14 +757,14 @@ half.
 
 For each game, one CS and one RS of each team will be chosen randomly
 and swapped with the corresponding machine of the other team on the
-non-primary half -- that is two machines in total per team. The CS and
+non-primary half --- that is two machines in total per team. The CS and
 RS will be swapped with the symmetrically positioned machine of the
 same type of the other team. For consecutive games, the changes to the
 machine to zone assignment may be limited by the referee box in order
 to reduce the time needed to implement the layout during the setup
 phase.
 
-\subsubsection{MPS -- During Exploration Phase}
+\subsubsection{MPS --- During Exploration Phase}
 \label{sec:production-machines-exp}
 During the exploration phase the robots of each team must explore the
 unknown factory environment to identify where the different MPS are
@@ -786,12 +799,12 @@ If the zone and rotation is correctly reported, the green light will be flashing
       machine.\\%\hline
 %%keep Red any Yellow one?
 	\end{tabularx}}
-  \caption{MPS - Optical Feedback during production phase}
+  \caption{MPS --- Optical Feedback during production phase}
   \label{tab:production-machines-feedback}
 \end{table}
 
 \vspace*{-2mm}
-\subsubsection{MPS -- During Production Phase}
+\subsubsection{MPS --- During Production Phase}
 \label{sec:production-machines-production}
 In the production phase a production machine performs refinement steps on
 a product such as mounting an additional ring or a cap. Machines
@@ -853,7 +866,7 @@ prepared on the shelf are specially colored workpieces (clear). The
 machine will take the cap off the base and buffer it on the slide,
 releasing the decapped base to the output side. This base can only be
 used for providing an additional base to an RS (see below), reuse by
-placing it back on the shelf, or discarding it at the DS.  For
+placing it back on the shelf, or discarding it at the DS\@.  For
 mounting a cap, a workpiece (without cap) must be provided onto which
 the cap is mounted.
 
@@ -943,7 +956,7 @@ The workpieces consist of the following elements:
   (cf.~\refsec{sec:production-machines-production}), they cannot be
   used as a workpiece for production. They may, however, be used to
   provide additional bases required by an RS, stored on a team's CS
-  shelf, or recycled at the DS.
+  shelf, or recycled at the DS\@.
 \item[Ring] Rings are mounted in intermediate production steps at ring
   stations (RS). A product requires, zero, one, two, or three
   intermediate rings of distinct color
@@ -971,7 +984,7 @@ operations involving workpieces.
 All bases are labeled by a horizontally revolving, white glossy tag
 covering about 50 percent of the bases height (from the center)
 containing a white reference area as well as an identifying
-barcode. Each base is equipped with a unique ID. \reffig{fig:barcode}
+barcode. Each base is equipped with a unique ID\@. \reffig{fig:barcode}
 shows a prototype of a barcode labeled workpiece.
 
 The barcodes are scanned at each station and communicated to the
@@ -1078,8 +1091,8 @@ should be handled in a fair and forthcoming way.
 \section{Game Play}
 A match is defined by two contesting teams competing within the same
 identical competition area. Each team consists of a maximum of 3
-robots. Each has three phases -- for setup, exploration, and
-production -- which are detailed below.
+robots. Each has three phases --- for setup, exploration, and
+production --- which are detailed below.
 
 \subsection{Environment Setup}
 \label{sec:env-setup}
@@ -1204,7 +1217,7 @@ updated. The scoring is shown in \reftab{tab:scoring-exploration}. A
 minimum of zero points will be accounted for the exploration
 phase. The exploration phase ends either after the time has passed or
 immediately after both teams have each reported their respective set
-of MPS.
+of MPS\@.
 
 Moving or processing workpieces at an MPS is not allowed during the
 exploration phase.
@@ -1240,7 +1253,7 @@ therefore distinguish \emph{color complexities} as $CC_0$, $CC_1$, and
 $CC_2$ depending on whether zero, one, or two additional bases are
 required for a color. The referee box ensures that there will always
 be some orders for $C_1$ products where the ring color does not
-require additional bases, i.e., with color complexity $CC_0$ -- but
+require additional bases, i.e., with color complexity $CC_0$ --- but
 not necessarily all $C_1$ orders have this constraint.
 
 \begin{figure}
@@ -1404,17 +1417,17 @@ specified in Section~\ref{sec:machines}.
 \label{sec:machine-refill}
 The teams are responsible for restocking all materials (base elements,
 rings, prepared caps on shelves, and $C_0$ in the SS) before and during matches. Each
-team has to designate one team-member as a \textit{"replenisher"} who
-must be specified to the corresponding "field half/team" referee ahead
+team has to designate one team-member as a \textit{``replenisher''} who
+must be specified to the corresponding ``field half/team'' referee ahead
 of each game.  Only this team member will be allowed to access the
 field area and only in case of a recent refill procedure.  The
 replenisher must not obstruct other robots and should interfere as
 little as possible.  The machines can only be refilled when a magazine
 or shelf is empty. In this case the field-operator may enter the
 competition-area without asking the referee. Shelves have to be
-(re)filled in all three reachable slots. The replenisher may restock
-only caps if transparent base elements have been put back to the
-shelf, once no cap is remaining on this shelf.
+(re-)filled in all three reachable slots. % chktex 36
+The replenisher may restock only caps if transparent base elements have been
+put back to the shelf, once no cap is remaining on this shelf.
 
 The teams are partly free to choose their assembly and placement of
 products.
@@ -1435,7 +1448,7 @@ time will be paused during the interruption.
 \subsubsection{Scheduled Machine Downtime}
 \label{sec:out-of-order}
 The refbox will take down machines randomly out of the pool containing
-the RS and CS. It will do so at random points of time and with the
+the RS and CS\@. It will do so at random points of time and with the
 same conditions for both teams, i.e., affecting the same machines for
 both teams. There will be 2 of such triggered events during a
 match. The machines affected will remain out of order for 30 to 60
@@ -1499,7 +1512,7 @@ announced cannot be awarded.
 
 There is a special case regarding the Storage Station. Retrieving a
 workpiece has a cost (see \reftab{tab:scoring}). The cost is
-subtracted as soon as the workpiece is ready for retrieval on the SS.
+subtracted as soon as the workpiece is ready for retrieval on the SS\@.
 However, exploration points gained during the exploration will not be
 used for this. If the team has not yet received sufficient points,
 workpieces can be ``purchased on (partial) credit''. Points that were
@@ -1513,13 +1526,30 @@ missing upon preparation will be subtracted later from points scored.
 
      \mytable{
          \begin{tabularx}{\linewidth}{p{7em}|X|p{2.4em}}
-           \multicolumn{1}{l}{Report type} &\multicolumn{1}{l}{Description} & \multicolumn{1}{l}{Points}\\\hline
-      	Zone/Orientation & Correctly determine a machine zone and the rotation of your team and report it successfully to the refbox & +2\\
-	     Type & only machine zone reported & +1\\
- 	 	& Machine zone reported correctly but orientation wrongly (1-1=0) & 0\\
-		& wrongly reported machine zone (orientation irrelevant) & -1\\\hline
-           Round Total &  A maximum of 14 points can be achieved by correctly reporting all 7 production machines. A minimum of 0 points is
-    awarded. & 0 -- 14\\
+           \multicolumn{1}{l}{Report type}
+           & \multicolumn{1}{l}{Description}
+           & \multicolumn{1}{l}{Points}\\
+           \hline
+          Zone/Orientation
+          & Correctly determine a machine zone and the rotation of your team
+            and report it successfully to the refbox
+          & $+2$
+          \\
+          Type
+          & only machine zone reported
+          & $+1$
+          \\
+          & Machine zone reported correctly but orientation wrongly ($1-1=0$)
+          & $0$
+          \\
+		      & wrongly reported machine zone (orientation irrelevant)
+          & $-1$
+          \\
+          \hline
+          Round Total
+          & A maximum of 14 points can be achieved by correctly reporting all
+            7 production machines. A minimum of 0 points is awarded.
+          & \SItextrange{0:14}{}
   \end{tabularx} }}
 
 \bigskip
@@ -1579,12 +1609,12 @@ compete alongside each other, instead of directly against each other, we
 punish intentional obstruction of the opposing team.
 
 This applies in particular to the input and output area in front of
-any MPS.  All robots are allowed to enter this space, but robots must
+any MPS\@.  All robots are allowed to enter this space, but robots must
 not obstruct opposing robots which intend to approach their
-MPS. Concretely, that robot must give way and release an approachable
+MPS\@. Concretely, that robot must give way and release an approachable
 path to the MPS within a time window of 10 seconds. If a robot cannot
-follow this rule, a pushing foul will be called according to Section
-\ref{sec:pushing-rules}.
+follow this rule, a pushing foul will be called according to
+Section~\ref{sec:pushing-rules}.
 
 % old ?!
 Furthermore, teams are penalized for obstruction according to
@@ -1649,7 +1679,7 @@ to pushing.
 \item Moving a workpiece of the opposing team at their MPS is a pushing
 foul. The referee will move the workpiece back to its original position.
 \item Intentional obstruction of the opposing team is a pushing foul, as
-described in Section \ref{sec:obstruction-penalty}.
+described in Section~\ref{sec:obstruction-penalty}.
 \item If a robot is restarted or called to maintenance, loses his
 workpiece during collision avoidance or in case of a collision, the
 workpiece will not be replaced and is removed by the referee.
@@ -1684,8 +1714,8 @@ team in this phase directly competes with an opposing team, a ranking
 score will be determined as follows. In each \emph{game}, the winning
 team gets 3 ranking points, the loosing team gets 0. A team wins if it
 achieves more points in the game than the other team
-(cf. Sections~\ref{sec:exploration-phase} and
-\ref{sec:production-phase}). In the case of a non-zero draw, see section \refsec{sec:overtime} for overtime.
+(cf.~Sections~\ref{sec:exploration-phase} and~\ref{sec:production-phase}). In
+the case of a non-zero draw, see Section~\refsec{sec:overtime} for overtime.
 If, after overtime, a draw is not
 resolved, both teams get 1 ranking point. If both team end with a zero
 score, each team gets 0 ranking points.
@@ -1705,7 +1735,7 @@ the third place. The team that scores more points after the regular
 game time wins. If there is no winner after the regular time, refer to section \refsec{sec:overtime}. If after this there is still no
 winner, a coin toss will decide.
 
-\bigskip \hskip-\parindent
+\bigskip \hskip-\parindent{}
 The detailed seeding will be created at the event. Although the idea
 is to allow each participant to challenge each other team, the league
 can be adjusted to meet time requirements.
@@ -1814,7 +1844,7 @@ machine or the environment. The general idea is to test this as an
 advancement of the league for future events. Distances between robots
 and the machine are measured as the shortest distance from MPS trolley
 to robot base on the ground. The maximum achievable score in this
-challenge is 40 points -- up to 10 for the recognition and production
+challenge is 40 points --- up to 10 for the recognition and production
 parts each, up to 10 for the explanation and methodologies, and up to
 10 for the public release of the source code.
 
@@ -1825,7 +1855,7 @@ must approach the machine one after another and use only sensors
 mounted on the robot to recognize the physical type of the
 machine. The machines can be of any type.
 
-The recognition part scores up to 10 points -- 5 points for each
+The recognition part scores up to 10 points --- 5 points for each
 machine. Of these 5 points, 2 points are awarded for proper approach
 (robot standing at the input or output side of the machine facing
 towards the machine with a distance of no more than \SI{0.5}{\metre})
@@ -1866,8 +1896,8 @@ five points.
 \subsubsection{Playing in Simulation}
 
 The challenge is to play the production phase of an RCLL game, based
-on the publicly released Gazebo-based simulation
-\cite{llsf-sim-rc2014-2014}. The simulation
+on the publicly released Gazebo-based simulation~\cite{llsf-sim-rc2014-2014}.
+The simulation
 software\footnote{\url{https://www.fawkesrobotics.org/projects/rcll-sim/}}
 including technical documentation is publicly available on
 Github.\footnote{\url{https://github.com/robocup-logistics/gazebo-rcll}}
@@ -1915,7 +1945,7 @@ website.
 %
 We will follow the ICAPS competition's setup and will provide two
 principal interfaces: one based on Fawkes, and another based on
-ROS. Please see the ICAPS competition's rules and regulations for the
+ROS\@. Please see the ICAPS competition's rules and regulations for the
 details.
 
 \vspace{-2ex}\paragraph{Robot Models and Plugins}
@@ -1931,7 +1961,7 @@ make sure that the standard set of sensors
 provided is sufficient.
 
 \vspace{-2ex}\paragraph{Competition Area} The competition area can be
-expected to be similar to Figure \ref{fig:competition-area}, however,
+expected to be similar to Figure~\ref{fig:competition-area}, however,
 the MPS locations will be randomized as in the real game.
 
 \vspace{-2ex}\paragraph{Abstraction Level} Teams need to utilize their
@@ -2310,7 +2340,7 @@ switching sensor.
 \label{fig:robotinos}
 \end{figure}
 
-\hskip-\parindent The motor speed will be controlled via a PID
+\hskip-\parindent{} The motor speed will be controlled via a PID
 controller implemented on a Atmel microprocessor of the controller
 board of Robotino.
 
@@ -2340,7 +2370,7 @@ HD 1080p video with auto light correction and two built in microphones
 for stereo sound with noise-canceling.
 
 \subsubsection{Controller Board}
-Robotino is powered by an exchangeable Embedded PC - COM Express
+Robotino is powered by an exchangeable Embedded PC-COM Express
 layout combined with a custom made sensor board.
 
 \paragraph{Embedded PC according to COM Express specification}
@@ -2376,12 +2406,13 @@ layout combined with a custom made sensor board.
 
 \subsubsection{Power supply}
 \begin{itemize}
-\item 2 $\times$ 12 V lead-fleece rechargeable batteries with 9.5 Ah
-  capacity each
-\item Operating time(default batteries): up to 4 hours
-\item Power supply for additional components: 13 x 24 V, 13 x GND
+  \item $2 \times \SI{12}{\volt}$ lead-fleece rechargeable batteries with
+    $\SI{9.5}{Ah}$ capacity each
+  \item Operating time (default batteries): up to $\SI{4}{\hour}$
+\item Power supply for additional components: $13 \times \SI{24}{\volt}$,
+  $13 \times \text{GND}$
 \item Internal charger for lead-gel and NiMH rechargeable batteries
-\item 24 V power supply for charging batteries
+\item $\SI{24}{\volt}$ power supply for charging batteries
 \end{itemize}
 
 \subsubsection{Software}
@@ -2395,7 +2426,7 @@ in numerous programming languages:
 \begin{itemize}
 \item C++ and C
 \item C\#
-\item .net and JAVA
+\item {.net} and JAVA
 \item MatLab and Simulink
 \item Labview
 \item Robot Operating System (ROS)
@@ -2426,7 +2457,7 @@ external PC running on Windows XP, Vista, Windows 7 or Windows 8.
 \item Program interpreter to run programs on Embedded PC autonomously
 \end{itemize}
 
-\hskip-\parindent Additional information as well as accessories can be
+\hskip-\parindent{} Additional information as well as accessories can be
 obtained through\\
 \url{http://www.robocup-logistics.org/links/festo-robotino-3}.
 
@@ -2690,7 +2721,7 @@ obtained through\\
       Transfer rate		&	Up to \SI{108}{\mega\bit\per\second} \\
       Data link protocol	&	802.11 a/g/n \\
       Frequency			&	\SI{5.0}{\giga\hertz} \\
-      IP-distribution		&	172.26.200.xxx for LAN clients(DHCP) \\
+      IP-distribution		&	172.26.200.xxx for LAN clients (DHCP) \\
       &	172.26.101.xxx for the Robotino devices \\
       &	172.26.1.xxx for Robotinos \\
       Subnet Mask			&	255.255.0.0 \\
@@ -2701,7 +2732,7 @@ obtained through\\
       Festo Clients		&	3COM WL-560 \\
       Power Supply		&	Clients: \SI{12}{\volt}, \SI{1}{\ampere},\\
       & 	Most Laptops cannot power them \\
-      & 	via USB! \\
+      & 	via USB\@! \\
       Connector			&	Ethernet \\
 
 %      \hline
@@ -2712,7 +2743,7 @@ obtained through\\
 
 
 
-\printbibliography
+\printbibliography{}
 
 \end{appendix}
 \end{document}
