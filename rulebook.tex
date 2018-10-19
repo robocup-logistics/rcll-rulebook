@@ -1,4 +1,4 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+﻿%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Rulebook RoboCup Logistics League
 %% 2018 Competitions
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1864,20 +1864,27 @@ The first stage is a group phase and will be played as a round-robin.
 The teams will receive the true points they scored during the
 competition. The points will be accumulated in this phase and the
 teams will be ranked according to the accumulated points in descending
-order.
+order.Depending on this order, only the first 80% (number will be always 
+rounded up to an even number of teams) teams are qualified for the Playoffs.
 
 \paragraph{Playoffs.~}
+Qualified teams will be divided into two groups. The first team in the 
+ranking of the Round-Robin phase will be placed in the first group and 
+the second one in the second group. Then the third one in the first group 
+and the fourth one in the second group, etc. Then all teams in each group 
+play against each other.
+In case that there are less than 7 teams qualified for the Playoffs then 
+all qualified teams will play in one group.
 At the playoff stage, the scoring scheme will be different. As each
 team in this phase directly competes with an opposing team, a ranking
 score will be determined as follows. In each \emph{game}, the winning
 team gets 3 ranking points, the loosing team gets 0. A team wins if it
 achieves more points in the game than the other team
-(cf.~Sections~\ref{sec:exploration-phase} and~\ref{sec:production-phase}). In
-the case of a non-zero draw, see Section~\refsec{sec:overtime} for overtime.
-If, after overtime, a draw is not
-resolved, both teams get 1 ranking point. If both team end with a zero
-score, each team gets 0 ranking points.
-Points awarded for commentary are not considered in this decision.
+(cf. Sections~\ref{sec:exploration-phase} and~\ref{sec:production-phase}). In
+the case of a non-zero draw, see Section~\refsec{sec:overtime} for overtime.If,
+after overtime, a draw is not resolved, both teams get 1 ranking point. If both
+team end with a zero score, each team gets 0 ranking points. Points awarded for
+commentary are not considered in this decision.
 
 The \emph{overall ranking} is determined by the ranking score of
 teams, highest first. If two teams have the same score, the overall
@@ -1887,12 +1894,12 @@ games of the two teams is used to break the tie. If this still is
 unsuccessful, a coin toss determines the higher ranked team.
 
 \paragraph{Finals.~}
-The best two teams of the playoff phase will advance to the grand
-finale, the remaining two teams will compete in the small finals for
-the third place. The team that scores more points after the regular
-game time wins. If there is no winner after the regular time, refer to
-section \refsec{sec:overtime}. If after this there is still no winner,
-a coin toss will decide.
+The best teams of the two playoff groups (or the two best teams in case
+of one group) will advance to the grand finale, the remaining two teams 
+will compete in the small finals for the third place. The team that scores 
+more points after the regular game time wins. If there is no winner after 
+the regular time, refer to Section~\refsec{sec:overtime}. If after this 
+there is still nowinner, a coin toss will decide.
 
 \bigskip \hskip-\parindent{}
 The detailed seeding will be created at the event. Although the idea
