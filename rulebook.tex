@@ -10,7 +10,6 @@
 
 \setlength{\marginparwidth}{1cm}
 %\usepackage{fourier}
-%\newcommand\rulechange[1]{\begin{shaded}#1\end{shaded}\marginpar{\LARGE\danger}}
 
 \usepackage{wrapfig}
 \usepackage{fnpct}
@@ -37,7 +36,9 @@
 \newcolumntype{C}{>{\centering\arraybackslash}X}
 
 \newsavebox{\myt}
-\newcommand{\mytable}[1]{\savebox{\myt}{#1}\tikz\node[fill=gray!25!white]{\usebox{\myt}};}
+\newcommand{\mytable}[1]{%
+  \savebox{\myt}{#1}\tikz\node[fill=gray!25!white]{\usebox{\myt}};%
+}
 
 \newcommand{\refsec}[1]{Section~\ref{#1}}
 \newcommand{\reffig}[1]{Figure~\ref{#1}}
@@ -155,7 +156,9 @@
       Gerald Steinbauer&Tobias Neumann\\
     \end{tabular}
     \vfill
-    Revision Date: Thursday, January 25\textsuperscript{\raisebox{-.2ex}{th}} 2018 %DRAFT -- Work in Progress
+    Revision Date: Thursday, January 25\textsuperscript{\raisebox{-.2ex}{th}}
+    2018
+    %DRAFT -- Work in Progress
   \end{center}
 \end{titlepage}
 \thispagestyle{empty}
@@ -332,7 +335,8 @@ advancements. Current members of the TC are (in alphabetical order):\\[.5em]
 \emph{Vincent Coelen}, Ecole polytechnique universitaire de Lille\\
 \emph{Christian Deppe}, Festo Didactic SE, Denkendorf, Germany\\
 \emph{Till Hoffmann}, RWTH Aachen University, Aachen, Germany\\
-\emph{Alain Rohr}, HFTM Technical Institute of Applied Science Mittelland, Biel, Switzerland\\
+\emph{Alain Rohr}, HFTM Technical Institute of Applied Science Mittelland,
+Biel, Switzerland\\
 To get into contact with the TC use the mailing list\\
 \centerline{\url{robocup-logistics-tc@lists.kbsg.rwth-aachen.de}}
 
@@ -343,7 +347,8 @@ RoboCup competitions, to communicate to the RoboCup Federation
 trustees and chairs the requirements of the league, and to inform and
 attract new teams to the league. Current members of the OC are (in
 alphabetical order):\\[.5em]
-\emph{Stefan Brandenberger}, HFTM Technical Institute of Applied Science Mittelland, Biel, Switzerland\\
+\emph{Stefan Brandenberger}, HFTM Technical Institute of Applied Science
+Mittelland, Biel, Switzerland\\
 \emph{Christian Deppe}, Festo Didactic SE, Denkendorf, Germany\\
 \emph{Florian Eith}, Friedrich-Alexander University, Erlangen, Germany\\
 \emph{Ulrich Karras}, priv. Dozent, Essen, Germany\\
@@ -382,7 +387,7 @@ league is available at\\
 \subsection{Field Layout and Dimensions}
 \label{sec:competition-area}
 \begin{figure}[p]
-    \includegraphics[width=\paperwidth, angle=-90, trim = 0 0 0 0,]{field2017.pdf}
+    \includegraphics[width=\paperwidth, angle=-90, trim=0 0 0 0,]{field2017.pdf}
     \vspace{1ex}
     \caption{Competition area: squares indicate zones for possible
       machine placements, circles denote robots. Cyan and magenta are
@@ -481,11 +486,11 @@ height.\footnote{Note however, that due to small variances and
   working height of some or all parts of a station.} Working space
 between guiding lanes is \SI{4.5}{\centi\metre}. Setup lanes and
 shelves feature approximately the same space for handling and
-adjusting. All diffuse sensors (input side) have been removed to allow for infrared-emitting cameras.
-To simplify the delivery on the belt, each machine will be
-equipped with a narrowing cone on its input side (\reffig{fig:narrow-cone}).
-You can order them from Festo Didactic SE (C. Deppe)
-or download the STL model file from the RCLL site.
+adjusting. All diffuse sensors (input side) have been removed to allow
+for infrared-emitting cameras.  To simplify the delivery on the belt,
+each machine will be equipped with a narrowing cone on its input side
+(\reffig{fig:narrow-cone}).  You can order them from Festo Didactic SE
+(C. Deppe) or download the STL model file from the RCLL site.
 \begin{figure}
     \includegraphics[height=8cm]{narrowConeSketch.jpg}
 \caption{Narrowing cone}
@@ -526,10 +531,11 @@ Based on these shared properties, there are five kinds of machines:
   anew for each game) to add base elements. There are two RS per team.
 
 \item[Storage Station (SS)] provides 24 slots of storage divided into
-  6 layers (\reffig{fig:SS_portrait}). For now items can be  shipped out on the output side on
-  request. The Storage Station provides a sample of each possible
-  $C_0$ configuration (one per layer).\footnote{Note that this is the
-    specific content for 2018 and may change in the future.}
+  6 layers (\reffig{fig:SS_portrait}). For now items can be  shipped
+  out on the output side on request. The Storage Station provides a
+  sample of each possible $C_0$ configuration (one per
+  layer).\footnote{Note that this is the specific content for 2018 and
+  may change in the future.}
 
 \item[Delivery Station (DS)] Accepts completed products. The stations
   contains three slides (\reffig{fig:DS}). The robot has to prepare
@@ -624,17 +630,65 @@ phase. Processing times are outlined in \reftab{tab:processing-times}.
   \centering
   \begin{tabular}{|l|c|c|c|c|l|}
     \hline
-    && \multicolumn{2}{c|}{Input} & \multicolumn{2}{c|}{Output}\\\hline
-    &Machine & ID & Tag & ID & Tag\\\hline
+    && \multicolumn{2}{c|}{Input}
+    & \multicolumn{2}{c|}{Output}
+    \\
+    \hline
+    &Machine & ID & Tag & ID & Tag
+    \\
+    \hline
     &&&&&\\[-2ex]
-    \multirow{7}{*}{\rotatebox{90}{\bfseries Cyan\hspace{3.75cm}}}&
-    CS 1&1&\parbox[c]{1.2cm}{\includegraphics[width=1.2cm]{markers/figure_1}}&2&\parbox[c]{1.2cm}{\includegraphics[width=1.2cm]{markers/figure_2}}\\[2.5ex]
-    &CS 2&17&\parbox[c]{1.2cm}{\includegraphics[width=1.2cm]{markers/figure_17}}&18&\parbox[c]{1.2cm}{\includegraphics[width=1.2cm]{markers/figure_18}}\\[2.5ex]
-    &RS 1&33&\parbox[c]{1.2cm}{\includegraphics[width=1.2cm]{markers/figure_33}}&34&\parbox[c]{1.2cm}{\includegraphics[width=1.2cm]{markers/figure_34}}\\[2.5ex]
-    &RS 2&177&\parbox[c]{1.2cm}{\includegraphics[width=1.2cm]{markers/figure_177}}&178&\parbox[c]{1.2cm}{\includegraphics[width=1.2cm]{markers/figure_178}}\\[2.5ex]
-    &BS&65&\parbox[c]{1.2cm}{\includegraphics[width=1.2cm]{markers/figure_65}}&66&\parbox[c]{1.2cm}{\includegraphics[width=1.2cm]{markers/figure_66}}\\[2.5ex]
-    &DS&81&\parbox[c]{1.2cm}{\includegraphics[width=1.2cm]{markers/figure_81}}&82&\parbox[c]{1.2cm}{\includegraphics[width=1.2cm]{markers/figure_82}}\\[2.5ex]
-    &SS&193&\parbox[c]{1.2cm}{\includegraphics[width=1.2cm]{markers/figure_193}}&194&\parbox[c]{1.2cm}{\includegraphics[width=1.2cm]{markers/figure_194}}\\[2.5ex]\hline
+    \multirow{7}{*}{\rotatebox{90}{\bfseries Cyan\hspace{3.75cm}}}
+    & CS 1 & 1
+           & \parbox[c]{1.2cm}{
+               \includegraphics[width=1.2cm]{markers/figure_1}}
+           & 2
+           & \parbox[c]{1.2cm}{
+               \includegraphics[width=1.2cm]{markers/figure_2}}
+    \\[2.5ex]
+    & CS 2 & 17
+           & \parbox[c]{1.2cm}{
+               \includegraphics[width=1.2cm]{markers/figure_17}}
+           & 18
+           & \parbox[c]{1.2cm}{
+               \includegraphics[width=1.2cm]{markers/figure_18}}
+    \\[2.5ex]
+    & RS 1 & 33
+           & \parbox[c]{1.2cm}{
+               \includegraphics[width=1.2cm]{markers/figure_33}}
+           & 34
+           & \parbox[c]{1.2cm}{
+               \includegraphics[width=1.2cm]{markers/figure_34}}
+    \\[2.5ex]
+    & RS 2 & 177
+           & \parbox[c]{1.2cm}{
+               \includegraphics[width=1.2cm]{markers/figure_177}}
+           & 178
+           & \parbox[c]{1.2cm}{
+               \includegraphics[width=1.2cm]{markers/figure_178}}
+    \\[2.5ex]
+    & BS & 65
+         & \parbox[c]{1.2cm}{
+             \includegraphics[width=1.2cm]{markers/figure_65}}
+         & 66
+         & \parbox[c]{1.2cm}{
+             \includegraphics[width=1.2cm]{markers/figure_66}}
+    \\[2.5ex]
+    & DS & 81
+         & \parbox[c]{1.2cm}{
+             \includegraphics[width=1.2cm]{markers/figure_81}}
+         & 82
+         & \parbox[c]{1.2cm}{
+             \includegraphics[width=1.2cm]{markers/figure_82}}
+    \\[2.5ex]
+    & SS & 193
+         & \parbox[c]{1.2cm}{
+             \includegraphics[width=1.2cm]{markers/figure_193}}
+         & 194
+         & \parbox[c]{1.2cm}{
+             \includegraphics[width=1.2cm]{markers/figure_194}}
+    \\[2.5ex]
+    \hline
   \end{tabular}
   \hfill
   \begin{tabular}{|l|c|c|c|c|c|}
@@ -642,13 +696,57 @@ phase. Processing times are outlined in \reftab{tab:processing-times}.
     && \multicolumn{2}{c|}{Input} & \multicolumn{2}{c|}{Output}\\\hline
     &Machine & ID & Tag & ID & Tag\\\hline
     &&&&&\\[-2ex]
-    \multirow{7}{*}{\rotatebox{90}{\bfseries Magenta\hspace{3.4cm}}}&CS 1&97&\parbox[c]{1.2cm}{\includegraphics[width=1.2cm]{markers/figure_97}}&98&\parbox[c]{1.2cm}{\includegraphics[width=1.2cm]{markers/figure_98}}\\[2.5ex]
-    &CS 2&113&\parbox[c]{1.2cm}{\includegraphics[width=1.2cm]{markers/figure_113}}&114&\parbox[c]{1.2cm}{\includegraphics[width=1.2cm]{markers/figure_114}}\\[2.5ex]
-    &RS 1&129&\parbox[c]{1.2cm}{\includegraphics[width=1.2cm]{markers/figure_129}}&130&\parbox[c]{1.2cm}{\includegraphics[width=1.2cm]{markers/figure_130}}\\[2.5ex]
-    &RS 2&145&\parbox[c]{1.2cm}{\includegraphics[width=1.2cm]{markers/figure_145}}&146&\parbox[c]{1.2cm}{\includegraphics[width=1.2cm]{markers/figure_146}}\\[2.5ex]
-    &BS&161&\parbox[c]{1.2cm}{\includegraphics[width=1.2cm]{markers/figure_161}}&162&\parbox[c]{1.2cm}{\includegraphics[width=1.2cm]{markers/figure_162}}\\[2.5ex]
-    &DS&49&\parbox[c]{1.2cm}{\includegraphics[width=1.2cm]{markers/figure_49}}&50&\parbox[c]{1.2cm}{\includegraphics[width=1.2cm]{markers/figure_50}}\\[2.5ex]
-    &SS&209&\parbox[c]{1.2cm}{\includegraphics[width=1.2cm]{markers/figure_209}}&210&\parbox[c]{1.2cm}{\includegraphics[width=1.2cm]{markers/figure_210}}\\[2.5ex]\hline
+    \multirow{7}{*}{ \rotatebox{90}{\bfseries Magenta\hspace{3.4cm}}}
+    & CS 1 & 97
+           & \parbox[c]{1.2cm}{
+               \includegraphics[width=1.2cm]{markers/figure_97}}
+           & 98
+           & \parbox[c]{1.2cm}{
+               \includegraphics[width=1.2cm]{markers/figure_98}}
+    \\[2.5ex]
+    & CS 2 & 113
+           & \parbox[c]{1.2cm}{
+               \includegraphics[width=1.2cm]{markers/figure_113}}
+           & 114
+           & \parbox[c]{1.2cm}{
+               \includegraphics[width=1.2cm]{markers/figure_114}}
+    \\[2.5ex]
+    & RS 1 & 129
+           & \parbox[c]{1.2cm}{
+               \includegraphics[width=1.2cm]{markers/figure_129}}
+           & 130
+           & \parbox[c]{1.2cm}{
+               \includegraphics[width=1.2cm]{markers/figure_130}}
+    \\[2.5ex]
+    & RS 2 & 145
+           & \parbox[c]{1.2cm}{
+               \includegraphics[width=1.2cm]{markers/figure_145}}
+           & 146
+           & \parbox[c]{1.2cm}{
+               \includegraphics[width=1.2cm]{markers/figure_146}}
+    \\[2.5ex]
+    & BS & 161
+         & \parbox[c]{1.2cm}{
+             \includegraphics[width=1.2cm]{markers/figure_161}}
+         & 162
+         & \parbox[c]{1.2cm}{
+             \includegraphics[width=1.2cm]{markers/figure_162}}
+    \\[2.5ex]
+    & DS & 49
+         & \parbox[c]{1.2cm}{
+             \includegraphics[width=1.2cm]{markers/figure_49}}
+         & 50
+         & \parbox[c]{1.2cm}{
+              \includegraphics[width=1.2cm]{markers/figure_50}}
+    \\[2.5ex]
+    & SS & 209
+         & \parbox[c]{1.2cm}{
+             \includegraphics[width=1.2cm]{markers/figure_209}}
+         & 210
+         & \parbox[c]{1.2cm}{
+             \includegraphics[width=1.2cm]{markers/figure_210}}
+    \\[2.5ex]
+    \hline
   \end{tabular}
   \caption{Machine tags are ALVAR tags with the given IDs.}
   \label{tab:markers}
@@ -667,12 +765,17 @@ printing on the RoboCup Logistics website.
 \subsubsection{Machine Positioning}
 \label{sec:machine-swapping}
 The zones and rotations for the MPS will be randomly chosen by the RefBox.
-Each game will have a new randomly generated field layout, the referees will place the MPS in the middle of the zone with given rotation at there best effort but errors of the positioning should be expected.
+Each game will have a new randomly generated field layout, the referees will
+place the MPS in the middle of the zone with given rotation at there best effort
+but errors of the positioning should be expected.
 
 \begin{wrapfigure}[14]{r}{0.2\linewidth}
   \centering
   \vspace{-2.1ex}
-  \mytable{\begin{tabularx}{\linewidth}{>{\raggedleft\arraybackslash}X|>{\raggedleft\arraybackslash}X}
+  \mytable{
+    \begin{tabularx}{\linewidth}{
+      >{\raggedleft\arraybackslash}X|>{\raggedleft\arraybackslash}X
+    }
       Cyan & Magenta \\ \hline
       \ang{0}&\ang{180}\\
       \ang{45}&\ang{135}\\
@@ -702,39 +805,48 @@ aligned with the field (in terms of orientation). Furthermore, an MPS
 at an orientation of \ang{90} will be rotated counter-clockwise a
 quarter turn compared to the field system.
 
-To ensure fairness, positions and orientations of the machines are
-mirrored along the field's y-axis. There are two cases that need to be
-handled separately. First, machines in a cell not adjacent to the
-wall, and machines of types BS, DS, and SS (even when adjacent to the wall) are mirrored according to
-\reftab{tab:mirror-a}. Second, CS and RS stations must be handled
-slightly different, if oriented next to a wall (zones: C-Z*1, C-Z*8,
-C-Z7*, M-Z*1, M-Z*8 and M-Z7*). The reason being, that the shelf and
-slide of these stations are offset sideways at the input side. This
-might lead to the situation that for one team the shelf is close to
-the wall, and for the other it is not. To remedy this problem, the RS
-and CS machines adjacent to a wall will always be placed such that the
-shelf or slide is on the farther end with respect to the wall. For
-example, in \reffig{fig:competition-area}, the magenta CS in M-Z76
-with a rotation of \ang{270}. Were this setup mirrored, the shelf on the cyan CS in
-C-Z76 would be close to the wall. Instead, it has a different
-orientation violating the y-symmetry but allowing for easier access to
-the shelf.
+To ensure fairness, positions and orientations of the machines are mirrored
+along the field's y-axis. There are two cases that need to be handled
+separately. First, machines in a cell not adjacent to the wall, and machines of
+types BS, DS, and SS (even when adjacent to the wall) are mirrored according to
+\reftab{tab:mirror-a}. Second, CS and RS stations must be handled slightly
+different, if oriented next to a wall (zones: C-Z*1, C-Z*8, C-Z7*, M-Z*1, M-Z*8
+and M-Z7*). The reason being, that the shelf and slide of these stations are
+offset sideways at the input side. This might lead to the situation that for one
+team the shelf is close to the wall, and for the other it is not. To remedy this
+problem, the RS and CS machines adjacent to a wall will always be placed such
+that the shelf or slide is on the farther end with respect to the wall. For
+example, in \reffig{fig:competition-area}, the magenta CS in M-Z76 with a
+rotation of \ang{270}. Were this setup mirrored, the shelf on the cyan CS in
+C-Z76 would be close to the wall. Instead, it has a different orientation
+violating the y-symmetry but allowing for easier access to the shelf.
 
 \begin{figure}[t!]
     \centering
-    \subfigure[For rotations with \ang{0}, \ang{90}, \ang{180} or \ang{270}. BS, CS, and RS block the zones close to the input as well as the output. DS and SS block the zones close to the input respectively the output.]{
+    \subfigure[
+      For rotations with \ang{0}, \ang{90}, \ang{180} or \ang{270}. BS, CS, and
+      RS block the zones close to the input as well as the output. DS and SS
+      block the zones close to the input respectively the output.
+    ]{
         \label{fig:zone-mps-rotation-straight}%
         \centering
         \includegraphics[width=\textwidth]{bZones1.pdf}
     }
     \quad
-    \subfigure[For rotations with  \ang{45}, \ang{135}, \ang{225} and \ang{315}. BS, CS, and RS block the zones close to the input as well as the output. DS and SS block the zones close to the input respectively the output.]{
+    \subfigure[
+      For rotations with  \ang{45}, \ang{135}, \ang{225} and \ang{315}. BS, CS,
+      and RS block the zones close to the input as well as the output. DS and SS
+      block the zones close to the input respectively the output.
+    ]{
         \label{fig:zone-mps-rotation-odd}
         \centering
         \includegraphics[width=\textwidth]{bZones2.pdf}
     }
-    \caption{Blocked zones regarding the MPS rotation (red zones must
-      not be used as position for other machines and must be located inside the competition area).}
+    \caption{
+      Blocked zones regarding the MPS rotation (red zones must not be used as
+      position for other machines and must be located inside the competition
+      area).
+    }
     \label{fig:zone-mps-blocked}
 \end{figure}
 For placing of machines, the RefBox will take care of the necessary
@@ -744,11 +856,11 @@ slides are reachable.  If a machine is rotated with \ang{0}, \ang{90},
 are blocked as well (\reffig{fig:zone-mps-rotation-straight}).  For
 machines with rotations \ang{45}, \ang{135}, \ang{225} and \ang{315}
 three zones in front of each input and output side are blocked
-(\reffig{fig:zone-mps-rotation-odd}). No MPS nor blocked zones for another MPS may be placed in a
-blocked zone. All blocked zones of any MPS must be located within the
-competition area. Furthermore, only two machines will ever be placed
-next to each other, a third machine will only be placed with at least
-one empty zone in-between.
+(\reffig{fig:zone-mps-rotation-odd}). No MPS nor blocked zones for another MPS
+may be placed in a blocked zone. All blocked zones of any MPS must be located
+within the competition area. Furthermore, only two machines will ever be placed
+next to each other, a third machine will only be placed with at least one empty
+zone in-between.
 
 The MPS will be placed mostly on the primary half of a team
 (cf. \refsec{sec:competition-area}). However, some machines will be
@@ -773,22 +885,31 @@ located and in which rotations they are positioned.
 The Referee Box assigns each machine to a team and a zone
 (\reffig{fig:competition-area}) at the start of the exploration
 phase,\footnote{Since 2017 there are no more fixed stations.}
-The zones and orientations (in steps of 45$^\circ$) are randomly determined,  and will not be
-communicated until the production phase. For details about the
+The zones and orientations (in steps of 45$^\circ$) are randomly determined,
+and will not be communicated until the production phase. For details about the
 Exploration Phase confer~\refsec{sec:exploration-phase}.
 
-The signal light of the MPS will show a yellow light until a report regarding this machine is sent.
-If the wrong MPS zone is sent, the light will start red flashing.
-If only the MPS zone is sent, the green light will be turn on.
-If the zone and rotation is correctly reported, the green light will be flashing and if the zone is correct but the rotation wrongly reported the red and green light will be on.
+The signal light of the MPS will show a yellow light until a report regarding
+this machine is sent.  If the wrong MPS zone is sent, the light will start red
+flashing.  If only the MPS zone is sent, the green light will be turn on.  If
+the zone and rotation is correctly reported, the green light will be flashing
+and if the zone is correct but the rotation wrongly reported the red and green
+light will be on.
 
 \begin{table}[bt]
   \centering
   \mytable{\begin{tabularx}{\linewidth}{p{0.36\linewidth}|X}
-      \multicolumn{1}{l}{Optical Feedback} & \multicolumn{1}{l}{Operating mode} \\ \hline
-      All LEDs turned off & The machine is physically offline, caused by a real error, which should not happen during the competition. \\
+      \multicolumn{1}{l}{Optical Feedback}
+      & \multicolumn{1}{l}{Operating mode}
+      \\
+      \hline
+      All LEDs turned off
+      & The machine is physically offline, caused by a real error, which should
+        not happen during the competition.
+      \\
       Red LED turned on & The machine is out of order. \\
-      %Red LED flashing (at 2 Hz)  & Machine signals that it ran out of stock on any required item. \\
+      %Red LED flashing (at 2 Hz)
+      %& Machine signals that it ran out of stock on any required item. \\
       Green LED turned on & The machine is idle and ready.\\
       Green LED flashing & The machine has accepted the prepare command
       (flashes for up to 3 seconds).\\
@@ -1416,25 +1537,24 @@ specified in Section~\ref{sec:machines}.
 \subsubsection{Machine Refill}
 \label{sec:machine-refill}
 The teams are responsible for restocking all materials (base elements,
-rings, prepared caps on shelves, and $C_0$ in the SS) before and during matches. Each
-team has to designate one team-member as a \textit{``replenisher''} who
-must be specified to the corresponding ``field half/team'' referee ahead
-of each game.  Only this team member will be allowed to access the
-field area and only in case of a recent refill procedure.  The
-replenisher must not obstruct other robots and should interfere as
-little as possible.  The machines can only be refilled when a magazine
-or shelf is empty. In this case the field-operator may enter the
-competition-area without asking the referee. Shelves have to be
+rings, prepared caps on shelves, and $C_0$ in the SS) before and during matches.
+Each team has to designate one team-member as a \textit{``replenisher''} who
+must be specified to the corresponding ``field half/team'' referee ahead of each
+game.  Only this team member will be allowed to access the field area and only
+in case of a recent refill procedure.  The replenisher must not obstruct other
+robots and should interfere as little as possible.  The machines can only be
+refilled when a magazine or shelf is empty. In this case the field-operator may
+enter the competition-area without asking the referee. Shelves have to be
 (re-)filled in all three reachable slots. % chktex 36
-The replenisher may restock only caps if transparent base elements have been
-put back to the shelf, once no cap is remaining on this shelf.
+The replenisher may restock only caps if transparent base elements have been put
+back to the shelf, once no cap is remaining on this shelf.
 
-The teams are partly free to choose their assembly and placement of
-products.
-For example, teams can fill any number of bases into a BS or are free to choose the color of caps for a CS,
-however teams are only allowed to fill the CS if the whole shelf is empty and then it has to be filled completely.
-The color assignment of bases on
-the BS and SS must be obeyed, as otherwise they will deliver the wrong
+The teams are partly free to choose their assembly and placement of products.
+For example, teams can fill any number of bases into a BS or are free to choose
+the color of caps for a CS, however teams are only allowed to fill the CS if the
+whole shelf is empty and then it has to be filled completely.  The color
+assignment of bases on the BS and SS must be obeyed, as otherwise they will
+deliver the wrong
 bases.
 
 \subsection{Special Events during a Match}
@@ -1558,33 +1678,62 @@ missing upon preparation will be subtracted later from points scored.
     \label{tab:scoring-production}
     \mytable{
       \begin{tabularx}{\linewidth}{p{7em}|X|p{4em}}
-        \multicolumn{1}{l}{Sub-task } &\multicolumn{1}{l}{Production
-          Phase} & \multicolumn{1}{l}{Points}\\\hline
-        Additional base & Feed an additional base into a ring station & $+2$\\
-        Finish $CC_0$ step & Finish the work order for a color requiring no additional base & $+5$\\
-        Finish $CC_1$ step & Finish the work order for a color requiring one additional base & $+10$\\
-        Finish $CC_2$ step  & Finish the work order for a color requiring two additional bases & $+20$ \\
-        Finish $C_1$ pre-cap & Mount the last ring of a $C_1$ product & $+10$ \\
-        Finish $C_2$ pre-cap & Mount the last ring of a $C_2$ product & $+30$ \\
-        Finish $C_3$ pre-cap & Mount the last ring of a $C_3$ product & $+80$ \\
-        Mount cap & Mount the cap on a product & $+10$ \\
-        Retrieve from SS & A workpiece has been requested from storage
-        and is ready for retrieval& $-10$ \\
-        Delivery & Deliver one of the final product variants to the
-        designated loading zone at the time specified in the order & $+20$\\
-        Delayed Delivery & An order delivered within 10 seconds after an
-        order is awarded a reduced score. For delivery time slot end
-        $T_e$ and actual delivery time $T_d$ in seconds the reduced
-        score is given by \newline $\lfloor 15 - \lfloor T_d - T_e \rfloor * 1.5 + 5 \rfloor$
-        & up to $+20$\\
+        \multicolumn{1}{l}{Sub-task }
+        & \multicolumn{1}{l}{Production Phase}
+        & \multicolumn{1}{l}{Points}
+        \\
+        \hline
+        Additional base & Feed an additional base into a ring station & $+2$
+        \\
+        Finish $CC_0$ step
+        & Finish the work order for a color requiring no additional base
+        & $+5$
+        \\
+        Finish $CC_1$ step
+        & Finish the work order for a color requiring one additional base
+        & $+10$
+        \\
+        Finish $CC_2$ step
+        & Finish the work order for a color requiring two additional bases
+        & $+20$
+        \\
+        Finish $C_1$ pre-cap & Mount the last ring of a $C_1$ product & $+10$
+        \\
+        Finish $C_2$ pre-cap & Mount the last ring of a $C_2$ product & $+30$
+        \\
+        Finish $C_3$ pre-cap & Mount the last ring of a $C_3$ product & $+80$
+        \\
+        Mount cap & Mount the cap on a product & $+10$
+        \\
+        Retrieve from SS
+        & A workpiece has been requested from storage and is ready for retrieval
+        & $-10$
+        \\
+        Delivery
+        & Deliver one of the final product variants to the designated loading
+        zone at the time specified in the order
+        & $+20$
+        \\
+        Delayed Delivery & An order delivered within 10 seconds after an order
+        is awarded a reduced score. For delivery time slot end $T_e$ and actual
+        delivery time $T_d$ in seconds the reduced score is given by \newline
+        $\lfloor 15 - \lfloor T_d - T_e \rfloor * 1.5 + 5 \rfloor$
+        & up to $+20$
+        \\
         Late Delivery & An order delivered after 10 seconds & +5 \\
         Wrong delivery & Deliver one of the final product variants to
         the designated loading zone out of the requested time range or
         after all products requested in the period have already been
         delivered
-        & $+1$\\
-        False delivery & Deliver an intermediate product & $0$\\
-        Obstruction & Deliver a workpiece to a machine of the opposing team & $-20$ \\\hline
+        & $+1$
+        \\
+        False delivery & Deliver an intermediate product & $0$
+        \\
+        Obstruction
+        & Deliver a workpiece to a machine of the opposing team
+        & $-20$
+        \\
+        \hline
         Round Total & A minimum of 0 points is awarded. & $\geq 0$ \\
       \end{tabularx}
     }
@@ -1592,10 +1741,19 @@ missing upon preparation will be subtracted later from points scored.
 
 	\bigskip
 
-	\subtable[Scoring scheme for game commentary]{\mytable{\begin{tabularx}{\linewidth}{p{7em}|X|p{2.4em}} \multicolumn{1}{l}{Task} &\multicolumn{1}{l}{Game Commentary} & \multicolumn{1}{l}{Points}\\\hline
-      Accepted Commentary & Commentate at least one half of the game continuously
-      on microphone in English (or the local language of the venue) to the public &  +10\\%\hline
-  \end{tabularx} }}
+  \subtable[Scoring scheme for game commentary]{
+    \mytable{
+      \begin{tabularx}{\linewidth}{p{7em}|X|p{2.4em}}
+        \multicolumn{1}{l}{Task}
+        & \multicolumn{1}{l}{Game Commentary}
+        & \multicolumn{1}{l}{Points}\\\hline
+        Accepted Commentary
+        & Commentate at least one half of the game continuously on microphone in
+        English (or the local language of the venue) to the public
+        &  +10
+      \end{tabularx}
+    }
+  }
 
   \caption{Scoring Schemes}
   \label{tab:scoring}
@@ -1732,8 +1890,9 @@ unsuccessful, a coin toss determines the higher ranked team.
 The best two teams of the playoff phase will advance to the grand
 finale, the remaining two teams will compete in the small finals for
 the third place. The team that scores more points after the regular
-game time wins. If there is no winner after the regular time, refer to section \refsec{sec:overtime}. If after this there is still no
-winner, a coin toss will decide.
+game time wins. If there is no winner after the regular time, refer to
+section \refsec{sec:overtime}. If after this there is still no winner,
+a coin toss will decide.
 
 \bigskip \hskip-\parindent{}
 The detailed seeding will be created at the event. Although the idea
@@ -1752,18 +1911,19 @@ scoring the first points during the extension will win.
 
 \subsection{Game Commentary}
 In addition to scoring in the exploration and the production phase,
-points are also awarded if a team provides an commentary on
-microphone to the public throughout the game as stated in \reftab{tab:scoring}. The commentary should
-communicate the overall problems to be solved within this league, the
-actual events taking place, but also give an insight on the own team
-and how they solved certain tasks. It does neither have to be perfect,
-nor to be a flawless stream of information. The commentary should be
-continuous, but short pauses are acceptable. At the end of the game
-the referees decide if the commentary duties were met. If both teams are willing to commentate
-on the game, the game time is shared according to the team
-specification (e.g., team 1 commentates the first half, team 2 the
-second half). However, the teams can also make custom arrangements to
-split the overall time.
+points are also awarded if a team provides an commentary on microphone
+to the public throughout the game as stated in \reftab{tab:scoring}.
+The commentary should communicate the overall problems to be solved
+within this league, the actual events taking place, but also give an
+insight on the own team and how they solved certain tasks. It does
+neither have to be perfect, nor to be a flawless stream of
+information. The commentary should be continuous, but short pauses are
+acceptable. At the end of the game the referees decide if the
+commentary duties were met. If both teams are willing to commentate on
+the game, the game time is shared according to the team specification
+(e.g., team 1 commentates the first half, team 2 the second half).
+However, the teams can also make custom arrangements to split the
+overall time.
 
 \subsection{Penalties}
 The catalog in \reftab{tab:infringements} represents the decision
@@ -2539,7 +2699,9 @@ obtained through\\
 %
 %\begin{figure}[h]
 %\centering
-%\subfigure[Drive unit with motor (1), encoder (2), omni-directional wheel (3)]{%
+%\subfigure[
+%  Drive unit with motor (1), encoder (2), omni-directional wheel (3)
+%]{%
 %  \label{fig:driveunit}%
 %  \begin{minipage}[b]{0.4\linewidth}
 %    \centering \includegraphics{driveunit.png}
