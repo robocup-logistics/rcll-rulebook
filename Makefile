@@ -1,10 +1,13 @@
 pdf:
 	latexmk -pdf rulebook.tex
 
-check: lint check-filetype check-trailing-whitespace
+check: lint check-filetype check-trailing-whitespace check-line-length
 
 # warning numbers that chktex should ignore
 chktex_ignore=24 44
+
+# maximum allowed length of a line
+linelength=80
 
 lint:
 	@chktex -q $(foreach w,$(chktex_ignore),-n $w) rulebook.tex | tee chktex.log
@@ -30,5 +33,14 @@ check-trailing-whitespace:
 		if [ $$? -eq 0 ] ; then \
 			echo "Found trailing whitespace:"; \
 			echo "$$trailing"; \
+			exit 1; \
+		fi'
+
+check-line-length:
+	@bash -c '\
+		longlines=$$(grep -n "^..\{${linelength}\}" rulebook.tex); \
+		if [ $$? -eq 0 ] ; then \
+			echo "ERROR: Found lines exceeding the line length ${linelength}:"; \
+			echo "$$longlines"; \
 			exit 1; \
 		fi'
