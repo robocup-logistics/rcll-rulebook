@@ -7,6 +7,8 @@ You can find the latest official rulebook under
 Rule change proposals are tracked
 [here](https://github.com/robocup-logistics/rcll-rulebook/pulls).
 
+[![CircleCI](https://circleci.com/gh/robocup-logistics/rcll-rulebook.svg?style=svg)](https://circleci.com/gh/robocup-logistics/rcll-rulebook)
+
 ## How to propose a rule change
 This is primarily aimed at members of the Technical Committee (TC), but everyone
 else can also propose changes to the rules.
