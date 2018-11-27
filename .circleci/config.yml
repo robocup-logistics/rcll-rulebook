@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: morxa/fedora-texlive
+      - image: morxa/fedora-texlive:f29-texlive2018
     steps:
       - checkout
       - run:
@@ -12,7 +12,7 @@ jobs:
           path: rulebook.pdf
   check:
     docker:
-      - image: morxa/fedora-texlive
+      - image: morxa/fedora-texlive:f29-texlive2018
     steps:
       - checkout
       - run:

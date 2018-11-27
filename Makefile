@@ -15,6 +15,8 @@ lint:
 		if [ -s chktex.log ] ; then \
 			echo "ERROR(lint): chktex found errors"; \
 			exit 1; \
+		else \
+			echo "lint: chktex passed!"; \
 		fi'
 
 check-filetype:
@@ -26,6 +28,8 @@ check-filetype:
 			echo "Expected: $$expected"; \
 			echo "Actual: $$actual"; \
 			exit 1; \
+		else \
+			echo "check: filetype check passed!"; \
 		fi'
 
 check-trailing-whitespace:
@@ -36,6 +40,8 @@ check-trailing-whitespace:
 			echo "$$trailing"; \
 		  echo "ERROR: Found trailing whitespace"; \
 			exit 1; \
+		else \
+			echo "check: no trailing whitespaces, check passed!"; \
 		fi'
 
 check-line-length:
@@ -46,4 +52,6 @@ check-line-length:
 			echo "$$longlines"; \
 			echo "ERROR: Found lines exceeding the max line length ${linelength}:"; \
 			exit 1; \
+		else \
+			echo "check: no overlong lines found, check passed!"; \
 		fi'
