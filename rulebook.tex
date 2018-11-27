@@ -1639,11 +1639,9 @@ belong to an upcoming (and announced) or on-going order can be
 awarded. Performing a step for a later order which has not yet been
 announced cannot be awarded.
 
-For a competitive order, the same scoring scheme for in-time, delayed,
-late, and wrong delivery applies, with an additional factor of $2$ if
-the team delivered before the other team, and a factor of $0$ if the
-team delivered after the other team (i.e., the second team does not get
-any points for the delivery).
+For a competitive order, the same scoring scheme for in-time, delayed, and late
+delivery applies for the first delivery, with an addition of $20$ points for a
+successful first delivery. For the second delivery, no points are given.
 
 There is a special case regarding the Storage Station. Retrieving a
 workpiece has a cost (see \reftab{tab:scoring}). The cost is
@@ -1745,14 +1743,13 @@ missing upon preparation will be subtracted later from points scored.
         False delivery & Deliver an intermediate product & $0$
         \\
         1st competitive delivery
-        & Factor for delivering a product for a competitive order before the
-        other team
-        & $*2$
+        & Points for the first delivery for a competitive order. The score is
+        given by the score for the regular delivery $+ 20$.
+        & up to $+ 40$
         \\
         2nd competitive delivery
-        & Factor for delivering a product for a competitive
-        order after the other team
-        & $*0$
+        & Second delivery of a final product for a competitive order.
+        & $0$
         \\
         Obstruction
         & Deliver a workpiece to a machine of the opposing team
