@@ -1640,11 +1640,11 @@ awarded. Performing a step for a later order which has not yet been
 announced cannot be awarded.
 
 For a competitive order, the same scoring scheme for in-time, delayed, and late
-delivery applies for the first delivery, with additional points for a successful
-first delivery (cf.~\reftab{tab:scoring}). For the second delivery, no delivery
-points are given. Points for production steps are given in the same way as for
-non-competitive orders. In particular, production points are also given if a
-team delivers the product after the other team.
+delivery applies, with additional points for a successful first delivery
+and a point deduction for the second delivery (cf.~\reftab{tab:scoring}). Points
+for production steps are given in the same way as for non-competitive orders. In
+particular, production points are also given if a team delivers the product
+after the other team.
 
 There is a special case regarding the Storage Station. Retrieving a
 workpiece has a cost (see \reftab{tab:scoring}). The cost is
@@ -1747,12 +1747,13 @@ missing upon preparation will be subtracted later from points scored.
         \\
         1st competitive delivery
         & Points for the first delivery for a competitive order. The score is
-        given by the score for the regular delivery $+ 10$.
-        & up to $+ 30$
+        given in addition to the points for the regular delivery.
+        &$+ 10$
         \\
         2nd competitive delivery
-        & Second delivery of a final product for a competitive order.
-        & $0$
+        & Point deduction for the second delivery for a competitive order. The
+        points are deducted from the delivery points.
+        &$- 10$
         \\
         Obstruction
         & Deliver a workpiece to a machine of the opposing team
