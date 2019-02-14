@@ -537,12 +537,9 @@ Based on these shared properties, there are five kinds of machines:
   layer).\footnote{Note that this is the specific content for 2018 and
   may change in the future.}
 
-\item[Delivery Station (DS)] Accepts completed products. The stations
-  contains three slides (\reffig{fig:DS}). The robot has to prepare
-  the proper one for a specific order
-  (cf. \refsec{sec:production-machines-production}). The delivered
-  products are verified by either the referees or an automated
-  external vision system. There is one DS per team.
+\item[Delivery Station (DS)] Accepts completed products. The stations contains
+  three slides (\reffig{fig:DS}). The delivered products are verified by either
+  the referees or an automated external vision system. There is one DS per team.
 \end{description}
 
 \noindent
@@ -974,11 +971,9 @@ be dispensed. After receiving the message, the refbox will instruct
 the MPS to immediately provide a base of the desired color.
 
 \noindent\textbf{DS}
-The DS prepare message denotes the slide the product should be delivered
-to, as well as the order ID of the product that is delivered.  The DS
-will consume any workpiece provided, but points can only be scored if
-the DS has been properly prepared with the correct slide and order ID
-as requested by the refbox.
+The DS prepare message denotes the order ID of the product that is delivered.
+The DS will consume any workpiece provided, but points can only be scored if the
+DS has been properly prepared.
 
 \noindent\textbf{CS}
 The CS prepare message initiates either the retrieval or the mounting of
