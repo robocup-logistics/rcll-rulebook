@@ -220,39 +220,35 @@ partner Festo provides insights into future factory concepts to help
  infrastructure, RCLL aims to provide concepts for smart production
  logistics.
 
-After an exciting RoboCup in Nagoya, we look forward to a new scale of
-competition that will emerge from initiatives around the globe. In
-2012 we had our first Logistics League World Champion.  In 2013 we
-introduced the Referee Box (refbox) changing the competition at its
-core by introducing a flow of information. This allowed for more
-dynamic games and the automatic tracking of scores, and to relax the
-hitherto existing regulations regarding additional computing power. In
-2014 we merged the formerly separate playing fields into a single one,
-on which both teams compete at the same time, introducing the need for
-self-localization, collision avoidance, and increased spatial
-coordination complexity. Additionally, the production schedules became
-more dynamic in that orders were posted dynamically and less
-frequently and there were times with no orders. In 2015 we introduced
-actual physical processing machines based on the Festo Modular
-Production System (MPS) requiring more complex machine
-handling~\cite{wdrl2013}. Additionally, the production schedule has
-again become more flexible and dynamic, by introducing color-coded
-rings of which a varying number can be requested to be mounted in a
-specific order for a certain product. This increased the number of
-products from 3 to about 240. After three years of constant and
-tremendous changes, 2016 was a year to consolidate our league as a
-whole by increasing the number of participating teams and allowing
-existing teams to excel in their capabilities. 2017 we changed
-the field size and zone layout. Production had the main focus and
-the exploration phase became shorter and less important.
-Due the maximum points were still a long way off for each team and
-the production phase still offers many more challenges, the year
-2018 will also be a year of consolidation.
-Furthermore, the TC is working towards the introduction of a
-barcode recognition to track products and a new storage station.
-This is a long-term effort. This year, the station
-will provide pre-assembled products that can be bought for delivery.
-In the following years, we will explore ways to extend this.
+ After an exciting RoboCup in Nagoya, we look forward to a new scale of
+ competition that will emerge from initiatives around the globe. In 2012 we had
+ our first Logistics League World Champion.  In 2013 we introduced the Referee
+ Box (refbox)~\cite{RCI-RefBox} changing the competition at its core by
+ introducing a flow of information. This allowed for more dynamic games and the
+ automatic tracking of scores, and to relax the hitherto existing regulations
+ regarding additional computing power. In 2014 we merged the formerly separate
+ playing fields into a single one, on which both teams compete at the same time,
+ introducing the need for self-localization, collision avoidance, and increased
+ spatial coordination complexity. Additionally, the production schedules became
+ more dynamic in that orders were posted dynamically and less frequently and
+ there were times with no orders. In 2015 we introduced actual physical
+ processing machines based on the Festo Modular Production System (MPS)
+ requiring more complex machine handling~\cite{wdrl2013}. Additionally, the
+ production schedule has again become more flexible and dynamic, by introducing
+ color-coded rings of which a varying number can be requested to be mounted in a
+ specific order for a certain product. This increased the number of products
+ from 3 to about 240. After three years of constant and tremendous changes, 2016
+ was a year to consolidate our league as a whole by increasing the number of
+ participating teams and allowing existing teams to excel in their
+ capabilities. 2017 we changed the field size and zone layout. Production had
+ the main focus and the exploration phase became shorter and less important.
+ Due the maximum points were still a long way off for each team and the
+ production phase still offers many more challenges, the year 2018 will also be
+ a year of consolidation.  Furthermore, the TC is working towards the
+ introduction of a barcode recognition to track products and a new storage
+ station.  This is a long-term effort. This year, the station will provide
+ pre-assembled products that can be bought for delivery.  In the following
+ years, we will explore ways to extend this.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The Task}
@@ -2245,15 +2241,14 @@ traffic and demand reduction in communicated data as necessary.
 
 \subsection{Referee Box (refbox)}
 \label{sec:referee-box}
-The referee box (refbox) is a software system that runs on a system
-provided by the Organizing Committee. It controls the overall game,
-monitors feedback from the robots, and awards points. It is instructed
-by an assisting human referee and keeps a log of all relevant game
-events. The final game report will be produced by the referee
-box. While we strive for a maximum of automation of this control task,
-we rely on the human referee for final judgment, in particular for
-border or under-specified cases, and will provide the largest set of
-override abilities feasible.
+The referee box (refbox)~\cite{RCI-RefBox} is a software system that runs on a
+system provided by the Organizing Committee. It controls the overall game,
+monitors feedback from the robots, and awards points. It is instructed by an
+assisting human referee and keeps a log of all relevant game events. The final
+game report will be produced by the referee box. While we strive for a maximum
+of automation of this control task, we rely on the human referee for final
+judgment, in particular for border or under-specified cases, and will provide
+the largest set of override abilities feasible.
 
 The refbox is the single point of instruction for robots during the
 game. After game setup has finished, game state information and orders
