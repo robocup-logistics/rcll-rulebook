@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Rulebook RoboCup Logistics League
-%% 2018 Competitions
+%% 2019 Competitions
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[12pt,twoside]{article}
@@ -76,7 +76,7 @@
 %% HYPERREF %%%%%%%%%%%%%%%%%%%
 \usepackage{hyperref}
 \hypersetup{
-  pdftitle      = {The RoboCup Logistics League Rulebook for 2018},
+  pdftitle      = {The RoboCup Logistics League Rulebook for 2019},
   pdfauthor     = {RCLL TC},
   pdfkeywords   = {RCLL, Rulebook},
   pdfsubject    = {},
@@ -139,25 +139,26 @@
     \begin{LARGE}
 
       {\bf RoboCup Logistics League}\\[2ex]
-      {\Large Rules and Regulations 2018}\\[4ex]
+      {\Large Rules and Regulations 2019}\\[4ex]
     \end{LARGE}
     \hrule
 
     {\LARGE\vspace*{4ex}}
     \begin{Large}
-      The Technical Committee 2012--2018\\[6ex]
+      The Technical Committee 2012--2019\\[6ex]
     \end{Large}
     \begin{tabular}{lll}
-      \textbf{Vincent Coelen}&\textbf{Christian Deppe}&\textbf{Till Hofmann}\\
-      \textbf{Ulrich Karras}&\textbf{Tim Niemueller}&\textbf{Alain Rohr}\\[.5em]
+      \textbf{Vincent Coelen}&\textbf{Christian Deppe}&\textbf{Mostafa Gomaa}\\
+      \textbf{Till Hofmann}&\textbf{Ulrich Karras}&\textbf{Tim Niemueller}\\
+      \textbf{Alain Rohr}&\textbf{Thomas Ulz}\\[.5em]
 
       Daniel Ewert&Nils Harder&S\"oren Jentzsch\\
       Nicolas Meier&Sebastian Reuter&Wataru Uemura\\
       Gerald Steinbauer&Tobias Neumann\\
     \end{tabular}
     \vfill
-    Revision Date: Thursday, January 25\textsuperscript{\raisebox{-.2ex}{th}}
-    2018
+    Revision Date: Wednesday, April 10\textsuperscript{\raisebox{-.2ex}{th}}
+    2019
     %DRAFT -- Work in Progress
   \end{center}
 \end{titlepage}
@@ -200,14 +201,14 @@ autonomous mobile robots.
 The RoboCup Logistics League (RCLL) is determined to develop into a
 state-of-the-art platform for mobile robotics education and research
 tackling this problem of flexible and efficient production logistics at a
-comprehensible size. This industrial motivated league keeps the focus
+comprehensible size. This industrial motivated league focuses
 on challenges promoting precise actions and robust long-enduring
 execution, and further encourages external data supported
 autonomy. By providing feedback and competition hardware, Industrial
 partner Festo provides insights into future factory concepts to help
  uncover relevant future topics for education and research.
 
- This year's competition is laid out in the pages to come.  It ensures
+ This year's competition is laid out in the following pages.  It ensures
  the same and fair circumstances for all participants. It neither
  dictates nor suggests the way how to fulfill the task, but is meant
  to develop the RCLL further. Smart Factory environments require new
@@ -220,35 +221,43 @@ partner Festo provides insights into future factory concepts to help
  infrastructure, RCLL aims to provide concepts for smart production
  logistics.
 
- After an exciting RoboCup in Nagoya, we look forward to a new scale of
- competition that will emerge from initiatives around the globe. In 2012 we had
- our first Logistics League World Champion.  In 2013 we introduced the Referee
- Box (refbox)~\cite{RCI-RefBox} changing the competition at its core by
- introducing a flow of information. This allowed for more dynamic games and the
- automatic tracking of scores, and to relax the hitherto existing regulations
- regarding additional computing power. In 2014 we merged the formerly separate
- playing fields into a single one, on which both teams compete at the same time,
- introducing the need for self-localization, collision avoidance, and increased
- spatial coordination complexity. Additionally, the production schedules became
- more dynamic in that orders were posted dynamically and less frequently and
- there were times with no orders. In 2015 we introduced actual physical
- processing machines based on the Festo Modular Production System (MPS)
- requiring more complex machine handling~\cite{wdrl2013}. Additionally, the
+ After exciting competitions in the previous years, we look forward to a new
+ scale of competition that will emerge from initiatives around the globe. In
+ 2012 we had our first Logistics League World Champion.  In 2013 we introduced
+ the Referee Box (refbox)~\cite{RCI-RefBox} changing the competition at its core
+ by introducing a flow of information. This allowed for more dynamic games and
+ the automatic tracking of scores.
+ %, and to relax the hitherto existing
+ % regulations regarding additional computing power.
+ In 2014, we merged the formerly separate playing fields into a single field on
+ which both teams compete simultaneously, introducing the need for
+ self-localization, collision avoidance, and increased spatial coordination
+ complexity.  Additionally, the production schedules became more dynamic in that
+ orders were posted dynamically and less frequently. In 2015 we introduced
+ actual physical processing machines based on the Festo Modular Production
+ System (MPS) requiring more complex machine handling~\cite{wdrl2013}. The
  production schedule has again become more flexible and dynamic, by introducing
  color-coded rings of which a varying number can be requested to be mounted in a
- specific order for a certain product. This increased the number of products
- from 3 to about 240. After three years of constant and tremendous changes, 2016
- was a year to consolidate our league as a whole by increasing the number of
- participating teams and allowing existing teams to excel in their
- capabilities. 2017 we changed the field size and zone layout. Production had
- the main focus and the exploration phase became shorter and less important.
- Due the maximum points were still a long way off for each team and the
- production phase still offers many more challenges, the year 2018 will also be
- a year of consolidation.  Furthermore, the TC is working towards the
- introduction of a barcode recognition to track products and a new storage
- station.  This is a long-term effort. This year, the station will provide
- pre-assembled products that can be bought for delivery.  In the following
- years, we will explore ways to extend this.
+ specific order for a certain product.  This increased the number of products
+ from 3 to about 240.  After three years of constant and tremendous changes,
+ 2016 was a year to consolidate our league as a whole by increasing the number
+ of participating teams and allowing existing teams to excel in their
+ capabilities.  In 2017, we changed the field size and zone layout and we
+ shifted the focus from the exploration to the production phase. In 2018, we saw
+ more and more teams successfully delivering orders, even of higher complexity.
+ For 2019, the TC is working towards a barcode recognition system to track
+ products, which allows to automate scoring and to grant partial points for
+ production steps.  Additionally, we are working towards a more robust
+ competition by replacing the communication with the MPS stations by new
+ hardware and software\footnote{We gratefully thank the RoboCup Federation for
+ supporting the work on workpiece tracking and network robustness.}. The
+ introduction of competitive orders aims to increase the competition aspect by
+ giving a bonus to the team that delivered first, thereby promoting strategic
+ reasoning to gain an advantage over the other team.  Also starting this year,
+ we allow teams to purchase additional robot maintenance, which will increase
+ overall game activity while posing an additional strategic challenge to the
+ teams\footnote{A detailed list of rule changes can be found at
+ \mbox{\url{https://github.com/robocup-logistics/rcll-rulebook}}}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The Task}
@@ -321,7 +330,7 @@ year of stabilization and conservative changes.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{League Administration} \label{sec:commitees}
-\subsection{Technical Committee 2018}
+\subsection{Technical Committee 2019}
 \label{sec:tc}
 The technical committee (TC) is responsible to update and publish the
 rulebook, to decide on technical questions during the tournament, and
@@ -330,13 +339,17 @@ advancements. Current members of the TC are (in alphabetical order):\\[.5em]
 % Alphabetical order by last name
 \emph{Vincent Coelen}, Ecole polytechnique universitaire de Lille\\
 \emph{Christian Deppe}, Festo Didactic SE, Denkendorf, Germany\\
-\emph{Till Hoffmann}, RWTH Aachen University, Aachen, Germany\\
+\emph{Mostafa Gomaa}, RWTH Aachen University, Aachen, Germany\\
+\emph{Till Hofmann}, RWTH Aachen University, Aachen, Germany\\
 \emph{Alain Rohr}, HFTM Technical Institute of Applied Science Mittelland,
 Biel, Switzerland\\
-To get into contact with the TC use the mailing list\\
+\emph{Thomas Ulz}, Graz University of Technology, Graz, Austria
+
+\medskip
+\noindent To get into contact with the TC use the mailing list\\
 \centerline{\url{robocup-logistics-tc@lists.kbsg.rwth-aachen.de}}
 
-\subsection{Organizing Committee 2018}
+\subsection{Organizing Committee 2019}
 \label{sec:oc}
 The organizing committee (OC) is responsible for organizing the
 RoboCup competitions, to communicate to the RoboCup Federation
@@ -345,15 +358,15 @@ attract new teams to the league. Current members of the OC are (in
 alphabetical order):\\[.5em]
 \emph{Stefan Brandenberger}, HFTM Technical Institute of Applied Science
 Mittelland, Biel, Switzerland\\
-\emph{Christian Deppe}, Festo Didactic SE, Denkendorf, Germany\\
-\emph{Florian Eith}, Friedrich-Alexander University, Erlangen, Germany\\
+\emph{Vanessa Egger}, Graz University of Technology, Graz, Austria\\
 \emph{Ulrich Karras}, priv. Dozent, Essen, Germany\\
-\emph{Wataru Uemura}, Ryukoku University, Japan\\
+\emph{Wataru Uemura}, Ryukoku University, Japan
 
-To get into contact with the OC use the mailing list\\
+\medskip
+\noindent To get into contact with the OC use the mailing list\\
 \centerline{\url{robocup-logistics-oc@lists.kbsg.rwth-aachen.de}}
 
-\subsection{Executive Committee 2015--2018}
+\subsection{Executive Committee 2015--2019}
 \label{sec:oc}
 Executive Committee members are responsible for the long term goals of
 the league and thus have also contact to other leagues as well as to
@@ -530,7 +543,7 @@ Based on these shared properties, there are five kinds of machines:
   6 layers (\reffig{fig:SS_portrait}). For now items can be  shipped
   out on the output side on request. The Storage Station provides a
   sample of each possible $C_0$ configuration (one per
-  layer).\footnote{Note that this is the specific content for 2018 and
+  layer).\footnote{Note that this is the specific content for 2019 and
   may change in the future.}
 
 \item[Delivery Station (DS)] Accepts completed products. The stations contains
@@ -995,7 +1008,7 @@ fed into the machine. It receives a ring of the desired color and
 moves the processed product to the output.
 
 \noindent\textbf{SS}\footnote{The TC is working towards the
-  integration of the SS for 2018. Issues arising or the lack of
+  integration of the SS for 2019. Issues arising or the lack of
   development resources might lead to exclusion of the SS from the
   tournament on short notice.}
 %
@@ -1004,7 +1017,7 @@ next input workpiece, or from which place to retrieve an item
 from. There will be designated positions for specific $C_0$ workpieces
 which will be announced at the beginning of the
 tournament.\footnote{Please note again, this is an assignment
-  specifically for 2018 and may change in future competitions.} If a
+  specifically for 2019 and may change in future competitions.} If a
 position is requested for which no product has been stored (or has
 already been retrieved), the machine will be broken
 (cf.~\refsec{sec:broken-machine}). The products retrieved from the SS
@@ -1610,7 +1623,7 @@ production steps and final delivery of goods according to
 
 Points for production steps are awarded as soon as
 completed.\footnote{This relies on the bar code system described in
-  \refsec{sec:products} which will be introduced in 2018. Should this
+  \refsec{sec:products} which will be introduced in 2019. Should this
   be delayed or proof infeasible, the mode of operation in 2017 will
   be used: all points related to a product, including the points for
   finishing intermediate step like mounting the last ring on higher
@@ -2116,14 +2129,12 @@ wider range of participants, but also to ease entering the robot
 competition.
 
 There is a new Planning Competition for Logistics Robots in
-Simulation~\cite{LogRobComp2016} that is held at the International
-Conference on Automated Planning and Scheduling (ICAPS). The technical
-challenge game will be played according to the same rules and
-regulations of the ICAPS competition~\cite{LogRobComp-Rules-2017}. The
-rules and regulations, and the reference USB stick image will be
-available on the competition website April 1st
-2017.\footnote{\url{http://www.robocup-logistics.org/sim-comp}} A
-video tutorial is available at the same website.
+Simulation~\cite{LogRobComp2016} that is held at the International Conference on
+Automated Planning and Scheduling (ICAPS). The technical challenge game will be
+played according to the same rules and regulations of the ICAPS
+competition~\cite{LogRobComp-Rules-2017}. The rules and regulations, the
+reference USB stick image, and a video tutorial is available at
+\url{http://www.robocup-logistics.org/sim-comp}.
 
 \vspace{-2ex}\paragraph{The Game}
 %
@@ -2139,14 +2150,10 @@ available interfaces.
 
 \vspace{-2ex}\paragraph{Hardware Setup}
 %
-If feasible (and if the required hardware is available), we will use
-the same infrastructure as is used in the ICAPS competiton. This may be a
-Docker-based
-infrastructure, virtual machines, or bare metal machines with a
-standard image which may be extended. The exact setup will be
-announced June 1st 2017 at the latest. Until then, the best option is
-to prepare with the USB stick image provided on the competition
-website.
+We use the same infrastructure as is used in the ICAPS competiton. It is based
+on a Kubernetes infrastructure. The competition cluster setup is available and
+documented at \url{https://github.com/timn/rcll-sim-cluster}. The USB stick
+image provided on the competition website can be used for local testing.
 
 \vspace{-2ex}\paragraph{Simulation Interfaces}
 %
