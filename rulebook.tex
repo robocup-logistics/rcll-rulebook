@@ -220,39 +220,35 @@ partner Festo provides insights into future factory concepts to help
  infrastructure, RCLL aims to provide concepts for smart production
  logistics.
 
-After an exciting RoboCup in Nagoya, we look forward to a new scale of
-competition that will emerge from initiatives around the globe. In
-2012 we had our first Logistics League World Champion.  In 2013 we
-introduced the Referee Box (refbox) changing the competition at its
-core by introducing a flow of information. This allowed for more
-dynamic games and the automatic tracking of scores, and to relax the
-hitherto existing regulations regarding additional computing power. In
-2014 we merged the formerly separate playing fields into a single one,
-on which both teams compete at the same time, introducing the need for
-self-localization, collision avoidance, and increased spatial
-coordination complexity. Additionally, the production schedules became
-more dynamic in that orders were posted dynamically and less
-frequently and there were times with no orders. In 2015 we introduced
-actual physical processing machines based on the Festo Modular
-Production System (MPS) requiring more complex machine
-handling~\cite{wdrl2013}. Additionally, the production schedule has
-again become more flexible and dynamic, by introducing color-coded
-rings of which a varying number can be requested to be mounted in a
-specific order for a certain product. This increased the number of
-products from 3 to about 240. After three years of constant and
-tremendous changes, 2016 was a year to consolidate our league as a
-whole by increasing the number of participating teams and allowing
-existing teams to excel in their capabilities. 2017 we changed
-the field size and zone layout. Production had the main focus and
-the exploration phase became shorter and less important.
-Due the maximum points were still a long way off for each team and
-the production phase still offers many more challenges, the year
-2018 will also be a year of consolidation.
-Furthermore, the TC is working towards the introduction of a
-barcode recognition to track products and a new storage station.
-This is a long-term effort. This year, the station
-will provide pre-assembled products that can be bought for delivery.
-In the following years, we will explore ways to extend this.
+ After an exciting RoboCup in Nagoya, we look forward to a new scale of
+ competition that will emerge from initiatives around the globe. In 2012 we had
+ our first Logistics League World Champion.  In 2013 we introduced the Referee
+ Box (refbox)~\cite{RCI-RefBox} changing the competition at its core by
+ introducing a flow of information. This allowed for more dynamic games and the
+ automatic tracking of scores, and to relax the hitherto existing regulations
+ regarding additional computing power. In 2014 we merged the formerly separate
+ playing fields into a single one, on which both teams compete at the same time,
+ introducing the need for self-localization, collision avoidance, and increased
+ spatial coordination complexity. Additionally, the production schedules became
+ more dynamic in that orders were posted dynamically and less frequently and
+ there were times with no orders. In 2015 we introduced actual physical
+ processing machines based on the Festo Modular Production System (MPS)
+ requiring more complex machine handling~\cite{wdrl2013}. Additionally, the
+ production schedule has again become more flexible and dynamic, by introducing
+ color-coded rings of which a varying number can be requested to be mounted in a
+ specific order for a certain product. This increased the number of products
+ from 3 to about 240. After three years of constant and tremendous changes, 2016
+ was a year to consolidate our league as a whole by increasing the number of
+ participating teams and allowing existing teams to excel in their
+ capabilities. 2017 we changed the field size and zone layout. Production had
+ the main focus and the exploration phase became shorter and less important.
+ Due the maximum points were still a long way off for each team and the
+ production phase still offers many more challenges, the year 2018 will also be
+ a year of consolidation.  Furthermore, the TC is working towards the
+ introduction of a barcode recognition to track products and a new storage
+ station.  This is a long-term effort. This year, the station will provide
+ pre-assembled products that can be bought for delivery.  In the following
+ years, we will explore ways to extend this.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The Task}
@@ -1893,40 +1889,56 @@ playoffs play the grand finale to decide which team will become the
 next Logistics League champion, whereas the other two teams compete in
 the small final for the third place.
 
-\paragraph{Round-Robin phase.~}
-The first stage is a group phase and will be played as a round-robin.
-The teams will receive the true points they scored during the
-competition. The points will be accumulated in this phase and the
-teams will be ranked according to the accumulated points in descending
-order.
+\subsubsection{Round-Robin phase}
+The first stage is a group phase and will be played as a round-robin. The teams
+will receive the true points they scored during the competition. The points will
+be accumulated in this phase and the teams will be ranked according to the
+accumulated points in descending order. Depending on this order, only the first
+6 teams are qualified for the Playoffs.
 
-\paragraph{Playoffs.~}
-At the playoff stage, the scoring scheme will be different. As each
-team in this phase directly competes with an opposing team, a ranking
-score will be determined as follows. In each \emph{game}, the winning
-team gets 3 ranking points, the loosing team gets 0. A team wins if it
-achieves more points in the game than the other team
-(cf.~Sections~\ref{sec:exploration-phase} and~\ref{sec:production-phase}). In
-the case of a non-zero draw, see Section~\refsec{sec:overtime} for overtime.
-If, after overtime, a draw is not
-resolved, both teams get 1 ranking point. If both team end with a zero
-score, each team gets 0 ranking points.
-Points awarded for commentary are not considered in this decision.
+\subsubsection{Playoffs}
+The play-offs can be played in one out of two modes, depending on the number of
+qualified teams.
 
-The \emph{overall ranking} is determined by the ranking score of
-teams, highest first. If two teams have the same score, the overall
-total in-game points are summarized and the team with more game points
-ranks higher. If there still is a draw, the direct comparison of the
-games of the two teams is used to break the tie. If this still is
-unsuccessful, a coin toss determines the higher ranked team.
+\paragraph{6 Qualified Teams.~}
+Qualified teams will be divided into two groups of three teams each. The first
+group will be composed of the teams that ranked first, fourth, and fifth in the
+Round-Robin phase respectively. The second group contains the teams that ranked
+second, third, and sixth. Within each group, each teams plays against all other
+teams (round-robin).
 
-\paragraph{Finals.~}
-The best two teams of the playoff phase will advance to the grand
-finale, the remaining two teams will compete in the small finals for
-the third place. The team that scores more points after the regular
-game time wins. If there is no winner after the regular time, refer to
-section \refsec{sec:overtime}. If after this there is still no winner,
-a coin toss will decide.
+\paragraph{Less than 6 Qualified Teams.~}
+All qualified for the Playoffs are added to a single group and play in
+round-robin fashion each team against all other teams.
+
+\paragraph{Scoring Scheme.~}
+During playoffs, the scoring scheme will be different from the Round-Robin and
+is based on a ranking score per won games. As each team in this phase directly
+competes with an opposing team, a ranking score will be determined as
+follows. In each \emph{game}, the winning team gets 3 ranking points, the
+loosing team gets 0. A team wins if it achieves more points in the game than the
+other team (cf.~Sections~\ref{sec:exploration-phase}
+and~\ref{sec:production-phase}).  In the case of a non-zero draw, see
+\refsec{sec:overtime} for overtime.  If, after overtime, a draw is not resolved,
+both teams get 1 ranking point. If both team end with a zero score, each team
+gets 0 ranking points. Points awarded for commentary are not considered in this
+decision.
+
+\paragraph{Ranking.~}
+The \emph{overall ranking} is determined by the ranking score of teams, highest
+first. If two teams have the same score, the overall total in-game points are
+summarized and the team with more game points ranks higher. If there still is a
+draw, the direct comparison of the games of the two teams is used to break the
+tie. If this still is unsuccessful, a coin toss determines the higher ranked
+team.
+
+\subsubsection{Finals}
+The best teams of the two playoff groups (or the two best teams in case of one
+group) will advance to the grand finale, the remaining two teams will compete in
+the small finals for the third place. The team that scores more points after the
+regular game time wins. If there is no winner after the regular time, refer to
+Section~\refsec{sec:overtime}. If after this there is still no winner, a coin
+toss will decide.
 
 \bigskip \hskip-\parindent{}
 The detailed seeding will be created at the event. Although the idea
@@ -2276,15 +2288,14 @@ traffic and demand reduction in communicated data as necessary.
 
 \subsection{Referee Box (refbox)}
 \label{sec:referee-box}
-The referee box (refbox) is a software system that runs on a system
-provided by the Organizing Committee. It controls the overall game,
-monitors feedback from the robots, and awards points. It is instructed
-by an assisting human referee and keeps a log of all relevant game
-events. The final game report will be produced by the referee
-box. While we strive for a maximum of automation of this control task,
-we rely on the human referee for final judgment, in particular for
-border or under-specified cases, and will provide the largest set of
-override abilities feasible.
+The referee box (refbox)~\cite{RCI-RefBox} is a software system that runs on a
+system provided by the Organizing Committee. It controls the overall game,
+monitors feedback from the robots, and awards points. It is instructed by an
+assisting human referee and keeps a log of all relevant game events. The final
+game report will be produced by the referee box. While we strive for a maximum
+of automation of this control task, we rely on the human referee for final
+judgment, in particular for border or under-specified cases, and will provide
+the largest set of override abilities feasible.
 
 The refbox is the single point of instruction for robots during the
 game. After game setup has finished, game state information and orders

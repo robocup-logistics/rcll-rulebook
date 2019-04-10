@@ -8,6 +8,7 @@
 *.out
 *.run.xml
 *.toc
+/auto
 /rulebook.pdf
 /rulebook2012.pdf
 /rulebook2013.pdf
