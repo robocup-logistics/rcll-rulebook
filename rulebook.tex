@@ -774,29 +774,6 @@ Each game will have a new randomly generated field layout, the referees will
 place the MPS in the middle of the zone with given rotation at there best effort
 but errors of the positioning should be expected.
 
-\begin{wrapfigure}[14]{r}{0.2\linewidth}
-  \centering
-  \vspace{-2.1ex}
-  \mytable{
-    \begin{tabularx}{\linewidth}{
-      >{\raggedleft\arraybackslash}X|>{\raggedleft\arraybackslash}X
-    }
-      Cyan & Magenta \\ \hline
-      \ang{0}&\ang{180}\\
-      \ang{45}&\ang{135}\\
-      \ang{90}&\ang{90}\\
-      \ang{135}&\ang{45}\\
-      \ang{180}&\ang{0}\\
-      \ang{225}&\ang{315}\\
-      \ang{270}&\ang{270}\\
-      \ang{315}&\ang{225}\\
-	\end{tabularx}}%
-  \makeatletter%
-  \def\@captype{table}%
-  \makeatother%
-  \caption{MPS orientation mapping during mirroring}
-  \label{tab:mirror-a}
-\end{wrapfigure}
 A MPS can be placed in any zones except C-Z52 and M-Z52. These zones
 are needed to enter the field.  Each MPS has one out of 8 possible
 orientations, starting at \ang{0} with steps of \ang{45}. To denote
@@ -826,7 +803,31 @@ rotation of \ang{270}. Were this setup mirrored, the shelf on the cyan CS in
 C-Z76 would be close to the wall. Instead, it has a different orientation
 violating the y-symmetry but allowing for easier access to the shelf.
 
-\begin{figure}[t!]
+\begin{wrapfigure}[14]{R}{0.2\linewidth}
+  \centering
+  \vspace{-2.1ex}
+  \mytable{
+    \begin{tabularx}{\linewidth}{
+      >{\raggedleft\arraybackslash}X|>{\raggedleft\arraybackslash}X
+    }
+      Cyan & Magenta \\ \hline
+      \ang{0}&\ang{180}\\
+      \ang{45}&\ang{135}\\
+      \ang{90}&\ang{90}\\
+      \ang{135}&\ang{45}\\
+      \ang{180}&\ang{0}\\
+      \ang{225}&\ang{315}\\
+      \ang{270}&\ang{270}\\
+      \ang{315}&\ang{225}\\
+	\end{tabularx}}%
+  \makeatletter%
+  \def\@captype{table}%
+  \makeatother%
+  \caption{MPS orientation mapping during mirroring}
+  \label{tab:mirror-a}
+\end{wrapfigure}
+
+\begin{figure}[tb]
     \centering
     \subfigure[
       For rotations with \ang{0}, \ang{90}, \ang{180} or \ang{270}. BS, CS, RS,
