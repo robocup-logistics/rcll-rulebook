@@ -46,7 +46,7 @@ check-trailing-whitespace:
 
 check-line-length:
 	@bash -c '\
-		longlines=$$(grep -n "^..\{${linelength}\}" rulebook.tex); \
+		longlines=$$(grep -n -e "^..\{${linelength}\}" rulebook.tex | grep -v -e "ignore-long-line"); \
 		if [ $$? -eq 0 ] ; then \
 			echo "Lines with length > ${linelength}:"; \
 			echo "$$longlines"; \
