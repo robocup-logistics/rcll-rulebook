@@ -2118,9 +2118,11 @@ five points.
 The challenge is to play the production phase of an RCLL game, based
 on the publicly released Gazebo-based simulation~\cite{llsf-sim-rc2014-2014}.
 The simulation
-software\footnote{\url{https://www.fawkesrobotics.org/projects/rcll-sim/}}
+software\footnote{
+\mbox{\url{https://www.fawkesrobotics.org/projects/rcll-sim/}}
+}
 including technical documentation is publicly available on
-Github.\footnote{\url{https://github.com/robocup-logistics/gazebo-rcll}}
+Github.\footnote{\mbox{\url{https://github.com/robocup-logistics/gazebo-rcll}}}
 
 The simulation uses Gazebo and the exact same referee box to simulate
 the environment reactions similar to the real game. We envision this
@@ -2134,7 +2136,7 @@ Automated Planning and Scheduling (ICAPS). The technical challenge game will be
 played according to the same rules and regulations of the ICAPS
 competition~\cite{LogRobComp-Rules-2017}. The rules and regulations, the
 reference USB stick image, and a video tutorial is available at
-\url{http://www.robocup-logistics.org/sim-comp}.
+\mbox{\url{http://www.robocup-logistics.org/sim-comp}}.
 
 \vspace{-2ex}\paragraph{The Game}
 %
@@ -2150,10 +2152,13 @@ available interfaces.
 
 \vspace{-2ex}\paragraph{Hardware Setup}
 %
+
+\begin{sloppypar}
 We use the same infrastructure as is used in the ICAPS competiton. It is based
 on a Kubernetes infrastructure. The competition cluster setup is available and
-documented at \url{https://github.com/timn/rcll-sim-cluster}. The USB stick
-image provided on the competition website can be used for local testing.
+documented at \mbox{\url{https://github.com/timn/rcll-sim-cluster}}. The USB
+stick image provided on the competition website can be used for local testing.
+\end{sloppypar}
 
 \vspace{-2ex}\paragraph{Simulation Interfaces}
 %
@@ -2166,13 +2171,14 @@ details.
 %
 The simulation will be run with the standard set of models and plugins
 of the Carologistics RoboCup team based on the 2016 source code
-release.\footnote{\url{https://www.fawkesrobotics.org/p/rcll2016-release/}} No
-custom Gazebo plugins or models may be loaded or used by the competing
-teams. Since no physical simulation of workpiece handling is done and
-the base regarding locomotion is the same, there should be no
-issues for the teams to implement the flow of the game. However, teams must
-make sure that the standard set of sensors
-provided is sufficient.
+release\footnote{
+\mbox{\url{https://www.fawkesrobotics.org/p/rcll2016-release/}}
+}.
+No custom Gazebo plugins or models may be loaded or used by the competing teams.
+Since no physical simulation of workpiece handling is done and the base
+regarding locomotion is the same, there should be no issues for the teams to
+implement the flow of the game. However, teams must make sure that the standard
+set of sensors provided is sufficient.
 
 \vspace{-2ex}\paragraph{Competition Area} The competition area can be
 expected to be similar to Figure~\ref{fig:competition-area}, however,
@@ -2318,7 +2324,7 @@ necessary.
 
 The communication from the refbox to the robot is a datagram-oriented
 broadcast protocol based on Google protocol buffers\footnote{Available
-  at \url{https://code.google.com/p/protobuf/}} (protobuf). The
+at \mbox{\url{https://code.google.com/p/protobuf/}}} (protobuf). The
 protocol definition and technical parameters are described in detail
 in the RoboCup Logistics League Referee Box Integrator's
 Manual~\cite{RefBoxIntManual}
@@ -2648,7 +2654,7 @@ in numerous programming languages:
 \end{itemize}
 
 You may find a lot of examples concerning using the different API's in
-the public OpenRobotino forum at \url{http://www.openrobotino.org}.
+the public OpenRobotino forum at \mbox{\url{http://www.openrobotino.org}}.
 
 \paragraph{Web interface}
 HTML5-based user interface provided by web server running on an embedded
@@ -2672,8 +2678,8 @@ external PC running on Windows XP, Vista, Windows 7 or Windows 8.
 \end{itemize}
 
 \hskip-\parindent{} Additional information as well as accessories can be
-obtained through\\
-\url{http://www.robocup-logistics.org/links/festo-robotino-3}.
+obtained through \\
+\mbox{\url{http://www.robocup-logistics.org/links/festo-robotino-3}}.
 
 %\subsection{Robotino 2.0 (phase-out model)}
 %The mobile robot system Robotino is a platform with an open
