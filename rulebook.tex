@@ -11,6 +11,7 @@
 \setlength{\marginparwidth}{1cm}
 %\usepackage{fourier}
 
+\usepackage{floatpag}
 \usepackage{wrapfig}
 \usepackage{fnpct}
 
@@ -81,7 +82,7 @@
   pdfkeywords   = {RCLL, Rulebook},
   pdfsubject    = {},
   %pdfpagemode   = {UseOutlines},        % PageWdth, FullScreen, None ...
-  hidelinks    = true,          % true colored links, false colored boxes
+  hidelinks,
 %  linkcolor     = black,
 %  citecolor     = black,
 %  filecolor     = black,
@@ -256,7 +257,7 @@ partner Festo provides insights into future factory concepts to help
  reasoning to gain an advantage over the other team.  Also starting this year,
  we allow teams to purchase additional robot maintenance, which will increase
  overall game activity while posing an additional strategic challenge to the
- teams\footnote{A detailed list of rule changes can be found at
+ teams\footnote{A list of rule changes can be found at
  \mbox{\url{https://github.com/robocup-logistics/rcll-rulebook}}}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -359,7 +360,6 @@ alphabetical order):\\[.5em]
 \emph{Stefan Brandenberger}, HFTM Technical Institute of Applied Science
 Mittelland, Biel, Switzerland\\
 \emph{Vanessa Egger}, Graz University of Technology, Graz, Austria\\
-\emph{Ulrich Karras}, priv. Dozent, Essen, Germany\\
 \emph{Wataru Uemura}, Ryukoku University, Japan
 
 \medskip
@@ -367,7 +367,7 @@ Mittelland, Biel, Switzerland\\
 \centerline{\url{robocup-logistics-oc@lists.kbsg.rwth-aachen.de}}
 
 \subsection{Executive Committee 2015--2019}
-\label{sec:oc}
+\label{sec:ec}
 Executive Committee members are responsible for the long term goals of
 the league and thus have also contact to other leagues as well as to
 the RoboCup federation. The Executive Committee presents the league
@@ -775,29 +775,6 @@ Each game will have a new randomly generated field layout, the referees will
 place the MPS in the middle of the zone with given rotation at there best effort
 but errors of the positioning should be expected.
 
-\begin{wrapfigure}[14]{r}{0.2\linewidth}
-  \centering
-  \vspace{-2.1ex}
-  \mytable{
-    \begin{tabularx}{\linewidth}{
-      >{\raggedleft\arraybackslash}X|>{\raggedleft\arraybackslash}X
-    }
-      Cyan & Magenta \\ \hline
-      \ang{0}&\ang{180}\\
-      \ang{45}&\ang{135}\\
-      \ang{90}&\ang{90}\\
-      \ang{135}&\ang{45}\\
-      \ang{180}&\ang{0}\\
-      \ang{225}&\ang{315}\\
-      \ang{270}&\ang{270}\\
-      \ang{315}&\ang{225}\\
-	\end{tabularx}}%
-  \makeatletter%
-  \def\@captype{table}%
-  \makeatother%
-  \caption{MPS orientation mapping during mirroring}
-  \label{tab:mirror-a}
-\end{wrapfigure}
 A MPS can be placed in any zones except C-Z52 and M-Z52. These zones
 are needed to enter the field.  Each MPS has one out of 8 possible
 orientations, starting at \ang{0} with steps of \ang{45}. To denote
@@ -827,7 +804,31 @@ rotation of \ang{270}. Were this setup mirrored, the shelf on the cyan CS in
 C-Z76 would be close to the wall. Instead, it has a different orientation
 violating the y-symmetry but allowing for easier access to the shelf.
 
-\begin{figure}[t!]
+\begin{wrapfigure}[14]{R}{0.2\linewidth}
+  \centering
+  \vspace{-2.1ex}
+  \mytable{
+    \begin{tabularx}{\linewidth}{
+      >{\raggedleft\arraybackslash}X|>{\raggedleft\arraybackslash}X
+    }
+      Cyan & Magenta \\ \hline
+      \ang{0}&\ang{180}\\
+      \ang{45}&\ang{135}\\
+      \ang{90}&\ang{90}\\
+      \ang{135}&\ang{45}\\
+      \ang{180}&\ang{0}\\
+      \ang{225}&\ang{315}\\
+      \ang{270}&\ang{270}\\
+      \ang{315}&\ang{225}\\
+	\end{tabularx}}%
+  \makeatletter%
+  \def\@captype{table}%
+  \makeatother%
+  \caption{MPS orientation mapping during mirroring}
+  \label{tab:mirror-a}
+\end{wrapfigure}
+
+\begin{figure}[tb]
     \centering
     \subfigure[
       For rotations with \ang{0}, \ang{90}, \ang{180} or \ang{270}. BS, CS, RS,
@@ -1016,8 +1017,8 @@ The SS prepare message denotes the storage place where to store the
 next input workpiece, or from which place to retrieve an item
 from. There will be designated positions for specific $C_0$ workpieces
 which will be announced at the beginning of the
-tournament.\footnote{Please note again, this is an assignment
-  specifically for 2019 and may change in future competitions.} If a
+tournament\footnote{Please note again, this is an assignment
+  specifically for 2019 and may change in future competitions.}. If a
 position is requested for which no product has been stored (or has
 already been retrieved), the machine will be broken
 (cf.~\refsec{sec:broken-machine}). The products retrieved from the SS
@@ -1046,7 +1047,7 @@ finished product that can be delivered. For product complexities refer
 to \refsec{sec:production-complexities}, for the compilation of the
 production plan to \refsec{sec:production-plan}.
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
   \subfigure[Workpiece base elements and caps.]{
     \label{fig:workpieces-base-elements}%
@@ -1702,8 +1703,6 @@ missing upon preparation will be subtracted later from points scored.
           & \SItextrange{0:14}{}
   \end{tabularx} }}
 
-\bigskip
-
   \subtable[Scoring scheme for the production phase]{
     \label{tab:scoring-production}
     \mytable{
@@ -1782,8 +1781,6 @@ missing upon preparation will be subtracted later from points scored.
     }
   }
 
-	\bigskip
-
   \subtable[Scoring scheme for game commentary]{
     \mytable{
       \begin{tabularx}{\linewidth}{p{7em}|X|p{2.4em}}
@@ -1800,6 +1797,7 @@ missing upon preparation will be subtracted later from points scored.
 
   \caption{Scoring Schemes}
   \label{tab:scoring}
+  \thisfloatpagestyle{empty}
 \end{table}
 
 \subsection{Obstruction Penalty}
@@ -2118,9 +2116,11 @@ five points.
 The challenge is to play the production phase of an RCLL game, based
 on the publicly released Gazebo-based simulation~\cite{llsf-sim-rc2014-2014}.
 The simulation
-software\footnote{\url{https://www.fawkesrobotics.org/projects/rcll-sim/}}
+software\footnote{
+\mbox{\url{https://www.fawkesrobotics.org/projects/rcll-sim/}}
+}
 including technical documentation is publicly available on
-Github.\footnote{\url{https://github.com/robocup-logistics/gazebo-rcll}}
+Github.\footnote{\mbox{\url{https://github.com/robocup-logistics/gazebo-rcll}}}
 
 The simulation uses Gazebo and the exact same referee box to simulate
 the environment reactions similar to the real game. We envision this
@@ -2134,7 +2134,7 @@ Automated Planning and Scheduling (ICAPS). The technical challenge game will be
 played according to the same rules and regulations of the ICAPS
 competition~\cite{LogRobComp-Rules-2017}. The rules and regulations, the
 reference USB stick image, and a video tutorial is available at
-\url{http://www.robocup-logistics.org/sim-comp}.
+\mbox{\url{http://www.robocup-logistics.org/sim-comp}}.
 
 \vspace{-2ex}\paragraph{The Game}
 %
@@ -2150,10 +2150,13 @@ available interfaces.
 
 \vspace{-2ex}\paragraph{Hardware Setup}
 %
+
+\begin{sloppypar}
 We use the same infrastructure as is used in the ICAPS competiton. It is based
 on a Kubernetes infrastructure. The competition cluster setup is available and
-documented at \url{https://github.com/timn/rcll-sim-cluster}. The USB stick
-image provided on the competition website can be used for local testing.
+documented at \mbox{\url{https://github.com/timn/rcll-sim-cluster}}. The USB
+stick image provided on the competition website can be used for local testing.
+\end{sloppypar}
 
 \vspace{-2ex}\paragraph{Simulation Interfaces}
 %
@@ -2166,13 +2169,14 @@ details.
 %
 The simulation will be run with the standard set of models and plugins
 of the Carologistics RoboCup team based on the 2016 source code
-release.\footnote{\url{https://www.fawkesrobotics.org/p/rcll2016-release/}} No
-custom Gazebo plugins or models may be loaded or used by the competing
-teams. Since no physical simulation of workpiece handling is done and
-the base regarding locomotion is the same, there should be no
-issues for the teams to implement the flow of the game. However, teams must
-make sure that the standard set of sensors
-provided is sufficient.
+release\footnote{
+\mbox{\url{https://www.fawkesrobotics.org/p/rcll2016-release/}}
+}.
+No custom Gazebo plugins or models may be loaded or used by the competing teams.
+Since no physical simulation of workpiece handling is done and the base
+regarding locomotion is the same, there should be no issues for the teams to
+implement the flow of the game. However, teams must make sure that the standard
+set of sensors provided is sufficient.
 
 \vspace{-2ex}\paragraph{Competition Area} The competition area can be
 expected to be similar to Figure~\ref{fig:competition-area}, however,
@@ -2318,7 +2322,7 @@ necessary.
 
 The communication from the refbox to the robot is a datagram-oriented
 broadcast protocol based on Google protocol buffers\footnote{Available
-  at \url{https://code.google.com/p/protobuf/}} (protobuf). The
+at \mbox{\url{https://code.google.com/p/protobuf/}}} (protobuf). The
 protocol definition and technical parameters are described in detail
 in the RoboCup Logistics League Referee Box Integrator's
 Manual~\cite{RefBoxIntManual}
@@ -2534,7 +2538,7 @@ switching sensor.
 \item \textbf{Gear transmission ratio 32:1} \SI{22.5}{\kilogram}
  \end{itemize}
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \subfigure[Festo Robotino 2]{%
   \label{fig:robotino-2}%
@@ -2648,7 +2652,7 @@ in numerous programming languages:
 \end{itemize}
 
 You may find a lot of examples concerning using the different API's in
-the public OpenRobotino forum at \url{http://www.openrobotino.org}.
+the public OpenRobotino forum at \mbox{\url{http://www.openrobotino.org}}.
 
 \paragraph{Web interface}
 HTML5-based user interface provided by web server running on an embedded
@@ -2672,8 +2676,8 @@ external PC running on Windows XP, Vista, Windows 7 or Windows 8.
 \end{itemize}
 
 \hskip-\parindent{} Additional information as well as accessories can be
-obtained through\\
-\url{http://www.robocup-logistics.org/links/festo-robotino-3}.
+obtained through \\
+\mbox{\url{http://www.robocup-logistics.org/links/festo-robotino-3}}.
 
 %\subsection{Robotino 2.0 (phase-out model)}
 %The mobile robot system Robotino is a platform with an open
@@ -2937,6 +2941,12 @@ obtained through\\
       Transfer rate		&	Up to \SI{108}{\mega\bit\per\second} \\
       Data link protocol	&	802.11 a/g/n \\
       Frequency			&	\SI{5.0}{\giga\hertz} \\
+      League channel & 40 \\
+      Allowed channels (with restrictions)\footnote{Please refer to the official
+      radio policy for details:
+\url{https://rrl.robocup.org/wp-content/uploads/2019/01/RoboCup_2019_Radio_Policy_2018-12-24.pdf}} % chktex 8 ignore-long-line
+                     & 100, 104, 108, 112, 116, 132, 140 \\
+      Channel width & \SI{20}{\mega\hertz} \\
       IP-distribution		&	172.26.200.xxx for LAN clients (DHCP) \\
       &	172.26.101.xxx for the Robotino devices \\
       &	172.26.1.xxx for Robotinos \\
