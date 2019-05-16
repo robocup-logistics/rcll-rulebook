@@ -24,12 +24,12 @@ MARKER_TWO = 2/1, 5/1, 2/2, 5/2, 2/3, 4/3
 all: $(addprefix marker_,$(addsuffix .pdf,$(MARKERS)))
 
 numbered_markers: $(addprefix numbered_marker_,$(addsuffix .pdf,$(MARKERS)))
-	pdftk $(foreach M,$(MARKERS),numbered_marker_$M.pdf ) cat output numbered_markers.pdf
+	pdfunite $(foreach M,$(MARKERS),numbered_marker_$M.pdf ) numbered_markers.pdf
 
 figures: $(addprefix figure_,$(addsuffix .pdf,$(MARKERS)))
 
 markers: all
-	pdftk $(foreach M,$(MARKERS),marker_$M.pdf ) cat output markers.pdf
+	pdfunite $(foreach M,$(MARKERS),marker_$M.pdf ) markers.pdf
 
 marker_%.pdf:
 	sed -e 's|@MARKER@|{$(MARKER_ONE), $(MARKER_$*)}|g' -e 's|@ID@||g' marker.tex > tmp_$*.tex
