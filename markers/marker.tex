@@ -1,25 +1,40 @@
 \documentclass{article}
-
-\usepackage[a4paper]{anysize}
-\marginsize{2cm}{2cm}{1cm}{2cm}
-
+\usepackage{geometry}
+\geometry{a4paper}
 \usepackage{tikz}
-
+\usetikzlibrary{positioning,calc}
+%creates tags in landscape format
 \begin{document}
-\pagestyle{empty}
-\centering
-\vspace*{\fill}
-\begin{tikzpicture}[x=1.5cm,y=1.5cm,fill=black]
-  \fill [black] rectangle +(9,9);  
-  \fill [white] (2,2) rectangle +(5,5);
-  \begin{scope}[xshift=1.5cm, yshift=1.5cm]
-    \foreach \x/\y in @MARKER@
-      \fill [draw=black] (\x,\y) rectangle +(1,1);
-  \end{scope}
+\begin{tikzpicture}[x=1cm,y=1cm,overlay, remember picture,
+                    shift=(current page.south west)]
+  %13/13.5 (old tag width was 13.5 cm, new one is 13
+  \def\scaletag{0.96296296296}
+  \node[rotate=90,font=\Huge] at (10,5) {\textbf{ @ID@}};
+  \coordinate (anchor) at (1,1);
+  \coordinate (lb) at (0,0);
+  \coordinate (tr) at (21,29.7);
+  \useasboundingbox (lb) rectangle (tr);
+  \coordinate[above=277mm of  anchor] (h1);
+  \coordinate[right=22mm of  h1] (h2);
+  \coordinate[above right=215mm and 163mm of anchor] (h3);
+  \coordinate (tag-left-bottom) at (4.5,8.7);
+  \coordinate (draw-left-bottom) at
+                ($(tag-left-bottom) + (\scaletag*1.5,\scaletag*1.5)$);
+  \coordinate (white-left-bottom) at
+                ($(tag-left-bottom) + (\scaletag*3,\scaletag*3)$);
+  \foreach \i in {1,...,3} {
+    \draw  (h\i) circle (2.5mm);
+    \draw  ([xshift=-0.25cm]h\i) -- ([xshift=0.25cm]h\i);
+    \draw  ([yshift=-0.25cm]h\i) -- ([yshift=0.25cm]h\i);
+  }
+  \fill [black] (tag-left-bottom) rectangle +(\scaletag*13.5,\scaletag*13.5);
+  \fill [white] (white-left-bottom) rectangle +(\scaletag*7.5,\scaletag*7.5);
+    \foreach \x/\y in @MARKER@ {
+      %transform old tag creation to be rotated
+      \pgfmathtruncatemacro{\xi}{6-\y};
+      \pgfmathtruncatemacro{\yi}{\x};
+      \fill [draw=black]
+              ($(draw-left-bottom) + (1.5*\xi*\scaletag,1.5*\yi*\scaletag)$)
+              rectangle +(\scaletag*1.5,\scaletag*1.5);}
 \end{tikzpicture}
-\vspace*{\fill}  
-
-\bigskip
-{\Huge\bfseries @ID@}
-\vspace*{\fill}  
 \end{document}
