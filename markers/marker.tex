@@ -3,6 +3,39 @@
 \geometry{a4paper}
 \usepackage{tikz}
 \usetikzlibrary{positioning,calc}
+\usepackage{ifthen}
+\newcommand{\lookupMachine}[1]{%
+  \ifthenelse{\equal{#1}{}}{}{%
+  \ifthenelse{\equal{#1}{1}}{C-CS1-I}{}%
+  \ifthenelse{\equal{#1}{17}}{C-CS2-I}{}%
+  \ifthenelse{\equal{#1}{33}}{C-RS1-I}{}%
+  \ifthenelse{\equal{#1}{177}}{C-RS2-I}{}%
+  \ifthenelse{\equal{#1}{65}}{C-BS-I}{}%
+  \ifthenelse{\equal{#1}{81}}{C-DS-I}{}%
+  \ifthenelse{\equal{#1}{193}}{C-SS-I}{}%
+  \ifthenelse{\equal{#1}{2}}{C-CS1-O}{}%
+  \ifthenelse{\equal{#1}{18}}{C-CS2-O}{}%
+  \ifthenelse{\equal{#1}{34}}{C-RS1-O}{}%
+  \ifthenelse{\equal{#1}{178}}{C-RS2-O}{}%
+  \ifthenelse{\equal{#1}{66}}{C-BS-O}{}%
+  \ifthenelse{\equal{#1}{82}}{C-DS-O}{}%
+  \ifthenelse{\equal{#1}{194}}{C-SS-O}{}%
+  \ifthenelse{\equal{#1}{97}}{M-CS1-I}{}%
+  \ifthenelse{\equal{#1}{113}}{M-CS2-I}{}%
+  \ifthenelse{\equal{#1}{129}}{M-RS1-I}{}%
+  \ifthenelse{\equal{#1}{145}}{M-RS2-I}{}%
+  \ifthenelse{\equal{#1}{161}}{M-BS-I}{}%
+  \ifthenelse{\equal{#1}{49}}{M-DS-I}{}%
+  \ifthenelse{\equal{#1}{209}}{M-SS-I}{}%
+  \ifthenelse{\equal{#1}{98}}{M-CS1-O}{}%
+  \ifthenelse{\equal{#1}{114}}{M-CS2-O}{}%
+  \ifthenelse{\equal{#1}{130}}{M-RS1-O}{}%
+  \ifthenelse{\equal{#1}{146}}{M-RS2-O}{}%
+  \ifthenelse{\equal{#1}{162}}{M-BS-O}{}%
+  \ifthenelse{\equal{#1}{50}}{M-DS-O}{}%
+  \ifthenelse{\equal{#1}{210}}{M-SS-O}{}%
+  }%
+}
 %creates tags in landscape format
 \begin{document}
 \begin{tikzpicture}[x=1cm,y=1cm,overlay, remember picture,
@@ -10,6 +43,8 @@
   %13/13.5 (old tag width was 13.5 cm, new one is 13
   \def\scaletag{0.96296296296}
   \node[rotate=90,font=\Huge] at (10,5) {\textbf{ @ID@}};
+  \node[scale=4,anchor=east,align=left, rotate=180,font=\Huge] at (2,2)
+       {\textbf{\lookupMachine{@ID@}}};
   \coordinate (anchor) at (1,1);
   \coordinate (lb) at (0,0);
   \coordinate (tr) at (21,29.7);
