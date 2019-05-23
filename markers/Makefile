@@ -17,18 +17,17 @@ MARKER_209 = 1/4, 3/4, 4/4, 1/5, 3/5, 4/5
 MARKER_225 = 1/3, 2/4, 3/4, 5/4, 3/5, 4/5
 
 MARKERS = 1 2 17 18 33 34 177 178 65 66 81 82 193 194 97 98 113 114 129 130 145 146 161 162 49 50 209 210
-
 MARKER_ONE = 4/1, 1/2, 2/2, 5/2, 2/3, 4/3
 MARKER_TWO = 2/1, 5/1, 2/2, 5/2, 2/3, 4/3
 
-all: $(addprefix marker_,$(addsuffix .pdf,$(MARKERS)))
+all: numbered_markers.pdf markers.pdf
 
-numbered_markers: $(addprefix numbered_marker_,$(addsuffix .pdf,$(MARKERS)))
+numbered_markers.pdf: $(addprefix numbered_marker_,$(addsuffix .pdf,$(MARKERS)))
 	pdfunite $(foreach M,$(MARKERS),numbered_marker_$M.pdf ) numbered_markers.pdf
 
 figures: $(addprefix figure_,$(addsuffix .pdf,$(MARKERS)))
 
-markers: all
+markers.pdf: $(addprefix marker_,$(addsuffix .pdf,$(MARKERS)))
 	pdfunite $(foreach M,$(MARKERS),marker_$M.pdf ) markers.pdf
 
 marker_%.pdf:
@@ -73,4 +72,7 @@ figure_%.pdf:
 clean:
 	for f in $(foreach M,$(MARKERS),$M $(shell expr $M + 1)); do \
 		rm -f marker_$$f.pdf; \
+		rm -f numbered_marker_$$f.pdf; \
 	done
+	rm markers.pdf
+	rm numbered_markers.pdf
