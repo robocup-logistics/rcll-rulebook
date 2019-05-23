@@ -32,40 +32,34 @@ markers.pdf: $(addprefix marker_,$(addsuffix .pdf,$(MARKERS)))
 
 marker_%.pdf:
 	sed -e 's|@MARKER@|{$(MARKER_ONE), $(MARKER_$*)}|g' -e 's|@ID@||g' marker.tex > tmp_$*.tex
-	pdflatex tmp_$*.tex
-	pdflatex tmp_$*.tex
+	latexmk -pdf tmp_$*.tex
 	mv tmp_$*.pdf $@
 	rm tmp_$*.*
 
 	sed -e 's|@MARKER@|{$(MARKER_TWO), $(MARKER_$*)}|g' -e 's|@ID@||g' marker.tex > tmp_$$(expr $* + 1).tex
-	pdflatex tmp_$$(expr $* + 1).tex
-	pdflatex tmp_$$(expr $* + 1).tex
+	latexmk -pdf tmp_$$(expr $* + 1).tex
 	mv tmp_$$(expr $* + 1).pdf marker_$$(expr $* + 1).pdf
 	rm tmp_$$(expr $* + 1).*
 
 numbered_marker_%.pdf:
 	sed -e 's|@MARKER@|{$(MARKER_ONE), $(MARKER_$*)}|g' -e 's|@ID@|$*|g' marker.tex > tmp_$*.tex
-	pdflatex tmp_$*.tex
-	pdflatex tmp_$*.tex
+	latexmk -pdf tmp_$*.tex
 	mv tmp_$*.pdf $@
 	rm tmp_$*.*
 
 	sed -e 's|@MARKER@|{$(MARKER_TWO), $(MARKER_$*)}|g' -e 's|@ID@|$(shell expr $* + 1)|g' marker.tex > tmp_$$(expr $* + 1).tex
-	pdflatex tmp_$$(expr $* + 1).tex
-	pdflatex tmp_$$(expr $* + 1).tex
+	latexmk -pdf tmp_$$(expr $* + 1).tex
 	mv tmp_$$(expr $* + 1).pdf numbered_marker_$$(expr $* + 1).pdf
 	rm tmp_$$(expr $* + 1).*
 
 figure_%.pdf:
 	sed -e 's|@MARKER@|{$(MARKER_ONE), $(MARKER_$*)}|g' figure.tex > tmp_$*.tex
-	pdflatex tmp_$*.tex
-	pdflatex tmp_$*.tex
+	latexmk -pdf tmp_$*.tex
 	mv tmp_$*.pdf $@
 	rm tmp_$*.*
 
 	sed -e 's|@MARKER@|{$(MARKER_TWO), $(MARKER_$*)}|g' figure.tex > tmp_$$(expr $* + 1).tex
-	pdflatex tmp_$$(expr $* + 1).tex
-	pdflatex tmp_$$(expr $* + 1).tex
+	latexmk -pdf tmp_$$(expr $* + 1).tex
 	mv tmp_$$(expr $* + 1).pdf figure_$$(expr $* + 1).pdf
 	rm tmp_$$(expr $* + 1).*
 
