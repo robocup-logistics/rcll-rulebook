@@ -3,6 +3,12 @@ pdf:
 
 check: lint check-filetype check-trailing-whitespace check-line-length
 
+.PHONY: markers
+markers:
+	(cd markers; make)
+	cp markers/numbered_markers.pdf .
+	cp markers/markers.pdf .
+
 # warning numbers that chktex should ignore
 chktex_ignore=24 44
 
