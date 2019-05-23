@@ -68,5 +68,5 @@ clean:
 		rm -f marker_$$f.pdf; \
 		rm -f numbered_marker_$$f.pdf; \
 	done
-	rm markers.pdf
-	rm numbered_markers.pdf
+	rm -f markers.pdf
+	rm -f numbered_markers.pdf
