@@ -15,6 +15,8 @@
 \usepackage{wrapfig}
 \usepackage{fnpct}
 
+\usepackage[table]{xcolor}
+
 %% MACROS %%%%%%%%%%%%%%%%%%%
 
 % does not work for me, gives:
@@ -114,6 +116,8 @@
 \usepackage{multirow}
 \usepackage{calc}
 \usepackage{float}
+\usepackage{hhline}
+\usepackage{longtable}
 \restylefloat{table}
 
 \usepackage[TABBOTCAP]{subfigure}
@@ -1369,7 +1373,7 @@ Integrator's Manual~\cite{RefBoxIntManual} for a detailed definition
 of the message types. Reports are only accepted for MPS of the
 respective team over the private encrypted team channel. Only the
 first information for each MPS is processed and then never
-updated. The scoring is shown in \reftab{tab:scoring-exploration}. A
+updated. The scoring is shown in \reftab{tab:scoring}. A
 minimum of zero points will be accounted for the exploration
 phase. The exploration phase ends either after the time has passed or
 immediately after both teams have each reported their respective set
@@ -1683,26 +1687,29 @@ only $5$ points will be deducted.}. Points for production steps are given in the
 same way as for non-competitive orders. In particular, production points are
 also given if a team delivers the product after the other team.
 
-There is a special case regarding the Storage Station. Retrieving a
-workpiece has a cost (see \reftab{tab:scoring}). The cost is
-subtracted as soon as the workpiece is ready for retrieval on the SS\@.
+Storage Station usage is associated with different costs.
 However, exploration points gained during the exploration will not be
 used for this. If the team has not yet received sufficient points,
-workpieces can be ``purchased on (partial) credit''. Points that were
+the payment can be performed on ''(partial) credit''. Points that were
 missing upon preparation will be subtracted later from points scored.
+Retrieving, storing and relocating workpieces induce costs per operation.
+Points are deducted as soon as the respective operation finishes.
+Additionally, dynamic costs occur depending on the volume and time of the
+occupied storage: Each stored products induces
+costs based on its storage time every minute.
+Pre-stored products do not cause dynamic costs.
+The total amount of costs through storage station usage is capped.
+All costs are listed in \reftab{tab:scoring}.
+% alternate row coloring
+\rowcolors{1}{gray!40!white}{gray!30!white}
+\begin{longtable}{p{\dimexpr .30\textwidth-2\tabcolsep
+}|p{\dimexpr .55\textwidth-2\tabcolsep
+}|p{\dimexpr .15\textwidth-2\tabcolsep}}
 
-\begin{table}
-  \centering
-
-    \subtable[Scoring scheme for the exploration phase]{
-      \label{tab:scoring-exploration}
-
-     \mytable{
-         \begin{tabularx}{\linewidth}{p{7em}|X|p{2.4em}}
+          \multicolumn{3}{c}{\textbf{Exploration Points}}\\\hline
            \multicolumn{1}{l}{Report type}
            & \multicolumn{1}{l}{Description}
-           & \multicolumn{1}{l}{Points}\\
-           \hline
+           & \multicolumn{1}{l}{Points}\\\hline\hline
           Zone/Orientation
           & Correctly determine a machine zone and the rotation of your team
             and report it successfully to the refbox
@@ -1722,18 +1729,15 @@ missing upon preparation will be subtracted later from points scored.
           Round Total
           & A maximum of 14 points can be achieved by correctly reporting all
             7 production machines. A minimum of 0 points is awarded.
-          & \SItextrange{0:14}{}
-  \end{tabularx} }}
-
-  \subtable[Scoring scheme for the production phase]{
-    \label{tab:scoring-production}
-    \mytable{
-      \begin{tabularx}{\linewidth}{p{7em}|X|p{4em}}
+          & \SItextrange{0:14}{}\\
+      %  }
+          \hhline{===}
+          \multicolumn{3}{c}{\textbf{Production Points}}\\\hline
         \multicolumn{1}{l}{Sub-task }
         & \multicolumn{1}{l}{Production Phase}
         & \multicolumn{1}{l}{Points}
         \\
-        \hline
+        \hline\hline
         Additional base & Feed an additional base into a ring station & $+2$
         \\
         Finish $CC_0$ step
@@ -1760,7 +1764,42 @@ missing upon preparation will be subtracted later from points scored.
         \\
         Retrieve from SS
         & A workpiece has been requested from storage and is ready for retrieval
-        & $-10$
+        & $-5$
+        \\
+        Store at SS
+        & A workpiece is stored into the SS
+        & $-5$
+        \\
+        Relocate at SS
+        & A storage/retrieval request to an inaccessible slot requires
+        relocation of a blocked workpiece
+        & $0$
+        \\
+        Upkeep at SS
+        & A workpiece stored at time $t$ causes costs $f(x)$ at
+        ${t+x\cdot\SI{60}{\second}}$:
+        \begin{tikzpicture}[baseline={(current bounding box.north)}]
+          \node[align=left] (conditions) {
+           if $x < 3$\\
+           if $3\leq x \leq 7$\\
+           else
+            };
+          \node[align=right,inner sep=0pt] at ([xshift=-1cm]conditions.west)
+               (costs) {
+                        $0$ \\
+                        $-1$\\
+                        $0$
+            };
+          % curly bracket
+          \draw[decoration={brace,mirror,raise=5pt},decorate]
+            (costs.north west) -- node[left=6pt] {$f(x)=$}
+               (costs.south west);
+       \end{tikzpicture}
+        & $\leq 0$
+        \\
+        Total costs SS
+        & Combined costs from SS usage may not exceed this value
+        & $30$
         \\
         Delivery
         & Deliver one of the final product variants to the designated loading
@@ -1798,29 +1837,21 @@ missing upon preparation will be subtracted later from points scored.
         & $-20$
         \\
         \hline
-        Round Total & A minimum of 0 points is awarded. & $\geq 0$ \\
-      \end{tabularx}
-    }
-  }
-
-  \subtable[Scoring scheme for game commentary]{
-    \mytable{
-      \begin{tabularx}{\linewidth}{p{7em}|X|p{2.4em}}
+      Round Total & A minimum of 0 points is awarded. & $\geq 0$ \\
+          \hhline{===}
+          \multicolumn{3}{c}{\textbf{Commentary Points}}\\\hline
         \multicolumn{1}{l}{Task}
         & \multicolumn{1}{l}{Game Commentary}
-        & \multicolumn{1}{l}{Points}\\\hline
+        & \multicolumn{1}{l}{Points}\\\hline\hline
         Accepted Commentary
         & Commentate at least one half of the game continuously on microphone in
         English (or the local language of the venue) to the public
-        &  +10
-      \end{tabularx}
-    }
-  }
-
-  \caption{Scoring Schemes}
+        &  +10\\
+        %disable row coloring again. activate with \showrowcolors
+        \hiderowcolors
+ \caption{Scoring Schemes}
   \label{tab:scoring}
-  \thisfloatpagestyle{empty}
-\end{table}
+      \end{longtable}
 
 \subsection{Obstruction Penalty}
 \label{sec:obstruction-penalty}
