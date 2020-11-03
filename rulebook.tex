@@ -959,13 +959,22 @@ flash the red and yellow light and will be out of order
 \reftab{tab:production-machines-feedback}.
 
 In the production phase, machines must be prepared to be used. This
-applies to all machine types.  The DS, CS and RS start the conveyor
-belt upon receiving a prepare message. If no workpiece reaches the
+applies to all machine types.
+If a product from the input is required for the processing step (DS, CS, RS and
+a storage operation at the SS), then the conveyor belt is started
+after receiving a prepare message. If no workpiece reaches the
 machine operating point (indicated through the middle belt sensor)
-within \SI{30}{\second}, the machine goes to a temporary out-of-order
-state (cf.~\refsec{sec:broken-machine}). The BS and SS will
-immediately dispense a workpiece upon receiving a prepare message. The
-workpiece may remain on the machine for an arbitrary time.
+within \SI{45}{\second}, the machine goes to a temporary out-of-order
+state (cf.~\refsec{sec:broken-machine}).
+The BS and the retrieval operation at the SS cause
+the requested workpiece to be dispensed upon receiving a prepare message.
+After performing an operation at the BS, CS, RS or the SS (in case of a
+retrieval) the conveyor belt is started. If no workpiece reaches the destination
+point (indicated through the output belt sensor, or in case of the BS either
+the input or output belt sensor) within \SI{90}{\second}, the machine goes in a
+temporary out-of-order state (cf.~\refsec{sec:broken-machine}).
+The workpiece may remain on the machine for an arbitrary time after the
+operation is completed.
 
 The following describes the communication and reactions of the
 machines during the production phase. For the actual messages we refer
