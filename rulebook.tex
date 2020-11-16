@@ -1692,13 +1692,13 @@ However, exploration points gained during the exploration will not be
 used for this. If the team has not yet received sufficient points,
 the payment can be performed on '' (partial) credit''. Points that were
 missing upon preparation will be subtracted later from points scored.
-Retrieving, storing and relocating workpieces induce costs per operation.
+For now only retrieving and storing induce costs per operation.
 Points are deducted as soon as the respective operation finishes.
-Additionally, dynamic costs occur depending on the volume and time of the
-occupied storage: Each stored products induces
-costs based on its storage time every minute.
-Pre-stored products do not cause dynamic costs.
-The total amount of costs through storage station usage is capped.
+%Additionally, dynamic costs occur depending on the volume and time of the
+%occupied storage: Each stored products induces
+%costs based on its storage time every minute.
+%Pre-stored products do not cause dynamic costs.
+%The total amount of costs through storage station usage is capped.
 All costs are listed in \reftab{tab:scoring}.
 % alternate row coloring
 \rowcolors{1}{gray!40!white}{gray!30!white}
@@ -1769,21 +1769,6 @@ All costs are listed in \reftab{tab:scoring}.
         Store at SS
         & A workpiece is stored into the SS
         & $-5$
-        \\
-        Relocate at SS
-        & A storage/retrieval request to an inaccessible slot requires
-        relocation of a blocked workpiece
-        & $0$
-        \\
-        Upkeep at SS
-        & A workpiece stored at time $T_s$ and retrieved at $T_r$ causes costs:
-        $0-\min\{\max\{\lfloor T_r-T_s\rfloor-2, 5\}, 0\}$.
-        If it is never retrieved,  $T_r$ is set to the game end.
-        & $\geq -5,\leq 0$
-        \\
-        Total costs SS
-        & Combined costs from SS usage may not exceed this value
-        & $30$
         \\
         Delivery
         & Deliver one of the final product variants to the designated loading
