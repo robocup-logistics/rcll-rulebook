@@ -1776,26 +1776,10 @@ All costs are listed in \reftab{tab:scoring}.
         & $0$
         \\
         Upkeep at SS
-        & A workpiece stored at time $t$ causes costs $f(x)$ at
-        ${t+x\cdot\SI{60}{\second}}$:
-        \begin{tikzpicture}[baseline={(current bounding box.north)}]
-          \node[align=left] (conditions) {
-           if $x < 3$\\
-           if $3\leq x \leq 7$\\
-           else
-            };
-          \node[align=right,inner sep=0pt] at ([xshift=-1cm]conditions.west)
-               (costs) {
-                        $0$ \\
-                        $-1$\\
-                        $0$
-            };
-          % curly bracket
-          \draw[decoration={brace,mirror,raise=5pt},decorate]
-            (costs.north west) -- node[left=6pt] {$f(x)=$}
-               (costs.south west);
-       \end{tikzpicture}
-        & $\leq 0$
+        & A workpiece stored at time $T_s$ and retrieved at $T_r$ causes costs:
+        $0-\min\{\max\{\lfloor T_r-T_s\rfloor-2, 5\}, 0\}$.
+        If it is never retrieved,  $T_r$ is set to the game end.
+        & $\geq -5,\leq 0$
         \\
         Total costs SS
         & Combined costs from SS usage may not exceed this value
