@@ -2,8 +2,8 @@
 %% Rulebook RoboCup Logisitc League
 %% 2021 Challenges
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% chktex-file 29
 \documentclass[12pt,twoside]{article}
-
 \usepackage[a4paper]{anysize}
 \marginsize{2cm}{2cm}{1cm}{2cm}
 
@@ -35,6 +35,11 @@
 \usepackage{longtable}
 
 \restylefloat{table}
+%% INPUTENC %%%%%%%%%%%%%%%%%%%
+\usepackage{wasysym}
+\usepackage[utf8]{inputenc}
+\input{macros.tex}
+
 \newcolumntype{C}{>{\raggedright\arraybackslash}X}
 
 \newcommand{\refsec}[1]{Section~\ref{#1}}
@@ -43,7 +48,14 @@
 %\newcommand{\reflst}[1]{Listing~\ref{#1}}
 \newcommand{\reflst}[1]{Figure~\ref{#1}}
 \newcommand{\reftab}[1]{Table~\ref{#1}}
-
+\usepackage{acronym}
+\acrodef{BS}{base station}
+\acrodef{CS}{cap station}
+\acrodef{RS}{ring station}
+\acrodef{SS}{storage station}
+\acrodef{DS}{delivery station}
+\acrodef{RCLL}{RoboCup Logistics Leaugue}
+\acrodef{TBD}{To be Discussed}
 \begin{document}
 \begin{titlepage}
   \vspace*{5cm}
@@ -70,8 +82,8 @@
       Gerald Steinbauer&Tobias Neumann\\
     \end{tabular}
     \vfill
-    Revision Date: TBD\\
-		DRAFT -- Work in Progress
+		Revision Date: \ac{TBD}\\
+		DRAFT: Work in Progress %chktex 13
   \end{center}
 \end{titlepage}
 
@@ -109,15 +121,18 @@ Possible layouts are
 
 The entire area belongs to a single team.
 \subsection{Remote Layout}
-Todo - some sort of camera arrangement needed to stream, rules for humans on field etc
+Todo: some sort of camera arrangement needed to stream, rules for humans on
+field etc.
 \subsection{Machines}
-Todo - specs for mockup machines
+Todo: specs for mockup machines
 \section{Game Play}
 \subsection{Competition Scope}
 Todo: X time slots of Y minutes per team, each timeslot can be used to solve
-at most one challenge, a team can decide to fail a challenge and use another slot to improve.
-A team can use a single slot to try a challenge multiple times (with the same field layout)
-once a challenge counts, it cannot be attempted again (unless difficulty is improved).
+at most one challenge, a team can decide to fail a challenge and use another
+slot to improve.
+A team can use a single slot to try a challenge multiple times (with the same
+field layout) once a challenge counts, it cannot be attempted again
+(unless difficulty is improved).
 
 \subsection{Available Challenges}
 Challenges have different types and variations (difficulty levels).
@@ -134,7 +149,7 @@ Basic navigation task without unknown obstacles. Difficulties vary depending
 on the number of available robots, the field layout and the navigation
 objective (see \reftab{tab:challenge-navigation}).
 
-TODO: what criterion for reaching a corner/machine?
+Todo: what criterion for reaching a corner/machine?
 \begin{table}[!htb]
     \centering
         \begin{tabularx}{\linewidth}{l|l|C|l}
@@ -143,10 +158,10 @@ TODO: what criterion for reaching a corner/machine?
 					covering all corners/machines. Field contains insertion zone of
 					\SI{1 x 3}{\metre} without walls.
 					Return to insertion zone when done.
-					Stop time. (Repeat $x$ times?)} & - \\
-				\SI{5 x 5}{\metre} & $\leq 4$  &  & - \\
-				\SI{7 x 8}{\metre} & $\leq 7$  &  & - \\
-				\SI{14 x 8}{\metre} & $\leq 14$ &  & -
+					Stop time. (Repeat $x$ times?)} & \ac{TBD} \\
+				\SI{5 x 5}{\metre} & $\leq 4$  &  & \ac{TBD} \\
+				\SI{7 x 8}{\metre} & $\leq 7$  &  & \ac{TBD} \\
+				\SI{14 x 8}{\metre} & $\leq 14$ &  & \ac{TBD}
         \end{tabularx}
     \caption{Navigation Challenge}
     \label{tab:challenge-navigation}
@@ -164,9 +179,9 @@ to solve this challenge. Variable in the number of machines
 					\SI{5 x 5}{\metre} & $\leq 4$  & \multirow{3}{\hsize}
 					{Exploration as in the main game. Field contains insertion zone of
 						\SI{1 x 3}{\metre} without walls. Return to insertion zone when
-						done. Stop time. (Repeat $x$ times?)} & - \\
-					\SI{7 x 8}{\metre} & $\leq 7$    & & - \\
-					\SI{14 x 8}{\metre} & $\leq 14$   & & -
+						done. Stop time. (Repeat $x$ times?)} & \ac{TBD} \\
+					\SI{7 x 8}{\metre} & $\leq 7$    & & \ac{TBD} \\
+					\SI{14 x 8}{\metre} & $\leq 14$   & & \ac{TBD}
         \end{tabularx}
     \caption{Exploration Challenge}
     \label{tab:challenge-exploration}
@@ -181,10 +196,15 @@ times). See \reftab{tab:challenge-grasping}.
     \centering
         \begin{tabularx}{\linewidth}{l|l|C|l}
 					Field Size & Machines & Description & Scoring \\\hline
-					\SI{3 x 3}{\metre} & 1 & \multirow{4}{\hsize}{Fixed field. Each Machine has a base at output. Bring base to same machine's input. Robots start at cell in front of a machine output. Return to start when done. Stop time. (Repeat $x$ times?)} & - \\
-				\SI{5 x 5}{\metre} & $\leq 3$  &  & - \\
-				\SI{7 x 8}{\metre} & $\leq 3$  &  & - \\
-				\SI{14 x 8}{\metre} & $\leq 3$ &  & -
+					\SI{3 x 3}{\metre} & 1 & \multirow{4}{\hsize}{Fixed field.
+					Each Machine has a base at output.
+					Bring base to same machine's input.
+					Robots start at cell in front of a machine output.
+					Return to start when done. Stop time.
+					(Repeat $x$ times?)} & \ac{TBD} \\
+				\SI{5 x 5}{\metre} & $\leq 3$  &  & \ac{TBD} \\
+				\SI{7 x 8}{\metre} & $\leq 3$  &  & \ac{TBD} \\
+				\SI{14 x 8}{\metre} & $\leq 3$ &  & \ac{TBD}
         \end{tabularx}
     \caption{Grasping Challenge}
     \label{tab:challenge-grasping}
@@ -192,25 +212,28 @@ times). See \reftab{tab:challenge-grasping}.
 
 \subsubsection{C0 Challenge}\label{sec:challenge-c0}
 This challenge encapsulates the production of the most simple product in the
-RCLL. Variants for a variable number of available machines are supplied as
+\ac{RCLL}. Variants for a variable number of available machines are supplied as
 shown in \reftab{tab:challenge-c0}.
 \begin{table}[!htb]
     \centering
         \begin{tabularx}{\linewidth}{l|l|C|l}
 					Field Size & Machines & Description & Scoring \\\hline
-					\SI{3 x 3}{\metre} & 2 & Fixed field. BS and CS.
+					\SI{3 x 3}{\metre} & 2 & Fixed field. BS and \ac{CS}.
 					Robots start at cell between machines.
-					Return to start while holding finished product. Stop time. & - \\\hline
-					\SI{5 x 5}{\metre} & 3-4 & \multirow{3}{\hsize}{ BS, CS and DS.
-					Robots start at insertion zone without walls. Stop time.} & - \\
-				\SI{7 x 8}{\metre} & $3-7$  &  & - \\
-				\SI{14 x 8}{\metre} & $3-14$ &  & -
+					Return to start while holding finished product.
+					Stop time. & \ac{TBD} \\\hline
+					\SI{5 x 5}{\metre} & $3-4$ & \multirow{3}{\hsize}{
+						BS, \ac{CS} and \ac{DS}.
+					Robots start at insertion zone without walls.
+					Stop time.} & \ac{TBD} \\
+				\SI{7 x 8}{\metre} & $3-7$  &  & \ac{TBD} \\
+				\SI{14 x 8}{\metre} & $3-14$ &  & \ac{TBD}
         \end{tabularx}
     \caption{C0 Challenge}
     \label{tab:challenge-c0}
 \end{table}
 
-\subsubsection{CX Challenge - 1 RS}\label{sec:challenge-cx-1rs}
+\subsubsection{CX Challenge with 1 \ac{RS}}\label{sec:challenge-cx-1rs}
 Extending the C0 challenge (\refsec{sec:challenge-c0}) by requiring a ring
 station (mockup), a product of any size can be built.
 This might result in product variants that are not ground to the current
@@ -221,17 +244,19 @@ amount of payment needed to mount rings (See \reftab{tab:challenge-cx-1rs}).
     \centering
         \begin{tabularx}{\linewidth}{l|l|C|l}
 					Field Size & Machines & Description & Scoring \\\hline
-					\SI{5 x 5}{\metre} & 4 & \multirow{3}{\hsize}{ BS, CS, RS and DS.
+					\SI{5 x 5}{\metre} & 4 & \multirow{3}{\hsize}{
+						BS, \ac{CS}, \ac{RS} and \ac{DS}.
 					Ring needs 0/1/2 Payment.
-					Robots start at insertion zone without walls. Stop time.} & - \\
-				\SI{7 x 8}{\metre} & $4-7$  &  & - \\
-				\SI{14 x 8}{\metre} & $4-14$ &  & -
+					Robots start at insertion zone without walls.
+					Stop time.} & \ac{TBD} \\
+				\SI{7 x 8}{\metre} & $4-7$  &  & \ac{TBD} \\
+				\SI{14 x 8}{\metre} & $4-14$ &  & \ac{TBD}
         \end{tabularx}
-    \caption{CX Challenge - 1 RS}
+    \caption{CX Challenge with 1 \ac{RS}}
     \label{tab:challenge-cx-1rs}
 \end{table}
 
-\subsubsection{CX Challenge - 2 RS}\label{sec:challenge-cx-2rs}
+\subsubsection{CX Challenge with 2 \ac{RS}}\label{sec:challenge-cx-2rs}
 Extension of the previous challenge (\refsec{sec:challenge-cx-1rs}) by adding
 the second ring station. Hence the production of any RCLL product can be
 replicated. For details see \reftab{tab:challenge-cx-2rs}.
@@ -239,14 +264,16 @@ replicated. For details see \reftab{tab:challenge-cx-2rs}.
     \centering
         \begin{tabularx}{\linewidth}{l|l|C|l}
 					Field Size & Machines & Description & Scoring \\\hline
-					\SI{5 x 5}{\metre} & 4 & \multirow{3}{\hsize}{ BS, CS, RS1 and RS2
-					(and DS). total ring payment 0-6.
+					\SI{5 x 5}{\metre} & 4 & \multirow{3}{\hsize}{
+						BS, \ac{CS}, \ac{RS}1 and \ac{RS}2
+						(and \ac{DS}). Total ring payment $[0,6]$.
 					Robots start at insertion zone without walls.
-					Return with product to insertion zone (deliver product). Stop time.} & - \\
-				\SI{7 x 8}{\metre} & $4-7$  &  & - \\
-				\SI{14 x 8}{\metre} & $4-14$ &  & -
+					Return with product to insertion zone (deliver product).
+					Stop time.} & \ac{TBD} \\
+				\SI{7 x 8}{\metre} & $4-7$  &  & \ac{TBD} \\
+				\SI{14 x 8}{\metre} & $4-14$ &  & \ac{TBD}
         \end{tabularx}
-    \caption{CX Challenge - 2 RS}
+    \caption{CX Challenge with 2 \ac{RS}}
     \label{tab:challenge-cx-2rs}
 \end{table}
 
@@ -260,6 +287,6 @@ This challenge could be part of the existing CX challenges
 \reftab{tab:challenge-c0}-\ref{tab:challenge-cx-2rs}.
 
 \subsubsection{Markerless Detection}\label{sec:challenge-markerless}
-Image classification challenge, no physical robots needed. TBD.
+Image classification challenge, no physical robots needed. \ac{TBD}.
 
 \end{document}
