@@ -56,6 +56,11 @@
 \acrodef{DS}{delivery station}
 \acrodef{RCLL}{RoboCup Logistics Leaugue}
 \acrodef{TBD}{To be Discussed}
+
+\usepackage{todonotes}
+\presetkeys%
+    {todonotes}%
+    {inline}{}
 \begin{document}
 \begin{titlepage}
   \vspace*{5cm}
@@ -84,6 +89,7 @@
     \vfill
 		Revision Date: \ac{TBD}\\
 		DRAFT: Work in Progress %chktex 13
+			\todo{is this up-to-date?}
   \end{center}
 \end{titlepage}
 
@@ -105,36 +111,59 @@ Main objectives of this new competition are:
 
 \section{Competition Area}
 \subsection{Field Layout}
-The competition area may vary for each challenge, but it always consists of
-a rectangular area divided in square zones of \SI{1 x 1}{\metre}.
-Possible layouts are
-\begin{itemize}
-\item \SI{5 x 5}{\metre}: \emph{default} size
-	(sufficient for all different types of challenges)
-\item \SI{3 x 3}{\metre}: \emph{small} size
-	(some type of challenges are not possible on this field)
-\item \SI{7 x 8}{\metre}: \emph{halve-RCLL} size
-	(allows close replication of main competition)
-\item \SI{14 x 8}{\metre}: \emph{full-RCLL} size
-	(full RCLL field)
-\end{itemize}
+The competition area for the main challenges consists of a \SI{1 x 1}{\metre}
+area divided in square zones of \SI{1 x 1}{\metre}. Additional challenges that
+are not counting towards the scoring of the competition are carried out on
+a \SI{7 x 8}{\metre} field instead (corresponding to halve the field of the
+regular \ac{RCLL} field).
 
-The entire area belongs to a single team.
+\todo{add picture of field with zone names}
+
+The entire area belongs to a single team. The bottom left-most
+\SI{1 x 3}{\metre} area is called the insertion zone, It does not need to have
+partial walls around it and provides the starting positions for up to three
+robots.
 \subsection{Remote Layout}
-Todo: some sort of camera arrangement needed to stream, rules for humans on
-field etc.
+\todo{some sort of camera arrangement needed to stream, rules for humans on
+field etc.}
 \subsection{Machines}
-Todo: specs for mockup machines
+\todo{specs for mockup machines}
+
+In order to compete in all main challenges, a minimum number of 3 mockup
+machines are required. On higher difficulty some challenges may require
+4 mockup stations and some secondary challenges required 7 stations.
+
+A mockup machine resembling a \ac{RS} do not need to have (mockup) slide
+attached. Instead, no challenge involves slide usage.
 \section{Game Play}
 \subsection{Competition Scope}
-Todo: X time slots of Y minutes per team, each timeslot can be used to solve
+\todo{X time slots of 10 minute setup time per team, followed by up to 20
+	minutes of game time. Each slot can be used to solve
 at most one challenge, a team can decide to fail a challenge and use another
 slot to improve.
 A team can use a single slot to try a challenge multiple times (with the same
 field layout) once a challenge counts, it cannot be attempted again
-(unless difficulty is improved).
+(unless difficulty is increased).}
 
-\subsection{Available Challenges}
+The delivery procedure for finished products is altered compared to the
+\ac{RCLL} rule set. In order to reduce the amount of mockup machines required
+for participation, Deliveries are made by bringing the finished product
+to the insertion zone and dropping it there.
+
+All challenges (unless stated otherwise) are conducted while measuring
+the execution time. The execution time is measured by the RefBox.
+The fastest team in any challenge gains additional points.
+
+\subsection{Field Operators}
+In challenges where machines are instructed, the actual assembly has to be
+performed by human supervisors. Whenever a machine is instructed, the RefBox
+operator announces the required interaction. One field operator may proceed
+to enter the field in order to perform the interaction. Afterwards the field
+has to be left immediately.
+\todo{replenisher not necessary for challenges?}
+\todo{maintenance rules}
+
+\subsection{Available Challenges for the Primary Competition}
 Challenges have different types and variations (difficulty levels).
 The overall score of the competition is calculated by summing up the score
 in the most difficult challenge achieved in each of the challenge types.
@@ -145,43 +174,43 @@ The RefBox is used to log the scores and data for each challenge.
 Todo: implement challenges in refbox, provide tool to evaluate results
 
 \subsubsection{Navigation Challenge}\label{sec:challenge-navigation}
-Basic navigation task without unknown obstacles. Difficulties vary depending
-on the number of available robots, the field layout and the navigation
-objective (see \reftab{tab:challenge-navigation}).
+Basic navigation task with known obstacles.\\
+\textbf{Task:} Drives a route starting and ending in the insertion zone while
+covering a given set of target positions. Return to insertion zone when done.\\
+Variations of this challenge depend
+on the number of repetitions, the field layout and the number of
+available machines (see \reftab{tab:challenge-navigation}).
+Multiple robots may be used to repition
 
-Todo: what criterion for reaching a corner/machine?
 \begin{table}[!htb]
     \centering
-        \begin{tabularx}{\linewidth}{l|l|C|l}
-					Field Size & Machines & Description & Scoring \\\hline
-					\SI{3 x 3}{\metre} & 0/1 & \multirow{4}{\hsize}{Drive 1/2/3 circles
-					covering all corners/machines. Field contains insertion zone of
-					\SI{1 x 3}{\metre} without walls.
-					Return to insertion zone when done.
-					Stop time. (Repeat $x$ times?)} & \ac{TBD} \\
-				\SI{5 x 5}{\metre} & $\leq 4$  &  & \ac{TBD} \\
-				\SI{7 x 8}{\metre} & $\leq 7$  &  & \ac{TBD} \\
-				\SI{14 x 8}{\metre} & $\leq 14$ &  & \ac{TBD}
+        \begin{tabularx}{\linewidth}{l|l|l|l}
+					Field Size & Machines & Repetitions & Scoring \\\hline
+					\SI{5 x 5}{\metre} & $ 2$ & $x\in [1,2,3]$ & $5 + (5\cdot x)$ \\
+					\SI{5 x 5}{\metre} & $ 3$ & $x\in [1,2,3]$ & $10 + (5\cdot x)$ \\
+					\SI{5 x 5}{\metre} & $ 4$ & $x\in [1,2,3]$ & $15 + (5\cdot x)$ \\
+					%\SI{7 x 8}{\metre} & $ 7$ & 3 & 40 \\
         \end{tabularx}
     \caption{Navigation Challenge}
     \label{tab:challenge-navigation}
 \end{table}
 
 \subsubsection{Exploration Challenge}\label{sec:challenge-exploration}
-Replicate the RCLL exploration phase by finding a set number of machines on the
-field. Machine Marker detection as well as navigational skills are required
-to solve this challenge. Variable in the number of machines
+Replicate the RCLL exploration phase.
+Machine Marker detection as well as navigational skills are required to solve
+this challenge.\\
+\textbf{Task:} Find and report all machines on the field (type and orientation).
+\\
+Variable in the number of machines
 (see \reftab{tab:challenge-exploration}).
 \begin{table}[!htb]
     \centering
-        \begin{tabularx}{\linewidth}{l|l|C|l}
-					Field Size & Machines & Description & Scoring \\\hline
-					\SI{5 x 5}{\metre} & $\leq 4$  & \multirow{3}{\hsize}
-					{Exploration as in the main game. Field contains insertion zone of
-						\SI{1 x 3}{\metre} without walls. Return to insertion zone when
-						done. Stop time. (Repeat $x$ times?)} & \ac{TBD} \\
-					\SI{7 x 8}{\metre} & $\leq 7$    & & \ac{TBD} \\
-					\SI{14 x 8}{\metre} & $\leq 14$   & & \ac{TBD}
+        \begin{tabularx}{\linewidth}{l|l|l}
+					Field Size & Machines & Scoring \\\hline
+					\SI{5 x 5}{\metre} & $ 2$   & $10$ \\
+					\SI{5 x 5}{\metre} & $ 3$   & $20$  \\
+					\SI{5 x 5}{\metre} & $ 4$   & $30$  \\
+					%\SI{7 x 8}{\metre} & $ 7$   & $30$  \\
         \end{tabularx}
     \caption{Exploration Challenge}
     \label{tab:challenge-exploration}
@@ -189,104 +218,70 @@ to solve this challenge. Variable in the number of machines
 
 
 \subsubsection{Grasping Challenge}\label{sec:challenge-grasping}
-Simple grasping task. Variants gradually require  better grasping speed
-(as this is a timed challenge) and robustness (multiple robots grasp multiple
-times). See \reftab{tab:challenge-grasping}.
+Simple grasping task.
+Each Machine has a base at output.
+Robots start at cell in front of a machine output.\\
+\textbf{Task:} A robot brings a base from one machine's output back to it's
+input. Once all products are at the input sides of all machines and all robots
+returned to their starting positions.\\
+\todo{improve description}
+Variations differ by number of machines and Repetitions, see
+\reftab{tab:challenge-grasping}.
+
 \begin{table}[!htb]
     \centering
-        \begin{tabularx}{\linewidth}{l|l|C|l}
-					Field Size & Machines & Description & Scoring \\\hline
-					\SI{3 x 3}{\metre} & 1 & \multirow{4}{\hsize}{Fixed field.
-					Each Machine has a base at output.
-					Bring base to same machine's input.
-					Robots start at cell in front of a machine output.
-					Return to start when done. Stop time.
-					(Repeat $x$ times?)} & \ac{TBD} \\
-				\SI{5 x 5}{\metre} & $\leq 3$  &  & \ac{TBD} \\
-				\SI{7 x 8}{\metre} & $\leq 3$  &  & \ac{TBD} \\
-				\SI{14 x 8}{\metre} & $\leq 3$ &  & \ac{TBD}
+        \begin{tabularx}{\linewidth}{l|l|l|l}
+					Field Size & Machines & Repetitions & Scoring \\\hline
+					\SI{5 x 5}{\metre} & 1 & $x\in [1,2,3]$  & $10+(x\cdot 2)$ \\
+					\SI{5 x 5}{\metre} & 2  & $x\in [1,2,3]$ & $20+(x\cdot 3)$ \\
+					\SI{5 x 5}{\metre} & 3  & $x\in [1,2,3]$ & $30+(x\cdot 5)$
         \end{tabularx}
     \caption{Grasping Challenge}
     \label{tab:challenge-grasping}
 \end{table}
 
-\subsubsection{C0 Challenge}\label{sec:challenge-c0}
-This challenge encapsulates the production of the most simple product in the
-\ac{RCLL}. Variants for a variable number of available machines are supplied as
-shown in \reftab{tab:challenge-c0}.
+\subsubsection{Product Challenges}\label{sec:challenge-cx}
+This section covers four types of challenges, instead of just a single one.
+Each challenge corresponds to the production of a product with one of the
+available complexities (C0, C1, C2, C3) in the \ac{RCLL}.\\
+\textbf{Task:} Produce all posted orders.\\
+\todo{Variants with multiple orders or with two ring stations?}
+Scoring is shown in \reftab{tab:challenge-cx}.
 \begin{table}[!htb]
     \centering
-        \begin{tabularx}{\linewidth}{l|l|C|l}
-					Field Size & Machines & Description & Scoring \\\hline
-					\SI{3 x 3}{\metre} & 2 & Fixed field. BS and \ac{CS}.
-					Robots start at cell between machines.
-					Return to start while holding finished product.
-					Stop time. & \ac{TBD} \\\hline
-					\SI{5 x 5}{\metre} & $3-4$ & \multirow{3}{\hsize}{
-						BS, \ac{CS} and \ac{DS}.
-					Robots start at insertion zone without walls.
-					Stop time.} & \ac{TBD} \\
-				\SI{7 x 8}{\metre} & $3-7$  &  & \ac{TBD} \\
-				\SI{14 x 8}{\metre} & $3-14$ &  & \ac{TBD}
+        \begin{tabularx}{\linewidth}{l|l|l|l}
+					Field Size & Machines & Challenge type & Scoring \\\hline
+					\SI{5 x 5}{\metre} & 2 & C0 & 30\\
+					\SI{5 x 5}{\metre} & 3  & C1 & 50 \\
+					\SI{5 x 5}{\metre} & 3 & C2 & 70 \\
+					\SI{5 x 5}{\metre} & 3 & C3 & 100 \\
         \end{tabularx}
-    \caption{C0 Challenge}
-    \label{tab:challenge-c0}
+    \caption{CX Challenge}
+    \label{tab:challenge-cx}
 \end{table}
 
-\subsubsection{CX Challenge with 1 \ac{RS}}\label{sec:challenge-cx-1rs}
-Extending the C0 challenge (\refsec{sec:challenge-c0}) by requiring a ring
-station (mockup), a product of any size can be built.
-This might result in product variants that are not ground to the current
-RCLL rules (such as having multiple rings of the same color).
-Difficulty depends on the number of total rings as well as the total
-amount of payment needed to mount rings (See \reftab{tab:challenge-cx-1rs}).
+\subsubsection{Markerless Detection Challenge}\label{sec:markerless}
+Image recognition challenge to classify different machine types.\\
+\textbf{Task:} Autonomously label the machines shown in a set of pictures\\
+As a preparation for this challenge, a labeled set of data will be supplied to
+all participants which may be used for training and testing purposes.
+The evaluation set for the challenge consists of a set of separate images.
+\todo{pictures with multiple machines}
 \begin{table}[!htb]
     \centering
-        \begin{tabularx}{\linewidth}{l|l|C|l}
-					Field Size & Machines & Description & Scoring \\\hline
-					\SI{5 x 5}{\metre} & 4 & \multirow{3}{\hsize}{
-						BS, \ac{CS}, \ac{RS} and \ac{DS}.
-					Ring needs 0/1/2 Payment.
-					Robots start at insertion zone without walls.
-					Stop time.} & \ac{TBD} \\
-				\SI{7 x 8}{\metre} & $4-7$  &  & \ac{TBD} \\
-				\SI{14 x 8}{\metre} & $4-14$ &  & \ac{TBD}
+        \begin{tabularx}{\linewidth}{l|l|l|l}
+					 \% Correctly Classified & \% Wrongly Classified & \% Not Classified
+																	 & Scoring \\\hline
+					 $x$ & $y$ & $z$ & $(x-y)\cdot30$
         \end{tabularx}
-    \caption{CX Challenge with 1 \ac{RS}}
-    \label{tab:challenge-cx-1rs}
+    \caption{Machine Detection Challenge}
+    \label{tab:challenge-markerless}
 \end{table}
 
-\subsubsection{CX Challenge with 2 \ac{RS}}\label{sec:challenge-cx-2rs}
-Extension of the previous challenge (\refsec{sec:challenge-cx-1rs}) by adding
-the second ring station. Hence the production of any RCLL product can be
-replicated. For details see \reftab{tab:challenge-cx-2rs}.
-\begin{table}[!htb]
-    \centering
-        \begin{tabularx}{\linewidth}{l|l|C|l}
-					Field Size & Machines & Description & Scoring \\\hline
-					\SI{5 x 5}{\metre} & 4 & \multirow{3}{\hsize}{
-						BS, \ac{CS}, \ac{RS}1 and \ac{RS}2
-						(and \ac{DS}). Total ring payment $[0,6]$.
-					Robots start at insertion zone without walls.
-					Return with product to insertion zone (deliver product).
-					Stop time.} & \ac{TBD} \\
-				\SI{7 x 8}{\metre} & $4-7$  &  & \ac{TBD} \\
-				\SI{14 x 8}{\metre} & $4-14$ &  & \ac{TBD}
-        \end{tabularx}
-    \caption{CX Challenge with 2 \ac{RS}}
-    \label{tab:challenge-cx-2rs}
-\end{table}
+\subsection{Challenges for the Secondary Competition}
 
 \subsubsection{Full game}\label{sec:challenge-full-game}
-Play a full RCLL game on a possibly reduced field and without an opposing team.
-See requirements for CX challenges in \reftab{tab:challenge-cx-2rs}.
-
-\subsubsection{Web shop}\label{sec:challenge-CX-1rs}
-Produce orders provided by the web shop through an opposing team.
-This challenge could be part of the existing CX challenges
-\reftab{tab:challenge-c0}-\ref{tab:challenge-cx-2rs}.
-
-\subsubsection{Markerless Detection}\label{sec:challenge-markerless}
-Image classification challenge, no physical robots needed. \ac{TBD}.
-
+Play a full RCLL game on a field of \SI{7 x 8}{\metre} with $7$ machines
+(no machines from the opposing team).
+\todo{relax no-payment and delivery assumption?}
 \end{document}
