@@ -64,34 +64,34 @@
     {inline}{}
 \begin{document}
 \begin{titlepage}
-  \vspace*{5cm}
-  \begin{center}
-    \begin{LARGE}
+ \vspace*{5cm}
+ \begin{center}
+  \begin{LARGE}
 
-      {\bf RoboCup Logistics League}\\[2ex]
-			{\Large \bf{Challenges}}\\[4ex]
-      {\Large Rules and Regulations 2021}\\[4ex]
-    \end{LARGE}
-    \hrule
+   {\bf RoboCup Logistics League}\\[2ex]
+   {\Large \bf{Challenges}}\\[4ex]
+   {\Large Rules and Regulations 2021}\\[4ex]
+  \end{LARGE}
+  \hrule
 
-    {\LARGE\vspace*{4ex}}
-    \begin{Large}
-      The Technical Committee 2012--2021\\[6ex]
-    \end{Large}
-    \begin{tabular}{lll}
-      \textbf{Vincent Coelen}&\textbf{Christian Deppe}&\textbf{Mostafa Gomaa}\\
-      \textbf{Till Hofmann}&\textbf{Ulrich Karras}&\textbf{Tim Niemueller}\\
-			\textbf{Alain Rohr}&\textbf{Thomas Ulz}&\textbf{Tarik Viehmann}\\[.5em]
+  {\LARGE\vspace*{4ex}}
+  \begin{Large}
+   The Technical Committee 2012--2021\\[6ex]
+  \end{Large}
+  \begin{tabular}{lll}
+   \textbf{Vincent Coelen}&\textbf{Christian Deppe}&\textbf{Mostafa Gomaa}\\
+   \textbf{Till Hofmann}&\textbf{Ulrich Karras}&\textbf{Tim Niemueller}\\
+   \textbf{Alain Rohr}&\textbf{Thomas Ulz}&\textbf{Tarik Viehmann}\\[.5em]
 
-      Daniel Ewert&Nils Harder&S\"oren Jentzsch\\
-      Nicolas Meier&Sebastian Reuter&Wataru Uemura\\
-      Gerald Steinbauer&Tobias Neumann\\
-    \end{tabular}
-    \vfill
-		Revision Date: \ac{TBD}\\
-		DRAFT: Work in Progress %chktex 13
-			\todo{is this up-to-date?}
-  \end{center}
+   Daniel Ewert&Nils Harder&S\"oren Jentzsch\\
+   Nicolas Meier&Sebastian Reuter&Wataru Uemura\\
+   Gerald Steinbauer&Tobias Neumann\\
+  \end{tabular}
+  \vfill
+  Revision Date: \ac{TBD}\\
+  DRAFT: Work in Progress %chktex 13
+  \todo{is this up-to-date?}
+ \end{center}
 \end{titlepage}
 
 
@@ -101,13 +101,13 @@ Our aim is to capture the main tasks from the RoboCup Logistics League in
 isolated challenges, which form an additional competition in the league.
 Main objectives of this new competition are:
 \begin{itemize}
-	\item to provide a framework that allows teams to show and evaluate their
-		progress in the individual tasks of the RCLL
-	\item to ease the preparation for the main competition through providing a
-		simplified cost- and space-efficient setup suitable for replication in
-		local labs
-	\item to be attractive for both RoboCup live events and online competitions,
-		where teams can participate remotely from all over the world
+ \item to provide a framework that allows teams to show and evaluate their
+       progress in the individual tasks of the RCLL
+ \item to ease the preparation for the main competition through providing a
+       simplified cost- and space-efficient setup suitable for replication in
+       local labs
+ \item to be attractive for both RoboCup live events and online competitions,
+       where teams can participate remotely from all over the world
 \end{itemize}
 
 \section{Competition Area}
@@ -202,21 +202,21 @@ challenge (\texttt{option1} or \texttt{option2} according to
 
 \newcommand{\colconfig}{\mathcal{RC}}
 \begin{table}[!htb]
-    \centering
-        \begin{tabular}{l|l|l||l|l||l|l}
-					& \multicolumn{4}{c||}{Ring Costs}
-					& \multicolumn{2}{c}{\multirow{2}{*}{Color Assignment }}\\\cline{2-5}
-					& Color  & Price & Color  & Price & \multicolumn{2}{c}{}\\\cline{2-7}
-					& Yellow & 0 & Orange & 0
-					& RS1: $\colconfig_1$ & RS1: $\colconfig_2$ \\
-					& Green  & 1 & Blue & 2
-					& RS2: $\colconfig_2$ & RS2: $\colconfig_1$ \\\hline\hline
-					Configuration & \multicolumn{2}{c||}{$\colconfig_1$}
-					& \multicolumn{2}{c||}{$\colconfig_2$}
-					& $\texttt{option1}$ & $\texttt{option2}$\\
-        \end{tabular}
-    \caption{Materials}
-    \label{tab:ring-costs}
+ \centering
+ \begin{tabular}{l|l|l||l|l||l|l}
+  & \multicolumn{4}{c||}{Ring Costs}
+  & \multicolumn{2}{c}{\multirow{2}{*}{Color Assignment }}\\\cline{2-5}
+  & Color  & Price & Color  & Price & \multicolumn{2}{c}{}\\\cline{2-7}
+  & Yellow & 0 & Orange & 0
+  & RS1: $\colconfig_1$ & RS1: $\colconfig_2$ \\
+  & Green  & 1 & Blue & 2
+  & RS2: $\colconfig_2$ & RS2: $\colconfig_1$ \\\hline\hline
+  Configuration & \multicolumn{2}{c||}{$\colconfig_1$}
+  & \multicolumn{2}{c||}{$\colconfig_2$}
+  & $\texttt{option1}$ & $\texttt{option2}$\\
+ \end{tabular}
+ \caption{Materials}
+ \label{tab:ring-costs}
 \end{table}
 
 \paragraph{Materials}\label{sec:materials}
@@ -224,16 +224,15 @@ The available material that can be used per challenge is restricted
 (unless stated otherwise) per machine according to the information in
 \reftab{tab:materials}.
 \begin{table}[!htb]
-    \centering
-        \begin{tabularx}{\linewidth}{l|l}
-					Machine & Available Material  \\\hline
-					\ac{BS} & 2 bases of each color \\
-					\ac{CS} & 3 cap-carriers (cap color choices up to each team)  \\
-					\ac{RS} & 4 rings of each assigned color (8 in total)  \\
-					%\SI{7 x 8}{\metre} & $ 7$ & 3 & 40 \\
-        \end{tabularx}
-    \caption{Materials}
-    \label{tab:materials}
+ \centering
+  \begin{tabularx}{\linewidth}{l|l}
+   Machine & Available Material  \\\hline
+   \ac{BS} & 2 bases of each color \\
+   \ac{CS} & 3 cap-carriers (cap color choices up to each team)  \\
+   \ac{RS} & 4 rings of each assigned color (8 in total)  \\
+  \end{tabularx}
+ \caption{Materials}
+ \label{tab:materials}
 \end{table}
 \todo{is it actually 4 colors per ring station slot?}
 
@@ -281,17 +280,17 @@ Partial points may be awarded in case only a subset of routes got covered.
 
 
 \begin{table}[!htb]
-    \centering
-        \begin{tabular}{l|l|l}
-					\multirow{2}{*}{Machines}
-					& \multicolumn{2}{c}{Scoring} \\\cline{2-3}
-					& first finished route & each other finished route \\\hline\hline
-					2 & 10 & 2 \\
-					3 & 20 & 2 \\
-					4 & 25 & 2 \\
-        \end{tabular}
-    \caption{Navigation Challenge}
-    \label{tab:challenge-navigation}
+ \centering
+ \begin{tabular}{l|l|l}
+  \multirow{2}{*}{Machines}
+  & \multicolumn{2}{c}{Scoring} \\\cline{2-3}
+  & first finished route & each other finished route \\\hline\hline
+  2 & 10 & 2 \\
+  3 & 20 & 2 \\
+  4 & 25 & 2 \\
+ \end{tabular}
+ \caption{Navigation Challenge}
+ \label{tab:challenge-navigation}
 \end{table}
 
 \subsubsection{Exploration Challenge}\label{sec:challenge-exploration}
@@ -304,14 +303,14 @@ Variable in the number of machines
 (see \reftab{tab:challenge-exploration}).
 \begin{table}[!htb]
  \centering
-  \begin{tabular}{l|l}
-					Machines & Scoring \\\hline
-					2   & 10 \\
-					3   & 20  \\
-					4   & 30  \\
-        \end{tabular}
-    \caption{Exploration Challenge}
-    \label{tab:challenge-exploration}
+ \begin{tabular}{l|l}
+  Machines & Scoring \\\hline
+  2   & 10 \\
+  3   & 20 \\
+  4   & 30 \\
+ \end{tabular}
+ \caption{Exploration Challenge}
+ \label{tab:challenge-exploration}
 \end{table}
 
 
@@ -330,18 +329,18 @@ successful, once all bases were placed at the respective machine input
 at least $i$ times.
 
 \begin{table}[!htb]
-    \centering
-        \begin{tabular}{l|l|l}
-					\multirow{2}{*}{Machines}
-					& \multicolumn{2}{c}{Scoring} \\\cline{2-3}
-					& first repetition
-					& each subsequent repititon  \\\hline\hline
-					1 & 10 & 2 \\
-					2 & 20 & 2 \\
-					3 & 25 & 2 \\
-        \end{tabular}
-    \caption{Grasping Challenge}
-    \label{tab:challenge-grasping}
+\centering
+ \begin{tabular}{l|l|l}
+  \multirow{2}{*}{Machines}
+  & \multicolumn{2}{c}{Scoring} \\\cline{2-3}
+  & first repetition
+  & each subsequent repititon  \\\hline\hline
+  1 & 10 & 2 \\
+  2 & 20 & 2 \\
+  3 & 25 & 2 \\
+ \end{tabular}
+ \caption{Grasping Challenge}
+ \label{tab:challenge-grasping}
 \end{table}
 
 \subsubsection{Product Challenges}\label{sec:challenge-cx}
@@ -353,19 +352,19 @@ For complexities C1, C2 and C3 the accumulated cost for mounting the required
 rings must be equal to 1, 2 and 3, respectively.
 \textbf{Task:} Produce all posted orders.\\
 \begin{table}[!htb]
-    \centering
-        \begin{tabular}{l|l|l}
-					Machines & Challenge type & Scoring \\\hline
-					2 & C0 & 30\\
-					3 & C1 & 50 \\
-					4 & C1 & 50 \\
-					3 & C2 & 70 \\
-					4 & C2 & 70 \\
-					3 & C3 & 100 \\
-					4 & C3 & 100 \\
-        \end{tabular}
-    \caption{CX Challenge}
-    \label{tab:challenge-cx}
+ \centering
+ \begin{tabular}{l|l|l}
+  Machines & Challenge type & Scoring \\\hline
+  2 & C0 & 30 \\
+  3 & C1 & 50 \\
+  4 & C1 & 50 \\
+  3 & C2 & 70 \\
+  4 & C2 & 70 \\
+  3 & C3 & 100 \\
+  4 & C3 & 100 \\
+ \end{tabular}
+ \caption{CX Challenge}
+ \label{tab:challenge-cx}
 \end{table}
 
 \subsubsection{Exploration + C0 Challenge}\label{sec:challenge-combine-exp-c0}
@@ -387,16 +386,16 @@ points, see \reftab{tab:challenge-simulation}.
 Additionally, the team scoring the highest points overall gets awarded another
 $10$ points
 \begin{table}[!htb]
-    \centering
-        \begin{tabular}{l|l|l|l}
-					Points & Scoring \\\hline
-					$[0,50)$ & 0\\
-					$[50,150)$ & 20\\
-					$[150,250$ & 40 \\
-					$[250,\infty)$ & 60 \\
-        \end{tabular}
-    \caption{CX Challenge}
-    \label{tab:challenge-cx}
+ \centering
+ \begin{tabular}{l|l|l|l}
+  Points & Scoring \\\hline
+  $[0,50)$ & 0\\
+  $[50,150)$ & 20\\
+  $[150,250$ & 40 \\
+  $[250,\infty)$ & 60 \\
+ \end{tabular}
+ \caption{CX Challenge}
+ \label{tab:challenge-cx}
 \end{table}
 
 
@@ -408,14 +407,14 @@ all participants which may be used for training and testing purposes.
 The evaluation set for the challenge consists of a set of separate images.
 \todo{pictures with multiple machines}
 \begin{table}[!htb]
-    \centering
-        \begin{tabularx}{\linewidth}{l|l|l|l}
-					 \% Correctly Classified & \% Wrongly Classified & \% Not Classified
-																	 & Scoring \\\hline
-					 $x$ & $y$ & $z$ & $(x-y)\cdot30$
-        \end{tabularx}
-    \caption{Machine Detection Challenge}
-    \label{tab:challenge-markerless}
+ \centering
+ \begin{tabularx}{\linewidth}{l|l|l|l}
+  \% Correctly Classified & \% Wrongly Classified & \% Not Classified
+  & Scoring \\\hline
+  $x$ & $y$ & $z$ & $(x-y)\cdot30$
+ \end{tabularx}
+ \caption{Machine Detection Challenge}
+ \label{tab:challenge-markerless}
 \end{table}
 
 \subsection{Challenges for the Secondary Competition}
