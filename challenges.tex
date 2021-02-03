@@ -54,6 +54,7 @@
 \acrodef{RS}{ring station}
 \acrodef{SS}{storage station}
 \acrodef{DS}{delivery station}
+\acrodef{MPS}{modular production system}
 \acrodef{RCLL}{RoboCup Logistics Leaugue}
 \acrodef{TBD}{To be Discussed}
 
@@ -126,17 +127,30 @@ robots.
 \subsection{Remote Layout}
 \todo{some sort of camera arrangement needed to stream, rules for humans on
 field etc.}
-\subsection{Machines}
-Mockup machines are required to have the same dimensions as specified
- in the RCLL rulebook section \textbf{3.2 Machines}.
-The building material has to be opaque, the station can be painted
- grey to reflect its actual color.\newline
-On each mockup station a conveyor model has to be mounted.
-The model can be found in \textit{mock\_up\_models/conveyor.dae}.
-The building material has to be opaque, the conveyor belt can be
- painted black to reflect its actual color.\newline
-A model of the shelf is provided as well, mounting a shelf model
- is required in order to mock up a \ac{CS}.
+
+\subsection{Mockup Machines}\label{sec:machines}
+In case no real \ac{MPS} stations are available, replications
+(so called \emph{mockup machines}) may be used, that do not need to
+physically perform the respective production steps. Instead, that work may
+be carried out by a human supervisor (see \refsec{sec:operators}).
+The minimum requirements for a mockup machine are specified in the following.
+
+Mockup machines are required to have the same box-like base-shape as specified
+in the RCLL rulebook \todo{Link to rulebook}.
+\todo{height of the box is not specified in rulebook, only the height until
+the conveyor belt}.
+On top of the box a model of the conveyor belt has to be mounted, see
+\todo{link to mockup model file and rulebook}.
+On stations replicating a \ac{CS} a shelf as to be additionally mounted on the
+front right side of the box, see
+\todo{link to mockup model file and rulebook}.
+On stations replicating a \ac{RS} either a shelf may be mounted as well,
+or a model of the slide, which may be placed anywhere on the front right side
+of the box, such that it is accessible from the front.
+\todo{link to mockup model file and rulebook}.
+
+The building materials for the models must be opaque, but may have any color.
+
 In order to compete in all main challenges, a minimum number of 3 mockup
 machines are required. On higher difficulty some challenges may require
 4 mockup stations and some secondary challenges require 7 stations.
