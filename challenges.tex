@@ -264,26 +264,32 @@ The challenge types of the competition are described in
 \refsec{sec:challenge-navigation}-\ref{sec:challenge-markerless}
 
 The RefBox is used to log the scores and data for each challenge.
-Todo: implement challenges in refbox, provide tool to evaluate results
+Once the competition is finished, $5$ bonus points are awarded each time a
+team solved a challenge on a difficulty in the shortest amount of time.
+\todo{implement challenges in refbox, provide tool to evaluate results}
 
 \subsubsection{Navigation Challenge}\label{sec:challenge-navigation}
 Basic navigation task with known obstacles.\\
-\textbf{Task:} Drives a route starting and ending in the insertion zone while
-covering a given set of target positions. Return to insertion zone when done.\\
+\textbf{Task:} Drive three routes, each starting and ending in the insertion
+zone while covering a given set of target positions. At each target position
+the robot has to stand still (no moving or rotating) for at least 1 second. \\
 Variations of this challenge depend
-on the number of repetitions, the field layout and the number of
+on the number of
 available machines (see \reftab{tab:challenge-navigation}).
-Multiple robots may be used to repition
+Multiple robots may be used to simultaneously cover different routes.
+Partial points may be awarded in case only a subset of routes got covered.
+
 
 \begin{table}[!htb]
     \centering
-        \begin{tabularx}{\linewidth}{l|l|l|l}
-					Field Size & Machines & Repetitions & Scoring \\\hline
-					\SI{5 x 5}{\metre} & $ 2$ & $x\in [1,2,3]$ & $5 + (5\cdot x)$ \\
-					\SI{5 x 5}{\metre} & $ 3$ & $x\in [1,2,3]$ & $10 + (5\cdot x)$ \\
-					\SI{5 x 5}{\metre} & $ 4$ & $x\in [1,2,3]$ & $15 + (5\cdot x)$ \\
-					%\SI{7 x 8}{\metre} & $ 7$ & 3 & 40 \\
-        \end{tabularx}
+        \begin{tabular}{l|l|l}
+					\multirow{2}{*}{Machines}
+					& \multicolumn{2}{c}{Scoring} \\\cline{2-3}
+					& first finished route & each other finished route \\\hline\hline
+					2 & 10 & 2 \\
+					3 & 20 & 2 \\
+					4 & 25 & 2 \\
+        \end{tabular}
     \caption{Navigation Challenge}
     \label{tab:challenge-navigation}
 \end{table}
@@ -297,14 +303,13 @@ this challenge.\\
 Variable in the number of machines
 (see \reftab{tab:challenge-exploration}).
 \begin{table}[!htb]
-    \centering
-        \begin{tabularx}{\linewidth}{l|l|l}
-					Field Size & Machines & Scoring \\\hline
-					\SI{5 x 5}{\metre} & $ 2$   & $10$ \\
-					\SI{5 x 5}{\metre} & $ 3$   & $20$  \\
-					\SI{5 x 5}{\metre} & $ 4$   & $30$  \\
-					%\SI{7 x 8}{\metre} & $ 7$   & $30$  \\
-        \end{tabularx}
+ \centering
+  \begin{tabular}{l|l}
+					Machines & Scoring \\\hline
+					2   & 10 \\
+					3   & 20  \\
+					4   & 30  \\
+        \end{tabular}
     \caption{Exploration Challenge}
     \label{tab:challenge-exploration}
 \end{table}
@@ -315,20 +320,26 @@ Simple grasping task.
 Each Machine has a base at output.
 Robots start at cell in front of a machine output.\\
 \textbf{Task:} A robot brings a base from one machine's output back to it's
-input. Once all products are at the input sides of all machines and all robots
-returned to their starting positions.\\
+input. A human supervisor places it back to the output. Repeat until all
+products were placed at the respective machines input 3 times and all robots
+returned to their starting positions. \\
 \todo{improve description}
-Variations differ by number of machines and Repetitions, see
-\reftab{tab:challenge-grasping}.
+Variations differ by number of machines, see
+\reftab{tab:challenge-grasping}. The $i$-th repetition is considered to be
+successful, once all bases were placed at the respective machine input
+at least $i$ times.
 
 \begin{table}[!htb]
     \centering
-        \begin{tabularx}{\linewidth}{l|l|l|l}
-					Field Size & Machines & Repetitions & Scoring \\\hline
-					\SI{5 x 5}{\metre} & 1 & $x\in [1,2,3]$  & $10+(x\cdot 2)$ \\
-					\SI{5 x 5}{\metre} & 2  & $x\in [1,2,3]$ & $20+(x\cdot 3)$ \\
-					\SI{5 x 5}{\metre} & 3  & $x\in [1,2,3]$ & $30+(x\cdot 5)$
-        \end{tabularx}
+        \begin{tabular}{l|l|l}
+					\multirow{2}{*}{Machines}
+					& \multicolumn{2}{c}{Scoring} \\\cline{2-3}
+					& first repetition
+					& each subsequent repititon  \\\hline\hline
+					1 & 10 & 2 \\
+					2 & 20 & 2 \\
+					3 & 25 & 2 \\
+        \end{tabular}
     \caption{Grasping Challenge}
     \label{tab:challenge-grasping}
 \end{table}
@@ -336,22 +347,58 @@ Variations differ by number of machines and Repetitions, see
 \subsubsection{Product Challenges}\label{sec:challenge-cx}
 This section covers four types of challenges, instead of just a single one.
 Each challenge corresponds to the production of a product with one of the
-available complexities (C0, C1, C2, C3) in the \ac{RCLL}.\\
+available complexities (C0, C1, C2, C3) in the \ac{RCLL} using either
+one or two \ac{RS}.\\
+For complexities C1, C2 and C3 the accumulated cost for mounting the required
+rings must be equal to 1, 2 and 3, respectively.
 \textbf{Task:} Produce all posted orders.\\
-\todo{Variants with multiple orders or with two ring stations? Webshop?}
-Scoring is shown in \reftab{tab:challenge-cx}.
 \begin{table}[!htb]
     \centering
-        \begin{tabularx}{\linewidth}{l|l|l|l}
-					Field Size & Machines & Challenge type & Scoring \\\hline
-					\SI{5 x 5}{\metre} & 2 & C0 & 30\\
-					\SI{5 x 5}{\metre} & 3  & C1 & 50 \\
-					\SI{5 x 5}{\metre} & 3 & C2 & 70 \\
-					\SI{5 x 5}{\metre} & 3 & C3 & 100 \\
-        \end{tabularx}
+        \begin{tabular}{l|l|l}
+					Machines & Challenge type & Scoring \\\hline
+					2 & C0 & 30\\
+					3 & C1 & 50 \\
+					4 & C1 & 50 \\
+					3 & C2 & 70 \\
+					4 & C2 & 70 \\
+					3 & C3 & 100 \\
+					4 & C3 & 100 \\
+        \end{tabular}
     \caption{CX Challenge}
     \label{tab:challenge-cx}
 \end{table}
+
+\subsubsection{Exploration + C0 Challenge}\label{sec:challenge-combine-exp-c0}
+A simple production task on a field with unknown machine positions.
+The challenge is to produce a product of complexity C0 without receiving the
+machine positions at the start of the production phase, resembling a unified
+exploration and production phase.\\
+\textbf{Task:} Produce all posted orders.\\
+Beating this challenges yields 50 points.
+
+\subsubsection{RefBox Simulation Challenge}\label{sec:challenge-simulation}
+A competition on the agent level. The RefBox provides a set of actions
+that can be executed by sending dedicated commands to the refbox via protobuf.
+Hence no actual robot is required to participate.
+\textbf{Task:} Play a regular RCLL game through the RefBox simulation
+interface.\\
+Participating in this challenge yields points based on the achieved in-game
+points, see \reftab{tab:challenge-simulation}.
+Additionally, the team scoring the highest points overall gets awarded another
+$10$ points
+\begin{table}[!htb]
+    \centering
+        \begin{tabular}{l|l|l|l}
+					Points & Scoring \\\hline
+					$[0,50)$ & 0\\
+					$[50,150)$ & 20\\
+					$[150,250$ & 40 \\
+					$[250,\infty)$ & 60 \\
+        \end{tabular}
+    \caption{CX Challenge}
+    \label{tab:challenge-cx}
+\end{table}
+
 
 \subsubsection{Markerless Detection Challenge}\label{sec:markerless}
 Image recognition challenge to classify different machine types.\\
