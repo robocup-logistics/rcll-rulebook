@@ -171,22 +171,89 @@ A team can use a single slot to try a challenge multiple times (with the same
 field layout) once a challenge counts, it cannot be attempted again
 (unless difficulty is increased).}
 
-The delivery procedure for finished products is altered compared to the
-\ac{RCLL} rule set. In order to reduce the amount of mockup machines required
-for participation, Deliveries are made by bringing the finished product
-to the insertion zone and dropping it there.
-
 All challenges (unless stated otherwise) are conducted while measuring
 the execution time. The execution time is measured by the RefBox.
 The fastest team in any challenge gains additional points.
 
-\subsection{Field Operators}
-In challenges where machines are instructed, the actual assembly has to be
-performed by human supervisors. Whenever a machine is instructed, the RefBox
-operator announces the required interaction. One field operator may proceed
-to enter the field in order to perform the interaction. Afterwards the field
-has to be left immediately.
-\todo{replenisher not necessary for challenges?}
+\subsection{Changes compared to the Main Competition}
+The tasks covered in the various challenges mostly obey the regular rules
+for the RCLL. However, some aspects are altered to simplify the setup.
+The changes are not affecting existing machine communication and processing
+steps, such that the challenges can be carried out on real machines as well as
+on mockup versions obeying the requirements outlined in \refsec{sec:machines}.
+
+\paragraph{Product Delivery}
+The delivery procedure for finished products is altered compared to the
+\ac{RCLL} rule set. In order to reduce the amount of machines required
+for participation, Deliveries are made by bringing the finished product
+to the insertion zone and dropping it there.
+
+\paragraph{Ring Payments}
+Easing the setup of mockup machines, it is not required to have a slide
+on ring stations. Instead, a shelf may be used to place payments at the
+corresponding station.
+
+\paragraph{Ring Color Assignment}
+The cost for mounting each ring color are fixed, the assignment of ring colors
+is semi-fixed as teams can choose between two different options for each
+challenge (\texttt{option1} or \texttt{option2} according to
+\reftab{tab:ring-costs}).
+\todo{make this configurable in the RefBox}
+
+\newcommand{\colconfig}{\mathcal{RC}}
+\begin{table}[!htb]
+    \centering
+        \begin{tabular}{l|l|l||l|l||l|l}
+					& \multicolumn{4}{c||}{Ring Costs}
+					& \multicolumn{2}{c}{\multirow{2}{*}{Color Assignment }}\\\cline{2-5}
+					& Color  & Price & Color  & Price & \multicolumn{2}{c}{}\\\cline{2-7}
+					& Yellow & 0 & Orange & 0
+					& RS1: $\colconfig_1$ & RS1: $\colconfig_2$ \\
+					& Green  & 1 & Blue & 2
+					& RS2: $\colconfig_2$ & RS2: $\colconfig_1$ \\\hline\hline
+					Configuration & \multicolumn{2}{c||}{$\colconfig_1$}
+					& \multicolumn{2}{c||}{$\colconfig_2$}
+					& $\texttt{option1}$ & $\texttt{option2}$\\
+        \end{tabular}
+    \caption{Materials}
+    \label{tab:ring-costs}
+\end{table}
+
+\paragraph{Materials}\label{sec:materials}
+The available material that can be used per challenge is restricted
+(unless stated otherwise) per machine according to the information in
+\reftab{tab:materials}.
+\begin{table}[!htb]
+    \centering
+        \begin{tabularx}{\linewidth}{l|l}
+					Machine & Available Material  \\\hline
+					\ac{BS} & 2 bases of each color \\
+					\ac{CS} & 3 cap-carriers (cap color choices up to each team)  \\
+					\ac{RS} & 4 rings of each assigned color (8 in total)  \\
+					%\SI{7 x 8}{\metre} & $ 7$ & 3 & 40 \\
+        \end{tabularx}
+    \caption{Materials}
+    \label{tab:materials}
+\end{table}
+\todo{is it actually 4 colors per ring station slot?}
+
+\paragraph{Orders}
+Unless specified otherwise, orders that have to be fulfilled in challenges
+are entered through the web shop \todo{link web shop} by any member of the
+competing team.
+
+In challenges where only one \ac{RS} is present, teams are responsible to
+order products which can be assembled using the available stations only.
+
+\subsection{Field Operators}\label{sec:operators}
+In challenges where mockup machines are used, the actual assembly stps have
+to be performed by human supervisors. Whenever a machine is instructed,
+the RefBox operator announces the required interaction. One field operator may
+proceed to enter the field in order to perform the interaction. Afterwards the
+field has to be left immediately.
+The usual rules for replenishing resources (respecting the limited materials
+\refsec{sec:materials}) apply.
+
 \todo{maintenance rules}
 
 \subsection{Available Challenges for the Primary Competition}
