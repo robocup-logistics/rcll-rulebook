@@ -10,6 +10,8 @@ jobs:
           command: latexmk -pdf rulebook.tex
       - store_artifacts:
           path: rulebook.pdf
+      - store_artifacts:
+          path: challenges.pdf
   check:
     docker:
       - image: morxa/fedora-texlive:f32-texlive2019
