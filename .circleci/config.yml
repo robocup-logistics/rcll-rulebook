@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run:
           name: Build rulebook
-          command: latexmk -pdf rulebook.tex
+          command: make pdf
       - store_artifacts:
           path: rulebook.pdf
       - store_artifacts:
