@@ -288,41 +288,41 @@ field has to be left immediately.
 The usual rules for replenishing resources (respecting the limited materials
 \refsec{sec:materials}) apply.
 
-\todo{maintenance rules}
-
 \subsection{Available Challenges for the Primary Competition}
 Challenges have different types and variations (difficulty levels).
 The overall score of the competition is calculated by summing up the score
 in the highest difficulty achieved in each of the challenge types.
 The challenge types of the competition are described in
-\refsec{sec:challenge-navigation}-\ref{sec:challenge-markerless}
+\refsec{sec:challenge-navigation}-\ref{sec:challenge-markerless}.
 
-The RefBox is used to log the scores and data for each challenge.
+The RefBox is used to log the progress and data for each challenge.
+Participating teams are required to send the corresponding game-report dumps to the OC.
 Once the competition is finished, $5$ bonus points are awarded each time a
 team solved a challenge on a difficulty in the shortest amount of time.
-\todo{implement challenges in refbox, provide tool to evaluate results}
 
 \subsubsection{Navigation Challenge}\label{sec:challenge-navigation}
 Basic navigation task with known obstacles.\\
-\textbf{Task:} Drive three routes, each starting and ending in the insertion
-zone while covering a given set of target positions. At each target position
-the robot has to stand still (no moving or rotating) for at least 1 second. \\
-Variations of this challenge depend
-on the number of
-available machines (see \reftab{tab:challenge-navigation}).
-Multiple robots may be used to simultaneously cover different routes.
-Partial points may be awarded in case only a subset of routes got covered.
+\textbf{Task:} Drive to 12 randomly generated target zones. A target zone is
+reached, if any robot remains in that zone for at least 5 consecutive seconds.
+The pose of each robot must be set in the beacon message
+for the RefBox to properly register the zones as visited. The robot may move
+within the zone during the 5 second period.\\
+Variations of this challenge depend on the number of available machines
+(see \reftab{tab:challenge-navigation}).
+Multiple robots may be used to simultaneously to reach the target zones.
+Partial points may be awarded in case only a subset of target zones were
+reached.
 
 
 \begin{table}[!htb]
  \centering
- \begin{tabular}{l|l|l}
+ \begin{tabular}{l|l|l|l|l}
   \multirow{2}{*}{Machines}
-  & \multicolumn{2}{c}{Scoring} \\\cline{2-3}
-  & first finished route & each other finished route \\\hline\hline
-  2 & 10 & 2 \\
-  3 & 20 & 2 \\
-  4 & 25 & 2 \\
+  & \multicolumn{4}{c}{Scoring} \\\cline{2-5}
+	& $\geq$ 4 zones  & $\geq$ 8 zones & 12 zones  & max \\\hline\hline
+	 2 & +2 & +4 & +9 & 15 \\
+	 3 & +3 & +6 & +14 & 23 \\
+	 4 & +4 & +8 & +18 & 30 \\
  \end{tabular}
  \caption{Navigation Challenge}
  \label{tab:challenge-navigation}
