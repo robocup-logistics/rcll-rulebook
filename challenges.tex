@@ -171,33 +171,43 @@ machines are required. On higher difficulty some challenges may require
 
 \subsection{Remote Setup}
 In case a competition is carried out remotely, a proper local setup has to
-be established and approved by the organizational committee
-\todo{or is this TC responsibility?!}.
+be established and approved by the organizational committee.
 Requirements include a proper camera setup that covers the field sufficiently,
 such that external viewers can verify the integrity of each challenges,
 as well as an approval for every mockup machine and robot that is used.
-After registration the OC will verify the camera setup in a video call.
+After registration the OC will verify the field setup in a video call.
 The validation call will be scheduled individually for each team
 to account for timezones.
-\todo{verify correct size specs for field, robots, mockup machines}
 
 \section{Game Play}
 \subsection{Competition Scope}
-\todo{X time slots of 10 minute setup time per team, followed by up to 20
-	minutes of game time. Each slot can be used to solve
-at most one challenge, a team can decide to fail a challenge and use another
-slot to improve.
-A team can use a single slot to try a challenge multiple times (with the same
-field layout) once a challenge counts, it cannot be attempted again
-(unless difficulty is increased).
-Trying multiple times with the same field layout refers to switching
-from the Production phase back to the Setup phase in the RefBox.
-Restarting the RefBox will count as cancelling the challenge and you will
-have to start a new run.}
+Each team gets slots assigned to participate in challenges.
+Each slot is split in two phases:
+1. In the \texttt{SETUP} phase the participants ensure that
+\begin{itemize}
+	\item the video stream is setup,
+	\item the RefBox is started with the appropriate settings for the challenge,
+	\item the machines and robots are placed on the field according to the rules
+	\item and the robots are started.
+\end{itemize}
+The setup must be completed within 10 minutes, otherwise the attempt is counted
+as a failure.
+Then the \texttt{PRODUCTION} phase starts by instructing the RefBox accordingly.
+During the production phase the team has 20 minutes to solve the challenge.
 
-All challenges (unless stated otherwise) are conducted while measuring
-the execution time. The execution time is measured by the RefBox.
-The fastest team in any challenge gains additional points.
+A team may retry the challenge by setting the RefBox back to the setup phase
+and then starting the production phase again.
+Only the last attempt is counted.
+
+In order to complete an attempt, the RefBox needs to be set to phase
+\texttt{POST\_GAME}.
+Once a challenge is completed, it may not be retried again using anther slot,
+unless the difficulty is increased.
+All challenges are conducted while measuring the execution time of the
+corresponding attempt, starting from the begin of the \texttt{PRODUCTION} phase
+and ending at the begin of \texttt{POST\_GAME}.
+The fastest team to complete a challenge on the selected difficulty gains $5$
+additional points.
 
 \subsection{Changes compared to the Main Competition}
 The tasks covered in the various challenges mostly obey the regular rules
