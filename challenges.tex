@@ -110,6 +110,22 @@ Main objectives of this new competition are:
        where teams can participate remotely from all over the world
 \end{itemize}
 
+\section{Qualification}
+\label{sec:qualification}
+In addition to the regular Qualification process, teams have to participate
+in a \href{https://fh-aachen.sciebo.de/s/Qkm7VfIIEIIJk1d}{RefBox workshop, see here}.
+To complete the workshop, a game report dump of at least 2 Challenges
+ has to be submitted to the OC. 
+
+\section{Requirements to score points}
+\label{sec:scoring}
+For your challenges to count as completed and score points you need to submit
+the recorded video footage to the OC.
+Further you need to submit your game reports from the MongoDB to the OC.
+Your submission will not be counted if the footage shows human
+interference with the field, machines or robots outside of 
+the specified rules in Section \ref{sec:operators}.
+
 \section{Competition Area}
 \subsection{Field Layout}
 The competition area for the main challenges consists of a \SI{5 x 5}{\metre}
@@ -144,6 +160,7 @@ front right side of the box, see
 On stations replicating a \ac{RS} either a shelf may be mounted as well,
 or a model of the slide, which may be placed anywhere on the front right side
 of the box, such that it is accessible from the front.
+A model of a conveyor can be used too.
 \todo{link to mockup model file and rulebook}.
 
 The building materials for the models must be opaque, but may have any color.
@@ -159,6 +176,9 @@ be established and approved by the organizational committee
 Requirements include a proper camera setup that covers the field sufficiently,
 such that external viewers can verify the integrity of each challenges,
 as well as an approval for every mockup machine and robot that is used.
+After registration the OC will verify the camera setup in a video call.
+The validation call will be scheduled individually for each team
+to account for timezones.
 \todo{verify correct size specs for field, robots, mockup machines}
 
 \section{Game Play}
@@ -169,7 +189,11 @@ at most one challenge, a team can decide to fail a challenge and use another
 slot to improve.
 A team can use a single slot to try a challenge multiple times (with the same
 field layout) once a challenge counts, it cannot be attempted again
-(unless difficulty is increased).}
+(unless difficulty is increased).
+Trying multiple times with the same field layout refers to switching
+from the Production phase back to the Setup phase in the RefBox.
+Restarting the RefBox will count as cancelling the challenge and you will
+have to start a new run.}
 
 All challenges (unless stated otherwise) are conducted while measuring
 the execution time. The execution time is measured by the RefBox.
@@ -245,7 +269,7 @@ In challenges where only one \ac{RS} is present, teams are responsible to
 order products which can be assembled using the available stations only.
 
 \subsection{Field Operators}\label{sec:operators}
-In challenges where mockup machines are used, the actual assembly stps have
+In challenges where mockup machines are used, the actual assembly steps have
 to be performed by human supervisors. Whenever a machine is instructed,
 the RefBox operator announces the required interaction. One field operator may
 proceed to enter the field in order to perform the interaction. Afterwards the
@@ -377,7 +401,7 @@ Beating this challenges yields 50 points.
 
 \subsubsection{RefBox Simulation Challenge}\label{sec:challenge-simulation}
 A competition on the agent level. The RefBox provides a set of actions
-that can be executed by sending dedicated commands to the refbox via protobuf.
+that can be executed by sending dedicated commands to the RefBox via protobuf.
 Hence no actual robot is required to participate.
 \textbf{Task:} Play a regular RCLL game through the RefBox simulation
 interface.\\
