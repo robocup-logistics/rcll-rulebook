@@ -398,11 +398,12 @@ Robots start at the zone in front of a machine output.\\
 input. A human supervisor places it back to the output. Repeat until all
 products were placed at the respective machines input 3 times and all robots
 returned to their starting positions. \\
-\todo{improve description}
 Variations differ by number of machines, see
 \reftab{tab:challenge-grasping}. The $i$-th repetition is considered to be
 successful, once all bases were placed at the respective machine input
 at least $i$ times.
+The placement of the machines on the field is fixed according to
+\reffig{fig:grasping-field}.
 
 \begin{table}[!htb]
 \centering
@@ -418,6 +419,34 @@ at least $i$ times.
  \caption{Grasping Challenge}
  \label{tab:challenge-grasping}
 \end{table}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[x=-1cm,y=1cm]
+	\fill[gray!50!white] (2,0) rectangle (5,1);
+	\node at (3.5,0) [anchor=south, font=\tiny, inner sep=1pt] {Insertion Zone};
+	\foreach \i in {0,...,5} {
+		\draw (0,\i) -- (5,\i);
+		\draw (\i,0) -- (\i,5);
+	}
+	\foreach \x in {1,...,5} {
+		\foreach \y in {1,...,5} {
+			\node[font=\tiny,anchor=north west, inner sep=1pt] at (\x,\y) {M\_Z\x\y};
+		}
+	}
+		\node at (4.5,1.5) [circle,fill=magenta, draw=black,inner sep=0.2cm] {};
+		\node at (4.5,2.5) [rectangle,fill=green!30!white, draw=black,inner sep=0.1pt,align=center,font=\tiny] {input\\output};
+		\node at (0.5,0.5) [circle,fill=magenta, draw=black,inner sep=0.2cm] {};
+		\node at (0.5,1.5) [rectangle,fill=green!30!white, draw=black,inner sep=0.1pt,align=center,font=\tiny] {input\\output};
+		\node at (0.5,4.5) [circle,fill=magenta, draw=black,inner sep=0.2cm] {};
+		\node at (1.5,4.5) [rectangle,fill=green!30!white, draw=black,inner sep=0.1pt,align=center,font=\tiny,rotate=90] {input\\output};
+
+\end{tikzpicture}
+\caption{Starting configuration for the grasping challenge.
+	BS is placed at $\texttt{M\_Z12}$, CS1 is placed at $\texttt{M\_Z53}$
+and RS1 is placed at $\texttt{M\_Z25}$.}
+	\label{fig:grasping-field}
+\end{figure}
 
 \subsubsection{Product Challenges}\label{sec:challenge-cx}
 This section covers four types of challenges, instead of just a single one.
