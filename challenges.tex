@@ -349,10 +349,9 @@ for the RefBox to properly register the zones as visited. The robot may move
 within the zone during the 5 second period.\\
 Variations of this challenge depend on the number of available machines
 (see \reftab{tab:challenge-navigation}).
-Multiple robots may be used to simultaneously to reach the target zones.
+Multiple robots may be used to simultaneously to reach multiple target zones.
 Partial points may be awarded in case only a subset of target zones were
 reached.
-
 
 \begin{table}[!htb]
  \centering
@@ -372,7 +371,8 @@ reached.
 Replicate the RCLL exploration phase.
 Machine Marker detection as well as navigational skills are required to solve
 this challenge.\\
-\textbf{Task:} Find and report all machines on the field (type and orientation).
+\textbf{Task:} Find and report all machines on the field (type and orientation)
+according to the rules of a regular exploration phase.
 \\
 Variable in the number of machines
 (see \reftab{tab:challenge-exploration}).
@@ -387,6 +387,8 @@ Variable in the number of machines
  \caption{Exploration Challenge}
  \label{tab:challenge-exploration}
 \end{table}
+This challenge needs to be run by setting the RefBox to phase
+\texttt{EXPLORATION}.
 
 \subsubsection{Grasping Challenge}\label{sec:challenge-grasping}
 Simple grasping task.
