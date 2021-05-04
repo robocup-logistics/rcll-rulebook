@@ -215,7 +215,7 @@ to account for timezones.
 \section{Game Play}
 \subsection{Competition Scope}
 Each team gets slots assigned to participate in challenges.
-Each slot is split in two phases:
+Each slot can be used to do at most one challenge and is split in two phases:
 1. In the \texttt{SETUP} phase the participants ensure that
 \begin{itemize}
 	\item the video stream is setup,
@@ -234,7 +234,7 @@ Only the last attempt is counted.
 
 In order to complete an attempt, the RefBox needs to be set to phase
 \texttt{POST\_GAME}.
-Once a challenge is completed, it may not be retried again using anther slot,
+Once a challenge is completed, it may not be retried again,
 unless the difficulty is increased.
 All challenges are conducted while measuring the execution time of the
 corresponding attempt, starting from the begin of the \texttt{PRODUCTION} phase
@@ -302,12 +302,12 @@ The available material that can be used per challenge is restricted
  \caption{Materials}
  \label{tab:materials}
 \end{table}
-\todo{is it actually 4 colors per ring station slot?}
 
 \paragraph{Orders}
 Unless specified otherwise, orders that have to be fulfilled in challenges
-are entered through the web shop \todo{link web shop} by any member of the
-competing team.
+are entered through the web shop
+(see the RefBox workshop in \refsec{sec:qualification})
+by any member of the competing team.
 
 In challenges where only one \ac{RS} is present, teams are responsible to
 order products which can be assembled using the available stations only.
