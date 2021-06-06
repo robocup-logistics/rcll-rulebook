@@ -1,7 +1,9 @@
 SOURCES = rulebook.tex challenges.tex
 
-pdf:
-	$(foreach curr_file,$(SOURCES), latexmk -pdf $(curr_file);)
+all: $(SOURCES:.tex=.pdf)
+
+%.pdf: %.tex
+	latexmk -pdf $<
 
 check: $(foreach curr_file,$(SOURCES), lint_$(curr_file) check-filetype_$(curr_file) check-trailing-whitespace_$(curr_file) check-line-length_$(curr_file))
 
