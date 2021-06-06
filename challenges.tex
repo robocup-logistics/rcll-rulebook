@@ -96,7 +96,7 @@
 
 \section{Introduction}
 \label{sec:intro}
-This additional rulebook aims to provide a competition in the RoboCup logistics
+This rulebook addendum provides a competition in the RoboCup logistics
 league domain, where the main tasks of the league are captured in isolated
 challenges.
 The objectives of this new competition are:
@@ -120,14 +120,17 @@ competition.
 \label{sec:qualification}
 In addition to the regular Qualification process, teams have to participate
 in a \href{https://fh-aachen.sciebo.de/s/Qkm7VfIIEIIJk1d}{RefBox workshop, see here}.
-To complete the workshop, a game report dump of at least 2 Challenges
+To complete the workshop, a game report dump of at least two Challenges
 has to be submitted to the \acf{OC}.
 
 \section{Requirements to score points}
 \label{sec:scoring}
 For your challenges to count as completed and score points you need to submit
-the recorded video footage to the OC.
-Further you need to submit your game reports from the MongoDB to the OC.
+\begin{enumerate}
+	\item the recorded video footage
+	\item your game reports from the MongoDB
+\end{enumerate}
+to the OC.
 Your submission will not be counted if the footage shows human
 interference with the field, machines or robots outside of
 the specified rules in Section \ref{sec:operators}.
@@ -137,9 +140,9 @@ the specified rules in Section \ref{sec:operators}.
 The competition area for the main challenges consists of a \SI{5 x 5}{\metre}
 area divided in square zones of \SI{1 x 1}{\metre}. Additional challenges that
 are not counting towards the scoring of the competition are carried out on
-a \SI{7 x 8}{\metre} field instead (corresponding to halve the field of the
+a \SI{7 x 8}{\metre} field instead (corresponding to half the field of the
 regular \ac{RCLL} field).
-The field is a subset of the magenta-halve of the regular field as depicted
+The field is a subset of the magenta-half of the regular field as depicted
 in \reffig{fig:challenge-field}.
 
 \begin{figure}
@@ -183,7 +186,7 @@ physically perform the respective production steps. Instead, that work may
 be carried out by a human supervisor (see \refsec{sec:operators}).
 The minimum requirements for a mockup machine are specified in the following.
 
-Mockup machines are required to have the same box-like base-shape as specified
+Mockup machines are required to have the same box-like base shape as specified
 in the RCLL rulebook.
 Additionally, the following parts need to be mounted:
 \begin{itemize}
@@ -217,7 +220,8 @@ Each team can attempt a challenge by specifying a 30 minute time slot along
 with the challenge in advance of the respective competition day.
 The announcement procedure is managed by the \ac{OC}.
 Each slot can be used to do at most one challenge and is split in two phases:
-1. In the \texttt{SETUP} phase the participants ensure that
+\begin{enumerate}
+	\item In the \texttt{SETUP} phase the participants ensure that
 \begin{itemize}
 	\item the video stream is setup via Zoom,
 	\item the RefBox is started with the appropriate settings for the challenge,
@@ -226,11 +230,17 @@ Each slot can be used to do at most one challenge and is split in two phases:
 \end{itemize}
 The setup must be completed within 10 minutes, otherwise the attempt is counted
 as a failure.
-Then the \texttt{PRODUCTION} phase starts by instructing the RefBox accordingly.
-During the production phase the team has 20 minutes to solve the challenge.
+	\item Then the \texttt{PRODUCTION} phase starts by instructing the RefBox
+		accordingly. During the production phase the team has 20 minutes to solve
+		the challenge.
+\end{enumerate}
 
-A team may retry the challenge by setting the RefBox back to the setup phase
-and then starting the production phase again.
+A team may retry the challenge by
+\begin{enumerate}
+	\item setting the RefBox back to the setup phase
+	\item reesetting the field setup accordingly
+	\item and then starting the production phase again.
+\end{enumerate}
 Only the last attempt in each slot can be counted. A team may decide to count
 no attempt at all. Once a challenge is counted, it
 may not be retried again, unless the difficulty is increased.
@@ -246,8 +256,9 @@ so getting only partial credits for a challenge disqualifies from getting the
 bonus points for the fastest completion.
 
 \subsection{Changes compared to the Main Competition}
-The tasks covered in the various challenges mostly obey the regular rules
-for the \ac{RCLL}. However, some aspects are altered to simplify the setup.
+The tasks covered in the various challenges have to be executed following the
+regular rules for the \ac{RCLL}, unless stated otherwise.
+However, some aspects are altered to simplify the setup.
 The changes are not affecting existing machine communication and processing
 steps, such that the challenges can be carried out on real machines as well as
 on mockup versions obeying the requirements outlined in \refsec{sec:machines}.
@@ -310,7 +321,7 @@ The available material that can be used per challenge is restricted
 Unless specified otherwise, orders that have to be fulfilled in challenges
 are entered through the web shop
 (see the RefBox workshop in \refsec{sec:qualification})
-by any member of the competing team.
+by any member of the team.
 
 In challenges where only one \ac{RS} is present, teams are responsible to
 order products which can be assembled using the available stations only.
@@ -339,7 +350,7 @@ The challenge types of the competition are described in
 \refsec{sec:challenge-navigation}-\ref{sec:challenge-markerless}.
 
 The RefBox is used to log the progress and data for each challenge.
-Participating teams are required to send the corresponding game-report dumps
+Participating teams are required to send the corresponding game report dumps
 to the \ac{OC}.
 Once the competition is finished, $5$ bonus points are awarded each time a
 team solved a challenge on a difficulty in the shortest amount of time.
@@ -398,7 +409,7 @@ This challenge needs to be run by setting the RefBox to phase
 Simple grasping task.
 Each Machine has a base at output.
 Robots start at the zone in front of a machine output.\\
-\textbf{Task:} A robot brings a base from one machine's output back to it's
+\textbf{Task:} A robot brings a base from one machine's output back to its
 input. A human supervisor places it back to the output. Repeat until all
 products were placed at the respective machines input 3 times and all robots
 returned to their starting positions. \\
