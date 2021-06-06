@@ -1,11 +1,11 @@
-SOURCES = rulebook.tex challenges.tex
+TARGETS = rulebook challenges
 
-all: $(SOURCES:.tex=.pdf)
+all: $(addsuffix .pdf, $(TARGETS))
 
 %.pdf: %.tex
 	latexmk -pdf $<
 
-check: $(foreach curr_file,$(SOURCES), lint_$(curr_file) check-filetype_$(curr_file) check-trailing-whitespace_$(curr_file) check-line-length_$(curr_file))
+check: $(foreach curr_file,$(TARGETS), lint_$(curr_file) check-filetype_$(curr_file) check-trailing-whitespace_$(curr_file) check-line-length_$(curr_file))
 
 
 
@@ -21,9 +21,8 @@ chktex_ignore=24 44
 # maximum allowed length of a line
 linelength=80
 
-lint_%:
-	echo $@ $(lastword $(subst _, , $@))
-	@chktex -q $(foreach w,$(chktex_ignore),-n $w) $(lastword $(subst _, , $@)) | tee chktex.log
+lint_%: %.tex
+	@chktex -q $(foreach w,$(chktex_ignore),-n $w) $< | tee chktex.log
 	@bash -c '\
 		if [ -s chktex.log ] ; then \
 			echo "ERROR(lint): chktex found errors"; \
@@ -32,11 +31,11 @@ lint_%:
 			echo "lint: chktex passed!"; \
 		fi'
 
-check-filetype_%:
+check-filetype_%: %.tex
 	@bash -c '\
 		expected1="LaTeX 2e document, UTF-8 Unicode text"; \
 		expected2="LaTeX 2e document, ASCII text"; \
-		actual="$$(file -b $(lastword $(subst _, , $@)))"; \
+		actual="$$(file -b $<)"; \
 		if [[ "$$actual" != "$$expected1" && "$$actual" != "$$expected2" ]] ; then \
 			echo "ERROR: Unexpected filetype"; \
 			echo "Expected: $$expected1 or $$expected2"; \
@@ -46,9 +45,9 @@ check-filetype_%:
 			echo "check: filetype check passed!"; \
 		fi'
 
-check-trailing-whitespace_%:
+check-trailing-whitespace_%: %.tex
 	@bash -c '\
-		trailing=$$(grep -n "\s$$" $(lastword $(subst _, , $@))); \
+		trailing=$$(grep -n "\s$$" $<); \
 		if [ $$? -eq 0 ] ; then \
 			echo "Lines with trailing whitespace:"; \
 			echo "$$trailing"; \
@@ -58,9 +57,9 @@ check-trailing-whitespace_%:
 			echo "check: no trailing whitespaces, check passed!"; \
 		fi'
 
-check-line-length_%:
+check-line-length_%: %.tex
 	@bash -c '\
-		longlines=$$(grep -n -e "^..\{${linelength}\}" $(lastword $(subst _, , $@)) | grep -v -e "ignore-long-line"); \
+		longlines=$$(grep -n -e "^..\{${linelength}\}" $< | grep -v -e "ignore-long-line"); \
 		if [ $$? -eq 0 ] ; then \
 			echo "Lines with length > ${linelength}:"; \
 			echo "$$longlines"; \
