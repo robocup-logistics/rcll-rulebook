@@ -17,6 +17,42 @@
 \usepackage[table]{xcolor}
 
 \usepackage[binary-units=true]{siunitx}
+\usepackage{listings}
+
+\newcommand\YAMLcolonstyle{\color{red}\mdseries}
+\newcommand\YAMLkeystyle{\color{black}\bfseries}
+\newcommand\YAMLvaluestyle{\color{blue}\mdseries}
+
+\makeatletter
+% here is a macro expanding to the name of the language
+% (handy if you decide to change it further down the road)
+\newcommand\language@yaml{yaml}
+
+\expandafter\expandafter\expandafter\lstdefinelanguage
+\expandafter{\language@yaml}
+{
+  keywords={true,false,null,y,n},
+  keywordstyle=\color{darkgray}\bfseries,
+  basicstyle=\YAMLkeystyle,                                 % assuming a key comes first
+  sensitive=false,
+  comment=[l]{\#},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\YAMLvaluestyle\ttfamily,
+  moredelim=[l][\color{orange}]{\&},
+  moredelim=[l][\color{magenta}]{*},
+  moredelim=**[il][\YAMLcolonstyle{:}\YAMLvaluestyle]{:},   % switch to value style at :
+  morestring=[b]',
+  morestring=[b]",
+  literate =    {---}{{\ProcessThreeDashes}}3
+                {>}{{\textcolor{red}\textgreater}}1
+                {|}{{\textcolor{red}\textbar}}1
+                {\ -\ }{{\mdseries\ -\ }}3,
+}
+
+% switch to key style at EOL
+\lst@AddToHook{EveryLine}{\ifx\lst@language\language@yaml\YAMLkeystyle\fi}
+\makeatother
 %% HYPERREF %%%%%%%%%%%%%%%%%%%
 \usepackage{hyperref}
 \hypersetup{
@@ -46,7 +82,7 @@
 \newcommand{\reffig}[1]{Figure~\ref{#1}}
 \newcommand{\refdef}[1]{Definition~\ref{#1}}
 %\newcommand{\reflst}[1]{Listing~\ref{#1}}
-\newcommand{\reflst}[1]{Figure~\ref{#1}}
+\newcommand{\reflst}[1]{Listing~\ref{#1}}
 \newcommand{\reftab}[1]{Table~\ref{#1}}
 \usepackage{acronym}
 \acrodef{BS}{base station}
@@ -429,6 +465,24 @@ at least $i$ times.
 The placement of the machines on the field is fixed according to
 \reffig{fig:grasping-field}.
 
+In order to load the fixed field shown in \reffig{fig:grasping-field}, a
+corresponding game report \footnote{
+\url{https://github.com/robocup-logistics/rcll-refbox/blob/tviehmann/challenges-2021/benchmarks/grasping_challenge.gz}}
+can be restored in the RefBox using the supplied script.\footnote{
+\url{https://github.com/robocup-logistics/rcll-refbox/blob/tviehmann/challenges-2021/etc/scripts/restore_reports.bash}}
+In order to load the field setup, specify tha report to laod from and
+disable field randomization in the RefBox configuration as shown in
+\reflst{lst:restore-field}.
+ \begin{lstlisting}[language=yaml,basicstyle=\small,
+ caption={RefBox configuration to load grasping challenge field},
+ captionpos=b,
+ label={lst:restore-field}, frame=single]
+ random-field: false
+ ...
+ # load data from latest game report with a given name
+ # leave empty to always load from latest stored report
+ load-from-report: "GraspingChallenge"
+\end{lstlisting}
 \begin{table}[!htb]
 \centering
  \begin{tabular}{l|l|l}
