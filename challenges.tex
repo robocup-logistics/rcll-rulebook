@@ -520,16 +520,27 @@ $+20$ per challenge.
 %\end{table}
 
 
-\subsubsection{Markerless Detection Challenge}\label{sec:markerless}
+\subsubsection{Markerless Detection Challenge}\label{sec:challenge-markerless}
 Image recognition challenge to classify different machine types.\\
 \textbf{Task:} Autonomously label the machines shown in a set of pictures
 by their type.
 A picture may contain more than one machine, which all count towards the
-total number of machines to detect.\\
+total number of machines to detect. Labels must be placed on the machines
+within the picture. Machines are distinguished by their types
+(BS, CS, RS, DS, SS).\\
 As a preparation for this challenge, a data set will be supplied to
-all participants which may be used for training and testing purposes
-\footnote{\url{https://fh-aachen.sciebo.de/s/MRghypMQSMhTYaC}}.
-The evaluation set for the challenge consists of a set of separate images.
+all participants which may be used for training and testing
+purposes\footnote{\url{https://fh-aachen.sciebo.de/s/MRghypMQSMhTYaC}}.
+The evaluation set for the challenge consists of a set of separate images that
+is encrypted and distributed in advance of attempting the challenge.
+The password to decrypt the evaluation set is given out when the challenge
+is attempted.
+This challenge can only be attempted once to avoid improper use of the
+evaluation set.
+The points scored are calculated based on the relative amount of correctly
+and wrongly classified machines (across all types) according to
+\reftab{tab:challenge-markerless}. So a total amount of 30 points can be scored
+if all machines of all types are correctly classified.
 \begin{table}[!htb]
  \centering
  \begin{tabularx}{\linewidth}{l|l|l|l}
@@ -540,6 +551,10 @@ The evaluation set for the challenge consists of a set of separate images.
  \caption{Machine Detection Challenge}
  \label{tab:challenge-markerless}
 \end{table}
+
+In order to verify the labeling, each team must presents the labeled data
+within the time slot (e.g., via screen-sharing when participating remotely).
+Additionally, the labeled data has to be sent to the OC.
 
 \subsection{Challenges for the Secondary Competition}
 
