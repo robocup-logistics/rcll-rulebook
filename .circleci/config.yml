@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run:
           name: Build rulebook
-          command: make pdf
+          command: make
       - store_artifacts:
           path: rulebook.pdf
       - store_artifacts:
