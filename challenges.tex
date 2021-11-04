@@ -28,12 +28,13 @@
 % (handy if you decide to change it further down the road)
 \newcommand\language@yaml{yaml}
 
-\expandafter\expandafter\expandafter\lstdefinelanguage
+\expandafter\expandafter\expandafter\lstdefinelanguage%
 \expandafter{\language@yaml}
 {
   keywords={true,false,null,y,n},
   keywordstyle=\color{darkgray}\bfseries,
-  basicstyle=\YAMLkeystyle,                                 % assuming a key comes first
+	% assuming a key comes first
+  basicstyle=\YAMLkeystyle,
   sensitive=false,
   comment=[l]{\#},
   morecomment=[s]{/*}{*/},
@@ -41,9 +42,10 @@
   stringstyle=\YAMLvaluestyle\ttfamily,
   moredelim=[l][\color{orange}]{\&},
   moredelim=[l][\color{magenta}]{*},
-  moredelim=**[il][\YAMLcolonstyle{:}\YAMLvaluestyle]{:},   % switch to value style at :
+	% switch to value style at :
+  moredelim=**[il][\YAMLcolonstyle{:}\YAMLvaluestyle]{:},
   morestring=[b]',
-  morestring=[b]",
+  morestring=[b]", % chktex 18
   literate =    {---}{{\ProcessThreeDashes}}3
                 {>}{{\textcolor{red}\textgreater}}1
                 {|}{{\textcolor{red}\textbar}}1
@@ -146,7 +148,7 @@ The objectives of this new competition are:
        where teams can participate remotely from all over the world
 \end{itemize}
 This document is not self-sufficient, instead all the rules from the main
-rulebook\footnote{\url{https://github.com/robocup-logistics/rcll-rulebook/releases}}
+rulebook\footnote{\url{https://github.com/robocup-logistics/rcll-rulebook/releases}} % chktex ignore-long-line
 apply, unless stated otherwise.
 The proposed format is carried out at RoboCup 2021, which is held remotely.
 Hence the remainder of this document establishes the rules around the online
@@ -155,7 +157,7 @@ competition.
 \section{Qualification}
 \label{sec:qualification}
 In addition to the regular Qualification process, teams have to participate
-in a \href{https://fh-aachen.sciebo.de/s/Qkm7VfIIEIIJk1d}{RefBox workshop, see here}.
+in a RefBox workshop\footnote{\url{https://fh-aachen.sciebo.de/s/Qkm7VfIIEIIJk1d}} % chktex ignore-long-line
 To complete the workshop, a game report dump of at least two Challenges
 has to be submitted to the \acf{OC}.
 
@@ -166,10 +168,10 @@ For your challenges to count as completed and score points you need to submit
 	\item the recorded video footage
 	\item your game reports from the MongoDB
 \end{enumerate}
-to the OC.
+to the \ac{OC}.
 Your submission will not be counted if the footage shows human
 interference with the field, machines or robots outside of
-the specified rules in Section \ref{sec:operators}.
+the specified rules in Section~\ref{sec:operators}.
 
 \section{Competition Area}
 \subsection{Field Layout}
@@ -198,10 +200,14 @@ in \reffig{fig:challenge-field}.
 			\node[font=\tiny,anchor=north west, inner sep=1pt] at (\x,\y) {M\_Z\x\y};
 		}
 	}
-	\node at (0,0) [circle,fill,inner sep=1.5pt,label={[font=\scriptsize]-45:$(0,0)$}]{};
-	\node at (5,0) [circle,fill,inner sep=1.5pt,label={[font=\scriptsize]225:$(-5,0)$}]{};
-	\node at (5,5) [circle,fill,inner sep=1.5pt,label={[font=\scriptsize]135:$(-5,5)$}]{};
-	\node at (0,5) [circle,fill,inner sep=1.5pt,label={[font=\scriptsize]45:$(0,5)$}]{};
+	\node at (0,0) [circle,fill,inner sep=1.5pt,
+		label={[font=\scriptsize]-45:$(0,0)$}]{};
+	\node at (5,0) [circle,fill,inner sep=1.5pt,
+		label={[font=\scriptsize]225:$(-5,0)$}]{};
+	\node at (5,5) [circle,fill,inner sep=1.5pt,
+		label={[font=\scriptsize]135:$(-5,5)$}]{};
+	\node at (0,5) [circle,fill,inner sep=1.5pt,
+		label={[font=\scriptsize]45:$(0,5)$}]{};
 	\draw[line width=2pt,red,->] (0,0) -- node[above left,pos=1] {$x$} (-1.5,0);
 	\draw[line width=2pt,red,->] (0,0) -- node[below left,pos=1] {$y$} (0,1.5);
 \end{tikzpicture}
@@ -233,12 +239,14 @@ in the RCLL rulebook.
 Additionally, the following parts need to be mounted:
 \begin{itemize}
 	\item a model of the conveyor belt
-	\item a shelf on the front right side of the box on stations replicating a \ac{CS}
+	\item a shelf on the front right side of the box on stations replicating a
+		\ac{CS}
 	\item either a shelf, a slide or a conveyor belt on the front right side
-of the box, such that it is accessible from the front on stations replicating a \ac{RS}
+of the box, such that it is accessible from the front on stations replicating a
+		\ac{RS}
 \end{itemize}
 Models for a conveyor belt, shelf and slides can be found in the RCLL rulebook
-repository\footnote{\url{https://github.com/robocup-logistics/rcll-rulebook/tree/common/challenges/mock_up_models}}.
+repository\footnote{\url{https://github.com/robocup-logistics/rcll-rulebook/tree/common/challenges/mock_up_models}}. % chktex ignore-long-line
 
 The building materials for the models must be opaque, but may have any color.
 
@@ -256,8 +264,8 @@ After registration the \ac{OC} will verify the field setup in a video call.
 The validation call will be scheduled individually for each team
 to account for timezones.
 
-When challenges are played remotely, a video recording of the live-stream(s)
-hast to be sent to the OC.
+When challenges are played remotely, a video recording of the live-streams
+hast to be sent to the \ac{OC}.
 
 \section{Game Play}
 \subsection{Competition Scope}
@@ -466,10 +474,8 @@ The placement of the machines on the field is fixed according to
 \reffig{fig:grasping-field}.
 
 In order to load the fixed field shown in \reffig{fig:grasping-field}, a
-corresponding game report \footnote{
-\url{https://github.com/robocup-logistics/rcll-refbox/blob/tviehmann/challenges-2021/benchmarks/grasping_challenge.gz}}
-can be restored in the RefBox using the supplied script.\footnote{
-\url{https://github.com/robocup-logistics/rcll-refbox/blob/tviehmann/challenges-2021/etc/scripts/restore_reports.bash}}
+corresponding game report\footnote{\url{https://github.com/robocup-logistics/rcll-refbox/blob/tviehmann/challenges-2021/benchmarks/grasping_challenge.gz}} % chktex ignore-long-line
+can be restored in the RefBox using the supplied script.\footnote{\url{https://github.com/robocup-logistics/rcll-refbox/blob/tviehmann/challenges-2021/etc/scripts/restore_reports.bash}} % chktex ignore-long-line
 In order to load the field setup, specify tha report to laod from and
 disable field randomization in the RefBox configuration as shown in
 \reflst{lst:restore-field}.
@@ -513,11 +519,14 @@ disable field randomization in the RefBox configuration as shown in
 		}
 	}
 		\node at (4.5,1.5) [circle,fill=magenta, draw=black,inner sep=0.2cm] {};
-		\node at (4.5,2.5) [rectangle,fill=green!30!white, draw=black,inner sep=0.1pt,align=center,font=\tiny] {input\\output};
+		\node at (4.5,2.5) [rectangle,fill=green!30!white, draw=black,
+			inner sep=0.1pt,align=center,font=\tiny] {input\\output};
 		\node at (0.5,0.5) [circle,fill=magenta, draw=black,inner sep=0.2cm] {};
-		\node at (0.5,1.5) [rectangle,fill=green!30!white, draw=black,inner sep=0.1pt,align=center,font=\tiny] {input\\output};
+		\node at (0.5,1.5) [rectangle,fill=green!30!white, draw=black,
+			inner sep=0.1pt,align=center,font=\tiny] {input\\output};
 		\node at (0.5,4.5) [circle,fill=magenta, draw=black,inner sep=0.2cm] {};
-		\node at (1.5,4.5) [rectangle,fill=green!30!white, draw=black,inner sep=0.1pt,align=center,font=\tiny,rotate=90] {input\\output};
+		\node at (1.5,4.5) [rectangle,fill=green!30!white, draw=black,
+			inner sep=0.1pt,align=center,font=\tiny,rotate=90] {input\\output};
 
 \end{tikzpicture}
 \caption{Starting configuration for the grasping challenge.
@@ -551,7 +560,7 @@ rings must be equal to 1, 2 and 3, respectively.
  \label{tab:challenge-cx}
 \end{table}
 
-\subsubsection{Exploration + Production Challenges}\label{sec:challenge-combine-exp-c0}
+\subsubsection{Exploration + Production Challenges}\label{sec:challenge-combine-exp-c0} % chktex ignore-long-line
 The same challenge as in \refsec{sec:challenge-cx} but without receiving the
 machine positions. Hence exploration and production takes place concurrently.
 The same point scores as in \reffig{tab:challenge-cx} apply with an additional
@@ -614,7 +623,7 @@ if all machines of all types are correctly classified.
 
 In order to verify the labeling, each team must presents the labeled data
 within the time slot (e.g., via screen-sharing when participating remotely).
-Additionally, the labeled data has to be sent to the OC.
+Additionally, the labeled data has to be sent to the \ac{OC}.
 
 \subsection{Challenges for the Secondary Competition}
 
