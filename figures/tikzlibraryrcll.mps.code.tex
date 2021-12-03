@@ -1,0 +1,215 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Tikz library to draw MPS machines from the RoboCup Logistics League
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ProvidesFileRCS{tikzlibraryrcll.mps.code.tex}
+\usetikzlibrary{calc}
+\makeatletter
+\newcommand{\rcllProvideLength}[2]{%
+  \@ifundefined{\expandafter\@gobble\string#1}
+   {% if #1 is undefined, do \newlength
+    \newlength{#1}%
+    \setlength{#1}{#2}
+   }
+   {%
+   }%
+}
+\makeatother
+% if you wish to tweak these parameters, use \setlength before loading
+% this tikz library
+\rcllProvideLength{\rcllCellWidth}{2cm}
+\rcllProvideLength{\rcllWpDiameter}{0.06\rcllCellWidth}
+\rcllProvideLength{\rcllConveyorWidth}{1.2\rcllWpDiameter}
+\rcllProvideLength{\rcllMpsWidth}{0.3\rcllCellWidth}
+\rcllProvideLength{\rcllMpsLength}{0.7\rcllCellWidth}
+
+\tikzset{
+	rcllMPSstyle/.style={
+		rectangle, draw=black,
+		inner sep=0.1pt,align=center, minimum height=\rcllMpsLength,
+		minimum width=\rcllMpsWidth
+	},
+	mpssidelabel/.style={font=\scriptsize, inner sep=0.5pt},
+	rcllmetallic/.style={
+		left color = black!50, right color = black!40,
+		 middle color = black!25, top color = black!22
+	 },
+	rcllMPS/.pic={
+		\coordinate coordinate(-center) at (0,0);
+		\node[transform shape,rcllMPSstyle] (-mps) {};
+	},
+	pics/rcllConveyorCone/.style={code={
+		\fill[blue!50!black]([yshift=0.5*1.3\rcllWpDiameter] #1.east)
+			-- ([yshift=-0.5*1.3\rcllWpDiameter] #1.east)
+			-- ([xshift=0.5\rcllWpDiameter,yshift=-0.5*1.1\rcllWpDiameter] #1.east)
+			-- ([xshift=0.5\rcllWpDiameter,yshift=0.5*1.1\rcllWpDiameter] #1.east) -- cycle;
+		\draw[line width=1.1\rcllWpDiameter,blue] (#1.east)
+			-- ([xshift=0.5*\rcllWpDiameter] #1.east);
+	}},
+	pics/rcllConveyor/.style={code={
+		% trick to make the actual label invariant to rotation:
+		% Rotate an empty node and use a label with relative position and without
+		% rotated content
+		\node[transform shape, anchor=east,mpssidelabel,
+		      label={[mpssidelabel,transform shape=false]left:\texttt{Out}}]
+		      at ([xshift=-0.5\rcllWpDiameter]#1.west) {};
+		\node[transform shape, anchor=west,mpssidelabel,
+		      label={[mpssidelabel,transform shape=false]right:\texttt{In}}]
+		      at ([xshift=\rcllWpDiameter]#1.east) {};
+		\draw[line width=1.3*\rcllWpDiameter,gray!70!white] (#1.east) -- (#1.west);
+		\draw[line width=1.1*\rcllWpDiameter] (#1.east) -- (#1.west);
+		\draw pic {rcllConveyorCone={#1}};
+	}},
+	pics/rcllInputConveyor/.style={code={
+		\node[transform shape, anchor=west,mpssidelabel,
+		      label={[mpssidelabel,transform shape=false]right:\texttt{In}}]
+		      at ([xshift=\rcllWpDiameter]#1.east) {};
+		\draw[line width=1.3\rcllWpDiameter,gray!70!white] (#1.east)
+			-- ([xshift=0.5*\rcllWpDiameter] #1.west);
+		\draw[line width=1.1\rcllWpDiameter] (#1.east)
+			-- ([xshift=0.5*\rcllWpDiameter] #1.west);
+		\draw pic {rcllConveyorCone={#1}};
+	}},
+	rcllBS/.pic={
+		\path (0,0) pic[transform shape] (BS) {rcllMPS};
+		\draw pic[transform shape] {rcllConveyor={BS-mps}};
+		\draw[rcllmetallic,line width=0.5pt]
+			([xshift=0.2\rcllMpsWidth-0.6\rcllWpDiameter,
+			  yshift=0.5*\rcllConveyorWidth+0.4\rcllWpDiameter]
+			  BS-mps.center) rectangle ++(1.2\rcllWpDiameter,1.2\rcllWpDiameter);
+		\draw[rcllmetallic,line width=0.5pt]
+			([xshift=-0.2\rcllMpsWidth-0.6\rcllWpDiameter,
+			  yshift=0.5*\rcllConveyorWidth+0.4\rcllWpDiameter]
+			  BS-mps.center) rectangle ++(1.2\rcllWpDiameter,1.2\rcllWpDiameter);
+		\draw[rcllmetallic,line width=0.5pt]
+			([xshift=-0.1\rcllWpDiameter,
+			  yshift=-0.5*\rcllConveyorWidth-1.6\rcllWpDiameter]
+			BS-mps.center) rectangle ++(1.2\rcllWpDiameter,1.2\rcllWpDiameter);
+		\fill[red!50!black]
+			([xshift=0.2\rcllMpsWidth,
+			  yshift=0.5*\rcllConveyorWidth+\rcllWpDiameter]
+			  BS-mps.center) circle (0.5*\rcllWpDiameter);
+		\fill[red]
+			([xshift=0.2\rcllMpsWidth,
+			  yshift=0.5*\rcllConveyorWidth+\rcllWpDiameter]
+			  BS-mps.center) circle (0.4*\rcllWpDiameter);
+		\fill[black!70!white]
+			([xshift=-0.2\rcllMpsWidth,
+			  yshift=0.5*\rcllConveyorWidth+\rcllWpDiameter]
+			  BS-mps.center) circle (0.5*\rcllWpDiameter);
+		\fill[black]
+			([xshift=-0.2\rcllMpsWidth,
+			  yshift=0.5*\rcllConveyorWidth+\rcllWpDiameter]
+			  BS-mps.center) circle (0.4*\rcllWpDiameter);
+		\fill[black!50!white]
+			([yshift=-0.5*\rcllConveyorWidth-1\rcllWpDiameter,
+			  xshift=0.5\rcllWpDiameter]
+			  BS-mps.center) circle (0.5*\rcllWpDiameter);
+		\fill[rcllmetallic]
+			([yshift=-0.5*\rcllConveyorWidth-1\rcllWpDiameter,
+			  xshift=0.5\rcllWpDiameter]
+			  BS-mps.center) circle (0.4*\rcllWpDiameter);
+	},
+	pics/rcllCS/.style={code={
+		\path (0,0) pic[transform shape] (CS) {rcllMPS};
+		\draw pic[transform shape] {rcllConveyor={CS-mps}};
+		\draw[rcllmetallic,rotate=15]
+			([xshift=0.5\rcllWpDiameter,
+			  yshift=-0.5\rcllConveyorWidth-0.5\rcllWpDiameter]
+			  CS-mps.center) rectangle ++(-\rcllWpDiameter,-2*\rcllWpDiameter);
+		\draw[rcllmetallic,draw=black]
+			(CS-mps.north east) rectangle ++ (-2.5*\rcllWpDiameter,-3.5\rcllWpDiameter);
+		\foreach \i in {1,2,3} {
+			\fill[black] ([xshift=-0.75\rcllWpDiameter,
+			            yshift=0.2*\rcllWpDiameter-\i\rcllWpDiameter]
+			            CS-mps.north east) circle (0.5*\rcllWpDiameter);
+			\fill[#1] ([xshift=-0.75\rcllWpDiameter,
+			            yshift=0.2*\rcllWpDiameter-\i\rcllWpDiameter]
+			            CS-mps.north east) circle (0.4*\rcllWpDiameter);
+		}
+	}},
+	pics/rcllCS/.default={black},
+	pics/rcllRS/.style 2 args={code={
+		\path (0,0) pic[transform shape] (RS) {rcllMPS};
+		\draw pic[transform shape] {rcllConveyor={RS-mps}};
+		\draw[rcllmetallic,rotate=5]
+			([xshift=1.4\rcllWpDiameter,
+			  yshift=-0.5\rcllConveyorWidth-0.3\rcllWpDiameter]
+			  RS-mps.center) rectangle ++(-1.2\rcllWpDiameter,-3.2\rcllWpDiameter);
+		\draw[rcllmetallic,rotate=5]
+			([xshift=0\rcllWpDiameter,
+			  yshift=-0.5\rcllConveyorWidth-0.3\rcllWpDiameter]
+			  RS-mps.center) rectangle ++(-1.2\rcllWpDiameter,-3.2\rcllWpDiameter);
+		\draw[rcllmetallic]
+			([xshift=-0.5*\rcllWpDiameter,
+			  yshift=-\rcllWpDiameter]
+			  RS-mps.north east) rectangle ++ (-2*\rcllWpDiameter,-1.2\rcllWpDiameter);
+		\foreach \i in {1,2,3} {
+			\fill[rotate=5,#1!50!black]
+				([xshift=0.8\rcllWpDiameter,
+				  yshift=-0.5\rcllConveyorWidth+0.1\rcllWpDiameter-\i\rcllWpDiameter]
+				  RS-mps.center) circle (0.5\rcllWpDiameter);
+			\fill[rotate=5,#1]
+				([xshift=0.8\rcllWpDiameter,
+				  yshift=-0.5\rcllConveyorWidth+0.1\rcllWpDiameter-\i\rcllWpDiameter]
+				  RS-mps.center) circle (0.4\rcllWpDiameter);
+			\fill[rotate=5,#2!50!black]
+				([xshift=-0.6\rcllWpDiameter,
+				  yshift=-0.5\rcllConveyorWidth+0.1\rcllWpDiameter-\i\rcllWpDiameter]
+				  RS-mps.center) circle (0.5\rcllWpDiameter);
+			\fill[rotate=5,#2]
+				([xshift=-0.6\rcllWpDiameter,
+				  yshift=-0.5\rcllConveyorWidth+0.1\rcllWpDiameter-\i\rcllWpDiameter]
+				  RS-mps.center) circle (0.4\rcllWpDiameter);
+		}
+	}},
+	pics/rcllRS/.default={green!80!black}{orange},
+	rcllSS/.pic={
+		\path (0,0) pic[transform shape] (SS) {rcllMPS};
+		\draw pic[transform shape] {rcllConveyor={SS-mps}};
+		\draw[rcllmetallic]
+			([xshift=0.5\rcllWpDiameter,
+			  yshift=-0.5\rcllConveyorWidth-0.5\rcllWpDiameter]
+			  SS-mps.west)
+			-- ([xshift=-0.5\rcllWpDiameter,
+			     yshift=-0.5\rcllConveyorWidth-0.5\rcllWpDiameter]
+			     SS-mps.east)
+			-- ([xshift=-0.5\rcllWpDiameter,
+			     yshift=-0.5\rcllConveyorWidth-2.5\rcllWpDiameter]
+			     SS-mps.east)
+			-- ([xshift=0.5\rcllWpDiameter,
+			     yshift=-0.5\rcllConveyorWidth-2.5\rcllWpDiameter]
+			     SS-mps.west) -- cycle;
+		\foreach \i in {0.167,0.333,0.5,0.667,0.833} {
+			\draw ($([xshift=-0.5\rcllWpDiameter,
+			          yshift=-0.5\rcllConveyorWidth-0.5\rcllWpDiameter]
+			          SS-mps.east)
+			      !\i!
+			      ([xshift=0.5\rcllWpDiameter,
+			        yshift=-0.5\rcllConveyorWidth-0.5\rcllWpDiameter]
+			        SS-mps.west)$) --++ ([yshift=-2\rcllWpDiameter]0,0);
+		}
+		\draw ([xshift=-0.5\rcllWpDiameter,
+		        yshift=-0.5\rcllConveyorWidth-1.5\rcllWpDiameter]
+		        SS-mps.east)
+			-- ([xshift=0.5\rcllWpDiameter,
+			     yshift=-0.5\rcllConveyorWidth-1.5\rcllWpDiameter]
+			     SS-mps.west);
+	},
+	rcllDS/.pic={
+		\path (0,0) pic[transform shape] (DS) {rcllMPS};
+		\draw pic[transform shape] {rcllInputConveyor={DS-mps}};
+		\draw[rcllmetallic]
+			([xshift=1.7*\rcllWpDiameter,
+			  yshift=-0.5\rcllConveyorWidth]
+			  DS-mps.center) rectangle ++(-\rcllWpDiameter,-2*\rcllWpDiameter);
+		\draw[rcllmetallic]
+			([xshift=0.5*\rcllWpDiameter,
+			  yshift=-0.5\rcllConveyorWidth]
+			  DS-mps.center) rectangle ++(-\rcllWpDiameter,-2*\rcllWpDiameter);
+		\draw[rcllmetallic]
+			([xshift=-0.7*\rcllWpDiameter,
+			  yshift=-0.5\rcllConveyorWidth]
+			  DS-mps.center) rectangle ++(-\rcllWpDiameter,-2*\rcllWpDiameter);
+	}
+}

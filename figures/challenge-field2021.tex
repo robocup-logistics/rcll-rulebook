@@ -1,0 +1,128 @@
+\documentclass{standalone}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{siunitx}
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+% tweak rcll.mps library
+\newlength{\rcllCellWidth}
+\setlength{\rcllCellWidth}{2cm}
+% also look for local tikzlibrary
+\def\pgfutil@InputIfFileExists#1#2#3{\pgfutil@IfFileExists{\tikz@library@directory #1}
+    {\input \tikz@library@directory #1\relax#2}
+    {#3}}%
+% load rcll.mps library
+\usetikzlibrary{rcll.mps}
+\colorlet{mps-cyan}{cyan!30!white}
+\colorlet{mps-magenta}{magenta!30!white}
+\colorlet{insertion-col}{gray!50!white}
+\colorlet{blocked-col}{black!10!white}
+\colorlet{insertion-blocked-col}{red!30!white}
+% control shading speed
+\makeatletter
+\tikzset{
+    fading speed/.code={
+        \pgfmathtruncatemacro\tikz@startshading{50-(100-#1)*0.25}
+        \pgfmathtruncatemacro\tikz@endshading{50+(100-#1)*0.25}
+        \pgfdeclareverticalshading[%
+            tikz@axis@top,tikz@axis@middle,tikz@axis@bottom%
+        ]{axis#1}{100bp}{%
+            color(0bp)=(tikz@axis@bottom);
+            color(\tikz@startshading)=(tikz@axis@bottom);
+            color(50bp)=(tikz@axis@middle);
+            color(\tikz@endshading)=(tikz@axis@top);
+            color(100bp)=(tikz@axis@top)
+        }
+        \tikzset{shading=axis#1}
+    }
+}
+\makeatother
+
+\newcommand{\rotationLabel}[2]{
+	\node[anchor=south east,inner sep=2pt,font=\scriptsize] at
+		([xshift=0.5\rcllCellWidth,
+		  yshift=-0.5\rcllCellWidth] #1) {\ang{#2}};
+}
+\tikzset{twocolored/.style={shading = axis, left color=mps-cyan, right color=mps-magenta, fading speed=70}}
+\begin{document}
+\begin{tikzpicture}[x=\rcllCellWidth,y=\rcllCellWidth]
+	\begin{pgfonlayer}{background}
+	% insertion zone
+	\fill[insertion-col] (-2,0) rectangle (-5,1);
+	\end{pgfonlayer}
+	% zone coordinates and names
+	\foreach \x in {1,...,5} {
+		\foreach \y in {1,...,5} {
+			\coordinate (M-Z\x\y) at ($(-\x,\y)-(-0.5,0.5)$);
+			\node[font=\scriptsize,anchor=north west, inner sep=2pt] at (-\x,\y) {M\_Z\x\y};
+		}
+	}
+	% grid
+	\foreach \x in {0,...,5} {
+		\draw (-\x,0) -- (-\x,5);
+		\foreach \y in {0,...,5} {
+			\draw (-\x,\y) -- (0,\y);
+		}
+	}
+	% walls
+	\draw[line width=2pt,blue!80!black] (-2,1) -- (-2,0) -- (-5,0);
+	\draw[line width=2pt,blue!80!black] (-3,1) -- (-5,1) -- (-5,2);
+	\draw[line width=2pt,blue!80!black] (-1.5,0) -- (0,0) -- (0,1.5);
+	\draw[line width=2pt,blue!80!black] (0,3.5) -- (0,5) -- (-1.5,5);
+	\draw[line width=2pt,blue!80!black] (-5,3.5) -- (-5,5) -- (-3.5,5);
+	% insertion zone labels
+	\node at (-3.5,0.1) [anchor=south, inner sep=0pt,fill=insertion-col] {Insertion Zone};
+	% axes
+	\draw[-stealth, line width=2pt,red!80!black] (0,0) -- (1.5,0) node [pos=1,anchor=north west] {$x$};
+	\draw[-stealth, line width=2pt,red!80!black] (0,0) -- (0,1.5) node [pos=1,anchor=south west] {$y$};
+	% coordinate values
+	\node at (0,0) [circle,fill,inner sep=1.5pt,
+		label={[font=\scriptsize]-90:$(0,0)$}]{};
+	\node at (-5,0) [circle,fill,inner sep=1.5pt,
+		label={[font=\scriptsize]-90:$(-5,0)$}]{};
+	\node at (0,5) [circle,fill,inner sep=1.5pt,
+		label={[font=\scriptsize]90:$(0,5)$}]{};
+	\node at (-5,5) [circle,fill,inner sep=1.5pt,
+		label={[font=\scriptsize]90:$(-5,5)$}]{};
+	% insertion zone robots
+	\foreach \insertion in {31,41,51} {
+		\node at (M-Z\insertion) [circle,fill=magenta, draw=black,minimum width=0.6\rcllMpsLength] {};
+		\begin{scope}[shift={(M-Z\insertion)}]
+			\fill[cyan,draw=black] (0,0) -- (45:0.3\rcllMpsLength) arc (45:225:0.3\rcllMpsLength) -- cycle;
+		 \end{scope}
+	}
+	% mps placement
+	\begin{scope}[rcllMPSstyle/.append style={twocolored}]
+		\path (M-Z12) pic[rotate=90, rcllMPSstyle/.append style={shading angle=25}]
+			(MBS) {rcllBS};
+		\rotationLabel{M-Z12}{90};
+		\path (M-Z53) pic[rotate=90, rcllMPSstyle/.append style={shading angle=25}]
+			(MCS1) {rcllCS={gray!50!white}};
+		\rotationLabel{M-Z53}{90};
+		\path (M-Z45) pic[rotate=0, rcllMPSstyle/.append style={shading angle=295}]
+			(MRS1) {rcllRS={yellow}{blue}};
+		\rotationLabel{M-Z45}{0};
+	\end{scope}
+	% field dimensions
+	\draw[line width=2pt, stealth-stealth] (-5,5.3) --
+		node[midway, fill=white, font=\scriptsize] {\SI{5}{\metre}}(0,5.3);
+	\draw[line width=2pt, stealth-stealth] (-5.3,0) --
+		node[midway, fill=white, font=\scriptsize] {\SI{5}{\metre}}(-5.3,5);
+	% blocked zones
+	\begin{pgfonlayer}{background}
+		\foreach \reserved in {%
+			11,13,% BS
+			52,54,% CS1
+			35, 55% RS1
+			} {
+			\begin{scope}[shift={(M-Z\reserved)}]
+				\fill[fill=blocked-col] (-0.5,-0.5) rectangle (0.5,0.5);
+			\end{scope}
+		}
+		% insertion zone
+		\begin{scope}[shift={(M-Z32)}]
+			\fill[fill=insertion-blocked-col] (-0.5,-0.5) rectangle (0.5,0.5);
+		\end{scope}
+	\end{pgfonlayer}
+\end{tikzpicture}
+\end{document}
