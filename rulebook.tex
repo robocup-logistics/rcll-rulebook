@@ -932,265 +932,7 @@ position on all machines in a best effort fashion, but teams should expect
 slight deviations to their exact position.
 They markers are available for printing on the RoboCup Logistics website.
 
-\subsubsection{MPS --- During Exploration Phase}
-\label{sec:production-machines-exp}
-During the exploration phase the robots of each team must explore the
-unknown factory environment to identify where the different MPS are
-located and in which rotations they are positioned.
-
-The Referee Box assigns each machine to a team and a zone
-(\reffig{fig:competition-area}) at the start of the exploration
-phase,\footnote{Since 2017 there are no more fixed stations.}
-The zones and orientations (in steps of 45$^\circ$) are randomly determined,
-and will not be communicated until the production phase. For details about the
-Exploration Phase confer~\refsec{sec:exploration-phase}.
-
-The signal light of the MPS will show a yellow light until a report regarding
-this machine is sent.  If the wrong MPS zone is sent, the light will start red
-flashing.  If only the MPS zone is sent, the green light will be turn on.  If
-the zone and rotation is correctly reported, the green light will be flashing
-and if the zone is correct but the rotation wrongly reported the red and green
-light will be on.
-
-\begin{table}[bt]
-  \centering
-  \mytable{\begin{tabularx}{\linewidth}{p{0.36\linewidth}|X}
-      \multicolumn{1}{l}{Optical Feedback}
-      & \multicolumn{1}{l}{Operating mode}
-      \\
-      \hline
-      All LEDs turned off
-      & The machine is physically offline, caused by a real error, which should
-        not happen during the competition.
-      \\
-      Red LED turned on & The machine is out of order. \\
-      %Red LED flashing (at 2 Hz)
-      %& Machine signals that it ran out of stock on any required item. \\
-      Green LED turned on & The machine is idle and ready.\\
-      Green LED flashing & The machine has accepted the prepare command
-      (flashes for up to 3 seconds).\\
-      Green and yellow LED turned on & The machine is currently busy.\\
-      Yellow LED turned on & A workpiece is ready for pickup.\\
-      Red and yellow LED flashing (2 Hz) & Machine is broken, for
-      example because a product was fed without proper preparation of the
-      machine.\\%\hline
-%%keep Red any Yellow one?
-	\end{tabularx}}
-  \caption{MPS --- Optical Feedback during production phase}
-  \label{tab:production-machines-feedback}
-\end{table}
-
 \vspace*{-2mm}
-\subsubsection{MPS --- During Production Phase}
-\label{sec:production-machines-production}
-In the production phase a production machine performs refinement steps on
-a product such as mounting an additional ring or a cap. Machines
-operate in a transaction style. That is, before using a machine it
-must be prepared for a specific mode. Then the input products can be fed
-into the machine and the refinement step commences. Eventually, after
-the production period is completed, the resulting product is delivered
-on the output lane.
-
-A light signal mounted near the output lane
-(cf. \refsec{sec:machines}) indicates the state of the machine. In the
-default operating mode, the green light is turned on. This signals
-that the machine is ready for preparation. When preparation is performed,
-the machine will flash the green light for up to 3 seconds (it
-immediately switches to a new state, e.g., if a product is fed into the
-machine before the three seconds have expired). When a product is fed
-to the input, the signal light indicates the processing condition. If
-the machine accepts the input and starts processing, the green and yellow lights
-will be turned on steadily for as long as the processing is
-performed. Once processing completes, the signal light switches to a
-steady yellow light. If a product is fed for which additional bases
-were required but which have not been delivered, the machine will
-flash the red and yellow light and will be out of order
-(cf. \refsec{sec:broken-machine}). The light signals are summarized in
-\reftab{tab:production-machines-feedback}.
-
-In the production phase, machines must be prepared to be used. This
-applies to all machine types.
-If a product from the input is required for the processing step (DS, CS, RS and
-a storage operation at the SS), then the conveyor belt is started
-after receiving a prepare message. If no workpiece reaches the
-machine operating point (indicated through the middle belt sensor)
-within \SI{45}{\second}, the machine goes to a temporary out-of-order
-state (cf.~\refsec{sec:broken-machine}).
-The BS and the retrieval operation at the SS cause
-the requested workpiece to be dispensed upon receiving a prepare message.
-After performing an operation at the BS, CS, RS or the SS (in case of a
-retrieval) the conveyor belt is started. If no workpiece reaches the destination
-point (indicated through the output belt sensor, or in case of the BS either
-the input or output belt sensor) within \SI{90}{\second}, the machine goes in a
-temporary out-of-order state (cf.~\refsec{sec:broken-machine}).
-The workpiece may remain on the machine for an arbitrary time after the
-operation is completed.
-
-The following describes the communication and reactions of the
-machines during the production phase. For the actual messages we refer
-to the integrator's manual~\cite{RefBoxIntManual}.
-
-\smallskip
-
-\noindent\textbf{BS}
-The BS prepare message denotes the color of the base element that should
-be dispensed. After receiving the message, the refbox will instruct
-the MPS to immediately provide a base of the desired color.
-
-\noindent\textbf{DS}
-The DS prepare message denotes the order ID of the product that is delivered.
-The DS will consume any workpiece provided, but points can only be scored if the
-DS has been properly prepared.
-
-\noindent\textbf{CS}
-The CS prepare message initiates either the retrieval or the mounting of
-a cap. For retrieving a prepared base (with a cap mounted on top) from
-the machine's shelf must be fed into the machine. All base elements
-prepared on the shelf are specially colored workpieces (clear). The
-machine will take the cap off the base and buffer it on the slide,
-releasing the decapped base to the output side. This base can only be
-used for providing an additional base to an RS (see below), reuse by
-placing it back on the shelf, or discarding it at the DS\@.  For
-mounting a cap, a workpiece (without cap) must be provided onto which
-the cap is mounted.
-
-\noindent\textbf{RS}
-The RS prepare message must state which of the two colors to prepare and
-retrieve. Each RS is responsible for two specific colors. Some colors
-require loading the RS with additional bases
-(cf.~\refsec{sec:production-plan}). If the desired color requires
-additional bases (cf.~\refsec{sec:production-complexities}), the
-machine expects to receive them first. Once the required number of
-additional bases has been received, the intermediate product can be
-fed into the machine. It receives a ring of the desired color and
-moves the processed product to the output.
-
-\noindent\textbf{SS}
-The SS prepare message denotes the storage place (shelf and slot number) and
-the type of the operation that should be performed.
-The SS consists of six shelves with eight slots each. \reffig{fig:ss-shelf}
-depicts how positions are mapped to their respective shelf and slot numbers
-$(x,y),x\in[0,5],y\in[0,7]$.
-Accessing a slot $(x,y), y\in\{1,3,5,7\}$ in the back of a shelf while slot
-$(x,y-1)$ is occupied causes the SS to relocate the product at $(x,y-1)$ to a
-randomly chosen accessible position before processing the instruction.
-If all other free positions are located in the back and
-are also blocked by products stored in front of them, then one of those free
-positions $(x^\prime,y^\prime)$ is chosen and
-$(x^\prime,y^\prime-1)$ is relocated to $(x^\prime,y^\prime)$, before
-relocating $(x,y-1)$ to $(x^\prime,y^\prime)$.
-Descriptions can be added to the prepare messages when storing workpieces.
-These descriptions are attached to the position of the workpiece and updated
-automatically when relocating operations happen.
-Each team receives the storage status for their respective SS
-periodically, including the corresponding descriptions at each position.
-Positions and configurations of pre-stored products are also announced through
-storage status messages.
-Note the costs for using the SS outlined in \refsec{sec:production-scoring}.
-
-
-\begin{figure}[ht]
-  \centering
-    \includegraphics{figures/storage-shelf.pdf}
-    \caption{The bottom-most SS shelf. Position $(x,y)$ consists of
-      shelf number $x$ and slot number $y$.
-    Shelves are numbered in ascending order from bottom to top.}
-    \label{fig:ss-shelf}
-\end{figure}
-
-\medskip
-The preparation and use of a machine follows a transaction style. Once the
-machine has been prepared, the full cycle can be completed (committed).
-There may be only one transaction running at a time. If a
-second preparation is performed the machine will
-be temporarily broken (cf.~\refsec{sec:broken-machine}).
-
-An MPS may be reset by a team at any time by a dedicated msg (see
-referee box Integrator's Manual~\cite{RefBoxIntManual}). This causes
-the MPS to go into the broken state
-(cf.~\refsec{sec:broken-machine}). It allows teams to recover machines
-after handling errors (which the robots must recognize themselves).
-
-\subsection{Products and Workpieces}
-\label{sec:products}
-Workpieces denote raw material and intermediate stages during
-production. These are also named products with emphasis on the
-finished product that can be delivered. For product complexities refer
-to \refsec{sec:production-complexities}, for the compilation of the
-production plan to \refsec{sec:production-plan}.
-
-\begin{figure}[ht]
-  \centering
-  \subfigure[Workpiece base elements and caps.]{
-    \label{fig:workpieces-base-elements}%
-    \centering
-    \includegraphics[height=5cm]{figures/workpieces}
-  }
-  \quad
-  %
-  \subfigure[Renderings of intermediate rings (rings are colored in
-  competition).]{
-    \label{fig:workpieces-rings}%
-    \centering
-    \hspace{6mm}
-    \includegraphics[height=3cm]{figures/rings}
-    \hspace{6mm}
-  }
-  \quad
-  \subfigure[Product example]{\label{fig:product-example}%
-    \includegraphics{products/c1_red_blue_black}
-  }
-  \caption{Workpiece elements and product example.}
-  \label{fig:workpieces}
-\end{figure}
-
-\noindent
-The workpieces consist of the following elements:
-\begin{description}
-\item[Base] The base is the lowermost element in each production.
-  Bases are dispensed by the base station (BS) and bases with mounted
-  caps are available on the cap stations (CS). Bases are available in
-  the colors red, black, silver, and transparent. Transparent bases
-  are to be used and only used on CS shelves
-  (cf.~\refsec{sec:production-machines-production}), they cannot be
-  used as a workpiece for production. They may, however, be used to
-  provide additional bases required by an RS, stored on a team's CS
-  shelf, or recycled at the DS\@.
-\item[Ring] Rings are mounted in intermediate production steps at ring
-  stations (RS). A product requires, zero, one, two, or three
-  intermediate rings of distinct color
-  (cf.~\refsec{sec:production-complexities}). The order of the rings
-  matters. The ring colors are blue, green, yellow, and orange.
-\item[Cap] Caps are the topmost element in each production. They are
-  obtained by taking pre-assembled base-cap combinations available on
-  the shelf to the cap station (CS). Caps can be black or gray.
-
-\end{description}
-Only one workpiece or a composite product must be grasped and
-transported per robot at once. Storage magazines on the robot or
-similar are prohibited. All products will incorporate exactly one base
-unit allowing a single unified handling device to be used for all
-operations involving workpieces.
-
-\begin{wrapfigure}[8]{r}{0.2\linewidth}
-  \centering
-  \vspace{-2.7ex}
-  \includegraphics[width=\linewidth]{figures/barcode-base}
-  \caption{Prototype base barcode.}
-  \label{fig:barcode}
-\end{wrapfigure}
-\paragraph{Barcodes.}
-All bases are labeled by a horizontally revolving, white glossy tag
-covering about 50 percent of the bases height (from the center)
-containing a white reference area as well as an identifying
-barcode. Each base is equipped with a unique ID\@. \reffig{fig:barcode}
-shows a prototype of a barcode labeled workpiece.
-
-The barcodes are scanned at each station and communicated to the
-referee box. The referee box uses the barcodes to track assembly
-processes, i.e., to determine the state of a workpiece. This allows in
-particular to award points for production steps as they happen
-(cf. \refsec{sec:production-scoring}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%
@@ -1409,7 +1151,7 @@ exploration phase after 5 minutes.
 \subsection{Exploration Phase}
 \label{sec:exploration-phase}
 The robots have \SI{3}{\minute} to roam the environment and report
-their 7 MPS to the referee box. The report about an MPS may be split
+their machines to the referee box. The report about an MPS may be split
 in two parts, the position and type of a machine, and its orientation.
 Concretely, the referee box expects a \emph{machine identification
   message} with a tuple consisting of zone, machine name (as encoded
@@ -1427,6 +1169,55 @@ of MPS\@.
 
 Moving or processing workpieces at an MPS is not allowed during the
 exploration phase.
+
+\subsubsection{MPS --- During Exploration Phase}
+\label{sec:production-machines-exp}
+During the exploration phase the robots of each team must explore the
+unknown factory environment to identify where the different MPS are
+located and in which rotations they are positioned.
+
+The Referee Box assigns each machine to a team and a zone
+(\reffig{fig:competition-area}) at the start of the exploration
+phase,\footnote{Since 2017 there are no more fixed stations.}
+The zones and orientations (in steps of 45$^\circ$) are randomly determined,
+and will not be communicated until the production phase. For details about the
+Exploration Phase confer~\refsec{sec:exploration-phase}.
+
+The signal light of the MPS will show a yellow light until a report regarding
+this machine is sent.  If the wrong MPS zone is sent, the light will start red
+flashing.  If only the MPS zone is sent, the green light will be turn on.  If
+the zone and rotation is correctly reported, the green light will be flashing
+and if the zone is correct but the rotation wrongly reported the red and green
+light will be on.
+
+\begin{table}[bt]
+  \centering
+  \mytable{\begin{tabularx}{\linewidth}{p{0.36\linewidth}|X}
+      \multicolumn{1}{l}{Optical Feedback}
+      & \multicolumn{1}{l}{Operating mode}
+      \\
+      \hline
+      All LEDs turned off
+      & The machine is physically offline, caused by a real error, which should
+        not happen during the competition.
+      \\
+      Red LED turned on & The machine is out of order. \\
+      %Red LED flashing (at 2 Hz)
+      %& Machine signals that it ran out of stock on any required item. \\
+      Green LED turned on & The machine is idle and ready.\\
+      Green LED flashing & The machine has accepted the prepare command
+      (flashes for up to 3 seconds).\\
+      Green and yellow LED turned on & The machine is currently busy.\\
+      Yellow LED turned on & A workpiece is ready for pickup.\\
+      Red and yellow LED flashing (2 Hz) & Machine is broken, for
+      example because a product was fed without proper preparation of the
+      machine.\\%\hline
+%%keep Red any Yellow one?
+	\end{tabularx}}
+  \caption{MPS --- Optical Feedback during production phase}
+  \label{tab:production-machines-feedback}
+\end{table}
+
 
 \subsection{Production Phase}
 \label{sec:production-phase}
@@ -1627,6 +1418,217 @@ The multi-staged production processes can be repeated as long as
 enough material can be provided to complete the cycle (also
 cf.~\refsec{sec:machine-refill}). The different machine types are
 specified in Section~\ref{sec:machines}.
+
+\subsubsection{MPS --- During Production Phase}
+\label{sec:production-machines-production}
+In the production phase a production machine performs refinement steps on
+a product such as mounting an additional ring or a cap. Machines
+operate in a transaction style. That is, before using a machine it
+must be prepared for a specific mode. Then the input products can be fed
+into the machine and the refinement step commences. Eventually, after
+the production period is completed, the resulting product is delivered
+on the output lane.
+
+A light signal mounted near the output lane
+(cf. \refsec{sec:machines}) indicates the state of the machine. In the
+default operating mode, the green light is turned on. This signals
+that the machine is ready for preparation. When preparation is performed,
+the machine will flash the green light for up to 3 seconds (it
+immediately switches to a new state, e.g., if a product is fed into the
+machine before the three seconds have expired). When a product is fed
+to the input, the signal light indicates the processing condition. If
+the machine accepts the input and starts processing, the green and yellow lights
+will be turned on steadily for as long as the processing is
+performed. Once processing completes, the signal light switches to a
+steady yellow light. If a product is fed for which additional bases
+were required but which have not been delivered, the machine will
+flash the red and yellow light and will be out of order
+(cf. \refsec{sec:broken-machine}). The light signals are summarized in
+\reftab{tab:production-machines-feedback}.
+
+In the production phase, machines must be prepared to be used. This
+applies to all machine types.
+If a product from the input is required for the processing step (DS, CS, RS and
+a storage operation at the SS), then the conveyor belt is started
+after receiving a prepare message. If no workpiece reaches the
+machine operating point (indicated through the middle belt sensor)
+within \SI{45}{\second}, the machine goes to a temporary out-of-order
+state (cf.~\refsec{sec:broken-machine}).
+The BS and the retrieval operation at the SS cause
+the requested workpiece to be dispensed upon receiving a prepare message.
+After performing an operation at the BS, CS, RS or the SS (in case of a
+retrieval) the conveyor belt is started. If no workpiece reaches the destination
+point (indicated through the output belt sensor, or in case of the BS either
+the input or output belt sensor) within \SI{90}{\second}, the machine goes in a
+temporary out-of-order state (cf.~\refsec{sec:broken-machine}).
+The workpiece may remain on the machine for an arbitrary time after the
+operation is completed.
+
+The following describes the communication and reactions of the
+machines during the production phase. For the actual messages we refer
+to the integrator's manual~\cite{RefBoxIntManual}.
+
+\smallskip
+
+\noindent\textbf{BS}
+The BS prepare message denotes the color of the base element that should
+be dispensed. After receiving the message, the refbox will instruct
+the MPS to immediately provide a base of the desired color.
+
+\noindent\textbf{DS}
+The DS prepare message denotes the order ID of the product that is delivered.
+The DS will consume any workpiece provided, but points can only be scored if the
+DS has been properly prepared.
+
+\noindent\textbf{CS}
+The CS prepare message initiates either the retrieval or the mounting of
+a cap. For retrieving a prepared base (with a cap mounted on top) from
+the machine's shelf must be fed into the machine. All base elements
+prepared on the shelf are specially colored workpieces (clear). The
+machine will take the cap off the base and buffer it on the slide,
+releasing the decapped base to the output side. This base can only be
+used for providing an additional base to an RS (see below), reuse by
+placing it back on the shelf, or discarding it at the DS\@.  For
+mounting a cap, a workpiece (without cap) must be provided onto which
+the cap is mounted.
+
+\noindent\textbf{RS}
+The RS prepare message must state which of the two colors to prepare and
+retrieve. Each RS is responsible for two specific colors. Some colors
+require loading the RS with additional bases
+(cf.~\refsec{sec:production-plan}). If the desired color requires
+additional bases (cf.~\refsec{sec:production-complexities}), the
+machine expects to receive them first. Once the required number of
+additional bases has been received, the intermediate product can be
+fed into the machine. It receives a ring of the desired color and
+moves the processed product to the output.
+
+\noindent\textbf{SS}
+The SS prepare message denotes the storage place (shelf and slot number) and
+the type of the operation that should be performed.
+The SS consists of six shelves with eight slots each. \reffig{fig:ss-shelf}
+depicts how positions are mapped to their respective shelf and slot numbers
+$(x,y),x\in[0,5],y\in[0,7]$.
+Accessing a slot $(x,y), y\in\{1,3,5,7\}$ in the back of a shelf while slot
+$(x,y-1)$ is occupied causes the SS to relocate the product at $(x,y-1)$ to a
+randomly chosen accessible position before processing the instruction.
+If all other free positions are located in the back and
+are also blocked by products stored in front of them, then one of those free
+positions $(x^\prime,y^\prime)$ is chosen and
+$(x^\prime,y^\prime-1)$ is relocated to $(x^\prime,y^\prime)$, before
+relocating $(x,y-1)$ to $(x^\prime,y^\prime)$.
+Descriptions can be added to the prepare messages when storing workpieces.
+These descriptions are attached to the position of the workpiece and updated
+automatically when relocating operations happen.
+Each team receives the storage status for their respective SS
+periodically, including the corresponding descriptions at each position.
+Positions and configurations of pre-stored products are also announced through
+storage status messages.
+Note the costs for using the SS outlined in \refsec{sec:production-scoring}.
+
+
+\begin{figure}[ht]
+  \centering
+    \includegraphics{figures/storage-shelf.pdf}
+    \caption{The bottom-most SS shelf. Position $(x,y)$ consists of
+      shelf number $x$ and slot number $y$.
+    Shelves are numbered in ascending order from bottom to top.}
+    \label{fig:ss-shelf}
+\end{figure}
+
+\medskip
+The preparation and use of a machine follows a transaction style. Once the
+machine has been prepared, the full cycle can be completed (committed).
+There may be only one transaction running at a time. If a
+second preparation is performed the machine will
+be temporarily broken (cf.~\refsec{sec:broken-machine}).
+
+An MPS may be reset by a team at any time by a dedicated msg (see
+referee box Integrator's Manual~\cite{RefBoxIntManual}). This causes
+the MPS to go into the broken state
+(cf.~\refsec{sec:broken-machine}). It allows teams to recover machines
+after handling errors (which the robots must recognize themselves).
+
+\subsection{Products and Workpieces}
+\label{sec:products}
+Workpieces denote raw material and intermediate stages during
+production. These are also named products with emphasis on the
+finished product that can be delivered. For product complexities refer
+to \refsec{sec:production-complexities}, for the compilation of the
+production plan to \refsec{sec:production-plan}.
+
+\begin{figure}[ht]
+  \centering
+  \subfigure[Workpiece base elements and caps.]{
+    \label{fig:workpieces-base-elements}%
+    \centering
+    \includegraphics[height=5cm]{figures/workpieces}
+  }
+  \quad
+  %
+  \subfigure[Renderings of intermediate rings (rings are colored in
+  competition).]{
+    \label{fig:workpieces-rings}%
+    \centering
+    \hspace{6mm}
+    \includegraphics[height=3cm]{figures/rings}
+    \hspace{6mm}
+  }
+  \quad
+  \subfigure[Product example]{\label{fig:product-example}%
+    \includegraphics{products/c1_red_blue_black}
+  }
+  \caption{Workpiece elements and product example.}
+  \label{fig:workpieces}
+\end{figure}
+
+\noindent
+The workpieces consist of the following elements:
+\begin{description}
+\item[Base] The base is the lowermost element in each production.
+  Bases are dispensed by the base station (BS) and bases with mounted
+  caps are available on the cap stations (CS). Bases are available in
+  the colors red, black, silver, and transparent. Transparent bases
+  are to be used and only used on CS shelves
+  (cf.~\refsec{sec:production-machines-production}), they cannot be
+  used as a workpiece for production. They may, however, be used to
+  provide additional bases required by an RS, stored on a team's CS
+  shelf, or recycled at the DS\@.
+\item[Ring] Rings are mounted in intermediate production steps at ring
+  stations (RS). A product requires, zero, one, two, or three
+  intermediate rings of distinct color
+  (cf.~\refsec{sec:production-complexities}). The order of the rings
+  matters. The ring colors are blue, green, yellow, and orange.
+\item[Cap] Caps are the topmost element in each production. They are
+  obtained by taking pre-assembled base-cap combinations available on
+  the shelf to the cap station (CS). Caps can be black or gray.
+
+\end{description}
+Only one workpiece or a composite product must be grasped and
+transported per robot at once. Storage magazines on the robot or
+similar are prohibited. All products will incorporate exactly one base
+unit allowing a single unified handling device to be used for all
+operations involving workpieces.
+
+\begin{wrapfigure}[8]{r}{0.2\linewidth}
+  \centering
+  \vspace{-2.7ex}
+  \includegraphics[width=\linewidth]{figures/barcode-base}
+  \caption{Prototype base barcode.}
+  \label{fig:barcode}
+\end{wrapfigure}
+\paragraph{Barcodes.}
+All bases are labeled by a horizontally revolving, white glossy tag
+covering about 50 percent of the bases height (from the center)
+containing a white reference area as well as an identifying
+barcode. Each base is equipped with a unique ID\@. \reffig{fig:barcode}
+shows a prototype of a barcode labeled workpiece.
+
+The barcodes are scanned at each station and communicated to the
+referee box. The referee box uses the barcodes to track assembly
+processes, i.e., to determine the state of a workpiece. This allows in
+particular to award points for production steps as they happen
+(cf. \refsec{sec:production-scoring}).
 
 \subsubsection{Machine Refill}
 \label{sec:machine-refill}
