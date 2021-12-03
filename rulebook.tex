@@ -301,22 +301,26 @@ product variants (cf. \refsec{sec:production-complexities}).
 
 This work flow is controlled by a referee box broadcasting information
 via wifi (see \refsec{sec:referee-box}). The work flow itself is
-divided into three different phases: a setup
-phase (see \refsec{sec:setup-phase}), an exploration phase (see
-\refsec{sec:exploration-phase}) during which robots receive scores for
-correctly discovering and publishing the positions of the yet
-unknown different machines on the field. After this phase the referee
-box will announce all machine types and designations. In the following
-production phase (see~\refsec{sec:production-phase}) orders are
-announced by the referee box, which the robots must fulfill
-automatically.
+divided into two phases: During a setup phase (see \refsec{sec:setup-phase})
+the field setup is prepared and the robots are started.
+Then the refbox switches to the production phase, during which the refbox
+announces the tasks that the robots must fulfill automatically.
 
-Finally,
-successfully assembled products are to be delivered to the correct
-conveyor belt of the team's delivery station. The factory
-area has to be treated in the best possible way. Any possible damage
-to the field, opposing robots or the machines will be penalized by the
-referee.
+The RCLL supports different competition tracks:
+\begin{itemize}
+  \item Production logistic scenarios where two teams compete against
+    each other on the same playing field and need to serve multiple dynamically
+    dispatched orders. This game mode is referred to as the main track.
+  \item Individual challenges carried on a field, where only one team competes
+   at a time.
+   The challenges are designed to reflect the individual tasks that
+   are required to solve complex production scenarios from the main track.
+   This game mode is referred to as the challenge track.
+\end{itemize}
+Depending on the task (see \refsec{sec:game} and \refsec{sec:challenges},
+the machine positions might be unknown in the beginning, such that they need
+to be correctly discovered (see \refsec{sec:exploration-phase}).
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Agreements \& Regulations}
