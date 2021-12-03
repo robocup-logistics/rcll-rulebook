@@ -652,6 +652,122 @@ phase. Processing times are outlined in \reftab{tab:processing-times}.
     \label{tab:processing-times}
 \end{table}
 
+\subsubsection{Machine Positioning}
+\label{sec:machine-swapping}
+The zones and rotations for the MPS will be randomly chosen by the RefBox.
+Each game will have a new randomly generated field layout, the referees will
+place the MPS in the middle of the zone with given rotation at there best effort
+but errors of the positioning should be expected.
+
+A MPS can be placed in any zones except C-Z52 and M-Z52. These zones
+are needed to enter the field.  Each MPS has one out of 8 possible
+orientations, starting at \ang{0} with steps of \ang{45}. To denote
+the orientation, we assign a local right-handed coordinate system to
+each MPS station. The x-axis is given by the conveyor pointing from
+the output to the input. The origin is the center point of the
+conveyor. The orientation is then the relative rotation of the local
+MPS system compared to the fixed field coordinate system. For example,
+at an MPS orientation of \ang{0}, its local coordinate system is
+aligned with the field (in terms of orientation). Furthermore, an MPS
+at an orientation of \ang{90} will be rotated counter-clockwise a
+quarter turn compared to the field system.
+
+To ensure fairness, positions and orientations of the machines are mirrored
+along the field's y-axis. There are two cases that need to be handled
+separately. First, machines in a cell not adjacent to the wall, and machines of
+types BS, DS, and SS (even when adjacent to the wall) are mirrored according to
+\reftab{tab:mirror-a}. Second, CS and RS stations must be handled slightly
+different, if oriented next to a wall (zones: C-Z*1, C-Z*8, C-Z7*, M-Z*1, M-Z*8
+and M-Z7*). The reason being, that the shelf and slide of these stations are
+offset sideways at the input side. This might lead to the situation that for one
+team the shelf is close to the wall, and for the other it is not. To remedy this
+problem, the RS and CS machines adjacent to a wall will always be placed such
+that the shelf or slide is on the farther end with respect to the wall. For
+example, in \reffig{fig:competition-area}, the magenta CS in M-Z76 with a
+rotation of \ang{270}. Were this setup mirrored, the shelf on the cyan CS in
+C-Z76 would be close to the wall. Instead, it has a different orientation
+violating the y-symmetry but allowing for easier access to the shelf.
+
+\begin{wrapfigure}[14]{R}{0.2\linewidth}
+  \centering
+  \vspace{-2.1ex}
+  \mytable{
+    \begin{tabularx}{\linewidth}{
+      >{\raggedleft\arraybackslash}X|>{\raggedleft\arraybackslash}X
+    }
+      Cyan & Magenta \\ \hline
+      \ang{0}&\ang{180}\\
+      \ang{45}&\ang{135}\\
+      \ang{90}&\ang{90}\\
+      \ang{135}&\ang{45}\\
+      \ang{180}&\ang{0}\\
+      \ang{225}&\ang{315}\\
+      \ang{270}&\ang{270}\\
+      \ang{315}&\ang{225}\\
+	\end{tabularx}}%
+  \makeatletter%
+  \def\@captype{table}%
+  \makeatother%
+  \caption{MPS orientation mapping during mirroring}
+  \label{tab:mirror-a}
+\end{wrapfigure}
+
+\begin{figure}[tb]
+    \centering
+    \subfigure[
+      For rotations with \ang{0}, \ang{90}, \ang{180} or \ang{270}. BS, CS, RS,
+      and SS block the zones close to the input as well as the output. DS blocks
+      the zones close to the input.
+    ]{
+        \label{fig:zone-mps-rotation-straight}%
+        \centering
+        \includegraphics[width=\textwidth]{bZones1.pdf}
+    }
+    \quad
+    \subfigure[
+      For rotations with  \ang{45}, \ang{135}, \ang{225} and \ang{315}. BS, CS,
+      RS, and SS block the zones close to the input as well as the output. DS
+      blocks the zones close to the input.
+    ]{
+        \label{fig:zone-mps-rotation-odd}
+        \centering
+        \includegraphics[width=\textwidth]{bZones2.pdf}
+    }
+    \caption{
+      Blocked zones regarding the MPS rotation (red zones must not be used as
+      position for other machines and must be located inside the competition
+      area).
+    }
+    \label{fig:zone-mps-blocked}
+\end{figure}
+For placing of machines, the RefBox will take care of the necessary constraints
+to ensure that all in- and output sides, shelves and slides are reachable. That
+is, a path to each blocked zone (see \reffig{fig:zone-mps-blocked}) must exist
+from any unoccupied or blocked zone of the field. If a machine is rotated with
+\ang{0}, \ang{90}, \ang{180} or \ang{270} the zones in front the input and
+output side are blocked as well (\reffig{fig:zone-mps-rotation-straight}).  For
+machines with rotations \ang{45}, \ang{135}, \ang{225} and \ang{315} three zones
+in front of each input and output side are blocked
+(\reffig{fig:zone-mps-rotation-odd}). No MPS nor blocked zones for another MPS
+may be placed in a blocked zone. All blocked zones of any MPS must be located
+within the competition area. Furthermore, only two machines will ever be placed
+next to each other, a third machine will only be placed with at least one empty
+zone in-between.
+
+The MPS will be placed mostly on the primary half of a team
+(cf. \refsec{sec:competition-area}). However, some machines will be
+swapped, that is, some machines will not be located in the primary
+half.
+
+For each game, one CS and one RS of each team will be chosen randomly
+and swapped with the corresponding machine of the other team on the
+non-primary half --- that is two machines in total per team. The CS and
+RS will be swapped with the symmetrically positioned machine of the
+same type of the other team. For consecutive games, the changes to the
+machine to zone assignment may be limited by the referee box in order
+to reduce the time needed to implement the layout during the setup
+phase.
+
 \subsubsection{Markers}
 \label{sec:markers}
 \begin{table}[b!]
@@ -790,121 +906,6 @@ expect to calibrate individually per marker. They are available for
 printing on the RoboCup Logistics website.
 
 
-\subsubsection{Machine Positioning}
-\label{sec:machine-swapping}
-The zones and rotations for the MPS will be randomly chosen by the RefBox.
-Each game will have a new randomly generated field layout, the referees will
-place the MPS in the middle of the zone with given rotation at there best effort
-but errors of the positioning should be expected.
-
-A MPS can be placed in any zones except C-Z52 and M-Z52. These zones
-are needed to enter the field.  Each MPS has one out of 8 possible
-orientations, starting at \ang{0} with steps of \ang{45}. To denote
-the orientation, we assign a local right-handed coordinate system to
-each MPS station. The x-axis is given by the conveyor pointing from
-the output to the input. The origin is the center point of the
-conveyor. The orientation is then the relative rotation of the local
-MPS system compared to the fixed field coordinate system. For example,
-at an MPS orientation of \ang{0}, its local coordinate system is
-aligned with the field (in terms of orientation). Furthermore, an MPS
-at an orientation of \ang{90} will be rotated counter-clockwise a
-quarter turn compared to the field system.
-
-To ensure fairness, positions and orientations of the machines are mirrored
-along the field's y-axis. There are two cases that need to be handled
-separately. First, machines in a cell not adjacent to the wall, and machines of
-types BS, DS, and SS (even when adjacent to the wall) are mirrored according to
-\reftab{tab:mirror-a}. Second, CS and RS stations must be handled slightly
-different, if oriented next to a wall (zones: C-Z*1, C-Z*8, C-Z7*, M-Z*1, M-Z*8
-and M-Z7*). The reason being, that the shelf and slide of these stations are
-offset sideways at the input side. This might lead to the situation that for one
-team the shelf is close to the wall, and for the other it is not. To remedy this
-problem, the RS and CS machines adjacent to a wall will always be placed such
-that the shelf or slide is on the farther end with respect to the wall. For
-example, in \reffig{fig:competition-area}, the magenta CS in M-Z76 with a
-rotation of \ang{270}. Were this setup mirrored, the shelf on the cyan CS in
-C-Z76 would be close to the wall. Instead, it has a different orientation
-violating the y-symmetry but allowing for easier access to the shelf.
-
-\begin{wrapfigure}[14]{R}{0.2\linewidth}
-  \centering
-  \vspace{-2.1ex}
-  \mytable{
-    \begin{tabularx}{\linewidth}{
-      >{\raggedleft\arraybackslash}X|>{\raggedleft\arraybackslash}X
-    }
-      Cyan & Magenta \\ \hline
-      \ang{0}&\ang{180}\\
-      \ang{45}&\ang{135}\\
-      \ang{90}&\ang{90}\\
-      \ang{135}&\ang{45}\\
-      \ang{180}&\ang{0}\\
-      \ang{225}&\ang{315}\\
-      \ang{270}&\ang{270}\\
-      \ang{315}&\ang{225}\\
-	\end{tabularx}}%
-  \makeatletter%
-  \def\@captype{table}%
-  \makeatother%
-  \caption{MPS orientation mapping during mirroring}
-  \label{tab:mirror-a}
-\end{wrapfigure}
-
-\begin{figure}[tb]
-    \centering
-    \subfigure[
-      For rotations with \ang{0}, \ang{90}, \ang{180} or \ang{270}. BS, CS, RS,
-      and SS block the zones close to the input as well as the output. DS blocks
-      the zones close to the input.
-    ]{
-        \label{fig:zone-mps-rotation-straight}%
-        \centering
-        \includegraphics[width=\textwidth]{bZones1.pdf}
-    }
-    \quad
-    \subfigure[
-      For rotations with  \ang{45}, \ang{135}, \ang{225} and \ang{315}. BS, CS,
-      RS, and SS block the zones close to the input as well as the output. DS
-      blocks the zones close to the input.
-    ]{
-        \label{fig:zone-mps-rotation-odd}
-        \centering
-        \includegraphics[width=\textwidth]{bZones2.pdf}
-    }
-    \caption{
-      Blocked zones regarding the MPS rotation (red zones must not be used as
-      position for other machines and must be located inside the competition
-      area).
-    }
-    \label{fig:zone-mps-blocked}
-\end{figure}
-For placing of machines, the RefBox will take care of the necessary constraints
-to ensure that all in- and output sides, shelves and slides are reachable. That
-is, a path to each blocked zone (see \reffig{fig:zone-mps-blocked}) must exist
-from any unoccupied or blocked zone of the field. If a machine is rotated with
-\ang{0}, \ang{90}, \ang{180} or \ang{270} the zones in front the input and
-output side are blocked as well (\reffig{fig:zone-mps-rotation-straight}).  For
-machines with rotations \ang{45}, \ang{135}, \ang{225} and \ang{315} three zones
-in front of each input and output side are blocked
-(\reffig{fig:zone-mps-rotation-odd}). No MPS nor blocked zones for another MPS
-may be placed in a blocked zone. All blocked zones of any MPS must be located
-within the competition area. Furthermore, only two machines will ever be placed
-next to each other, a third machine will only be placed with at least one empty
-zone in-between.
-
-The MPS will be placed mostly on the primary half of a team
-(cf. \refsec{sec:competition-area}). However, some machines will be
-swapped, that is, some machines will not be located in the primary
-half.
-
-For each game, one CS and one RS of each team will be chosen randomly
-and swapped with the corresponding machine of the other team on the
-non-primary half --- that is two machines in total per team. The CS and
-RS will be swapped with the symmetrically positioned machine of the
-same type of the other team. For consecutive games, the changes to the
-machine to zone assignment may be limited by the referee box in order
-to reduce the time needed to implement the layout during the setup
-phase.
 
 \subsubsection{MPS --- During Exploration Phase}
 \label{sec:production-machines-exp}
