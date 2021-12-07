@@ -1155,78 +1155,65 @@ not necessarily all $C_1$ orders have this constraint.
 \vspace{-1mm}
 \end{figure}
 
-\begin{figure}[h]
-  \ffigbox{%
+\begin{figure}[!ht]
     \centering
-    \begin{minipage}{0.75\linewidth}
-      \subfigure[Production of complexity $C_0$ received from a SS.]{
-        \label{fig:prod-chain-C0-SS}%
-        \begin{minipage}{1.0\linewidth}
-          \centering
-          \includegraphics{products/chain_c0_SS}
-        \end{minipage}
-      }
-      \subfigure[Production of complexity $C_0$ only mounting a cap on a
-      BE as shown in \reffig{fig:prod-compl-0}.]{
-        \label{fig:prod-chain-C0}%
-        \begin{minipage}{1.0\linewidth}
-          \centering
-          \includegraphics{products/chain_c0}
-        \end{minipage}
-      }
-      \subfigure[Production of complexity $C_1$ with a single intermediate
-      ring according to \reffig{fig:prod-compl-1}.]{\label{fig:prod-chain-C1}%
-        \begin{minipage}{1.0\linewidth}
-          \centering
-          \includegraphics{products/chain_c1}
-        \end{minipage}
-      }
-    \end{minipage}
-    \quad
-    \subfigure[Legend]{
-      \label{fig:prod-chain-legend}%
-      \begin{minipage}{0.2\linewidth}
-        \centering
-        \includegraphics{products/legend}
-        \vspace{2mm}
-      \end{minipage}
-    }
-
-
-    \subfigure[Complexity $C_2$ with two rings
-    (cf. \reffig{fig:prod-compl-2}). RS 2 requires an additional base
-    (of any color) for the green ring.]{\label{fig:prod-chain-C2}%
+    \subfigure[Production of complexity $C_0$ received from a SS.]{
+      \label{fig:prod-chain-C0-SS}%
       \begin{minipage}{1.0\linewidth}
         \centering
-        \includegraphics{products/chain_c2}
+        \includegraphics[scale=0.8,page=5]{production-examples}
       \end{minipage}
     }
-
-    \subfigure[Production of the highest complexity $C_3$ with a three
-    intermediate rings according to \reffig{fig:prod-compl-3}. Note
-    that RS 2 requires two additional BE (of any color) for the orange
-    ring and another one for the green
-    ring.]{\label{fig:prod-chain-C3}%
+    \subfigure[Production of complexity $C_0$ as shown in
+    \reffig{fig:prod-compl-0}.
+    A cup must be buffered at the
+    CS (red path) before a cap can be mounted on the product (green path).
+    The remaining cap-less carrier is not needed for the product.
+    ]{
+      \label{fig:prod-chain-C0}%
       \begin{minipage}{1.0\linewidth}
         \centering
-        \includegraphics{products/chain_c3}
+        \includegraphics[scale=0.8,page=1]{production-examples}
+      \end{minipage}
+    }
+    \subfigure[Production of complexity $C_1$ according to
+    \reffig{fig:prod-compl-1}.]{\label{fig:prod-chain-C1}%
+      \begin{minipage}{1.0\linewidth}
+        \centering
+        \includegraphics[scale=0.8,page=2]{production-examples}
+      \end{minipage}
+    }
+    \subfigure[Complexity $C_2$ (cf. \reffig{fig:prod-compl-2}).
+    The second ring requires an additional base (of any color) for the
+    green ring.
+    The cap-less carrier is used as payment in this example.
+    ]{\label{fig:prod-chain-C2}%
+      \begin{minipage}{1.0\linewidth}
+        \centering
+        \includegraphics[scale=0.8,page=3]{production-examples}
       \end{minipage}
     }
 
-}{%
+    \subfigure[Production of the highest complexity $C_3$ according to
+    \reffig{fig:prod-compl-3}.
+    Note that two additional bases (of any color) are required to pay for
+    the green ring and another one is needed for for the orange ring.
+    A cap-less carrier, a capcarrier and a fresh base from the BS are
+    used here to fulfill the payments.
+    ]{\label{fig:prod-chain-C3}%
+      \begin{minipage}{1.0\linewidth}
+        \centering
+        \includegraphics[scale=0.8,page=4]{production-examples}
+      \end{minipage}
+    }
   \caption{Production Chains of four example products
-    (cf. \reffig{fig:production-complexities}). Blue boxes represent
-    machines. RS 1 mounts yellow and blue, and RS 2 orange and green
-    rings. Mounting an orange ring requires one additional BE (of any
-    color). Similarly two additional BE are required for a yellow
-    ring. Cap stations require a BE (of any color) with a cap of the
-    matching required color.  \emph{Note that this is a particular
+    (cf. \reffig{fig:production-complexities}).
+    \emph{Note that this is a particular
       example. The actual production chains and requirements for
       additional BEs are determined randomly by the referee box for
-      each game}.}
+      each game and steps such paying BEs can be accomplished in different
+      ways.}}
   \label{fig:production-chains}
-}
-\vspace{-1mm}
 \end{figure}
 \subsubsection{Production Plan}
 \label{sec:production-plan}
