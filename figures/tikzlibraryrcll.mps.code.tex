@@ -85,44 +85,51 @@
 			([xshift=-0.1\rcllWpDiameter,
 			  yshift=-0.5*\rcllConveyorWidth-1.6\rcllWpDiameter]
 			BS-mps.center) rectangle ++(1.2\rcllWpDiameter,1.2\rcllWpDiameter);
+		\coordinate (BaseRed) at
+			([xshift=0.2\rcllMpsWidth,
+			  yshift=0.5*\rcllConveyorWidth+\rcllWpDiameter]
+			  BS-mps.center) circle (0.5*\rcllWpDiameter);
 		\fill[red!50!black]
-			([xshift=0.2\rcllMpsWidth,
-			  yshift=0.5*\rcllConveyorWidth+\rcllWpDiameter]
-			  BS-mps.center) circle (0.5*\rcllWpDiameter);
+			(BaseRed) circle (0.5*\rcllWpDiameter);
 		\fill[red]
-			([xshift=0.2\rcllMpsWidth,
+			(BaseRed) circle (0.4*\rcllWpDiameter);
+		\coordinate (BaseBlack) at
+			([xshift=-0.2\rcllMpsWidth,
 			  yshift=0.5*\rcllConveyorWidth+\rcllWpDiameter]
-			  BS-mps.center) circle (0.4*\rcllWpDiameter);
+			  BS-mps.center);
 		\fill[black!70!white]
-			([xshift=-0.2\rcllMpsWidth,
-			  yshift=0.5*\rcllConveyorWidth+\rcllWpDiameter]
-			  BS-mps.center) circle (0.5*\rcllWpDiameter);
+			(BaseBlack) circle (0.5*\rcllWpDiameter);
 		\fill[black]
-			([xshift=-0.2\rcllMpsWidth,
-			  yshift=0.5*\rcllConveyorWidth+\rcllWpDiameter]
-			  BS-mps.center) circle (0.4*\rcllWpDiameter);
+			(BaseBlack) circle (0.4*\rcllWpDiameter);
+		\coordinate (BaseSilver) at
+			([yshift=-0.5*\rcllConveyorWidth-1\rcllWpDiameter,
+			  xshift=0.5\rcllWpDiameter]
+			  BS-mps.center);
 		\fill[black!50!white]
-			([yshift=-0.5*\rcllConveyorWidth-1\rcllWpDiameter,
-			  xshift=0.5\rcllWpDiameter]
-			  BS-mps.center) circle (0.5*\rcllWpDiameter);
+			(BaseSilver) circle (0.5*\rcllWpDiameter);
 		\fill[rcllmetallic]
-			([yshift=-0.5*\rcllConveyorWidth-1\rcllWpDiameter,
-			  xshift=0.5\rcllWpDiameter]
-			  BS-mps.center) circle (0.4*\rcllWpDiameter);
+			(BaseSilver) circle (0.4*\rcllWpDiameter);
 	},
 	pics/rcllCS/.style={code={
 		\path (0,0) pic[transform shape] (CS) {rcllMPS};
 		\draw pic[transform shape] {rcllConveyor={CS-mps}};
-		\draw[rcllmetallic,rotate=15]
+		\begin{scope}[rotate=15]
+		\coordinate (-slide-anchor) at
 			([xshift=0.5\rcllWpDiameter,
 			  yshift=-0.5\rcllConveyorWidth-0.5\rcllWpDiameter]
-			  CS-mps.center) rectangle ++(-\rcllWpDiameter,-2*\rcllWpDiameter);
+			  CS-mps.center);
+		\coordinate (-slide) at ([xshift=-0.6\rcllWpDiameter]-slide-anchor);
+		\draw[rcllmetallic]
+			(-slide-anchor) rectangle ++(-\rcllWpDiameter,-2*\rcllWpDiameter);
+		\end{scope}
 		\draw[rcllmetallic,draw=black]
 			(CS-mps.north east) rectangle ++ (-2.5*\rcllWpDiameter,-3.5\rcllWpDiameter);
 		\foreach \i in {1,2,3} {
-			\fill[black] ([xshift=-0.75\rcllWpDiameter,
-			            yshift=0.2*\rcllWpDiameter-\i\rcllWpDiameter]
-			            CS-mps.north east) circle (0.5*\rcllWpDiameter);
+			\coordinate (CC\i) at
+				([xshift=-0.75\rcllWpDiameter,
+				 yshift=0.2*\rcllWpDiameter-\i\rcllWpDiameter]
+				 CS-mps.north east);
+			\fill[black] (CC\i) circle (0.5*\rcllWpDiameter);
 			\fill[#1] ([xshift=-0.75\rcllWpDiameter,
 			            yshift=0.2*\rcllWpDiameter-\i\rcllWpDiameter]
 			            CS-mps.north east) circle (0.4*\rcllWpDiameter);
