@@ -1042,23 +1042,36 @@ They markers are available for printing on the RoboCup Logistics website.
 
 \subsection{Game Start}
 \label{sec:game-start}
-%
+% TODO add game format section
+There are different game modes within the RCLL (see \refsec{sec:formats}).
+% TODO move this
+%No team member is allowed to enter the competition area prior to or
+%during a match, except in cases of robot maintenance
+%(cf.~\refsec{sec:robot-maintenance}) or machine refill
+%(cf.~\refsec{sec:machine-refill}).
+At the beginning of a match, the refbox must be configured according to the
+game mode specification.
+The refbox then guides the match utilizing different phases, which are outlined
+in the following sections.
 All matches will start at the exact time scheduled by the Organizing
-Committee with the setup phase (cf.~\refsec{sec:setup-phase}). Once
-the exploration phase starts, no more interference with the robot is
-allowed. The robot must react to the referee box game state messages
-to start the game play autonomously.
+Committee with the setup phase (cf.~\refsec{sec:setup-phase}).
+
 
 \subsection{Setup Phase}
 \label{sec:setup-phase}
-No team member is allowed to enter the competition area prior to or
-during a match, except in cases of robot maintenance
-(cf.~\refsec{sec:robot-maintenance}) or machine refill
-(cf.~\refsec{sec:machine-refill}).  All robots which are to
+Once the referee box is initialized, it switches to the setup phase.
+All robots which are to
 participate in the game need to be in the insertion area during setup
-(not in the game area where the machines are located). The referee box
-will control the setup period and automatically switch to the
-exploration phase after 5 minutes.
+(not in the game area where the machines are located).
+During the setup phase, the refbox announces the layout of the competition area,
+including the ring colors assigned to the ring stations.
+The competing team(s) may use the setup phase to start up their robots.
+Once the setup phase ends, no more interference with the robot is
+allowed. The robot must react to the referee box game state messages
+to start the game play autonomously.
+The referee box will control the setup period and automatically end it
+after 5 minutes.
+Depending on the game mode, either the exploration or production phase follows.
 
 \subsection{Exploration Phase}
 \label{sec:exploration-phase}
