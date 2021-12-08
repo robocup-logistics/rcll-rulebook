@@ -1109,25 +1109,43 @@ exploration phase.
 
 \subsection{Production Phase}
 \label{sec:production-phase}
-With the end of the exploration phase the production phase begins,
-which lasts \SI{17}{\minute}. The referee box publishes information
-regarding products and machines. This includes machine zones and
-orientations, and contained colors of ring and cap stations
-(cf.~\refsec{sec:products}). The refbox posts orders
-(cf.~\refsec{sec:production-plan}) which then must be fulfilled by the
-robot teams. Using production machines requires interaction through
-communication with the refbox described in
-\refsec{sec:production-machines-production}.
+During the production phase machines can be used to assemble products
+according to orders that arrive dynamically.
+The referee box publishes information regarding products and machines.
+This includes contained colors at the ring stations and their
+prices.
+Depending on the played format, machine zones and orientations may be announced
+as well.
 
 A minimum of zero points will be accounted for the production phase.
 
-\subsection{Products and Workpieces}
-\label{sec:products}
-Workpieces denote raw material and intermediate stages during
-production. These are also named products with emphasis on the
-finished product that can be delivered. For product complexities refer
-to \refsec{sec:production-complexities}, for the compilation of the
-production plan to \refsec{sec:production-plan}.
+\subsubsection{Workpieces}
+\label{sec:workpieces}
+Workpieces denote raw materials that need to be refined through production
+steps.
+They consist of the following elements:
+\begin{description}
+\item[Base] The base is the lowermost element in each production.
+  Bases are dispensed by the base station (BS) and bases with mounted
+  caps are available on the cap stations (CS). Bases are available in
+  the colors red, black, silver, and transparent. Transparent bases
+  are to be used and only used on CS shelves
+  (cf.~\refsec{sec:production-machines-production}), they cannot be
+  used as a workpiece for production. They may, however, be used to
+  provide additional bases required by an RS, stored on a team's CS
+  shelf, or recycled at the DS\@.
+\item[Ring] Rings are mounted in intermediate production steps at ring
+  stations (RS).
+\item[Cap] Caps are the topmost element in each production. They are
+  obtained by taking pre-assembled base-cap combinations available on
+  the shelf to the cap station (CS). Caps can be black or gray.
+\end{description}
+%TODO: move this somewhere?!
+%Only one workpiece or a composite product must be grasped and
+%transported per robot at once. Storage magazines on the robot or
+%similar are prohibited. All products will incorporate exactly one base
+%unit allowing a single unified handling device to be used for all
+%operations involving workpieces.
 
 \begin{figure}[ht]
   \centering
@@ -1147,48 +1165,14 @@ production plan to \refsec{sec:production-plan}.
     \hspace{6mm}
   }
   \quad
-  \subfigure[Product example]{\label{fig:product-example}%
-    \includegraphics{products/c1_red_blue_black}
+  \subfigure[Prototype base barcode]{\label{fig:barcode}%
+%TODO: WTF is this figure, the rings are white....
+    \includegraphics[height=3cm]{figures/barcode-base}
   }
   \caption{Workpiece elements and product example.}
   \label{fig:workpieces}
 \end{figure}
 
-\noindent
-The workpieces consist of the following elements:
-\begin{description}
-\item[Base] The base is the lowermost element in each production.
-  Bases are dispensed by the base station (BS) and bases with mounted
-  caps are available on the cap stations (CS). Bases are available in
-  the colors red, black, silver, and transparent. Transparent bases
-  are to be used and only used on CS shelves
-  (cf.~\refsec{sec:production-machines-production}), they cannot be
-  used as a workpiece for production. They may, however, be used to
-  provide additional bases required by an RS, stored on a team's CS
-  shelf, or recycled at the DS\@.
-\item[Ring] Rings are mounted in intermediate production steps at ring
-  stations (RS). A product requires, zero, one, two, or three
-  intermediate rings of distinct color
-  (cf.~\refsec{sec:production-complexities}). The order of the rings
-  matters. The ring colors are blue, green, yellow, and orange.
-\item[Cap] Caps are the topmost element in each production. They are
-  obtained by taking pre-assembled base-cap combinations available on
-  the shelf to the cap station (CS). Caps can be black or gray.
-
-\end{description}
-Only one workpiece or a composite product must be grasped and
-transported per robot at once. Storage magazines on the robot or
-similar are prohibited. All products will incorporate exactly one base
-unit allowing a single unified handling device to be used for all
-operations involving workpieces.
-
-\begin{wrapfigure}[8]{r}{0.2\linewidth}
-  \centering
-  \vspace{-2.7ex}
-  \includegraphics[width=\linewidth]{figures/barcode-base}
-  \caption{Prototype base barcode.}
-  \label{fig:barcode}
-\end{wrapfigure}
 \paragraph{Barcodes.}
 All bases are labeled by a horizontally revolving, white glossy tag
 covering about 50 percent of the bases height (from the center)
@@ -1196,15 +1180,16 @@ containing a white reference area as well as an identifying
 barcode. Each base is equipped with a unique ID\@. \reffig{fig:barcode}
 shows a prototype of a barcode labeled workpiece.
 
-The barcodes are scanned at each station and communicated to the
-referee box. The referee box uses the barcodes to track assembly
-processes, i.e., to determine the state of a workpiece. This allows in
-particular to award points for production steps as they happen
-(cf. \refsec{sec:production-scoring}).
+%TODO: move this
+%The barcodes are scanned at each station and communicated to the
+%referee box. The referee box uses the barcodes to track assembly
+%processes, i.e., to determine the state of a workpiece. This allows in
+%particular to award points for production steps as they happen
+%(cf. \refsec{sec:production-scoring}).
 
 \subsubsection{Production, Color Complexities, and Additional Bases}
 \label{sec:production-complexities}
-The portfolio comprises many different product variants and is
+The product portfolio comprises many different variants and is
 categorized by the four available \emph{product complexity} levels
 shown in \reffig{fig:production-complexities}. The lowest complexity
 $C_0$ consists of just a base and a cap and requires to load the CS
@@ -1217,10 +1202,14 @@ Depending on the ring color, the robot may have to deliver one or more
 \emph{additional bases} to a RS first in order to get a ring. We
 therefore distinguish \emph{color complexities} as $CC_0$, $CC_1$, and
 $CC_2$ depending on whether zero, one, or two additional bases are
-required for a color. The referee box ensures that there will always
-be some orders for $C_1$ products where the ring color does not
-require additional bases, i.e., with color complexity $CC_0$ --- but
-not necessarily all $C_1$ orders have this constraint.
+required for a color.
+
+Example production chains are depicted in \reffig{fig:production-chains}.
+% TODO: move this
+%The referee box ensures that there will always
+%be some orders for $C_1$ products where the ring color does not
+%require additional bases, i.e., with color complexity $CC_0$ --- but
+%not necessarily all $C_1$ orders have this constraint.
 
 \begin{figure}
   \ffigbox{%
@@ -1481,9 +1470,9 @@ the cap is mounted.
 The RS prepare message must state which of the two colors to prepare and
 retrieve. Each RS is responsible for two specific colors. Some colors
 require loading the RS with additional bases
-(cf.~\refsec{sec:production-plan}). If the desired color requires
-additional bases (cf.~\refsec{sec:production-complexities}), the
-machine expects to receive them first. Once the required number of
+(cf.~\refsec{sec:production-complexities}). If the desired color requires
+additional bases, the machine expects to receive them first.
+Once the required number of
 additional bases has been received, the intermediate product can be
 fed into the machine. It receives a ring of the desired color and
 moves the processed product to the output.
