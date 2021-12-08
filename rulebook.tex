@@ -1561,43 +1561,6 @@ assignment of bases on the BS and SS must be obeyed, as otherwise they will
 deliver the wrong
 bases.
 
-\subsection{Special Events during a Match}
-\label{sec:during-match}
-Any referee can interrupt the match at any time. After the game is
-paused, all robots have 3 seconds to stop any movement.  Robots that
-do not stop within the time limit will be treated in the same way as
-misbehaving robots (cf.~\refsec{sec:robot-maintenance}).  The match
-time will be paused during the interruption.
-
-\subsubsection{Scheduled Machine Downtime}
-\label{sec:out-of-order}
-The refbox will take down machines randomly out of the pool containing
-the RS and CS\@. It will do so at random points of time and with the
-same conditions for both teams, i.e., affecting the same machines for
-both teams. There will be 2 of such triggered events during a
-match. The machines affected will remain out of order for 30 to 60
-seconds. Every machine can only be forced out of order once per
-match. If a machine turns offline during processing a product it will
-afterwards resume the process (extending the overall processing time
-by the down time). The downtime is indicated by a steady red
-light. Base elements fed into the machine while out-of-order are
-accepted when the machine gets back online, with the same constraints
-mentioned in \refsec{sec:production-machines-production}.
-
-\subsubsection{Broken Machine Downtime}
-\label{sec:broken-machine}
-If a machine is improperly instructed or used, or a reset message has
-been sent, the machine will go into a failure state. The machine cannot be
-used for 30 seconds and until repaired. That is, if damage was
-inflicted on the machine or the referee needs longer to repair the
-machine the game continues and the machine will be offline for a
-longer time. Any production that was running will be aborted and any
-product which was being processed is no longer available and will be
-removed by the referee. Any additional bases or caps buffered at the machine
-will be void and the points gained removed. For storage stations, no
-slot is refilled, the load status remains exactly as before the broken
-state. The downtime is indicated by a flashing red light.
-
 \subsection{Task Fulfillment and Scoring}
 \label{sec:production-scoring}
 During the production phase, points are awarded for intermediate
@@ -1780,6 +1743,44 @@ All costs are listed in \reftab{tab:scoring}.
   \caption{Scoring Schemes}
   \label{tab:scoring}
 \end{longtable}
+
+\subsection{Special Events during a Match}
+\label{sec:during-match}
+Any referee can interrupt the match at any time. After the game is
+paused, all robots have 3 seconds to stop any movement.  Robots that
+do not stop within the time limit will be treated in the same way as
+misbehaving robots (cf.~\refsec{sec:robot-maintenance}).  The match
+time will be paused during the interruption.
+
+\subsubsection{Scheduled Machine Downtime}
+\label{sec:out-of-order}
+The refbox will take down machines randomly out of the pool containing
+the RS and CS\@. It will do so at random points of time and with the
+same conditions for both teams, i.e., affecting the same machines for
+both teams. There will be 2 of such triggered events during a
+match. The machines affected will remain out of order for 30 to 60
+seconds. Every machine can only be forced out of order once per
+match. If a machine turns offline during processing a product it will
+afterwards resume the process (extending the overall processing time
+by the down time). The downtime is indicated by a steady red
+light. Base elements fed into the machine while out-of-order are
+accepted when the machine gets back online, with the same constraints
+mentioned in \refsec{sec:production-machines-production}.
+
+\subsubsection{Broken Machine Downtime}
+\label{sec:broken-machine}
+If a machine is improperly instructed or used, or a reset message has
+been sent, the machine will go into a failure state. The machine cannot be
+used for 30 seconds and until repaired. That is, if damage was
+inflicted on the machine or the referee needs longer to repair the
+machine the game continues and the machine will be offline for a
+longer time. Any production that was running will be aborted and any
+product which was being processed is no longer available and will be
+removed by the referee. Any additional bases or caps buffered at the machine
+will be void and the points gained removed. For storage stations, no
+slot is refilled, the load status remains exactly as before the broken
+state. The downtime is indicated by a flashing red light.
+
 
 \subsection{Obstruction Penalty}
 \label{sec:obstruction-penalty}
