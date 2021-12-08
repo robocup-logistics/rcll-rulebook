@@ -1206,7 +1206,19 @@ therefore distinguish \emph{color complexities} as $CC_0$, $CC_1$, and
 $CC_2$ depending on whether zero, one, or two additional bases are
 required for a color.
 
-Example production chains are depicted in \reffig{fig:production-chains}.
+Each order will consist of the product variant to
+produce, the amount thereof, and a delivery time slot. An order
+therefore specifies a production chain to be accomplished for
+fulfillment. \reffig{fig:production-chains} shows some example
+production chains of the four different complexities
+(cf.~\refsec{sec:production-complexities}). The ring colors which
+
+Products retrieved from the Storage Station may be used only for
+$C_0$ orders with a requested quantity equal to or greater than two.
+An order can be \emph{competitive} or \emph{non-competitive}. For a competitive
+order, the team that delivers it first will get extra points.
+(cf.~\refsec{sec:production-scoring}).
+For a non-competitive order, each team scores independently of the other team.
 % TODO: move this
 %The referee box ensures that there will always
 %be some orders for $C_1$ products where the ring color does not
