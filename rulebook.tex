@@ -520,6 +520,7 @@ about \SI{1}{\metre} depending on machine type. The machine
 has individual application modules that provide different
 functionality.
 
+% TODO: mention optional workpiece trackers
 All machines share the same basic layout: a trolley, conveyor belt,
 and signal light. A machine is movable by four wheels with
 \SI{0.1}{\metre} clearance. Both narrow sides of the trolley are
@@ -1180,12 +1181,13 @@ containing a white reference area as well as an identifying
 barcode. Each base is equipped with a unique ID\@. \reffig{fig:barcode}
 shows a prototype of a barcode labeled workpiece.
 
-%TODO: move this
-%The barcodes are scanned at each station and communicated to the
-%referee box. The referee box uses the barcodes to track assembly
-%processes, i.e., to determine the state of a workpiece. This allows in
-%particular to award points for production steps as they happen
-%(cf. \refsec{sec:production-scoring}).
+The barcodes can be scanned at each station via attached barcode scanners and
+communicated to the referee box.
+The referee box can use this information to track assembly
+processes, i.e., to determine the state of a workpiece.
+However, this feature is only available, if the scanners are attached
+to the machines, which may not be the case as this system is still under
+evaluation.
 
 \subsubsection{Production, Color Complexities, and Additional Bases}
 \label{sec:production-complexities}
