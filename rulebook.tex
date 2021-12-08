@@ -1603,23 +1603,13 @@ state. The downtime is indicated by a flashing red light.
 During the production phase, points are awarded for intermediate
 production steps and final delivery of goods according to
 \reftab{tab:scoring}.
+Points for production steps are awarded as soon as they are verified.
+This depends on weather the barcode tracking system is deployed on the
+stations or not.
 
-Points for production steps are awarded as soon as
-completed.\footnote{This relies on the bar code system described in
-  \refsec{sec:products} which will be introduced in 2019. Should this
-  be delayed or proof infeasible, the mode of operation in 2017 will
-  be used: all points related to a product, including the points for
-  finishing intermediate step like mounting the last ring on higher
-  complexity products, are awarded on delivery only. Products, which
-  are not delivered, do not score. That includes half-finished
-  products at the end of the game in particular. Production points are
-  also awarded for later deliveries, that is, points for steps like
-  mounting the cap are awarded in full for as long as there was or is
-  an order active for that specific product if there are still items
-  in the order remaining, i.e., not the full amount of ordered products
-  has been delivered.}
-%
-Points are only awarded if there is yet an order for which the
+If the tracking system is used, the referee box automatically can verify that
+issued machine instructions actually belong to an active order.
+Therefore, points are only awarded if there is yet an order for which the
 performed step is required and which has not yet expired (the end of
 the order time window has not yet passed) and for which the step has
 not been performed for as often as products have been requested. For
@@ -1634,6 +1624,18 @@ belong to an upcoming (and announced) or on-going order can be
 awarded. Performing a step for a later order which has not yet been
 announced cannot be awarded.
 
+If the tracking system is not available, then the production steps are
+verified manually by the referee upon delivery.
+Products, which are not delivered, do not score. That includes half-finished
+products at the end of the game in particular. Production points are
+also awarded for later deliveries, that is, points for steps like
+mounting the cap are awarded in full for as long as there was or is
+an order active for that specific product if there are still items
+in the order remaining, i.e., not the full amount of ordered products
+has been delivered.
+%
+
+\paragraph{Competitive Order Scoring}
 For a competitive order, the same scoring scheme for in-time, delayed, and late
 delivery applies, with additional points for a successful first delivery and a
 point deduction for the second delivery (cf.~\reftab{tab:scoring}). The
@@ -1643,6 +1645,7 @@ only $5$ points will be deducted.}. Points for production steps are given in the
 same way as for non-competitive orders. In particular, production points are
 also given if a team delivers the product after the other team.
 
+\paragraph{Storage Station Costs}
 Storage Station usage is associated with different costs.
 However, exploration points gained during the exploration will not be
 used for this. If the team has not yet received sufficient points,
