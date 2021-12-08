@@ -1075,8 +1075,9 @@ Depending on the game mode, either the exploration or production phase follows.
 
 \subsection{Exploration Phase}
 \label{sec:exploration-phase}
-The robots have \SI{3}{\minute} to roam the environment and report
-their machines to the referee box. The report about an MPS may be split
+During the exploration phase The robots have \SI{3}{\minute} to roam the
+environment and report their machines to the referee box.
+The report about an MPS may be split
 in two parts, the position and type of a machine, and its orientation.
 Concretely, the referee box expects a \emph{machine identification
   message} with a tuple consisting of zone, machine name (as encoded
@@ -1085,10 +1086,10 @@ filled to account for the two parts. Please consult the referee box
 Integrator's Manual~\cite{RefBoxIntManual} for a detailed definition
 of the message types. Reports are only accepted for MPS of the
 respective team over the private encrypted team channel. Only the
-first information for each MPS is processed and then never
-updated. The scoring is shown in \reftab{tab:scoring}. A
-minimum of zero points will be accounted for the exploration
-phase.
+first information for each MPS is processed, hence per machine only one attempt
+can be made to report it.
+The scoring is shown in \reftab{tab:scoring}.
+A minimum of zero points will be accounted for the exploration phase.
 
 The signal light of the MPS will show a yellow light until a report regarding
 this machine is sent.  If the wrong MPS zone is sent, the light will start red
