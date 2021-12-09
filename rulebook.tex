@@ -1537,29 +1537,37 @@ the MPS to go into the broken state
 (cf.~\refsec{sec:broken-machine}). It allows teams to recover machines
 after handling errors (which the robots must recognize themselves).
 
+\subsubsection{Broken Machine Downtime}
+\label{sec:broken-machine}
+If a machine is improperly instructed or used, or a reset message has
+been sent, the machine will go into a failure state. The machine cannot be
+used for 30 seconds and until repaired. That is, if damage was
+inflicted on the machine or the referee needs longer to repair the
+machine the game continues and the machine will be offline for a
+longer time. Any production that was running will be aborted and any
+product which was being processed is no longer available and will be
+removed by the referee. Any additional bases or caps buffered at the machine
+will be void and the points gained removed. For storage stations, no
+slot is refilled, the load status remains exactly as before the broken
+state. The downtime is indicated by a flashing red light.
 
-\subsubsection{Machine Refill}
-\label{sec:machine-refill}
-The teams are responsible for restocking all materials (base elements,
-rings, prepared caps on shelves, and $C_0$ in the SS) before and during matches.
-Each team has to designate one team-member as a \textit{``replenisher''} who
-must be specified to the corresponding ``field half/team'' referee ahead of each
-game.  Only this team member will be allowed to access the field area and only
-in case of a recent refill procedure.  The replenisher must not obstruct other
-robots and should interfere as little as possible.  The machines can only be
-refilled when a magazine or shelf is empty. In this case the field-operator may
-enter the competition-area without asking the referee. Shelves have to be
-(re-)filled in all three reachable slots. % chktex 36
-The replenisher may restock only caps if transparent base elements have been put
-back to the shelf, once no cap is remaining on this shelf.
 
-The teams are partly free to choose their assembly and placement of products.
-For example, teams can fill any number of bases into a BS or are free to choose
-the color of caps for a CS, however teams are only allowed to fill the CS if the
-whole shelf is empty and then it has to be filled completely.  The color
-assignment of bases on the BS and SS must be obeyed, as otherwise they will
-deliver the wrong
-bases.
+\subsubsection{Scheduled Machine Downtime}
+\label{sec:out-of-order}
+The refbox will take down machines randomly out of the pool containing
+the RS and CS\@. It will do so at random points of time and with the
+same conditions for both teams, i.e., affecting the same machines for
+both teams. There will be 2 of such triggered events during a
+match. The machines affected will remain out of order for 30 to 60
+seconds. Every machine can only be forced out of order once per
+match. If a machine turns offline during processing a product it will
+afterwards resume the process (extending the overall processing time
+by the down time). The downtime is indicated by a steady red
+light. Base elements fed into the machine while out-of-order are
+accepted when the machine gets back online, with the same constraints
+mentioned in \refsec{sec:production-machines-production}.
+
+
 
 \subsection{Task Fulfillment and Scoring}
 \label{sec:production-scoring}
@@ -1752,34 +1760,28 @@ do not stop within the time limit will be treated in the same way as
 misbehaving robots (cf.~\refsec{sec:robot-maintenance}).  The match
 time will be paused during the interruption.
 
-\subsubsection{Scheduled Machine Downtime}
-\label{sec:out-of-order}
-The refbox will take down machines randomly out of the pool containing
-the RS and CS\@. It will do so at random points of time and with the
-same conditions for both teams, i.e., affecting the same machines for
-both teams. There will be 2 of such triggered events during a
-match. The machines affected will remain out of order for 30 to 60
-seconds. Every machine can only be forced out of order once per
-match. If a machine turns offline during processing a product it will
-afterwards resume the process (extending the overall processing time
-by the down time). The downtime is indicated by a steady red
-light. Base elements fed into the machine while out-of-order are
-accepted when the machine gets back online, with the same constraints
-mentioned in \refsec{sec:production-machines-production}.
+\subsubsection{Machine Refill}
+\label{sec:machine-refill}
+The teams are responsible for restocking all materials (base elements,
+rings, prepared caps on shelves, and $C_0$ in the SS) before and during matches.
+Each team has to designate one team-member as a \textit{``replenisher''} who
+must be specified to the corresponding ``field half/team'' referee ahead of each
+game.  Only this team member will be allowed to access the field area and only
+in case of a recent refill procedure.  The replenisher must not obstruct other
+robots and should interfere as little as possible.  The machines can only be
+refilled when a magazine or shelf is empty. In this case the field-operator may
+enter the competition-area without asking the referee. Shelves have to be
+(re-)filled in all three reachable slots. % chktex 36
+The replenisher may restock only caps if transparent base elements have been put
+back to the shelf, once no cap is remaining on this shelf.
 
-\subsubsection{Broken Machine Downtime}
-\label{sec:broken-machine}
-If a machine is improperly instructed or used, or a reset message has
-been sent, the machine will go into a failure state. The machine cannot be
-used for 30 seconds and until repaired. That is, if damage was
-inflicted on the machine or the referee needs longer to repair the
-machine the game continues and the machine will be offline for a
-longer time. Any production that was running will be aborted and any
-product which was being processed is no longer available and will be
-removed by the referee. Any additional bases or caps buffered at the machine
-will be void and the points gained removed. For storage stations, no
-slot is refilled, the load status remains exactly as before the broken
-state. The downtime is indicated by a flashing red light.
+The teams are partly free to choose their assembly and placement of products.
+For example, teams can fill any number of bases into a BS or are free to choose
+the color of caps for a CS, however teams are only allowed to fill the CS if the
+whole shelf is empty and then it has to be filled completely.  The color
+assignment of bases on the BS and SS must be obeyed, as otherwise they will
+deliver the wrong
+bases.
 
 
 \subsection{Obstruction Penalty}
