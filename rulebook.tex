@@ -967,80 +967,6 @@ They markers are available for printing on the RoboCup Logistics website.
 % be performed. This includes, but is not limited to, remote start-up of
 % programs, localization procedures, or vision calibration.
 
-%TODO: move this
-%\subsection{Interruptions and Robot Maintenance}
-%\label{sec:robot-maintenance}
-%During a match and while the robot is active on the field no manual
-%interference or manipulation of the robot in hardware, software,
-%configuration, instructions, or whatsoever, is allowed.  Teams may
-%visualize robot data on computers at the field, but existing keyboards
-%must be covered with a sheet of paper in order to assert a fair game
-%without manual interference.
-
-%TODO: remove this
-% In the case of a misbehaving or broken robot, a team can ask the
-% referee to take out a robot. Note, however, that one robot interfering
-% with another is no conduct of misbehavior (unless damage is to be
-% expected) and no reason to call out a robot. Similarly, to ask to take
-% out a robot which is in a software deadlock situation of the own
-% control software is not judged as a broken robot. The final decision
-% whether a robot can be taken out or not remains with the field
-% referee. The referee acts upon this motion at a time of his choosing,
-% but as soon as possible.
-
-%TODO: move this
-%Each team is allowed to maintain each robot twice per game. The first
-%maintenance per robot is free, while the second maintenance for any
-%robot needs to be purchased costing 5 points. If a team has not yet
-%received sufficient points, maintenances can also be purchased on
-%(partial) credit. The remaining points can be deducted from points
-%that are scored later in the game. The score for both exploration-
-%and production-phase cannot become negative due to using additional
-%maintenances.
-%
-%Teams have to call upon the referee for \textit{robot maintenance}. The
-%referee should judge the game situation carefully and should allow the
-%robot to be taken out for maintenance, if the calling team would not
-%have any advantage in the current game situation from taking out the
-%robot. An advantage would be, for instance, to take out a robot, if
-%two robots of the same team are hindering each other. It is up to the
-%discretion of the referee when to allow the robot maintenance.
-%
-%Another reason for maintenance is a \emph{misbehaving robot}. Several
-%infringements in this rulebook demand that the robot be taken out,
-%e.g., leaving the field (cf.~\refsec{sec:field-movement}).
-%
-%Because the new generation of Robotinos is relatively heavy and bulky,
-%up to two team members are allowed to remove a robot from the field.
-%Or the robots may be driven out manually by remote control using a
-%joystick, gamepad or similar. Human commands must be mapped directly
-%to motion commands, no autonomous driving is allowed. In both cases
-%(driving out and taking out) the robot must leave the field through
-%the closest opening in the wall unless this would interfere with the
-%game. In that case, the next closest exit may be chosen (referee
-%decides). The robot need to be carried to the insertion area
-%for re-participation.
-%
-%The repair time may take at most 120 seconds, starting from the moment
-%of driving or taking out the robot.  After a robot has been taken out
-%for the first time, the team can perform any repairs to the robot
-%and/or the robot's software. To return the robot into the game, the
-%team asks the referee to place back the robot onto the field. After
-%the referee accepts the motion, the team has 15 seconds quick setup
-%time, which is limited to basic instructions like initial localization
-%or software start-up. The robot may leave the insertion area onto the
-%field (autonomous driving). If the robot is not returned to the field
-%in time, it is disqualified from the ongoing game.
-%
-%The referee can interrupt the game at any point in time, but should do
-%so rarely as not to interfere with the overall game flow (also
-%cf.~\refsec{sec:during-match}).
-%
-%If a robot needs to be taken out for the third time, either on
-%request or as decided by the referee, it is disqualified from the
-%current game. It may no longer communicate with the still active
-%robots and must be taken out of the competition area.
-
 \subsection{Game Start}
 \label{sec:game-start}
 % TODO add game format section
@@ -1756,6 +1682,80 @@ While the game tasks must be handled by autonomously acting robots,
 there may be situations, where human assistance is needed.
 This section describes the circumstances under which humans are required
 to interfere during a running game.
+
+%TODO: move this
+%\subsection{Interruptions and Robot Maintenance}
+%\label{sec:robot-maintenance}
+%During a match and while the robot is active on the field no manual
+%interference or manipulation of the robot in hardware, software,
+%configuration, instructions, or whatsoever, is allowed.  Teams may
+%visualize robot data on computers at the field, but existing keyboards
+%must be covered with a sheet of paper in order to assert a fair game
+%without manual interference.
+
+%TODO: remove this
+% In the case of a misbehaving or broken robot, a team can ask the
+% referee to take out a robot. Note, however, that one robot interfering
+% with another is no conduct of misbehavior (unless damage is to be
+% expected) and no reason to call out a robot. Similarly, to ask to take
+% out a robot which is in a software deadlock situation of the own
+% control software is not judged as a broken robot. The final decision
+% whether a robot can be taken out or not remains with the field
+% referee. The referee acts upon this motion at a time of his choosing,
+% but as soon as possible.
+
+%TODO: move this
+%Each team is allowed to maintain each robot twice per game. The first
+%maintenance per robot is free, while the second maintenance for any
+%robot needs to be purchased costing 5 points. If a team has not yet
+%received sufficient points, maintenances can also be purchased on
+%(partial) credit. The remaining points can be deducted from points
+%that are scored later in the game. The score for both exploration-
+%and production-phase cannot become negative due to using additional
+%maintenances.
+%
+%Teams have to call upon the referee for \textit{robot maintenance}. The
+%referee should judge the game situation carefully and should allow the
+%robot to be taken out for maintenance, if the calling team would not
+%have any advantage in the current game situation from taking out the
+%robot. An advantage would be, for instance, to take out a robot, if
+%two robots of the same team are hindering each other. It is up to the
+%discretion of the referee when to allow the robot maintenance.
+%
+%Another reason for maintenance is a \emph{misbehaving robot}. Several
+%infringements in this rulebook demand that the robot be taken out,
+%e.g., leaving the field (cf.~\refsec{sec:field-movement}).
+%
+%Because the new generation of Robotinos is relatively heavy and bulky,
+%up to two team members are allowed to remove a robot from the field.
+%Or the robots may be driven out manually by remote control using a
+%joystick, gamepad or similar. Human commands must be mapped directly
+%to motion commands, no autonomous driving is allowed. In both cases
+%(driving out and taking out) the robot must leave the field through
+%the closest opening in the wall unless this would interfere with the
+%game. In that case, the next closest exit may be chosen (referee
+%decides). The robot need to be carried to the insertion area
+%for re-participation.
+%
+%The repair time may take at most 120 seconds, starting from the moment
+%of driving or taking out the robot.  After a robot has been taken out
+%for the first time, the team can perform any repairs to the robot
+%and/or the robot's software. To return the robot into the game, the
+%team asks the referee to place back the robot onto the field. After
+%the referee accepts the motion, the team has 15 seconds quick setup
+%time, which is limited to basic instructions like initial localization
+%or software start-up. The robot may leave the insertion area onto the
+%field (autonomous driving). If the robot is not returned to the field
+%in time, it is disqualified from the ongoing game.
+%
+%The referee can interrupt the game at any point in time, but should do
+%so rarely as not to interfere with the overall game flow (also
+%cf.~\refsec{sec:during-match}).
+%
+%If a robot needs to be taken out for the third time, either on
+%request or as decided by the referee, it is disqualified from the
+%current game. It may no longer communicate with the still active
+%robots and must be taken out of the competition area.
 
 Any referee can interrupt the match at any time. After the game is
 paused, all robots have 3 seconds to stop any movement.  Robots that
