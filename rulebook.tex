@@ -1529,19 +1529,17 @@ The preparation and use of a machine follows a transaction style. Once the
 machine has been prepared, the full cycle can be completed (committed).
 There may be only one transaction running at a time. If a
 second preparation is performed the machine will
-be temporarily broken (cf.~\refsec{sec:broken-machine}).
-
+be temporarily broken, which causes it to recover to a determined state.
 An MPS may be reset by a team at any time by a dedicated msg (see
 referee box Integrator's Manual~\cite{RefBoxIntManual}). This causes
-the MPS to go into the broken state
-(cf.~\refsec{sec:broken-machine}). It allows teams to recover machines
-after handling errors (which the robots must recognize themselves).
+the MPS to go into the broken state as well.
 
 \subsubsection{Broken Machine Downtime}
 \label{sec:broken-machine}
 If a machine is improperly instructed or used, or a reset message has
 been sent, the machine will go into a failure state. The machine cannot be
-used for 30 seconds and until repaired. That is, if damage was
+used for 30 seconds and until repaired.
+That is, if damage was
 inflicted on the machine or the referee needs longer to repair the
 machine the game continues and the machine will be offline for a
 longer time. Any production that was running will be aborted and any
@@ -1554,11 +1552,11 @@ state. The downtime is indicated by a flashing red light.
 
 \subsubsection{Scheduled Machine Downtime}
 \label{sec:out-of-order}
-The refbox will take down machines randomly out of the pool containing
-the RS and CS\@. It will do so at random points of time and with the
-same conditions for both teams, i.e., affecting the same machines for
-both teams. There will be 2 of such triggered events during a
-match. The machines affected will remain out of order for 30 to 60
+Depending on the played format, The referee box may take down machines
+randomly out of the pool containing the RS and CS\@.
+If two teams play at the same time, then the same machines for
+both teams are affected in the same time window.
+The machines affected will remain out of order for 30 to 60
 seconds. Every machine can only be forced out of order once per
 match. If a machine turns offline during processing a product it will
 afterwards resume the process (extending the overall processing time
