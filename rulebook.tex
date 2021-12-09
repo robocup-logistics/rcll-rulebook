@@ -1700,13 +1700,6 @@ All costs are listed in \reftab{tab:scoring}.
 
 \subsection{Human Responsibilities during a Match}
 \label{sec:during-match}
-While the game tasks must be handled by autonomously acting robots,
-there may be situations, where human assistance is needed.
-This section describes the circumstances under which humans are required
-to interfere during a running game.
-
-\subsection{Interruptions and Robot Maintenance}
-\label{sec:robot-maintenance}
 During a match and while the robot is active on the field no manual
 interference or manipulation of the robot in hardware, software,
 configuration, instructions, or whatsoever, is allowed.  Teams may
@@ -1714,28 +1707,72 @@ visualize robot data on computers at the field, but existing keyboards
 must be covered with a sheet of paper in order to assert a fair game
 without manual interference.
 
-%TODO: remove this
-% In the case of a misbehaving or broken robot, a team can ask the
-% referee to take out a robot. Note, however, that one robot interfering
-% with another is no conduct of misbehavior (unless damage is to be
-% expected) and no reason to call out a robot. Similarly, to ask to take
-% out a robot which is in a software deadlock situation of the own
-% control software is not judged as a broken robot. The final decision
-% whether a robot can be taken out or not remains with the field
-% referee. The referee acts upon this motion at a time of his choosing,
-% but as soon as possible.
+While the game tasks must be handled by autonomously acting robots,
+there are cicumstances, where human interference is allowed or even
+required.
+This section describes which rights and obligations teams,
+referees and referee box operators have during a running games.
 
-Each team is allowed to maintain each robot twice per game. The first
-maintenance per robot is free, while the second maintenance for any
-robot needs to be purchased costing 5 points. If a team has not yet
-received sufficient points, maintenances can also be purchased on
-(partial) credit. The remaining points can be deducted from points
-that are scored later in the game. The score for both exploration-
-and production-phase cannot become negative due to using additional
-maintenances.
+\subsubsection{Referee Box Operator}
+The referee box operator runs and oversees the referee box.
+The operator is responsible to
+\begin{itemize} \itemsep0em
+  \item properly configure the referee box to the current game format,
+  \item observe the referee box status to ensure the correctness of
+    the digital representation and automatic scoring,
+  \item manually confirm delivered orders (if workpiece tracking is disabled),
+  \item announce critical situations to the field referees (e.g., if a machine
+    that is mocked up as described in \refsec{sec:mockup-machines} is
+    instructed and needs manual operation),
+  \item start and stop the game on request of the field referees,
+  \item manage robot maintenances:
+    They confirm with the field referees that the maintenance is granted,
+    enter them into the referee box,
+    observe the time remaining to bring back a robot,
+    or announce if a robot may no longer participate in the game.
+\end{itemize}
 
-Teams have to call upon the referee for \textit{robot maintenance}. The
-referee should judge the game situation carefully and should allow the
+\subsubsection{Field Referees}
+Field referees observe the field, announce rule
+% TODO correct section
+violations (cf.~\refsec{sec:rules}), and communicate with the teams and
+referee box operator.
+There are always two field referees per game, announced through the schedule
+by the Organizing Committee.
+The referee named first on the schedule is the head referee and has the upper
+hand when there is a referee disagreement and then announces
+the final decision.
+If two teams compete on the same field, one field referee is assigned to a
+particular field half.
+The head referee is assigned to the primary side of team cyan, while the
+secondary field referee is responsible for the primary side of team magenta.
+
+\paragraph{Field Observation}
+The field referees observe the game from the side of the field or from
+any position on the field (e.g., to better understand the game
+situation). They shall avoid robots spatially on the field, but
+ultimately robots are expected to avoid collision with human
+referees.
+Field referees also need to observe machine processing steps, validate that
+the machines work as intended or correct minor operation failures manually.
+Operation failures may only be corrected if they are not caused by the robots.
+It is up to the referees to decide weather an operation failure was caused by
+a robot or the machine.
+% TODO: be precise what needs to be done
+% Examples for a valid correction:
+% Examples for operation failures caused by the robots:
+In case a machine is mocked up through the referee box, the field referees
+are responsible to manually perform the assembly steps as announced by the
+referee box operator.
+Field referees are also responsible for removing fallen
+products from the playing-ground and observing the correct refill procedure
+for machines (see \refsec{sec:machine-refill}).
+
+\paragraph{Robot Maintenance}
+Field referees are responsible for
+making the decision whether a team may take out a robot for
+maintenance.
+They should judge the game situation carefully and should allow the
 robot to be taken out for maintenance, if the calling team would not
 have any advantage in the current game situation from taking out the
 robot. An advantage would be, for instance, to take out a robot, if
@@ -1745,9 +1782,38 @@ discretion of the referee when to allow the robot maintenance.
 Another reason for maintenance is a \emph{misbehaving robot}. Several
 infringements in this rulebook demand that the robot be taken out,
 e.g., leaving the field (cf.~\refsec{sec:field-movement}).
+If a robot needs to be taken out for the third time, either on
+request or as decided by the referee, it is disqualified from the
+current game. It may no longer communicate with the still active
+robots and must be taken out of the competition area.
 
-Because the new generation of Robotinos is relatively heavy and bulky,
-up to two team members are allowed to remove a robot from the field.
+\paragraph{Game Pause}
+Each referee may call a pause of the game at any time, e.g., if robots
+must be penalized or disentangled after a collision. Referees may
+explicitly pause the game to convene and discuss an unclear situation
+as to avoid hasty decisions. Such pauses shall be short-lived as to
+follow the competition schedule.
+
+After the game is paused, all robots have 3 seconds to stop any movement.
+Robots that do not stop within the time limit will be treated in the same way as
+misbehaving robots.
+The match time will be paused during the interruption.
+
+
+\subsubsection{Performing Robot Maintenance}
+\label{sec:robot-maintenance}
+% TODO: robot maintenance points in challenge format?!
+Each team is allowed to maintain each robot twice per game. The first
+maintenance per robot is free, while the second maintenance for any
+robot needs to be purchased costing 5 points. If a team has not yet
+received sufficient points, maintenances can also be purchased on
+(partial) credit. The remaining points can be deducted from points
+that are scored later in the game. The score for both exploration-
+and production-phase cannot become negative due to using additional
+maintenances.
+
+Teams have to call upon the field referees for \textit{robot maintenance}.
+Up to two team members are allowed to remove a robot from the field.
 Or the robots may be driven out manually by remote control using a
 joystick, gamepad or similar. Human commands must be mapped directly
 to motion commands, no autonomous driving is allowed. In both cases
@@ -1768,27 +1834,12 @@ or software start-up. The robot may leave the insertion area onto the
 field (autonomous driving). If the robot is not returned to the field
 in time, it is disqualified from the ongoing game.
 
-The referee can interrupt the game at any point in time, but should do
-so rarely as not to interfere with the overall game flow (also
-cf.~\refsec{sec:during-match}).
-
-If a robot needs to be taken out for the third time, either on
-request or as decided by the referee, it is disqualified from the
-current game. It may no longer communicate with the still active
-robots and must be taken out of the competition area.
-
-Any referee can interrupt the match at any time. After the game is
-paused, all robots have 3 seconds to stop any movement.  Robots that
-do not stop within the time limit will be treated in the same way as
-misbehaving robots (cf.~\refsec{sec:robot-maintenance}).  The match
-time will be paused during the interruption.
-
 \subsubsection{Machine Refill}
 \label{sec:machine-refill}
 The teams are responsible for restocking all materials (base elements,
 rings, prepared caps on shelves, and $C_0$ in the SS) before and during matches.
 Each team has to designate one team-member as a \textit{``replenisher''} who
-must be specified to the corresponding ``field half/team'' referee ahead of each
+must be specified to the corresponding referees ahead of each
 game.  Only this team member will be allowed to access the field area and only
 in case of a recent refill procedure.  The replenisher must not obstruct other
 robots and should interfere as little as possible.  The machines can only be
@@ -1803,9 +1854,8 @@ For example, teams can fill any number of bases into a BS or are free to choose
 the color of caps for a CS, however teams are only allowed to fill the CS if the
 whole shelf is empty and then it has to be filled completely.  The color
 assignment of bases on the BS and SS must be obeyed, as otherwise they will
-deliver the wrong
-bases.
-
+deliver the wrong bases. Similarly, ring color assignments at the RS must be
+respected according to the referee box announcement.
 
 \subsection{Obstruction Penalty}
 \label{sec:obstruction-penalty}
