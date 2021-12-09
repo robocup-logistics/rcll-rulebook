@@ -1857,91 +1857,6 @@ assignment of bases on the BS and SS must be obeyed, as otherwise they will
 deliver the wrong bases. Similarly, ring color assignments at the RS must be
 respected according to the referee box announcement.
 
-\subsection{Obstruction Penalty}
-\label{sec:obstruction-penalty}
-
-As the Logistics League follows the idea of having both active teams
-compete alongside each other, instead of directly against each other, we
-punish intentional obstruction of the opposing team.
-
-This applies in particular to the input and output area in front of
-any MPS\@.  All robots are allowed to enter this space, but robots must
-not obstruct opposing robots which intend to approach their
-MPS\@. Concretely, that robot must give way and release an approachable
-path to the MPS within a time window of 10 seconds. If a robot cannot
-follow this rule, a pushing foul will be called according to
-Section~\ref{sec:pushing-rules}.
-
-% old ?!
-Furthermore, teams are penalized for obstruction according to
-\reftab{tab:scoring} when delivering a workpiece to a machine of the
-opposing team.  In this case, the workpiece becomes junk and cannot be
-used afterwards.
-
-\subsection{Pushing Rules}
-\label{sec:pushing-rules}
-
-With multiple teams on the field at the same time, robots must
-implement ways for collision avoidance. At the same time, they shall
-not interfere with the goods of the other team. The case where a robot
-of one team bumps into or moves a robot of another team we
-call ``pushing''.
-
-The following rules shall be obeyed by the robots and provide the
-guidelines for referees to call for improper behavior of a robot due
-to pushing.
-
-\begin{enumerate}
-\item Pushing occurs only between robots of different teams.
-\item Robots must drive such that they try to avoid physical contact
-  with robots from the opposing team. However, physical contact per se
-  does not represent an offense.
-\item All robots should be equipped with appropriate sensors to detect
-  situations of physical contact with other robots (direct pushing
-  situations).
-\item If physical contact with other robots cannot be avoided, it must
-  be soft, i.e., at slow speed and with as small physical impact as
-  possible, in order to avoid damage to itself and other
-  robots. Robots moving at high speed must significantly decelerate
-  before a collision occurs with another robot.
-\item If a destruction collision is immediate and the robots do not
-  react, the referee should use the refbox to send a stop command to
-  all robots. Every team has to react to the stop command by
-  immediately stopping their robots.
-\item Whenever a robot produces direct physical contact with another
-  robot while moving, it must stop movement immediately in that
-  direction (and choose a new direction for movement).
-\item If pushing occurs between a moving and a standing robot, the
-  moving robot causes the pushing situation and is responsible for
-  resolving it. If it is not able to do so, a pushing foul will be
-  called.
-\item If pushing occurs between two moving robots, both robots are
-  responsible for resolving the pushing situation. If one robot
-  continues pushing by moving in its initial direction, while the
-  other robot is recognizably reacting and trying to take another
-  direction, the foul will be called on the pushing robot.
-\item If two robots encounter physical contact and cannot resolve the
-  situation because they get entangled, the referee may issue a
-  pushing foul on both robots.
-\item If, in the opinion of the referee, physical contact between two
-  robots is not soft, or if one or both of the robots do not change
-  direction after encountering physical contact, a pushing foul will
-  be called.
-\item When a pushing foul is detected the responsible team has to use
-  up their restart for the stuck robot to start at the insertion zone
-  again. The other team can decide within 10 seconds to restart their
-  involved robot in the insertion zone without it counting as a
-  penalty restart.
-\item Moving a workpiece of the opposing team at their MPS is a pushing
-foul. The referee will move the workpiece back to its original position.
-\item Intentional obstruction of the opposing team is a pushing foul, as
-described in Section~\ref{sec:obstruction-penalty}.
-\item If a robot is restarted or called to maintenance, loses his
-workpiece during collision avoidance or in case of a collision, the
-workpiece will not be replaced and is removed by the referee.
-\item The league reserves its right to disqualify clearly malicious
-  teams.
-\end{enumerate}
 
 \section{Tournament}
 \label{sec:tournament}
@@ -2279,6 +2194,92 @@ must be penalized or disentangled after a collision. Referees may
 explicitly pause the game to convene and discuss an unclear situation
 as to avoid hasty decisions. Such pauses shall be short-lived as to
 follow the competition schedule.
+
+\subsection{Obstruction Penalty}
+\label{sec:obstruction-penalty}
+
+As the Logistics League follows the idea of having both active teams
+compete alongside each other, instead of directly against each other, we
+punish intentional obstruction of the opposing team.
+
+This applies in particular to the input and output area in front of
+any MPS\@.  All robots are allowed to enter this space, but robots must
+not obstruct opposing robots which intend to approach their
+MPS\@. Concretely, that robot must give way and release an approachable
+path to the MPS within a time window of 10 seconds. If a robot cannot
+follow this rule, a pushing foul will be called according to
+Section~\ref{sec:pushing-rules}.
+
+% old ?!
+Furthermore, teams are penalized for obstruction according to
+\reftab{tab:scoring} when delivering a workpiece to a machine of the
+opposing team.  In this case, the workpiece becomes junk and cannot be
+used afterwards.
+
+\subsection{Pushing Rules}
+\label{sec:pushing-rules}
+
+With multiple teams on the field at the same time, robots must
+implement ways for collision avoidance. At the same time, they shall
+not interfere with the goods of the other team. The case where a robot
+of one team bumps into or moves a robot of another team we
+call ``pushing''.
+
+The following rules shall be obeyed by the robots and provide the
+guidelines for referees to call for improper behavior of a robot due
+to pushing.
+
+\begin{enumerate}
+\item Pushing occurs only between robots of different teams.
+\item Robots must drive such that they try to avoid physical contact
+  with robots from the opposing team. However, physical contact per se
+  does not represent an offense.
+\item All robots should be equipped with appropriate sensors to detect
+  situations of physical contact with other robots (direct pushing
+  situations).
+\item If physical contact with other robots cannot be avoided, it must
+  be soft, i.e., at slow speed and with as small physical impact as
+  possible, in order to avoid damage to itself and other
+  robots. Robots moving at high speed must significantly decelerate
+  before a collision occurs with another robot.
+\item If a destruction collision is immediate and the robots do not
+  react, the referee should use the refbox to send a stop command to
+  all robots. Every team has to react to the stop command by
+  immediately stopping their robots.
+\item Whenever a robot produces direct physical contact with another
+  robot while moving, it must stop movement immediately in that
+  direction (and choose a new direction for movement).
+\item If pushing occurs between a moving and a standing robot, the
+  moving robot causes the pushing situation and is responsible for
+  resolving it. If it is not able to do so, a pushing foul will be
+  called.
+\item If pushing occurs between two moving robots, both robots are
+  responsible for resolving the pushing situation. If one robot
+  continues pushing by moving in its initial direction, while the
+  other robot is recognizably reacting and trying to take another
+  direction, the foul will be called on the pushing robot.
+\item If two robots encounter physical contact and cannot resolve the
+  situation because they get entangled, the referee may issue a
+  pushing foul on both robots.
+\item If, in the opinion of the referee, physical contact between two
+  robots is not soft, or if one or both of the robots do not change
+  direction after encountering physical contact, a pushing foul will
+  be called.
+\item When a pushing foul is detected the responsible team has to use
+  up their restart for the stuck robot to start at the insertion zone
+  again. The other team can decide within 10 seconds to restart their
+  involved robot in the insertion zone without it counting as a
+  penalty restart.
+\item Moving a workpiece of the opposing team at their MPS is a pushing
+foul. The referee will move the workpiece back to its original position.
+\item Intentional obstruction of the opposing team is a pushing foul, as
+described in Section~\ref{sec:obstruction-penalty}.
+\item If a robot is restarted or called to maintenance, loses his
+workpiece during collision avoidance or in case of a collision, the
+workpiece will not be replaced and is removed by the referee.
+\item The league reserves its right to disqualify clearly malicious
+  teams.
+\end{enumerate}
 
 \subsection{Liability Waiver}
 Referees cannot be held liable for:
