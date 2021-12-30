@@ -1866,10 +1866,83 @@ deliver the wrong bases. Similarly, ring color assignments at the RS must be
 respected according to the referee box announcement.
 
 
-\section{Tournament}
+\section{Tournament - Main Track}
 \label{sec:tournament}
-The tournament is organized in a main competition and three technical
+This tournament format is organized in a main competition and three technical
 challenges. Teams can decide to participate in any of those.
+
+\subsection{Field Layout}
+Games are played on a symmetrical fields, the competition area spans
+\SI{14 x 8}{\metre} and each team has one BS, SS and DS as well as %chktex 29
+two CS and two RS available, so a total of 14 machines are placed on the field.
+The field shown in \reffig{fig:competition-area} is an exemplary field for
+a game in the main competition.
+
+The machines will be placed mostly on the primary half
+of a team (cf. \refsec{sec:competition-area}). However, some machines will be
+swapped, that is, some machines will not be located in the primary
+half:
+For each game, one CS and one RS of each team will be chosen randomly
+and swapped with the corresponding machine of the other team on the
+non-primary half --- that is two machines in total per team. The CS and
+RS will be swapped with the symmetrically positioned machine of the
+same type of the other team.
+
+\subsection{Match Format}
+Objective of a match is to score the most points according to the scoring
+described in \refsec{sec:production-scoring}.
+Each match consists of a 3 minute long exploration phase, followed by
+a 17 minute production phase.
+With the switch to the production phase, the machine locations (zone position
+and rotation) are announced.
+
+\subsection{Order Schedule}
+The referee box will announce orders throughout the game in an
+incremental fashion.
+The ring colors which
+require additional bases are randomized per game and announced by the
+refbox. There will be one color requiring 2 additional bases, one
+requiring 1 base, and two colors requiring no additional base at
+all. Products retrieved from the Storage Station may be used only for
+$C_0$ orders with a requested quantity equal to or greater than two.
+
+In each game, up to 9 orders will be placed within the regular game.
+1 of those orders will be \emph{competitive}, while the remaining
+orders will be \emph{non-competitive}. In case of overtime, an
+additional competitive order will be placed.\footnote{The numbers can
+be adjusted during the tournament by the Technical Committee, should
+this turn out to be necessary.}
+The complexities of orders will be similar for all games within a
+tournament phase. But the actual production chains are randomized.
+Each order will require one or more products of a specified product
+type to be delivered. A competitive order always requires exactly one
+product to be delivered. The product is specified in terms of base
+color, rings (color and order), cap color, and possible delivery gate.
+The delivery time slot will have a randomized start time. The duration
+will be randomized between 30 to 180 seconds. The end time shall be
+within the game time. There is not necessarily an open order for a
+particular product at a specific time, or any order at all. The first
+order will be posted within the first 120 seconds of the game (but not
+necessarily at the beginning of the game). Orders for the products of
+complexity $C_2$ or $C_3$ will not begin in the first 300 seconds. An
+order will be announced before the delivery time slots starts. For
+$C_0$ products the lead time ahead of the start of the time window is
+60 to 120 seconds, for $C_1$ it is 120 to 300 seconds, and for $C_2$
+and $C_3$ orders the time is between 300 and 600 seconds. Two early
+orders will be posted that are announced in the first third of the
+game with a delivery time window in the last third. For each of the
+complexities $C_0$ and $C_1$ a standing order for a single product
+will be placed at the beginning of the production phase, which can be
+fulfilled at any time during the game. Competitive orders are always for
+products of complexity $C_0$. A competitive order cannot be a standing order.
+
+Teams playing on the field at the same time will get the same
+production plan. However, each game will use a new randomized order
+schedule.
+
+\subsection{Scheduled Machine Downtime -- Main Track}
+There will be exactly two occurrences of scheduled machine downtime for each
+game in the main track according to the rules in \refsec{sec:out-of-order}.
 
 \subsection{Tournament Phases}
 \label{sec:tournament-phases}
