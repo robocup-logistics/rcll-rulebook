@@ -129,6 +129,17 @@
 \usepackage[style=numeric,backend=bibtex,maxbibnames=10]{biblatex}
 \addbibresource{rulebook}
 
+\usepackage{acronym}
+\acrodef{BS}{base station}
+\acrodef{CS}{cap station}
+\acrodef{RS}{ring station}
+\acrodef{SS}{storage station}
+\acrodef{DS}{delivery station}
+\acrodef{MPS}{modular production system}
+\acrodef{RCLL}{RoboCup Logistics Leaugue}
+\acrodef{OC}{Organizational Committee}
+\acrodef{TBD}{To be Discussed}
+
 
 \begin{document}
 
@@ -2155,6 +2166,332 @@ the team on the last rank will receive 0 points, the last-but-one
 ranked team will receive 1 point etc. The points for each ranking will
 be added and the team with the most points accrued over all challenges
 will be awarded with the Logistic Leagues Technical Challenge Award.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+
+\section{Tournament - Challenge Track}
+\label{sec:challenges}
+This tournament is organized as a competition on a pool of challenges, where
+teams can decide to participate in any number of those.
+
+The objectives of this tournament format are:
+\begin{itemize}
+ \item to provide a framework that allows teams to show and evaluate their
+       progress in the individual tasks of the RCLL,
+ \item to ease the preparation for the main track through providing a
+       simplified cost- and space-efficient setup suitable for replication in
+       local labs,
+ \item and to be attractive for both RoboCup live events and online
+       competitions, where teams can participate remotely from all over the
+       world.
+\end{itemize}
+
+\subsection{Field Layout}
+Challenges are played on fields, where the competition area spans
+\SI{5 x 5}{\metre} and only one team participates at a time.
+The field depicted in \reffig{fig:competition-area-challenges} depicts a valid
+competition area for a match.
+Up to four MPS may be placed on a field, depending on the chosen challenge.
+
+\subsection{Remote Setup}
+In case a competition is carried out remotely, a proper local setup has to
+be established and approved by the \ac{OC}.
+Requirements include a proper camera setup that covers the field sufficiently,
+such that external viewers can verify the integrity of each challenges,
+as well as an approval for every mockup machine and robot that is used.
+After registration the \ac{OC} will verify the field setup in a video call.
+The validation call will be scheduled individually for each team
+to account for timezones.
+
+When challenges are played remotely, a video recording of the live-streams
+hast to be sent to the \ac{OC}.
+
+
+\subsection{Tournament Structure}
+The challenge track offers a set of individual challenges that need to be solved
+throughout the official competition days.
+The available challenges are defined in \refsec{sec:challenges}.
+Points can be earned by solving challenges, where the amount of points varies
+depending on the difficulty and task of the challenge.
+The team with the most points by the end of the last competition day wins
+the tournament.
+% TODO: Tie break?
+
+For the online competitions of the year 2021 each team can book official
+attempts by announcing a 30 minute time slot along with the attempted challenge
+in advance of the respective competition day.
+The booking procedure is managed by the \ac{OC}.
+Each slot can be used to do at most one challenge and the corresponding
+challenge is carried out according to the following procedure:
+\begin{enumerate}
+  \item The referee box is configured for the respective challenge and in case
+    the challenge s carried out remotely, the live stream is started.
+    The \texttt{SETUP} phase begins, see \refsec{sec:setup-phase}.
+	\item Then the \texttt{PRODUCTION} phase starts by instructing the referee
+    box accordingly.
+    During the production phase the team has 20 minutes to solve the challenge.
+    The challenge must be terminated before the 30 minutes of the time slot end,
+    otherwise the attempt will be counted as a failure.
+\end{enumerate}
+
+% TODO: is this desired? this encourages volatile solutions that are brute
+% forced until they finally work..
+
+A team may retry the challenge by
+\begin{enumerate}
+	\item setting the referee box back to the setup phase
+	\item resetting the field setup accordingly
+	\item and then starting the production phase again.
+\end{enumerate}
+Only the last attempt in each slot can be counted. A team may decide to count
+no attempt at all. Once a challenge is counted, it
+may not be retried again, unless the difficulty is increased.
+In order to complete an attempt, the RefBox needs to be set to phase
+\texttt{POST\_GAME}.
+
+All challenges are conducted while measuring the execution time of the
+corresponding attempt, starting from the begin of the \texttt{PRODUCTION} phase
+and ending at the begin of \texttt{POST\_GAME}.
+
+\paragraph{Bonus Points for Fastest Challenge Completion}
+The fastest team to complete a challenge on the selected difficulty gains $5$
+additional points. A challenge is only completed if the full score is achieved,
+so getting only partial credits for a challenge disqualifies from getting the
+bonus points for the fastest completion.
+
+\subsection{Changes compared to the Main Competition}
+The tasks covered in the various challenges of \refsec{sec:challenges} have to
+be executed following the regular rules for the \ac{RCLL}.
+However, some aspects are altered to simplify the setup.
+
+\paragraph{Product Delivery}
+The delivery procedure for finished products is altered compared to the
+\ac{RCLL} rule set. In order to reduce the amount of machines required
+for participation, deliveries are made by bringing the finished product
+to the insertion area and dropping it there.
+
+\paragraph{Ring Color Assignment}
+The cost for mounting each ring color are fixed, the assignment of ring colors
+is semi-fixed as teams can choose between two different options for each
+challenge (\texttt{option1} or \texttt{option2} according to
+\reftab{tab:ring-costs}).
+The RefBox settings default to \texttt{option1}, but teams may change this
+accordingly.
+
+\newcommand{\colconfig}{\mathcal{RC}}
+\begin{table}[!htb]
+ \centering
+ \begin{tabular}{l|l|l||l|l||l|l}
+  & \multicolumn{4}{c||}{Ring Costs}
+  & \multicolumn{2}{c}{\multirow{2}{*}{Color Assignment }}\\\cline{2-5}
+  & Color  & Price & Color  & Price & \multicolumn{2}{c}{}\\\cline{2-7}
+  & Yellow & 0 & Green & 0
+  & RS1: $\colconfig_1$ & RS1: $\colconfig_2$ \\
+  & Blue  & 1 & Orange & 2
+  & RS2: $\colconfig_2$ & RS2: $\colconfig_1$ \\\hline\hline
+  Configuration & \multicolumn{2}{c||}{$\colconfig_1$}
+  & \multicolumn{2}{c||}{$\colconfig_2$}
+  & $\texttt{option1}$ & $\texttt{option2}$\\
+ \end{tabular}
+ \caption{Fixed ring costs.}
+ \label{tab:ring-costs}
+\end{table}
+
+%TODO: this is likely unnecessary with the new refbox config management
+
+\paragraph{Materials}\label{sec:materials}
+The available material that can be used per challenge is restricted
+(unless stated otherwise) per machine according to the information in
+\reftab{tab:materials}.
+\begin{table}[!htb]
+ \centering
+  \begin{tabularx}{\linewidth}{l|l}
+   Machine & Available Material  \\\hline
+   \ac{BS} & 2 bases of each color \\
+   \ac{CS} & 3 cap-carriers (cap color choices up to each team)  \\
+   \ac{RS} & 4 rings of each assigned color (8 in total)  \\
+  \end{tabularx}
+ \caption{Materials}
+ \label{tab:materials}
+\end{table}
+
+\paragraph{Orders}
+Unless specified otherwise, orders that have to be fulfilled in challenges
+are entered through the web shop
+(see the RefBox workshop in \refsec{sec:qualification})
+by any member of the team.
+
+In challenges where only one \ac{RS} is present, teams are responsible to
+order products which can be assembled using the available stations only.
+
+\paragraph{Scoring}\label{sec:scoring}
+While the referee box may assign points during challenges according to the
+regular RCLL rules, those points do not count towards this competition.
+Instead, the point scoring for each challenge is listed in
+\refsec{sec:challenges}.
+
+\subsection{Available Challenges}
+\label{sec:challenges}
+Challenges have different types and variations (difficulty levels).
+The overall score of the competition is calculated by summing up the score
+in the highest difficulty achieved in each of the challenge types.
+The challenge types of the competition are described in
+\refsec{sec:challenge-navigation}-\ref{sec:challenge-markerless}.
+
+
+\subsubsection{Navigation Challenge}\label{sec:challenge-navigation}
+Basic navigation task with known obstacles.\\
+\textbf{Task:} Drive to 12 randomly generated target zones. A target zone is
+reached, if any robot remains in that zone for at least 5 consecutive seconds.
+The pose of each robot must be set in the beacon message
+for the RefBox to properly register the zones as visited. The robot may move
+within the zone during the 5 second period.\\
+Variations of this challenge depend on the number of available machines
+(see \reftab{tab:challenge-navigation}).
+Multiple robots may be used to simultaneously to reach multiple target zones.
+Partial points may be awarded in case only a subset of target zones were
+reached, which are accumulated if the challenge is completed fully.
+
+\begin{table}[!htb]
+ \centering
+ \begin{tabular}{l|l|l|l|l}
+  \multirow{2}{*}{Machines}
+  & \multicolumn{4}{c}{Scoring} \\\cline{2-5}
+	& $\geq$ 4 zones  & $\geq$ 8 zones & all 12 zones  & combined \\\hline\hline
+	 2 & +2 & +4 & +9 & 15 \\
+	 3 & +3 & +6 & +14 & 23 \\
+	 4 & +4 & +8 & +18 & 30 \\
+ \end{tabular}
+ \caption{Navigation Challenge}
+ \label{tab:challenge-navigation}
+\end{table}
+
+\subsubsection{Exploration Challenge}\label{sec:challenge-exploration}
+Replicate the RCLL exploration phase.
+Machine Marker detection as well as navigational skills are required to solve
+this challenge.\\
+\textbf{Task:} Find and report all machines on the field (type and orientation)
+according to the rules of a regular exploration phase.
+\\
+Variable in the number of machines
+(see \reftab{tab:challenge-exploration}).
+\begin{table}[!htb]
+ \centering
+ \begin{tabular}{l|l}
+  Machines & Scoring \\\hline
+  2   & 10 \\
+  3   & 20 \\
+  4   & 30 \\
+ \end{tabular}
+ \caption{Exploration Challenge}
+ \label{tab:challenge-exploration}
+\end{table}
+This challenge needs to be run by setting the RefBox to phase
+\texttt{EXPLORATION}.
+
+\subsubsection{Grasping Challenge}\label{sec:challenge-grasping}
+Simple grasping task.
+Each Machine has a base at output.
+Robots start at the zone in front of a machine output.\\
+\textbf{Task:} A robot brings a base from one machine's output back to its
+input. A human supervisor places it back to the output. Repeat until all
+products were placed at the respective machines input 3 times and all robots
+returned to their starting positions. \\
+Variations differ by number of machines, see
+\reftab{tab:challenge-grasping}. The $i$-th repetition is considered to be
+successful, once all bases were placed at the respective machine input
+at least $i$ times.
+The placement of the machines on the field is fixed according to the field
+shown in \reffig{fig:competition-area-challenges}, where the BS is placed at
+M-Z12, CS1 is placed at M-Z53 and RS1 is placed at M-Z25.
+In order to load this layout into the referee box follow the instructions
+from the
+wiki\footnote{\url{https://github.com/robocup-logistics/rcll-refbox/wiki}}.
+% TODO: actually write the wiki article
+
+\begin{table}[!htb]
+\centering
+ \begin{tabular}{l|l|l}
+  \multirow{2}{*}{Machines}
+  & \multicolumn{2}{c}{Scoring} \\\cline{2-3}
+  & first repetition
+  & each subsequent repetiton  \\\hline\hline
+  1 & +10 & +2 \\
+  2 & +20 & +2 \\
+  3 & +25 & +2 \\
+ \end{tabular}
+ \caption{Grasping Challenge}
+ \label{tab:challenge-grasping}
+\end{table}
+
+\subsubsection{Product Challenges}\label{sec:challenge-cx}
+This section covers four types of challenges, which all can be individually
+completed.
+Each challenge corresponds to the production of a product with one of the
+available complexities (C0, C1, C2, C3) in the \ac{RCLL} using either
+one or two \ac{RS}.\\
+For complexities C1, C2 and C3 the accumulated cost for mounting the required
+rings must be equal to 1, 2 and 3, respectively.
+\textbf{Task:} Produce all posted orders.\\
+\begin{table}[!htb]
+ \centering
+ \begin{tabular}{l|l|l}
+  Machines & Challenge type & Scoring \\\hline
+  2 & C0 & 30 \\
+  3 & C1 & 50 \\
+  4 & C1 & 50 \\
+  3 & C2 & 70 \\
+  4 & C2 & 70 \\
+  3 & C3 & 100 \\
+  4 & C3 & 100 \\
+ \end{tabular}
+ \caption{CX Challenge}
+ \label{tab:challenge-cx}
+\end{table}
+
+\subsubsection{Exploration + Production Challenges}\label{sec:challenge-combine-exp-c0} % chktex ignore-long-line
+The same challenge as in \refsec{sec:challenge-cx} but without receiving the
+machine positions. Hence exploration and production takes place concurrently.
+The same point scores as in \reffig{tab:challenge-cx} apply with an additional
+$+20$ per challenge.
+
+
+\subsubsection{Markerless Detection Challenge}\label{sec:challenge-markerless}
+Image recognition challenge to classify different machine types.\\
+\textbf{Task:} Autonomously label the machines shown in a set of pictures
+by their type.
+A picture may contain more than one machine, which all count towards the
+total number of machines to detect. Labels must be placed on the machines
+within the picture. Machines are distinguished by their types
+(BS, CS, RS, DS, SS).\\
+As a preparation for this challenge, a data set will be supplied to
+all participants which may be used for training and testing
+purposes\footnote{\url{https://fh-aachen.sciebo.de/s/MRghypMQSMhTYaC}}.
+The evaluation set for the challenge consists of a set of separate images that
+is encrypted and distributed in advance of attempting the challenge.
+The password to decrypt the evaluation set is given out when the challenge
+is attempted.
+This challenge can only be attempted once to avoid improper use of the
+evaluation set.
+The points scored are calculated based on the relative amount of correctly
+and wrongly classified machines (across all types) according to
+\reftab{tab:challenge-markerless}. So a total amount of 30 points can be scored
+if all machines of all types are correctly classified.
+\begin{table}[!htb]
+ \centering
+ \begin{tabularx}{\linewidth}{l|l|l|l}
+  \% Correctly Classified & \% Wrongly Classified & \% Not Classified
+  & Scoring \\\hline
+  $x$ & $y$ & $z$ & $(x-y)\cdot30$
+ \end{tabularx}
+ \caption{Machine Detection Challenge}
+ \label{tab:challenge-markerless}
+\end{table}
+
+In order to verify the labeling, each team must presents the labeled data
+within the time slot (e.g., via screen-sharing when participating remotely).
+Additionally, the labeled data has to be sent to the \ac{OC}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%
