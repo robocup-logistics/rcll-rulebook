@@ -510,7 +510,7 @@ the intended area and thus in an illegal position.
 
 Robots that leave the competition area illegally are considered as
 \emph{misbehaving robot} and punished accordingly
-(cf.~\refsec{sec:robot-maintenance}).
+(cf.~\refsec{sec:misbehaving-robot}).
 
 \subsection{Machines}
 \label{sec:machines}
@@ -1739,8 +1739,8 @@ The operator is responsible to
 \subsubsection{Field Referees}
 Field referees observe the field, announce rule
 % TODO correct section
-violations (cf.~\refsec{sec:rules}), and communicate with the teams and
-referee box operator.
+violations (cf.~\refsec{sec:rule-enforcement}), and communicate with the teams
+and referee box operator.
 There are always two field referees per game, announced through the schedule
 by the Organizing Committee.
 The referee named first on the schedule is the head referee and has the upper
@@ -1783,7 +1783,9 @@ robot. An advantage would be, for instance, to take out a robot, if
 two robots of the same team are hindering each other. It is up to the
 discretion of the referee when to allow the robot maintenance.
 
-Another reason for maintenance is a \emph{misbehaving robot}. Several
+Another reason for maintenance is a \emph{misbehaving robot}
+(see \refsec{sec:misbehaving-robot}).
+Several
 infringements in this rulebook demand that the robot be taken out,
 e.g., leaving the field (cf.~\refsec{sec:field-movement}).
 If a robot needs to be taken out for the third time, either on
@@ -1791,6 +1793,8 @@ request or as decided by the referee, it is disqualified from the
 current game. It may no longer communicate with the still active
 robots and must be taken out of the competition area.
 
+Any workpiece carried carried by a robot that is put in maintenance is to
+be removed from the game by the field referees.
 \paragraph{Game Pause}
 Each referee may call a pause of the game at any time, e.g., if robots
 must be penalized or disentangled after a collision. Referees may
@@ -1799,8 +1803,8 @@ as to avoid hasty decisions. Such pauses shall be short-lived as to
 follow the competition schedule.
 
 After the game is paused, all robots have 3 seconds to stop any movement.
-Robots that do not stop within the time limit will be treated in the same way as
-misbehaving robots.
+Robots that do not stop within the time limit are considered misbehaving robots
+and are punished accordingly (see \refsec{sec:misbehaving-robot}).
 The match time will be paused during the interruption.
 
 
@@ -2141,9 +2145,11 @@ will be awarded with the Logistic Leagues Technical Challenge Award.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%
 
-\section{Referees}
+\section{Rule Enforcement}
+\label{sec:rule-enforcement}
 Referees manage the overall game, make sure that the rules of the game
-are followed, and instruct and monitor the referee box.
+are followed, and instruct and monitor the referee box as described in
+\refsec{sec:during-match}.
 
 \subsection{Referee Delegation}
 Each participating team of the tournament must provide at least two
@@ -2164,42 +2170,36 @@ criteria. They must
   English.
 \end{itemize}
 
-\subsection{Tasks and Responsibilities}
-Each game requires 3 referees. One referee will run and oversee the
-referee box. Two field referees observe the field, announce rule
-violations, and communicate with the teams and refbox referee. Each
-field referee is assigned to a particular field half. The referee
-named first on the schedule is the head referee and is responsible for the
-team cyan and their corresponding field half. The head referee has
-the upper hand when there is a referee disagreement and then announces
-the final decision. The second listed referee assumes the liability of the
-team magenta.
+\subsection{Liability Waiver}
+Referees cannot be held liable for:
+\begin{itemize}
+\item any kind of injury suffered by a player, official or spectator
+\item any damage to property of any kind
+\item any other loss suffered by any individual, club, company,
+  association or other body, which is due or which may be due to any
+  decision, which he may take under the terms of the rules of the game
+  or in respect of the normal procedures required to hold, play and
+  control a match.
+\end{itemize}
 
-The refbox referee has to operate the control machine during the game,
-observe its status to ensure the correctness of the digital
-representation and automatic scoring, announce critical situations to
-the field referees, and start and stop the game on request of the
-field referees. The refbox referee must also enter robot restarts and
-observe the time remaining to bring back a robot, or announce if a
-robot may no longer participate in the game (second restart).
+\subsection{Punishable Offenses}
+The league reserves its right to disqualify clearly malicious teams.
 
-The field referees observe the game from the side of the field or from
-any position on the field (e.g., to better understand the game
-situation). They shall avoid robots spatially on the field, but
-ultimately robots are expected to avoid collision with human
-referees. Field referees are also responsible for removing fallen
-products from the playing-ground. Field referees are responsible for
-making the decision whether a team may take out a robot for
-maintenance. And they observe the correct refill procedure of their
-field half.
+\subsubsection{Misbehaving Robot}
+\label{sec:misbehaving-robot}
+A misbehaving robot is punished by forcing a maintenance on it (see
+\refsec{sec:during-match}).
+Any workpieces carried by a misbehaving robot are to me removed during
+maintenance.
 
-Each referee may call a pause of the game at any time, e.g., if robots
-must be penalized or disentangled after a collision. Referees may
-explicitly pause the game to convene and discuss an unclear situation
-as to avoid hasty decisions. Such pauses shall be short-lived as to
-follow the competition schedule.
+The following situations may cause a robot to be labeled misbehaving:
+\begin{itemize}
+  \item Leaving the competition area illegally (see \refsec{sec:field-movement})
+  \item Movements not stopping 3 seconds after a game is paused
+  \item Obstructing opponents (cf.~\refsec{sec:obstruction-penalty})
+\end{itemize}
 
-\subsection{Obstruction Penalty}
+\subsubsection{Obstruction Penalty}
 \label{sec:obstruction-penalty}
 
 As the Logistics League follows the idea of having both active teams
@@ -2211,16 +2211,20 @@ any MPS\@.  All robots are allowed to enter this space, but robots must
 not obstruct opposing robots which intend to approach their
 MPS\@. Concretely, that robot must give way and release an approachable
 path to the MPS within a time window of 10 seconds. If a robot cannot
-follow this rule, a pushing foul will be called according to
-Section~\ref{sec:pushing-rules}.
+follow this rule, it is considered a misbehaving robot and punished accordingly
+(cf.~\ref{sec:misbehaving-robot}).
 
 % old ?!
 Furthermore, teams are penalized for obstruction according to
 \reftab{tab:scoring} when delivering a workpiece to a machine of the
-opposing team.  In this case, the workpiece becomes junk and cannot be
+opposing team. In this case, the workpiece gets removed and cannot be
 used afterwards.
 
-\subsection{Pushing Rules}
+A robot moving a workpiece of the opposing team at their MPS is considered a
+misbehaving robot.
+The referee will move the workpiece back to its original position.
+
+\subsubsection{Pushing Rules}
 \label{sec:pushing-rules}
 
 With multiple teams on the field at the same time, robots must
@@ -2269,33 +2273,15 @@ to pushing.
   robots is not soft, or if one or both of the robots do not change
   direction after encountering physical contact, a pushing foul will
   be called.
-\item When a pushing foul is detected the responsible team has to use
-  up their restart for the stuck robot to start at the insertion zone
-  again. The other team can decide within 10 seconds to restart their
+\item When a pushing foul is detected the offending robot is considered
+  misbehaving (cf.~\refsec{sec:misbehaving-robot}).
+  The other team can decide within 10 seconds to restart their
   involved robot in the insertion zone without it counting as a
   penalty restart.
-\item Moving a workpiece of the opposing team at their MPS is a pushing
-foul. The referee will move the workpiece back to its original position.
-\item Intentional obstruction of the opposing team is a pushing foul, as
-described in Section~\ref{sec:obstruction-penalty}.
-\item If a robot is restarted or called to maintenance, loses his
-workpiece during collision avoidance or in case of a collision, the
-workpiece will not be replaced and is removed by the referee.
-\item The league reserves its right to disqualify clearly malicious
-  teams.
+\item If a robot loses its workpiece during collision avoidance or in case of
+  a collision, the workpiece will not be replaced and is removed by the referee.
 \end{enumerate}
 
-\subsection{Liability Waiver}
-Referees cannot be held liable for:
-\begin{itemize}
-\item any kind of injury suffered by a player, official or spectator
-\item any damage to property of any kind
-\item any other loss suffered by any individual, club, company,
-  association or other body, which is due or which may be due to any
-  decision, which he may take under the terms of the rules of the game
-  or in respect of the normal procedures required to hold, play and
-  control a match.
-\end{itemize}
 
 \subsection{Complaint Procedure}
 Rule issues are not to be discussed during a game. Referee decisions
@@ -2322,6 +2308,10 @@ should be handled in a fair and forthcoming way.
 \subsection{Penalties}
 The catalog in \reftab{tab:infringements} represents the decision
 basis for the referees not being exhaustive or binding.
+Refer to \refsec{sec:agreements} for the general league agreements,
+hardware restrictions can be found in \refsec{sec:robotino} and
+in \refsec{sec:communication} regulations regarding communication
+during games are described.
 %
 
 \begin{table}[b!]
