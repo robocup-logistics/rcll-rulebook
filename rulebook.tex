@@ -959,7 +959,7 @@ The markers are available for printing on the rulebook github\footnote{
 In case no real MPS stations are available, replications
 (so called \emph{mockup machines}) may be used, that do not need to
 physically perform the respective production steps. Instead, that work may
-be carried out by a human supervisor (see \refsec{sec:operators}).
+be carried out by a human supervisor (see \refsec{sec:during-match}).
 The minimum requirements for a mockup machine are specified in the following.
 
 Mockup machines are required to have the same box-like base shape as specified
@@ -974,45 +974,13 @@ of the box, such that it is accessible from the front on stations replicating a
 		RS
 \end{itemize}
 Models for a conveyor belt, shelf and slides can be found in the RCLL rulebook
-repository\footnote{\url{https://github.com/robocup-logistics/rcll-rulebook/tree/common/challenges/mock_up_models}}. % chktex ignore-long-line
+repository\footnote{\url{https://github.com/robocup-logistics/rcll-rulebook/tree/master/mock_up_models}}. % chktex ignore-long-line
 
 The building materials for the models must be opaque, but may have any color.
 
-% TODO: move this
 \section{Game Play}
-% A match is defined by two contesting teams competing within the same
-% identical competition area. Each team consists of a maximum of 3
-% robots. Each has three phases --- for setup, exploration, and
-% production --- which are detailed below.
-
-%TODO: move this
-%\subsection{Environment Setup}
-% \label{sec:env-setup}
-% The physical distribution and alignment of the production machines is
-% dynamic. The field will be organized as described in
-% \refsec{sec:competition-area}. The referee box will determine the
-% assignment of the machines to the zones at the beginning of a game
-% randomly (\refsec{sec:machine-swapping}).
-% The color for ring stations will be
-% randomized prior to each match. The processing time of each production
-% step (i.e., per ring color and per cap mounting machine) will be
-% determined in the same way. The target delivery slide will be
-% randomized per order. During the setup phase
-% (cf.~\refsec{sec:setup-phase}) each team has the responsibility to
-% fill the input magazines on their base station. The elements may only
-% be touched by a robot or by designated persons after the game has
-% started.
-
-%TODO: remove this
-% The robots can be set up within the factory area and have not been
-% elevated into their autonomous state. Any necessary setup routine can
-% be performed. This includes, but is not limited to, remote start-up of
-% programs, localization procedures, or vision calibration.
-
-\subsection{Game Start}
-\label{sec:game-start}
-% TODO add game format section
-There are different game modes within the RCLL (see \refsec{sec:formats}).
+There are different game modes within the RCLL (see \refsec{sec:tournament-main}
+and \refsec{sec:tournament-challenges}).
 At the beginning of a match, the refbox must be configured according to the
 game mode specification.
 The refbox then guides the match utilizing different phases, which are outlined
@@ -1030,7 +998,7 @@ participate in the game need to be in the insertion area during setup
 During the setup phase, the refbox announces the layout of the competition area,
 including the ring colors assigned to the ring stations.
 The competing team(s) may use the setup phase to start up their  %chktex 36
-robots.
+robots and to fill their machines (see \refsec{sec:machine-refill}).
 Once the setup phase ends, no more interference with the robot is
 allowed. The robot must react to the referee box game state messages
 to start the game play autonomously.
