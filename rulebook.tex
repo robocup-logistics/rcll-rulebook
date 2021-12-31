@@ -307,44 +307,40 @@ partner Festo provides insights into future factory concepts to help
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The Task}
 \label{sec:task}
+ Our aim is to provide a simplified Smart Factory environment, where
+ teams of autonomous robots must operate a flexible production plant without
+ human interference and against the clock.
+ % TODO: self-crafted
+ The Logistics League's core task is to fulfill placed orders by
+ executing multi-stage production cycles, before delivering the finished
+ products within the requested time frame.
+ This is achieved by transporting small material pieces between assembly
+ machines (MPS stations, see \refsec{sec:machines}),
+ which can be instructed to perform different refinement steps,
+ such as mounting a colored ring on a cylindrical base product.
+ Efficient handling of the material logistics and utilization of the available
+ machines are core requirements to succeed in the RCLL.
 
-Our aim is to provide a simplified Smart Factory environment. The
-teams must complete the following task without human interference,
-competing with a second team against the clock. In the RCLL,
-autonomous robot agents have to handle the logistics of materials
-through several (dynamic) stages to produce final goods to fulfill
-orders. The machines are specific MPS stations.
-
-The Logistics League's main challenge is a multistage production cycle
-of different product variants with self-crafted intermediate products
-and delivery of final products. This genuine goal will be rewarded
-considerably higher than partial fulfillment of the task. Autonomous
-robots transport small products between the processing
-machines. Machines are MPS stations which complete a particular
-refinement step like mounting a colored ring or top-most cap. If
-procurable this will lead to a new sub-assembly or final product
-(cap). Complete work orders require all related sub-assemblies of
-product variants (cf. \refsec{sec:production-complexities}).
-
-This work flow is controlled by a referee box broadcasting information
+ This work flow is controlled by a referee box (refbox) broadcasting information
 via wifi (see \refsec{sec:referee-box}). The work flow itself is
 divided into two phases: During a setup phase (see \refsec{sec:setup-phase})
 the field setup is prepared and the robots are started.
 Then the refbox switches to the production phase, during which the refbox
-announces the tasks that the robots must fulfill automatically.
+dynamically announces the tasks that the robots must fulfill automatically.
 
 The RCLL supports different competition tracks:
 \begin{itemize}
   \item Production logistic scenarios where two teams compete against
     each other on the same playing field and need to serve multiple dynamically
-    dispatched orders. This game mode is referred to as the main track.
+    dispatched orders. This game mode is referred to as the \emph{main track}.
   \item Individual challenges carried on a field, where only one team competes
    at a time.
    The challenges are designed to reflect the individual tasks that
    are required to solve complex production scenarios from the main track.
-   This game mode is referred to as the challenge track.
+   This game mode is referred to as the \emph{challenge track}.
 \end{itemize}
-Depending on the task (see \refsec{sec:game} and \refsec{sec:challenges},
+Depending on the game format
+(see \refsec{sec:tournament-main} and \refsec{sec:tournament-challenges}),
 the machine positions might be unknown in the beginning, such that they need
 to be correctly discovered (see \refsec{sec:exploration-phase}).
 
