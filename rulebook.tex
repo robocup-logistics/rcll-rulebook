@@ -135,6 +135,7 @@
 \acrodef{RS}{ring station}
 \acrodef{SS}{storage station}
 \acrodef{DS}{delivery station}
+\acrodef{refbox}{Referee Box}
 \acrodef{MPS}{modular production system}
 \acrodef{RCLL}{RoboCup Logistics League}
 \acrodef{OC}{Organizational Committee}
@@ -256,7 +257,7 @@ partner Festo provides insights into future factory concepts to help
  After exciting competitions in the previous years, we look forward to a new
  scale of competition that will emerge from initiatives around the globe. In
  2012 we had our first Logistics League World Champion.  In 2013 we introduced
- the Referee Box (refbox)~\cite{RCI-RefBox} changing the competition at its core
+ the \ac{refbox}~\cite{RCI-RefBox} changing the competition at its core
  by introducing a flow of information. This allowed for more dynamic games and
  the automatic tracking of scores.
  %, and to relax the hitherto existing
@@ -321,7 +322,7 @@ partner Festo provides insights into future factory concepts to help
  Efficient handling of the material logistics and utilization of the available
  machines are core requirements to succeed in the \ac{RCLL}.
 
- This work flow is controlled by a referee box (refbox)~\cite{RCI-RefBox}%
+ This work flow is controlled by a \acf{refbox}~\cite{RCI-RefBox}%
 \footnote{Code and documentation available at
 \url{https://github.com/robocup-logistics/rcll-refbox}}
 broadcasting information via wifi (see \refsec{sec:referee-box}).
@@ -331,7 +332,7 @@ monitors feedback from the robots, and awards points.
 The work flow itself is divided into phases:
 During a setup phase (see \refsec{sec:setup-phase})
 the field setup is prepared and the robots are started.
-Then the refbox switches to the production phase, during which the refbox
+Then the \ac{refbox} switches to the production phase, during which the \ac{refbox}
 dynamically announces the tasks that the robots must fulfill automatically.
 
 The RCLL supports different competition tracks:
@@ -514,7 +515,7 @@ Only one team at a time competes on the area, the chosen team-color
 does not matter. However, the field coordinates resemble the magenta halve
 of the field, hence the coordinates on the x-axis of all zones are negative.
 Teams can play as either cyan or magenta, as machine positions published by
-the referee box place the machines of both teams on the same location
+the \ac{refbox} place the machines of both teams on the same location
 (e.g., M-BS and C-BS are both placed at M-Z12 in the field of
 \reffig{fig:competition-area-challenges}).
 
@@ -715,7 +716,7 @@ Zones are only a means to position machines. They will not be physically
 represented or visible on the field. They cannot be used for any other
 purpose.
 
-The zones and rotations for the MPS will be randomly chosen by the RefBox.
+The zones and rotations for the MPS will be randomly chosen by the \ac{refbox}.
 Each game will have a new randomly generated field layout, the referees will
 place the MPS in the middle of the zone with given rotation at there best effort
 but errors of the positioning should be expected.
@@ -805,7 +806,7 @@ violating the y-symmetry but allowing for easier access to the shelf.
     }
     \label{fig:zone-mps-blocked}
 \end{figure}
-For placing of machines, the RefBox will take care of the necessary constraints
+For placing of machines, the \ac{refbox} will take care of the necessary constraints
 to ensure that all in- and output sides, shelves and slides are reachable. That
 is, a path to each blocked zone (see \reffig{fig:zone-mps-blocked}) must exist
 from any unoccupied or blocked zone of the field. If a machine is rotated with
@@ -986,9 +987,9 @@ The building materials for the models must be opaque, but may have any color.
 \section{Game Play}
 There are different game modes within the RCLL (see \refsec{sec:tournament-main}
 and \refsec{sec:tournament-challenges}).
-At the beginning of a match, the refbox must be configured according to the
+At the beginning of a match, the \ac{refbox} must be configured according to the
 game mode specification.
-The refbox then guides the match utilizing different phases, which are outlined
+The \ac{refbox} then guides the match utilizing different phases, which are outlined
 in the following sections.
 All matches will start at the exact time scheduled by the Organizing
 Committee with the setup phase (cf.~\refsec{sec:setup-phase}).
@@ -996,34 +997,34 @@ Committee with the setup phase (cf.~\refsec{sec:setup-phase}).
 
 \subsection{Setup Phase}
 \label{sec:setup-phase}
-Once the referee box is initialized, it switches to the setup phase.
+Once the \ac{refbox} is initialized, it switches to the setup phase.
 All robots which are to
 participate in the game need to be in the insertion area during setup
 (not in the game area where the machines are located).
-During the setup phase, the refbox announces the layout of the competition area,
+During the setup phase, the \ac{refbox} announces the layout of the competition area,
 including the ring colors assigned to the ring stations.
 The machine positions are not communicated to the robots yet and are only to
 be used to to setup the playing field.
 The competing team(s) may use the setup phase to start up their  %chktex 36
 robots and to fill their machines (see \refsec{sec:machine-refill}).
 Once the setup phase ends, no more interference with the robot is
-allowed. The robot must react to the referee box game state messages
+allowed. The robot must react to the \ac{refbox} game state messages
 to start the game play autonomously.
-The referee box will control the setup period and automatically end it
+The \ac{refbox} will control the setup period and automatically end it
 after 5 minutes.
 Depending on the game mode, either the exploration or production phase follows.
 
 \subsection{Exploration Phase}
 \label{sec:exploration-phase}
 During the exploration phase the robots have \SI{3}{\minute} to roam the
-environment and report their machines to the referee box in order to score
+environment and report their machines to the \ac{refbox} in order to score
 points.
 The report about an MPS may be split
 in two parts, the position and type of a machine, and its orientation.
-Concretely, the referee box expects a \emph{machine identification
+Concretely, the \ac{refbox} expects a \emph{machine identification
   message} with a tuple consisting of zone, machine name (as encoded
 in the markers), orientation in degrees. This message bay be partially
-filled to account for the two parts. Please consult the referee box
+filled to account for the two parts. Please consult the \ac{refbox}
 Integrator's Manual~\cite{RefBoxIntManual} for a detailed definition
 of the message types. Reports are only accepted for MPS of the
 respective team over the private encrypted team channel. Only the
@@ -1052,7 +1053,7 @@ exploration phase.
 \label{sec:production-phase}
 During the production phase machines can be used to assemble products
 according to orders that arrive dynamically.
-The referee box publishes information regarding products and machines.
+The \ac{refbox} publishes information regarding products and machines.
 This includes contained colors at the ring stations and their
 prices.
 Depending on the played format, machine zones and orientations may be announced
@@ -1122,8 +1123,8 @@ barcode. Each base is equipped with a unique ID\@. \reffig{fig:barcode}
 shows a prototype of a barcode labeled workpiece.
 
 The barcodes can be scanned at each station via attached barcode scanners and
-communicated to the referee box.
-The referee box can use this information to track assembly
+communicated to the \ac{refbox}.
+The \ac{refbox} can use this information to track assembly
 processes, i.e., to determine the state of a workpiece.
 However, this feature is only available, if the scanners are attached
 to the machines, which may not be the case as this system is still under
@@ -1160,7 +1161,7 @@ order, the team that delivers it first will get extra points
 (cf.~\refsec{sec:production-scoring}).
 For a non-competitive order, each team scores independently of the other team.
 % TODO: move this
-%The referee box ensures that there will always
+%The \ac{refbox} ensures that there will always
 %be some orders for $C_1$ products where the ring color does not
 %require additional bases, i.e., with color complexity $CC_0$ --- but
 %not necessarily all $C_1$ orders have this constraint.
@@ -1256,7 +1257,7 @@ For a non-competitive order, each team scores independently of the other team.
     is used to buffer the CS.
     \emph{Note that this is a particular
       example. The actual production chains and requirements for
-      additional BEs are determined randomly by the referee box for
+      additional BEs are determined randomly by the \ac{refbox} for
       each game and steps such paying BEs can be accomplished in different
       ways.}}
   \label{fig:production-chains}
@@ -1276,6 +1277,7 @@ A light signal mounted near the output lane
 (cf. \refsec{sec:machines}) indicates the state of the machine. In the
 default operating mode, the green light is turned on. This signals
 that the machine is ready for preparation. When preparation is performed,
+% TODO: really?! there is no sensor for that!?!
 the machine will flash the green light for up to 3 seconds (it
 immediately switches to a new state, e.g., if a product is fed into the
 machine before the three seconds have expired). When a product is fed
@@ -1343,7 +1345,7 @@ to the integrator's manual~\cite{RefBoxIntManual}.
 
 \noindent\textbf{BS}
 The BS prepare message denotes the color of the base element that should
-be dispensed. After receiving the message, the refbox will instruct
+be dispensed. After receiving the message, the \ac{refbox} will instruct
 the MPS to immediately provide a base of the desired color.
 
 \noindent\textbf{DS}
@@ -1414,7 +1416,7 @@ There may be only one transaction running at a time. If a
 second preparation is performed the machine will
 be temporarily broken, which causes it to recover to a determined state.
 An MPS may be reset by a team at any time by a dedicated msg (see
-referee box Integrator's Manual~\cite{RefBoxIntManual}). This causes
+\ac{refbox} Integrator's Manual~\cite{RefBoxIntManual}). This causes
 the MPS to go into the broken state as well.
 
 \subsubsection{Broken Machine Downtime}
@@ -1435,7 +1437,7 @@ state. The downtime is indicated by a flashing red light.
 
 \subsubsection{Scheduled Machine Downtime}
 \label{sec:out-of-order}
-Depending on the played format, The referee box may take down machines
+Depending on the played format, The \ac{refbox} may take down machines
 randomly out of the pool containing the RS and CS\@.
 If two teams play at the same time, then the same machines for
 both teams are affected in the same time window.
@@ -1459,7 +1461,7 @@ Points for production steps are awarded as soon as they are verified.
 This depends on weather the barcode tracking system is deployed on the
 stations or not.
 
-If the tracking system is used, the referee box automatically can verify that
+If the tracking system is used, the \ac{refbox} automatically can verify that
 issued machine instructions actually belong to an active order.
 Therefore, points are only awarded if there is yet an order for which the
 performed step is required and which has not yet expired (the end of
@@ -1523,7 +1525,7 @@ All costs are listed in \reftab{tab:scoring}.
            & \multicolumn{1}{l}{Points}\\\hline\hline
           Zone/Orientation
           & Correctly determine a machine zone and the rotation of your team
-            and report it successfully to the refbox
+            and report it successfully to the \ac{refbox}
           & $+2$
           \\
           Type
@@ -1646,7 +1648,7 @@ While the game tasks must be handled by autonomously acting robots,
 there are cicumstances, where human interference is allowed or even
 required.
 This section describes which rights and obligations teams,
-referees and referee box operators have during a running games.
+referees and \ac{refbox} operators have during a running games.
 
 No team member is allowed to enter the competition area prior to or
 during a match, except in cases of robot maintenance
@@ -1654,11 +1656,11 @@ during a match, except in cases of robot maintenance
 (cf.~\refsec{sec:machine-refill}).
 
 \subsubsection{Referee Box Operator}
-The referee box operator runs and oversees the referee box.
+The \ac{refbox} operator runs and oversees the \ac{refbox}.
 The operator is responsible to
 \begin{itemize} \itemsep0em
-  \item properly configure the referee box to the current game format,
-  \item observe the referee box status to ensure the correctness of
+  \item properly configure the \ac{refbox} to the current game format,
+  \item observe the \ac{refbox} status to ensure the correctness of
     the digital representation and automatic scoring,
   \item manually confirm delivered orders (if workpiece tracking is disabled),
   \item announce critical situations to the field referees (e.g., if a machine
@@ -1667,7 +1669,7 @@ The operator is responsible to
   \item start and stop the game on request of the field referees,
   \item manage robot maintenances:
     They confirm with the field referees that the maintenance is granted,
-    enter them into the referee box,
+    enter them into the \ac{refbox},
     observe the time remaining to bring back a robot,
     or announce if a robot may no longer participate in the game.
 \end{itemize}
@@ -1675,7 +1677,7 @@ The operator is responsible to
 \subsubsection{Field Referees}
 Field referees observe the field, announce rule
 violations (cf.~\refsec{sec:rule-enforcement}), and communicate with the teams
-and referee box operator.
+and \ac{refbox} operator.
 There are always two field referees per game, announced through the schedule
 by the Organizing Committee.
 The referee named first on the schedule is the head referee and has the upper
@@ -1700,9 +1702,9 @@ a robot or the machine.
 % TODO: be precise what needs to be done
 % Examples for a valid correction:
 % Examples for operation failures caused by the robots:
-In case a machine is mocked up through the referee box, the field referees
+In case a machine is mocked up through the \ac{refbox}, the field referees
 are responsible to manually perform the assembly steps as announced by the
-referee box operator.
+\ac{refbox} operator.
 Field referees are also responsible for removing fallen
 products from the playing-ground and observing the correct refill procedure
 for machines (see \refsec{sec:machine-refill}).
@@ -1798,7 +1800,7 @@ the color of caps for a CS, however teams are only allowed to fill the CS if the
 whole shelf is empty and then it has to be filled completely.  The color
 assignment of bases on the BS and SS must be obeyed, as otherwise they will
 deliver the wrong bases. Similarly, ring color assignments at the RS must be
-respected according to the referee box announcement.
+respected according to the \ac{refbox} announcement.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1891,21 +1893,22 @@ traffic and demand reduction in communicated data as necessary.
 
 \subsection{Referee Box Instructions}
 \label{sec:referee-box}
-The refbox is the single point of instruction for robots during the
+The \ac{refbox} is the single point of instruction for robots during the
 game. After game setup has finished, game state information and orders
-are announced by the refbox.
+are announced by the \ac{refbox}.
+% TODO: what?
 %Commands must be acknowledged.
 %In certain
 %situations (for example during the exploration phase) for successful
-%and true communication with the refbox points are awarded. The aim is
+%and true communication with the \ac{refbox} points are awarded. The aim is
 %to reduce human interference year by year to a minimum as to exhibit
-%the widest autonomy during the game possible. Ultimately, the refbox
+%the widest autonomy during the game possible. Ultimately, the \ac{refbox}
 %should be able to fully control the game by itself, transforming all
 %participants, team members, and visitors alike into pure spectators of
 %the game, sometimes providing maintenance and crisis intervention when
 %necessary.
 
-The communication from the refbox to the robot is a datagram-oriented
+The communication from the \ac{refbox} to the robot is a datagram-oriented
 broadcast protocol based on Google protocol buffers\footnote{Available
 at \mbox{\url{https://code.google.com/p/protobuf/}}} (protobuf). The
 protocol definition and technical parameters are described in detail
@@ -1970,7 +1973,7 @@ tournament.
 %% of external server acting as command point.
 %\begin{rulechange}
 %  The robots will receive their commands from the Referee-Box as
-%  specified in the referee box protocol. Further, communication to one
+%  specified in the \ac{refbox} protocol. Further, communication to one
 %  dedicated off-board computing device is allowed. However, wifi
 %  communication should not taken for granted during competition by the
 %  participating teams.
@@ -2030,7 +2033,7 @@ With the switch to the production phase, the machine locations (zone position
 and rotation) are announced.
 
 \subsection{Order Schedule}
-The referee box will announce orders throughout the game in an
+The \ac{refbox} will announce orders throughout the game in an
 incremental fashion.
 The ring colors which
 require additional bases are randomized per game and announced by the
@@ -2227,7 +2230,7 @@ The booking procedure is managed by the \ac{OC}.
 Each slot can be used to do at most one challenge and the corresponding
 challenge is carried out according to the following procedure:
 \begin{enumerate}
-  \item The referee box is configured for the respective challenge and in case
+  \item The \ac{refbox} is configured for the respective challenge and in case
     the challenge s carried out remotely, the live stream is started.
     The \texttt{SETUP} phase begins, see \refsec{sec:setup-phase}.
 	\item Then the \texttt{PRODUCTION} phase starts by instructing the referee
@@ -2242,14 +2245,14 @@ challenge is carried out according to the following procedure:
 
 A team may retry the challenge by
 \begin{enumerate}
-	\item setting the referee box back to the setup phase
+	\item setting the \ac{refbox} back to the setup phase
 	\item resetting the field setup accordingly
 	\item and then starting the production phase again.
 \end{enumerate}
 Only the last attempt in each slot can be counted. A team may decide to count
 no attempt at all. Once a challenge is counted, it
 may not be retried again, unless the difficulty is increased.
-In order to complete an attempt, the RefBox needs to be set to phase
+In order to complete an attempt, the \ac{refbox} needs to be set to phase
 \texttt{POST\_GAME}.
 
 All challenges are conducted while measuring the execution time of the
@@ -2278,7 +2281,7 @@ The cost for mounting each ring color are fixed, the assignment of ring colors
 is semi-fixed as teams can choose between two different options for each
 challenge (\texttt{option1} or \texttt{option2} according to
 \reftab{tab:ring-costs}).
-The RefBox settings default to \texttt{option1}, but teams may change this
+The \ac{refbox} settings default to \texttt{option1}, but teams may change this
 accordingly.
 
 \newcommand{\colconfig}{\mathcal{RC}}
@@ -2300,7 +2303,7 @@ accordingly.
  \label{tab:ring-costs}
 \end{table}
 
-%TODO: this is likely unnecessary with the new refbox config management
+%TODO: this is likely unnecessary with the new \ac{refbox} config management
 
 \paragraph{Materials}\label{sec:materials}
 The available material that can be used per challenge is restricted
@@ -2321,14 +2324,14 @@ The available material that can be used per challenge is restricted
 \paragraph{Orders}
 Unless specified otherwise, orders that have to be fulfilled in challenges
 are entered through the web shop
-(see the RefBox workshop in \refsec{sec:qualification})
+(see the \ac{refbox} workshop in \refsec{sec:qualification})
 by any member of the team.
 
 In challenges where only one \ac{RS} is present, teams are responsible to
 order products which can be assembled using the available stations only.
 
 \paragraph{Scoring}\label{sec:scoring}
-While the referee box may assign points during challenges according to the
+While the \ac{refbox} may assign points during challenges according to the
 regular RCLL rules, those points do not count towards this competition.
 Instead, the point scoring for each challenge is listed in
 \refsec{sec:tournament-challenges}.
@@ -2347,7 +2350,7 @@ Basic navigation task with known obstacles.\\
 \textbf{Task:} Drive to 12 randomly generated target zones. A target zone is
 reached, if any robot remains in that zone for at least 5 consecutive seconds.
 The pose of each robot must be set in the beacon message
-for the RefBox to properly register the zones as visited. The robot may move
+for the \ac{refbox} to properly register the zones as visited. The robot may move
 within the zone during the 5 second period.\\
 Variations of this challenge depend on the number of available machines
 (see \reftab{tab:challenge-navigation}).
@@ -2389,7 +2392,7 @@ Variable in the number of machines
  \caption{Exploration Challenge}
  \label{tab:challenge-exploration}
 \end{table}
-This challenge needs to be run by setting the RefBox to phase
+This challenge needs to be run by setting the \ac{refbox} to phase
 \texttt{EXPLORATION}.
 
 \subsubsection{Grasping Challenge}\label{sec:challenge-grasping}
@@ -2407,7 +2410,7 @@ at least $i$ times.
 The placement of the machines on the field is fixed according to the field
 shown in \reffig{fig:competition-area-challenges}, where the BS is placed at
 M-Z12, CS1 is placed at M-Z53 and RS1 is placed at M-Z25.
-In order to load this layout into the referee box follow the instructions
+In order to load this layout into the \ac{refbox} follow the instructions
 from the
 wiki\footnote{\url{https://github.com/robocup-logistics/rcll-refbox/wiki}}.
 % TODO: actually write the wiki article
@@ -2540,7 +2543,7 @@ parts each, up to 10 for the explanation and methodologies, and up to
 10 for the public release of the source code.
 
 \vspace{-2ex}\paragraph{Recognition}
-The refbox will randomly select four zones and machine types. The
+The \ac{refbox} will randomly select four zones and machine types. The
 machines are placed in the center of the respective zones. The robot
 must approach the machines one after another and use only sensors
 mounted on the robot to recognize the physical type of the
@@ -2555,7 +2558,7 @@ and 3 points for correct recognition. The recognition must be provided
 clearly visible on a screen or by text-to-speech output.
 
 \vspace{-2ex}\paragraph{Production}
-The refbox will randomly select a CS machine. The machine will be
+The \ac{refbox} will randomly select a CS machine. The machine will be
 pre-filled with a cap. The robot must then retrieve a base element
 without cap from the shelf of the CS (at least one spot will be filled
 with such a base element), feed it into the cap station, and retrieve
@@ -2596,7 +2599,7 @@ five points.
 % including technical documentation is publicly available on
 % Github.\footnote{\mbox{\url{https://github.com/robocup-logistics/gazebo-rcll}}}
 %
-% The simulation uses Gazebo and the exact same referee box to simulate
+% The simulation uses Gazebo and the exact same \ac{refbox} to simulate
 % the environment reactions similar to the real game. We envision this
 % simulation to be a basis for a simulation RCLL sub-league to attract a
 % wider range of participants, but also to ease entering the robot
@@ -2684,7 +2687,7 @@ decreasing point order.
 \section{Rule Enforcement}
 \label{sec:rule-enforcement}
 Referees manage the overall game, make sure that the rules of the game
-are followed, and instruct and monitor the referee box as described in
+are followed, and instruct and monitor the \ac{refbox} as described in
 \refsec{sec:during-match}.
 
 \subsection{Referee Delegation}
@@ -2787,7 +2790,7 @@ to pushing.
   robots. Robots moving at high speed must significantly decelerate
   before a collision occurs with another robot.
 \item If a destruction collision is immediate and the robots do not
-  react, the referee should use the refbox to send a stop command to
+  react, the referee should use the \ac{refbox} to send a stop command to
   all robots. Every team has to react to the stop command by
   immediately stopping their robots.
 \item Whenever a robot produces direct physical contact with another
