@@ -2053,82 +2053,82 @@ non-disclosed software framework, the release cannot score more than
 five points.
 
 
-\subsubsection{Playing in Simulation}
-
-The challenge is to play the production phase of an RCLL game, based
-on the publicly released Gazebo-based simulation~\cite{llsf-sim-rc2014-2014}.
-The simulation
-software\footnote{
-\mbox{\url{https://www.fawkesrobotics.org/projects/rcll-sim/}}
-}
-including technical documentation is publicly available on
-Github.\footnote{\mbox{\url{https://github.com/robocup-logistics/gazebo-rcll}}}
-
-The simulation uses Gazebo and the exact same referee box to simulate
-the environment reactions similar to the real game. We envision this
-simulation to be a basis for a simulation RCLL sub-league to attract a
-wider range of participants, but also to ease entering the robot
-competition.
-
-There is a new Planning Competition for Logistics Robots in
-Simulation~\cite{LogRobComp2016} that is held at the International Conference on
-Automated Planning and Scheduling (ICAPS). The technical challenge game will be
-played according to the same rules and regulations of the ICAPS
-competition~\cite{LogRobComp-Rules-2017}. The rules and regulations, the
-reference USB stick image, and a video tutorial is available at
-\mbox{\url{http://www.robocup-logistics.org/sim-comp}}.
-
-\vspace{-2ex}\paragraph{The Game}
+% \subsubsection{Playing in Simulation}
 %
-This challenge will be played following the rules of 2016, the most
-notable difference is that there is no Storage Station. After a short
-setup period of 60\,sec, the production phase will be started
-immediately. The ground truth for the machine positions will be
-provided.\footnote{This means that some of the major changes in 2017,
-  regarding the Exploration Phase, are irrelevant for the simulation
-  challenge. This is done to align closely with the ICAPS
-  competition.} Please refer to the ICAPS competition manual for the
-available interfaces.
-
-\vspace{-2ex}\paragraph{Hardware Setup}
+% The challenge is to play the production phase of an RCLL game, based
+% on the publicly released Gazebo-based simulation~\cite{llsf-sim-rc2014-2014}.
+% The simulation
+% software\footnote{
+% \mbox{\url{https://www.fawkesrobotics.org/projects/rcll-sim/}}
+% }
+% including technical documentation is publicly available on
+% Github.\footnote{\mbox{\url{https://github.com/robocup-logistics/gazebo-rcll}}}
 %
-
-\begin{sloppypar}
-We use the same infrastructure as is used in the ICAPS competiton. It is based
-on a Kubernetes infrastructure. The competition cluster setup is available and
-documented at \mbox{\url{https://github.com/timn/rcll-sim-cluster}}. The USB
-stick image provided on the competition website can be used for local testing.
-\end{sloppypar}
-
-\vspace{-2ex}\paragraph{Simulation Interfaces}
+% The simulation uses Gazebo and the exact same referee box to simulate
+% the environment reactions similar to the real game. We envision this
+% simulation to be a basis for a simulation RCLL sub-league to attract a
+% wider range of participants, but also to ease entering the robot
+% competition.
 %
-We will follow the ICAPS competition's setup and will provide two
-principal interfaces: one based on Fawkes, and another based on
-ROS\@. Please see the ICAPS competition's rules and regulations for the
-details.
-
-\vspace{-2ex}\paragraph{Robot Models and Plugins}
+% There is a new Planning Competition for Logistics Robots in
+% Simulation~\cite{LogRobComp2016} that is held at the International Conference on
+% Automated Planning and Scheduling (ICAPS). The technical challenge game will be
+% played according to the same rules and regulations of the ICAPS
+% competition~\cite{LogRobComp-Rules-2017}. The rules and regulations, the
+% reference USB stick image, and a video tutorial is available at
+% \mbox{\url{http://www.robocup-logistics.org/sim-comp}}.
 %
-The simulation will be run with the standard set of models and plugins
-of the Carologistics RoboCup team based on the 2016 source code
-release\footnote{
-\mbox{\url{https://www.fawkesrobotics.org/p/rcll2016-release/}}
-}.
-No custom Gazebo plugins or models may be loaded or used by the competing teams.
-Since no physical simulation of workpiece handling is done and the base
-regarding locomotion is the same, there should be no issues for the teams to
-implement the flow of the game. However, teams must make sure that the standard
-set of sensors provided is sufficient.
-
-\vspace{-2ex}\paragraph{Competition Area} The competition area can be
-expected to be similar to Figure~\ref{fig:competition-area}, however,
-the MPS locations will be randomized as in the real game.
-
-\vspace{-2ex}\paragraph{Abstraction Level} Teams need to utilize their
-robot sensors to perceive the environment. There will be no available
-ground truth published to the robots by the simulation software. That
-is, robots need to localize and recognize the machines as well as
-localize themselves via sensors attached to the robot.
+% \vspace{-2ex}\paragraph{The Game}
+% %
+% This challenge will be played following the rules of 2016, the most
+% notable difference is that there is no Storage Station. After a short
+% setup period of 60\,sec, the production phase will be started
+% immediately. The ground truth for the machine positions will be
+% provided.\footnote{This means that some of the major changes in 2017,
+%   regarding the Exploration Phase, are irrelevant for the simulation
+%   challenge. This is done to align closely with the ICAPS
+%   competition.} Please refer to the ICAPS competition manual for the
+% available interfaces.
+%
+% \vspace{-2ex}\paragraph{Hardware Setup}
+% %
+%
+% \begin{sloppypar}
+% We use the same infrastructure as is used in the ICAPS competiton. It is based
+% on a Kubernetes infrastructure. The competition cluster setup is available and
+% documented at \mbox{\url{https://github.com/timn/rcll-sim-cluster}}. The USB
+% stick image provided on the competition website can be used for local testing.
+% \end{sloppypar}
+%
+% \vspace{-2ex}\paragraph{Simulation Interfaces}
+% %
+% We will follow the ICAPS competition's setup and will provide two
+% principal interfaces: one based on Fawkes, and another based on
+% ROS\@. Please see the ICAPS competition's rules and regulations for the
+% details.
+%
+% \vspace{-2ex}\paragraph{Robot Models and Plugins}
+% %
+% The simulation will be run with the standard set of models and plugins
+% of the Carologistics RoboCup team based on the 2016 source code
+% release\footnote{
+% \mbox{\url{https://www.fawkesrobotics.org/p/rcll2016-release/}}
+% }.
+% No custom Gazebo plugins or models may be loaded or used by the competing teams.
+% Since no physical simulation of workpiece handling is done and the base
+% regarding locomotion is the same, there should be no issues for the teams to
+% implement the flow of the game. However, teams must make sure that the standard
+% set of sensors provided is sufficient.
+%
+% \vspace{-2ex}\paragraph{Competition Area} The competition area can be
+% expected to be similar to Figure~\ref{fig:competition-area}, however,
+% the MPS locations will be randomized as in the real game.
+%
+% \vspace{-2ex}\paragraph{Abstraction Level} Teams need to utilize their
+% robot sensors to perceive the environment. There will be no available
+% ground truth published to the robots by the simulation software. That
+% is, robots need to localize and recognize the machines as well as
+% localize themselves via sensors attached to the robot.
 
 
 \subsection{Open Challenge~}
