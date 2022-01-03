@@ -1035,7 +1035,7 @@ Concretely, the \ac{refbox} expects a \emph{machine identification
   message} with a tuple consisting of zone, machine name (as encoded
 in the markers), orientation in degrees. This message bay be partially
 filled to account for the two parts. Please consult the \ac{refbox}
-Integrator's Manual~\cite{RefBoxIntManual} for a detailed definition
+documentation \refsec{sec:task} for a detailed definition
 of the message types. Reports are only accepted for \ac{MPS} of the
 respective team over the private encrypted team channel. Only the
 first information for each \ac{MPS} is processed,
@@ -1353,7 +1353,7 @@ operation is completed.
 
 The following describes the communication and reactions of the
 machines during the production phase. For the actual messages we refer
-to the integrator's manual~\cite{RefBoxIntManual}.
+to the \ac{refbox} documentation (see \refsec{sec:task}).
 
 \smallskip
 
@@ -1431,9 +1431,8 @@ machine has been prepared, the full cycle can be completed (committed).
 There may be only one transaction running at a time. If a
 second preparation is performed the machine will
 be temporarily broken, which causes it to recover to a determined state.
-An \ac{MPS} may be reset by a team at any time by a dedicated msg (see
-\ac{refbox} Integrator's Manual~\cite{RefBoxIntManual}). This causes
-the \ac{MPS} to go into the broken state as well.
+An \ac{MPS} may be reset by a team at any time by a dedicated msg.
+This causes the \ac{MPS} to go into the broken state as well.
 
 \subsubsection{Broken Machine Downtime}
 \label{sec:broken-machine}
@@ -1931,8 +1930,7 @@ The communication from the \ac{refbox} to the robot is a datagram-oriented
 broadcast protocol based on Google protocol buffers\footnote{Available
 at \mbox{\url{https://code.google.com/p/protobuf/}}} (protobuf). The
 protocol definition and technical parameters are described in detail
-in the RoboCup Logistics League Referee Box Integrator's
-Manual~\cite{RefBoxIntManual}
+in the \ac{refbox} documentation (see \refsec{sec:task}).
 
 \subsection{Remote Control}
 \label{sec:remote-control}
