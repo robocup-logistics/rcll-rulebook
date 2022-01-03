@@ -130,14 +130,15 @@
 \addbibresource{rulebook}
 
 \usepackage{acronym}
-\acrodef{BS}{base station}
-\acrodef{CS}{cap station}
-\acrodef{RS}{ring station}
-\acrodef{SS}{storage station}
-\acrodef{DS}{delivery station}
+\acrodef{BS}{Base Station}
+\acrodef{CS}{Cap Station}
+\acrodef{RS}{Ring Station}
+\acrodef{SS}{Storage Station}
+\acrodef{DS}{Delivery Station}
 \acrodef{refbox}{Referee Box}
 \acrodef{MPS}{Modular Production System}
 \acrodef{RCLL}{RoboCup Logistics League}
+\acrodef{TC}{Technical Committee}
 \acrodef{OC}{Organizational Committee}
 \acrodef{TBD}{To be Discussed}
 
@@ -278,7 +279,7 @@ partner Festo provides insights into future factory concepts to help
  capabilities.  In 2017, we changed the field size and zone layout and we
  shifted the focus from the exploration to the production phase. In 2018, we saw
  more and more teams successfully delivering orders, even of higher complexity.
- For 2019, the TC integrated a barcode recognition system to track
+ For 2019, the \ac{TC} integrated a barcode recognition system to track
  products, which allows to automate scoring and to grant partial points for
  production steps.  Additionally, the communication with the \ac{MPS} stations got
  improved through a switch to new hardware and to the OPC Unified
@@ -290,7 +291,7 @@ partner Festo provides insights into future factory concepts to help
  to purchase additional robot maintenance, which increases
  overall game activity while posing an additional strategic challenge to the
  teams.
- In 2020 the TC reworked the storage station integration and the rules
+ In 2020 the \ac{TC} reworked the storage station integration and the rules
  regarding storage station usage. The storage station became fully functional.
  In 2021 an online format was introduced to allow competitions around the
  world without being required to gather at the same location or even having
@@ -383,10 +384,10 @@ year of stabilization and conservative changes.
 \section{League Administration} \label{sec:commitees}
 \subsection{Technical Committee 2021}
 \label{sec:tc}
-The technical committee (TC) is responsible to update and publish the
+The \acf{TC} is responsible to update and publish the
 rulebook, to decide on technical questions during the tournament, and
 to communicate with the league stake holders on technical
-advancements. Current members of the TC are (in alphabetical order):\\[.5em]
+advancements. Current members of the \ac{TC} are (in alphabetical order):\\[.5em]
 % Alphabetical order by last name
 \emph{Vincent Coelen}, Ecole polytechnique universitaire de Lille\\
 \emph{Lukas Knoflach}, Graz University of Technology, Graz, Austria\\
@@ -399,15 +400,15 @@ Biel, Switzerland\\
 \emph{Tarik Viehmann}, RWTH Aachen University, Aachen, Germany
 
 \medskip
-\noindent To get into contact with the TC use the mailing list\\
+\noindent To get into contact with the \ac{TC} use the mailing list\\
 \centerline{\url{robocup-logistics-tc@lists.kbsg.rwth-aachen.de}}
 
 \subsection{Organizing Committee 2021}
 \label{sec:oc}
-The organizing committee (OC) is responsible for organizing the
+The \ac{OC} is responsible for organizing the
 RoboCup competitions, to communicate to the RoboCup Federation
 trustees and chairs the requirements of the league, and to inform and
-attract new teams to the league. Current members of the OC are (in
+attract new teams to the league. Current members of the \ac{OC} are (in
 alphabetical order):\\[.5em]
 \emph{Stefan Brandenberger}, HFTM Technical Institute of Applied Science
 Mittelland, Biel, Switzerland\\
@@ -417,7 +418,7 @@ Mittelland, Biel, Switzerland\\
 \emph{Wataru Uemura}, Ryukoku University, Japan
 
 \medskip
-\noindent To get into contact with the OC use the mailing list\\
+\noindent To get into contact with the \ac{OC} use the mailing list\\
 \centerline{\url{robocup-logistics-oc@lists.kbsg.rwth-aachen.de}}
 
 \subsection{Executive Committee}
@@ -590,12 +591,12 @@ each machine will be equipped with a narrowing cone on its input side
 Based on these shared properties, there are five kinds of machines:
 
 \begin{description}
-\item[Base Station (BS)] acts as dispenser of base elements
+\item[\acf{BS}] acts as dispenser of base elements
   (\reffig{fig:BS}). The application modules are three magazines of
   base elements.
-  %There is a single BS per team.
+  %There is a single \ac{BS} per team.
 
-\item[Cap Station (CS)] mounts a cap as the final step in production
+\item[\acf{CS}] mounts a cap as the final step in production
   on an intermediate product (\reffig{fig:CS}). The application module
   is a vacuum pick \& place module. There is a slide to store at most
   one cap piece at a time. At the beginning this slide is empty and
@@ -603,29 +604,29 @@ Based on these shared properties, there are five kinds of machines:
   must be taken to the machine and is then unmounted and buffered in
   the slide. The cap is then mounted on the next intermediate product
   taken to the machine.
-  %There are two CS per team.
+  %There are two \ac{CS} per team.
 
-\item[Ring Station (RS)] mounts one colored ring out of two available
-  colors on an intermediate product (\reffig{fig:RS}). Each RS has two
+\item[\acf{RS}] mounts one colored ring out of two available
+  colors on an intermediate product (\reffig{fig:RS}). Each \ac{RS} has two
   vacuum pick \& place units as application modules with separate
   unique colors which are determined new for each game. There is an
   additional pre-fill slide which is used for some colors (specified
   anew for each game) to add base elements.
-  %There are two RS per team.
+  %There are two \ac{RS} per team.
 
-\item[Storage Station (SS)] provides 48 slots of storage divided into
+\item[\acf{SS}] provides 48 slots of storage divided into
   6 layers (\reffig{fig:SS_portrait}).
   The Storage Station initially provides one pre-stored sample of each possible
   $C_0$ configuration (one per layer).
 
-\item[Delivery Station (DS)] Accepts completed products. The stations contains
+\item[\acf{DS}] Accepts completed products. The stations contains
   three slides (\reffig{fig:DS}). The delivered products are verified by either
   the referees or an automated external vision system.
-  %There is one DS per team.
+  %There is one \ac{DS} per team.
 \end{description}
 
 \noindent
-Machines of type CS and RS are called production machines as they
+Machines of type \ac{CS} and \ac{RS} are called production machines as they
 perform refinement steps on a workpiece during the production
 phase. Processing times are outlined in \reftab{tab:processing-times}.
 
@@ -691,12 +692,11 @@ phase. Processing times are outlined in \reftab{tab:processing-times}.
     \mytable{
         \begin{tabularx}{\linewidth}{l|l|X}
             Type & Distribution & (Final) processing time[s]\\\hline
-            Base Station (BS) & 1 per team & minimum physical time\\
-            Cap Station (CS) & 2 per team & $t_2 = \SItextrange{15:25}{\sec}$\\
-            Cap Station (CS) & 2 per team & $t_2 = \SItextrange{15:25}{\sec}$\\
-            Ring Station (RS) & 2 per team &$t_3 = \SItextrange{40:60}{\sec}$\\
-            Storage Station (SS) & 1 per team & minimum physical time\\
-            Delivery Station (DS) & 1 per team &$t_5 =\SItextrange{20:40}{\sec}$
+            \acf{BS} & 1 per team & minimum physical time\\
+            \acf{CS} & 2 per team & $t_2 = \SItextrange{15:25}{\sec}$\\
+            \acf{RS} & 2 per team &$t_3 = \SItextrange{40:60}{\sec}$\\
+            \acf{SS} & 1 per team & minimum physical time\\
+            \acf{DS} & 1 per team &$t_5 =\SItextrange{20:40}{\sec}$
         \end{tabularx}
     }
     \caption{\ac{MPS} type, distribution and processing times}
@@ -739,18 +739,18 @@ quarter turn compared to the field system.
 To ensure fairness, positions and orientations of the machines are mirrored
 along the field's y-axis. There are two cases that need to be handled
 separately. First, machines in a cell not adjacent to the wall, and machines of
-types BS, DS, and SS (even when adjacent to the wall) are mirrored according to
-\reftab{tab:mirror-a}. Second, CS and RS stations must be handled slightly
+types \ac{BS}, \ac{DS}, and \ac{SS} (even when adjacent to the wall) are mirrored according to
+\reftab{tab:mirror-a}. Second, \ac{CS} and \ac{RS} stations must be handled slightly
 different, if oriented next to a wall or field border
 (e.g., zones C-Z*1, C-Z*8, C-Z7*, M-Z*1, M-Z*8 and M-Z7* in
 \reffig{fig:competition-area}).
 The reason being, that the shelf and slide of these stations are
 offset sideways at the input side. This might lead to the situation that for one
 team the shelf is close to the wall, and for the other it is not. To remedy this
-problem, the RS and CS machines adjacent to a wall will always be placed such
+problem, the \ac{RS} and \ac{CS} machines adjacent to a wall will always be placed such
 that the shelf or slide is on the farther end with respect to the wall. For
-example, in \reffig{fig:competition-area}, the magenta CS in M-Z77 with a
-rotation of \ang{270}. Were this setup mirrored, the shelf on the cyan CS in
+example, in \reffig{fig:competition-area}, the magenta \ac{CS} in M-Z77 with a
+rotation of \ang{270}. Were this setup mirrored, the shelf on the cyan \ac{CS} in
 C-Z77 would be close to the wall. Instead, it has a different orientation
 violating the y-symmetry but allowing for easier access to the shelf.
 
@@ -781,8 +781,8 @@ violating the y-symmetry but allowing for easier access to the shelf.
 \begin{figure}[tb]
     \centering
     \subfigure[
-      For rotations with \ang{0}, \ang{90}, \ang{180} or \ang{270}. BS, CS, RS,
-      and SS block the zones close to the input as well as the output. DS blocks
+      For rotations with \ang{0}, \ang{90}, \ang{180} or \ang{270}. \ac{BS}, \ac{CS}, \ac{RS},
+      and \ac{SS} block the zones close to the input as well as the output. \ac{DS} blocks
       the zones close to the input.
     ]{
         \label{fig:zone-mps-rotation-straight}%
@@ -791,8 +791,8 @@ violating the y-symmetry but allowing for easier access to the shelf.
     }
     \quad
     \subfigure[
-      For rotations with  \ang{45}, \ang{135}, \ang{225} and \ang{315}. BS, CS,
-      RS, and SS block the zones close to the input as well as the output. DS
+      For rotations with  \ang{45}, \ang{135}, \ang{225} and \ang{315}. \ac{BS}, \ac{CS},
+      \ac{RS}, and \ac{SS} block the zones close to the input as well as the output. \ac{DS}
       blocks the zones close to the input.
     ]{
         \label{fig:zone-mps-rotation-odd}
@@ -836,49 +836,49 @@ zone in-between.
     \hline
     &&&&&\\[-2ex]
     \multirow{7}{*}{\rotatebox{90}{\bfseries Cyan\hspace{3.75cm}}}
-    & CS 1 & 1
+    & \ac{CS} 1 & 1
            & \parbox[c]{1.2cm}{
                \includegraphics[width=1.2cm]{markers/figure_1}}
            & 2
            & \parbox[c]{1.2cm}{
                \includegraphics[width=1.2cm]{markers/figure_2}}
     \\[2.5ex]
-    & CS 2 & 17
+    & \ac{CS} 2 & 17
            & \parbox[c]{1.2cm}{
                \includegraphics[width=1.2cm]{markers/figure_17}}
            & 18
            & \parbox[c]{1.2cm}{
                \includegraphics[width=1.2cm]{markers/figure_18}}
     \\[2.5ex]
-    & RS 1 & 33
+    & \ac{RS} 1 & 33
            & \parbox[c]{1.2cm}{
                \includegraphics[width=1.2cm]{markers/figure_33}}
            & 34
            & \parbox[c]{1.2cm}{
                \includegraphics[width=1.2cm]{markers/figure_34}}
     \\[2.5ex]
-    & RS 2 & 177
+    & \ac{RS} 2 & 177
            & \parbox[c]{1.2cm}{
                \includegraphics[width=1.2cm]{markers/figure_177}}
            & 178
            & \parbox[c]{1.2cm}{
                \includegraphics[width=1.2cm]{markers/figure_178}}
     \\[2.5ex]
-    & BS & 65
+    & \ac{BS} & 65
          & \parbox[c]{1.2cm}{
              \includegraphics[width=1.2cm]{markers/figure_65}}
          & 66
          & \parbox[c]{1.2cm}{
              \includegraphics[width=1.2cm]{markers/figure_66}}
     \\[2.5ex]
-    & DS & 81
+    & \ac{DS} & 81
          & \parbox[c]{1.2cm}{
              \includegraphics[width=1.2cm]{markers/figure_81}}
          & 82
          & \parbox[c]{1.2cm}{
              \includegraphics[width=1.2cm]{markers/figure_82}}
     \\[2.5ex]
-    & SS & 193
+    & \ac{SS} & 193
          & \parbox[c]{1.2cm}{
              \includegraphics[width=1.2cm]{markers/figure_193}}
          & 194
@@ -894,49 +894,49 @@ zone in-between.
     &Machine & ID & Tag & ID & Tag\\\hline
     &&&&&\\[-2ex]
     \multirow{7}{*}{ \rotatebox{90}{\bfseries Magenta\hspace{3.4cm}}}
-    & CS 1 & 97
+    & \ac{CS} 1 & 97
            & \parbox[c]{1.2cm}{
                \includegraphics[width=1.2cm]{markers/figure_97}}
            & 98
            & \parbox[c]{1.2cm}{
                \includegraphics[width=1.2cm]{markers/figure_98}}
     \\[2.5ex]
-    & CS 2 & 113
+    & \ac{CS} 2 & 113
            & \parbox[c]{1.2cm}{
                \includegraphics[width=1.2cm]{markers/figure_113}}
            & 114
            & \parbox[c]{1.2cm}{
                \includegraphics[width=1.2cm]{markers/figure_114}}
     \\[2.5ex]
-    & RS 1 & 129
+    & \ac{RS} 1 & 129
            & \parbox[c]{1.2cm}{
                \includegraphics[width=1.2cm]{markers/figure_129}}
            & 130
            & \parbox[c]{1.2cm}{
                \includegraphics[width=1.2cm]{markers/figure_130}}
     \\[2.5ex]
-    & RS 2 & 145
+    & \ac{RS} 2 & 145
            & \parbox[c]{1.2cm}{
                \includegraphics[width=1.2cm]{markers/figure_145}}
            & 146
            & \parbox[c]{1.2cm}{
                \includegraphics[width=1.2cm]{markers/figure_146}}
     \\[2.5ex]
-    & BS & 161
+    & \ac{BS} & 161
          & \parbox[c]{1.2cm}{
              \includegraphics[width=1.2cm]{markers/figure_161}}
          & 162
          & \parbox[c]{1.2cm}{
              \includegraphics[width=1.2cm]{markers/figure_162}}
     \\[2.5ex]
-    & DS & 49
+    & \ac{DS} & 49
          & \parbox[c]{1.2cm}{
              \includegraphics[width=1.2cm]{markers/figure_49}}
          & 50
          & \parbox[c]{1.2cm}{
               \includegraphics[width=1.2cm]{markers/figure_50}}
     \\[2.5ex]
-    & SS & 209
+    & \ac{SS} & 209
          & \parbox[c]{1.2cm}{
              \includegraphics[width=1.2cm]{markers/figure_209}}
          & 210
@@ -977,7 +977,7 @@ Additionally, the following parts need to be mounted:
 		CS
 	\item either a shelf, a slide or a conveyor belt on the front right side
 of the box, such that it is accessible from the front on stations replicating a
-		RS
+		\ac{RS}
 \end{itemize}
 Models for a conveyor belt, shelf and slides can be found in the \ac{RCLL} rulebook
 repository\footnote{\url{https://github.com/robocup-logistics/rcll-rulebook/tree/master/mock_up_models}}. % chktex ignore-long-line
@@ -1068,19 +1068,18 @@ steps.
 They consist of the following elements:
 \begin{description}
 \item[Base] The base is the lowermost element in each production.
-  Bases are dispensed by the base station (BS) and bases with mounted
-  caps are available on the cap stations (CS). Bases are available in
+  Bases are dispensed by the \acf{BS} and bases with mounted
+  caps are available on the \acf{CS}. Bases are available in
   the colors red, black, silver, and transparent. Transparent bases
-  are to be used and only used on CS shelves
+  are to be used and only used on \ac{CS} shelves
   (cf.~\refsec{sec:production-machines-production}), they cannot be
   used as a workpiece for production. They may, however, be used to
-  provide additional bases required by an RS, stored on a team's CS
-  shelf, or recycled at the DS\@.
-\item[Ring] Rings are mounted in intermediate production steps at ring
-  stations (RS).
+  provide additional bases required by an \ac{RS}, stored on a team's \ac{CS}
+  shelf, or recycled at the \ac{DS}.
+\item[Ring] Rings are mounted in intermediate production steps at the \acf{RS}.
 \item[Cap] Caps are the topmost element in each production. They are
   obtained by taking pre-assembled base-cap combinations available on
-  the shelf to the cap station (CS). Caps can be black or gray.
+  the shelf to the \acf{CS}. Caps can be black or gray.
 \end{description}
 %TODO: move this somewhere?!
 %Only one workpiece or a composite product must be grasped and
@@ -1135,14 +1134,14 @@ evaluation.
 The product portfolio comprises many different variants and is
 categorized by the four available \emph{product complexity} levels
 shown in \reffig{fig:production-complexities}. The lowest complexity
-$C_0$ consists of just a base and a cap and requires to load the CS
+$C_0$ consists of just a base and a cap and requires to load the \ac{CS}
 with the proper cap color and then processing a properly colored base
 at that machine. The highest complexity $C_3$ requires a base with
 three mounted rings and a cap. For a product, the colors of base,
 rings, and cap as well as the order of the rings are of importance.
 
 Depending on the ring color, the robot may have to deliver one or more
-\emph{additional bases} to a RS first in order to get a ring. We
+\emph{additional bases} to a \ac{RS} first in order to get a ring. We
 therefore distinguish \emph{color complexities} as $CC_0$, $CC_1$, and
 $CC_2$ depending on whether zero, one, or two additional bases are
 required for a color.
@@ -1202,7 +1201,7 @@ For a non-competitive order, each team scores independently of the other team.
 
 \begin{figure}[p]
     \centering
-    \subfigure[Production of complexity $C_0$ received from a SS.]{
+    \subfigure[Production of complexity $C_0$ received from a \ac{SS}.]{
       \label{fig:prod-chain-C0-SS}%
       \begin{minipage}{1.0\linewidth}
         \centering
@@ -1212,7 +1211,7 @@ For a non-competitive order, each team scores independently of the other team.
     \subfigure[Production of complexity $C_0$ as shown in
     \reffig{fig:prod-compl-0}.
     A cup must be buffered at the
-    CS (red path) before a cap can be mounted on the product (green path).
+    \ac{CS} (red path) before a cap can be mounted on the product (green path).
     The remaining cap-less carrier is not needed for the product.
     ]{
       \label{fig:prod-chain-C0}%
@@ -1244,7 +1243,7 @@ For a non-competitive order, each team scores independently of the other team.
     Note that two additional bases (of any color) are required to pay for
     the green ring and another one is needed for for the orange ring.
     A cap-less carrier (red arrow), a capcarrier (blue arrow) and a fresh base
-    from the BS (brown arrow) are used in this example to fulfill the payments.
+    from the \ac{BS} (brown arrow) are used in this example to fulfill the payments.
     ]{\label{fig:prod-chain-C3}%
       \begin{minipage}{1.0\linewidth}
         \centering
@@ -1254,7 +1253,7 @@ For a non-competitive order, each team scores independently of the other team.
   \caption{Production Chains of four example products
     (cf. \reffig{fig:production-complexities}). Green arrows show the product
     path from start to delivery, red arrows show the path of a capcarrier that
-    is used to buffer the CS.
+    is used to buffer the \ac{CS} .
     \emph{Note that this is a particular
       example. The actual production chains and requirements for
       additional BEs are determined randomly by the \ac{refbox} for
@@ -1321,17 +1320,17 @@ flash the red and yellow light and will be out of order
 
 In the production phase, machines must be prepared to be used. This
 applies to all machine types.
-If a product from the input is required for the processing step (DS, CS, RS and
-a storage operation at the SS), then the conveyor belt is started
+If a product from the input is required for the processing step (\ac{DS}, \ac{CS}, \ac{RS} and
+a storage operation at the \ac{SS}), then the conveyor belt is started
 after receiving a prepare message. If no workpiece reaches the
 machine operating point (indicated through the middle belt sensor)
 within \SI{45}{\second}, the machine goes to a temporary out-of-order
 state (cf.~\refsec{sec:broken-machine}).
-The BS and the retrieval operation at the SS cause
+The \ac{BS} and the retrieval operation at the \ac{SS} cause
 the requested workpiece to be dispensed upon receiving a prepare message.
-After performing an operation at the BS, CS, RS or the SS (in case of a
+After performing an operation at the \ac{BS}, \ac{CS}, \ac{RS} or the \ac{SS} (in case of a
 retrieval) the conveyor belt is started. If no workpiece reaches the destination
-point (indicated through the output belt sensor, or in case of the BS either
+point (indicated through the output belt sensor, or in case of the \ac{BS} either
 the input or output belt sensor) within \SI{90}{\second}, the machine goes in a
 temporary out-of-order state (cf.~\refsec{sec:broken-machine}).
 The workpiece may remain on the machine for an arbitrary time after the
@@ -1343,32 +1342,32 @@ to the integrator's manual~\cite{RefBoxIntManual}.
 
 \smallskip
 
-\noindent\textbf{BS}
-The BS prepare message denotes the color of the base element that should
+\noindent\textbf{\acl{BS}}
+The \ac{BS} prepare message denotes the color of the base element that should
 be dispensed. After receiving the message, the \ac{refbox} will instruct
 the \ac{MPS} to immediately provide a base of the desired color.
 
-\noindent\textbf{DS}
-The DS prepare message denotes the order ID of the product that is delivered.
-The DS will consume any workpiece provided, but points can only be scored if the
-DS has been properly prepared.
+\noindent\textbf{\acl{DS}}
+The \ac{DS} prepare message denotes the order ID of the product that is delivered.
+The \ac{DS} will consume any workpiece provided, but points can only be scored if the
+\ac{DS} has been properly prepared.
 
-\noindent\textbf{CS}
-The CS prepare message initiates either the retrieval or the mounting of
+\noindent\textbf{\acl{CS}}
+The \ac{CS} prepare message initiates either the retrieval or the mounting of
 a cap. For retrieving a prepared base (with a cap mounted on top) from
 the machine's shelf must be fed into the machine. All base elements
 prepared on the shelf are specially colored workpieces (clear). The
 machine will take the cap off the base and buffer it on the slide,
 releasing the decapped base to the output side. This base can only be
-used for providing an additional base to an RS (see below), reuse by
-placing it back on the shelf, or discarding it at the DS\@.  For
+used for providing an additional base to an \ac{RS} (see below), reuse by
+placing it back on the shelf, or discarding it at the \ac{DS}.  For
 mounting a cap, a workpiece (without cap) must be provided onto which
 the cap is mounted.
 
-\noindent\textbf{RS}
-The RS prepare message must state which of the two colors to prepare and
-retrieve. Each RS is responsible for two specific colors. Some colors
-require loading the RS with additional bases
+\noindent\textbf{\acl{RS}}
+The \ac{RS} prepare message must state which of the two colors to prepare and
+retrieve. Each \ac{RS} is responsible for two specific colors. Some colors
+require loading the \ac{RS} with additional bases
 (cf.~\refsec{sec:production-complexities}). If the desired color requires
 additional bases, the machine expects to receive them first.
 Once the required number of
@@ -1376,14 +1375,14 @@ additional bases has been received, the intermediate product can be
 fed into the machine. It receives a ring of the desired color and
 moves the processed product to the output.
 
-\noindent\textbf{SS}
-The SS prepare message denotes the storage place (shelf and slot number) and
+\noindent\textbf{\acl{SS}}
+The \ac{SS} prepare message denotes the storage place (shelf and slot number) and
 the type of the operation that should be performed.
-The SS consists of six shelves with eight slots each. \reffig{fig:ss-shelf}
+The \ac{SS} consists of six shelves with eight slots each. \reffig{fig:ss-shelf}
 depicts how positions are mapped to their respective shelf and slot numbers
 $(x,y),x\in[0,5],y\in[0,7]$.
 Accessing a slot $(x,y), y\in\{1,3,5,7\}$ in the back of a shelf while slot
-$(x,y-1)$ is occupied causes the SS to relocate the product at $(x,y-1)$ to a
+$(x,y-1)$ is occupied causes the \ac{SS} to relocate the product at $(x,y-1)$ to a
 randomly chosen accessible position before processing the instruction.
 If all other free positions are located in the back and
 are also blocked by products stored in front of them, then one of those free
@@ -1393,17 +1392,17 @@ relocating $(x,y-1)$ to $(x^\prime,y^\prime)$.
 Descriptions can be added to the prepare messages when storing workpieces.
 These descriptions are attached to the position of the workpiece and updated
 automatically when relocating operations happen.
-Each team receives the storage status for their respective SS
+Each team receives the storage status for their respective \ac{SS}
 periodically, including the corresponding descriptions at each position.
 Positions and configurations of pre-stored products are also announced through
 storage status messages.
-Note the costs for using the SS outlined in \refsec{sec:production-scoring}.
+Note the costs for using the \ac{SS} outlined in \refsec{sec:production-scoring}.
 
 
 \begin{figure}[ht]
   \centering
     \includegraphics{figures/storage-shelf.pdf}
-    \caption{The bottom-most SS shelf. Position $(x,y)$ consists of
+    \caption{The bottom-most \ac{SS} shelf. Position $(x,y)$ consists of
       shelf number $x$ and slot number $y$.
     Shelves are numbered in ascending order from bottom to top.}
     \label{fig:ss-shelf}
@@ -1438,7 +1437,7 @@ state. The downtime is indicated by a flashing red light.
 \subsubsection{Scheduled Machine Downtime}
 \label{sec:out-of-order}
 Depending on the played format, The \ac{refbox} may take down machines
-randomly out of the pool containing the RS and CS\@.
+randomly out of the pool containing the \ac{RS} and \ac{CS}.
 If two teams play at the same time, then the same machines for
 both teams are affected in the same time window.
 The machines affected will remain out of order for 30 to 60
@@ -1575,12 +1574,12 @@ All costs are listed in \reftab{tab:scoring}.
         \\
         Retrieve cap & Buffer a cap into a cap station & $+2$
         \\
-        Retrieve from SS
+        Retrieve from \ac{SS}
         & A workpiece has been requested from storage and is ready for retrieval
         & $-5$
         \\
-        Store at SS
-        & A workpiece is stored into the SS
+        Store at \ac{SS}
+        & A workpiece is stored into the \ac{SS}
         & $-5$
         \\
         Delivery
@@ -1782,7 +1781,7 @@ in time, it is disqualified from the ongoing game.
 \subsubsection{Machine Refill}
 \label{sec:machine-refill}
 The teams are responsible for restocking all materials (base elements,
-rings, prepared caps on shelves, and $C_0$ in the SS) before and during matches.
+rings, prepared caps on shelves, and $C_0$ in the \ac{SS}) before and during matches.
 Each team has to designate one team-member as a \textit{``replenisher''} who
 must be specified to the corresponding referees ahead of each
 game.  Only this team member will be allowed to access the field area and only
@@ -1795,11 +1794,11 @@ The replenisher may restock only caps if transparent base elements have been put
 back to the shelf, once no cap is remaining on this shelf.
 
 The teams are partly free to choose their assembly and placement of products.
-For example, teams can fill any number of bases into a BS or are free to choose
-the color of caps for a CS, however teams are only allowed to fill the CS if the
+For example, teams can fill any number of bases into a \ac{BS} or are free to choose
+the color of caps for a \ac{CS}, however teams are only allowed to fill the \ac{CS} if the
 whole shelf is empty and then it has to be filled completely.  The color
-assignment of bases on the BS and SS must be obeyed, as otherwise they will
-deliver the wrong bases. Similarly, ring color assignments at the RS must be
+assignment of bases on the \ac{BS} and \ac{SS} must be obeyed, as otherwise they will
+deliver the wrong bases. Similarly, ring color assignments at the \ac{RS} must be
 respected according to the \ac{refbox} announcement.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1888,7 +1887,7 @@ frequency spectrum and wifi channels have to be shared, not only
 within our own league. Generally, a conservative use of bandwidth
 resources is advised. Should a frequently or endured exceedance of the
 bandwidth limit become known, or if the overall bandwidth limit must
-be reduced due to outer circumstances, the TC can monitor the network
+be reduced due to outer circumstances, the \ac{TC} can monitor the network
 traffic and demand reduction in communicated data as necessary.
 
 \subsection{Referee Box Instructions}
@@ -1956,7 +1955,7 @@ interfered with. Teams not currently active shall disconnect from the
 field access points.
 
 Monitoring of bandwidth used or of possible misbehavior may only be
-performed by members of the TC or an appointed delegate.
+performed by members of the \ac{TC} or an appointed delegate.
 % can add this, need to be clear that this must be done using a team
 % leader majority vote and not just any team leader
 % or by a person appointed by the team leaders.
@@ -2009,8 +2008,8 @@ challenges. Teams can decide to participate in any of those.
 
 \subsection{Field Layout}
 Games are played on a symmetrical fields, the competition area spans
-\SI{14 x 8}{\metre} and each team has one BS, SS and DS as well as %chktex 29
-two CS and two RS available, so a total of 14 machines are placed on the field.
+\SI{14 x 8}{\metre} and each team has one \ac{BS}, \ac{SS} and \ac{DS} as well as %chktex 29
+two \ac{CS} and two \ac{RS} available, so a total of 14 machines are placed on the field.
 The field shown in \reffig{fig:competition-area} is an exemplary field for
 a game in the main competition.
 
@@ -2018,10 +2017,10 @@ The machines will be placed mostly on the primary half
 of a team (cf. \refsec{sec:competition-area}). However, some machines will be
 swapped, that is, some machines will not be located in the primary
 half:
-For each game, one CS and one RS of each team will be chosen randomly
+For each game, one \ac{CS} and one \ac{RS} of each team will be chosen randomly
 and swapped with the corresponding machine of the other team on the
-non-primary half --- that is two machines in total per team. The CS and
-RS will be swapped with the symmetrically positioned machine of the
+non-primary half --- that is two machines in total per team. The \ac{CS} and
+\ac{RS} will be swapped with the symmetrically positioned machine of the
 same type of the other team.
 
 \subsection{Match Format}
@@ -2292,9 +2291,9 @@ accordingly.
   & \multicolumn{2}{c}{\multirow{2}{*}{Color Assignment }}\\\cline{2-5}
   & Color  & Price & Color  & Price & \multicolumn{2}{c}{}\\\cline{2-7}
   & Yellow & 0 & Green & 0
-  & RS1: $\colconfig_1$ & RS1: $\colconfig_2$ \\
+  & \ac{RS}1: $\colconfig_1$ & \ac{RS}1: $\colconfig_2$ \\
   & Blue  & 1 & Orange & 2
-  & RS2: $\colconfig_2$ & RS2: $\colconfig_1$ \\\hline\hline
+  & \ac{RS}2: $\colconfig_2$ & \ac{RS}2: $\colconfig_1$ \\\hline\hline
   Configuration & \multicolumn{2}{c||}{$\colconfig_1$}
   & \multicolumn{2}{c||}{$\colconfig_2$}
   & $\texttt{option1}$ & $\texttt{option2}$\\
@@ -2408,8 +2407,8 @@ Variations differ by number of machines, see
 successful, once all bases were placed at the respective machine input
 at least $i$ times.
 The placement of the machines on the field is fixed according to the field
-shown in \reffig{fig:competition-area-challenges}, where the BS is placed at
-M-Z12, CS1 is placed at M-Z53 and RS1 is placed at M-Z25.
+shown in \reffig{fig:competition-area-challenges}, where the \ac{BS} is placed at
+M-Z12, CS1 is placed at M-Z53 and \ac{RS}1 is placed at M-Z25.
 In order to load this layout into the \ac{refbox} follow the instructions
 from the
 wiki\footnote{\url{https://github.com/robocup-logistics/rcll-refbox/wiki}}.
@@ -2469,7 +2468,7 @@ by their type.
 A picture may contain more than one machine, which all count towards the
 total number of machines to detect. Labels must be placed on the machines
 within the picture. Machines are distinguished by their types
-(BS, CS, RS, DS, SS).\\
+(BS, CS, RS, \ac{DS}, \ac{SS}).\\
 As a preparation for this challenge, a data set will be supplied to
 all participants which may be used for training and testing
 purposes\footnote{\url{https://fh-aachen.sciebo.de/s/MRghypMQSMhTYaC}}.
@@ -2515,7 +2514,7 @@ tournament for the Technical Challenge in their first team leader
 meeting. For each type of challenge, a time slot is assigned, in which
 teams can participate once in the challenge. Each team can register
 for any of the challenges. All team leaders have to be present at the
-time of the challenge to judge the other teams. The OC is responsible
+time of the challenge to judge the other teams. The \ac{OC} is responsible
 to conduct the Technical Challenge and can appoint team leaders as
 support. Each challenge will have a separate ranking. In each ranking,
 the team on the last rank will receive 0 points, the last-but-one
@@ -2558,9 +2557,9 @@ and 3 points for correct recognition. The recognition must be provided
 clearly visible on a screen or by text-to-speech output.
 
 \vspace{-2ex}\paragraph{Production}
-The \ac{refbox} will randomly select a CS machine. The machine will be
+The \ac{refbox} will randomly select a \ac{CS} machine. The machine will be
 pre-filled with a cap. The robot must then retrieve a base element
-without cap from the shelf of the CS (at least one spot will be filled
+without cap from the shelf of the \ac{CS} (at least one spot will be filled
 with such a base element), feed it into the cap station, and retrieve
 the finished product on the output side.
 
