@@ -136,7 +136,7 @@
 \acrodef{SS}{storage station}
 \acrodef{DS}{delivery station}
 \acrodef{refbox}{Referee Box}
-\acrodef{MPS}{modular production system}
+\acrodef{MPS}{Modular Production System}
 \acrodef{RCLL}{RoboCup Logistics League}
 \acrodef{OC}{Organizational Committee}
 \acrodef{TBD}{To be Discussed}
@@ -267,8 +267,8 @@ partner Festo provides insights into future factory concepts to help
  self-localization, collision avoidance, and increased spatial coordination
  complexity.  Additionally, the production schedules became more dynamic in that
  orders were posted dynamically and less frequently. In 2015 we introduced
- actual physical processing machines based on the Festo Modular Production
- System (MPS) requiring more complex machine handling~\cite{wdrl2013}. The
+ actual physical processing machines based on the Festo
+ \ac{MPS} requiring more complex machine handling~\cite{wdrl2013}. The
  production schedule has again become more flexible and dynamic, by introducing
  color-coded rings of which a varying number can be requested to be mounted in a
  specific order for a certain product.  This increased the number of products
@@ -280,7 +280,7 @@ partner Festo provides insights into future factory concepts to help
  more and more teams successfully delivering orders, even of higher complexity.
  For 2019, the TC integrated a barcode recognition system to track
  products, which allows to automate scoring and to grant partial points for
- production steps.  Additionally, the communication with the MPS stations got
+ production steps.  Additionally, the communication with the \ac{MPS} stations got
  improved through a switch to new hardware and to the OPC Unified
  Architecture\footnote{We gratefully thank the RoboCup Federation for
  supporting the work on workpiece tracking and network robustness.}. The
@@ -316,7 +316,7 @@ partner Festo provides insights into future factory concepts to help
  executing multi-stage production cycles, before delivering the finished
  products within the requested time frame.
  This is achieved by transporting small material pieces between assembly
- machines (MPS stations, see \refsec{sec:machines}),
+ machines (\ac{MPS} stations, see \refsec{sec:machines}),
  which can be instructed to perform different refinement steps,
  such as mounting a colored ring on a cylindrical base product.
  Efficient handling of the material logistics and utilization of the available
@@ -544,10 +544,10 @@ Robots that leave the competition area illegally are considered as
 
 \subsection{Machines}
 \label{sec:machines}
-Machines are based on the Modular Production System (MPS)\footnote{For
+Machines are based on the \acf{MPS}\footnote{For
   more information see
   \url{http://www.robocup-logistics.org/links/festo-mps}.} by Festo
-Didactic SE\@. The MPS provides a number of stations which
+Didactic SE\@. The \ac{MPS} provides a number of stations which
 make up the machines used in the competition. The stations have a
 rectangular base shape of \SI{0,35 x 0,7}{\metre} with a height of % chktex 29
 about \SI{1}{\metre} depending on machine type. The machine
@@ -683,7 +683,7 @@ phase. Processing times are outlined in \reftab{tab:processing-times}.
     \end{minipage}
 }
 \vspace{-1ex}
-\caption{The different MPS stations}
+\caption{The different \ac{MPS} stations}
 \end{figure}
 
 \begin{table}[!tb]
@@ -699,7 +699,7 @@ phase. Processing times are outlined in \reftab{tab:processing-times}.
             Delivery Station (DS) & 1 per team &$t_5 =\SItextrange{20:40}{\sec}$
         \end{tabularx}
     }
-    \caption{MPS type, distribution and processing times}
+    \caption{\ac{MPS} type, distribution and processing times}
     \label{tab:processing-times}
 \end{table}
 
@@ -716,23 +716,23 @@ Zones are only a means to position machines. They will not be physically
 represented or visible on the field. They cannot be used for any other
 purpose.
 
-The zones and rotations for the MPS will be randomly chosen by the \ac{refbox}.
+The zones and rotations for the \ac{MPS} will be randomly chosen by the \ac{refbox}.
 Each game will have a new randomly generated field layout, the referees will
-place the MPS in the middle of the zone with given rotation at there best effort
+place the \ac{MPS} in the middle of the zone with given rotation at there best effort
 but errors of the positioning should be expected.
 
-A MPS can be placed in any zones except those at the entrance of the
+A \ac{MPS} can be placed in any zones except those at the entrance of the
 insertion area (the light red areas in \reffig{fig:competition-area} and
 \reffig{fig:competition-area-challenges}).
-These zones are needed to enter the field. Each MPS has one out of 8 possible
+These zones are needed to enter the field. Each \ac{MPS} has one out of 8 possible
 orientations, starting at \ang{0} with steps of \ang{45}. To denote
 the orientation, we assign a local right-handed coordinate system to
-each MPS station. The x-axis is given by the conveyor pointing from
+each \ac{MPS} station. The x-axis is given by the conveyor pointing from
 the output to the input. The origin is the center point of the
 conveyor. The orientation is then the relative rotation of the local
-MPS system compared to the fixed field coordinate system. For example,
-at an MPS orientation of \ang{0}, its local coordinate system is
-aligned with the field (in terms of orientation). Furthermore, an MPS
+\ac{MPS} system compared to the fixed field coordinate system. For example,
+at an \ac{MPS} orientation of \ang{0}, its local coordinate system is
+aligned with the field (in terms of orientation). Furthermore, an \ac{MPS}
 at an orientation of \ang{90} will be rotated counter-clockwise a
 quarter turn compared to the field system.
 
@@ -774,7 +774,7 @@ violating the y-symmetry but allowing for easier access to the shelf.
   \makeatletter%
   \def\@captype{table}%
   \makeatother%
-  \caption{MPS orientation mapping during mirroring}
+  \caption{\ac{MPS} orientation mapping during mirroring}
   \label{tab:mirror-a}
 \end{wrapfigure}
 
@@ -800,7 +800,7 @@ violating the y-symmetry but allowing for easier access to the shelf.
         \includegraphics[width=\textwidth]{bZones2.pdf}
     }
     \caption{
-      Blocked zones regarding the MPS rotation (red zones must not be used as
+      Blocked zones regarding the \ac{MPS} rotation (red zones must not be used as
       position for other machines and must be located inside the competition
       area).
     }
@@ -814,8 +814,8 @@ from any unoccupied or blocked zone of the field. If a machine is rotated with
 output side are blocked as well (\reffig{fig:zone-mps-rotation-straight}).  For
 machines with rotations \ang{45}, \ang{135}, \ang{225} and \ang{315} three zones
 in front of each input and output side are blocked
-(\reffig{fig:zone-mps-rotation-odd}). No MPS nor blocked zones for another MPS
-may be placed in a blocked zone. All blocked zones of any MPS must be located
+(\reffig{fig:zone-mps-rotation-odd}). No \ac{MPS} nor blocked zones for another \ac{MPS}
+may be placed in a blocked zone. All blocked zones of any \ac{MPS} must be located
 within the competition area. Furthermore, only two machines will ever be placed
 next to each other, a third machine will only be placed with at least one empty
 zone in-between.
@@ -962,7 +962,7 @@ The markers are available for printing on the rulebook github\footnote{
 
 \subsection{Mockup Machines}
 \label{sec:mockup-machines}
-In case no real MPS stations are available, replications
+In case no real \ac{MPS} stations are available, replications
 (so called \emph{mockup machines}) may be used, that do not need to
 physically perform the respective production steps. Instead, that work may
 be carried out by a human supervisor (see \refsec{sec:during-match}).
@@ -1019,32 +1019,32 @@ Depending on the game mode, either the exploration or production phase follows.
 During the exploration phase the robots have \SI{3}{\minute} to roam the
 environment and report their machines to the \ac{refbox} in order to score
 points.
-The report about an MPS may be split
+The report about an \ac{MPS} may be split
 in two parts, the position and type of a machine, and its orientation.
 Concretely, the \ac{refbox} expects a \emph{machine identification
   message} with a tuple consisting of zone, machine name (as encoded
 in the markers), orientation in degrees. This message bay be partially
 filled to account for the two parts. Please consult the \ac{refbox}
 Integrator's Manual~\cite{RefBoxIntManual} for a detailed definition
-of the message types. Reports are only accepted for MPS of the
+of the message types. Reports are only accepted for \ac{MPS} of the
 respective team over the private encrypted team channel. Only the
-first information for each MPS is processed, hence per machine only one attempt
+first information for each \ac{MPS} is processed, hence per machine only one attempt
 can be made to report it.
 The scoring is shown in \reftab{tab:scoring}.
 A minimum of zero points will be accounted for the exploration phase.
 
-The signal light of the MPS will show a yellow light until a report regarding
-this machine is sent.  If the wrong MPS zone is sent, the light will start red
-flashing.  If only the MPS zone is sent, the green light will be turn on.  If
+The signal light of the \ac{MPS} will show a yellow light until a report regarding
+this machine is sent.  If the wrong \ac{MPS} zone is sent, the light will start red
+flashing.  If only the \ac{MPS} zone is sent, the green light will be turn on.  If
 the zone and rotation is correctly reported, the green light will be flashing
 and if the zone is correct but the rotation wrongly reported the red and green
 light will be on.
 
 The exploration phase ends either after the time has passed or
 immediately after both teams have each reported their respective set
-of MPS\@.
+of \ac{MPS}.
 
-Moving or processing workpieces at an MPS is not allowed during the
+Moving or processing workpieces at an \ac{MPS} is not allowed during the
 exploration phase.
 
 
@@ -1346,7 +1346,7 @@ to the integrator's manual~\cite{RefBoxIntManual}.
 \noindent\textbf{BS}
 The BS prepare message denotes the color of the base element that should
 be dispensed. After receiving the message, the \ac{refbox} will instruct
-the MPS to immediately provide a base of the desired color.
+the \ac{MPS} to immediately provide a base of the desired color.
 
 \noindent\textbf{DS}
 The DS prepare message denotes the order ID of the product that is delivered.
@@ -1415,9 +1415,9 @@ machine has been prepared, the full cycle can be completed (committed).
 There may be only one transaction running at a time. If a
 second preparation is performed the machine will
 be temporarily broken, which causes it to recover to a determined state.
-An MPS may be reset by a team at any time by a dedicated msg (see
+An \ac{MPS} may be reset by a team at any time by a dedicated msg (see
 \ac{refbox} Integrator's Manual~\cite{RefBoxIntManual}). This causes
-the MPS to go into the broken state as well.
+the \ac{MPS} to go into the broken state as well.
 
 \subsubsection{Broken Machine Downtime}
 \label{sec:broken-machine}
@@ -2183,7 +2183,7 @@ teams can decide to participate in any number of those.
 The objectives of this tournament format are:
 \begin{itemize}
  \item to provide a framework that allows teams to show and evaluate their
-       progress in the individual tasks of the RCLL,
+       progress in the individual tasks of the \ac{RCLL},
  \item to ease the preparation for the main track through providing a
        simplified cost- and space-efficient setup suitable for replication in
        local labs,
@@ -2197,7 +2197,7 @@ Challenges are played on fields, where the competition area spans
 \SI{5 x 5}{\metre} and only one team participates at a time. %chktex 29
 The field depicted in \reffig{fig:competition-area-challenges} depicts a valid
 competition area for a match.
-Up to four MPS may be placed on a field, depending on the chosen challenge.
+Up to four \ac{MPS} may be placed on a field, depending on the chosen challenge.
 
 \subsection{Remote Setup}
 In case a competition is carried out remotely, a proper local setup has to
@@ -2536,7 +2536,7 @@ hidden. Any sensor feedback is allowed to recognize the machine, but
 no kind of markers or other indicators is allowed to be added to the
 machine or the environment. The general idea is to test this as an
 advancement of the league for future events. Distances between robots
-and the machine are measured as the shortest distance from MPS trolley
+and the machine are measured as the shortest distance from \ac{MPS} trolley
 to robot base on the ground. The maximum achievable score in this
 challenge is 40 points --- up to 10 for the recognition and production
 parts each, up to 10 for the explanation and methodologies, and up to
@@ -2657,7 +2657,7 @@ five points.
 %
 % \vspace{-2ex}\paragraph{Competition Area} The competition area can be
 % expected to be similar to Figure~\ref{fig:competition-area}, however,
-% the MPS locations will be randomized as in the real game.
+% the \ac{MPS} locations will be randomized as in the real game.
 %
 % \vspace{-2ex}\paragraph{Abstraction Level} Teams need to utilize their
 % robot sensors to perceive the environment. There will be no available
@@ -2746,10 +2746,10 @@ compete alongside each other, instead of directly against each other, we
 punish intentional obstruction of the opposing team.
 
 This applies in particular to the input and output area in front of
-any MPS\@.  All robots are allowed to enter this space, but robots must
+any \ac{MPS}.  All robots are allowed to enter this space, but robots must
 not obstruct opposing robots which intend to approach their
-MPS\@. Concretely, that robot must give way and release an approachable
-path to the MPS within a time window of 10 seconds. If a robot cannot
+\ac{MPS}. Concretely, that robot must give way and release an approachable
+path to the \ac{MPS} within a time window of 10 seconds. If a robot cannot
 follow this rule, it is considered a misbehaving robot and punished accordingly
 (cf.~\ref{sec:misbehaving-robot}).
 
@@ -2759,7 +2759,7 @@ Furthermore, teams are penalized for obstruction according to
 opposing team. In this case, the workpiece gets removed and cannot be
 used afterwards.
 
-A robot moving a workpiece of the opposing team at their MPS is considered a
+A robot moving a workpiece of the opposing team at their \ac{MPS} is considered a
 misbehaving robot.
 The referee will move the workpiece back to its original position.
 
@@ -3371,7 +3371,7 @@ obtained through \\
 %      including \SI{5}{\milli\metre} unlighted border \\
 %      Lifespan				&	max. \SI{50.000}{\hour} \\
 %      Connector				&	Bottom, \SI{2}{\metre} supplied
-%      Compatible to the I/O-Terminal of MPS(r) units. \\
+%      Compatible to the I/O-Terminal of \ac{MPS}(r) units. \\
 %      Safety					&	IP65 \\
 %      Voltage					&	\SI{24}{\volt} \\
 %      Current					&	3 $\times$ \SI{40}{\milli\ampere} \\
