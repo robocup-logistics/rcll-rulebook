@@ -1966,185 +1966,6 @@ the game, the game time is shared according to the team specification
 However, the teams can also make custom arrangements to split the
 overall time.
 
-\section{Technical Challenges}
-\label{sec:technical-challenge}
-Within the league, the technical advances should be documented from
-year to year. Therefore, the Technical Challenge is introduced. Each
-team should prepare for participating in any number of the following
-tasks. However, participation has no influence on the normal game
-results, but the winner will be awarded by a certificate.
-
-The technical challenges are conducted in the following way. The team
-leaders of each participating team agree on a date and time during the
-tournament for the Technical Challenge in their first team leader
-meeting. For each type of challenge, a time slot is assigned, in which
-teams can participate once in the challenge. Each team can register
-for any of the challenges. All team leaders have to be present at the
-time of the challenge to judge the other teams. The OC is responsible
-to conduct the Technical Challenge and can appoint team leaders as
-support. Each challenge will have a separate ranking. In each ranking,
-the team on the last rank will receive 0 points, the last-but-one
-ranked team will receive 1 point etc. The points for each ranking will
-be added and the team with the most points accrued over all challenges
-will be awarded with the Logistic Leagues Technical Challenge Award.
-
-
-
-\subsection{Markerless Machine Recognition and Production}
-Currently, machines have markers that allows for recognizing their
-respective types and relative position. The idea of this challenge is,
-to remove the markers and still be able to recognize the type of a
-machine and feed a base element onto the conveyor belt.
-
-For this challenge, the markers will be removed or otherwise
-hidden. Any sensor feedback is allowed to recognize the machine, but
-no kind of markers or other indicators is allowed to be added to the
-machine or the environment. The general idea is to test this as an
-advancement of the league for future events. Distances between robots
-and the machine are measured as the shortest distance from MPS trolley
-to robot base on the ground. The maximum achievable score in this
-challenge is 40 points --- up to 10 for the recognition and production
-parts each, up to 10 for the explanation and methodologies, and up to
-10 for the public release of the source code.
-
-\vspace{-2ex}\paragraph{Recognition}
-The refbox will randomly select four zones and machine types. The
-machines are placed in the center of the respective zones. The robot
-must approach the machines one after another and use only sensors
-mounted on the robot to recognize the physical type of the
-machine. The machines can be of any type. There is a time limit of
-\SI{2}{\minute} for the recognition task in which machines can be recognized.
-
-The recognition part scores up to 20 points --- 5 points for each
-machine. Of these 5 points, 2 points are awarded for proper approach
-(robot standing at the input or output side of the machine facing
-towards the machine with a distance of no more than \SI{0.5}{\metre})
-and 3 points for correct recognition. The recognition must be provided
-clearly visible on a screen or by text-to-speech output.
-
-\vspace{-2ex}\paragraph{Production}
-The refbox will randomly select a CS machine. The machine will be
-pre-filled with a cap. The robot must then retrieve a base element
-without cap from the shelf of the CS (at least one spot will be filled
-with such a base element), feed it into the cap station, and retrieve
-the finished product on the output side.
-
-The production part scores up to 10 points. 3 points are awarded for a
-proper approach (robot standing at the input or output side of the
-machine facing towards the machine with a distance of no more than
-\SI{0.25}{\metre}, note that the distance is shorter than for the
-recognition part). Another 4 points are awarded for properly feeding
-the base into the machine and the final 3 points are awarded for
-successfully retrieving the finished product (moving with the product
-to a minimum distance of \SI{0.5}{\metre} of the machine).
-
-\vspace{-2ex}\paragraph{Explanation and Methodology}
-%
-The teams need to explain their used methods and techniques. The jury
-of team leaders each gives scores from 0 (insufficient or no
-explanation) to 10 (excellent explanation and useful methods). The
-rounded up average of these points is added. Teams which have released
-the source code to their approach on the web score up to 10
-points. The jury again vote points depending on the documentation and
-wealth of the implementation from 0 (no source code provided) to 10
-(source code provided as readily usable package including all
-necessary dependencies). If a package is only usable within a
-non-disclosed software framework, the release cannot score more than
-five points.
-
-
-% \subsubsection{Playing in Simulation}
-%
-% The challenge is to play the production phase of an RCLL game, based
-% on the publicly released Gazebo-based simulation~\cite{llsf-sim-rc2014-2014}.
-% The simulation
-% software\footnote{
-% \mbox{\url{https://www.fawkesrobotics.org/projects/rcll-sim/}}
-% }
-% including technical documentation is publicly available on
-% Github.\footnote{\mbox{\url{https://github.com/robocup-logistics/gazebo-rcll}}}
-%
-% The simulation uses Gazebo and the exact same referee box to simulate
-% the environment reactions similar to the real game. We envision this
-% simulation to be a basis for a simulation RCLL sub-league to attract a
-% wider range of participants, but also to ease entering the robot
-% competition.
-%
-% There is a new Planning Competition for Logistics Robots in
-% Simulation~\cite{LogRobComp2016} that is held at the International Conference on
-% Automated Planning and Scheduling (ICAPS). The technical challenge game will be
-% played according to the same rules and regulations of the ICAPS
-% competition~\cite{LogRobComp-Rules-2017}. The rules and regulations, the
-% reference USB stick image, and a video tutorial is available at
-% \mbox{\url{http://www.robocup-logistics.org/sim-comp}}.
-%
-% \vspace{-2ex}\paragraph{The Game}
-% %
-% This challenge will be played following the rules of 2016, the most
-% notable difference is that there is no Storage Station. After a short
-% setup period of 60\,sec, the production phase will be started
-% immediately. The ground truth for the machine positions will be
-% provided.\footnote{This means that some of the major changes in 2017,
-%   regarding the Exploration Phase, are irrelevant for the simulation
-%   challenge. This is done to align closely with the ICAPS
-%   competition.} Please refer to the ICAPS competition manual for the
-% available interfaces.
-%
-% \vspace{-2ex}\paragraph{Hardware Setup}
-% %
-%
-% \begin{sloppypar}
-% We use the same infrastructure as is used in the ICAPS competiton. It is based
-% on a Kubernetes infrastructure. The competition cluster setup is available and
-% documented at \mbox{\url{https://github.com/timn/rcll-sim-cluster}}. The USB
-% stick image provided on the competition website can be used for local testing.
-% \end{sloppypar}
-%
-% \vspace{-2ex}\paragraph{Simulation Interfaces}
-% %
-% We will follow the ICAPS competition's setup and will provide two
-% principal interfaces: one based on Fawkes, and another based on
-% ROS\@. Please see the ICAPS competition's rules and regulations for the
-% details.
-%
-% \vspace{-2ex}\paragraph{Robot Models and Plugins}
-% %
-% The simulation will be run with the standard set of models and plugins
-% of the Carologistics RoboCup team based on the 2016 source code
-% release\footnote{
-% \mbox{\url{https://www.fawkesrobotics.org/p/rcll2016-release/}}
-% }.
-% No custom Gazebo plugins or models may be loaded or used by the competing teams.
-% Since no physical simulation of workpiece handling is done and the base
-% regarding locomotion is the same, there should be no issues for the teams to
-% implement the flow of the game. However, teams must make sure that the standard
-% set of sensors provided is sufficient.
-%
-% \vspace{-2ex}\paragraph{Competition Area} The competition area can be
-% expected to be similar to Figure~\ref{fig:competition-area}, however,
-% the MPS locations will be randomized as in the real game.
-%
-% \vspace{-2ex}\paragraph{Abstraction Level} Teams need to utilize their
-% robot sensors to perceive the environment. There will be no available
-% ground truth published to the robots by the simulation software. That
-% is, robots need to localize and recognize the machines as well as
-% localize themselves via sensors attached to the robot.
-
-
-\subsection{Open Challenge~}
-Each team will be given 5 minutes to showcase their robot team, e.g.,
-show some new robotics developments. This may involve any task as long
-as it is performed with at most three Robotino robots within the
-competition area. For the time of the free challenge, any software or
-hardware modification is allowed, even though otherwise disallowed in
-the regular competition. This may be used to motivate ideas for future
-developments of the league and to highlight particular advances in the
-system of the presenting team.
-
-The team leaders of non-presenting team will judge the performance and
-rate it with points between 0--10.  The team with the highest sum of
-points will win this challenge. The other teams are ranked in
-decreasing point order.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%
@@ -2471,6 +2292,189 @@ if all machines of all types are correctly classified.
 In order to verify the labeling, each team must presents the labeled data
 within the time slot (e.g., via screen-sharing when participating remotely).
 Additionally, the labeled data has to be sent to the \ac{OC}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+
+\section{Technical Challenges}
+\label{sec:technical-challenge}
+Within the league, the technical advances should be documented from
+year to year. Therefore, the Technical Challenge is introduced. Each
+team should prepare for participating in any number of the following
+tasks. However, participation has no influence on the normal game
+results, but the winner will be awarded by a certificate.
+
+The technical challenges are conducted in the following way. The team
+leaders of each participating team agree on a date and time during the
+tournament for the Technical Challenge in their first team leader
+meeting. For each type of challenge, a time slot is assigned, in which
+teams can participate once in the challenge. Each team can register
+for any of the challenges. All team leaders have to be present at the
+time of the challenge to judge the other teams. The OC is responsible
+to conduct the Technical Challenge and can appoint team leaders as
+support. Each challenge will have a separate ranking. In each ranking,
+the team on the last rank will receive 0 points, the last-but-one
+ranked team will receive 1 point etc. The points for each ranking will
+be added and the team with the most points accrued over all challenges
+will be awarded with the Logistic Leagues Technical Challenge Award.
+
+
+
+\subsection{Markerless Machine Recognition and Production}
+Currently, machines have markers that allows for recognizing their
+respective types and relative position. The idea of this challenge is,
+to remove the markers and still be able to recognize the type of a
+machine and feed a base element onto the conveyor belt.
+
+For this challenge, the markers will be removed or otherwise
+hidden. Any sensor feedback is allowed to recognize the machine, but
+no kind of markers or other indicators is allowed to be added to the
+machine or the environment. The general idea is to test this as an
+advancement of the league for future events. Distances between robots
+and the machine are measured as the shortest distance from MPS trolley
+to robot base on the ground. The maximum achievable score in this
+challenge is 40 points --- up to 10 for the recognition and production
+parts each, up to 10 for the explanation and methodologies, and up to
+10 for the public release of the source code.
+
+\vspace{-2ex}\paragraph{Recognition}
+The refbox will randomly select four zones and machine types. The
+machines are placed in the center of the respective zones. The robot
+must approach the machines one after another and use only sensors
+mounted on the robot to recognize the physical type of the
+machine. The machines can be of any type. There is a time limit of
+\SI{2}{\minute} for the recognition task in which machines can be recognized.
+
+The recognition part scores up to 20 points --- 5 points for each
+machine. Of these 5 points, 2 points are awarded for proper approach
+(robot standing at the input or output side of the machine facing
+towards the machine with a distance of no more than \SI{0.5}{\metre})
+and 3 points for correct recognition. The recognition must be provided
+clearly visible on a screen or by text-to-speech output.
+
+\vspace{-2ex}\paragraph{Production}
+The refbox will randomly select a CS machine. The machine will be
+pre-filled with a cap. The robot must then retrieve a base element
+without cap from the shelf of the CS (at least one spot will be filled
+with such a base element), feed it into the cap station, and retrieve
+the finished product on the output side.
+
+The production part scores up to 10 points. 3 points are awarded for a
+proper approach (robot standing at the input or output side of the
+machine facing towards the machine with a distance of no more than
+\SI{0.25}{\metre}, note that the distance is shorter than for the
+recognition part). Another 4 points are awarded for properly feeding
+the base into the machine and the final 3 points are awarded for
+successfully retrieving the finished product (moving with the product
+to a minimum distance of \SI{0.5}{\metre} of the machine).
+
+\vspace{-2ex}\paragraph{Explanation and Methodology}
+%
+The teams need to explain their used methods and techniques. The jury
+of team leaders each gives scores from 0 (insufficient or no
+explanation) to 10 (excellent explanation and useful methods). The
+rounded up average of these points is added. Teams which have released
+the source code to their approach on the web score up to 10
+points. The jury again vote points depending on the documentation and
+wealth of the implementation from 0 (no source code provided) to 10
+(source code provided as readily usable package including all
+necessary dependencies). If a package is only usable within a
+non-disclosed software framework, the release cannot score more than
+five points.
+
+
+% \subsubsection{Playing in Simulation}
+%
+% The challenge is to play the production phase of an RCLL game, based
+% on the publicly released Gazebo-based simulation~\cite{llsf-sim-rc2014-2014}.
+% The simulation
+% software\footnote{
+% \mbox{\url{https://www.fawkesrobotics.org/projects/rcll-sim/}}
+% }
+% including technical documentation is publicly available on
+% Github.\footnote{\mbox{\url{https://github.com/robocup-logistics/gazebo-rcll}}}
+%
+% The simulation uses Gazebo and the exact same referee box to simulate
+% the environment reactions similar to the real game. We envision this
+% simulation to be a basis for a simulation RCLL sub-league to attract a
+% wider range of participants, but also to ease entering the robot
+% competition.
+%
+% There is a new Planning Competition for Logistics Robots in
+% Simulation~\cite{LogRobComp2016} that is held at the International Conference on
+% Automated Planning and Scheduling (ICAPS). The technical challenge game will be
+% played according to the same rules and regulations of the ICAPS
+% competition~\cite{LogRobComp-Rules-2017}. The rules and regulations, the
+% reference USB stick image, and a video tutorial is available at
+% \mbox{\url{http://www.robocup-logistics.org/sim-comp}}.
+%
+% \vspace{-2ex}\paragraph{The Game}
+% %
+% This challenge will be played following the rules of 2016, the most
+% notable difference is that there is no Storage Station. After a short
+% setup period of 60\,sec, the production phase will be started
+% immediately. The ground truth for the machine positions will be
+% provided.\footnote{This means that some of the major changes in 2017,
+%   regarding the Exploration Phase, are irrelevant for the simulation
+%   challenge. This is done to align closely with the ICAPS
+%   competition.} Please refer to the ICAPS competition manual for the
+% available interfaces.
+%
+% \vspace{-2ex}\paragraph{Hardware Setup}
+% %
+%
+% \begin{sloppypar}
+% We use the same infrastructure as is used in the ICAPS competiton. It is based
+% on a Kubernetes infrastructure. The competition cluster setup is available and
+% documented at \mbox{\url{https://github.com/timn/rcll-sim-cluster}}. The USB
+% stick image provided on the competition website can be used for local testing.
+% \end{sloppypar}
+%
+% \vspace{-2ex}\paragraph{Simulation Interfaces}
+% %
+% We will follow the ICAPS competition's setup and will provide two
+% principal interfaces: one based on Fawkes, and another based on
+% ROS\@. Please see the ICAPS competition's rules and regulations for the
+% details.
+%
+% \vspace{-2ex}\paragraph{Robot Models and Plugins}
+% %
+% The simulation will be run with the standard set of models and plugins
+% of the Carologistics RoboCup team based on the 2016 source code
+% release\footnote{
+% \mbox{\url{https://www.fawkesrobotics.org/p/rcll2016-release/}}
+% }.
+% No custom Gazebo plugins or models may be loaded or used by the competing teams.
+% Since no physical simulation of workpiece handling is done and the base
+% regarding locomotion is the same, there should be no issues for the teams to
+% implement the flow of the game. However, teams must make sure that the standard
+% set of sensors provided is sufficient.
+%
+% \vspace{-2ex}\paragraph{Competition Area} The competition area can be
+% expected to be similar to Figure~\ref{fig:competition-area}, however,
+% the MPS locations will be randomized as in the real game.
+%
+% \vspace{-2ex}\paragraph{Abstraction Level} Teams need to utilize their
+% robot sensors to perceive the environment. There will be no available
+% ground truth published to the robots by the simulation software. That
+% is, robots need to localize and recognize the machines as well as
+% localize themselves via sensors attached to the robot.
+
+
+\subsection{Open Challenge~}
+Each team will be given 5 minutes to showcase their robot team, e.g.,
+show some new robotics developments. This may involve any task as long
+as it is performed with at most three Robotino robots within the
+competition area. For the time of the free challenge, any software or
+hardware modification is allowed, even though otherwise disallowed in
+the regular competition. This may be used to motivate ideas for future
+developments of the league and to highlight particular advances in the
+system of the presenting team.
+
+The team leaders of non-presenting team will judge the performance and
+rate it with points between 0--10.  The team with the highest sum of
+points will win this challenge. The other teams are ranked in
+decreasing point order.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%
