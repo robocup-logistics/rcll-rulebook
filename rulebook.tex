@@ -314,7 +314,6 @@ partner Festo provides insights into future factory concepts to help
  Our aim is to provide a simplified Smart Factory environment, where
  teams of autonomous robots must operate a flexible production plant without
  human interference and against the clock.
- % TODO: self-crafted
  The Logistics League's core task is to fulfill placed orders by
  executing multi-stage production cycles, before delivering the finished
  products within the requested time frame.
@@ -1092,12 +1091,6 @@ They consist of the following elements:
   obtained by taking pre-assembled base-cap combinations available on
   the shelf to the \acf{CS}. Caps can be black or gray.
 \end{description}
-%TODO: move this somewhere?!
-%Only one workpiece or a composite product must be grasped and
-%transported per robot at once. Storage magazines on the robot or
-%similar are prohibited. All products will incorporate exactly one base
-%unit allowing a single unified handling device to be used for all
-%operations involving workpieces.
 
 \begin{figure}[ht]
   \centering
@@ -1170,11 +1163,6 @@ An order can be \emph{competitive} or \emph{non-competitive}. For a competitive
 order, the team that delivers it first will get extra points
 (cf.~\refsec{sec:production-scoring}).
 For a non-competitive order, each team scores independently of the other team.
-% TODO: move this
-%The \ac{refbox} ensures that there will always
-%be some orders for $C_1$ products where the ring color does not
-%require additional bases, i.e., with color complexity $CC_0$ --- but
-%not necessarily all $C_1$ orders have this constraint.
 
 \begin{figure}
   \ffigbox{%
@@ -1715,8 +1703,8 @@ Operation failures may only be corrected if they are not caused by the robots.
 It is up to the referees to decide weather an operation failure was caused by
 a robot or the machine.
 % TODO: be precise what needs to be done
-% Examples for a valid correction:
-% Examples for operation failures caused by the robots:
+% Examples for a valid correction
+% Examples for operation failures caused by the robots
 In case a machine is mocked up through the \ac{refbox}, the field referees
 are responsible to manually perform the assembly steps as announced by the
 \ac{refbox} operator.
@@ -2089,6 +2077,11 @@ complexities $C_0$ and $C_1$ a standing order for a single product
 will be placed at the beginning of the production phase, which can be
 fulfilled at any time during the game. Competitive orders are always for
 products of complexity $C_0$. A competitive order cannot be a standing order.
+
+The \ac{refbox} ensures that there will always
+be some orders for $C_1$ products where the ring color does not
+require additional bases, i.e., with color complexity $CC_0$ --- but
+not necessarily all $C_1$ orders have this constraint.
 
 Teams playing on the field at the same time will get the same
 production plan. However, each game will use a new randomized order
