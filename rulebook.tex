@@ -438,7 +438,6 @@ A mailing list for general announcements and discussion about the
 league is available at\\
 \centerline{\url{https://lists.kbsg.rwth-aachen.de/listinfo/robocup-logistics}}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Competition Area} \label{sec:area}
 \begin{figure}[p]
@@ -1796,6 +1795,206 @@ assignment of bases on the BS and SS must be obeyed, as otherwise they will
 deliver the wrong bases. Similarly, ring color assignments at the RS must be
 respected according to the referee box announcement.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Hardware Specification}
+\label{sec:robotino}
+
+All participants have to design their competition Robotinos within the
+following specifications. For a detailed technical description of the
+basic hardware, refer to the Appendix~\ref{sec:engref}.
+
+Any kind of sensors can be changed or added to the Robotino platform.
+However, it is not possible to implement sensors that require
+modifications outside the Robotino area (e.g., Northstar, indoor GPS).
+There must be no changes to the controller or mechanical system.
+The robots peripherals must not exceed the maximum total height of
+\SI{1.1}{\metre} including the tower and the table on top. Additional
+hardware (sensors, computing equipment, etc.)  must be within a circle
+of a diameter of \SI{0.55}{\metre} or centered at the robot's rotational
+center-point. Additional hardware may only occupy up to $25\%$ of this
+additional \SI{0.05}{\metre} wide ring around the
+robot. The only additional actuator allowed is one gripping device for
+workpieces which can be the original or a modified one. In the resting
+position and while driving it also must not exceed the robot diameter by
+more than this 5cm, including workpiece.
+Only one workpiece or a composite product must be grasped and
+transported per robot at once. Storage magazines on the robot or
+similar are prohibited. All products will incorporate exactly one base
+unit allowing a single unified handling device to be used for all
+operations involving workpieces.
+
+In front of a machine and during a production process, the gripper may
+be extended up to 30cm. But it is only allowed to reach a maximum of
+15cm into the machine area.
+The gripper is allowed to transport one workpiece at a time. And it must
+release the workpiece for safety whenever the referee wants to take out it.
+
+It is allowed to install additional computing power on the
+\Robotino. This may either be in form of a notebook/laptop device or
+any other computing device that suits the size requirement of the
+\Robotino{} competition system. Furthermore, it is allowed to
+communicate with an additional computing device off-field. This device
+may be used for team coordination and/or other purposes. However,
+communication among the robots and the off-field device is not
+guaranteed during the competition.
+
+\subsection{Markings}
+\label{sec:robot-markings}
+All field robots must be assigned a single unique number out of the
+set $\{1, 2, 3\}$. The number must be written on the robot in one or
+more places and clearly visible from all directions, e.g., printed
+adhesive labels placed on top or the sides of the robot. The number
+must be the same as is announced in the beacon signal to the referee
+box (cf.~\refsec{sec:referee-box}).
+
+% TODO: This was never enforced
+% For audiences and observers to distinguish both teams, all robots must
+% wear their respective unique colored label which is either cyan or
+% magenta.  The Velcro will be provided and is suggested to be placed on
+% the tower's side of each robot, the actual color-coded rings are then
+% dynamically divided among the playing teams.
+
+\section{Communication}
+\label{sec:communication}
+
+Robots have to operate autonomously, that is, without any human
+interference during the game. Communication among robots and to
+off-board computing units is allowed only using wifi
+(cf.~\refsec{sec:wifi-regulations}). Communication is not guaranteed
+and may be unavailable during parts of the game. Interruptions must be
+expected and are no reason to pause or abort a game, even if they
+endure for long periods of the game.
+
+\subsection{Bandwidth Allocation}
+\label{sec:bandwidth}
+No minimum bandwidth is guaranteed. The amount of communicated data
+over the wifi connection shall not exceed
+\SI[per-mode=symbol]{2}{\mega\bit\per\second}. Even though the lower
+layers could provide for more bandwidth, the overall available
+frequency spectrum and wifi channels have to be shared, not only
+within our own league. Generally, a conservative use of bandwidth
+resources is advised. Should a frequently or endured exceedance of the
+bandwidth limit become known, or if the overall bandwidth limit must
+be reduced due to outer circumstances, the TC can monitor the network
+traffic and demand reduction in communicated data as necessary.
+
+\subsection{Referee Box (refbox)}
+\label{sec:referee-box}
+The referee box (refbox)~\cite{RCI-RefBox} is a software system that runs on a
+system provided by the Organizing Committee. It controls the overall game,
+monitors feedback from the robots, and awards points. It is instructed by an
+assisting human referee and keeps a log of all relevant game events. The final
+game report will be produced by the referee box. While we strive for a maximum
+of automation of this control task, we rely on the human referee for final
+judgment, in particular for border or under-specified cases, and will provide
+the largest set of override abilities feasible.
+
+The refbox is the single point of instruction for robots during the
+game. After game setup has finished, game state information and orders
+are announced by the refbox. Commands must be acknowledged. In certain
+situations (for example during the exploration phase) for successful
+and true communication with the refbox points are awarded. The aim is
+to reduce human interference year by year to a minimum as to exhibit
+the widest autonomy during the game possible. Ultimately, the refbox
+should be able to fully control the game by itself, transforming all
+participants, team members, and visitors alike into pure spectators of
+the game, sometimes providing maintenance and crisis intervention when
+necessary.
+
+The communication from the refbox to the robot is a datagram-oriented
+broadcast protocol based on Google protocol buffers\footnote{Available
+at \mbox{\url{https://code.google.com/p/protobuf/}}} (protobuf). The
+protocol definition and technical parameters are described in detail
+in the RoboCup Logistics League Referee Box Integrator's
+Manual~\cite{RefBoxIntManual}
+
+\subsection{Remote Control}
+\label{sec:remote-control}
+Remote operation or instruction of any kind of the robots is forbidden
+at all times during a game. The only allowed interaction is for the
+start-up (cf.~\refsec{sec:game-start}). Any failure to comply with
+this rule will lead to immediate disqualification of the infringing
+team.
+
+\subsection{Monitoring}
+\label{sec:monitoring}
+\emph{Passive} monitoring, i.e., receive-only communication from a base
+station of the robots' performance is allowed. However, the overall
+bandwidth limit may not be exceeded.
+%, this includes in particular, but
+%is not limited to, images and other raw data.
+If the referee has any reason to belief that a monitoring application
+might be used for instruction, he can demand the shutdown of the
+monitoring software (also refer to previous section on Remote
+Control).
+
+\subsection{Inter-robot Communication}
+\label{sec:inter-robot-comm}
+Robots currently active on the field can freely exchange any
+information that supports a coordinated team play. Robots not actively
+participating in the game, for example because they have been
+irrevocably removed from the current game, may not communicate with
+the other robots. It is forbidden to communicate with any sensors that
+are not physically attached to a robot, including, for example, but
+not limited to a camera aside the field. Likewise any off-robot
+actuator is forbidden.
+
+\subsection{Communication Eavesdropping and Interference}
+\label{sec:comm-tampering}
+% This might sound harsh, but it's based on lessons learned in
+% numerous years of RoboCup, you wouldn't believe what some teams will
+% do... :-/
+Communication of another team may neither be eavesdropped on nor be
+interfered with. Teams not currently active shall disconnect from the
+field access points.
+
+Monitoring of bandwidth used or of possible misbehavior may only be
+performed by members of the TC or an appointed delegate.
+% can add this, need to be clear that this must be done using a team
+% leader majority vote and not just any team leader
+% or by a person appointed by the team leaders.
+Any indication of misbehavior will be discussed by the team leader
+convention and may result in penalties or disqualification from the
+tournament.
+
+
+%Each robot has to operate autonomously. The communication between the
+%robot and the device responsible for the Start/Stop command, as well
+%as all communication amongst the robots has to be realized using the
+%Wi-Fi connection. The program controlling the robot has to be executed
+%locally by the robot itself. % It is strictly forbidden to use any kind
+%% of external server acting as command point.
+%\begin{rulechange}
+%  The robots will receive their commands from the Referee-Box as
+%  specified in the referee box protocol. Further, communication to one
+%  dedicated off-board computing device is allowed. However, wifi
+%  communication should not taken for granted during competition by the
+%  participating teams.
+%\end{rulechange}
+%The robots are allowed to share information with other devices, but
+%must receive nothing else but the start, pause and stop command
+%from units other than the 2 fellow robots. This specifically excludes:
+%Usage of processed image data created outside of the robots A central
+%communication that requires a device other than the three Robotinos A
+%permanently established connection between the command device and the
+%Robotinos.
+
+\subsection{Wifi Regulations}
+\label{sec:wifi-regulations}
+In order to provide the optimal possible solution for wireless
+communication during the event, all teams are required to use the
+\SI{5}{\giga\hertz} wifi equipment. They are furthermore required to
+connect their Robotinos wifi unit to the access point provided. All
+teams can also rely on wifi clients supplied by Festo but are not
+required to. A detailed description concerning the infrastructure can
+be found in Appendix~\ref{sec:wifi-equipment}.
+
+% Please refer to Sect.~\ref{sec:radio-interference} for further details.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+
 
 \section{Tournament --- Main Track}
 \label{sec:tournament-main}
@@ -2698,208 +2897,6 @@ during games are described.
   \label{tab:infringements}
 
 \end{table}
-
-
-
-
-\section{The Robotino System}
-\label{sec:robotino}
-
-All participants have to design their competition Robotinos within the
-following specifications. For a detailed technical description of the
-basic hardware, refer to the Appendix~\ref{sec:engref}.
-
-Any kind of sensors can be changed or added to the Robotino platform.
-However, it is not possible to implement sensors that require
-modifications outside the Robotino area (e.g., Northstar, indoor GPS).
-There must be no changes to the controller or mechanical system.
-The robots peripherals must not exceed the maximum total height of
-\SI{1.1}{\metre} including the tower and the table on top. Additional
-hardware (sensors, computing equipment, etc.)  must be within a circle
-of a diameter of \SI{0.55}{\metre} or centered at the robot's rotational
-center-point. Additional hardware may only occupy up to $25\%$ of this
-additional \SI{0.05}{\metre} wide ring around the
-robot. The only additional actuator allowed is one gripping device for
-workpieces which can be the original or a modified one. In the resting
-position and while driving it also must not exceed the robot diameter by
-more than this 5cm, including workpiece.
-Only one workpiece or a composite product must be grasped and
-transported per robot at once. Storage magazines on the robot or
-similar are prohibited. All products will incorporate exactly one base
-unit allowing a single unified handling device to be used for all
-operations involving workpieces.
-
-In front of a machine and during a production process, the gripper may
-be extended up to 30cm. But it is only allowed to reach a maximum of
-15cm into the machine area.
-The gripper is allowed to transport one workpiece at a time. And it must
-release the workpiece for safety whenever the referee wants to take out it.
-
-It is allowed to install additional computing power on the
-\Robotino. This may either be in form of a notebook/laptop device or
-any other computing device that suits the size requirement of the
-\Robotino{} competition system. Furthermore, it is allowed to
-communicate with an additional computing device off-field. This device
-may be used for team coordination and/or other purposes. However,
-communication among the robots and the off-field device is not
-guaranteed during the competition.
-
-\subsection{Markings}
-\label{sec:robot-markings}
-All field robots must be assigned a single unique number out of the
-set $\{1, 2, 3\}$. The number must be written on the robot in one or
-more places and clearly visible from all directions, e.g., printed
-adhesive labels placed on top or the sides of the robot. The number
-must be the same as is announced in the beacon signal to the referee
-box (cf.~\refsec{sec:referee-box}).
-
-% TODO: This was never enforced
-% For audiences and observers to distinguish both teams, all robots must
-% wear their respective unique colored label which is either cyan or
-% magenta.  The Velcro will be provided and is suggested to be placed on
-% the tower's side of each robot, the actual color-coded rings are then
-% dynamically divided among the playing teams.
-
-\section{Communication}
-\label{sec:communication}
-
-Robots have to operate autonomously, that is, without any human
-interference during the game. Communication among robots and to
-off-board computing units is allowed only using wifi
-(cf.~\refsec{sec:wifi-regulations}). Communication is not guaranteed
-and may be unavailable during parts of the game. Interruptions must be
-expected and are no reason to pause or abort a game, even if they
-endure for long periods of the game.
-
-\subsection{Bandwidth Allocation}
-\label{sec:bandwidth}
-No minimum bandwidth is guaranteed. The amount of communicated data
-over the wifi connection shall not exceed
-\SI[per-mode=symbol]{2}{\mega\bit\per\second}. Even though the lower
-layers could provide for more bandwidth, the overall available
-frequency spectrum and wifi channels have to be shared, not only
-within our own league. Generally, a conservative use of bandwidth
-resources is advised. Should a frequently or endured exceedance of the
-bandwidth limit become known, or if the overall bandwidth limit must
-be reduced due to outer circumstances, the TC can monitor the network
-traffic and demand reduction in communicated data as necessary.
-
-\subsection{Referee Box (refbox)}
-\label{sec:referee-box}
-The referee box (refbox)~\cite{RCI-RefBox} is a software system that runs on a
-system provided by the Organizing Committee. It controls the overall game,
-monitors feedback from the robots, and awards points. It is instructed by an
-assisting human referee and keeps a log of all relevant game events. The final
-game report will be produced by the referee box. While we strive for a maximum
-of automation of this control task, we rely on the human referee for final
-judgment, in particular for border or under-specified cases, and will provide
-the largest set of override abilities feasible.
-
-The refbox is the single point of instruction for robots during the
-game. After game setup has finished, game state information and orders
-are announced by the refbox. Commands must be acknowledged. In certain
-situations (for example during the exploration phase) for successful
-and true communication with the refbox points are awarded. The aim is
-to reduce human interference year by year to a minimum as to exhibit
-the widest autonomy during the game possible. Ultimately, the refbox
-should be able to fully control the game by itself, transforming all
-participants, team members, and visitors alike into pure spectators of
-the game, sometimes providing maintenance and crisis intervention when
-necessary.
-
-The communication from the refbox to the robot is a datagram-oriented
-broadcast protocol based on Google protocol buffers\footnote{Available
-at \mbox{\url{https://code.google.com/p/protobuf/}}} (protobuf). The
-protocol definition and technical parameters are described in detail
-in the RoboCup Logistics League Referee Box Integrator's
-Manual~\cite{RefBoxIntManual}
-
-\subsection{Remote Control}
-\label{sec:remote-control}
-Remote operation or instruction of any kind of the robots is forbidden
-at all times during a game. The only allowed interaction is for the
-start-up (cf.~\refsec{sec:game-start}). Any failure to comply with
-this rule will lead to immediate disqualification of the infringing
-team.
-
-\subsection{Monitoring}
-\label{sec:monitoring}
-\emph{Passive} monitoring, i.e., receive-only communication from a base
-station of the robots' performance is allowed. However, the overall
-bandwidth limit may not be exceeded.
-%, this includes in particular, but
-%is not limited to, images and other raw data.
-If the referee has any reason to belief that a monitoring application
-might be used for instruction, he can demand the shutdown of the
-monitoring software (also refer to previous section on Remote
-Control).
-
-\subsection{Inter-robot Communication}
-\label{sec:inter-robot-comm}
-Robots currently active on the field can freely exchange any
-information that supports a coordinated team play. Robots not actively
-participating in the game, for example because they have been
-irrevocably removed from the current game, may not communicate with
-the other robots. It is forbidden to communicate with any sensors that
-are not physically attached to a robot, including, for example, but
-not limited to a camera aside the field. Likewise any off-robot
-actuator is forbidden.
-
-\subsection{Communication Eavesdropping and Interference}
-\label{sec:comm-tampering}
-% This might sound harsh, but it's based on lessons learned in
-% numerous years of RoboCup, you wouldn't believe what some teams will
-% do... :-/
-Communication of another team may neither be eavesdropped on nor be
-interfered with. Teams not currently active shall disconnect from the
-field access points.
-
-Monitoring of bandwidth used or of possible misbehavior may only be
-performed by members of the TC or an appointed delegate.
-% can add this, need to be clear that this must be done using a team
-% leader majority vote and not just any team leader
-% or by a person appointed by the team leaders.
-Any indication of misbehavior will be discussed by the team leader
-convention and may result in penalties or disqualification from the
-tournament.
-
-
-%Each robot has to operate autonomously. The communication between the
-%robot and the device responsible for the Start/Stop command, as well
-%as all communication amongst the robots has to be realized using the
-%Wi-Fi connection. The program controlling the robot has to be executed
-%locally by the robot itself. % It is strictly forbidden to use any kind
-%% of external server acting as command point.
-%\begin{rulechange}
-%  The robots will receive their commands from the Referee-Box as
-%  specified in the referee box protocol. Further, communication to one
-%  dedicated off-board computing device is allowed. However, wifi
-%  communication should not taken for granted during competition by the
-%  participating teams.
-%\end{rulechange}
-%The robots are allowed to share information with other devices, but
-%must receive nothing else but the start, pause and stop command
-%from units other than the 2 fellow robots. This specifically excludes:
-%Usage of processed image data created outside of the robots A central
-%communication that requires a device other than the three Robotinos A
-%permanently established connection between the command device and the
-%Robotinos.
-
-\subsection{Wifi Regulations}
-\label{sec:wifi-regulations}
-In order to provide the optimal possible solution for wireless
-communication during the event, all teams are required to use the
-\SI{5}{\giga\hertz} wifi equipment. They are furthermore required to
-connect their Robotinos wifi unit to the access point provided. All
-teams can also rely on wifi clients supplied by Festo but are not
-required to. A detailed description concerning the infrastructure can
-be found in Appendix~\ref{sec:wifi-equipment}.
-
-% Please refer to Sect.~\ref{sec:radio-interference} for further details.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%
