@@ -281,7 +281,8 @@ partner Festo provides insights into future factory concepts to help
  more and more teams successfully delivering orders, even of higher complexity.
  For 2019, the \ac{TC} integrated a barcode recognition system to track
  products, which allows to automate scoring and to grant partial points for
- production steps.  Additionally, the communication with the \ac{MPS} stations got
+ production steps.
+ Additionally, the communication with the \ac{MPS} stations got
  improved through a switch to new hardware and to the OPC Unified
  Architecture\footnote{We gratefully thank the RoboCup Federation for
  supporting the work on workpiece tracking and network robustness.}. The
@@ -297,8 +298,9 @@ partner Festo provides insights into future factory concepts to help
  world without being required to gather at the same location or even having
  a full field setup.
  The online format consists of different challenges with varying difficulty.
- While some of the complexity of the regular \ac{RCLL} game could not be projected
- to the challenge format, it allowed to introduce new ideas to the league,
+ While some of the complexity of the regular \ac{RCLL} game could not be
+ projected to the challenge format,
+ it allowed to introduce new ideas to the league,
  that can be tested in isolated tasks before the final integration into
  the regular game rules.
  New teams also benefit from the challenge format as they can explore the
@@ -333,11 +335,12 @@ monitors feedback from the robots, and awards points.
 The work flow itself is divided into phases:
 During a setup phase (see \refsec{sec:setup-phase})
 the field setup is prepared and the robots are started.
-Then the \ac{refbox} switches to the production phase, during which the \ac{refbox}
-dynamically announces the tasks that the robots must fulfill automatically.
+Then the \ac{refbox} switches to the production phase, during which the
+\ac{refbox} dynamically announces the tasks that the robots must fulfill
+automatically.
 
 The RCLL supports different competition tracks:
-\begin{itemize}\itemsep 0em
+\begin{itemize}\itemsep0em
   \item Production logistic scenarios where two teams compete against
     each other on the same playing field and need to serve multiple dynamically
     dispatched orders. This game mode is referred to as the \emph{main track}.
@@ -387,7 +390,8 @@ year of stabilization and conservative changes.
 The \acf{TC} is responsible to update and publish the
 rulebook, to decide on technical questions during the tournament, and
 to communicate with the league stake holders on technical
-advancements. Current members of the \ac{TC} are (in alphabetical order):\\[.5em]
+advancements. Current members of the \ac{TC} are
+(in alphabetical order):\\[.5em]
 % Alphabetical order by last name
 \emph{Vincent Coelen}, Ecole polytechnique universitaire de Lille\\
 \emph{Lukas Knoflach}, Graz University of Technology, Graz, Austria\\
@@ -716,16 +720,17 @@ Zones are only a means to position machines. They will not be physically
 represented or visible on the field. They cannot be used for any other
 purpose.
 
-The zones and rotations for the \ac{MPS} will be randomly chosen by the \ac{refbox}.
+The zones and rotations for the \ac{MPS} will be randomly chosen by the
+\ac{refbox}.
 Each game will have a new randomly generated field layout, the referees will
-place the \ac{MPS} in the middle of the zone with given rotation at there best effort
-but errors of the positioning should be expected.
+place the \ac{MPS} in the middle of the zone with given rotation at there
+best effort but errors of the positioning should be expected.
 
 A \ac{MPS} can be placed in any zones except those at the entrance of the
 insertion area (the light red areas in \reffig{fig:competition-area} and
 \reffig{fig:competition-area-challenges}).
-These zones are needed to enter the field. Each \ac{MPS} has one out of 8 possible
-orientations, starting at \ang{0} with steps of \ang{45}. To denote
+These zones are needed to enter the field. Each \ac{MPS} has one out of 8
+possible orientations, starting at \ang{0} with steps of \ang{45}. To denote
 the orientation, we assign a local right-handed coordinate system to
 each \ac{MPS} station. The x-axis is given by the conveyor pointing from
 the output to the input. The origin is the center point of the
@@ -739,20 +744,23 @@ quarter turn compared to the field system.
 To ensure fairness, positions and orientations of the machines are mirrored
 along the field's y-axis. There are two cases that need to be handled
 separately. First, machines in a cell not adjacent to the wall, and machines of
-types \ac{BS}, \ac{DS}, and \ac{SS} (even when adjacent to the wall) are mirrored according to
-\reftab{tab:mirror-a}. Second, \ac{CS} and \ac{RS} stations must be handled slightly
-different, if oriented next to a wall or field border
+types \ac{BS}, \ac{DS}, and \ac{SS} (even when adjacent to the wall) are
+mirrored according to \reftab{tab:mirror-a}. Second, \ac{CS} and \ac{RS}
+stations must be handled slightly different,
+if oriented next to a wall or field border
 (e.g., zones C-Z*1, C-Z*8, C-Z7*, M-Z*1, M-Z*8 and M-Z7* in
 \reffig{fig:competition-area}).
 The reason being, that the shelf and slide of these stations are
 offset sideways at the input side. This might lead to the situation that for one
 team the shelf is close to the wall, and for the other it is not. To remedy this
-problem, the \ac{RS} and \ac{CS} machines adjacent to a wall will always be placed such
-that the shelf or slide is on the farther end with respect to the wall. For
-example, in \reffig{fig:competition-area}, the magenta \ac{CS} in M-Z77 with a
-rotation of \ang{270}. Were this setup mirrored, the shelf on the cyan \ac{CS} in
-C-Z77 would be close to the wall. Instead, it has a different orientation
-violating the y-symmetry but allowing for easier access to the shelf.
+problem, the \ac{RS} and \ac{CS} machines adjacent to a wall will always
+be placed such that the shelf or slide is on the farther end with respect
+to the wall.
+For example, in \reffig{fig:competition-area}, the magenta \ac{CS}
+in M-Z77 with a rotation of \ang{270}. Were this setup mirrored, the shelf
+on the cyan \ac{CS} in C-Z77 would be close to the wall.
+Instead, it has a different orientation violating the y-symmetry
+but allowing for easier access to the shelf.
 
 \begin{wrapfigure}[10]{R}{0.2\linewidth}
   \centering
@@ -781,9 +789,9 @@ violating the y-symmetry but allowing for easier access to the shelf.
 \begin{figure}[tb]
     \centering
     \subfigure[
-      For rotations with \ang{0}, \ang{90}, \ang{180} or \ang{270}. \ac{BS}, \ac{CS}, \ac{RS},
-      and \ac{SS} block the zones close to the input as well as the output. \ac{DS} blocks
-      the zones close to the input.
+      For rotations with \ang{0}, \ang{90}, \ang{180} or \ang{270}.
+      \ac{BS}, \ac{CS}, \ac{RS}, and \ac{SS} block the zones close to the
+      input as well as the output. \ac{DS} blocks the zones close to the input.
     ]{
         \label{fig:zone-mps-rotation-straight}%
         \centering
@@ -791,31 +799,33 @@ violating the y-symmetry but allowing for easier access to the shelf.
     }
     \quad
     \subfigure[
-      For rotations with  \ang{45}, \ang{135}, \ang{225} and \ang{315}. \ac{BS}, \ac{CS},
-      \ac{RS}, and \ac{SS} block the zones close to the input as well as the output. \ac{DS}
-      blocks the zones close to the input.
+      For rotations with  \ang{45}, \ang{135}, \ang{225} and \ang{315}.
+      \ac{BS}, \ac{CS}, \ac{RS}, and \ac{SS} block the zones close to the
+      input as well as the output. \ac{DS} blocks the zones close to the input.
     ]{
         \label{fig:zone-mps-rotation-odd}
         \centering
         \includegraphics[width=\textwidth]{bZones2.pdf}
     }
     \caption{
-      Blocked zones regarding the \ac{MPS} rotation (red zones must not be used as
-      position for other machines and must be located inside the competition
-      area).
+      Blocked zones regarding the \ac{MPS} rotation (red zones must not
+      be used as position for other machines and must be located inside
+      the competition area).
     }
     \label{fig:zone-mps-blocked}
 \end{figure}
-For placing of machines, the \ac{refbox} will take care of the necessary constraints
-to ensure that all in- and output sides, shelves and slides are reachable. That
+For placing of machines, the \ac{refbox} will take care of the
+necessary constraints to ensure that all in- and output sides, shelves
+and slides are reachable. That
 is, a path to each blocked zone (see \reffig{fig:zone-mps-blocked}) must exist
 from any unoccupied or blocked zone of the field. If a machine is rotated with
 \ang{0}, \ang{90}, \ang{180} or \ang{270} the zones in front the input and
 output side are blocked as well (\reffig{fig:zone-mps-rotation-straight}).  For
 machines with rotations \ang{45}, \ang{135}, \ang{225} and \ang{315} three zones
 in front of each input and output side are blocked
-(\reffig{fig:zone-mps-rotation-odd}). No \ac{MPS} nor blocked zones for another \ac{MPS}
-may be placed in a blocked zone. All blocked zones of any \ac{MPS} must be located
+(\reffig{fig:zone-mps-rotation-odd}). No \ac{MPS} nor blocked zones for
+another \ac{MPS} may be placed in a blocked zone.
+All blocked zones of any \ac{MPS} must be located
 within the competition area. Furthermore, only two machines will ever be placed
 next to each other, a third machine will only be placed with at least one empty
 zone in-between.
@@ -979,18 +989,18 @@ Additionally, the following parts need to be mounted:
 of the box, such that it is accessible from the front on stations replicating a
 		\ac{RS}
 \end{itemize}
-Models for a conveyor belt, shelf and slides can be found in the \ac{RCLL} rulebook
-repository\footnote{\url{https://github.com/robocup-logistics/rcll-rulebook/tree/master/mock_up_models}}. % chktex ignore-long-line
+Models for a conveyor belt, shelf and slides can be found in the
+\ac{RCLL} rulebook repository\footnote{\url{https://github.com/robocup-logistics/rcll-rulebook/tree/master/mock_up_models}}. % chktex ignore-long-line
 
 The building materials for the models must be opaque, but may have any color.
 
 \section{Game Play}
-There are different game modes within the \ac{RCLL} (see \refsec{sec:tournament-main}
-and \refsec{sec:tournament-challenges}).
+There are different game modes within the \ac{RCLL}
+(see \refsec{sec:tournament-main} and \refsec{sec:tournament-challenges}).
 At the beginning of a match, the \ac{refbox} must be configured according to the
 game mode specification.
-The \ac{refbox} then guides the match utilizing different phases, which are outlined
-in the following sections.
+The \ac{refbox} then guides the match utilizing different phases, which are
+outlined in the following sections.
 All matches will start at the exact time scheduled by the Organizing
 Committee with the setup phase (cf.~\refsec{sec:setup-phase}).
 
@@ -1001,8 +1011,8 @@ Once the \ac{refbox} is initialized, it switches to the setup phase.
 All robots which are to
 participate in the game need to be in the insertion area during setup
 (not in the game area where the machines are located).
-During the setup phase, the \ac{refbox} announces the layout of the competition area,
-including the ring colors assigned to the ring stations.
+During the setup phase, the \ac{refbox} announces the layout of the competition
+area, including the ring colors assigned to the ring stations.
 The machine positions are not communicated to the robots yet and are only to
 be used to to setup the playing field.
 The competing team(s) may use the setup phase to start up their  %chktex 36
@@ -1028,15 +1038,16 @@ filled to account for the two parts. Please consult the \ac{refbox}
 Integrator's Manual~\cite{RefBoxIntManual} for a detailed definition
 of the message types. Reports are only accepted for \ac{MPS} of the
 respective team over the private encrypted team channel. Only the
-first information for each \ac{MPS} is processed, hence per machine only one attempt
-can be made to report it.
+first information for each \ac{MPS} is processed,
+hence per machine only one attempt can be made to report it.
 The scoring is shown in \reftab{tab:scoring}.
 A minimum of zero points will be accounted for the exploration phase.
 
-The signal light of the \ac{MPS} will show a yellow light until a report regarding
-this machine is sent.  If the wrong \ac{MPS} zone is sent, the light will start red
-flashing.  If only the \ac{MPS} zone is sent, the green light will be turn on.  If
-the zone and rotation is correctly reported, the green light will be flashing
+The signal light of the \ac{MPS} will show a yellow light
+until a report regarding this machine is sent.
+If the wrong \ac{MPS} zone is sent, the light will start red
+flashing.  If only the \ac{MPS} zone is sent, the green light will be turn on.
+If the zone and rotation is correctly reported, the green light will be flashing
 and if the zone is correct but the rotation wrongly reported the red and green
 light will be on.
 
@@ -1243,7 +1254,8 @@ For a non-competitive order, each team scores independently of the other team.
     Note that two additional bases (of any color) are required to pay for
     the green ring and another one is needed for for the orange ring.
     A cap-less carrier (red arrow), a capcarrier (blue arrow) and a fresh base
-    from the \ac{BS} (brown arrow) are used in this example to fulfill the payments.
+    from the \ac{BS} (brown arrow) are used in this example to fulfill the
+    payments.
     ]{\label{fig:prod-chain-C3}%
       \begin{minipage}{1.0\linewidth}
         \centering
@@ -1253,7 +1265,7 @@ For a non-competitive order, each team scores independently of the other team.
   \caption{Production Chains of four example products
     (cf. \reffig{fig:production-complexities}). Green arrows show the product
     path from start to delivery, red arrows show the path of a capcarrier that
-    is used to buffer the \ac{CS} .
+    is used to buffer the \ac{CS}.
     \emph{Note that this is a particular
       example. The actual production chains and requirements for
       additional BEs are determined randomly by the \ac{refbox} for
@@ -1320,19 +1332,22 @@ flash the red and yellow light and will be out of order
 
 In the production phase, machines must be prepared to be used. This
 applies to all machine types.
-If a product from the input is required for the processing step (\ac{DS}, \ac{CS}, \ac{RS} and
-a storage operation at the \ac{SS}), then the conveyor belt is started
+If a product from the input is required for the processing step
+(\ac{DS}, \ac{CS}, \ac{RS} and a storage operation at the \ac{SS}),
+then the conveyor belt is started
 after receiving a prepare message. If no workpiece reaches the
 machine operating point (indicated through the middle belt sensor)
 within \SI{45}{\second}, the machine goes to a temporary out-of-order
 state (cf.~\refsec{sec:broken-machine}).
 The \ac{BS} and the retrieval operation at the \ac{SS} cause
 the requested workpiece to be dispensed upon receiving a prepare message.
-After performing an operation at the \ac{BS}, \ac{CS}, \ac{RS} or the \ac{SS} (in case of a
-retrieval) the conveyor belt is started. If no workpiece reaches the destination
-point (indicated through the output belt sensor, or in case of the \ac{BS} either
-the input or output belt sensor) within \SI{90}{\second}, the machine goes in a
-temporary out-of-order state (cf.~\refsec{sec:broken-machine}).
+After performing an operation at the \ac{BS}, \ac{CS}, \ac{RS} or the \ac{SS}
+(in case of a retrieval) the conveyor belt is started.
+If no workpiece reaches the destination
+point (indicated through the output belt sensor, or in case of the \ac{BS}
+either the input or output belt sensor) within \SI{90}{\second},
+the machine goes in a temporary out-of-order state
+(cf.~\refsec{sec:broken-machine}).
 The workpiece may remain on the machine for an arbitrary time after the
 operation is completed.
 
@@ -1348,9 +1363,10 @@ be dispensed. After receiving the message, the \ac{refbox} will instruct
 the \ac{MPS} to immediately provide a base of the desired color.
 
 \noindent\textbf{\acl{DS}}
-The \ac{DS} prepare message denotes the order ID of the product that is delivered.
-The \ac{DS} will consume any workpiece provided, but points can only be scored if the
-\ac{DS} has been properly prepared.
+The \ac{DS} prepare message denotes the order ID of the product
+that is delivered.
+The \ac{DS} will consume any workpiece provided,
+but points can only be scored if the \ac{DS} has been properly prepared.
 
 \noindent\textbf{\acl{CS}}
 The \ac{CS} prepare message initiates either the retrieval or the mounting of
@@ -1376,14 +1392,14 @@ fed into the machine. It receives a ring of the desired color and
 moves the processed product to the output.
 
 \noindent\textbf{\acl{SS}}
-The \ac{SS} prepare message denotes the storage place (shelf and slot number) and
-the type of the operation that should be performed.
+The \ac{SS} prepare message denotes the storage place (shelf and slot number)
+and the type of the operation that should be performed.
 The \ac{SS} consists of six shelves with eight slots each. \reffig{fig:ss-shelf}
 depicts how positions are mapped to their respective shelf and slot numbers
 $(x,y),x\in[0,5],y\in[0,7]$.
 Accessing a slot $(x,y), y\in\{1,3,5,7\}$ in the back of a shelf while slot
-$(x,y-1)$ is occupied causes the \ac{SS} to relocate the product at $(x,y-1)$ to a
-randomly chosen accessible position before processing the instruction.
+$(x,y-1)$ is occupied causes the \ac{SS} to relocate the product at $(x,y-1)$
+to a randomly chosen accessible position before processing the instruction.
 If all other free positions are located in the back and
 are also blocked by products stored in front of them, then one of those free
 positions $(x^\prime,y^\prime)$ is chosen and
@@ -1396,7 +1412,8 @@ Each team receives the storage status for their respective \ac{SS}
 periodically, including the corresponding descriptions at each position.
 Positions and configurations of pre-stored products are also announced through
 storage status messages.
-Note the costs for using the \ac{SS} outlined in \refsec{sec:production-scoring}.
+Note the costs for using the \ac{SS} outlined in
+\refsec{sec:production-scoring}.
 
 
 \begin{figure}[ht]
@@ -1781,7 +1798,8 @@ in time, it is disqualified from the ongoing game.
 \subsubsection{Machine Refill}
 \label{sec:machine-refill}
 The teams are responsible for restocking all materials (base elements,
-rings, prepared caps on shelves, and $C_0$ in the \ac{SS}) before and during matches.
+rings, prepared caps on shelves, and $C_0$ in the \ac{SS}) before and
+during matches.
 Each team has to designate one team-member as a \textit{``replenisher''} who
 must be specified to the corresponding referees ahead of each
 game.  Only this team member will be allowed to access the field area and only
@@ -1794,11 +1812,13 @@ The replenisher may restock only caps if transparent base elements have been put
 back to the shelf, once no cap is remaining on this shelf.
 
 The teams are partly free to choose their assembly and placement of products.
-For example, teams can fill any number of bases into a \ac{BS} or are free to choose
-the color of caps for a \ac{CS}, however teams are only allowed to fill the \ac{CS} if the
-whole shelf is empty and then it has to be filled completely.  The color
-assignment of bases on the \ac{BS} and \ac{SS} must be obeyed, as otherwise they will
-deliver the wrong bases. Similarly, ring color assignments at the \ac{RS} must be
+For example, teams can fill any number of bases into a \ac{BS} or are free
+to choose the color of caps for a \ac{CS}.
+However teams are only allowed to fill the \ac{CS} if the
+whole shelf is empty and then it has to be filled completely.
+The color assignment of bases on the \ac{BS} and \ac{SS} must be obeyed,
+as otherwise they will deliver the wrong bases.
+Similarly, ring color assignments at the \ac{RS} must be
 respected according to the \ac{refbox} announcement.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2008,8 +2028,9 @@ challenges. Teams can decide to participate in any of those.
 
 \subsection{Field Layout}
 Games are played on a symmetrical fields, the competition area spans
-\SI{14 x 8}{\metre} and each team has one \ac{BS}, \ac{SS} and \ac{DS} as well as %chktex 29
-two \ac{CS} and two \ac{RS} available, so a total of 14 machines are placed on the field.
+\SI{14 x 8}{\metre} and each team has one \ac{BS}, \ac{SS} % chktex 29
+and \ac{DS} as well as  two \ac{CS} and two \ac{RS} available,
+so a total of 14 machines are placed on the field.
 The field shown in \reffig{fig:competition-area} is an exemplary field for
 a game in the main competition.
 
@@ -2349,8 +2370,8 @@ Basic navigation task with known obstacles.\\
 \textbf{Task:} Drive to 12 randomly generated target zones. A target zone is
 reached, if any robot remains in that zone for at least 5 consecutive seconds.
 The pose of each robot must be set in the beacon message
-for the \ac{refbox} to properly register the zones as visited. The robot may move
-within the zone during the 5 second period.\\
+for the \ac{refbox} to properly register the zones as visited.
+The robot may move within the zone during the 5 second period.\\
 Variations of this challenge depend on the number of available machines
 (see \reftab{tab:challenge-navigation}).
 Multiple robots may be used to simultaneously to reach multiple target zones.
@@ -2407,8 +2428,8 @@ Variations differ by number of machines, see
 successful, once all bases were placed at the respective machine input
 at least $i$ times.
 The placement of the machines on the field is fixed according to the field
-shown in \reffig{fig:competition-area-challenges}, where the \ac{BS} is placed at
-M-Z12, CS1 is placed at M-Z53 and \ac{RS}1 is placed at M-Z25.
+shown in \reffig{fig:competition-area-challenges}, where the \ac{BS} is
+placed at M-Z12, CS1 is placed at M-Z53 and \ac{RS}1 is placed at M-Z25.
 In order to load this layout into the \ac{refbox} follow the instructions
 from the
 wiki\footnote{\url{https://github.com/robocup-logistics/rcll-refbox/wiki}}.
@@ -2585,8 +2606,6 @@ wealth of the implementation from 0 (no source code provided) to 10
 necessary dependencies). If a package is only usable within a
 non-disclosed software framework, the release cannot score more than
 five points.
-
-
 % \subsubsection{Playing in Simulation}
 %
 % The challenge is to play the production phase of an \ac{RCLL} game, based
@@ -2663,7 +2682,6 @@ five points.
 % ground truth published to the robots by the simulation software. That
 % is, robots need to localize and recognize the machines as well as
 % localize themselves via sensors attached to the robot.
-
 
 \subsection{Open Challenge~}
 Each team will be given 5 minutes to showcase their robot team, e.g.,
@@ -2758,8 +2776,8 @@ Furthermore, teams are penalized for obstruction according to
 opposing team. In this case, the workpiece gets removed and cannot be
 used afterwards.
 
-A robot moving a workpiece of the opposing team at their \ac{MPS} is considered a
-misbehaving robot.
+A robot moving a workpiece of the opposing team at their \ac{MPS} is
+considered a misbehaving robot.
 The referee will move the workpiece back to its original position.
 
 \subsubsection{Pushing Rules}
