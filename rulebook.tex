@@ -321,8 +321,11 @@ partner Festo provides insights into future factory concepts to help
  Efficient handling of the material logistics and utilization of the available
  machines are core requirements to succeed in the \ac{RCLL}.
 
- This work flow is controlled by a referee box (refbox) broadcasting information
-via wifi (see \refsec{sec:referee-box}).
+This work flow is controlled by a referee box (refbox)~\cite{RCI-RefBox}
+broadcasting information via wifi (see \refsec{sec:referee-box}).
+It is a software system that runs on a
+system provided by the Organizing Committee and controls the overall game,
+monitors feedback from the robots, and awards points.
 The work flow itself is divided into phases:
 During a setup phase (see \refsec{sec:setup-phase})
 the field setup is prepared and the robots are started.
@@ -1879,28 +1882,21 @@ bandwidth limit become known, or if the overall bandwidth limit must
 be reduced due to outer circumstances, the TC can monitor the network
 traffic and demand reduction in communicated data as necessary.
 
-\subsection{Referee Box (refbox)}
+\subsection{Referee Box Instructions}
 \label{sec:referee-box}
-The referee box (refbox)~\cite{RCI-RefBox} is a software system that runs on a
-system provided by the Organizing Committee. It controls the overall game,
-monitors feedback from the robots, and awards points. It is instructed by an
-assisting human referee and keeps a log of all relevant game events. The final
-game report will be produced by the referee box. While we strive for a maximum
-of automation of this control task, we rely on the human referee for final
-judgment, in particular for border or under-specified cases, and will provide
-the largest set of override abilities feasible.
-
 The refbox is the single point of instruction for robots during the
 game. After game setup has finished, game state information and orders
-are announced by the refbox. Commands must be acknowledged. In certain
-situations (for example during the exploration phase) for successful
-and true communication with the refbox points are awarded. The aim is
-to reduce human interference year by year to a minimum as to exhibit
-the widest autonomy during the game possible. Ultimately, the refbox
-should be able to fully control the game by itself, transforming all
-participants, team members, and visitors alike into pure spectators of
-the game, sometimes providing maintenance and crisis intervention when
-necessary.
+are announced by the refbox.
+%Commands must be acknowledged.
+%In certain
+%situations (for example during the exploration phase) for successful
+%and true communication with the refbox points are awarded. The aim is
+%to reduce human interference year by year to a minimum as to exhibit
+%the widest autonomy during the game possible. Ultimately, the refbox
+%should be able to fully control the game by itself, transforming all
+%participants, team members, and visitors alike into pure spectators of
+%the game, sometimes providing maintenance and crisis intervention when
+%necessary.
 
 The communication from the refbox to the robot is a datagram-oriented
 broadcast protocol based on Google protocol buffers\footnote{Available
