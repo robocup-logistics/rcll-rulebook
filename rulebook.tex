@@ -1006,37 +1006,29 @@ Committee with the setup phase (cf.~\refsec{sec:setup-phase}).
 \label{sec:setup-phase}
 Once the \ac{refbox} is initialized, it switches to the setup phase.
 All robots which are to
-participate in the game need to be in the insertion area during setup
+participate in the game need to be in the insertion area during the setup phase
 (not in the game area where the machines are located).
 During the setup phase, the \ac{refbox} announces the layout of the competition
-area, including the ring colors assigned to the ring stations.
-The machine positions are not communicated to the robots yet and are only to
-be used to to setup the playing field.
+area, including the ring colors assigned to the ring stations to the referees.
+Machine positions are not communicated to the robots yet.
 The competing team(s) may use the setup phase to start up their  %chktex 36
 robots and to fill their machines (see \refsec{sec:machine-refill}).
-Once the setup phase ends, no more interference with the robot is
-allowed. The robot must react to the \ac{refbox} game state messages
-to start the game play autonomously.
-The \ac{refbox} will control the setup period and automatically end it
-after 5 minutes.
+Once the setup phase ends, no more interference (physically or remotely) with the 
+robot is allowed. The robot(s) must react to the \ac{refbox} game state messages
+and start the game play autonomously.
+The \ac{refbox} will automatically end the setup phase after 5 minutes.
 Depending on the game mode, either the exploration or production phase follows.
 
 \subsection{Exploration Phase}
 \label{sec:exploration-phase}
-During the exploration phase the robots have \SI{3}{\minute} to roam the
-environment and report their machines to the \ac{refbox} in order to score
-points.
-The report about an \ac{MPS} may be split
-in two parts, the position and type of a machine, and its orientation.
-Concretely, the \ac{refbox} expects a \emph{machine identification
-  message} with a tuple consisting of zone, machine name (as encoded
-in the markers), orientation in degrees. This message bay be partially
-filled to account for the two parts. Please consult the \ac{refbox}
-documentation \refsec{sec:task} for a detailed definition
-of the message types. Reports are only accepted for \ac{MPS} of the
-respective team over the private encrypted team channel. Only the
-first information for each \ac{MPS} is processed,
-hence per machine only one attempt can be made to report it.
+During the exploration phase the robots of each team have \SI{3}{\minute} to roam the
+environment and report their (and only their) machines to the \ac{refbox}. Correctly 
+reported machines will be rewarded with points. 
+Reports are issued to the refbox using a \emph{MachineReport message}. For each machine
+,identified by its name, both its zone and its orientation (in degrees) can be explored. Both 
+properties can be submitted at the same time in one message or be split up into
+multiple messages. The refbox accepts only the first submitted value for each property. For 
+a detailled description of the message please refer to the \ac{refbox} wiki.
 The scoring is shown in \reftab{tab:scoring}.
 A minimum of zero points will be accounted for the exploration phase.
 
