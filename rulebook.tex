@@ -470,9 +470,9 @@ Different machines are placed within the area, the constraints for
 positioning them are given in \refsec{sec:machine-swapping}.
 The \ac{RCLL} supports two kind of field layouts:
 Firstly, a symmetrical one
-with aspect ratio 2 intended for two teams to compete simultaneously
+with aspect ratio 1:2 intended for two teams to compete simultaneously
 on the same area.
-Secondly, a field with a squared layout and that is intended for tasks,
+Secondly, a field with a squared layout that is intended for tasks,
 where only one team is on the field at a time.
 Fields also contain designated robot insertion areas, that are used as a
 starting position for the robots when a game starts or a robot is inserted
@@ -491,11 +491,10 @@ An example of a competition area for games on the main track is shown in
 \reffig{fig:competition-area}, it
 features a \SI{14 x 8}{\metre} large arena with 112 square zones %chktex 29
 and with 14 randomly distributed machines (an identical set of 7 machines for
-each team). % chktex 29
+each team exclusively). % chktex 29
 
-Generally, an identical set of machines is exclusively assigned to each team.
 The distribution and alignment of all machines is axially symmetrical
-to the y-axis. Thus, each team has similar conditions on both halves of
+on the y-axis. Thus, each team has similar conditions on both halves of
 the competition field.
 For details, see \refsec{sec:machine-swapping}.
 The entire area is shared among both teams on the field and any robot may travel
@@ -505,7 +504,7 @@ However, there are primary sides (split along the y-axis) for each team where
 a team's \textit{robot insertion area} is located.
 We will refer to the side with positive coordinates on the x-axis as the
 (primary) half of team cyan, and the side with negative coordinates on the
-x-axis as the primary half of team magenta.
+x-axis as the (primary) half of team magenta.
 
 \subsection{Fields with Aspect Ratio 1}
 \label{sec:competition-area-aspect-ratio-1}
@@ -960,7 +959,7 @@ Each machine will feature two \emph{markers} based on ALVAR AR tags,
 one will be placed on the input, another one on the output side. All
 markers used are depicted in \reftab{tab:markers}. The marker will be
 horizontally centered below the conveyor belt. The vertical distance
-(between tag and conveyor belt) will be about
+between the tag's upper edge and the conveyor belt will be about
 \SI{35}{\centi\metre}. The markers will be mounted at the same
 position on all machines in a best effort fashion, but teams should expect
 slight deviations to their exact position.
