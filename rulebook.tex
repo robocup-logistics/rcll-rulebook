@@ -40,7 +40,7 @@
 
 \newsavebox{\myt}
 \newcommand{\mytable}[1]{%
-  \savebox{\myt}{#1}\tikz\node[fill=gray!25!white]{\usebox{\myt}};%
+  \savebox{\myt}{#1}\tikz\node[fill=gray!10!white]{\usebox{\myt}};%
 }
 
 \newcommand{\refsec}[1]{Section~\ref{#1}}
@@ -1052,9 +1052,9 @@ exploration phase.
 \subsection{Production Phase}
 \label{sec:production-phase}
 During the production phase machines can be used to assemble products
-according to orders that arrive dynamically.
+according to dynamically arriving orders.
 The \ac{refbox} publishes information regarding products and machines.
-This includes contained colors at the ring stations and their
+This includes configured colors at the ring stations and their
 prices.
 Depending on the played format, machine zones and orientations may be announced
 as well.
@@ -1067,7 +1067,7 @@ Workpieces denote raw materials that need to be refined through production
 steps.
 They consist of the following elements:
 \begin{description}
-\item[Base] The base is the lowermost element in each production.
+\item[Base] The base is the lowermost of each workpiece.
   Bases are dispensed by the \acf{BS} and bases with mounted
   caps are available on the \acf{CS}. Bases are available in
   the colors red, black, silver, and transparent. Transparent bases
@@ -1077,7 +1077,7 @@ They consist of the following elements:
   provide additional bases required by an \ac{RS}, stored on a team's \ac{CS}
   shelf, or recycled at the \ac{DS}.
 \item[Ring] Rings are mounted in intermediate production steps at the \acf{RS}.
-\item[Cap] Caps are the topmost element in each production. They are
+\item[Cap] Caps are the topmost element of each workpiece. They are
   obtained by taking pre-assembled base-cap combinations available on
   the shelf to the \acf{CS}. Caps can be black or gray.
 \end{description}
@@ -1109,7 +1109,7 @@ They consist of the following elements:
 \end{figure}
 
 \paragraph{Barcodes.}
-All bases are labeled by a horizontally revolving, white glossy tag
+All bases are labeled with a horizontally encircling, white glossy tag
 covering about 50 percent of the bases height (from the center)
 containing a white reference area as well as an identifying
 barcode. Each base is equipped with a unique ID\@. \reffig{fig:barcode}
@@ -1134,9 +1134,9 @@ at that machine. The highest complexity $C_3$ requires a base with
 three mounted rings and a cap. For a product, the colors of base,
 rings, and cap as well as the order of the rings are of importance.
 
-Depending on the ring color, the robot may have to deliver one or more
-\emph{additional bases} to a \ac{RS} first in order to get a ring. We
-therefore distinguish \emph{color complexities} as $CC_0$, $CC_1$, and
+Depending on the ring color, the robot may need to deliver one or more
+\emph{additional bases} to a \ac{RS} first in order to enable it to mount 
+the ring. We therefore distinguish \emph{color complexities} as $CC_0$, $CC_1$, and
 $CC_2$ depending on whether zero, one, or two additional bases are
 required for a color.
 
@@ -1272,10 +1272,10 @@ immediately switches to a new state, e.g., if a product is fed into the
 machine before the three seconds have expired). When a product is fed
 to the input, the signal light indicates the processing condition. If
 the machine accepts the input and starts processing, the green and yellow lights
-will be turned on steadily for as long as the processing is
+will be turned on constantly for as long as the processing is
 performed. Once processing completes, the signal light switches to a
 steady yellow light. If a product is fed for which additional bases
-were required but which have not been delivered, the machine will
+were required but which have not been paid for, the machine will
 flash the red and yellow light and will be out of order
 (cf. \refsec{sec:broken-machine}). The light signals are summarized in
 \reftab{tab:production-machines-feedback}.
@@ -1308,8 +1308,8 @@ flash the red and yellow light and will be out of order
   \label{tab:production-machines-feedback}
 \end{table}
 
-In the production phase, machines must be prepared to be used. This
-applies to all machine types.
+In the production phase, machines must be prepared to be used by instructing
+the refbox. This applies to all machine types.
 If a product from the input is required for the processing step
 (\ac{DS}, \ac{CS}, \ac{RS} and a storage operation at the \ac{SS}),
 then the conveyor belt is started
@@ -1340,11 +1340,16 @@ The \ac{BS} prepare message denotes the color of the base element that should
 be dispensed. After receiving the message, the \ac{refbox} will instruct
 the \ac{MPS} to immediately provide a base of the desired color.
 
-\noindent\textbf{\acl{DS}}
-The \ac{DS} prepare message denotes the order ID of the product
-that is delivered.
-The \ac{DS} will consume any workpiece provided,
-but points can only be scored if the \ac{DS} has been properly prepared.
+\noindent\textbf{\acl{RS}}
+The \ac{RS} prepare message must state which of the two colors to prepare and
+retrieve. Each \ac{RS} is responsible for two specific colors. Some colors
+require loading the \ac{RS} with additional bases
+(cf.~\refsec{sec:production-complexities}). If the desired color requires
+additional bases, the machine expects to receive them first.
+Once the required number of
+additional bases has been received, the intermediate product can be
+fed into the machine. It receives a ring of the desired color and
+moves the processed product to the output.
 
 \noindent\textbf{\acl{CS}}
 The \ac{CS} prepare message initiates either the retrieval or the mounting of
@@ -1358,16 +1363,11 @@ placing it back on the shelf, or discarding it at the \ac{DS}.  For
 mounting a cap, a workpiece (without cap) must be provided onto which
 the cap is mounted.
 
-\noindent\textbf{\acl{RS}}
-The \ac{RS} prepare message must state which of the two colors to prepare and
-retrieve. Each \ac{RS} is responsible for two specific colors. Some colors
-require loading the \ac{RS} with additional bases
-(cf.~\refsec{sec:production-complexities}). If the desired color requires
-additional bases, the machine expects to receive them first.
-Once the required number of
-additional bases has been received, the intermediate product can be
-fed into the machine. It receives a ring of the desired color and
-moves the processed product to the output.
+\noindent\textbf{\acl{DS}}
+The \ac{DS} prepare message denotes the order ID of the product
+that is delivered.
+The \ac{DS} will consume any workpiece provided,
+but points can only be scored if the \ac{DS} has been properly prepared.
 
 \noindent\textbf{\acl{SS}}
 The \ac{SS} prepare message denotes the storage place (shelf and slot number)
@@ -1430,15 +1430,14 @@ state. The downtime is indicated by a flashing red light.
 
 \subsubsection{Scheduled Machine Downtime}
 \label{sec:out-of-order}
-Depending on the played format, The \ac{refbox} may take down machines
-randomly out of the pool containing the \ac{RS} and \ac{CS}.
-If two teams play at the same time, then the same machines for
+Depending on the game format, the \ac{refbox} may take down \ac{RS} and \ac{CS}
+machines at random. If two teams play at the same time, then the same machines for
 both teams are affected in the same time window.
 The machines affected will remain out of order for 30 to 60
 seconds. Every machine can only be forced out of order once per
-match. If a machine turns offline during processing a product it will
+match. If a machine turns offline during processing of a product it will
 afterwards resume the process (extending the overall processing time
-by the down time). The downtime is indicated by a steady red
+by the duration of the time spent offline). The downtime is indicated by a steady red
 light. Base elements fed into the machine while out-of-order are
 accepted when the machine gets back online, with the same constraints
 mentioned in \refsec{sec:production-machines-production}.
@@ -1456,7 +1455,7 @@ stations or not.
 
 If the tracking system is used, the \ac{refbox} automatically can verify that
 issued machine instructions actually belong to an active order.
-Therefore, points are only awarded if there is yet an order for which the
+Therefore, points are only awarded if there is an order for which the
 performed step is required and which has not yet expired (the end of
 the order time window has not yet passed) and for which the step has
 not been performed for as often as products have been requested. For
@@ -1484,7 +1483,7 @@ has been delivered.
 
 \paragraph{Competitive Order Scoring}
 For a competitive order, the same scoring scheme for in-time, delayed, and late
-delivery applies, with additional points for a successful first delivery and a
+delivery applies, with additional points for the successful first delivery and a
 point deduction for the second delivery (cf.~\reftab{tab:scoring}). The
 deduction may not exceed the points given for the delivery\footnote{As an
 example, if a team delivers late and scores only $5$ points for the delivery,
@@ -1494,11 +1493,11 @@ also given if a team delivers the product after the other team.
 
 \paragraph{Storage Station Costs}
 Storage Station usage is associated with different costs.
-However, exploration points gained during the exploration will not be
+However, exploration points gained during the exploration can not be
 used for this. If the team has not yet received sufficient points,
-the payment can be performed on '' (partial) credit''. Points that were
+the payment can be performed on ''(partial) credit''. Points that were
 missing upon preparation will be subtracted later from points scored.
-For now only retrieving and storing induce costs per operation.
+Only retrieving and storing induces costs per operation. 
 Points are deducted as soon as the respective operation finishes.
 %Additionally, dynamic costs occur depending on the volume and time of the
 %occupied storage: Each stored products induces
@@ -1507,7 +1506,7 @@ Points are deducted as soon as the respective operation finishes.
 %The total amount of costs through storage station usage is capped.
 All costs are listed in \reftab{tab:scoring}.
 % alternate row coloring
-\rowcolors{1}{gray!40!white}{gray!30!white}
+\rowcolors{1}{gray!0!white}{gray!10!white}
 \begin{longtable}{p{\dimexpr.30\textwidth-2\tabcolsep}
     |p{\dimexpr.55\textwidth-2\tabcolsep}
     |p{\dimexpr.15\textwidth-2\tabcolsep}}
@@ -1628,12 +1627,12 @@ All costs are listed in \reftab{tab:scoring}.
   \label{tab:scoring}
 \end{longtable}
 
-\subsection{Human Responsibilities during a Match}
+\subsection{Human Responsibilities During a Match}
 \label{sec:during-match}
 During a match and while the robot is active on the field no manual
 interference or manipulation of the robot in hardware, software,
 configuration, instructions, or whatsoever, is allowed.  Teams may
-visualize robot data on computers at the field, but existing keyboards
+visualize robot data on computers at the field, but existing input devices
 must be covered with a sheet of paper in order to assert a fair game
 without manual interference.
 
@@ -1690,7 +1689,7 @@ referees.
 Field referees also need to observe machine processing steps, validate that
 the machines work as intended or correct minor operation failures manually.
 Operation failures may only be corrected if they are not caused by the robots.
-It is up to the referees to decide weather an operation failure was caused by
+It is up to the referees to decide wether an operation failure was caused by
 a robot or the machine.
 % TODO: be precise what needs to be done
 % Examples for a valid correction
@@ -1777,15 +1776,15 @@ in time, it is disqualified from the ongoing game.
 The teams are responsible for restocking all materials (base elements,
 rings, prepared caps on shelves, and $C_0$ in the \ac{SS}) before and
 during matches.
-Each team has to designate one team-member as a \textit{``replenisher''} who
+Each team has to designate one team-member as a \textit{``field-opreator''} who
 must be specified to the corresponding referees ahead of each
-game.  Only this team member will be allowed to access the field area and only
-in case of a recent refill procedure.  The replenisher must not obstruct other
+game. Only this team member will be allowed to access the field area in case of a 
+refill procedure. The field-operator must not obstruct other
 robots and should interfere as little as possible.  The machines can only be
 refilled when a magazine or shelf is empty. In this case the field-operator may
 enter the competition-area without asking the referee. Shelves have to be
 (re-)filled in all three reachable slots. % chktex 36
-The replenisher may restock only caps if transparent base elements have been put
+The field-operator may restock only caps if transparent base elements have been put
 back to the shelf, once no cap is remaining on this shelf.
 
 The teams are partly free to choose their assembly and placement of products.
