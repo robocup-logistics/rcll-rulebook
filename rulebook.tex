@@ -546,49 +546,29 @@ Robots that leave the competition area illegally are considered as
 
 \subsection{Machines}
 \label{sec:machines}
-Machines are based on the \acf{MPS}\footnote{For
+In the \ac{RCLL} 5 different types of production machines are
+in use, each fulfilling a different role in the production process. Machines are 
+based on the \acf{MPS}\footnote{For
   more information see
   \url{http://www.robocup-logistics.org/links/festo-mps}.} by Festo
-Didactic SE\@. The \ac{MPS} provides a number of stations which
-make up the machines used in the competition. The stations have a
-rectangular base shape of \SI{0,35 x 0,7}{\metre} with a height of % chktex 29
-about \SI{1}{\metre} depending on machine type. The machine
-has individual application modules that provide different
-functionality.
+Didactic SE\@. 
 
-% TODO: mention optional workpiece trackers
-All machines share the same basic layout: a trolley, conveyor belt,
-and signal light. A machine is movable by four wheels with
-\SI{0.1}{\metre} clearance. Both narrow sides of the trolley are
-closed by plexiglas and have a handle. All physical interfaces like
-conveyor belt inputs and outputs, shelves, and slides for additional
-bases on ring stations are accessible at \SI{89.8}{\centi\metre}
-height.\footnote{Note however, that due to small variances and
-  unevenness in the floor there may likewise be small variances in the
-  working height of some or all parts of a station.} Working space
-between guiding lanes is \SI{4.5}{\centi\metre}. Setup lanes and
-shelves feature approximately the same space for handling and
-adjusting. All diffuse sensors (input side) have been removed to allow
-for infrared-emitting cameras.  To simplify the delivery on the belt,
-each machine will be equipped with a narrowing cone on its input side
-(\reffig{fig:narrow-cone}).  You can order them from Festo Didactic SE
-(C. Deppe) or download the STL model file from the \ac{RCLL} site.
-\begin{figure}
-    \includegraphics[height=8cm]{narrowConeSketch.jpg}
-\caption{Narrowing cone}
-\label{fig:narrow-cone}
+Each \ac{MPS} shares the same basic layout as highlighte in Figure \ref{fig:MPS-Layout}. 
+A movable rectangular trolley makes up the the base of the machine. 
+A conveyer belt connecting the two short sides of
+the machine is the main interaction point for robots. Three colored signal lights 
+are used to visually indicate the current state of the machine. Each machine type has
+additional individual application modules which provide the different functionalities.
+
+
+\begin{figure}[bh!]
+  \centering
+  \label{fig:MPS-Layout}
+  \includegraphics[height=7cm]{MPS2015/MPS_Layout.jpg}
+  \caption{General Machine Layout}
 \end{figure}
-% Still unclear, thus commenting out.
-% If observed from the output side of machines (where the signal unit
-% is placed) the conveyor space opens up at half of the aluminum
-% profile thus starting at \SI{0,35}{\metre}.
-%\begin{figure}[b!]
-%    \centering
-%    \includegraphics[height=7cm]{MPS2015/MPS_Layout.jpg}
-%
-%    \caption{General Machine Layout}
-%    \label{fig:MPS-Layout}
-%\end{figure}
+
+
 Based on these shared properties, there are five kinds of machines:
 
 \begin{description}
@@ -633,13 +613,13 @@ phase. Processing times are outlined in \reftab{tab:processing-times}.
 
 \begin{figure}[bh!]
 \centering
-\subfigure[General Machine Layout]{%
-    \label{fig:MPS-Layout}
-    \begin{minipage}[b]{1\linewidth}
-        \centering
-        \includegraphics[height=7cm]{MPS2015/MPS_Layout.jpg}
-    \end{minipage}
-}
+% \subfigure[General Machine Layout]{%
+%     \label{fig:MPS-Layout}
+%     \begin{minipage}[b]{1\linewidth}
+%         \centering
+%         \includegraphics[height=7cm]{MPS2015/MPS_Layout.jpg}
+%     \end{minipage}
+% }
 \quad
 \subfigure[Base Station]{%
   \label{fig:BS_portrait}%
@@ -704,6 +684,40 @@ phase. Processing times are outlined in \reftab{tab:processing-times}.
     \label{tab:processing-times}
 \end{table}
 
+\subsubsection{Physical Description of Machines}
+
+The stations have arectangular base shape of \SI{0,35 x 0,7}{\metre} with a height of % chktex 29
+about \SI{1}{\metre} depending on machine type. A machine is movable by four
+ wheels with \SI{0.1}{\metre} clearance. Both narrow sides of the trolley are
+closed by plexiglas and have a handle. All physical interfaces like
+conveyor belt inputs and outputs, shelves, and slides for additional
+bases on ring stations are accessible at \SI{89.8}{\centi\metre}
+height.\footnote{Note however, that due to small variances and
+  unevenness in the floor there may likewise be small variances in the
+  working height of some or all parts of a station.} Working space
+between guiding lanes is \SI{4.5}{\centi\metre}. Setup lanes and
+shelves feature approximately the same space for handling and
+adjusting. All diffuse sensors (input side) have been removed to allow
+for infrared-emitting cameras.  To simplify the delivery on the belt,
+each machine will be equipped with a narrowing cone on its input side
+(\reffig{fig:narrow-cone}).  You can order them from Festo Didactic SE
+(C. Deppe) or download the STL model file from the \ac{RCLL} site.
+\begin{figure}
+    \includegraphics[height=8cm]{narrowConeSketch.jpg}
+\caption{Narrowing cone}
+\label{fig:narrow-cone}
+\end{figure}
+% Still unclear, thus commenting out.
+% If observed from the output side of machines (where the signal unit
+% is placed) the conveyor space opens up at half of the aluminum
+% profile thus starting at \SI{0,35}{\metre}.
+%\begin{figure}[b!]
+%    \centering
+%    \includegraphics[height=7cm]{MPS2015/MPS_Layout.jpg}
+%
+%    \caption{General Machine Layout}
+%    \label{fig:MPS-Layout}
+%\end{figure}
 
 \subsubsection{Machine Positioning}
 \label{sec:machine-swapping}
@@ -711,11 +725,10 @@ The zones of each field are named according to the following scheme:
 A team prefix (``C-'' for cyan, ``M-'' for
 magenta), ``Z'' to distinguish zone names, and a grid coordinate form the name
 of a zone.
-For example, The zone C-Z23 is the zone on the cyan primary half, which is
-the second along the X-axis and the third along the Y-axis.
-Zones are only a means to position machines. They will not be physically
-represented or visible on the field. They cannot be used for any other
-purpose.
+For example, The zone C-Z23 is a zone on the cyan primary half, which is
+the second along the positive half of the X-axis and the third along the Y-axis.
+Zones  will not be physically represented or visible on the field. 
+They cannot be used for any other purpose than machine positioning.
 
 The zones and rotations for the \ac{MPS} will be randomly chosen by the
 \ac{refbox}.
@@ -723,7 +736,7 @@ Each game will have a new randomly generated field layout, the referees will
 place the \ac{MPS} in the middle of the zone with given rotation at there
 best effort but errors of the positioning should be expected.
 
-A \ac{MPS} can be placed in any zones except those at the entrance of the
+A \ac{MPS} can generally  be placed in any zones except those at the entrance of the
 insertion area (the light red areas in \reffig{fig:competition-area} and
 \reffig{fig:competition-area-challenges}).
 These zones are needed to enter the field. Each \ac{MPS} has one out of 8
