@@ -391,7 +391,8 @@ to communicate with the league stake holders on technical
 advancements. Current members of the \ac{TC} are
 (in alphabetical order):\\[.5em]
 % Alphabetical order by last name
-\emph{Vincent Coelen}, Ecole polytechnique universitaire de Lille, Lille, France\\
+\emph{Vincent Coelen}, Ecole polytechnique universitaire de Lille, Lille,
+France\\
 \emph{Lukas Knoflach}, Graz University of Technology, Graz, Austria\\
 \emph{Peter Kohout}, Graz University of Technology, Graz, Austria\\
 \emph{Sven Imhof}, HFTM Technical Institute of Applied Science Mittelland,
@@ -415,7 +416,8 @@ alphabetical order):\\[.5em]
 \emph{Stefan Brandenberger}, HFTM Technical Institute of Applied Science
 Mittelland, Biel, Switzerland\\
 \emph{Thomas Danel}, Université Lille Nord de France, Lille, France\\
-\emph{Vincent Coelen}, Ecole polytechnique universitaire de Lille, Lille, France\\
+\emph{Vincent Coelen}, Ecole polytechnique universitaire de Lille, Lille,
+France\\
 \emph{Vanessa Egger}, Graz University of Technology, Graz, Austria\\
 \emph{Wataru Uemura}, Ryukoku University, Kyoto, Japan
 
@@ -553,12 +555,15 @@ based on the \acf{MPS}\footnote{For
   \url{http://www.robocup-logistics.org/links/festo-mps}.} by Festo
 Didactic SE\@.
 
-Each \ac{MPS} shares the same basic layout as highlighte in Figure \ref{fig:MPS-Layout}.
-A movable rectangular trolley makes up the the base of the machine.
+Each \ac{MPS} shares the same basic layout as highlighted
+in \reffig{fig:MPS-Layout}.
+A movable rectangular trolley makes up the base of the machine.
 A conveyer belt connecting the two short sides of
-the machine is the main interaction point for robots. Three colored signal lights
-are used to visually indicate the current state of the machine. Each machine type has
-additional individual application modules which provide the different functionalities.
+the machine is the main interaction point for robots.
+Three colored signal lights are used to visually indicate the current state of
+the machine.
+Each machine type has additional individual application modules which provide
+the different functionalities.
 
 
 \begin{figure}[bh!]
@@ -686,16 +691,16 @@ phase. Processing times are outlined in \reftab{tab:processing-times}.
 
 \subsubsection{Physical Description of Machines}
 
-The stations have arectangular base shape of \SI{0,35 x 0,7}{\metre} with a height of % chktex 29
-about \SI{1}{\metre} depending on machine type. A machine is movable by four
- wheels with \SI{0.1}{\metre} clearance. Both narrow sides of the trolley are
-closed by plexiglas and have a handle. All physical interfaces like
-conveyor belt inputs and outputs, shelves, and slides for additional
-bases on ring stations are accessible at \SI{89.8}{\centi\metre}
-height.\footnote{Note however, that due to small variances and
-  unevenness in the floor there may likewise be small variances in the
-  working height of some or all parts of a station.} Working space
-between guiding lanes is \SI{4.5}{\centi\metre}. Setup lanes and
+The stations have a rectangular base shape of \SI{0,35 x 0,7}{\metre}% chktex 29
+with a height of about \SI{1}{\metre} depending on machine type.
+A machine is movable by four wheels with \SI{0.1}{\metre} clearance.
+Both narrow sides of the trolley are closed by plexiglas and have a handle.
+All physical interfaces like conveyor belt inputs and outputs, shelves, and
+slides for additional bases on ring stations are accessible at
+\SI{89.8}{\centi\metre} height\footnote{Note however, that due to small
+  variances and unevenness in the floor there may likewise be small variances
+  in the working height of some or all parts of a station.}.
+Working space between guiding lanes is \SI{4.5}{\centi\metre}. Setup lanes and
 shelves feature approximately the same space for handling and
 adjusting. All diffuse sensors (input side) have been removed to allow
 for infrared-emitting cameras.  To simplify the delivery on the belt,
@@ -736,9 +741,9 @@ Each game will have a new randomly generated field layout, the referees will
 place the \ac{MPS} in the middle of the zone with given rotation at there
 best effort but errors of the positioning should be expected.
 
-A \ac{MPS} can generally  be placed in any zones except those at the entrance of the
-insertion area (the light red areas in \reffig{fig:competition-area} and
-\reffig{fig:competition-area-challenges}).
+A \ac{MPS} can generally  be placed in any zones except those at the
+entrance of the insertion area (the light red areas in
+\reffig{fig:competition-area} and \reffig{fig:competition-area-challenges}).
 These zones are needed to enter the field. Each \ac{MPS} has one out of 8
 possible orientations, starting at \ang{0} with steps of \ang{45}. To denote
 the orientation, we assign a local right-handed coordinate system to
@@ -1026,22 +1031,25 @@ area, including the ring colors assigned to the ring stations to the referees.
 Machine positions are not communicated to the robots yet.
 The competing team(s) may use the setup phase to start up their  %chktex 36
 robots and to fill their machines (see \refsec{sec:machine-refill}).
-Once the setup phase ends, no more interference (physically or remotely) with the
-robot is allowed. The robot(s) must react to the \ac{refbox} game state messages
-and start the game play autonomously.
+Once the setup phase ends, no more interference (physically or remotely) with
+the robot is allowed. The robot(s) must react to the \ac{refbox} %chktex 36
+game state messages and start the game play autonomously.
 The \ac{refbox} will automatically end the setup phase after 5 minutes.
 Depending on the game mode, either the exploration or production phase follows.
 
 \subsection{Exploration Phase}
 \label{sec:exploration-phase}
-During the exploration phase the robots of each team have \SI{3}{\minute} to roam the
-environment and report their (and only their) machines to the \ac{refbox}. Correctly
-reported machines will be rewarded with points.
-Reports are issued to the refbox using a \emph{MachineReport message}. For each machine
-,identified by its name, both its zone and its orientation (in degrees) can be explored. Both
-properties can be submitted at the same time in one message or be split up into
-multiple messages. The refbox accepts only the first submitted value for each property. For
-a detailled description of the message please refer to the \ac{refbox}
+During the exploration phase the robots of each team have \SI{3}{\minute}
+to roam the environment and report their (and only their) machines
+to the \ac{refbox}.
+Correctly reported machines will be rewarded with points.
+Reports are issued to the refbox using a \emph{MachineReport message}.
+For each machine,identified by its name, both its zone and its orientation
+(in degrees) can be explored.
+Both properties can be submitted at the same time in one message or be split up
+into multiple messages.
+The refbox accepts only the first submitted value for each property.
+For a detailed description of the message please refer to the \ac{refbox}
 wiki\footonote{\url{https://github.com/robocup-logistics/rcll-refbox/wiki/Communication-Protocol}}. % ignore-long-line
 The scoring is shown in \reftab{tab:scoring}.
 A minimum of zero points will be accounted for the exploration phase.
@@ -1150,8 +1158,8 @@ rings, and cap as well as the order of the rings are of importance.
 
 Depending on the ring color, the robot may need to deliver one or more
 \emph{additional bases} to a \ac{RS} first in order to enable it to mount
-the ring. We therefore distinguish \emph{color complexities} as $CC_0$, $CC_1$, and
-$CC_2$ depending on whether zero, one, or two additional bases are
+the ring. We therefore distinguish \emph{color complexities} as $CC_0$, $CC_1$,
+and $CC_2$ depending on whether zero, one, or two additional bases are
 required for a color.
 
 Each order will consist of the product variant to
@@ -1445,14 +1453,15 @@ state. The downtime is indicated by a flashing red light.
 \subsubsection{Scheduled Machine Downtime}
 \label{sec:out-of-order}
 Depending on the game format, the \ac{refbox} may take down \ac{RS} and \ac{CS}
-machines at random. If two teams play at the same time, then the same machines for
-both teams are affected in the same time window.
+machines at random. If two teams play at the same time, then the same machines
+for both teams are affected in the same time window.
 The machines affected will remain out of order for 30 to 60
 seconds. Every machine can only be forced out of order once per
 match. If a machine turns offline during processing of a product it will
 afterwards resume the process (extending the overall processing time
-by the duration of the time spent offline). The downtime is indicated by a steady red
-light. Base elements fed into the machine while out-of-order are
+by the duration of the time spent offline). The downtime is indicated by a
+steady red light.
+Base elements fed into the machine while out-of-order are
 accepted when the machine gets back online, with the same constraints
 mentioned in \refsec{sec:production-machines-production}.
 
@@ -1509,8 +1518,8 @@ also given if a team delivers the product after the other team.
 Storage Station usage is associated with different costs.
 However, exploration points gained during the exploration can not be
 used for this. If the team has not yet received sufficient points,
-the payment can be performed on ''(partial) credit''. Points that were
-missing upon preparation will be subtracted later from points scored.
+the payment can be performed on ''(partial) credit''. Points that %chktex 36
+were missing upon preparation will be subtracted later from points scored.
 Only retrieving and storing induces costs per operation.
 Points are deducted as soon as the respective operation finishes.
 %Additionally, dynamic costs occur depending on the volume and time of the
@@ -1792,8 +1801,8 @@ rings, prepared caps on shelves, and $C_0$ in the \ac{SS}) before and
 during matches.
 Each team has to designate one team-member as a \textit{``replenisher''} who
 must be specified to the corresponding referees ahead of each
-game. Only this team member will be allowed to access the field area in case of a
-refill procedure. The replenisher must not obstruct other
+game. Only this team member will be allowed to access the field area in case of
+a refill procedure. The replenisher must not obstruct other
 robots and should interfere as little as possible.  The machines can only be
 refilled when a magazine or shelf is empty. In this case the replenisher may
 enter the competition-area without asking the referee. Shelves have to be
