@@ -216,18 +216,18 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 \label{sec:intro}
-The future of industrial production is smarter and more flexible 
-production. Manufacturing industries are on the brink of 
-widely accepting a new paradigm for organizing production by introducing 
-perceiving, active, context-aware autonomous systems. This paradigm is 
-often referred to as Industry~4.0~\cite{Industry-4.0}, a move from static 
+The future of industrial production is to utilize smarter and more flexible
+systems. Manufacturing industries are on the brink of
+widely accepting a new paradigm for organizing production by introducing
+perceiving, active, context-aware autonomous systems. This paradigm is
+often referred to as Industry~4.0~\cite{Industry-4.0}, a move from static
 process chains towards more automation and autonomy. One of its corner stones
-are so called \emph{smart factories} which are flexible facilities in which 
+are so called \emph{smart factories} which are flexible facilities in which
 manufacturing steps are considered as services. This means that various
-production steps, machines and sub-facilities can be combined in (almost) 
-arbitrary ways allowing for the production of various product types and 
+production steps, machines and sub-facilities can be combined in (almost)
+arbitrary ways allowing for the production of various product types and
 variants cost-effectively, even in small quantities. This is in contrast To
-traditional production chains which produce only a small number of varieties 
+traditional production chains which produce only a small number of varieties
 of a product at high quantities~\cite{RCLL-CPS}. To realize such factories
 and make use of their full potential, more capable logistics systems are needed,
 of which the most flexible form are autonomous mobile robots.
@@ -245,14 +245,14 @@ partner Festo transfers insights into future factory concepts to help
  This year's competition is laid out in the following pages.  It ensures
  the same and fair conditions for all participants. It neither
  dictates nor suggests how to fulfill the task, but is meant
- to encourage new developments in the \ac{RCLL} through restrictions 
+ to encourage new developments in the \ac{RCLL} through restrictions
  and tasks. Smart Factory environments require new
  concepts of flexibility, awareness and optimization from autonomous
  entities working in an environment with specified, yet to some degree
  uncertain and dynamic, agency. This includes current challenges of
  developing industry-wide standards for Cyber Physical Systems for
  production processes like designing plug-and-produce capable
- systems. 
+ systems.
 
  After exciting competitions in the previous years, we look forward to a new
  scale of competition that will emerge from initiatives around the globe. In
@@ -547,16 +547,16 @@ Robots that leave the competition area illegally are considered as
 \subsection{Machines}
 \label{sec:machines}
 In the \ac{RCLL} 5 different types of production machines are
-in use, each fulfilling a different role in the production process. Machines are 
+in use, each fulfilling a different role in the production process. Machines are
 based on the \acf{MPS}\footnote{For
   more information see
   \url{http://www.robocup-logistics.org/links/festo-mps}.} by Festo
-Didactic SE\@. 
+Didactic SE\@.
 
-Each \ac{MPS} shares the same basic layout as highlighte in Figure \ref{fig:MPS-Layout}. 
-A movable rectangular trolley makes up the the base of the machine. 
+Each \ac{MPS} shares the same basic layout as highlighte in Figure \ref{fig:MPS-Layout}.
+A movable rectangular trolley makes up the the base of the machine.
 A conveyer belt connecting the two short sides of
-the machine is the main interaction point for robots. Three colored signal lights 
+the machine is the main interaction point for robots. Three colored signal lights
 are used to visually indicate the current state of the machine. Each machine type has
 additional individual application modules which provide the different functionalities.
 
@@ -727,7 +727,7 @@ magenta), ``Z'' to distinguish zone names, and a grid coordinate form the name
 of a zone.
 For example, The zone C-Z23 is a zone on the cyan primary half, which is
 the second along the positive half of the X-axis and the third along the Y-axis.
-Zones  will not be physically represented or visible on the field. 
+Zones will not be physically represented or visible on the field.
 They cannot be used for any other purpose than machine positioning.
 
 The zones and rotations for the \ac{MPS} will be randomly chosen by the
@@ -1026,7 +1026,7 @@ area, including the ring colors assigned to the ring stations to the referees.
 Machine positions are not communicated to the robots yet.
 The competing team(s) may use the setup phase to start up their  %chktex 36
 robots and to fill their machines (see \refsec{sec:machine-refill}).
-Once the setup phase ends, no more interference (physically or remotely) with the 
+Once the setup phase ends, no more interference (physically or remotely) with the
 robot is allowed. The robot(s) must react to the \ac{refbox} game state messages
 and start the game play autonomously.
 The \ac{refbox} will automatically end the setup phase after 5 minutes.
@@ -1035,13 +1035,14 @@ Depending on the game mode, either the exploration or production phase follows.
 \subsection{Exploration Phase}
 \label{sec:exploration-phase}
 During the exploration phase the robots of each team have \SI{3}{\minute} to roam the
-environment and report their (and only their) machines to the \ac{refbox}. Correctly 
-reported machines will be rewarded with points. 
+environment and report their (and only their) machines to the \ac{refbox}. Correctly
+reported machines will be rewarded with points.
 Reports are issued to the refbox using a \emph{MachineReport message}. For each machine
-,identified by its name, both its zone and its orientation (in degrees) can be explored. Both 
+,identified by its name, both its zone and its orientation (in degrees) can be explored. Both
 properties can be submitted at the same time in one message or be split up into
-multiple messages. The refbox accepts only the first submitted value for each property. For 
-a detailled description of the message please refer to the \ac{refbox} wiki.
+multiple messages. The refbox accepts only the first submitted value for each property. For
+a detailled description of the message please refer to the \ac{refbox}
+wiki\footonote{\url{https://github.com/robocup-logistics/rcll-refbox/wiki/Communication-Protocol}}. % ignore-long-line
 The scoring is shown in \reftab{tab:scoring}.
 A minimum of zero points will be accounted for the exploration phase.
 
@@ -1080,7 +1081,7 @@ Workpieces denote raw materials that need to be refined through production
 steps.
 They consist of the following elements:
 \begin{description}
-\item[Base] The base is the lowermost of each workpiece.
+\item[Base] The base is the lowermost element of each workpiece.
   Bases are dispensed by the \acf{BS} and bases with mounted
   caps are available on the \acf{CS}. Bases are available in
   the colors red, black, silver, and transparent. Transparent bases
@@ -1148,7 +1149,7 @@ three mounted rings and a cap. For a product, the colors of base,
 rings, and cap as well as the order of the rings are of importance.
 
 Depending on the ring color, the robot may need to deliver one or more
-\emph{additional bases} to a \ac{RS} first in order to enable it to mount 
+\emph{additional bases} to a \ac{RS} first in order to enable it to mount
 the ring. We therefore distinguish \emph{color complexities} as $CC_0$, $CC_1$, and
 $CC_2$ depending on whether zero, one, or two additional bases are
 required for a color.
@@ -1287,8 +1288,8 @@ to the input, the signal light indicates the processing condition. If
 the machine accepts the input and starts processing, the green and yellow lights
 will be turned on constantly for as long as the processing is
 performed. Once processing completes, the signal light switches to a
-steady yellow light. If a product is fed for which additional bases
-were required but which have not been paid for, the machine will
+steady yellow light. If a product is processed for which additional bases
+were required but which have not been fed as payment yet, the machine will
 flash the red and yellow light and will be out of order
 (cf. \refsec{sec:broken-machine}). The light signals are summarized in
 \reftab{tab:production-machines-feedback}.
@@ -1510,7 +1511,7 @@ However, exploration points gained during the exploration can not be
 used for this. If the team has not yet received sufficient points,
 the payment can be performed on ''(partial) credit''. Points that were
 missing upon preparation will be subtracted later from points scored.
-Only retrieving and storing induces costs per operation. 
+Only retrieving and storing induces costs per operation.
 Points are deducted as soon as the respective operation finishes.
 %Additionally, dynamic costs occur depending on the volume and time of the
 %occupied storage: Each stored products induces
@@ -1789,15 +1790,15 @@ in time, it is disqualified from the ongoing game.
 The teams are responsible for restocking all materials (base elements,
 rings, prepared caps on shelves, and $C_0$ in the \ac{SS}) before and
 during matches.
-Each team has to designate one team-member as a \textit{``field-opreator''} who
+Each team has to designate one team-member as a \textit{``replenisher''} who
 must be specified to the corresponding referees ahead of each
-game. Only this team member will be allowed to access the field area in case of a 
-refill procedure. The field-operator must not obstruct other
+game. Only this team member will be allowed to access the field area in case of a
+refill procedure. The replenisher must not obstruct other
 robots and should interfere as little as possible.  The machines can only be
-refilled when a magazine or shelf is empty. In this case the field-operator may
+refilled when a magazine or shelf is empty. In this case the replenisher may
 enter the competition-area without asking the referee. Shelves have to be
 (re-)filled in all three reachable slots. % chktex 36
-The field-operator may restock only caps if transparent base elements have been put
+The replenisher may restock only caps if transparent base elements have been put
 back to the shelf, once no cap is remaining on this shelf.
 
 The teams are partly free to choose their assembly and placement of products.
@@ -2425,8 +2426,7 @@ shown in \reffig{fig:competition-area-challenges}, where the \ac{BS} is
 placed at M-Z12, CS1 is placed at M-Z53 and \ac{RS}1 is placed at M-Z25.
 In order to load this layout into the \ac{refbox} follow the instructions
 from the
-wiki\footnote{\url{https://github.com/robocup-logistics/rcll-refbox/wiki}}.
-% TODO: actually write the wiki article
+wiki\footnote{\url{https://github.com/robocup-logistics/rcll-refbox/wiki/Configuration#game}}. %ignore-long-line
 
 \begin{table}[!htb]
 \centering
