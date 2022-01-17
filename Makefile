@@ -1,4 +1,4 @@
-TARGETS = rulebook challenges
+TARGETS = rulebook
 
 all: $(addsuffix .pdf, $(TARGETS))
 
