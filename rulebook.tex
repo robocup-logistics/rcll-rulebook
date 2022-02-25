@@ -324,20 +324,6 @@ partner Festo transfers insights into future factory concepts to help
  Efficient handling of the material logistics and utilization of the available
  machines are core requirements to succeed in the \ac{RCLL}.
 
- This work flow is controlled by a \acf{refbox}~\cite{RCI-RefBox}%
-\footnote{Code and documentation available at
-\url{https://github.com/robocup-logistics/rcll-refbox}}
-broadcasting information via wifi (see \refsec{sec:referee-box}).
-It is a software system that runs on a
-system provided by the Organizing Committee and controls the overall game,
-monitors feedback from the robots, and awards points.
-The work flow itself is divided into phases:
-During a setup phase (see \refsec{sec:setup-phase})
-the field setup is prepared and the robots are started.
-Then the \ac{refbox} switches to the production phase, during which the
-\ac{refbox} dynamically announces the tasks that the robots must fulfill
-automatically.
-
 The RCLL supports different competition tracks:
 \begin{itemize}\itemsep0em
   \item Production logistic scenarios where two teams compete against
@@ -354,6 +340,26 @@ Depending on the game format
 the machine positions might be unknown in the beginning, such that they need
 to be correctly discovered (see \refsec{sec:exploration-phase}).
 
+This work flow is controlled by a \acf{refbox}~\cite{RCI-RefBox}%
+\footnote{Code and documentation available at
+\url{https://github.com/robocup-logistics/rcll-refbox}}
+broadcasting information via wifi (see \refsec{sec:referee-box}).
+% TODO: check if this sentence is true
+It is a software system that runs on a
+system provided by the Organizing Committee and controls the overall game,
+monitors feedback from the robots, and awards points.
+The work flow itself is divided into phases:
+During a setup phase (see \refsec{sec:setup-phase})
+the field setup is prepared and the robots are started.
+In the exploration phase (see \refsec{sec:exploration-phase}) teams
+need to discover the positions of their machines and report them to the
+\ac{refbox}.
+Within the production phase (see \refsec{sec:production-phase}) the
+\ac{refbox} dynamically announces the tasks that the robots must fulfill
+automatically.
+The main production scenario utilizes all of the above phases, some of the
+individual challenges skip the exploration phase, see
+\refsec{sec:tournament-challenges} for details.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Agreements \& Regulations}
