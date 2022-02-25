@@ -473,6 +473,15 @@ join\footnote{{\url{https://join.slack.com/t/robocuplogist-ewg8659/shared_invite
 \end{figure}
 The competition area of the \ac{RCLL} has a rectangular shape. The field is
 divided in square zones of \SI{1 x 1}{\metre}. %chktex 29
+The zones of each field are named according to the following scheme:
+A team prefix (``C-'' for cyan at the positive half of the X-axis, ``M-'' for
+magenta at the negative half of the X-axs), ``Z'' to distinguish zone names,
+and a grid coordinate form the name of a zone.
+For example, The zone C-Z23 is a zone on the cyan primary half, which is
+the second along the positive half of the X-axis and the third along the Y-axis.
+Zones will not be physically represented or visible on the field.
+They cannot be used for any other purpose than machine positioning.
+
 The field is partially surrounded (at least 50\% but not more than 70\%)
 by wall elements of at least \SI{0.5}{\metre} height.
 Different machines are placed within the area, the constraints for
@@ -737,15 +746,6 @@ each machine will be equipped with a narrowing cone on its input side
 
 \subsubsection{Machine Positioning}
 \label{sec:machine-swapping}
-The zones of each field are named according to the following scheme:
-A team prefix (``C-'' for cyan, ``M-'' for
-magenta), ``Z'' to distinguish zone names, and a grid coordinate form the name
-of a zone.
-For example, The zone C-Z23 is a zone on the cyan primary half, which is
-the second along the positive half of the X-axis and the third along the Y-axis.
-Zones will not be physically represented or visible on the field.
-They cannot be used for any other purpose than machine positioning.
-
 The zones and rotations for the \ac{MPS} will be randomly chosen by the
 \ac{refbox}.
 Each game will have a new randomly generated field layout, the referees will
