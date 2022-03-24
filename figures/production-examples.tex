@@ -1,0 +1,419 @@
+\documentclass[tikz]{standalone}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{siunitx}
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+% tweak rcll.mps library
+\newlength{\rcllCellWidth}
+\setlength{\rcllCellWidth}{4cm}
+% also look for local tikzlibrary
+\def\pgfutil@InputIfFileExists#1#2#3{\pgfutil@IfFileExists{\tikz@library@directory #1}
+    {\input \tikz@library@directory #1\relax#2}
+    {#3}}%
+% load rcll.mps library
+\usetikzlibrary{rcll.mps}
+\colorlet{mps-cyan}{cyan!30!white}
+\colorlet{mps-magenta}{magenta!30!white}
+\colorlet{pay1-path-col}{red!80!black}
+\colorlet{pay2-path-col}{brown}
+\colorlet{pay3-path-col}{cyan}
+\colorlet{wp-path-col}{green!80!black}
+% control shading speed
+\makeatletter
+\tikzset{
+    fading speed/.code={
+        \pgfmathtruncatemacro\tikz@startshading{50-(100-#1)*0.25}
+        \pgfmathtruncatemacro\tikz@endshading{50+(100-#1)*0.25}
+        \pgfdeclareverticalshading[%
+            tikz@axis@top,tikz@axis@middle,tikz@axis@bottom%
+        ]{axis#1}{100bp}{%
+            color(0bp)=(tikz@axis@bottom);
+            color(\tikz@startshading)=(tikz@axis@bottom);
+            color(50bp)=(tikz@axis@middle);
+            color(\tikz@endshading)=(tikz@axis@top);
+            color(100bp)=(tikz@axis@top)
+        }
+        \tikzset{shading=axis#1}
+    }
+}
+\makeatother
+
+\tikzset{
+	twocolored/.style={shading = axis, left color=mps-cyan,
+	                   right color=mps-magenta, fading speed=70, shading angle=30},
+	wppath/.style={line width=2pt}
+	}
+
+% draw workpiece with thick semi-opaque border
+% args:
+% - #1 position of the workpiece
+% - #2 workpiece color
+% - #3 border color
+\newcommand{\highlightwp}[3]{
+	\fill[#3,opacity=0.5] (#1) circle (0.7\rcllWpDiameter);
+	\fill[black] (#1) circle (0.5*\rcllWpDiameter);
+	\fill[#2] (#1) circle (0.4\rcllWpDiameter);
+}
+% draw from one mps to another with a north-bound arc
+% args:
+% - #1 from
+% - #2 to
+% - #3 from options
+% - #4 to options
+% - #5 line options
+% - #6 north-bound offset
+\newcommand{\fromtoabove}[6]{
+	\draw[wppath,#5, -stealth]
+	     ([yshift=2*\rcllWpDiameter,#3] #1)
+	     |-
+	     ([yshift=#6+2*\rcllWpDiameter]$(#1)!0.5!(#2)$)
+	     -|
+	     ([yshift=2*\rcllWpDiameter,#4] #2);
+}
+% draw from one mps to another with a south-bound arc
+% args:
+% - #1 from
+% - #2 to
+% - #3 from options
+% - #4 to options
+% - #5 line options
+% - #6 south-bound offset
+\newcommand{\fromtobelow}[6]{
+	\draw[wppath,#5, -stealth]
+	     ([yshift=-2*\rcllWpDiameter,#3] #1)
+	     |-
+	     ([yshift=-#6-2*\rcllWpDiameter]$(#1)!0.5!(#2)$)
+	     -|
+	     ([yshift=-2*\rcllWpDiameter,#4] #2);
+}
+% draw from one mps to opposite end of another
+% args:
+% - #1 from
+% - #2 to
+% - #3 from options
+% - #4 to options
+% - #5 line options
+% - #6 south-bound and norht-bound offset
+% - #7 Relative position, where switch between opposite ends happens
+\newcommand{\frombelowtoabove}[7]{
+	\draw[wppath,#5, -stealth]
+	     ([yshift=-2*\rcllWpDiameter,#3] #1)
+	     --
+	     ([yshift=-#6-2*\rcllWpDiameter,#3] #1)
+	     -|
+	     ([yshift=-#6-2*\rcllWpDiameter]$(#1)!#7!(#2)$)
+	     |-
+	     ([yshift=#6+2*\rcllWpDiameter,#4] #2)
+	     --
+	     ([yshift=2*\rcllWpDiameter,#4] #2);
+}
+% draw buffer cap operation
+% args:
+% - #1 pic name of CS
+% - #2 position options
+% - #3 color
+\newcommand{\buffercap}[3]{
+	\draw[wppath,#3,-stealth]
+	     ([yshift=-0.5\rcllWpDiameter,#2] #1CS-mps.east)
+	     |-
+	     node [pos=0.5,inner sep=1.5pt,fill=#3,circle] {}
+	     ([xshift=\rcllWpDiameter]#1-slide-anchor);
+	\draw[wppath,#3,-stealth]
+	     ([#2] #1CS-mps.center |- #1-slide-anchor)
+	     -- ([yshift=0.5\rcllWpDiameter,#2] #1CS-mps.west);
+}
+% draw mount cap operation
+% args:
+% - #1 pic name of CS
+% - #2 position options
+% - #3 color
+\newcommand{\mountcap}[3]{
+	\draw[wppath,#3]
+	     ([yshift=-0.5\rcllWpDiameter,#2] #1CS-mps.east)
+	     -- ([#2]#1CS-mps.center);
+	\draw[wppath,#3,-stealth]
+	     ([xshift=0.5\rcllWpDiameter]#1-slide)
+	     -|
+	     node [pos=0.5,inner sep=1.5pt,fill=#3,circle] {}
+	     ([yshift=0.5\rcllWpDiameter,#2] #1CS-mps.west);
+}
+% draw mount cap operation
+% args:
+% - #1 pic name of RS
+% - #2 position options
+% - #3 color
+% - #4 Ring name (e.g., R11 or R21)
+\newcommand{\mountring}[4]{
+	\draw[wppath,#3]
+	     ([yshift=-0.5\rcllWpDiameter,#2] #1RS-mps.east)
+	     -- ([#2,yshift=-1pt] #1RS-mps.center |- #1#4);
+	\draw[wppath,#3,-stealth]
+	     ([yshift=-0\rcllWpDiameter]#1#4)
+	     -|
+	     node [pos=0.5,inner sep=1.5pt,fill=#3,circle] {}
+	     ([yshift=0.5\rcllWpDiameter,#2] #1RS-mps.west);
+}
+% draw storage retrieve operation
+% args:
+% - #1 pic name of SS
+% - #2 position options
+% - #3 color
+\newcommand{\getstoredwp}[3]{
+	\draw[wppath,#3,-stealth]
+	     ([xshift=0.5\rcllWpDiameter]#1SS-mps.center)
+	     -|
+	     node [pos=0.5,inner sep=1.5pt,fill=#3,circle] {}
+	     ([yshift=0.5\rcllWpDiameter,#2] #1SS-mps.west);
+}
+% draw delivery operation
+% args:
+% - #1 pic name of DS
+% - #2 position options
+% - #3 color
+\newcommand{\deliverwp}[3]{
+	\draw[wppath,#3,-stealth]
+	     ([yshift=0.5\rcllWpDiameter,#2] #1DS-mps.east)
+	     |-
+	     node [pos=0.5,inner sep=1.5pt,fill=#3,circle] {}
+	     ([xshift=-2\rcllWpDiameter]#1DS-mps.center);
+}
+\begin{document}
+\begin{tikzpicture}[x=\rcllCellWidth,y=\rcllCellWidth]
+	% zone coordinates and names
+	\foreach \x in {1,...,3} {
+		\foreach \y in {1,...,1} {
+			\coordinate (C-Z\x\y) at ($(\x,\y)-(0.5,0.5)$);
+		}
+	}
+	% machine labels
+	\node[anchor=center] at (0.5, 1) {Base Station};
+	\node[anchor=center] at (1.5, 1) {Cap Station};
+	\node[anchor=center] at (2.5, 1) {Delivery Station};
+	% machines
+	\begin{scope}[rcllMPSstyle/.append style={twocolored}]
+		\path (C-Z11) pic[rotate=90] (CBS) {rcllBS};
+		\path (C-Z21) pic[rotate=90] (CCS1) {rcllCS={gray!50!white}};
+		\path (C-Z31) pic[rotate=270] (CDS) {rcllDS};
+	\end{scope}
+	% product path
+	\highlightwp{CBSBaseBlack}{black}{wp-path-col};
+	\draw[line width=2pt,wp-path-col, -stealth]
+		([xshift=0.5\rcllWpDiameter] CBSBaseBlack) -|
+		(CBSBS-mps.east);
+	\fromtoabove{CBSBS-mps.east}{CCS1CS-mps.east}
+	            {}{xshift=0.5\rcllWpDiameter}
+	            {wp-path-col}{0.4cm}
+	\mountcap{CCS1}{xshift=0.5\rcllWpDiameter}{wp-path-col}
+	\fromtobelow{CCS1CS-mps.west}{CDSDS-mps.east}
+	            {xshift=0.5\rcllWpDiameter}
+	            {}{wp-path-col}{0.4cm}
+	\deliverwp{CDS}{}{wp-path-col}
+	% capcarrier path
+	\highlightwp{CCS1CC1}{gray!50!white}{pay1-path-col};
+	\fromtoabove{CCS1CC1}{CCS1CS-mps.east}
+	            {}{xshift=-0.5\rcllWpDiameter}
+	            {pay1-path-col}{0.4cm}
+	\buffercap{CCS1}{xshift=-0.5\rcllWpDiameter}{pay1-path-col}
+	\draw[line width=2pt,pay1-path-col, -stealth]
+		([xshift=-0.5\rcllWpDiameter,yshift=-2\rcllWpDiameter] CCS1CS-mps.west) |-
+		node[pos=1,left,black]{drop}
+		([xshift=-4\rcllWpDiameter,yshift=-0.4cm-2\rcllWpDiameter] CCS1CS-mps.west);
+\end{tikzpicture}
+
+\begin{tikzpicture}[x=\rcllCellWidth,y=\rcllCellWidth]
+	% zone coordinates and names
+	\foreach \x in {1,...,4} {
+		\foreach \y in {1,...,1} {
+			\coordinate (C-Z\x\y) at ($(\x,\y)-(0.5,0.5)$);
+		}
+	}
+	% machine labels
+	\node[anchor=center] at (0.5, 1) {Base Station};
+	\node[anchor=center] at (1.5, 1) {Ring Station};
+	\node[anchor=center] at (2.5, 1) {Cap Station};
+	\node[anchor=center] at (3.5, 1) {Delivery Station};
+	% machines
+	\begin{scope}[rcllMPSstyle/.append style={twocolored}]
+		\path (C-Z11) pic[rotate=90] (CBS) {rcllBS};
+		\path (C-Z21) pic[rotate=90] (CRS1) {rcllRS={blue}{yellow}};
+		\path (C-Z31) pic[rotate=90] (CCS1) {rcllCS={black}};
+		\path (C-Z41) pic[rotate=270] (CDS) {rcllDS};
+	\end{scope}
+	% product path
+	\highlightwp{CBSBaseRed}{red}{wp-path-col};
+	\draw[line width=2pt,wp-path-col, -stealth]
+		([xshift=0.5\rcllWpDiameter] CBSBaseRed) -|
+		(CBSBS-mps.east);
+	\fromtoabove{CBSBS-mps.east}{CRS1RS-mps.east}{}{}{wp-path-col}{0.6cm}
+	\mountring{CRS1}{}{wp-path-col}{R11}
+	\highlightwp{CRS1R11}{blue,rotate=5}{wp-path-col};
+	\frombelowtoabove{CRS1RS-mps.west}{CCS1CS-mps.east}
+	                 {}{}
+	                 {wp-path-col}{0.6cm}{0.5}
+	\mountcap{CCS1}{xshift=0.5\rcllWpDiameter}{wp-path-col}
+	\fromtobelow{CCS1CS-mps.west}{CDSDS-mps.east}
+	            {xshift=0.5\rcllWpDiameter}{}
+	            {wp-path-col}{0.4cm}
+	\deliverwp{CDS}{}{wp-path-col}
+	% capcarrier path
+	\highlightwp{CCS1CC1}{black}{pay1-path-col};
+	\fromtoabove{CCS1CC1}{CCS1CS-mps.east}
+	            {}{xshift=-0.5\rcllWpDiameter}
+	            {pay1-path-col}{0.4cm}
+	\buffercap{CCS1}{xshift=-0.5\rcllWpDiameter}{pay1-path-col}
+	\draw[line width=2pt,pay1-path-col, -stealth]
+		([xshift=-0.5\rcllWpDiameter,yshift=-2\rcllWpDiameter] CCS1CS-mps.west) |-
+		node[pos=1,left,black]{drop}
+		([xshift=-4\rcllWpDiameter,yshift=-0.4cm-2\rcllWpDiameter] CCS1CS-mps.west);
+\end{tikzpicture}
+
+\begin{tikzpicture}[x=\rcllCellWidth,y=\rcllCellWidth]
+	% zone coordinates and names
+	\foreach \x in {1,...,5} {
+		\foreach \y in {1,...,1} {
+			\coordinate (C-Z\x\y) at ($(\x,\y)-(0.5,0.5)$);
+		}
+	}
+	% machine labels
+	\node[anchor=center] at (0.5, 1) {Base Station};
+	\node[anchor=center] at (1.5, 1) {Ring Station};
+	\node[anchor=center] at (2.5, 1) {Ring Station};
+	\node[anchor=center] at (3.5, 1) {Cap Station};
+	\node[anchor=center] at (4.5, 1) {Delivery Station};
+	% machines
+	\begin{scope}[rcllMPSstyle/.append style={twocolored}]
+		\path (C-Z11) pic[rotate=90] (CBS) {rcllBS};
+		\path (C-Z21) pic[rotate=90] (CRS1) {rcllRS={blue}{yellow}};
+		\path (C-Z31) pic[rotate=90] (CRS2) {rcllRS={green!50!black}{orange}};
+		\path (C-Z41) pic[rotate=90] (CCS1) {rcllCS={black}};
+		\path (C-Z51) pic[rotate=270] (CDS) {rcllDS};
+	\end{scope}
+	% product path
+	\highlightwp{CBSBaseSilver}{rcllmetallic}{wp-path-col};
+	\draw[line width=2pt,wp-path-col, -stealth]
+		([xshift=-0.5\rcllWpDiameter] CBSBaseSilver) -|
+		(CBSBS-mps.east);
+	\fromtoabove{CBSBS-mps.east}{CRS1RS-mps.east}{}{}{wp-path-col}{0.6cm}
+	\mountring{CRS1}{}{wp-path-col}{R11}
+	\highlightwp{CRS1R11}{blue,rotate=5}{wp-path-col};
+	\frombelowtoabove{CRS1RS-mps.west}{CRS2RS-mps.east}
+	                 {}{}
+	                 {wp-path-col}{0.6cm}{0.5}
+	\mountring{CRS2}{}{wp-path-col}{R11}
+	\highlightwp{CRS2R11}{green!50!black,rotate=5}{wp-path-col};
+	\frombelowtoabove{CRS2RS-mps.west}{CCS1CS-mps.east}
+	                 {}{xshift=0.5\rcllWpDiameter}
+	                 {wp-path-col}{0.6cm}{0.5}
+	\mountcap{CCS1}{xshift=0.5\rcllWpDiameter}{wp-path-col}
+	\fromtobelow{CCS1CS-mps.west}{CDSDS-mps.east}
+	            {xshift=0.5\rcllWpDiameter}{}
+	            {wp-path-col}{0.4cm}
+	\deliverwp{CDS}{}{wp-path-col}
+	% capcarrier path
+	\highlightwp{CCS1CC1}{black}{pay1-path-col};
+	\fromtoabove{CCS1CC1}{CCS1CS-mps.east}
+	            {}{xshift=-0.5\rcllWpDiameter}
+	            {pay1-path-col}{0.4cm}
+	\buffercap{CCS1}{xshift=-0.5\rcllWpDiameter}{pay1-path-col}
+	\frombelowtoabove{CCS1CS-mps.west}{CRS2-slide-bottom}
+	                 {xshift=-0.5\rcllWpDiameter}{}
+	                 {pay1-path-col}{0.3cm}{0.45}
+\end{tikzpicture}
+
+\begin{tikzpicture}[x=\rcllCellWidth,y=\rcllCellWidth]
+	% zone coordinates and names
+	\foreach \x in {1,...,5} {
+		\foreach \y in {1,...,1} {
+			\coordinate (C-Z\x\y) at ($(\x,\y)-(0.5,0.5)$);
+		}
+	}
+	% machine labels
+	\node[anchor=center] at (0.5, 1) {Base Station};
+	\node[anchor=center] at (1.5, 1) {Ring Station};
+	\node[anchor=center] at (2.5, 1) {Ring Station};
+	\node[anchor=center] at (3.5, 1) {Cap Station};
+	\node[anchor=center] at (4.5, 1) {Delivery Station};
+	% machines
+	\begin{scope}[rcllMPSstyle/.append style={twocolored}]
+		\path (C-Z11) pic[rotate=90] (CBS) {rcllBS};
+		\path (C-Z21) pic[rotate=90] (CRS1) {rcllRS={yellow}{green!50!black}};
+		\path (C-Z31) pic[rotate=90] (CRS2) {rcllRS={orange}{blue}};
+		\path (C-Z41) pic[rotate=90] (CCS1) {rcllCS={gray!50!white}};
+		\path (C-Z51) pic[rotate=270] (CDS) {rcllDS};
+	\end{scope}
+	% product path
+	\highlightwp{CBSBaseRed}{red}{wp-path-col};
+	\draw[line width=2pt,wp-path-col, -stealth]
+		([xshift=0.5\rcllWpDiameter] CBSBaseRed) -|
+		([xshift=-0.5\rcllWpDiameter]CBSBS-mps.east);
+	\fromtoabove{CBSBS-mps.east}{CRS1RS-mps.east}
+	            {xshift=-0.5\rcllWpDiameter}{xshift=-0.5\rcllWpDiameter}
+	            {wp-path-col}{0.3cm}
+	\mountring{CRS1}{xshift=-0.5\rcllWpDiameter}{wp-path-col}{R11}
+	\highlightwp{CRS1R11}{yellow,rotate=5}{wp-path-col};
+	\frombelowtoabove{CRS1RS-mps.west}{CRS2RS-mps.east}
+	                 {xshift=-0.5\rcllWpDiameter}{}
+	                 {wp-path-col}{0.4cm}{0.5}
+	\mountring{CRS2}{}{wp-path-col}{R11}
+	\highlightwp{CRS2R11}{orange,rotate=5}{wp-path-col};
+	\frombelowtoabove{CRS2RS-mps.west}{CRS1RS-mps.east}
+	                 {}{xshift=0.5\rcllWpDiameter}
+	                 {wp-path-col}{0.3cm}{0.4}
+	\mountring{CRS1}{xshift=0.5\rcllWpDiameter}{wp-path-col}{R21}
+	\highlightwp{CRS1R21}{green!50!black,rotate=5}{wp-path-col};
+	\frombelowtoabove{CRS1RS-mps.west}{CCS1CS-mps.east}
+	                 {xshift=0.5\rcllWpDiameter}{xshift=0.5\rcllWpDiameter}
+	                 {wp-path-col}{0.7cm}{0.8}
+	\mountcap{CCS1}{xshift=0.5\rcllWpDiameter}{wp-path-col}
+	\fromtobelow{CCS1CS-mps.west}{CDSDS-mps.east}
+	            {xshift=0.5\rcllWpDiameter}{}
+	            {wp-path-col}{0.4cm}
+	\deliverwp{CDS}{}{wp-path-col}
+	% capcarrier path
+	\highlightwp{CCS1CC1}{gray!50!white}{pay1-path-col};
+	\fromtoabove{CCS1CC1}{CCS1CS-mps.east}
+	            {}{xshift=-0.5\rcllWpDiameter}
+	            {pay1-path-col}{0.4cm}
+	\buffercap{CCS1}{xshift=-0.5\rcllWpDiameter}{pay1-path-col}
+	\frombelowtoabove{CCS1CS-mps.west}{CRS2-slide-bottom}
+	                 {xshift=-0.5\rcllWpDiameter}{}
+	                 {pay1-path-col}{0.3cm}{0.5}
+	% silver base path
+	\highlightwp{CBSBaseSilver}{rcllmetallic}{pay2-path-col};
+	\draw[line width=2pt,pay2-path-col, -stealth]
+		([xshift=-0.5\rcllWpDiameter] CBSBaseSilver) -|
+		([xshift=0.5\rcllWpDiameter,yshift=0.5\rcllWpDiameter]CBSBS-mps.west);
+	\frombelowtoabove{CBSBS-mps.west}{CRS1-slide-bottom}
+	                 {xshift=0.5\rcllWpDiameter}{xshift=-0.5\rcllWpDiameter}
+	                 {pay2-path-col}{0.4cm}{0.6}
+	% capcarrier payment path
+	\highlightwp{CCS1CC2}{gray!50!white}{pay3-path-col};
+	\fromtoabove{CCS1CC2}{CRS1-slide-bottom}
+	            {}{xshift=0.5\rcllWpDiameter}
+	            {pay3-path-col}{0.9cm}
+\end{tikzpicture}
+
+\begin{tikzpicture}[x=\rcllCellWidth,y=\rcllCellWidth]
+	% zone coordinates and names
+	\foreach \x in {1,...,2} {
+		\foreach \y in {1,...,1} {
+			\coordinate (C-Z\x\y) at ($(\x,\y)-(0.5,0.5)$);
+		}
+	}
+	% machine labels
+	\node[anchor=center] at (0.5, 1) {Storage Station};
+	\node[anchor=center] at (1.5, 1) {Delivery Station};
+	% machines
+	\begin{scope}[rcllMPSstyle/.append style={twocolored}]
+		\path (C-Z11) pic[rotate=90] (CSS) {rcllSS};
+		\path (C-Z21) pic[rotate=270] (CDS) {rcllDS};
+	\end{scope}
+	% product path
+	\getstoredwp{CSS}{}{wp-path-col}
+	\fromtobelow{CSSSS-mps.west}{CDSDS-mps.east}
+	            {}{}
+	            {wp-path-col}{0.4cm}
+	\deliverwp{CDS}{}{wp-path-col}
+\end{tikzpicture}
+\end{document}

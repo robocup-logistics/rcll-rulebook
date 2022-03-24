@@ -1,4 +1,4 @@
-TARGETS = rulebook challenges
+TARGETS = rulebook
 
 all: $(addsuffix .pdf, $(TARGETS))
 
@@ -59,7 +59,7 @@ check-trailing-whitespace_%: %.tex
 
 check-line-length_%: %.tex
 	@bash -c '\
-		longlines=$$(grep -n -e "^..\{${linelength}\}" $< | grep -v -e "ignore-long-line"); \
+		longlines=$$(grep -n -e "^..\{${linelength}\}" $< | grep -v -e "ignore-long-line" -e "^[0-9]*:\%"); \
 		if [ $$? -eq 0 ] ; then \
 			echo "Lines with length > ${linelength}:"; \
 			echo "$$longlines"; \

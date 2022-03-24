@@ -6,8 +6,8 @@ You can find the latest official rulebook under
 [Releases](https://github.com/robocup-logistics/rcll-rulebook/releases).
 Rule change proposals are tracked
 [here](https://github.com/robocup-logistics/rcll-rulebook/pulls).
-A list of the rule changes introduced in 2019 can be found
-[here](https://github.com/robocup-logistics/rcll-rulebook/pulls?utf8=%E2%9C%93&q=is%3Apr+label%3Aaccepted-rule-change+milestone%3A%22RoboCup+2019%22+).
+A list of the rule changes introduced in 2021 can be found
+[here](https://github.com/robocup-logistics/rcll-rulebook/pulls?utf8=%E2%9C%93&q=is%3Apr+label%3Aaccepted-rule-change+milestone%3A%22RoboCup+2021%22+).
 
 [![CircleCI](https://circleci.com/gh/robocup-logistics/rcll-rulebook.svg?style=svg)](https://circleci.com/gh/robocup-logistics/rcll-rulebook)
 
