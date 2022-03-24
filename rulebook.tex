@@ -368,10 +368,17 @@ individual challenges skip the exploration phase, see
 \subsection{Agreements \& Regulations}
 \label{sec:agreements}
 \paragraph{Standardized Robotic Platform}
-In the \ac{RCLL}, all teams are obliged to use the Robotino robotic system
-from Festo Didactic SE with certain freedoms and limitations. This
+In the \ac{RCLL}, the Robotino robotic system
+from Festo Didactic SE is used as common base platform that can be used with
+certain freedoms and limitations. This
 includes the current version, Robotino 4, as well as the phased-out
 Robotino 3 and 2. \refsec{sec:robotino} describes the specific constraints.
+The Robotino is the required platform for all teams participating in the main
+track of the \ac{RCLL}.
+Entry-level teams can explore the league with other robotic platforms as
+participation in the challenge track does not require the usage of the
+Robotino platform. However, the general hardware constraints outlined in
+\refsec{sec:robotino} still apply.
 
 \paragraph{Rules Philosophy}
 Each team should act within the meaning of a cooperative and fair behavior,
@@ -1847,22 +1854,30 @@ respected according to the \ac{refbox} announcement.
 \section{Hardware Specification}
 \label{sec:robotino}
 
-All participants have to design their competition Robotinos within the
-following specifications. For a detailed technical description of the
-basic hardware, refer to the Appendix~\ref{sec:engref}.
-There must be no changes to the controller or mechanical system.
+All participants have to design their competition robots within the
+following specifications.
 
-\subsection{Dimensions}
-The robots peripherals must not exceed the maximum total height of
-\SI{1.1}{\metre} including the tower and the table on top. Additional
-hardware (sensors, computing equipment, etc.)  must be within a circle
-of a diameter of \SI{0.55}{\metre} or centered at the robot's rotational
-center-point. Additional hardware may only occupy up to $25\%$ of this
-additional \SI{0.05}{\metre} wide ring around the
-robot.
+\subsection{Robot Dimensions}
+\begin{figure}
+  \includegraphics{figures/dimensions.pdf}
+  \caption{Robot dimensional constraints (top down view).}
+  \label{fig:dimensions}
+\end{figure}
+
+The robots dimensions (including sensors, computing equipment, etc.) must be
+within a cylindrical bounding box with maximum total height of \SI{1.1}{\metre}
+(relative to the ground) and a diameter of
+\SI{0.55}{\metre} (centered at the robot's rotational
+center-point, green \emph{Robotino base area} plus blue \emph{Extended area} of
+\reffig{fig:dimensions}) during regular operation.
+While  in front of a machine and during a production process, the gripper may
+be extended up to \SI{30}{\centi\metre} beyond the bounding box
+(red \emph{Actuator reach} of \reffig{fig:dimensions}).
+But it is only allowed to reach a maximum of
+\SI{15}{\centi\metre} into the machine area.
 
 \subsection{Sensors and Actuators}
-Any kind of sensors can be changed or added to the Robotino platform.
+Any kind of sensors can be changed or added to the robot platform.
 However, it is not possible to implement sensors that require
 modifications outside the Robotino area (e.g., Northstar, indoor GPS).
 The only additional actuator allowed is one gripping device for
@@ -1875,9 +1890,6 @@ similar are prohibited. All products will incorporate exactly one base
 unit allowing a single unified handling device to be used for all
 operations involving workpieces.
 
-In front of a machine and during a production process, the gripper may
-be extended up to 30cm. But it is only allowed to reach a maximum of
-15cm into the machine area.
 The gripper is allowed to transport one workpiece at a time. And it must
 release the workpiece for safety whenever the referee wants to take out it.
 
@@ -1891,6 +1903,27 @@ may be used for team coordination and/or other purposes. However,
 communication among the robots and the off-field device is not
 guaranteed during the competition.
 
+\subsection{Robotino-Specific Regulations}
+The following regulations are only applied to robots participating in the
+main track of the \ac{RCLL}, those are required to use the robotino platform.
+
+For a detailed technical description of the
+basic robotino hardware, refer to the Appendix~\ref{sec:engref}.
+There must be no changes to the controller or mechanical system.
+Past the diameter of \SI{45}{\centi\metre} (the width of the Robotino),
+additional hardware may only occupy up to $25\%$ of this
+additional \SI{5}{\centi\metre} wide ring around the robot
+(e.g., the dashed part of the \emph{Extended area} of \reffig{fig:dimensions}).
+
+\subsection{Open-Platform Regulations}
+The following regulations are only applied to robots participating in the
+challenge track of the \ac{RCLL} and that are not utilizing the robotino with
+its original controller and mechanical system.
+
+All robots are restricted to
+operate with a maximum speed of \SI[fraction-function=\dfrac]{1}{\metre/\second}
+to be comparable with the capabilities of the Robotino.
+
 \subsection{Markings}
 \label{sec:robot-markings}
 All field robots must be assigned a single unique number out of the
@@ -1899,13 +1932,6 @@ more places and clearly visible from all directions, e.g., printed
 adhesive labels placed on top or the sides of the robot. The number
 must be the same as is announced in the beacon signal to the referee
 box (cf.~\refsec{sec:referee-box}).
-
-% TODO: This was never enforced
-% For audiences and observers to distinguish both teams, all robots must
-% wear their respective unique colored label which is either cyan or
-% magenta.  The Velcro will be provided and is suggested to be placed on
-% the tower's side of each robot, the actual color-coded rings are then
-% dynamically divided among the playing teams.
 
 \section{Communication}
 \label{sec:communication}
