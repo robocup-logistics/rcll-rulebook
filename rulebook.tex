@@ -313,9 +313,9 @@ partner Festo transfers insights into future factory concepts to help
  \mbox{\url{https://github.com/robocup-logistics/rcll-rulebook}}}.
 
  Given recent developments in the object classification field, the
- decision was made in 2022 to merge exploration and production phase of the standard
- game to encourage the development and integration of these technologies into
- the league.
+ decision was made in 2022 to merge exploration and production phase of the
+ standard game to encourage the development and integration of these
+ technologies into the league.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The Task}
@@ -362,8 +362,9 @@ During a setup phase (see \refsec{sec:setup-phase})
 the field setup is prepared and the robots are started.
 Within the production phase (see \refsec{sec:production-phase}) the
 \ac{refbox} dynamically announces the tasks that the robots must fulfill
-automatically. During the first part of the production phase, no machine information
-will be announced. Robots need to discover the positions of their machines and report
+automatically. During the first part of the production phase, no machine
+information will be announced.
+Robots need to discover the positions of their machines and report
 them to the \ac{refbox} (see \refsec{sec:exploration-period}).
 The main production scenario utilizes all of the above phases, some of the
 individual challenges skip the exploration phase, see
@@ -1019,13 +1020,15 @@ zone in-between.
   \label{tab:markers}
 \end{table}
 Each machine will feature two \emph{markers} based on ARUCO AR tags,
-one will be placed on the input, another one on the output side. Depending on the
+one will be placed on the input, another one on the output side.
+Depending on the
 team's choice and the particular challenge, either the \ac{UMPS} marker,
 or a set of markers uniquely identifying each machine, side,
-and team (by color) will be used. All
-markers used are depicted in \reftab{tab:markers}. In the case of an identifying
-marker, the tags for input and output side will be different in order to differentiate
-the two sides. For an \ac{UMPS}, both sides will feature the same marker, simply
+and team (by color) will be used.
+All markers used are depicted in \reftab{tab:markers}.
+In the case of an identifying marker, the tags for input and output side will
+be different in order to differentiate the two sides.
+For an \ac{UMPS}, both sides will feature the same marker, simply
 indicating the presence of a machine. The marker will be
 horizontally centered below the conveyor belt. The vertical distance
 between the tag's upper edge and the conveyor belt will be about
@@ -1061,11 +1064,13 @@ Models for a conveyor belt, shelf and slides can be found in the
 The building materials for the models must be opaque, but may have any color.
 
 \section{Game Play}
-At the beginning of each match, the \ac{refbox} must be configured according to the
-game mode specification. To guide the match, the \ac{refbox} uitilises different phases,
+At the beginning of each match, the \ac{refbox} must be configured according to
+the game mode specification.
+To guide the match, the \ac{refbox} uitilises different phases,
 which are outlined in the following sections. Within the different game modes in
-the \ac{RCLL} (see \refsec{sec:tournament-main} and \refsec{sec:tournament-challenges}),
-different phases might be utilised. Regardless of the game mode, all matches will
+the \ac{RCLL} (see \refsec{sec:tournament-main} and
+\refsec{sec:tournament-challenges}), different phases might be utilized.
+Regardless of the game mode, all matches will
 start at the exact time scheduled by the Organizing Committee in the setup phase
 (cf.~\refsec{sec:setup-phase}).
 
@@ -1101,24 +1106,29 @@ A minimum of zero points will be accounted for the production phase.
 \subsubsection{Exploration Period}
 \label{sec:exploration-period}
 
-The \ac{refbox} is tasked with distributing machine information (including position)
-during the game to the robots of each team. Depending on the game mode, complexity
-might be increased by using an \textit{exploration period} at the beginning of the production phase.
-During this period, the positions of the machines won't be announced and the robots of
-both teams can roam the environment and report their (and only their) machines
-to the \ac{refbox}. Correctly reported machines will be rewarded with points and can
+The \ac{refbox} is tasked with distributing machine information
+(including position) during the game to the robots of each team.
+Depending on the game mode, complexity might be increased by using an
+\textit{exploration period} at the beginning of the production phase.
+During this period, the positions of the machines won't be announced and the
+robots of both teams can roam the environment and report their (and only their)
+machines to the \ac{refbox}.
+Correctly reported machines will be rewarded with points and can
 be used for production. Machines can be identified through two different ways:
 either by relying on the provided unique tags, or by using visual object
-classification methods. Teams are free to choose which method they will use, but the
-decision needs to be announced to the judges before the machine setup begins. Depending
-on the team's choice, the machines of a team will either be equipped with unique
-tags (should the tag based approach be chosen) or \ac{UMPS} tags. Points will be
-awarded for correct discoveries regardless of the chosen difficulty.
+classification methods.
+Teams are free to choose which method they will use, but the
+decision needs to be announced to the judges before the machine setup begins.
+Depending on the team's choice, the machines of a team will either be equipped
+with unique tags (should the tag based approach be chosen) or \ac{UMPS} tags.
+Points will be awarded for correct discoveries regardless of the chosen
+difficulty.
 The scoring is shown in \reftab{tab:scoring}.
 
 Moving or processing workpieces at an \ac{MPS} is explicitely
-allowed during the exploration period. As soon es the necessary machines have been
-correctly identified and reported to the refbox,
+allowed during the exploration period.
+As soon es the necessary machines have been
+correctly identified and reported to the \ac{refbox},
 production of announced orders or machine preparation can immediately begin.
 
 Reports are issued to the refbox using a \emph{MachineReport message}.
@@ -1138,9 +1148,9 @@ If the zone and rotation is correctly reported, the green light will be flashing
 and if the zone is correct but the rotation wrongly reported the red and green
 light will be on.
 
-The exploration period ends automaticaly after the time span has passed. Its end
-is marked by the distribution of machine position information from the \ac{refbox}
-to the robots.
+The exploration period ends automatically after the time span has passed.
+Its end is marked by the distribution of machine position information from the
+\ac{refbox} to the robots.
 
 
 
@@ -2108,7 +2118,8 @@ Objective of a match is to score the most points according to the scoring
 described in \refsec{sec:production-scoring}.
 Each match is 20 minutes long. The first 3 minute are the exploration period.
 During this period, machine location is not shared with the team's robots. After
-the exploration period is over, the information will be shared through the \ac{refbox}
+the exploration period is over, the information will be shared through the
+\ac{refbox}.
 With the switch to the production phase, the machine locations (zone position
 and rotation) are announced.
 
@@ -2202,7 +2213,8 @@ is based on a ranking score per won games. As each team in this phase directly
 competes with an opposing team, a ranking score will be determined as
 follows. In each \emph{game}, the winning team gets 3 ranking points, the
 loosing team gets 0. A team wins if it achieves more points in the game than the
-other team (cf.~\ref{sec:production-phase}).  In the case of a non-zero draw, see
+other team (cf.~\ref{sec:production-phase}).
+In the case of a non-zero draw, see
 \refsec{sec:overtime} for overtime.  If, after overtime, a draw is not resolved,
 both teams get 1 ranking point. If both team end with a zero score, each team
 gets 0 ranking points. Points awarded for commentary are not considered in this
