@@ -2137,12 +2137,42 @@ be found in Appendix~\ref{sec:wifi-equipment}.
 %%%
 
 
-\section{Tournament --- Main Track}
-\label{sec:tournament-main}
-This tournament format is organized in a main competition and three technical
-challenges. Teams can decide to participate in any of those.
+\section{Tournament Setup}
+A tournament in the \ac{RCLL} is divided into two different tracks.
+While in the challenge track (see \refsec{sec:tournament-challenges}) teams
+need to complete challenges without direct opposition in order to accumulate
+points, the main track consists of matches, where two teams directly compete
+against each other in a full production scenario.
 
-\subsection{Field Layout}
+Each tournament starts with a qualification day, where teams can attempt
+the production challenge (see \refsec{sec:challenge-cx}) from the challenge
+track in order to prove that they have the required prerequisites to participate
+in the main track. The schedule for each team on the qualification day will be
+provided by the \ac{OC} at the beginning of the tournament.
+
+Teams that complete the production challenge can chose the track that they
+want to participate in, the other teams will compete in the challenge track.
+
+The same field is used for both competition tracks, the \ac{OC} will provide
+a schedule for the remaining tournament once the qualification phase is over,
+where the time slots of both tracks are specified.
+
+In addition to the two competition track, there is also an open challenge, where
+teams can showcase ideas and innovations that go beyond the scope of the
+tournament track (See \refsec{sec:open-challenge}).
+
+\subsection{Main Track}
+\label{sec:tournament-main}
+Objective of a match is to score the most points according to the scoring
+described in \refsec{sec:production-scoring}.
+Each match is 20 minutes long. The first 3 minute are the exploration period.
+During this period, machine locations are not shared with the team's robots.
+After the exploration period is over, the information will be shared through
+the \ac{refbox}.
+With the switch to the production phase, the machine locations (zone position
+and rotation) are announced.
+
+\subsubsection{Field Layout}
 Games are played on a symmetrical fields, the competition area spans
 \SI{14 x 8}{\metre} and each team has one \ac{BS}, \ac{SS} % chktex 29
 and \ac{DS} as well as  two \ac{CS} and two \ac{RS} available,
@@ -2160,17 +2190,7 @@ non-primary half --- that is two machines in total per team. The \ac{CS} and
 \ac{RS} will be swapped with the symmetrically positioned machine of the
 same type of the other team.
 
-\subsection{Match Format}
-Objective of a match is to score the most points according to the scoring
-described in \refsec{sec:production-scoring}.
-Each match is 20 minutes long. The first 3 minute are the exploration period.
-During this period, machine location is not shared with the team's robots. After
-the exploration period is over, the information will be shared through the
-\ac{refbox}.
-With the switch to the production phase, the machine locations (zone position
-and rotation) are announced.
-
-\subsection{Order Schedule}
+\subsubsection{Order Schedule}
 The \ac{refbox} will announce orders throughout the game in an
 incremental fashion.
 The ring colors which
@@ -2239,55 +2259,33 @@ Teams playing on the field at the same time will get the same
 production plan. However, each game will use a new randomized order
 schedule.
 
-\subsection{Scheduled Machine Downtime --- Main Track}
+\subsubsection{Scheduled Machine Downtime}
 There will be exactly two occurrences of scheduled machine downtime for each
 game in the main track according to the rules in \refsec{sec:out-of-order}.
 
-\subsection{Tournament Phases}
+\subsubsection{Overview --- Main Track}
 \label{sec:tournament-phases}
-There will be three stages in the main competition, a round-robin
+There will be three stages in the main track, a (optional) round-robin
 phase for all participating teams, playoffs for the best four teams
 from the round-robin phase, and the finals. The best two teams of the
 playoffs play the grand finale to decide which team will become the
-next Logistics League champion, whereas the other two teams compete in
-the small final for the third place.
+winner of the main track in the \ac{RCLL}, whereas the other two teams compete
+in the small final for the third place.
 
-\subsubsection{Round-Robin phase}
-The first stage is a group phase and will be played as a round-robin. The teams
-will receive the true points they scored during the competition. The points will
-be accumulated in this phase and the teams will be ranked according to the
-accumulated points in descending order. Depending on this order, only the first
-6 teams are qualified for the Playoffs.
-
-\subsubsection{Playoffs}
-The play-offs can be played in one out of two modes, depending on the number of
-qualified teams.
-
-\paragraph{6 Qualified Teams.~}
-Qualified teams will be divided into two groups of three teams each. The first
-group will be composed of the teams that ranked first, fourth, and fifth in the
-Round-Robin phase respectively. The second group contains the teams that ranked
-second, third, and sixth. Within each group, each teams plays against all other
-teams (round-robin).
-
-\paragraph{Less than 6 Qualified Teams.~}
-All qualified for the Playoffs are added to a single group and play in
-round-robin fashion each team against all other teams.
-
-\paragraph{Scoring Scheme.~}
-During playoffs, the scoring scheme will be different from the Round-Robin and
-is based on a ranking score per won games. As each team in this phase directly
-competes with an opposing team, a ranking score will be determined as
-follows. In each \emph{game}, the winning team gets 3 ranking points, the
+\paragraph{Scoring Scheme}
+The scoring scheme in the round-robin phase and the playoffs is based on a
+ranking score per won games.
+As each team in this phase directly competes with an opposing team, a ranking
+score will be determined as follows.
+In each \emph{game}, the winning team gets 3 ranking points, the
 loosing team gets 0. A team wins if it achieves more points in the game than the
 other team (cf.~\ref{sec:production-phase}).
-In the case of a non-zero draw, see
-\refsec{sec:overtime} for overtime.  If, after overtime, a draw is not resolved,
-both teams get 1 ranking point. If both team end with a zero score, each team
-gets 0 ranking points. Points awarded for commentary are not considered in this
-decision.
+In the case of a non-zero draw, see \refsec{sec:overtime} for overtime.
+If, after overtime, a draw is not resolved, both teams get 1 ranking point.
+If both team end with a zero score, each team gets 0 ranking points.
+Points awarded for commentary are not considered in this decision.
 
-\paragraph{Ranking.~}
+\paragraph{Ranking}
 The \emph{overall ranking} is determined by the ranking score of teams, highest
 first. If two teams have the same score, the overall total in-game points are
 summarized and the team with more game points ranks higher. If there still is a
@@ -2295,7 +2293,37 @@ draw, the direct comparison of the games of the two teams is used to break the
 tie. If this still is unsuccessful, a coin toss determines the higher ranked
 team.
 
-\subsubsection{Finals}
+\paragraph{Round-Robin phase}
+If more than 6 teams participate in the main track, a preliminary round-robin
+phase will be played.
+The ranking points will be accumulated and the teams will be ranked
+according to the accumulated points in descending order.
+Depending on this order, only the first 6 teams are qualified for the Playoffs.
+In case of a tie, the scored in-game points across the played games are
+accumulated and used as tie-breaker.
+As a last resort a coin flip decides about the order.
+
+\paragraph{Playoffs}
+The play-offs can be played in one out of two modes, depending on the number of
+qualified teams.
+\begin{itemize}
+  \item 6 Qualified Teams
+
+Qualified teams will be divided into two groups of three teams each. The first
+group will be composed of the teams that ranked first, fourth, and fifth in the
+Round-Robin phase respectively. The second group contains the teams that ranked
+second, third, and sixth. Within each group, each teams plays against all other
+teams (round-robin).
+
+\item Less than 6 Qualified Teams
+
+All qualified for the Playoffs are added to a single group and play in
+round-robin fashion each team against all other teams.
+Depending on the number of teams each encounter may be played as best-of-3 or
+best-of-3 formats.
+\end{itemize}
+
+\paragraph{Finals}
 The best teams of the two playoff groups (or the two best teams in case of one
 group) will advance to the grand finale, the remaining two teams will compete in
 the small finals for the third place. The team that scores more points after the
@@ -2318,7 +2346,7 @@ zero points (points awarded for commentary are not considered in this
 decision). If after five minutes there is still no winner, the team
 scoring the first points during the extension will win.
 
-\subsection{Game Commentary}
+\subsubsection{Game Commentary}
 In addition to scoring the production phase,
 points are also awarded if a team provides an commentary on microphone
 to the public throughout the game as stated in \reftab{tab:scoring}.
@@ -2338,9 +2366,9 @@ overall time.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%
 
-\section{Tournament --- Challenge Track}
+\subsection{Challenge Track}
 \label{sec:tournament-challenges}
-This tournament is organized as a competition on a pool of challenges, where
+This track is organized as a competition on a pool of challenges, where
 teams can decide to participate in any number of those.
 
 The objectives of this tournament format are:
@@ -2355,14 +2383,14 @@ The objectives of this tournament format are:
        world.
 \end{itemize}
 
-\subsection{Field Layout}
+\subsubsection{Field Layout}
 Challenges are played on fields, where the competition area spans
 \SI{5 x 5}{\metre} and only one team participates at a time. %chktex 29
 The field depicted in \reffig{fig:competition-area-challenges} depicts a valid
 competition area for a match.
 Up to four \ac{MPS} may be placed on a field, depending on the chosen challenge.
 
-\subsection{Remote Setup}
+\subsubsection{Remote Setup}
 In case a competition is carried out remotely, a proper local setup has to
 be established and approved by the \ac{OC}.
 Requirements include a proper camera setup that covers the field sufficiently,
@@ -2379,7 +2407,7 @@ When challenges are played remotely, a video recording of the live-streams
 hast to be sent to the \ac{OC}.
 
 
-\subsection{Tournament Structure}
+\subsubsection{Overview --- Challenge Track}
 The challenge track offers a set of individual challenges that need to be solved
 throughout the official competition days.
 The available challenges are defined in \refsec{sec:tournament-challenges}.
@@ -2389,6 +2417,7 @@ The team with the most points by the end of the last competition day wins
 the tournament.
 % TODO: Tie break?
 
+\subsubsection{Online Format}
 For the online competitions of the year 2021 each team can book official
 attempts by announcing a 30 minute time slot along with the attempted challenge
 in advance of the respective competition day.
@@ -2431,7 +2460,7 @@ additional points. A challenge is only completed if the full score is achieved,
 so getting only partial credits for a challenge disqualifies from getting the
 bonus points for the fastest completion.
 
-\subsection{Changes compared to the Main Competition}
+\subsubsection{Changes compared to the Main Competition}
 The tasks covered in the various challenges of \refsec{sec:challenges} have to
 be executed following the regular rules for the \ac{RCLL}.
 However, some aspects are altered to simplify the setup.
@@ -2502,7 +2531,7 @@ regular \ac{RCLL} rules, those points do not count towards this competition.
 Instead, the point scoring for each challenge is listed in
 \refsec{sec:tournament-challenges}.
 
-\subsection{Available Challenges}
+\subsubsection{Challenges Overview}
 \label{sec:challenges}
 Challenges have different types and variations (difficulty levels).
 The overall score of the competition is calculated by summing up the score
@@ -2829,7 +2858,7 @@ five points.
 % is, robots need to localize and recognize the machines as well as
 % localize themselves via sensors attached to the robot.
 
-\subsection{Open Challenge~}
+\subsection{Open Challenge}\label{sec:open-challenge}
 Each team will be given 5 minutes to showcase their robot team, e.g.,
 show some new robotics developments. This may involve any task as long
 as it is performed with at most three Robotino robots within the
