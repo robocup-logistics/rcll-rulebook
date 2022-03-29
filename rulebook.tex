@@ -1600,14 +1600,18 @@ All costs are listed in \reftab{tab:scoring}.
 
 \begin{table}[]
   \begin{tabular}{|lll}
-  \multicolumn{3}{c}{\textbf{MachineReport Message}}                          \\
-  \multicolumn{1}{l}{Field}       & \multicolumn{1}{l}{Data Type} & Modality \\ \hline
-  \multicolumn{1}{l|}{Type}        & \multicolumn{1}{l|}{string}    & Required \\ \hline
-  \multicolumn{1}{l|}{Zone}        & \multicolumn{1}{l|}{Zone}      & Required \\ \hline
-  \multicolumn{1}{l|}{Orientation} & \multicolumn{1}{l|}{uint32}    & Optional \\ \hline
+  \multicolumn{3}{c}{\textbf{MachineReport Message}}                   \\
+  \multicolumn{1}{l}{Field}       & \multicolumn{1}{l}{Data Type}
+    & Modality \\ \hline
+  \multicolumn{1}{l|}{Type}        & \multicolumn{1}{l|}{string}
+    & Required \\ \hline
+  \multicolumn{1}{l|}{Zone}        & \multicolumn{1}{l|}{Zone}
+    & Required \\ \hline
+  \multicolumn{1}{l|}{Orientation} & \multicolumn{1}{l|}{uint32}
+    & Optional \\ \hline
   \end{tabular}
-  \caption{Contents of a \textit{MachineReport} message used to announce a discovered machine
-  to the \ac{refbox}.}
+  \caption{Contents of a \textit{MachineReport} message used to announce a
+  discovered machine to the \ac{refbox}.}
   \label{tab:machine-report}
 \end{table}
 
@@ -1618,8 +1622,8 @@ period. Machine positions will be announced after the end of the period.
 Regardless of the chosen tags, a machine report must always
 contain the machine's type, and zone. To
 issue a full report, the message must additionally contain the orientation
-(see Table~\ref{tab:machine-report} for the message layout and Table~\ref{tab:scoring}
-for scoring).
+(see Table~\ref{tab:machine-report} for the message layout and
+Table~\ref{tab:scoring} for scoring).
 However, depending on the chosen tags, the refbox will provide a different
 response to the \textit{MachineReport} message:
 \begin{enumerate}
@@ -1627,7 +1631,8 @@ response to the \textit{MachineReport} message:
   the scoring table and the correctness of the information. No
   reply will be given.
   \item \textbf{\ac{UMPS}:} The refbox will award the points according to
-  the scoring table and the correctness of the information. Since no physical indicators on the machines
+  the scoring table and the correctness of the information. Since no physical
+  indicators on the machines
   allow for identification of the team, the response will contain the
   name of the machine and the team it belongs to. For machines of the other
   team, just the team name will be revealed.
