@@ -1000,17 +1000,13 @@ zone in-between.
   \end{tabular}
   \vfill
   \vspace{0.5cm}
-  \begin{tabular}{|c|c|c|c|c|}
+  \begin{tabular}{|c|c|c|}
     \hline
-    & \multicolumn{2}{c|}{Cyan} & \multicolumn{2}{c|}{Magenta}\\\hline
-    Machine & ID & Tag & ID & Tag\\\hline
-    &&&&\\[-2ex]
+    Machine & ID & Tag \\\hline
+    &&\\[-2ex]
      \ac{UMPS} & 301
            & \parbox[c]{1.2cm}{
                \includegraphics[width=1.2cm]{markers/figure_301}}
-           & 302
-           & \parbox[c]{1.2cm}{
-               \includegraphics[width=1.2cm]{markers/figure_302}}
     \\[2.5ex]
     \hline
 
@@ -1132,7 +1128,7 @@ correctly identified and reported to the \ac{refbox},
 production of announced orders or machine preparation can immediately begin.
 
 Reports are issued to the refbox using a \emph{MachineReport message}.
-For each machine,identified by its name, both its zone and its orientation
+For each machine, identified by its name, both its zone and its orientation
 (in degrees) can be explored.
 Both properties can be submitted at the same time in one message or be split up
 into multiple messages.
@@ -1143,7 +1139,7 @@ wiki\footnote{\url{https://github.com/robocup-logistics/rcll-refbox/wiki/Communi
 The signal light of the \ac{MPS} will show a yellow light
 until a report regarding this machine is sent or the exploration period ends.
 If the wrong \ac{MPS} zone is sent, the light will start red
-flashing.  If only the \ac{MPS} zone is sent, the green light will be turn on.
+flashing. If only the \ac{MPS} zone is sent, the green light will be turn on.
 If the zone and rotation is correctly reported, the green light will be flashing
 and if the zone is correct but the rotation wrongly reported the red and green
 light will be on.
@@ -1599,6 +1595,44 @@ Points are deducted as soon as the respective operation finishes.
 %Pre-stored products do not cause dynamic costs.
 %The total amount of costs through storage station usage is capped.
 All costs are listed in \reftab{tab:scoring}.
+
+\paragraph{Exploration Period Scoring}
+
+\begin{table}[]
+  \begin{tabular}{|lll}
+  \multicolumn{3}{c}{\textbf{MachineReport Message}}                          \\
+  \multicolumn{1}{l}{Field}       & \multicolumn{1}{l}{Data Type} & Modality \\ \hline
+  \multicolumn{1}{l|}{Type}        & \multicolumn{1}{l|}{string}    & Required \\ \hline
+  \multicolumn{1}{l|}{Zone}        & \multicolumn{1}{l|}{Zone}      & Required \\ \hline
+  \multicolumn{1}{l|}{Orientation} & \multicolumn{1}{l|}{uint32}    & Optional \\ \hline
+  \end{tabular}
+  \caption{Contents of a \textit{MachineReport} message used to announce a discovered machine
+  to the \ac{refbox}.}
+  \label{tab:machine-report}
+\end{table}
+
+If the game mode includes an exploration period, machines
+can be reported to the \ac{refbox} during the entirety of the duration of the
+period. Machine positions will be announced after the end of the period.
+
+Regardless of the chosen tags, a machine report must always
+contain the machine's type, and zone. To
+issue a full report, the message must additionally contain the orientation
+(see Table~\ref{tab:machine-report} for the message layout and Table~\ref{tab:scoring}
+for scoring).
+However, depending on the chosen tags, the refbox will provide a different
+response to the \textit{MachineReport} message:
+\begin{enumerate}
+  \item \textbf{Unique Tags:} The refbox will award the points according to
+  the scoring table and the correctness of the information. No
+  reply will be given.
+  \item \textbf{\ac{UMPS}:} The refbox will award the points according to
+  the scoring table and the correctness of the information. Since no physical indicators on the machines
+  allow for identification of the team, the response will contain the
+  name of the machine and the team it belongs to. For machines of the other
+  team, just the team name will be revealed.
+\end{enumerate}
+
 % alternate row coloring
 \rowcolors{1}{gray!0!white}{gray!10!white}
 \begin{longtable}{p{\dimexpr.30\textwidth-2\tabcolsep}
