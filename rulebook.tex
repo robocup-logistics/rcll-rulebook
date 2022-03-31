@@ -1136,19 +1136,9 @@ The refbox accepts only the first submitted value for each property.
 For a detailed description of the message please refer to the \ac{refbox}
 wiki\footnote{\url{https://github.com/robocup-logistics/rcll-refbox/wiki/Communication-Protocol}}. % chktex ignore-long-line
 
-The signal light of the \ac{MPS} will show a yellow light
-until a report regarding this machine is sent or the exploration period ends.
-If the wrong \ac{MPS} zone is sent, the light will start red
-flashing. If only the \ac{MPS} zone is sent, the green light will be turn on.
-If the zone and rotation is correctly reported, the green light will be flashing
-and if the zone is correct but the rotation wrongly reported the red and green
-light will be on.
-
 The exploration period ends automatically after the time span has passed.
 Its end is marked by the distribution of machine position information from the
 \ac{refbox} to the robots.
-
-
 
 \subsubsection{Workpieces}
 \label{sec:workpieces}
@@ -1352,50 +1342,9 @@ the production period is completed, the resulting product is delivered
 on the output lane.
 
 A light signal mounted near the output lane
-(cf. \refsec{sec:machines}) indicates the state of the machine. In the
-default operating mode, the green light is turned on. This signals
-that the machine is ready for preparation. When preparation is performed,
-% TODO: really?! there is no sensor for that!?!
-the machine will flash the green light for up to 3 seconds (it
-immediately switches to a new state, e.g., if a product is fed into the
-machine before the three seconds have expired). When a product is fed
-to the input, the signal light indicates the processing condition. If
-the machine accepts the input and starts processing, the green and yellow lights
-will be turned on constantly for as long as the processing is
-performed. Once processing completes, the signal light switches to a
-steady yellow light. If a product is processed for which additional bases
-were required but which have not been fed as payment yet, the machine will
-flash the red and yellow light and will be out of order
-(cf. \refsec{sec:broken-machine}). The light signals are summarized in
-\reftab{tab:production-machines-feedback}.
-
-\begin{table}[bt]
-  \centering
-  \mytable{\begin{tabularx}{\linewidth}{p{0.36\linewidth}|X}
-      \multicolumn{1}{l}{Optical Feedback}
-      & \multicolumn{1}{l}{Operating mode}
-      \\
-      \hline
-      All LEDs turned off
-      & The machine is physically offline, caused by a real error, which should
-        not happen during the competition.
-      \\
-      Red LED turned on & The machine is out of order. \\
-      %Red LED flashing (at 2 Hz)
-      %& Machine signals that it ran out of stock on any required item. \\
-      Green LED turned on & The machine is idle and ready.\\
-      Green LED flashing & The machine has accepted the prepare command
-      (flashes for up to 3 seconds).\\
-      Green and yellow LED turned on & The machine is currently busy.\\
-      Yellow LED turned on & A workpiece is ready for pickup.\\
-      Red and yellow LED flashing (2 Hz) & Machine is broken, for
-      example because a product was fed without proper preparation of the
-      machine.\\%\hline
-%%keep Red any Yellow one?
-	\end{tabularx}}
-  \caption{MPS --- Optical Feedback during production phase}
-  \label{tab:production-machines-feedback}
-\end{table}
+(cf. \refsec{sec:machines}) indicates the state of the machine.
+The light signals are summarized in
+\reftab{tab:machine-lights}.
 
 In the production phase, machines must be prepared to be used by instructing
 the refbox. This applies to all machine types.
@@ -1500,6 +1449,29 @@ second preparation is performed the machine will
 be temporarily broken, which causes it to recover to a determined state.
 An \ac{MPS} may be reset by a team at any time by a dedicated msg.
 This causes the \ac{MPS} to go into the broken state as well.
+
+\begin{table}
+  \begin{tabular}{c|c|c||l}
+    \hline
+    \multicolumn{3}{c||}{\bf{Light Signals}} &
+    \multicolumn{1}{c}{\bf{Description}} \\\cline{1-3}
+    RED & YELLOW    & GREEN & \\\hline
+    ON    &       &       & Machine is DOWN, temporarily unavailable \\
+          & ON    &       & Report received, not processed yet \\
+          &       & ON    & Machine is IDLE and usable  \\
+          &       & BLINK & Machine is PREPARED  \\
+          & BLINK &       & Zone reported correctly \\
+    ON    & ON    &       & Zone reported wrongly \\
+          & ON    & ON    & Machine is processing \\
+    ON    & BLINK &       & Rotation reported wrongly \\
+          & ON    & BLINK & Machine is READY-AT-OUTPUT \\
+    BLINK & BLINK &       & Machine was wrongly instructed, it is currently
+    BROKEN \\
+          & BLINK & BLINK & Machine is WAIT-IDLE, soon to be IDLE again \\
+  \end{tabular}
+  \caption{Light codes for each machine status during the production phase.}
+  \label{tab:machine-lights}
+\end{table}
 
 \subsubsection{Broken Machine Downtime}
 \label{sec:broken-machine}
