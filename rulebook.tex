@@ -2412,9 +2412,9 @@ reached, which are accumulated if the challenge is completed fully.
   \multirow{2}{*}{Machines}
   & \multicolumn{4}{c}{Scoring} \\\cline{2-5}
 	& $\geq$ 4 zones  & $\geq$ 8 zones & all 12 zones  & combined \\\hline\hline
-	 2 & +2 & +4 & +9 & 15 \\
-	 3 & +3 & +6 & +14 & 23 \\
-	 4 & +4 & +8 & +18 & 30 \\
+	 2 & +4 & +3 & +3 & 10 \\
+	 3 & +5 & +4 & +3 & 12 \\
+	 4 & +6 & +5 & +4 & 15 \\
  \end{tabular}
  \caption{Navigation Challenge}
  \label{tab:challenge-navigation}
@@ -2434,8 +2434,8 @@ Variable in the number of machines
  \begin{tabular}{l|l}
   Machines & Scoring \\\hline
   2   & 10 \\
-  3   & 20 \\
-  4   & 30 \\
+  3   & 12 \\
+  4   & 15 \\
  \end{tabular}
  \caption{Exploration Challenge}
  \label{tab:challenge-exploration}
@@ -2469,18 +2469,16 @@ wiki\footnote{\url{https://github.com/robocup-logistics/rcll-refbox/wiki/Configu
   & \multicolumn{2}{c}{Scoring} \\\cline{2-3}
   & first repetition
   & each subsequent repetiton  \\\hline\hline
-  1 & +10 & +2 \\
-  2 & +20 & +2 \\
-  3 & +25 & +2 \\
+  1 & +4 & +2 \\
+  2 & +6 & +2 \\
+  3 & +9 & +2 \\
  \end{tabular}
  \caption{Grasping Challenge}
  \label{tab:challenge-grasping}
 \end{table}
 
 \subsubsection{Product Challenges}\label{sec:challenge-cx}
-This section covers four types of challenges, which all can be individually
-completed.
-Each challenge corresponds to the production of a product with one of the
+A team is only able to do one Production challenge. Each challenge corresponds to the production of a product with one of the
 available complexities (C0, C1, C2, C3) in the \ac{RCLL} using either
 one or two \ac{RS}.\\
 For complexities C1, C2 and C3 the accumulated cost for mounting the required
@@ -2490,13 +2488,12 @@ rings must be equal to 1, 2 and 3, respectively.
  \centering
  \begin{tabular}{l|l|l}
   Machines & Challenge type & Scoring \\\hline
-  2 & C0 & 30 \\
-  3 & C1 & 50 \\
-  4 & C1 & 50 \\
-  3 & C2 & 70 \\
-  4 & C2 & 70 \\
-  3 & C3 & 100 \\
-  4 & C3 & 100 \\
+  2 & C0 & 10 \\
+  3 & C1 & 12 \\
+  3 & C2 & 15 \\
+  4 & C2 & 15 \\
+  3 & C3 & 20 \\
+  4 & C3 & 20 \\
  \end{tabular}
  \caption{CX Challenge}
  \label{tab:challenge-cx}
@@ -2506,7 +2503,7 @@ rings must be equal to 1, 2 and 3, respectively.
 The same challenge as in \refsec{sec:challenge-cx} but without receiving the
 machine positions. Hence exploration and production takes place concurrently.
 The same point scores as in \reffig{tab:challenge-cx} apply with an additional
-$+20$ per challenge.
+$+5$ per challenge.
 
 
 \subsubsection{Markerless Detection Challenge}\label{sec:challenge-markerless}
