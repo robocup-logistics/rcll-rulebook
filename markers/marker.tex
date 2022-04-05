@@ -5,36 +5,39 @@
 \usepackage{tikz}
 \usetikzlibrary{positioning,calc}
 \usepackage{ifthen}
+\newcommand{\filename}[1]{%
+	figure_#1.png
+}
 \newcommand{\lookupMachine}[1]{%
   \ifthenelse{\equal{#1}{}}{}{%
-  \ifthenelse{\equal{#1}{1}}{C-CS1-I}{}%
-  \ifthenelse{\equal{#1}{17}}{C-CS2-I}{}%
-  \ifthenelse{\equal{#1}{33}}{C-RS1-I}{}%
-  \ifthenelse{\equal{#1}{177}}{C-RS2-I}{}%
-  \ifthenelse{\equal{#1}{65}}{C-BS-I}{}%
-  \ifthenelse{\equal{#1}{81}}{C-DS-I}{}%
-  \ifthenelse{\equal{#1}{193}}{C-SS-I}{}%
-  \ifthenelse{\equal{#1}{2}}{C-CS1-O}{}%
-  \ifthenelse{\equal{#1}{18}}{C-CS2-O}{}%
-  \ifthenelse{\equal{#1}{34}}{C-RS1-O}{}%
-  \ifthenelse{\equal{#1}{178}}{C-RS2-O}{}%
-  \ifthenelse{\equal{#1}{66}}{C-BS-O}{}%
-  \ifthenelse{\equal{#1}{82}}{C-DS-O}{}%
-  \ifthenelse{\equal{#1}{194}}{C-SS-O}{}%
-  \ifthenelse{\equal{#1}{97}}{M-CS1-I}{}%
-  \ifthenelse{\equal{#1}{113}}{M-CS2-I}{}%
-  \ifthenelse{\equal{#1}{129}}{M-RS1-I}{}%
-  \ifthenelse{\equal{#1}{145}}{M-RS2-I}{}%
-  \ifthenelse{\equal{#1}{161}}{M-BS-I}{}%
-  \ifthenelse{\equal{#1}{49}}{M-DS-I}{}%
-  \ifthenelse{\equal{#1}{209}}{M-SS-I}{}%
-  \ifthenelse{\equal{#1}{98}}{M-CS1-O}{}%
-  \ifthenelse{\equal{#1}{114}}{M-CS2-O}{}%
-  \ifthenelse{\equal{#1}{130}}{M-RS1-O}{}%
-  \ifthenelse{\equal{#1}{146}}{M-RS2-O}{}%
-  \ifthenelse{\equal{#1}{162}}{M-BS-O}{}%
-  \ifthenelse{\equal{#1}{50}}{M-DS-O}{}%
-  \ifthenelse{\equal{#1}{210}}{M-SS-O}{}%
+  \ifthenelse{\equal{#1}{101}}{C-CS1-O}{}%
+  \ifthenelse{\equal{#1}{102}}{C-CS1-I}{}%
+  \ifthenelse{\equal{#1}{103}}{C-CS2-O}{}%
+  \ifthenelse{\equal{#1}{104}}{C-CS2-I}{}%
+  \ifthenelse{\equal{#1}{201}}{M-CS1-O}{}%
+  \ifthenelse{\equal{#1}{202}}{M-CS1-I}{}%
+  \ifthenelse{\equal{#1}{203}}{M-CS2-O}{}%
+  \ifthenelse{\equal{#1}{204}}{M-CS2-I}{}%
+  \ifthenelse{\equal{#1}{111}}{C-RS1-O}{}%
+  \ifthenelse{\equal{#1}{112}}{C-RS1-I}{}%
+  \ifthenelse{\equal{#1}{113}}{C-RS2-O}{}%
+  \ifthenelse{\equal{#1}{114}}{C-RS2-I}{}%
+  \ifthenelse{\equal{#1}{211}}{M-RS1-O}{}%
+  \ifthenelse{\equal{#1}{212}}{M-RS1-I}{}%
+  \ifthenelse{\equal{#1}{213}}{M-RS2-O}{}%
+  \ifthenelse{\equal{#1}{214}}{M-RS2-I}{}%
+  \ifthenelse{\equal{#1}{121}}{C-BS-O}{}%
+  \ifthenelse{\equal{#1}{122}}{C-BS-I}{}%
+  \ifthenelse{\equal{#1}{221}}{M-BS-O}{}%
+  \ifthenelse{\equal{#1}{222}}{M-BS-I}{}%
+  \ifthenelse{\equal{#1}{131}}{C-DS-O}{}%
+  \ifthenelse{\equal{#1}{132}}{C-DS-I}{}%
+  \ifthenelse{\equal{#1}{231}}{M-DS-O}{}%
+  \ifthenelse{\equal{#1}{232}}{M-DS-I}{}%
+  \ifthenelse{\equal{#1}{141}}{C-SS-O}{}%
+  \ifthenelse{\equal{#1}{142}}{C-SS-I}{}%
+  \ifthenelse{\equal{#1}{241}}{M-SS-O}{}%
+  \ifthenelse{\equal{#1}{242}}{M-SS-I}{}%
   }%
 }
 \pagenumbering{gobble}% no page numbering
@@ -42,8 +45,6 @@
 \begin{document}
 \begin{tikzpicture}[x=1cm,y=1cm,overlay, remember picture,
                     shift=(current page.south west)]
-  %13/13.5 (old tag width was 13.5 cm, new one is 13
-  \def\scaletag{0.96296296296}
   \node[rotate=90,font=\Huge] at (10,5) {\textbf{ @ID@}};
   \node[scale=4,anchor=east,align=left, rotate=180,font=\Huge] at (2,2)
        {\textbf{\lookupMachine{@ID@}}};
@@ -57,9 +58,9 @@
   \coordinate (tag-left-bottom) at (4.5,8.7);
   \node[anchor=south west] at (tag-left-bottom) {\includegraphics[width=13cm,height=13cm,angle=90]{figure_@ID@.png}};
   \foreach \i in {1,...,3} {
-    \draw  (h\i) circle (2.5mm);
-    \draw  ([xshift=-0.25cm]h\i) -- ([xshift=0.25cm]h\i);
-    \draw  ([yshift=-0.25cm]h\i) -- ([yshift=0.25cm]h\i);
+    \draw[black!30!white]  (h\i) circle (2.5mm);
+    \draw[black!30!white]  ([xshift=-0.25cm]h\i) -- ([xshift=0.25cm]h\i);
+    \draw[black!30!white]  ([yshift=-0.25cm]h\i) -- ([yshift=0.25cm]h\i);
   }
 \end{tikzpicture}
 \end{document}
