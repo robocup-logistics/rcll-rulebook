@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{geometry}
+\usepackage{graphicx}
 \geometry{a4paper}
 \usepackage{tikz}
 \usetikzlibrary{positioning,calc}
@@ -54,23 +55,11 @@
   \coordinate[right=22mm of  h1] (h2);
   \coordinate[above right=215mm and 163mm of anchor] (h3);
   \coordinate (tag-left-bottom) at (4.5,8.7);
-  \coordinate (draw-left-bottom) at
-                ($(tag-left-bottom) + (\scaletag*1.5,\scaletag*1.5)$);
-  \coordinate (white-left-bottom) at
-                ($(tag-left-bottom) + (\scaletag*3,\scaletag*3)$);
+  \node[anchor=south west] at (tag-left-bottom) {\includegraphics[width=13cm,height=13cm,angle=90]{figure_@ID@.png}};
   \foreach \i in {1,...,3} {
     \draw  (h\i) circle (2.5mm);
     \draw  ([xshift=-0.25cm]h\i) -- ([xshift=0.25cm]h\i);
     \draw  ([yshift=-0.25cm]h\i) -- ([yshift=0.25cm]h\i);
   }
-  \fill [black] (tag-left-bottom) rectangle +(\scaletag*13.5,\scaletag*13.5);
-  \fill [white] (white-left-bottom) rectangle +(\scaletag*7.5,\scaletag*7.5);
-    \foreach \x/\y in @MARKER@ {
-      %transform old tag creation to be rotated
-      \pgfmathtruncatemacro{\xi}{6-\y};
-      \pgfmathtruncatemacro{\yi}{\x};
-      \fill [draw=black]
-              ($(draw-left-bottom) + (1.5*\xi*\scaletag,1.5*\yi*\scaletag)$)
-              rectangle +(\scaletag*1.5,\scaletag*1.5);}
 \end{tikzpicture}
 \end{document}
