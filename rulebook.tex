@@ -1020,7 +1020,9 @@ one will be placed on the input, another one on the output side.
 Depending on the
 team's choice and the particular challenge, either the \ac{UMPS} marker,
 or a set of markers uniquely identifying each machine, side,
-and team (by color) will be used.
+and team (by color) will be used. In case both teams opt-out of using markers,
+no markers will be affixed to the machines.
+
 All markers used are depicted in \reftab{tab:markers}.
 In the case of an identifying marker, the tags for input and output side will
 be different in order to differentiate the two sides.
@@ -1575,11 +1577,13 @@ All costs are listed in \reftab{tab:scoring}.
   \multicolumn{3}{c}{\textbf{MachineReport Message}}                   \\
   \multicolumn{1}{l}{Field}       & \multicolumn{1}{l}{Data Type}
     & Modality \\ \hline
+  \multicolumn{1}{l|}{Name}        & \multicolumn{1}{l|}{string}
+      & Optional \\ \hline
   \multicolumn{1}{l|}{Type}        & \multicolumn{1}{l|}{string}
     & Required \\ \hline
   \multicolumn{1}{l|}{Zone}        & \multicolumn{1}{l|}{Zone}
     & Required \\ \hline
-  \multicolumn{1}{l|}{Orientation} & \multicolumn{1}{l|}{uint32}
+  \multicolumn{1}{l|}{Rotation} & \multicolumn{1}{l|}{uint32}
     & Optional \\ \hline
   \end{tabular}
   \caption{Contents of a \textit{MachineReport} message used to announce a
@@ -1595,20 +1599,26 @@ Regardless of the chosen tags, a machine report must always
 contain the machine's type, and zone. To
 issue a full report, the message must additionally contain the orientation
 (see Table~\ref{tab:machine-report} for the message layout and
-Table~\ref{tab:scoring} for scoring).
-However, depending on the chosen tags, the refbox will provide a different
-response to the \textit{MachineReport} message:
+Table~\ref{tab:scoring} for scoring). Depending on the information provided in
+the report, the refbox will react the to the \textit{MachineReport} in one of
+the following ways:
+
 \begin{enumerate}
-  \item \textbf{Unique Tags:} The refbox will award the points according to
-  the scoring table and the correctness of the information. No
-  reply will be given.
-  \item \textbf{\ac{UMPS}:} The refbox will award the points according to
-  the scoring table and the correctness of the information. Since no physical
-  indicators on the machines
-  allow for identification of the team, the response will contain the
-  name of the machine and the team it belongs to. For machines of the other
-  team, just the team name will be revealed.
+  \item \textbf{Correct Zone and Type: }  The \ac{refbox} will provide the team
+  and machine name through a \textit{MachineTypeFeedback} message.
+  \begin{itemize}
+    \item \textbf{+ Correct Rotation: } The \ac{refbox} will award points
+    for the full report as defined in Table~\ref{tab:scoring}.
+  \end{itemize}
+  \item \textbf{Incorrect Zone or Incorrect Type: } No points will be awarded
+  and no information will be given.
 \end{enumerate}
+
+The number of allowed reports per machine type is limited to the number of
+machines of the type in possession of each team. This number includes attempts
+with incorrect information, that do not yield a positive feedback from the
+\ac{refbox}. Wrong reports will lead to a point deduction as defined in
+Table~\ref{tab:scoring}.
 
 % alternate row coloring
 \rowcolors{1}{gray!0!white}{gray!10!white}
@@ -1620,19 +1630,18 @@ response to the \textit{MachineReport} message:
            \multicolumn{1}{l}{Report type}
            & \multicolumn{1}{l}{Description}
            & \multicolumn{1}{l}{Points}\\\hline\hline
-          Zone/Orientation
-          & Correctly determine a machine zone and the rotation of your team
-            and report it successfully to the \ac{refbox}
+          Zone+Orientation+Type
+          & Correctly determine a machine type, zone and the rotation of a
+            machine of your team and report it successfully to the \ac{refbox}.
           & $+2$
           \\
           Type
-          & only machine zone reported
-          & $+1$
+          & Report a type for a zone for which either no machine is present or
+          the present machine has a different type.
+          & $-1$
           \\
-          & Machine zone reported correctly but orientation wrongly ($1-1=0$)
-          & $0$
-          \\
-		      & wrongly reported machine zone (orientation irrelevant)
+          Zone
+		      & Report a zone in which no machine is present.
           & $-1$
           \\
           \hline
