@@ -1605,7 +1605,10 @@ the following ways:
 
 \begin{enumerate}
   \item \textbf{Correct Zone and Type: }  The \ac{refbox} will provide the team
-  and machine name through a \textit{MachineTypeFeedback} message.
+  and machine name through a \textit{MachineTypeFeedback} message. No points
+  will be awarded.
+  \item \textbf{Correct Zone, Type, Machine Name: }  The \ac{refbox} will award
+  points for a partial report according to Table~\ref{tab:scoring}.
   \begin{itemize}
     \item \textbf{+ Correct Rotation: } The \ac{refbox} will award points
     for the full report as defined in Table~\ref{tab:scoring}.
@@ -1614,11 +1617,15 @@ the following ways:
   and no information will be given.
 \end{enumerate}
 
-The number of allowed reports per machine type is limited to the number of
-machines of the type in possession of each team. This number includes attempts
-with incorrect information, that do not yield a positive feedback from the
-\ac{refbox}. Wrong reports will lead to a point deduction as defined in
-Table~\ref{tab:scoring}.
+This means that in order to provide a report that scores points, in the
+case that no markers are used, two reports must be submitted. In the first
+one, zone and type a specified, to which the \ac{refbox} replies with the
+machine name. The information can then be combined to create a partial or
+full report to claim points. The number of allowed reports per machine type
+is limited to the number of machines of the type in possession of each team
+This number includes attempts with incorrect information, that do not yield
+a positive feedback from the \ac{refbox}. Wrong reports will lead to a point
+deduction as defined in Table~\ref{tab:scoring}.
 
 % alternate row coloring
 \rowcolors{1}{gray!0!white}{gray!10!white}
@@ -1631,9 +1638,14 @@ Table~\ref{tab:scoring}.
            & \multicolumn{1}{l}{Description}
            & \multicolumn{1}{l}{Points}\\\hline\hline
           Zone+Orientation+Type
-          & Correctly determine a machine type, zone and the rotation of a
+          & Correctly determine the type, zone and the rotation of a
             machine of your team and report it successfully to the \ac{refbox}.
           & $+2$
+          \\
+          Zone+Type
+          & Correctly determine the type and zone of a
+            machine of your team and report it successfully to the \ac{refbox}.
+          & $+1$
           \\
           Type
           & Report a type for a zone for which either no machine is present or
