@@ -1612,32 +1612,33 @@ The scoring is shown in \reftab{tab:scoring}.
     |p{\dimexpr.15\textwidth-2\tabcolsep}}
 
           \multicolumn{3}{c}{\textbf{Exploration Points}}\\\hline
-           \multicolumn{1}{l}{Report type}
+           \multicolumn{1}{l}{Report Type}
            & \multicolumn{1}{l}{Description}
            & \multicolumn{1}{l}{Points}\\\hline\hline
-          Zone+Orientation+Type
-          & Correctly determine the type, zone and the rotation of a
-            machine of your team and report it successfully to the \ac{refbox}.
+          Machine Name Report
+          & Machine zone and rotation reported correctly.
           & $+2$
           \\
-          Zone+Type
-          & Correctly determine the type and zone of a
-            machine of your team and report it successfully to the \ac{refbox}.
+          & Machine zone reported correctly, rotation not specified.
           & $+1$
           \\
-          Type
-          & Report a type for a zone for which either no machine is present or
-          the present machine has a different type.
+          & Machine zone reported correctly but orientation wrongly ($1-1=0$)
+          & $0$
+          \\
+          & Machine zone reported wrongly (orientation irrelevant)
           & $-1$
           \\
-          Zone
-		      & Report a zone in which no machine is present.
+          Machine Type Report
+          & Machine type and zone reported correctly (machine name is revealed)
+          & $0$
+          \\
+          & Machine type and zone reported wrongly
           & $-1$
           \\
           \hline
           Round Total
           & A maximum of 14 points can be achieved by correctly reporting all
-            7 production machines. A minimum of 0 points is awarded.
+            7 production machines.
           & \SItextrange{0:14}{}\\
       %  }
           \hhline{===}
