@@ -1567,61 +1567,43 @@ Points are deducted as soon as the respective operation finishes.
 All costs are listed in \reftab{tab:scoring}.
 
 \paragraph{Exploration Period Scoring}
-
-\begin{table}[]
-  \begin{tabular}{|lll}
-  \multicolumn{3}{c}{\textbf{MachineReport Message}}                   \\
-  \multicolumn{1}{l}{Field}       & \multicolumn{1}{l}{Data Type}
-    & Modality \\ \hline
-  \multicolumn{1}{l|}{Name}        & \multicolumn{1}{l|}{string}
-      & Optional \\ \hline
-  \multicolumn{1}{l|}{Type}        & \multicolumn{1}{l|}{string}
-    & Required \\ \hline
-  \multicolumn{1}{l|}{Zone}        & \multicolumn{1}{l|}{Zone}
-    & Required \\ \hline
-  \multicolumn{1}{l|}{Rotation} & \multicolumn{1}{l|}{uint32}
-    & Optional \\ \hline
-  \end{tabular}
-  \caption{Contents of a \textit{MachineReport} message used to announce a
-  discovered machine to the \ac{refbox}.}
-  \label{tab:machine-report}
-\end{table}
-
 If the game mode includes an exploration period, machines
 can be reported to the \ac{refbox} during the entirety of the duration of the
-period. Machine positions will be announced after the end of the period.
+period.
+Machines cannot be instructed during the exploration period, unless they were
+correctly reported (meaning, both the zone and rotation were correct).
+Machine positions will be announced after the end of the period.
 
-Regardless of the chosen tags, a machine report must always
-contain the machine's type, and zone. To
-issue a full report, the message must additionally contain the orientation
-(see Table~\ref{tab:machine-report} for the message layout and
-Table~\ref{tab:scoring} for scoring). Depending on the information provided in
-the report, the refbox will react the to the \textit{MachineReport} in one of
-the following ways:
+For each machine,identified by its name, both its zone and its orientation
+(in degrees) can be explored.
+Both properties can be submitted at the same time in one message or be split up
+into multiple messages.
+The \ac{refbox} accepts only the first submitted value for each property.
+It also sends a \textit{MachineReportInfo} that provides general feedback,
+but does not contain information about the outcome of the received reports.
+For a detailed description of the message please refer to the \ac{refbox}
+wiki\footnote{\url{https://github.com/robocup-logistics/rcll-refbox/wiki/Communication-Protocol}}. % chktex ignore-long-line
 
-\begin{enumerate}
-  \item \textbf{Correct Zone and Type: }  The \ac{refbox} will provide the team
-  and machine name through a \textit{MachineTypeFeedback} message. No points
-  will be awarded.
-  \item \textbf{Correct Zone, Type, Machine Name: }  The \ac{refbox} will award
-  points for a partial report according to Table~\ref{tab:scoring}.
-  \begin{itemize}
-    \item \textbf{+ Correct Rotation: } The \ac{refbox} will award points
-    for the full report as defined in Table~\ref{tab:scoring}.
-  \end{itemize}
-  \item \textbf{Incorrect Zone or Incorrect Type: } No points will be awarded
-  and no information will be given.
-\end{enumerate}
-
+The name of a machine can be determined in two ways:
+\begin{itemize}
+  \item If the machine has an identifying marker, then the machine name can be
+    retrieved by correctly reading the marker.
+  \item The machine name can alternatively be requested from the \ac{refbox},
+   given its zone and type are known.
+   If a \textit{MachineReport} is sent without a specified machine name, but
+   with a machine type and a belonging zone, then the \textit{MachineReportInfo}
+   will contain a corresponding \textit{MachineTypeFeedback} with the name
+   and of the belonging team at that location.
+   If there is no machine of the given type at the specified zone, then this
+   counts as a wrong zone exploration and one machine of that type cannot be
+   reported anymore.
+\end{itemize}
 This means that in order to provide a report that scores points, in the
 case that no markers are used, two reports must be submitted. In the first
 one, zone and type a specified, to which the \ac{refbox} replies with the
-machine name. The information can then be combined to create a partial or
-full report to claim points. The number of allowed reports per machine type
-is limited to the number of machines of the type in possession of each team
-This number includes attempts with incorrect information, that do not yield
-a positive feedback from the \ac{refbox}. Wrong reports will lead to a point
-deduction as defined in Table~\ref{tab:scoring}.
+machine name. The information can be used to create a partial or
+full report for the machine name to claim points.
+The scoring is shown in \reftab{tab:scoring}.
 
 % alternate row coloring
 \rowcolors{1}{gray!0!white}{gray!10!white}
