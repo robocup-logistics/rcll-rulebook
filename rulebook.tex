@@ -1407,6 +1407,10 @@ retrieve. Each \ac{RS} is responsible for two specific colors. Some colors
 require loading the \ac{RS} with additional bases
 (cf.~\refsec{sec:production-complexities}). If the desired color requires
 additional bases, the machine expects to receive them first.
+It is required to wait at least $5$ seconds between
+subsequently loading bases into a \ac{RS} slide as the sensor may trigger
+multiple times during a loading attempt, which is why the read data must be
+filtered.
 Once the required number of
 additional bases has been received, the intermediate product can be
 fed into the machine. It receives a ring of the desired color and
