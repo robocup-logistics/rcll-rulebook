@@ -79,7 +79,7 @@
 %% HYPERREF %%%%%%%%%%%%%%%%%%%
 \usepackage{hyperref}
 \hypersetup{
-  pdftitle      = {The RoboCup Logistics League Rulebook for 2021},
+  pdftitle      = {The RoboCup Logistics League Rulebook for 2022},
   pdfauthor     = {RCLL TC},
   pdfkeywords   = {RCLL, Rulebook},
   pdfsubject    = {},
@@ -159,13 +159,13 @@
     \begin{LARGE}
 
       {\bf RoboCup Logistics League}\\[2ex]
-      {\Large Rules and Regulations 2021}\\[4ex]
+      {\Large Rules and Regulations 2022}\\[4ex]
     \end{LARGE}
     \hrule
 
     {\LARGE\vspace*{4ex}}
     \begin{Large}
-      The Technical Committee 2012--2021\\[6ex]
+      The Technical Committee 2012--2022\\[6ex]
     \end{Large}
     \begin{tabular}{lll}
       \textbf{Lukas Knoflach}&
@@ -196,9 +196,9 @@
       \\
     \end{tabular}
     \vfill
-    Revision Date: Friday, December 31\textsuperscript{\raisebox{-.2ex}{th}}
-    2021
-    \\ DRAFT --- Work in Progress
+    Revision Date: Monday, April 18\textsuperscript{\raisebox{-.2ex}{th}}
+    2022
+    %\\ DRAFT --- Work in Progress
   \end{center}
 \end{titlepage}
 \thispagestyle{empty}
@@ -313,10 +313,30 @@ partner Festo transfers insights into future factory concepts to help
  yet\footnote{A list of rule changes can be found at
  \mbox{\url{https://github.com/robocup-logistics/rcll-rulebook}}}.
 
+ In 2022 the \ac{TC} reworked the online format to become a challenge track
+ for real competitions which is suitable for upcoming teams to solve individual
+ challenges of the \ac{RCLL}, while
+ seasoned teams compete against each other in regular \ac{RCLL} games
+ in the main track of the competition.
+ The league also relaxed the hardware restrictions to allow the use of
+ alternative robotic platforms other than the Festo robotino for
+ teams competing in the new challenge track.
+ This enables interested teams to explore the different tasks of the \ac{RCLL}
+ before committing to the standard platform of the league.
  Given recent developments in the object classification field, the
- decision was made in 2022 to merge exploration and production phase of the
- standard game to encourage the development and integration of these
- technologies into the league.
+ decision was made to rework the exploration in the main track.
+ Firstly, the exploration and production phase are merged to allow machine
+ usage as soon as they are correctly reported.
+ Secondly, the deprecated ALVAR tags got replaced by ARUCO tags as markers
+ for machines. ARUCO tags are widely supported.
+ Thirdly, teams can now chose to play without markers.
+ While currently being an optional choice, the \ac{TC} decided to establish
+ the use of markerless machine detecting methods in the future by rewarding
+ the play without markers in the games directly, instead of relying on a
+ separate technical challenge for this (as it was the case previously).
+ Lastly, the order schedule within \ac{RCLL} games in the main track got
+ modified to be less predictable while following simpler generation rules to
+ dispatch orders.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The Task}
