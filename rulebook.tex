@@ -2192,14 +2192,24 @@ The ring colors which
 require additional bases are randomized per game and announced by the
 refbox. There will be one color requiring 2 additional bases, one
 requiring 1 base, and two colors requiring no additional base at
-all.
+all. The ring colors are assigned to the ring stations according to
+\reftab{tab:main-track-ring-color-assignment}.
+
+\begin{table}
+\begin{tabular}{l||c|c}
+  \bf{Ring Station} & \bf{Color 1} & \bf{Color 2} \\\hline
+  RS1 & ORANGE & GREEN \\
+  RS2 & BLUE & YELLOW
+\end{tabular}
+\caption{Assignments of ring colors to ring stations.}
+\label{tab:main-track-ring-color-assignment}
+\end{table}
 
 In each regular game, up to 10 orders will be posted.
 Each order will require one product of a specified product
 type to be delivered.
 The product is specified in terms of base
 color, rings (color and order) and cap color.
-% TODO: is the delivery gate actually sent
 3 time points are attached to each order:
 At its \emph{activation time}, the \ac{refbox} announces the order to each
 team along with a \emph{delivery start time} and a \emph{delivery end time}
