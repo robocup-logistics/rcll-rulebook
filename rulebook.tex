@@ -632,7 +632,7 @@ Based on these shared properties, there are five kinds of machines:
 \item[\acf{RS}] mounts one colored ring out of two available
   colors on an intermediate product (\reffig{fig:RS}). Each \ac{RS} has two
   vacuum pick \& place units as application modules with separate
-  unique colors which are determined new for each game. There is an
+  unique colors which are determined by the \ac{refbox}. There is an
   additional pre-fill slide which is used for some colors (specified
   anew for each game) to add base elements.
   %There are two \ac{RS} per team.
@@ -640,7 +640,24 @@ Based on these shared properties, there are five kinds of machines:
 \item[\acf{SS}] provides 48 slots of storage divided into
   6 layers (\reffig{fig:SS_portrait}).
   The Storage Station initially provides one pre-stored sample of each possible
-  $C_0$ configuration (one per layer).
+  $C_0$ configuration (one per layer), according to \reftab{tab:ss-c0-init}.
+\begin{table}
+  \begin{tabular}{c|c||c}
+    \hline
+    \multicolumn{2}{c||}{\bf{Product}} &
+    \multicolumn{1}{c}{\bf{Position}} \\\cline{1-3}
+    Base Color & Cap Color  & \\\hline
+    RED    & GREY  & (0,1) \\
+    RED    & BLACK & (1,1) \\
+    SILVER & GREY  & (2,1) \\
+    SILVER & BLACK & (3,1) \\
+    BLACK  & GREY  & (4,1) \\
+    BLACK  & BLACK & (5,1) \\
+  \end{tabular}
+  \caption{Pre-stored C0 products at the \ac{SS}, the positions are labeled
+    according to \reffig{fig:ss-shelf}.}
+  \label{tab:ss-c0-init}
+\end{table}
 
 \item[\acf{DS}] Accepts completed products. The stations contains
   three slides (\reffig{fig:DS}). The delivered products are verified by either
