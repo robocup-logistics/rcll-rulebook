@@ -117,6 +117,7 @@
 \usepackage{calc}
 \usepackage{float}
 \usepackage{hhline}
+\usepackage{afterpage}
 \usepackage{longtable}
 \restylefloat{table}
 
@@ -141,6 +142,7 @@
 \acrodef{TC}{Technical Committee}
 \acrodef{OC}{Organizational Committee}
 \acrodef{TBD}{To be Discussed}
+\acrodef{UMPS}{Unmarked MPS}
 
 
 \begin{document}
@@ -311,6 +313,11 @@ partner Festo transfers insights into future factory concepts to help
  yet\footnote{A list of rule changes can be found at
  \mbox{\url{https://github.com/robocup-logistics/rcll-rulebook}}}.
 
+ Given recent developments in the object classification field, the
+ decision was made in 2022 to merge exploration and production phase of the
+ standard game to encourage the development and integration of these
+ technologies into the league.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The Task}
 \label{sec:task}
@@ -341,7 +348,7 @@ The RCLL supports different competition tracks:
 Depending on the game format
 (see \refsec{sec:tournament-main} and \refsec{sec:tournament-challenges}),
 the machine positions might be unknown in the beginning, such that they need
-to be correctly discovered (see \refsec{sec:exploration-phase}).
+to be correctly discovered (see \refsec{sec:exploration-period}).
 
 This work flow is controlled by a \acf{refbox}~\cite{RCI-RefBox}%
 \footnote{Code and documentation available at
@@ -354,12 +361,12 @@ monitors feedback from the robots, and awards points.
 The work flow itself is divided into phases:
 During a setup phase (see \refsec{sec:setup-phase})
 the field setup is prepared and the robots are started.
-In the exploration phase (see \refsec{sec:exploration-phase}) teams
-need to discover the positions of their machines and report them to the
-\ac{refbox}.
 Within the production phase (see \refsec{sec:production-phase}) the
 \ac{refbox} dynamically announces the tasks that the robots must fulfill
-automatically.
+automatically. During the first part of the production phase, no machine
+information will be announced.
+Robots need to discover the positions of their machines and report
+them to the \ac{refbox} (see \refsec{sec:exploration-period}).
 The main production scenario utilizes all of the above phases, some of the
 individual challenges skip the exploration phase, see
 \refsec{sec:tournament-challenges} for details.
@@ -947,7 +954,7 @@ zone in-between.
     && \multicolumn{2}{c|}{Input} & \multicolumn{2}{c|}{Output}\\\hline
     &Machine & ID & Tag & ID & Tag\\\hline
     &&&&&\\[-2ex]
-    \multirow{7}{*}{\rotatebox{90}{\bfseries Cyan\hspace{3.75cm}}}
+    \multirow{7}{*}{\rotatebox{90}{\bfseries Magenta\hspace{3.75cm}}}
     & \ac{CS} 1 & 202
            & \parbox[c]{1.2cm}{
                \includegraphics[width=1.2cm]{markers/figure_202}}
@@ -999,13 +1006,32 @@ zone in-between.
     \\[2.5ex]
     \hline
   \end{tabular}
+  \vfill
+  \vspace{0.5cm}
+  \begin{tabular}{|c|c|c|}
+    \hline
+    Machine & ID & Tag \\\hline
+    &&\\[-2ex]
+     \ac{UMPS} & 301
+           & \parbox[c]{1.2cm}{
+               \includegraphics[width=1.2cm]{markers/figure_301}}
+    \\[2.5ex]
+    \hline
+
+  \end{tabular}
   \caption{Machine tags are ARUCO tags (from the original ARUCO dictionary,
   $5\times 5$ bits, 1024 markers) with the given IDs.}
   \label{tab:markers}
 \end{table}
-Each machine will feature two \emph{markers} based on ARUCO AR tags,
-one will be placed on the input, another one on the output side. All
-markers used are depicted in \reftab{tab:markers}. The marker will be
+Each machine can be equipped with two \emph{markers} based on ARUCO AR tags,
+one placed on the input, another one on the output side.
+Teams can choose whether uniquely identifying markers should be added to their
+machines or not.
+In the main track of the \ac{RCLL}, where two teams compete on the same playing
+field, \acl{UMPS} markers may be used for machines of a team that
+does not require markers, if the opposing team relies o the presence of markers.
+
+Markers will be
 horizontally centered below the conveyor belt. The vertical distance
 between the tag's upper edge and the conveyor belt will be about
 \SI{35}{\centi\metre}. The markers will be mounted at the same
@@ -1040,14 +1066,15 @@ Models for a conveyor belt, shelf and slides can be found in the
 The building materials for the models must be opaque, but may have any color.
 
 \section{Game Play}
-There are different game modes within the \ac{RCLL}
-(see \refsec{sec:tournament-main} and \refsec{sec:tournament-challenges}).
-At the beginning of a match, the \ac{refbox} must be configured according to the
-game mode specification.
-The \ac{refbox} then guides the match utilizing different phases, which are
-outlined in the following sections.
-All matches will start at the exact time scheduled by the Organizing
-Committee with the setup phase (cf.~\refsec{sec:setup-phase}).
+At the beginning of each match, the \ac{refbox} must be configured according to
+the game mode specification.
+To guide the match, the \ac{refbox} utilizes different phases,
+which are outlined in the following sections. Within the different game modes in
+the \ac{RCLL} (see \refsec{sec:tournament-main} and
+\refsec{sec:tournament-challenges}), different phases might be utilized.
+Regardless of the game mode, all matches will
+start at the exact time scheduled by the Organizing Committee in the setup phase
+(cf.~\refsec{sec:setup-phase}).
 
 
 \subsection{Setup Phase}
@@ -1065,41 +1092,7 @@ Once the setup phase ends, no more interference (physically or remotely) with
 the robot is allowed. The robot(s) must react to the \ac{refbox} %chktex 36
 game state messages and start the game play autonomously.
 The \ac{refbox} will automatically end the setup phase after 5 minutes.
-Depending on the game mode, either the exploration or production phase follows.
-
-\subsection{Exploration Phase}
-\label{sec:exploration-phase}
-During the exploration phase the robots of each team have \SI{3}{\minute}
-to roam the environment and report their (and only their) machines
-to the \ac{refbox}.
-Correctly reported machines will be rewarded with points.
-Reports are issued to the refbox using a \emph{MachineReport message}.
-For each machine,identified by its name, both its zone and its orientation
-(in degrees) can be explored.
-Both properties can be submitted at the same time in one message or be split up
-into multiple messages.
-The refbox accepts only the first submitted value for each property.
-For a detailed description of the message please refer to the \ac{refbox}
-wiki\footnote{\url{https://github.com/robocup-logistics/rcll-refbox/wiki/Communication-Protocol}}. % chktex ignore-long-line
-The scoring is shown in \reftab{tab:scoring}.
-A minimum of zero points will be accounted for the exploration phase.
-
-The signal light of the \ac{MPS} will show a yellow light
-until a report regarding this machine is sent.
-If the wrong \ac{MPS} zone is sent, the light will start red
-flashing.  If only the \ac{MPS} zone is sent, the green light will be turn on.
-If the zone and rotation is correctly reported, the green light will be flashing
-and if the zone is correct but the rotation wrongly reported the red and green
-light will be on.
-
-The exploration phase ends either after the time has passed or
-immediately after both teams have each reported their respective set
-of \ac{MPS}.
-
-Moving or processing workpieces at an \ac{MPS} is not allowed during the
-exploration phase.
-
-
+Production phase follows.
 
 \subsection{Production Phase}
 \label{sec:production-phase}
@@ -1110,8 +1103,48 @@ This includes configured colors at the ring stations and their
 prices.
 Depending on the played format, machine zones and orientations may be announced
 as well.
-
 A minimum of zero points will be accounted for the production phase.
+
+\subsubsection{Exploration Period}
+\label{sec:exploration-period}
+
+The \ac{refbox} is tasked with distributing machine information
+(including position) during the game to the robots of each team.
+Depending on the game mode, complexity might be increased by using an
+\textit{exploration period} at the beginning of the production phase.
+During this period, the positions of the machines won't be announced and the
+robots of both teams can roam the environment and report their (and only their)
+machines to the \ac{refbox}.
+Correctly reported machines will be rewarded with points and can
+be used for production. Machines can be identified through two different ways:
+either by relying on the provided unique tags, or by using visual object
+classification methods.
+Teams are free to choose which method they will use, but the
+decision needs to be announced to the judges before the machine setup begins.
+Depending on the team's choice, the machines of a team will either be equipped
+with unique tags (should the tag based approach be chosen) or \ac{UMPS} tags.
+Points will be awarded for correct discoveries regardless of the chosen
+difficulty.
+The scoring is shown in \reftab{tab:scoring}.
+
+Moving or processing workpieces at an \ac{MPS} is explicitely
+allowed during the exploration period.
+As soon es the necessary machines have been
+correctly identified and reported to the \ac{refbox},
+production of announced orders or machine preparation can immediately begin.
+
+Reports are issued to the refbox using a \emph{MachineReport message}.
+For each machine, identified by its name, both its zone and its orientation
+(in degrees) can be explored.
+Both properties can be submitted at the same time in one message or be split up
+into multiple messages.
+The refbox accepts only the first submitted value for each property.
+For a detailed description of the message please refer to the \ac{refbox}
+wiki\footnote{\url{https://github.com/robocup-logistics/rcll-refbox/wiki/Communication-Protocol}}. % chktex ignore-long-line
+
+The exploration period ends automatically after the time span has passed.
+Its end is marked by the distribution of machine position information from the
+\ac{refbox} to the robots.
 
 \subsubsection{Workpieces}
 \label{sec:workpieces}
@@ -1315,50 +1348,9 @@ the production period is completed, the resulting product is delivered
 on the output lane.
 
 A light signal mounted near the output lane
-(cf. \refsec{sec:machines}) indicates the state of the machine. In the
-default operating mode, the green light is turned on. This signals
-that the machine is ready for preparation. When preparation is performed,
-% TODO: really?! there is no sensor for that!?!
-the machine will flash the green light for up to 3 seconds (it
-immediately switches to a new state, e.g., if a product is fed into the
-machine before the three seconds have expired). When a product is fed
-to the input, the signal light indicates the processing condition. If
-the machine accepts the input and starts processing, the green and yellow lights
-will be turned on constantly for as long as the processing is
-performed. Once processing completes, the signal light switches to a
-steady yellow light. If a product is processed for which additional bases
-were required but which have not been fed as payment yet, the machine will
-flash the red and yellow light and will be out of order
-(cf. \refsec{sec:broken-machine}). The light signals are summarized in
-\reftab{tab:production-machines-feedback}.
-
-\begin{table}[bt]
-  \centering
-  \mytable{\begin{tabularx}{\linewidth}{p{0.36\linewidth}|X}
-      \multicolumn{1}{l}{Optical Feedback}
-      & \multicolumn{1}{l}{Operating mode}
-      \\
-      \hline
-      All LEDs turned off
-      & The machine is physically offline, caused by a real error, which should
-        not happen during the competition.
-      \\
-      Red LED turned on & The machine is out of order. \\
-      %Red LED flashing (at 2 Hz)
-      %& Machine signals that it ran out of stock on any required item. \\
-      Green LED turned on & The machine is idle and ready.\\
-      Green LED flashing & The machine has accepted the prepare command
-      (flashes for up to 3 seconds).\\
-      Green and yellow LED turned on & The machine is currently busy.\\
-      Yellow LED turned on & A workpiece is ready for pickup.\\
-      Red and yellow LED flashing (2 Hz) & Machine is broken, for
-      example because a product was fed without proper preparation of the
-      machine.\\%\hline
-%%keep Red any Yellow one?
-	\end{tabularx}}
-  \caption{MPS --- Optical Feedback during production phase}
-  \label{tab:production-machines-feedback}
-\end{table}
+(cf. \refsec{sec:machines}) indicates the state of the machine.
+The light signals are summarized in
+\reftab{tab:machine-lights}.
 
 In the production phase, machines must be prepared to be used by instructing
 the refbox. This applies to all machine types.
@@ -1464,6 +1456,29 @@ be temporarily broken, which causes it to recover to a determined state.
 An \ac{MPS} may be reset by a team at any time by a dedicated msg.
 This causes the \ac{MPS} to go into the broken state as well.
 
+\begin{table}
+  \begin{tabular}{c|c|c||l}
+    \hline
+    \multicolumn{3}{c||}{\bf{Light Signals}} &
+    \multicolumn{1}{c}{\bf{Description}} \\\cline{1-3}
+    RED & YELLOW    & GREEN & \\\hline
+    ON    &       &       & Machine is DOWN, temporarily unavailable \\
+          & ON    &       & Report received, not processed yet \\
+          &       & ON    & Machine is IDLE and usable  \\
+          &       & BLINK & Machine is PREPARED  \\
+          & BLINK &       & Zone reported correctly \\
+    ON    & ON    &       & Zone reported wrongly \\
+          & ON    & ON    & Machine is processing \\
+    ON    & BLINK &       & Rotation reported wrongly \\
+          & ON    & BLINK & Machine is READY-AT-OUTPUT \\
+    BLINK & BLINK &       & Machine was wrongly instructed, it is currently
+    BROKEN \\
+          & BLINK & BLINK & Machine is WAIT-IDLE, soon to be IDLE again \\
+  \end{tabular}
+  \caption{Light codes for each machine status during the production phase.}
+  \label{tab:machine-lights}
+\end{table}
+
 \subsubsection{Broken Machine Downtime}
 \label{sec:broken-machine}
 If a machine is improperly instructed or used, or a reset message has
@@ -1558,6 +1573,48 @@ Points are deducted as soon as the respective operation finishes.
 %Pre-stored products do not cause dynamic costs.
 %The total amount of costs through storage station usage is capped.
 All costs are listed in \reftab{tab:scoring}.
+
+\paragraph{Exploration Period Scoring}
+If the game mode includes an exploration period, machines
+can be reported to the \ac{refbox} during the entirety of the duration of the
+period.
+Machines cannot be instructed during the exploration period, unless they were
+correctly reported (meaning, both the zone and rotation were correct).
+Machine positions will be announced after the end of the period.
+
+For each machine,identified by its name, both its zone and its orientation
+(in degrees) can be explored.
+Both properties can be submitted at the same time in one message or be split up
+into multiple messages.
+The \ac{refbox} accepts only the first submitted value for each property.
+It also sends a \textit{MachineReportInfo} that provides general feedback,
+but does not contain information about the outcome of the received reports.
+For a detailed description of the message please refer to the \ac{refbox}
+wiki\footnote{\url{https://github.com/robocup-logistics/rcll-refbox/wiki/Communication-Protocol}}. % chktex ignore-long-line
+
+The name of a machine can be determined in two ways:
+\begin{itemize}
+  \item If the machine has an identifying marker, then the machine name can be
+    retrieved by correctly reading the marker.
+  \item The machine name can alternatively be requested from the \ac{refbox},
+   given its zone and type are known.
+   If a \textit{MachineReport} is sent without a specified machine name, but
+   with a machine type and a belonging zone, then the \textit{MachineReportInfo}
+   will contain a corresponding \textit{MachineTypeFeedback} with the name
+   and of the belonging team at that location.
+   If there is no machine of the given type at the specified zone, then this
+   counts as a wrong zone exploration and one machine of that type cannot be
+   reported anymore.
+\end{itemize}
+This means that in order to provide a report that scores points, in the
+case that no markers are used, two reports must be submitted. In the first
+one, zone and type a specified, to which the \ac{refbox} replies with the
+machine name. The information can be used to create a partial or
+full report for the machine name to claim points.
+The scoring is shown in \reftab{tab:scoring}.
+
+% start on a new page as longtables otherwise may overlap with the footer
+\afterpage{%
 % alternate row coloring
 \rowcolors{1}{gray!0!white}{gray!10!white}
 \begin{longtable}{p{\dimexpr.30\textwidth-2\tabcolsep}
@@ -1565,28 +1622,33 @@ All costs are listed in \reftab{tab:scoring}.
     |p{\dimexpr.15\textwidth-2\tabcolsep}}
 
           \multicolumn{3}{c}{\textbf{Exploration Points}}\\\hline
-           \multicolumn{1}{l}{Report type}
+           \multicolumn{1}{l}{Report Type}
            & \multicolumn{1}{l}{Description}
            & \multicolumn{1}{l}{Points}\\\hline\hline
-          Zone/Orientation
-          & Correctly determine a machine zone and the rotation of your team
-            and report it successfully to the \ac{refbox}
+          Machine Name Report
+          & Machine zone and rotation reported correctly.
           & $+2$
           \\
-          Type
-          & only machine zone reported
+          & Machine zone reported correctly, rotation not specified.
           & $+1$
           \\
           & Machine zone reported correctly but orientation wrongly ($1-1=0$)
           & $0$
           \\
-		      & wrongly reported machine zone (orientation irrelevant)
+          & Machine zone reported wrongly (orientation irrelevant)
+          & $-1$
+          \\
+          Machine Type Report
+          & Machine type and zone reported correctly (machine name is revealed)
+          & $0$
+          \\
+          & Machine type and zone reported wrongly
           & $-1$
           \\
           \hline
           Round Total
           & A maximum of 14 points can be achieved by correctly reporting all
-            7 production machines. A minimum of 0 points is awarded.
+            7 production machines.
           & \SItextrange{0:14}{}\\
       %  }
           \hhline{===}
@@ -1679,6 +1741,7 @@ All costs are listed in \reftab{tab:scoring}.
   \caption{Scoring Schemes}
   \label{tab:scoring}
 \end{longtable}
+}
 
 \subsection{Human Responsibilities During a Match}
 \label{sec:during-match}
@@ -2098,8 +2161,10 @@ same type of the other team.
 \subsection{Match Format}
 Objective of a match is to score the most points according to the scoring
 described in \refsec{sec:production-scoring}.
-Each match consists of a 3 minute long exploration phase, followed by
-a 17 minute production phase.
+Each match is 20 minutes long. The first 3 minute are the exploration period.
+During this period, machine location is not shared with the team's robots. After
+the exploration period is over, the information will be shared through the
+\ac{refbox}.
 With the switch to the production phase, the machine locations (zone position
 and rotation) are announced.
 
@@ -2213,8 +2278,8 @@ is based on a ranking score per won games. As each team in this phase directly
 competes with an opposing team, a ranking score will be determined as
 follows. In each \emph{game}, the winning team gets 3 ranking points, the
 loosing team gets 0. A team wins if it achieves more points in the game than the
-other team (cf.~Sections~\ref{sec:exploration-phase}
-and~\ref{sec:production-phase}).  In the case of a non-zero draw, see
+other team (cf.~\ref{sec:production-phase}).
+In the case of a non-zero draw, see
 \refsec{sec:overtime} for overtime.  If, after overtime, a draw is not resolved,
 both teams get 1 ranking point. If both team end with a zero score, each team
 gets 0 ranking points. Points awarded for commentary are not considered in this
@@ -2252,7 +2317,7 @@ decision). If after five minutes there is still no winner, the team
 scoring the first points during the extension will win.
 
 \subsection{Game Commentary}
-In addition to scoring in the exploration and the production phase,
+In addition to scoring the production phase,
 points are also awarded if a team provides an commentary on microphone
 to the public throughout the game as stated in \reftab{tab:scoring}.
 The commentary should communicate the overall problems to be solved
@@ -2472,7 +2537,7 @@ reached, which are accumulated if the challenge is completed fully.
 \end{table}
 
 \subsubsection{Exploration Challenge}\label{sec:challenge-exploration}
-Replicate the \ac{RCLL} exploration phase.
+Replicate the \ac{RCLL} exploration phase from previous seasons.
 Machine Marker detection as well as navigational skills are required to solve
 this challenge.\\
 \textbf{Task:} Find and report all machines on the field (type and orientation)
@@ -2556,6 +2621,7 @@ rings must be equal to 1, 2 and 3, respectively.
 \subsubsection{Exploration + Production Challenges}\label{sec:challenge-combine-exp-c0} % chktex ignore-long-line
 The same challenge as in \refsec{sec:challenge-cx} but without receiving the
 machine positions. Hence exploration and production takes place concurrently.
+The challenge reflects the exploration period of the standard game.
 The same point scores as in \reffig{tab:challenge-cx} apply with an additional
 $+20$ per challenge.
 
