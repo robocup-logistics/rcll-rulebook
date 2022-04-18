@@ -117,6 +117,7 @@
 \usepackage{calc}
 \usepackage{float}
 \usepackage{hhline}
+\usepackage{afterpage}
 \usepackage{longtable}
 \restylefloat{table}
 
@@ -1605,6 +1606,8 @@ machine name. The information can be used to create a partial or
 full report for the machine name to claim points.
 The scoring is shown in \reftab{tab:scoring}.
 
+% start on a new page as longtables otherwise may overlap with the footer
+\afterpage{%
 % alternate row coloring
 \rowcolors{1}{gray!0!white}{gray!10!white}
 \begin{longtable}{p{\dimexpr.30\textwidth-2\tabcolsep}
@@ -1731,6 +1734,7 @@ The scoring is shown in \reftab{tab:scoring}.
   \caption{Scoring Schemes}
   \label{tab:scoring}
 \end{longtable}
+}
 
 \subsection{Human Responsibilities During a Match}
 \label{sec:during-match}
