@@ -2232,7 +2232,6 @@ following criteria:
     Similarly the time between delivery start and end (delivery window)
     is randomized as indicated in \reftab{tab:order-time-randomization}
     \begin{center}
-
     \begin{table}
     \begin{tabular}{l|r|r}
       \bf{complexity} & \bf{production window} & \bf{delivery window} \\
@@ -2250,6 +2249,8 @@ following criteria:
   \item Color combinations of bases and rings are unique across orders, so it
     is not possible to have a started product with a ring that could belong to
     multiple orders.
+  \item Consecutive rings do not have the same ring color. This helps to
+    easily distinguish products from distance.
 \end{itemize}
 
 In case of overtime, an
