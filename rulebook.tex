@@ -2230,27 +2230,28 @@ following criteria:
   \item The time between activation and delivery start (production window) is
     randomized and based on the complexity of the product.
     Similarly the time between delivery start and end (delivery window)
-    is randomized as indicated in \reftab{tab:order-time-randomization}
-    \begin{center}
-
-    \begin{table}
-    \begin{tabular}{l|r|r}
-      \bf{complexity} & \bf{production window} & \bf{delivery window} \\
-      C0 & $[\phantom{1}60,120]\si{\second}$ & $[\phantom{1}90,180]\si{\second}$
-      \\\hline
-      C1 & $[120,300]\si{\second}$           & $[\phantom{1}90,180]\si{\second}$
-      \\\hline
-      C2 & $[300,400]\si{\second}$           & $[150,210]\si{\second}$\\\hline
-      C3 & $[400,500]\si{\second}$           & $[150,210]\si{\second}$
-    \end{tabular}
-    \caption{Order time randomization ranges.}
-    \label{tab:order-time-randomization}
-    \end{table}
-    \end{center}
+    is randomized as indicated in \reftab{tab:order-time-randomization}.
   \item Color combinations of bases and rings are unique across orders, so it
     is not possible to have a started product with a ring that could belong to
     multiple orders.
+  \item Consecutive rings do not have the same ring color. This helps to
+    easily distinguish products from distance.
 \end{itemize}
+\begin{center}
+\begin{table}
+\begin{tabular}{l|r|r}
+  \bf{Complexity} & \bf{Production Window} & \bf{Delivery Window} \\
+  C0 & $[\phantom{1}60,120]\si{\second}$ & $[\phantom{1}90,180]\si{\second}$
+  \\\hline
+  C1 & $[120,300]\si{\second}$           & $[\phantom{1}90,180]\si{\second}$
+  \\\hline
+  C2 & $[300,400]\si{\second}$           & $[150,210]\si{\second}$\\\hline
+  C3 & $[400,500]\si{\second}$           & $[150,210]\si{\second}$
+\end{tabular}
+\caption{Order time randomization ranges.}
+\label{tab:order-time-randomization}
+\end{table}
+\end{center}
 
 In case of overtime, an
 additional competitive order of complexity C0 will be placed.
