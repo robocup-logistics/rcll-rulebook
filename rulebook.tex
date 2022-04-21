@@ -634,7 +634,7 @@ Based on these shared properties, there are five kinds of machines:
 \item[\acf{RS}] mounts one colored ring out of two available
   colors on an intermediate product (\reffig{fig:RS}). Each \ac{RS} has two
   vacuum pick \& place units as application modules with separate
-  unique colors which are determined new for each game. There is an
+  unique colors which are determined by the \ac{refbox}. There is an
   additional pre-fill slide which is used for some colors (specified
   anew for each game) to add base elements.
   %There are two \ac{RS} per team.
@@ -642,7 +642,24 @@ Based on these shared properties, there are five kinds of machines:
 \item[\acf{SS}] provides 48 slots of storage divided into
   6 layers (\reffig{fig:SS_portrait}).
   The Storage Station initially provides one pre-stored sample of each possible
-  $C_0$ configuration (one per layer).
+  $C_0$ configuration (one per layer), according to \reftab{tab:ss-c0-init}.
+\begin{table}
+  \begin{tabular}{c|c||c}
+    \hline
+    \multicolumn{2}{c||}{\bf{Product}} &
+    \multicolumn{1}{c}{\bf{Position}} \\\cline{1-3}
+    Base Color & Cap Color  & \\\hline
+    RED    & GREY  & (0,1) \\
+    RED    & BLACK & (1,1) \\
+    SILVER & GREY  & (2,1) \\
+    SILVER & BLACK & (3,1) \\
+    BLACK  & GREY  & (4,1) \\
+    BLACK  & BLACK & (5,1) \\
+  \end{tabular}
+  \caption{Pre-stored C0 products at the \ac{SS}, the positions are labeled
+    according to \reffig{fig:ss-shelf}.}
+  \label{tab:ss-c0-init}
+\end{table}
 
 \item[\acf{DS}] Accepts completed products. The stations contains
   three slides (\reffig{fig:DS}). The delivered products are verified by either
@@ -1392,6 +1409,10 @@ retrieve. Each \ac{RS} is responsible for two specific colors. Some colors
 require loading the \ac{RS} with additional bases
 (cf.~\refsec{sec:production-complexities}). If the desired color requires
 additional bases, the machine expects to receive them first.
+It is required to wait at least $5$ seconds between
+subsequently loading bases into a \ac{RS} slide as the sensor may trigger
+multiple times during a loading attempt, which is why the read data must be
+filtered.
 Once the required number of
 additional bases has been received, the intermediate product can be
 fed into the machine. It receives a ring of the desired color and
@@ -2054,7 +2075,7 @@ in the \ac{refbox} documentation (see \refsec{sec:task}).
 \label{sec:remote-control}
 Remote operation or instruction of any kind of the robots is forbidden
 at all times during a game. The only allowed interaction is for the
-start-up (cf.~\refsec{sec:game-start}). Any failure to comply with
+start-up (cf.~\refsec{sec:setup-phase}). Any failure to comply with
 this rule will lead to immediate disqualification of the infringing
 team.
 
@@ -2197,14 +2218,24 @@ The ring colors which
 require additional bases are randomized per game and announced by the
 refbox. There will be one color requiring 2 additional bases, one
 requiring 1 base, and two colors requiring no additional base at
-all.
+all. The ring colors are assigned to the ring stations according to
+\reftab{tab:main-track-ring-color-assignment}.
+
+\begin{table}
+\begin{tabular}{l||c|c}
+  \bf{Ring Station} & \bf{Color 1} & \bf{Color 2} \\\hline
+  RS1 & ORANGE & GREEN \\
+  RS2 & BLUE & YELLOW
+\end{tabular}
+\caption{Assignments of ring colors to ring stations.}
+\label{tab:main-track-ring-color-assignment}
+\end{table}
 
 In each regular game, up to 10 orders will be posted.
 Each order will require one product of a specified product
 type to be delivered.
 The product is specified in terms of base
 color, rings (color and order) and cap color.
-% TODO: is the delivery gate actually sent
 3 time points are attached to each order:
 At its \emph{activation time}, the \ac{refbox} announces the order to each
 team along with a \emph{delivery start time} and a \emph{delivery end time}
@@ -2523,10 +2554,10 @@ The available material that can be used per challenge is restricted
 \end{table}
 
 \paragraph{Orders}
-Unless specified otherwise, orders that have to be fulfilled in challenges
-are entered through the web shop
-(see the \ac{refbox} workshop in \refsec{sec:qualification})
-by any member of the team.
+Orders to be fulfilled in challenges can be chosen by the competing team
+by either ordering them through the
+webshop\footnote{\url{https://github.com/robocup-logistics/rcll-webshop}}
+or by configuring them in the \ac{refbox} directly.
 
 In challenges where only one \ac{RS} is present, teams are responsible to
 order products which can be assembled using the available stations only.
