@@ -9,11 +9,12 @@ COLOR_DIGITS=2
 PREFIX_DIGITS=$(( $MAX_DIGITS-$QUANTITY_DIGITS-$COLOR_DIGITS ))
 RANGE_START=0
 RANGE_END=2
-NUM_COLORS=3
+NUM_COLORS=4
 
-# red    xx0xxx
-# silver xx1xxx
-# black  xx2xxx
+# red          xx0xxx
+# silver       xx1xxx
+# black        xx2xxx
+# transparent  xx3xxx
 
 color () {
 	if (( $1 == 0 ))
@@ -27,6 +28,10 @@ color () {
 	if (( $1 == 2 ))
 		then
 			echo "slv"
+	fi
+	if (( $1 == 3 ))
+		then
+			echo "tra"
 	fi
 }
 
