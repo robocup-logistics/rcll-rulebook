@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: morxa/fedora-texlive:f32-texlive2019
+      - image: quay.io/robocup-logistics/fedora-texlive:f36-texlive2021
     steps:
       - checkout
       - run:
@@ -14,7 +14,7 @@ jobs:
           path: challenges.pdf
   check:
     docker:
-      - image: morxa/fedora-texlive:f32-texlive2019
+      - image: quay.io/robocup-logistics/fedora-texlive:f36-texlive2021
     steps:
       - checkout
       - run:
