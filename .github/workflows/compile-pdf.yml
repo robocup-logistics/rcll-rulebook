@@ -9,3 +9,4 @@ jobs:
       - uses: xu-cheng/latex-action@v2
         with:
           root_file: rulebook.tex
+          work_in_root_file_dir: true
