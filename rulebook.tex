@@ -1764,6 +1764,14 @@ The scoring is shown in \reftab{tab:scoring}.
         than 0 points.
         &$- 10$
         \\
+        Dropping a workpiece by a robot
+        & Dropping a workpiece on the floor of the field intentionally or
+        through failed grasping attempts. Cases in which the workpiece falls
+        after it was properly handed over to a machine are not considered
+        intentional (e.g.\ a workpiece overshooting on a slide or an output
+        sensor malfunctioning).
+        & $-10$
+        \\
         Obstruction
         & Deliver a workpiece to a machine of the opposing team
         & $-20$
@@ -1814,6 +1822,8 @@ The operator is responsible to
   \item observe the \ac{refbox} status to ensure the correctness of
     the digital representation and automatic scoring,
   \item manually confirm delivered orders (if workpiece tracking is disabled),
+  \item manually score interactions that can not be automatically tracked
+        (e.g., dropping workpieces),
   \item announce critical situations to the field referees (e.g., if a machine
     that is mocked up as described in \refsec{sec:mockup-machines} is
     instructed and needs manual operation),
