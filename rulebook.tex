@@ -1736,12 +1736,6 @@ The scoring is shown in \reftab{tab:scoring}.
         zone
         & $+20$
         \\
-        Delayed Delivery & An order delivered within 10 seconds after an order
-        is awarded a reduced score. For delivery time slot end $T_e$ and actual
-        delivery time $T_d$ in seconds the reduced score is given by \newline
-        $\lfloor 15 - \lfloor T_d - T_e \rfloor * 1.5 + 5 \rfloor$
-        & up to $+20$
-        \\
         Delivery C1
         & Deliver a product of complexity C1 to the designated loading
         zone
@@ -1757,14 +1751,26 @@ The scoring is shown in \reftab{tab:scoring}.
         zone
         & $+100$
         \\
-        Late Delivery & An order delivered after 10 seconds & +5 \\
-        Wrong delivery & Deliver one of the final product variants to
-        the designated loading zone out of the requested time range or
-        after all products requested in the period have already been
-        delivered
-        & $+1$
+        Delayed Delivery & An order delivered after its delivery deadline is
+        penalized. The penalty is a fraction of the points $P_d$
+        scored upon delivery and it depends on the actual
+        delivery time $T_d$ and the delivery window $[T_s, T_e]$.
+        Starting with a penalty of 15\%, it increases by the same amount for
+        every $\frac{T_e-T_s}{5}$ seconds passed since
+        the delivery window end $T_e$ up to the actual delivery time $T_d$.
+        However, the penalty is capped at a maximum of $- 75\%$ of $P_d$.
+        &
+        $-15\%\cdot P_d$
+        $-30\%\cdot P_d$
+        $-45\%\cdot P_d$
+        $-60\%\cdot P_d$
+        $-75\%\cdot P_d$
+        \phantom{$-75\%\cdot P_d$} % prevent weird latex formatting issue
         \\
-        False delivery & Deliver an intermediate product & $0$
+        Wrong delivery & Deliver one of the final product variants after all
+        products requested have already been delivered or deliver a unrequested
+        or unfinished product
+        & $0$
         \\
         1st competitive delivery
         & Points for the first delivery for a competitive order. The score is
