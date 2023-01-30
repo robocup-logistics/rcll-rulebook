@@ -1456,6 +1456,9 @@ that is delivered.
 The \ac{DS} will consume any workpiece provided,
 but points can only be scored if the delivered workpiece fulfills the
 requirements of the provided order ID (see \reftab{tab:scoring}).
+If the delivery window of the supplied order ID has not started yet, then the
+machine will wait until the delivery start time is crossed before processing
+the consumption.
 
 \noindent\textbf{\acl{SS}}
 The \ac{SS} prepare message denotes the storage place (shelf and slot number)
