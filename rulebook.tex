@@ -1719,12 +1719,6 @@ The scoring is shown in \reftab{tab:scoring}.
         & Finish the work order for a color requiring two additional bases
         & $+20$
         \\
-        Finish $C_1$ pre-cap & Mount the last ring of a $C_1$ product & $+10$
-        \\
-        Finish $C_2$ pre-cap & Mount the last ring of a $C_2$ product & $+30$
-        \\
-        Finish $C_3$ pre-cap & Mount the last ring of a $C_3$ product & $+80$
-        \\
         Mount cap & Mount the cap on a product & $+10$
         \\
         Retrieve cap & Buffer a cap into a cap station & $+2$
@@ -1737,9 +1731,9 @@ The scoring is shown in \reftab{tab:scoring}.
         & A workpiece is stored into the \ac{SS}
         & $-5$
         \\
-        Delivery
-        & Deliver one of the final product variants to the designated loading
-        zone at the time specified in the order
+        Delivery C0
+        & Deliver a product of complexity C0 to the designated loading
+        zone
         & $+20$
         \\
         Delayed Delivery & An order delivered within 10 seconds after an order
@@ -1747,6 +1741,21 @@ The scoring is shown in \reftab{tab:scoring}.
         delivery time $T_d$ in seconds the reduced score is given by \newline
         $\lfloor 15 - \lfloor T_d - T_e \rfloor * 1.5 + 5 \rfloor$
         & up to $+20$
+        \\
+        Delivery C1
+        & Deliver a product of complexity C1 to the designated loading
+        zone
+        & $+30$
+        \\
+        Delivery C2
+        & Deliver a product of complexity C2 to the designated loading
+        zone
+        & $+50$
+        \\
+        Delivery C3
+        & Deliver a product of complexity C3 to the designated loading
+        zone
+        & $+100$
         \\
         Late Delivery & An order delivered after 10 seconds & +5 \\
         Wrong delivery & Deliver one of the final product variants to
