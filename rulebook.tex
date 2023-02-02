@@ -533,7 +533,11 @@ Secondly, a field with a squared layout that is intended for tasks,
 where only one team is on the field at a time.
 Fields also contain designated robot insertion areas, that are used as a
 starting position for the robots when a game starts or a robot is inserted
-into a running game. The usage of these areas is restricted to these purposes,
+into a running game. A team's insertion zone is always placed on the far side
+along the X-axis of the side it is playing on, i.e.\ for a field side with
+dimensions $m \times n$, the insertion zone will occupy the zones
+$\{(m-2,1),(m-1,1),(m,1)\}$, with the robots entering through $(m-2,1)$
+and $(m-2,2)$. The usage of these areas is restricted to these purposes,
 unless stated otherwise. The insertion area is also partially surrounded by
 wall segments as shown in \reffig{fig:competition-area} and
 \reffig{fig:competition-area-challenges}.
@@ -544,13 +548,18 @@ before the actual game starts and will be different for each game. Thus, teams
 should focus on a generic approach for production, allowing for
 dynamic adaptation of machine positions and alignments.
 
-\subsection{Fields with Aspect Ratio 2 (Main Track Field)}
+\subsection{Fields with Aspect Ratio 2:1 (Main Track Field)}
 \label{sec:competition-area}
 An example of a competition area for games on the main track is shown in
 \reffig{fig:competition-area}, it
-features a \SI{14 x 8}{\metre} large arena with 112 square zones %chktex 29
+features the reference standard size of \SI{14 x 8}{\metre} %chktex 29
+large arena with 112 square zones
 and with 14 randomly distributed machines (an identical set of 7 machines for
-each team exclusively). % chktex 29
+each team exclusively).
+Alternatively, the field may be reduced in size symmetrically by the local
+organizers to accomodate local limitations.
+In case of a field size reduction, it must be guaranteed that all machines
+can still be placed according to the rules in \refsec{sec:machine-swapping}.
 
 The distribution and alignment of all machines is axially symmetrical
 on the y-axis. Thus, each team has similar conditions on both halves of
@@ -565,7 +574,7 @@ We will refer to the side with positive coordinates on the x-axis as the
 (primary) half of team cyan, and the side with negative coordinates on the
 x-axis as the (primary) half of team magenta.
 
-\subsection{Fields with Aspect Ratio 1 (Challenge Track Field)}
+\subsection{Fields with Aspect Ratio 1:1 (Challenge Track Field)}
 \label{sec:competition-area-aspect-ratio-1}
 An example of a competition area with aspect ratio 1 is shown in
 \reffig{fig:competition-area-challenges},
