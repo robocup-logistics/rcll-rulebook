@@ -1463,7 +1463,11 @@ the cap is mounted.
 The \ac{DS} prepare message denotes the order ID of the product
 that is delivered.
 The \ac{DS} will consume any workpiece provided,
-but points can only be scored if the \ac{DS} has been properly prepared.
+but points can only be scored if the delivered workpiece fulfills the
+requirements of the provided order ID (see \reftab{tab:scoring}).
+If the delivery window of the supplied order ID has not started yet, then the
+machine will wait until the delivery start time is crossed before processing
+the consumption.
 
 \noindent\textbf{\acl{SS}}
 The \ac{SS} prepare message denotes the storage place (shelf and slot number)
@@ -1724,12 +1728,6 @@ The scoring is shown in \reftab{tab:scoring}.
         & Finish the work order for a color requiring two additional bases
         & $+20$
         \\
-        Finish $C_1$ pre-cap & Mount the last ring of a $C_1$ product & $+10$
-        \\
-        Finish $C_2$ pre-cap & Mount the last ring of a $C_2$ product & $+30$
-        \\
-        Finish $C_3$ pre-cap & Mount the last ring of a $C_3$ product & $+80$
-        \\
         Mount cap & Mount the cap on a product & $+10$
         \\
         Retrieve cap & Buffer a cap into a cap station & $+2$
@@ -1742,25 +1740,46 @@ The scoring is shown in \reftab{tab:scoring}.
         & A workpiece is stored into the \ac{SS}
         & $-5$
         \\
-        Delivery
-        & Deliver one of the final product variants to the designated loading
-        zone at the time specified in the order
+        Delivery C0
+        & Deliver a product of complexity C0 to the designated loading
+        zone
         & $+20$
         \\
-        Delayed Delivery & An order delivered within 10 seconds after an order
-        is awarded a reduced score. For delivery time slot end $T_e$ and actual
-        delivery time $T_d$ in seconds the reduced score is given by \newline
-        $\lfloor 15 - \lfloor T_d - T_e \rfloor * 1.5 + 5 \rfloor$
-        & up to $+20$
+        Delivery C1
+        & Deliver a product of complexity C1 to the designated loading
+        zone
+        & $+30$
         \\
-        Late Delivery & An order delivered after 10 seconds & +5 \\
-        Wrong delivery & Deliver one of the final product variants to
-        the designated loading zone out of the requested time range or
-        after all products requested in the period have already been
-        delivered
-        & $+1$
+        Delivery C2
+        & Deliver a product of complexity C2 to the designated loading
+        zone
+        & $+50$
         \\
-        False delivery & Deliver an intermediate product & $0$
+        Delivery C3
+        & Deliver a product of complexity C3 to the designated loading
+        zone
+        & $+100$
+        \\
+        Delayed Delivery & An order delivered after its delivery deadline is
+        penalized. The penalty is a fraction of the points $P_d$
+        scored upon delivery and it depends on the actual
+        delivery time $T_d$ and the delivery window $[T_s, T_e]$.
+        Starting with a penalty of 15\%, it increases by the same amount for
+        every $\frac{T_e-T_s}{5}$ seconds passed since
+        the delivery window end $T_e$ up to the actual delivery time $T_d$.
+        However, the penalty is capped at a maximum of $- 75\%$ of $P_d$.
+        &
+        $-15\%\cdot P_d$
+        $-30\%\cdot P_d$
+        $-45\%\cdot P_d$
+        $-60\%\cdot P_d$
+        $-75\%\cdot P_d$
+        \phantom{$-75\%\cdot P_d$} % prevent weird latex formatting issue
+        \\
+        Wrong delivery & Deliver one of the final product variants after all
+        products requested have already been delivered or deliver a unrequested
+        or unfinished product
+        & $0$
         \\
         1st competitive delivery
         & Points for the first delivery for a competitive order. The score is
