@@ -2019,9 +2019,10 @@ guaranteed during the competition.
 \subsection{Robotino-Specific Regulations}
 The following regulations are only applied to robots participating in the
 main track of the \ac{RCLL}, those are required to use the robotino platform.
+For a detailed technical description of the basic robotino hardware, refer to
+the robotino website\footnote{\href{https://robotino.com}{robotino.com} by
+Festo Didactics.}.
 
-For a detailed technical description of the
-basic robotino hardware, refer to the Appendix~\ref{sec:engref}.
 There must be no changes to the controller or mechanical system.
 Past the diameter of \SI{45}{\centi\metre} (the width of the Robotino),
 additional hardware may only occupy up to $25\%$ of this
@@ -3102,7 +3103,7 @@ in \refsec{sec:communication} regulations regarding communication
 during games are described.
 %
 
-\begin{table}[b!]
+\begin{table}[h!]
   \centering
   \mytable{
     \begin{tabularx}{\linewidth}{l|X}
@@ -3245,178 +3246,178 @@ during games are described.
 \begin{appendix}
 \newpage
 
-\section{Engineering Reference}
-\label{sec:engref}
-\subsection{The Mobile Robot System Robotino 3}
-The mobile robot system Robotino is a platform with open mechanical
-and electrical interfaces for the integration of additional devices
-like sensors or motors. By default power is supplied via two
-exchangeable \SI{12}{\volt} lead gel batteries which permit a running
-time of up to two hours. Robotino is driven by 3 independent,
-omni-directional drive units. They are mounted at an angle of
-\ang{120} to each other. The three omni-directional drive units of
-Robotino defines it as being holonomic, meaning that the controllable
-degrees of freedom equals the total degrees of freedom of the
-robot. The drive units are integrated in a sturdy, laser welded steel
-chassis. The chassis is protected by a rubber bumper with integrated
-switching sensor.
+%\section{Engineering Reference}
+%\label{sec:engref}
+% \subsection{The Mobile Robot System Robotino 3}
+% The mobile robot system Robotino is a platform with open mechanical
+% and electrical interfaces for the integration of additional devices
+% like sensors or motors. By default power is supplied via two
+% exchangeable \SI{12}{\volt} lead gel batteries which permit a running
+% time of up to two hours. Robotino is driven by 3 independent,
+% omni-directional drive units. They are mounted at an angle of
+% \ang{120} to each other. The three omni-directional drive units of
+% Robotino defines it as being holonomic, meaning that the controllable
+% degrees of freedom equals the total degrees of freedom of the
+% robot. The drive units are integrated in a sturdy, laser welded steel
+% chassis. The chassis is protected by a rubber bumper with integrated
+% switching sensor.
 
-\subsubsection{Robot Dimensions (w/o extension tower)}
-\label{apx:sec:robot}
-\begin{itemize}
-\item \textbf{Diameter:} \SI{450}{\milli\metre}
-\item \textbf{Height including housing:} \SI{290}{\milli\metre}
-\item \textbf{Overall weight:} approx. \SI{22.5}{\kilogram}
-\item \textbf{Maximal payload:} about \SI{30}{\kilogram}
- \end{itemize}
+% \subsubsection{Robot Dimensions (w/o extension tower)}
+% \label{apx:sec:robot}
+% \begin{itemize}
+% \item \textbf{Diameter:} \SI{450}{\milli\metre}
+% \item \textbf{Height including housing:} \SI{290}{\milli\metre}
+% \item \textbf{Overall weight:} approx. \SI{22.5}{\kilogram}
+% \item \textbf{Maximal payload:} about \SI{30}{\kilogram}
+%  \end{itemize}
 
-\subsubsection{Drive Unit}
-\begin{itemize}
-\item \textbf{3$\times$ omni-directional wheels:} \SI{120}{\milli\metre}
-\item \textbf{Fed by DC three motors:} \SI{3600}{rpm}
-\item \textbf{Gear transmission ratio 32:1} \SI{22.5}{\kilogram}
- \end{itemize}
+% \subsubsection{Drive Unit}
+% \begin{itemize}
+% \item \textbf{3$\times$ omni-directional wheels:} \SI{120}{\milli\metre}
+% \item \textbf{Fed by DC three motors:} \SI{3600}{rpm}
+% \item \textbf{Gear transmission ratio 32:1} \SI{22.5}{\kilogram}
+%  \end{itemize}
 
-\begin{figure}[ht]
-\centering
-\subfigure[Festo Robotino 2]{%
-  \label{fig:robotino-2}%
-  \begin{minipage}[b]{0.3\linewidth}
-    \centering \includegraphics[height=3.5cm]{figures/robotino-shadow}
-  \end{minipage}
-}
-\quad
-\subfigure[Festo Robotino 3]{%
-  \label{fig:robotino-3}%
-  \begin{minipage}[b]{0.3\linewidth}
-    \centering
-    \includegraphics[height=3.5cm]{Robotino3.jpg}
-  \end{minipage}
-}
-\caption{Robotino 2 and Robotino 3 without assembly tower}
-\label{fig:robotinos}
-\end{figure}
+% \begin{figure}[ht]
+% \centering
+% \subfigure[Festo Robotino 2]{%
+%   \label{fig:robotino-2}%
+%   \begin{minipage}[b]{0.3\linewidth}
+%     \centering \includegraphics[height=3.5cm]{figures/robotino-shadow}
+%   \end{minipage}
+% }
+% \quad
+% \subfigure[Festo Robotino 3]{%
+%   \label{fig:robotino-3}%
+%   \begin{minipage}[b]{0.3\linewidth}
+%     \centering
+%     \includegraphics[height=3.5cm]{Robotino3.jpg}
+%   \end{minipage}
+% }
+% \caption{Robotino 2 and Robotino 3 without assembly tower}
+% \label{fig:robotinos}
+% \end{figure}
 
-\hskip-\parindent{} The motor speed will be controlled via a PID
-controller implemented on a Atmel microprocessor of the controller
-board of Robotino.
+% \hskip-\parindent{} The motor speed will be controlled via a PID
+% controller implemented on a Atmel microprocessor of the controller
+% board of Robotino.
 
-\subsubsection{Sensors}
-Robotino is equipped with 9 vertical mounted infrared distance
-measuring sensors which are mounted in the chassis at an angle of
-\ang{40} to one another. Robotino can scrutinize all surrounding areas
-for objects with these sensors.  Each of the sensors can be queried
-individually via the controller board. Obstacles can thus be avoided,
-clearances can be maintained and bearings can be taken on a selected
-target. The sensors are capable of accurate or relative distance
-measurements to objects at distances of \SI{4}{\centi\metre} to
-\SI{30}{\centi\metre}. Sensor connection is especially simple
-including just one analogue output signal and supply power. The
-sensors' evaluation electronics determines distance and read it out as
-an analogue signal.  The anti-collision sensor is comprised of a
-switching strip which is secured around the entire circumference of
-the chassis. A reliably recognizable signal is thus transmitted to the
-controller unit.  Collisions with objects at any point on the housing
-are detected and, for example, Robotino is brought to a
-standstill. The inductive proximity sensor is supplied as an
-additional component. It serves to detect metallic objects on the
-floor.
+% \subsubsection{Sensors}
+% Robotino is equipped with 9 vertical mounted infrared distance
+% measuring sensors which are mounted in the chassis at an angle of
+% \ang{40} to one another. Robotino can scrutinize all surrounding areas
+% for objects with these sensors.  Each of the sensors can be queried
+% individually via the controller board. Obstacles can thus be avoided,
+% clearances can be maintained and bearings can be taken on a selected
+% target. The sensors are capable of accurate or relative distance
+% measurements to objects at distances of \SI{4}{\centi\metre} to
+% \SI{30}{\centi\metre}. Sensor connection is especially simple
+% including just one analogue output signal and supply power. The
+% sensors' evaluation electronics determines distance and read it out as
+% an analogue signal.  The anti-collision sensor is comprised of a
+% switching strip which is secured around the entire circumference of
+% the chassis. A reliably recognizable signal is thus transmitted to the
+% controller unit.  Collisions with objects at any point on the housing
+% are detected and, for example, Robotino is brought to a
+% standstill. The inductive proximity sensor is supplied as an
+% additional component. It serves to detect metallic objects on the
+% floor.
 
-The default webcam camera is plugged in via USB and is capable of full
-HD 1080p video with auto light correction and two built in microphones
-for stereo sound with noise-canceling.
+% The default webcam camera is plugged in via USB and is capable of full
+% HD 1080p video with auto light correction and two built in microphones
+% for stereo sound with noise-canceling.
 
-\subsubsection{Controller Board}
-Robotino is powered by an exchangeable Embedded PC-COM Express
-layout combined with a custom made sensor board.
+% \subsubsection{Controller Board}
+% Robotino is powered by an exchangeable Embedded PC-COM Express
+% layout combined with a custom made sensor board.
 
-\paragraph{Embedded PC according to COM Express specification}
-\begin{itemize}
-\item Embedded Intel Core i5, 2.4 GHz, Dual-Core
-\item 8 GB RAM
-\item 64 GB SSD (exchangeable)
-\item Operating system: Linux Ubuntu 12.04 (64-bit)
-\end{itemize}
+% \paragraph{Embedded PC according to COM Express specification}
+% \begin{itemize}
+% \item Embedded Intel Core i5, 2.4 GHz, Dual-Core
+% \item 8 GB RAM
+% \item 64 GB SSD (exchangeable)
+% \item Operating system: Linux Ubuntu 12.04 (64-bit)
+% \end{itemize}
 
-\paragraph{Embedded PC interfaces}
-\begin{itemize}
-\item 1 $\times$ Ethernet
-\item 6 $\times$ USB 2.0
-\item 2 $\times$ PCI Express expansion slot
-\item Wireless LAN according to 802.11b/g, client or access point mode
-\item 2 $\times$  RS232
-\item 1 $\times$ Parallel port and 1 $\times$ VGA port
-\item Wireless LAN Access Point following the standards 802.11/b/g.
-\item The access point supports client mode, optional WPA2 encryption.
-\end{itemize}
+% \paragraph{Embedded PC interfaces}
+% \begin{itemize}
+% \item 1 $\times$ Ethernet
+% \item 6 $\times$ USB 2.0
+% \item 2 $\times$ PCI Express expansion slot
+% \item Wireless LAN according to 802.11b/g, client or access point mode
+% \item 2 $\times$  RS232
+% \item 1 $\times$ Parallel port and 1 $\times$ VGA port
+% \item Wireless LAN Access Point following the standards 802.11/b/g.
+% \item The access point supports client mode, optional WPA2 encryption.
+% \end{itemize}
 
-\paragraph{Motor control}
-\begin{itemize}
-\item micro-controller with 32-bit microprocessor and separated
-  Ethernet interface
-\item Including 1 $\times$ additional motor output and encoder
-  connector
-\item 8 $\times$ analog inputs from 0 V to 10 V (50 Hz)
-\item 8 $\times$ digital inputs/outputs with 24 V, short circuit proof
-  and overload protected
-\end{itemize}
+% \paragraph{Motor control}
+% \begin{itemize}
+% \item micro-controller with 32-bit microprocessor and separated
+%   Ethernet interface
+% \item Including 1 $\times$ additional motor output and encoder
+%   connector
+% \item 8 $\times$ analog inputs from 0 V to 10 V (50 Hz)
+% \item 8 $\times$ digital inputs/outputs with 24 V, short circuit proof
+%   and overload protected
+% \end{itemize}
 
-\subsubsection{Power supply}
-\begin{itemize}
-  \item $2 \times \SI{12}{\volt}$ lead-fleece rechargeable batteries with
-    $\SI{9.5}{Ah}$ capacity each
-  \item Operating time (default batteries): up to $\SI{4}{\hour}$
-\item Power supply for additional components: $13 \times \SI{24}{\volt}$,
-  $13 \times \text{GND}$
-\item Internal charger for lead-gel and NiMH rechargeable batteries
-\item $\SI{24}{\volt}$ power supply for charging batteries
-\end{itemize}
+% \subsubsection{Power supply}
+% \begin{itemize}
+%   \item $2 \times \SI{12}{\volt}$ lead-fleece rechargeable batteries with
+%     $\SI{9.5}{Ah}$ capacity each
+%   \item Operating time (default batteries): up to $\SI{4}{\hour}$
+% \item Power supply for additional components: $13 \times \SI{24}{\volt}$,
+%   $13 \times \text{GND}$
+% \item Internal charger for lead-gel and NiMH rechargeable batteries
+% \item $\SI{24}{\volt}$ power supply for charging batteries
+% \end{itemize}
 
-\subsubsection{Software}
-Pre-installed is Ubuntu Linux 12.04 LTS operating system, 16.04 LTS available.
-The main part of the controller is the Robotino server, a real time Linux
-application. It controls the drive units and provides interfaces to
-communicate with external PC applications via wifi. Also provided: API
-2.0 with libraries which allow you to create applications for Robotino
-in numerous programming languages:
+% \subsubsection{Software}
+% Pre-installed is Ubuntu Linux 12.04 LTS operating system, 16.04 LTS available.
+% The main part of the controller is the Robotino server, a real time Linux
+% application. It controls the drive units and provides interfaces to
+% communicate with external PC applications via wifi. Also provided: API
+% 2.0 with libraries which allow you to create applications for Robotino
+% in numerous programming languages:
 
-\begin{itemize}
-\item C++ and C
-\item C\#
-\item {.net} and JAVA
-\item MatLab and Simulink
-\item Labview
-\item Robot Operating System (ROS)
-\item Microsoft Robotics Developer Studio
-\end{itemize}
+% \begin{itemize}
+% \item C++ and C
+% \item C\#
+% \item {.net} and JAVA
+% \item MatLab and Simulink
+% \item Labview
+% \item Robot Operating System (ROS)
+% \item Microsoft Robotics Developer Studio
+% \end{itemize}
 
-You may find a lot of examples concerning using the different API's in
-the public OpenRobotino forum at \mbox{\url{http://www.openrobotino.org}}.
+% You may find a lot of examples concerning using the different API's in
+% the public OpenRobotino forum at \mbox{\url{http://www.openrobotino.org}}.
 
-\paragraph{Web interface}
-HTML5-based user interface provided by web server running on an embedded
-PC for setup and configuration using smartphone, tablet or PC/notebook
-User interface supporting program management, manual control, network
-setup, status display and options Help system: online manual for
-getting started, details on all components and introduction into
-programming
+% \paragraph{Web interface}
+% HTML5-based user interface provided by web server running on an embedded
+% PC for setup and configuration using smartphone, tablet or PC/notebook
+% User interface supporting program management, manual control, network
+% setup, status display and options Help system: online manual for
+% getting started, details on all components and introduction into
+% programming
 
-\paragraph{Robotino View}
-For a quick start or Hardware testing there is proprietary drag and
-drop Software Robotino View. Graphical programming environment for
-external PC running on Windows XP, Vista, Windows 7 or Windows 8.
+% \paragraph{Robotino View}
+% For a quick start or Hardware testing there is proprietary drag and
+% drop Software Robotino View. Graphical programming environment for
+% external PC running on Windows XP, Vista, Windows 7 or Windows 8.
 
-\begin{itemize}
-\item Main program using sequential function chart according to IEC 61131
-\item Reusable subprograms based on function blocks
-\item Library for function blocks and devices
-\item Global variables for communication between subprograms
-\item Program interpreter to run programs on Embedded PC autonomously
-\end{itemize}
+% \begin{itemize}
+% \item Main program using sequential function chart according to IEC 61131
+% \item Reusable subprograms based on function blocks
+% \item Library for function blocks and devices
+% \item Global variables for communication between subprograms
+% \item Program interpreter to run programs on Embedded PC autonomously
+% \end{itemize}
 
-\hskip-\parindent{} Additional information as well as accessories can be
-obtained through \\
-\mbox{\url{http://www.robocup-logistics.org/links/festo-robotino-3}}.
+% \hskip-\parindent{} Additional information as well as accessories can be
+% obtained through \\
+% \mbox{\url{http://www.robocup-logistics.org/links/festo-robotino-3}}.
 
 %\subsection{Robotino 2.0 (phase-out model)}
 %The mobile robot system Robotino is a platform with an open
@@ -3669,42 +3670,42 @@ obtained through \\
 %  \label{apx:tab:rfidproperties}
 %\end{table}
 
-\subsubsection{Wifi equipment}
-\label{sec:wifi-equipment}
-\begin{table}[H]
-  \centering
-  \mytable{
-    \begin{tabularx}{1\linewidth}{l|X}
-      \hline
-      Festo AP		&	LANCOM L-322agn \\
-      Transfer rate		&	Up to \SI{108}{\mega\bit\per\second} \\
-      Data link protocol	&	802.11 a/g/n \\
-      Frequency			&	\SI{5.0}{\giga\hertz} \\
-      League channel & 40 \\
-      Allowed channels (with restrictions)\footnote{Please refer to the official
-      radio policy for details:
-\url{https://rrl.robocup.org/wp-content/uploads/2019/01/RoboCup_2019_Radio_Policy_2018-12-24.pdf}} % chktex ignore-long-line chktex 8
-                     & 100, 104, 108, 112, 116, 132, 140 \\
-      Channel width & \SI{20}{\mega\hertz} \\
-      IP-distribution		&	172.26.200.xxx for LAN clients (DHCP) \\
-      &	172.26.101.xxx for the Robotino devices \\
-      &	172.26.1.xxx for Robotinos \\
-      Subnet Mask			&	255.255.0.0 \\
-      Encryption			&	Unsecured \\
-      SSID				&	Separated for both teams:\\
-      &	RobotinoEvent.1 \\
-      & RobotinoEvent.2 \\
-      Festo Clients		&	3COM WL-560 \\
-      Power Supply		&	Clients: \SI{12}{\volt}, \SI{1}{\ampere},\\
-      & 	Most Laptops cannot power them \\
-      & 	via USB\@! \\
-      Connector			&	Ethernet \\
+% \subsubsection{Wifi equipment}
+% \label{sec:wifi-equipment}
+% \begin{table}[H]
+%   \centering
+%   \mytable{
+%     \begin{tabularx}{1\linewidth}{l|X}
+%       \hline
+%       Festo AP		&	LANCOM L-322agn \\
+%       Transfer rate		&	Up to \SI{108}{\mega\bit\per\second} \\
+%       Data link protocol	&	802.11 a/g/n \\
+%       Frequency			&	\SI{5.0}{\giga\hertz} \\
+%       League channel & 40 \\
+%       Allowed channels (with restrictions)\footnote{Please refer to the official
+%       radio policy for details:
+% \url{https://rrl.robocup.org/wp-content/uploads/2019/01/RoboCup_2019_Radio_Policy_2018-12-24.pdf}} % chktex ignore-long-line chktex 8
+%                      & 100, 104, 108, 112, 116, 132, 140 \\
+%       Channel width & \SI{20}{\mega\hertz} \\
+%       IP-distribution		&	172.26.200.xxx for LAN clients (DHCP) \\
+%       &	172.26.101.xxx for the Robotino devices \\
+%       &	172.26.1.xxx for Robotinos \\
+%       Subnet Mask			&	255.255.0.0 \\
+%       Encryption			&	Unsecured \\
+%       SSID				&	Separated for both teams:\\
+%       &	RobotinoEvent.1 \\
+%       & RobotinoEvent.2 \\
+%       Festo Clients		&	3COM WL-560 \\
+%       Power Supply		&	Clients: \SI{12}{\volt}, \SI{1}{\ampere},\\
+%       & 	Most Laptops cannot power them \\
+%       & 	via USB\@! \\
+%       Connector			&	Ethernet \\
 
-%      \hline
-    \end{tabularx} }
-    \caption{Technical specification of the wifi equipment}
-	\label{apx:tab:wifi}
-\end{table}
+% %      \hline
+%     \end{tabularx} }
+%     \caption{Technical specification of the wifi equipment}
+% 	\label{apx:tab:wifi}
+% \end{table}
 
 
 
