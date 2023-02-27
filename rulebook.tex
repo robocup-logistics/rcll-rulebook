@@ -1464,7 +1464,9 @@ The \ac{DS} prepare message denotes the order ID of the product
 that is delivered.
 The \ac{DS} will consume any workpiece provided,
 but points can only be scored if the delivered workpiece fulfills the
-requirements of the provided order ID (see \reftab{tab:scoring}).
+requirements of the provided order ID (see \reftab{tab:scoring}). The special
+order with ID 0 can be used to remove (partial) workpieces from the field
+through the delivery station.
 If the delivery window of the supplied order ID has not started yet, then the
 machine will wait until the delivery start time is crossed before processing
 the consumption.
