@@ -2653,7 +2653,10 @@ The pose of each robot must be set in the beacon message
 for the \ac{refbox} to properly register the zones as visited.
 The robot may move within the zone during the 5 second period.\\
 Variations of this challenge depend on the number of available machines
-(see \reftab{tab:challenge-navigation}).
+(see \reftab{tab:challenge-navigation}). An unknown machine may be
+added as a further variation. The placement of this machine is decided by the
+referee in the setup phase but must be in accordance with the general rules for
+placing machines.
 Multiple robots may be used to simultaneously to reach multiple target zones.
 Partial points may be awarded in case only a subset of target zones were
 reached, which are accumulated if the challenge is completed fully.
@@ -2661,12 +2664,13 @@ reached, which are accumulated if the challenge is completed fully.
 \begin{table}[!htb]
  \centering
  \begin{tabular}{l|l|l|l|l}
-  \multirow{2}{*}{Machines}
+  \multirow{2}{*}{Machines (Unknown)}
   & \multicolumn{4}{c}{Scoring} \\\cline{2-5}
 	& $\geq$ 4 zones  & $\geq$ 8 zones & all 12 zones  & combined \\\hline\hline
 	 2 & +4 & +3 & +3 & 10 \\
 	 3 & +5 & +4 & +3 & 12 \\
 	 4 & +6 & +5 & +4 & 15 \\
+	 4 (+1) & +7 & +6 & +5 & 18 \\
  \end{tabular}
  \caption{Navigation Challenge}
  \label{tab:challenge-navigation}
