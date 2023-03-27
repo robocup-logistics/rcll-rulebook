@@ -159,16 +159,16 @@
     \begin{LARGE}
 
       {\bf RoboCup Logistics League}\\[2ex]
-      {\Large Rules and Regulations 2022}\\[4ex]
+      {\Large Rules and Regulations 2023}\\[4ex]
     \end{LARGE}
     \hrule
 
     {\LARGE\vspace*{4ex}}
     \begin{Large}
-      The Technical Committee 2012--2022\\[6ex]
+      The Technical Committee 2012--2023\\[6ex]
     \end{Large}
     \begin{tabular}{lll}
-      \textbf{Lukas Knoflach}&
+      \textbf{Marco De Bortoli}&
       \textbf{Peter Kohout}&
       \textbf{Sven Imhof}\\
       \textbf{Alain Rohr}&
@@ -183,21 +183,23 @@
       &Till Hofmann
       \\
       Ulrich Karras
+      &Lukas Knoflach
       &S\"oren Jentzsch
-      &Nicolas Meier
       \\
-      Tobias Neumann
+      Nicolas Meier
+      &Tobias Neumann
       &Tim Niemueller
-      &Sebastian Reuter
       \\
-      Gerald Steinbauer
+      Sebastian Reuter
+      &Gerald Steinbauer
       &Wataru Uemura
-      &Thomas Ulz
+      \\
+      Thomas Ulz
       \\
     \end{tabular}
     \vfill
-    Revision Date: Monday, April 18\textsuperscript{\raisebox{-.2ex}{th}}
-    2022
+    Revision Date: Monday, February 27\textsuperscript{\raisebox{-.2ex}{th}}
+    2023
     %\\ DRAFT --- Work in Progress
   \end{center}
 \end{titlepage}
@@ -336,7 +338,11 @@ partner Festo transfers insights into future factory concepts to help
  separate technical challenge for this (as it was the case previously).
  Lastly, the order schedule within \ac{RCLL} games in the main track got
  modified to be less predictable while following simpler generation rules to
- dispatch orders.
+ dispatch orders. Building upon these advances, the 2023 rule update focused
+ on including and codifying common practices during competitions and making
+ rules more specific and clear. Additionally, the point scoring for delivery
+ in a main track game were changed such that a bigger emphasis is put on the
+ delivery of products within the delivery-windows.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The Task}
@@ -533,7 +539,11 @@ Secondly, a field with a squared layout that is intended for tasks,
 where only one team is on the field at a time.
 Fields also contain designated robot insertion areas, that are used as a
 starting position for the robots when a game starts or a robot is inserted
-into a running game. The usage of these areas is restricted to these purposes,
+into a running game. A team's insertion zone is always placed on the far side
+along the X-axis of the side it is playing on, i.e.\ for a field side with
+dimensions $m \times n$, the insertion zone will occupy the zones
+$\{(m-2,1),(m-1,1),(m,1)\}$, with the robots entering through $(m-2,1)$
+and $(m-2,2)$. The usage of these areas is restricted to these purposes,
 unless stated otherwise. The insertion area is also partially surrounded by
 wall segments as shown in \reffig{fig:competition-area} and
 \reffig{fig:competition-area-challenges}.
@@ -544,13 +554,18 @@ before the actual game starts and will be different for each game. Thus, teams
 should focus on a generic approach for production, allowing for
 dynamic adaptation of machine positions and alignments.
 
-\subsection{Fields with Aspect Ratio 2 (Main Track Field)}
+\subsection{Fields with Aspect Ratio 2:1 (Main Track Field)}
 \label{sec:competition-area}
 An example of a competition area for games on the main track is shown in
 \reffig{fig:competition-area}, it
-features a \SI{14 x 8}{\metre} large arena with 112 square zones %chktex 29
+features the reference standard size of \SI{14 x 8}{\metre} %chktex 29
+large arena with 112 square zones
 and with 14 randomly distributed machines (an identical set of 7 machines for
-each team exclusively). % chktex 29
+each team exclusively).
+Alternatively, the field may be reduced in size symmetrically by the local
+organizers to accomodate local limitations.
+In case of a field size reduction, it must be guaranteed that all machines
+can still be placed according to the rules in \refsec{sec:machine-swapping}.
 
 The distribution and alignment of all machines is axially symmetrical
 on the y-axis. Thus, each team has similar conditions on both halves of
@@ -565,7 +580,7 @@ We will refer to the side with positive coordinates on the x-axis as the
 (primary) half of team cyan, and the side with negative coordinates on the
 x-axis as the (primary) half of team magenta.
 
-\subsection{Fields with Aspect Ratio 1 (Challenge Track Field)}
+\subsection{Fields with Aspect Ratio 1:1 (Challenge Track Field)}
 \label{sec:competition-area-aspect-ratio-1}
 An example of a competition area with aspect ratio 1 is shown in
 \reffig{fig:competition-area-challenges},
@@ -1454,7 +1469,13 @@ the cap is mounted.
 The \ac{DS} prepare message denotes the order ID of the product
 that is delivered.
 The \ac{DS} will consume any workpiece provided,
-but points can only be scored if the \ac{DS} has been properly prepared.
+but points can only be scored if the delivered workpiece fulfills the
+requirements of the provided order ID (see \reftab{tab:scoring}). The special
+order with ID 0 can be used to remove (partial) workpieces from the field
+through the delivery station.
+If the delivery window of the supplied order ID has not started yet, then the
+machine will wait until the delivery start time is crossed before processing
+the consumption.
 
 \noindent\textbf{\acl{SS}}
 The \ac{SS} prepare message denotes the storage place (shelf and slot number)
@@ -1526,16 +1547,17 @@ This causes the \ac{MPS} to go into the broken state as well.
 \label{sec:broken-machine}
 If a machine is improperly instructed or used, or a reset message has
 been sent, the machine will go into a failure state. The machine cannot be
-used for 30 seconds and until repaired.
+used for 30 seconds and until repaired. This includes interactions with shelves,
+conveyor belts, or slides.
 That is, if damage was
 inflicted on the machine or the referee needs longer to repair the
 machine the game continues and the machine will be offline for a
 longer time. Any production that was running will be aborted and any
-product which was being processed is no longer available and will be
-removed by the referee. Any additional bases or caps buffered at the machine
-will be void and the points gained removed. For storage stations, no
-slot is refilled, the load status remains exactly as before the broken
-state. The downtime is indicated by a flashing red light.
+product which was being processed or placed into the machine's input or output
+is no longer available and will be removed by the referee. Any additional bases
+or caps buffered at the machine will be void and the points gained removed.
+For storage stations, no slot is refilled, the load status remains exactly as
+before the broken state. The downtime is indicated by a flashing red light.
 
 
 \subsubsection{Scheduled Machine Downtime}
@@ -1715,12 +1737,6 @@ The scoring is shown in \reftab{tab:scoring}.
         & Finish the work order for a color requiring two additional bases
         & $+20$
         \\
-        Finish $C_1$ pre-cap & Mount the last ring of a $C_1$ product & $+10$
-        \\
-        Finish $C_2$ pre-cap & Mount the last ring of a $C_2$ product & $+30$
-        \\
-        Finish $C_3$ pre-cap & Mount the last ring of a $C_3$ product & $+80$
-        \\
         Mount cap & Mount the cap on a product & $+10$
         \\
         Retrieve cap & Buffer a cap into a cap station & $+2$
@@ -1733,25 +1749,46 @@ The scoring is shown in \reftab{tab:scoring}.
         & A workpiece is stored into the \ac{SS}
         & $-5$
         \\
-        Delivery
-        & Deliver one of the final product variants to the designated loading
-        zone at the time specified in the order
+        Delivery C0
+        & Deliver a product of complexity C0 to the designated loading
+        zone
         & $+20$
         \\
-        Delayed Delivery & An order delivered within 10 seconds after an order
-        is awarded a reduced score. For delivery time slot end $T_e$ and actual
-        delivery time $T_d$ in seconds the reduced score is given by \newline
-        $\lfloor 15 - \lfloor T_d - T_e \rfloor * 1.5 + 5 \rfloor$
-        & up to $+20$
+        Delivery C1
+        & Deliver a product of complexity C1 to the designated loading
+        zone
+        & $+30$
         \\
-        Late Delivery & An order delivered after 10 seconds & +5 \\
-        Wrong delivery & Deliver one of the final product variants to
-        the designated loading zone out of the requested time range or
-        after all products requested in the period have already been
-        delivered
-        & $+1$
+        Delivery C2
+        & Deliver a product of complexity C2 to the designated loading
+        zone
+        & $+50$
         \\
-        False delivery & Deliver an intermediate product & $0$
+        Delivery C3
+        & Deliver a product of complexity C3 to the designated loading
+        zone
+        & $+100$
+        \\
+        Delayed Delivery & An order delivered after its delivery deadline is
+        penalized. The penalty is a fraction of the points $P_d$
+        scored upon delivery and it depends on the actual
+        delivery time $T_d$ and the delivery window $[T_s, T_e]$.
+        Starting with a penalty of 15\%, it increases by the same amount for
+        every $\frac{T_e-T_s}{5}$ seconds passed since
+        the delivery window end $T_e$ up to the actual delivery time $T_d$.
+        However, the penalty is capped at a maximum of $- 75\%$ of $P_d$.
+        &
+        $-15\%\cdot P_d$
+        $-30\%\cdot P_d$
+        $-45\%\cdot P_d$
+        $-60\%\cdot P_d$
+        $-75\%\cdot P_d$
+        \phantom{$-75\%\cdot P_d$} % prevent weird latex formatting issue
+        \\
+        Wrong delivery & Deliver one of the final product variants after all
+        products requested have already been delivered or deliver a unrequested
+        or unfinished product
+        & $0$
         \\
         1st competitive delivery
         & Points for the first delivery for a competitive order. The score is
@@ -1763,6 +1800,14 @@ The scoring is shown in \reftab{tab:scoring}.
         points are deducted from the delivery points, the total cannot be less
         than 0 points.
         &$- 10$
+        \\
+        Dropping a workpiece by a robot
+        & Dropping a workpiece on the floor of the field intentionally or
+        through failed grasping attempts. Cases in which the workpiece falls
+        after it was properly handed over to a machine are not considered
+        intentional (e.g.\ a workpiece overshooting on a slide or an output
+        sensor malfunctioning).
+        & $-10$
         \\
         Obstruction
         & Deliver a workpiece to a machine of the opposing team
@@ -1814,6 +1859,8 @@ The operator is responsible to
   \item observe the \ac{refbox} status to ensure the correctness of
     the digital representation and automatic scoring,
   \item manually confirm delivered orders (if workpiece tracking is disabled),
+  \item manually score interactions that can not be automatically tracked
+        (e.g., dropping workpieces),
   \item announce critical situations to the field referees (e.g., if a machine
     that is mocked up as described in \refsec{sec:mockup-machines} is
     instructed and needs manual operation),
@@ -1945,6 +1992,8 @@ enter the competition-area without asking the referee. Shelves have to be
 (re-)filled in all three reachable slots. % chktex 36
 The replenisher may restock only caps if transparent base elements have been put
 back to the shelf, once no cap is remaining on this shelf.
+Ring station slides must be emptied once three payments are inserted to avoid
+overflowing slides.
 
 The teams are partly free to choose their assembly and placement of products.
 For example, teams can fill any number of bases into a \ac{BS} or are free
@@ -2017,9 +2066,10 @@ guaranteed during the competition.
 \subsection{Robotino-Specific Regulations}
 The following regulations are only applied to robots participating in the
 main track of the \ac{RCLL}, those are required to use the robotino platform.
+For a detailed technical description of the basic robotino hardware, refer to
+the robotino website\footnote{\href{https://robotino.com}{robotino.com} by
+Festo Didactics.}.
 
-For a detailed technical description of the
-basic robotino hardware, refer to the Appendix~\ref{sec:engref}.
 There must be no changes to the controller or mechanical system.
 Past the diameter of \SI{45}{\centi\metre} (the width of the Robotino),
 additional hardware may only occupy up to $25\%$ of this
@@ -2049,8 +2099,12 @@ box (cf.~\refsec{sec:referee-box}).
 
 Robots have to operate autonomously, that is, without any human
 interference during the game. Communication among robots and to
-off-board computing units is allowed only using wifi
-(cf.~\refsec{sec:wifi-regulations}). Communication is not guaranteed
+off-board computing units is in principle only allowed using wifi
+(cf.~\refsec{sec:wifi-regulations}). If the event regulations set by the
+venue organizers, organizing committee and technical committee allow it, other
+wireless communication methods (e.g., broadband cellular) might be used after
+explicit approval is granted.
+Communication is not guaranteed
 and may be unavailable during parts of the game. Interruptions must be
 expected and are no reason to pause or abort a game, even if they
 endure for long periods of the game.
@@ -2448,20 +2502,24 @@ competition area for a match.
 Up to four \ac{MPS} may be placed on a field, depending on the chosen challenge.
 
 \subsubsection{Remote Setup}
-In case a competition is carried out remotely, a proper local setup has to
-be established and approved by the \ac{OC}.
-Requirements include a proper camera setup that covers the field sufficiently,
-such that external viewers can verify the integrity of each challenges,
+In case a competition is carried out remotely, a rule-compliant local setup
+has to be established.
+Requirements include a camera setup that covers the field sufficiently
+such that external viewers can verify the integrity of each of the challenges,
+a screen recording of the corresponding refbox frontend,
 as well as an approval for every mockup machine and robot that is used.
 To ease the setup, rules regarding required wall segments at the field borders
 are suspended in remote competitions.
+When challenges are played remotely, a recording of each run (which includes
+the logs from the refbox, the video of the field and the screenrecording of
+the refbox frontend) must be submitted to the \ac{OC}. The video proof should
+be sufficient in quality such that general game integrity can be verified.
 
 After registration the \ac{OC} will verify the field setup in a video call.
 The validation call will be scheduled individually for each team
-to account for timezones.
+to account for timezones. Remote participation is only allowed after the setup
+has been approved and only with the approved setup.
 
-When challenges are played remotely, a video recording of the live-streams
-hast to be sent to the \ac{OC}.
 
 
 \subsubsection{Overview --- Challenge Track}
@@ -2605,7 +2663,10 @@ The pose of each robot must be set in the beacon message
 for the \ac{refbox} to properly register the zones as visited.
 The robot may move within the zone during the 5 second period.\\
 Variations of this challenge depend on the number of available machines
-(see \reftab{tab:challenge-navigation}).
+(see \reftab{tab:challenge-navigation}). An unknown machine may be
+added as a further variation. The placement of this machine is decided by the
+referee in the setup phase but must be in accordance with the general rules for
+placing machines.
 Multiple robots may be used to simultaneously to reach multiple target zones.
 Partial points may be awarded in case only a subset of target zones were
 reached, which are accumulated if the challenge is completed fully.
@@ -2613,12 +2674,13 @@ reached, which are accumulated if the challenge is completed fully.
 \begin{table}[!htb]
  \centering
  \begin{tabular}{l|l|l|l|l}
-  \multirow{2}{*}{Machines}
+  \multirow{2}{*}{Machines (Unknown)}
   & \multicolumn{4}{c}{Scoring} \\\cline{2-5}
 	& $\geq$ 4 zones  & $\geq$ 8 zones & all 12 zones  & combined \\\hline\hline
 	 2 & +4 & +3 & +3 & 10 \\
 	 3 & +5 & +4 & +3 & 12 \\
 	 4 & +6 & +5 & +4 & 15 \\
+	 4 (+1) & +7 & +6 & +5 & 18 \\
  \end{tabular}
  \caption{Navigation Challenge}
  \label{tab:challenge-navigation}
@@ -2711,6 +2773,22 @@ The challenge reflects the exploration period of the standard game.
 The same point scores as in \reffig{tab:challenge-cx} apply with an additional
 $+5$ per challenge.
 
+
+\subsubsection{Simulation Challenge}\label{sec:challenge-simulation}
+In this Challenge a full game has to be played using the the RCLL Simulator
+\footnote{\url{https://github.com/robocup-logistics/rcll-simulator}}.
+The goal is to deliver a C3. Either two or three robots have to be used,
+each of them has to perform at least one retrieve and one deliver task.
+\begin{table}[!htb]
+  \centering
+  \begin{tabular}{l|l|l}
+   Robots  & Scoring \\\hline
+   2 & 10 \\
+   3 & 15 \\
+  \end{tabular}
+  \caption{CX Challenge}
+  \label{tab:challenge-cx}
+ \end{table}
 
 \subsubsection{Markerless Detection Challenge}\label{sec:challenge-markerless}
 Image recognition challenge to classify different machine types.\\
@@ -3100,7 +3178,7 @@ in \refsec{sec:communication} regulations regarding communication
 during games are described.
 %
 
-\begin{table}[b!]
+\begin{table}[h!]
   \centering
   \mytable{
     \begin{tabularx}{\linewidth}{l|X}
@@ -3243,178 +3321,178 @@ during games are described.
 \begin{appendix}
 \newpage
 
-\section{Engineering Reference}
-\label{sec:engref}
-\subsection{The Mobile Robot System Robotino 3}
-The mobile robot system Robotino is a platform with open mechanical
-and electrical interfaces for the integration of additional devices
-like sensors or motors. By default power is supplied via two
-exchangeable \SI{12}{\volt} lead gel batteries which permit a running
-time of up to two hours. Robotino is driven by 3 independent,
-omni-directional drive units. They are mounted at an angle of
-\ang{120} to each other. The three omni-directional drive units of
-Robotino defines it as being holonomic, meaning that the controllable
-degrees of freedom equals the total degrees of freedom of the
-robot. The drive units are integrated in a sturdy, laser welded steel
-chassis. The chassis is protected by a rubber bumper with integrated
-switching sensor.
+%\section{Engineering Reference}
+%\label{sec:engref}
+% \subsection{The Mobile Robot System Robotino 3}
+% The mobile robot system Robotino is a platform with open mechanical
+% and electrical interfaces for the integration of additional devices
+% like sensors or motors. By default power is supplied via two
+% exchangeable \SI{12}{\volt} lead gel batteries which permit a running
+% time of up to two hours. Robotino is driven by 3 independent,
+% omni-directional drive units. They are mounted at an angle of
+% \ang{120} to each other. The three omni-directional drive units of
+% Robotino defines it as being holonomic, meaning that the controllable
+% degrees of freedom equals the total degrees of freedom of the
+% robot. The drive units are integrated in a sturdy, laser welded steel
+% chassis. The chassis is protected by a rubber bumper with integrated
+% switching sensor.
 
-\subsubsection{Robot Dimensions (w/o extension tower)}
-\label{apx:sec:robot}
-\begin{itemize}
-\item \textbf{Diameter:} \SI{450}{\milli\metre}
-\item \textbf{Height including housing:} \SI{290}{\milli\metre}
-\item \textbf{Overall weight:} approx. \SI{22.5}{\kilogram}
-\item \textbf{Maximal payload:} about \SI{30}{\kilogram}
- \end{itemize}
+% \subsubsection{Robot Dimensions (w/o extension tower)}
+% \label{apx:sec:robot}
+% \begin{itemize}
+% \item \textbf{Diameter:} \SI{450}{\milli\metre}
+% \item \textbf{Height including housing:} \SI{290}{\milli\metre}
+% \item \textbf{Overall weight:} approx. \SI{22.5}{\kilogram}
+% \item \textbf{Maximal payload:} about \SI{30}{\kilogram}
+%  \end{itemize}
 
-\subsubsection{Drive Unit}
-\begin{itemize}
-\item \textbf{3$\times$ omni-directional wheels:} \SI{120}{\milli\metre}
-\item \textbf{Fed by DC three motors:} \SI{3600}{rpm}
-\item \textbf{Gear transmission ratio 32:1} \SI{22.5}{\kilogram}
- \end{itemize}
+% \subsubsection{Drive Unit}
+% \begin{itemize}
+% \item \textbf{3$\times$ omni-directional wheels:} \SI{120}{\milli\metre}
+% \item \textbf{Fed by DC three motors:} \SI{3600}{rpm}
+% \item \textbf{Gear transmission ratio 32:1} \SI{22.5}{\kilogram}
+%  \end{itemize}
 
-\begin{figure}[ht]
-\centering
-\subfigure[Festo Robotino 2]{%
-  \label{fig:robotino-2}%
-  \begin{minipage}[b]{0.3\linewidth}
-    \centering \includegraphics[height=3.5cm]{figures/robotino-shadow}
-  \end{minipage}
-}
-\quad
-\subfigure[Festo Robotino 3]{%
-  \label{fig:robotino-3}%
-  \begin{minipage}[b]{0.3\linewidth}
-    \centering
-    \includegraphics[height=3.5cm]{Robotino3.jpg}
-  \end{minipage}
-}
-\caption{Robotino 2 and Robotino 3 without assembly tower}
-\label{fig:robotinos}
-\end{figure}
+% \begin{figure}[ht]
+% \centering
+% \subfigure[Festo Robotino 2]{%
+%   \label{fig:robotino-2}%
+%   \begin{minipage}[b]{0.3\linewidth}
+%     \centering \includegraphics[height=3.5cm]{figures/robotino-shadow}
+%   \end{minipage}
+% }
+% \quad
+% \subfigure[Festo Robotino 3]{%
+%   \label{fig:robotino-3}%
+%   \begin{minipage}[b]{0.3\linewidth}
+%     \centering
+%     \includegraphics[height=3.5cm]{Robotino3.jpg}
+%   \end{minipage}
+% }
+% \caption{Robotino 2 and Robotino 3 without assembly tower}
+% \label{fig:robotinos}
+% \end{figure}
 
-\hskip-\parindent{} The motor speed will be controlled via a PID
-controller implemented on a Atmel microprocessor of the controller
-board of Robotino.
+% \hskip-\parindent{} The motor speed will be controlled via a PID
+% controller implemented on a Atmel microprocessor of the controller
+% board of Robotino.
 
-\subsubsection{Sensors}
-Robotino is equipped with 9 vertical mounted infrared distance
-measuring sensors which are mounted in the chassis at an angle of
-\ang{40} to one another. Robotino can scrutinize all surrounding areas
-for objects with these sensors.  Each of the sensors can be queried
-individually via the controller board. Obstacles can thus be avoided,
-clearances can be maintained and bearings can be taken on a selected
-target. The sensors are capable of accurate or relative distance
-measurements to objects at distances of \SI{4}{\centi\metre} to
-\SI{30}{\centi\metre}. Sensor connection is especially simple
-including just one analogue output signal and supply power. The
-sensors' evaluation electronics determines distance and read it out as
-an analogue signal.  The anti-collision sensor is comprised of a
-switching strip which is secured around the entire circumference of
-the chassis. A reliably recognizable signal is thus transmitted to the
-controller unit.  Collisions with objects at any point on the housing
-are detected and, for example, Robotino is brought to a
-standstill. The inductive proximity sensor is supplied as an
-additional component. It serves to detect metallic objects on the
-floor.
+% \subsubsection{Sensors}
+% Robotino is equipped with 9 vertical mounted infrared distance
+% measuring sensors which are mounted in the chassis at an angle of
+% \ang{40} to one another. Robotino can scrutinize all surrounding areas
+% for objects with these sensors.  Each of the sensors can be queried
+% individually via the controller board. Obstacles can thus be avoided,
+% clearances can be maintained and bearings can be taken on a selected
+% target. The sensors are capable of accurate or relative distance
+% measurements to objects at distances of \SI{4}{\centi\metre} to
+% \SI{30}{\centi\metre}. Sensor connection is especially simple
+% including just one analogue output signal and supply power. The
+% sensors' evaluation electronics determines distance and read it out as
+% an analogue signal.  The anti-collision sensor is comprised of a
+% switching strip which is secured around the entire circumference of
+% the chassis. A reliably recognizable signal is thus transmitted to the
+% controller unit.  Collisions with objects at any point on the housing
+% are detected and, for example, Robotino is brought to a
+% standstill. The inductive proximity sensor is supplied as an
+% additional component. It serves to detect metallic objects on the
+% floor.
 
-The default webcam camera is plugged in via USB and is capable of full
-HD 1080p video with auto light correction and two built in microphones
-for stereo sound with noise-canceling.
+% The default webcam camera is plugged in via USB and is capable of full
+% HD 1080p video with auto light correction and two built in microphones
+% for stereo sound with noise-canceling.
 
-\subsubsection{Controller Board}
-Robotino is powered by an exchangeable Embedded PC-COM Express
-layout combined with a custom made sensor board.
+% \subsubsection{Controller Board}
+% Robotino is powered by an exchangeable Embedded PC-COM Express
+% layout combined with a custom made sensor board.
 
-\paragraph{Embedded PC according to COM Express specification}
-\begin{itemize}
-\item Embedded Intel Core i5, 2.4 GHz, Dual-Core
-\item 8 GB RAM
-\item 64 GB SSD (exchangeable)
-\item Operating system: Linux Ubuntu 12.04 (64-bit)
-\end{itemize}
+% \paragraph{Embedded PC according to COM Express specification}
+% \begin{itemize}
+% \item Embedded Intel Core i5, 2.4 GHz, Dual-Core
+% \item 8 GB RAM
+% \item 64 GB SSD (exchangeable)
+% \item Operating system: Linux Ubuntu 12.04 (64-bit)
+% \end{itemize}
 
-\paragraph{Embedded PC interfaces}
-\begin{itemize}
-\item 1 $\times$ Ethernet
-\item 6 $\times$ USB 2.0
-\item 2 $\times$ PCI Express expansion slot
-\item Wireless LAN according to 802.11b/g, client or access point mode
-\item 2 $\times$  RS232
-\item 1 $\times$ Parallel port and 1 $\times$ VGA port
-\item Wireless LAN Access Point following the standards 802.11/b/g.
-\item The access point supports client mode, optional WPA2 encryption.
-\end{itemize}
+% \paragraph{Embedded PC interfaces}
+% \begin{itemize}
+% \item 1 $\times$ Ethernet
+% \item 6 $\times$ USB 2.0
+% \item 2 $\times$ PCI Express expansion slot
+% \item Wireless LAN according to 802.11b/g, client or access point mode
+% \item 2 $\times$  RS232
+% \item 1 $\times$ Parallel port and 1 $\times$ VGA port
+% \item Wireless LAN Access Point following the standards 802.11/b/g.
+% \item The access point supports client mode, optional WPA2 encryption.
+% \end{itemize}
 
-\paragraph{Motor control}
-\begin{itemize}
-\item micro-controller with 32-bit microprocessor and separated
-  Ethernet interface
-\item Including 1 $\times$ additional motor output and encoder
-  connector
-\item 8 $\times$ analog inputs from 0 V to 10 V (50 Hz)
-\item 8 $\times$ digital inputs/outputs with 24 V, short circuit proof
-  and overload protected
-\end{itemize}
+% \paragraph{Motor control}
+% \begin{itemize}
+% \item micro-controller with 32-bit microprocessor and separated
+%   Ethernet interface
+% \item Including 1 $\times$ additional motor output and encoder
+%   connector
+% \item 8 $\times$ analog inputs from 0 V to 10 V (50 Hz)
+% \item 8 $\times$ digital inputs/outputs with 24 V, short circuit proof
+%   and overload protected
+% \end{itemize}
 
-\subsubsection{Power supply}
-\begin{itemize}
-  \item $2 \times \SI{12}{\volt}$ lead-fleece rechargeable batteries with
-    $\SI{9.5}{Ah}$ capacity each
-  \item Operating time (default batteries): up to $\SI{4}{\hour}$
-\item Power supply for additional components: $13 \times \SI{24}{\volt}$,
-  $13 \times \text{GND}$
-\item Internal charger for lead-gel and NiMH rechargeable batteries
-\item $\SI{24}{\volt}$ power supply for charging batteries
-\end{itemize}
+% \subsubsection{Power supply}
+% \begin{itemize}
+%   \item $2 \times \SI{12}{\volt}$ lead-fleece rechargeable batteries with
+%     $\SI{9.5}{Ah}$ capacity each
+%   \item Operating time (default batteries): up to $\SI{4}{\hour}$
+% \item Power supply for additional components: $13 \times \SI{24}{\volt}$,
+%   $13 \times \text{GND}$
+% \item Internal charger for lead-gel and NiMH rechargeable batteries
+% \item $\SI{24}{\volt}$ power supply for charging batteries
+% \end{itemize}
 
-\subsubsection{Software}
-Pre-installed is Ubuntu Linux 12.04 LTS operating system, 16.04 LTS available.
-The main part of the controller is the Robotino server, a real time Linux
-application. It controls the drive units and provides interfaces to
-communicate with external PC applications via wifi. Also provided: API
-2.0 with libraries which allow you to create applications for Robotino
-in numerous programming languages:
+% \subsubsection{Software}
+% Pre-installed is Ubuntu Linux 12.04 LTS operating system, 16.04 LTS available.
+% The main part of the controller is the Robotino server, a real time Linux
+% application. It controls the drive units and provides interfaces to
+% communicate with external PC applications via wifi. Also provided: API
+% 2.0 with libraries which allow you to create applications for Robotino
+% in numerous programming languages:
 
-\begin{itemize}
-\item C++ and C
-\item C\#
-\item {.net} and JAVA
-\item MatLab and Simulink
-\item Labview
-\item Robot Operating System (ROS)
-\item Microsoft Robotics Developer Studio
-\end{itemize}
+% \begin{itemize}
+% \item C++ and C
+% \item C\#
+% \item {.net} and JAVA
+% \item MatLab and Simulink
+% \item Labview
+% \item Robot Operating System (ROS)
+% \item Microsoft Robotics Developer Studio
+% \end{itemize}
 
-You may find a lot of examples concerning using the different API's in
-the public OpenRobotino forum at \mbox{\url{http://www.openrobotino.org}}.
+% You may find a lot of examples concerning using the different API's in
+% the public OpenRobotino forum at \mbox{\url{http://www.openrobotino.org}}.
 
-\paragraph{Web interface}
-HTML5-based user interface provided by web server running on an embedded
-PC for setup and configuration using smartphone, tablet or PC/notebook
-User interface supporting program management, manual control, network
-setup, status display and options Help system: online manual for
-getting started, details on all components and introduction into
-programming
+% \paragraph{Web interface}
+% HTML5-based user interface provided by web server running on an embedded
+% PC for setup and configuration using smartphone, tablet or PC/notebook
+% User interface supporting program management, manual control, network
+% setup, status display and options Help system: online manual for
+% getting started, details on all components and introduction into
+% programming
 
-\paragraph{Robotino View}
-For a quick start or Hardware testing there is proprietary drag and
-drop Software Robotino View. Graphical programming environment for
-external PC running on Windows XP, Vista, Windows 7 or Windows 8.
+% \paragraph{Robotino View}
+% For a quick start or Hardware testing there is proprietary drag and
+% drop Software Robotino View. Graphical programming environment for
+% external PC running on Windows XP, Vista, Windows 7 or Windows 8.
 
-\begin{itemize}
-\item Main program using sequential function chart according to IEC 61131
-\item Reusable subprograms based on function blocks
-\item Library for function blocks and devices
-\item Global variables for communication between subprograms
-\item Program interpreter to run programs on Embedded PC autonomously
-\end{itemize}
+% \begin{itemize}
+% \item Main program using sequential function chart according to IEC 61131
+% \item Reusable subprograms based on function blocks
+% \item Library for function blocks and devices
+% \item Global variables for communication between subprograms
+% \item Program interpreter to run programs on Embedded PC autonomously
+% \end{itemize}
 
-\hskip-\parindent{} Additional information as well as accessories can be
-obtained through \\
-\mbox{\url{http://www.robocup-logistics.org/links/festo-robotino-3}}.
+% \hskip-\parindent{} Additional information as well as accessories can be
+% obtained through \\
+% \mbox{\url{http://www.robocup-logistics.org/links/festo-robotino-3}}.
 
 %\subsection{Robotino 2.0 (phase-out model)}
 %The mobile robot system Robotino is a platform with an open
@@ -3667,42 +3745,42 @@ obtained through \\
 %  \label{apx:tab:rfidproperties}
 %\end{table}
 
-\subsubsection{Wifi equipment}
-\label{sec:wifi-equipment}
-\begin{table}[H]
-  \centering
-  \mytable{
-    \begin{tabularx}{1\linewidth}{l|X}
-      \hline
-      Festo AP		&	LANCOM L-322agn \\
-      Transfer rate		&	Up to \SI{108}{\mega\bit\per\second} \\
-      Data link protocol	&	802.11 a/g/n \\
-      Frequency			&	\SI{5.0}{\giga\hertz} \\
-      League channel & 40 \\
-      Allowed channels (with restrictions)\footnote{Please refer to the official
-      radio policy for details:
-\url{https://rrl.robocup.org/wp-content/uploads/2019/01/RoboCup_2019_Radio_Policy_2018-12-24.pdf}} % chktex ignore-long-line chktex 8
-                     & 100, 104, 108, 112, 116, 132, 140 \\
-      Channel width & \SI{20}{\mega\hertz} \\
-      IP-distribution		&	172.26.200.xxx for LAN clients (DHCP) \\
-      &	172.26.101.xxx for the Robotino devices \\
-      &	172.26.1.xxx for Robotinos \\
-      Subnet Mask			&	255.255.0.0 \\
-      Encryption			&	Unsecured \\
-      SSID				&	Separated for both teams:\\
-      &	RobotinoEvent.1 \\
-      & RobotinoEvent.2 \\
-      Festo Clients		&	3COM WL-560 \\
-      Power Supply		&	Clients: \SI{12}{\volt}, \SI{1}{\ampere},\\
-      & 	Most Laptops cannot power them \\
-      & 	via USB\@! \\
-      Connector			&	Ethernet \\
+% \subsubsection{Wifi equipment}
+% \label{sec:wifi-equipment}
+% \begin{table}[H]
+%   \centering
+%   \mytable{
+%     \begin{tabularx}{1\linewidth}{l|X}
+%       \hline
+%       Festo AP		&	LANCOM L-322agn \\
+%       Transfer rate		&	Up to \SI{108}{\mega\bit\per\second} \\
+%       Data link protocol	&	802.11 a/g/n \\
+%       Frequency			&	\SI{5.0}{\giga\hertz} \\
+%       League channel & 40 \\
+%       Allowed channels (with restrictions)\footnote{Please refer to the official
+%       radio policy for details:
+% \url{https://rrl.robocup.org/wp-content/uploads/2019/01/RoboCup_2019_Radio_Policy_2018-12-24.pdf}} % chktex ignore-long-line chktex 8
+%                      & 100, 104, 108, 112, 116, 132, 140 \\
+%       Channel width & \SI{20}{\mega\hertz} \\
+%       IP-distribution		&	172.26.200.xxx for LAN clients (DHCP) \\
+%       &	172.26.101.xxx for the Robotino devices \\
+%       &	172.26.1.xxx for Robotinos \\
+%       Subnet Mask			&	255.255.0.0 \\
+%       Encryption			&	Unsecured \\
+%       SSID				&	Separated for both teams:\\
+%       &	RobotinoEvent.1 \\
+%       & RobotinoEvent.2 \\
+%       Festo Clients		&	3COM WL-560 \\
+%       Power Supply		&	Clients: \SI{12}{\volt}, \SI{1}{\ampere},\\
+%       & 	Most Laptops cannot power them \\
+%       & 	via USB\@! \\
+%       Connector			&	Ethernet \\
 
-%      \hline
-    \end{tabularx} }
-    \caption{Technical specification of the wifi equipment}
-	\label{apx:tab:wifi}
-\end{table}
+% %      \hline
+%     \end{tabularx} }
+%     \caption{Technical specification of the wifi equipment}
+% 	\label{apx:tab:wifi}
+% \end{table}
 
 
 
