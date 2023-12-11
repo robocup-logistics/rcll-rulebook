@@ -37,19 +37,19 @@ def generate_tex(template, base_color, ring_colors, cap_color):
         ring_colors=ring_colors,
         cap_color=cap_color,
     )
-    print("done")
     base = [f'BASE_{base_color.upper()}'] if base_color else []
     rings = [f'RING_{ring_color.upper()}' for ring_color in ring_colors] if ring_colors else []
     cap = [f'CAP_{cap_color.upper()}'] if cap_color else []
     items = base + rings + cap
-    tex_path = f'{"-".join(items)}.tex'
-    print(tex_path)
+    output_path = f'{"-".join(items)}'
 
-    with open(os.path.join('generated', tex_path), 'w') as tex_file:
+    with open(os.path.join('generated', f'{output_path}.tex'), 'w') as tex_file:
         tex_file.write(tex)
-    subprocess.call(['pdflatex', '-output-directory', 'generated', tex_path],
-                    stdout=subprocess.DEVNULL)
 
+    subprocess.run(['pdflatex', '-output-directory', 'generated', f'{output_path}.tex'],
+                    stdout=subprocess.DEVNULL)
+    subprocess.run(['pdf2svg', f'{output_path}.pdf', f'{output_path}.svg'], cwd='generated')
+   
 # note: to only generate valid products, remove 'transparent' from the
 # `base_colors` list and remove all `thread_pool.apply_async`` calls except the
 # one in line 80
