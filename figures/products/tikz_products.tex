@@ -97,17 +97,17 @@
   cap/.style = {
     code = {
       \begin{scope}[scale=.5]
-      \fill [#1!50!white] ellipse [x radius = 2, y radius = 2/3];
+      \fill [cap-#1!50!white] ellipse [x radius = 2, y radius = 2/3];
       % lower separation ring ("shadow")
-      \path [left color = #1!50!black, right color = #1!50!black,
-        middle color = #1!75!black]
+      \path [left color = cap-#1!50!black, right color = cap-#1!50!black,
+        middle color = cap-#1!75!black]
         (-2+.05,0) arc (180:360:2-.05 and 2/3-.05*2/3) -- cycle;
       % Top plate
-      \path [top color = #1!50, bottom color = #1]
+      \path [top color = cap-#1!50, bottom color = cap-#1]
         (0,.05*2/3) ellipse [x radius = 2, y radius = 2/3-.05*2/3];
       % outer hull/front
-      \path [left color = #1!75, right color = #1!75,
-        middle color = #1!100] (-2,0) -- (-2,-.3) arc (180:360:2 and 2/3)
+      \path [left color = cap-#1!75, right color = cap-#1!75,
+        middle color = cap-#1!100] (-2,0) -- (-2,-.3) arc (180:360:2 and 2/3)
         -- (2,0) arc (360:180:2 and 2/3);
        \foreach \r in {225}
          \foreach \i [evaluate = {\s=30;}] in {0,2,...,30}
@@ -159,6 +159,7 @@
   % },
 
 %% COLORS %%%%%%%%%%%%%%%%%%%
+\definecolor{base-transparent}{rgb}{0.7, 0.75, 0.71}
 \definecolor{base-black}{rgb}{0, 0, 0}
 \definecolor{base-red}{rgb}{0.8, 0.05, 0.05}
 \definecolor{base-silver}{rgb}{0.95,0.95,0.95}
@@ -166,6 +167,8 @@
 \definecolor{ring-yellow}{rgb}{0.9, 0.9, 0.05}
 \definecolor{ring-blue}{rgb}{0.05, 0.05, 0.8}
 \definecolor{ring-orange}{rgb}{1, 0.5, 0.2}
+\colorlet{cap-grey}{gray}
+\colorlet{cap-black}{black}
 
 %%% Local Variables: 
 %%% mode: latex
