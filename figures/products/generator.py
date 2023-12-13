@@ -67,12 +67,9 @@ def main():
     thread_pool = ThreadPool()
 
     for base in base_colors:
-        # single base
-        thread_pool.apply_async(generate_tex,
-                                    (template, base, None, None))
         for complexity in range(0, 4):
-            for rings in itertools.permutations(ring_colors, complexity):
-                # workpiece with base and number of rings
+            for rings in itertools.combinations_with_replacement(ring_colors, complexity):
+                # workpiece without cap (single bases and bases with rings)
                 thread_pool.apply_async(generate_tex,
                                             (template, base, rings, None))
                 for cap in cap_colors:
