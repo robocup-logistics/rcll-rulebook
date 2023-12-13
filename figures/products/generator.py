@@ -68,7 +68,7 @@ def main():
 
     for base in base_colors:
         for complexity in range(0, 4):
-            for rings in itertools.combinations_with_replacement(ring_colors, complexity):
+            for rings in itertools.product(ring_colors, repeat=complexity):
                 # workpiece without cap (single bases and bases with rings)
                 thread_pool.apply_async(generate_tex,
                                             (template, base, rings, None))
