@@ -50,13 +50,13 @@ def generate_tex(template, base_color, ring_colors, cap_color):
                     stdout=subprocess.DEVNULL)
     subprocess.run(['pdf2svg', f'{output_path}.pdf', f'{output_path}.svg'], cwd='generated')
    
-# note: to only generate valid products, remove 'transparent' from the
+# note: to only generate valid products, remove 'clear' from the
 # `base_colors` list and remove all `thread_pool.apply_async`` calls except the
 # one in line 80
 def main():
     env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
     template = env.get_template('product.tex.j2')
-    base_colors = ['black', 'red', 'silver', 'transparent']
+    base_colors = ['black', 'red', 'silver', 'clear']
     ring_colors = ['green', 'blue', 'orange', 'yellow']
     cap_colors = ['grey', 'black']
 
