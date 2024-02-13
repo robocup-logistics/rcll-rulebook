@@ -49,12 +49,10 @@
 %\newcommand{\reflst}[1]{Listing~\ref{#1}}
 \newcommand{\reflst}[1]{Figure~\ref{#1}}
 \newcommand{\reftab}[1]{Table~\ref{#1}}
+\sisetup{parse-numbers=false}
 
 \newcommand{\SItextrange}[3][]{
   \SI[
-  input-quotient=:,
-  output-quotient=\text{ to },
-  quotient-mode=symbol,
   #1
   ]
   {#2}{#3}
