@@ -6,8 +6,17 @@
 \PreviewEnvironment{tikzpicture}
 \begin{document}
 \begin{tikzpicture}
-\path pic {base={{base_color}}}
-  {% for ring_color in ring_colors %} ++(0,.55) pic {ring={{ring_color}}} {% endfor %}
-  ++(0,.195) pic {cap={{cap_color}}};
+\path 
+  {% if base_color %} 
+    pic {base={{base_color}}} 
+  {% endif %}
+  {% if ring_colors %} 
+    {% for ring_color in ring_colors %} 
+      ++(0,.55) pic {ring={{ring_color}}}
+    {% endfor %}
+  {% endif %}
+  {% if cap_color %}
+    ++(0,.195) pic {cap={{cap_color}}}
+  {% endif %};
 \end{tikzpicture}
 \end{document}
