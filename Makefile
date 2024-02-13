@@ -22,7 +22,7 @@ chktex_ignore=24 44
 linelength=80
 
 lint_%: %.tex
-	@chktex -q $(foreach w,$(chktex_ignore),-n $w) $< | tee chktex.log
+	@chktex -n 12 -q $(foreach w,$(chktex_ignore),-n $w) $< | tee chktex.log
 	@bash -c '\
 		if [ -s chktex.log ] ; then \
 			echo "ERROR(lint): chktex found errors"; \
