@@ -13,7 +13,6 @@
     {#3}}%
 % load rcll.mps library
 \usetikzlibrary{rcll.mps}
-\colorlet{mps-cyan}{cyan!30!white}
 \colorlet{mps-magenta}{magenta!30!white}
 \colorlet{insertion-col}{gray!50!white}
 \colorlet{blocked-col}{black!10!white}
@@ -43,27 +42,27 @@
 		([xshift=0.5\rcllCellWidth,
 		  yshift=-0.5\rcllCellWidth] #1) {\ang{#2}};
 }
-\tikzset{twocolored/.style={shading = axis, left color=mps-cyan, right color=mps-magenta, fading speed=70}}
+\tikzset{twocolored/.style={shading = axis, left color=mps-magenta, right color=mps-magenta, fading speed=70}}
 \begin{document}
 \begin{tikzpicture}[x=\rcllCellWidth,y=\rcllCellWidth]
 	\begin{pgfonlayer}{background}
-	% insertion zone
-	\fill[insertion-col] (-2,0) rectangle (-5,1);
+		% insertion zone
+		\fill[insertion-col] (-2,0) rectangle (-5,1);
 	\end{pgfonlayer}
 	% zone coordinates and names
 	\foreach \x in {1,...,5} {
-		\foreach \y in {1,...,5} {
-			\coordinate (M-Z\x\y) at ($(-\x,\y)-(-0.5,0.5)$);
-			\node[font=\scriptsize,anchor=north west, inner sep=2pt] at (-\x,\y) {M\_Z\x\y};
+			\foreach \y in {1,...,5} {
+					\coordinate (M-Z\x\y) at ($(-\x,\y)-(-0.5,0.5)$);
+					\node[font=\scriptsize,anchor=north west, inner sep=2pt] at (-\x,\y) {M\_Z\x\y};
+				}
 		}
-	}
 	% grid
 	\foreach \x in {0,...,5} {
-		\draw (-\x,0) -- (-\x,5);
-		\foreach \y in {0,...,5} {
-			\draw (-\x,\y) -- (0,\y);
+			\draw (-\x,0) -- (-\x,5);
+			\foreach \y in {0,...,5} {
+					\draw (-\x,\y) -- (0,\y);
+				}
 		}
-	}
 	% walls
 	\draw[line width=2pt,blue!80!black] (-2,1) -- (-2,0) -- (-5,0);
 	\draw[line width=2pt,blue!80!black] (-3,1) -- (-5,1) -- (-5,2);
@@ -86,39 +85,37 @@
 		label={[font=\scriptsize]90:$(-5,5)$}]{};
 	% insertion zone robots
 	\foreach \insertion in {31,41,51} {
-		\node at (M-Z\insertion) [circle,fill=magenta, draw=black,minimum width=0.6\rcllMpsLength] {};
-		\begin{scope}[shift={(M-Z\insertion)}]
-			\fill[cyan,draw=black] (0,0) -- (45:0.3\rcllMpsLength) arc (45:225:0.3\rcllMpsLength) -- cycle;
-		 \end{scope}
-	}
+			\node at (M-Z\insertion) [circle,fill=magenta, draw=black,minimum width=0.6\rcllMpsLength] {};
+
+		}
 	% mps placement
 	\begin{scope}[rcllMPSstyle/.append style={twocolored}]
 		\path (M-Z12) pic[rotate=90, rcllMPSstyle/.append style={shading angle=25}]
-			(MBS) {rcllBS};
+		(MBS) {rcllBS};
 		\rotationLabel{M-Z12}{90};
 		\path (M-Z53) pic[rotate=90, rcllMPSstyle/.append style={shading angle=25}]
-			(MCS1) {rcllCS={gray!50!white}};
+		(MCS1) {rcllCS={gray!50!white}};
 		\rotationLabel{M-Z53}{90};
 		\path (M-Z45) pic[rotate=0, rcllMPSstyle/.append style={shading angle=295}]
-			(MRS1) {rcllRS={yellow}{blue}};
+		(MRS1) {rcllRS={yellow}{blue}};
 		\rotationLabel{M-Z45}{0};
 	\end{scope}
 	% field dimensions
 	\draw[line width=2pt, stealth-stealth] (-5,5.3) --
-		node[midway, fill=white, font=\scriptsize] {\SI{5}{\metre}}(0,5.3);
+	node[midway, fill=white, font=\scriptsize] {\SI{5}{\metre}}(0,5.3);
 	\draw[line width=2pt, stealth-stealth] (-5.3,0) --
-		node[midway, fill=white, font=\scriptsize] {\SI{5}{\metre}}(-5.3,5);
+	node[midway, fill=white, font=\scriptsize] {\SI{5}{\metre}}(-5.3,5);
 	% blocked zones
 	\begin{pgfonlayer}{background}
 		\foreach \reserved in {%
-			11,13,% BS
-			52,54,% CS1
-			35, 55% RS1
+				11,13,% BS
+				52,54,% CS1
+				35, 55% RS1
 			} {
-			\begin{scope}[shift={(M-Z\reserved)}]
-				\fill[fill=blocked-col] (-0.5,-0.5) rectangle (0.5,0.5);
-			\end{scope}
-		}
+				\begin{scope}[shift={(M-Z\reserved)}]
+					\fill[fill=blocked-col] (-0.5,-0.5) rectangle (0.5,0.5);
+				\end{scope}
+			}
 		% insertion zone
 		\begin{scope}[shift={(M-Z32)}]
 			\fill[fill=insertion-blocked-col] (-0.5,-0.5) rectangle (0.5,0.5);
