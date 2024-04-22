@@ -36,7 +36,7 @@ color () {
 }
 
 PRINT_HELP_AND_EXIT=0
-if [[ -z "$1" || -z "$2" ]]
+if [[ -z "$1" || -z "$2"  || -z "$3" ]]
 	then
 		PRINT_HELP_AND_EXIT=1
 		echo "Expected a range of barcode numbers to generate. Abort."
@@ -58,7 +58,7 @@ if [[ -z "$1" || -z "$2" ]]
 					echo "Argument 2 out of range. Abort"
 					PRINT_HELP_AND_EXIT=1
 			fi
-			if (( $2 > $3))
+			if (( $1 > $2))
 				then
 					echo "Argument 1 cannot be greater than argument 2. Abort"
 					PRINT_HELP_AND_EXIT=1
