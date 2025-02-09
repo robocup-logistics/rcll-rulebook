@@ -77,7 +77,7 @@
 %% HYPERREF %%%%%%%%%%%%%%%%%%%
 \usepackage{hyperref}
 \hypersetup{
-  pdftitle      = {The RoboCup Logistics League Rulebook for 2024},
+  pdftitle      = {The RoboCup Logistics League Rulebook for 2025},
   pdfauthor     = {RCLL TC},
   pdfkeywords   = {RCLL, Rulebook},
   pdfsubject    = {},
@@ -157,51 +157,56 @@
     \begin{LARGE}
 
       {\bf RoboCup Logistics League}\\[2ex]
-      {\Large Rules and Regulations 2024}\\[4ex]
+      {\Large Rules and Regulations 2025}\\[4ex]
     \end{LARGE}
     \hrule
 
     {\LARGE\vspace*{4ex}}
     \begin{Large}
-      The Technical Committee 2012--2024\\[6ex]
+      The Technical Committee 2012--2025\\[6ex]
     \end{Large}
     \begin{tabular}{lll}
-      \textbf{Kousheek Chakraborty}&
-      \textbf{Leo F\"urba\ss}&
-      \textbf{Peter Kohout}\\
-      \textbf{Alain Rohr}&
-      \textbf{Daniel Ruelas}&
-      \textbf{Jesus Savage}\\
-      \textbf{Daniel Swoboda}&
-      \textbf{Tarik Viehmann}&\\[.5em]
+      \textbf{Jana Koehler}&
+      \textbf{Peter Kohout}&
+      \textbf{Mario Sanz Lopez}\\
+      \textbf{Kosuke Nakajima}&
+      \textbf{Ruben Sandoval}&
+      \textbf{Daniel Swoboda}\\
+      \textbf{Tarik Viehmann}&&\\[.5em]
       Marco De Bortoli
       &Vincent Coelen
-      &Christian Deppe
+      &Kousheek Chakraborty
       \\
-      Daniel Ewert
-      &Mostafa Gomaa
+      Christian Deppe
+      &Daniel Ewert
+      &Leo F\"urba\ss\\
+      Mostafa Gomaa
       &Nils Harder
+      &Till Hofmann
       \\
-      Till Hofmann
-      &Sven Imhof
+      Sven Imhof
       &Ulrich Karras
+      &Lukas Knoflach
       \\
-      Lukas Knoflach
-      &S\"oren Jentzsch
+      S\"oren Jentzsch
       &Nicolas Meier
+      &Tobias Neumann
       \\
-      Tobias Neumann
-      &Tim Niemueller
+      Tim Niemueller
       &Sebastian Reuter
+      & Alain Rohr
       \\
-      Gerald Steinbauer
-      &Wataru Uemura
+      Daniel Ruelas
+      &Jesus Savage
+      &Gerald Steinbauer
+      \\
+      Wataru Uemura
       &Thomas Ulz
       \\
     \end{tabular}
     \vfill
-    Revision Date: Saturday, April 13\textsuperscript{\raisebox{-.2ex}{th}}
-    2024
+    Revision Date: Sunday, Feb 9\textsuperscript{\raisebox{-.2ex}{th}}
+    2025
     %\\ DRAFT --- Work in Progress
   \end{center}
 \end{titlepage}
@@ -247,9 +252,7 @@ tackling the problem of flexible and efficient production logistics at a
 comprehensible size. Being an industry motivated league, it focuses
 on challenges promoting precise actions and robust long-enduring
 execution, and further encourages external data supported
-autonomy. By providing feedback and competition hardware, industrial
-partner Festo transfers insights into future factory concepts to help
- uncover relevant future topics for education and research.
+autonomy.
 
  This year's competition is laid out in the following pages.  It ensures
  the same and fair conditions for all participants. It neither
@@ -323,7 +326,7 @@ partner Festo transfers insights into future factory concepts to help
  Seasoned teams continue to compete against each other in regular \ac{RCLL}
  games in the main track of the competition.
  The league also relaxed the hardware restrictions to allow the use of
- alternative robotic platforms other than the Festo robotino for
+ alternative robotic platforms other than the Festo Robotino for
  teams competing in the new challenge track.
  This enables interested teams to explore the different tasks of the \ac{RCLL}
  before committing to the standard platform of the league.
@@ -347,7 +350,10 @@ partner Festo transfers insights into future factory concepts to help
  delivery of products within the delivery-windows.
  In 2024 the TC focused on the accessibility of the league by improving
  documentation and procedures as well as updating the user interface of the
- referee box to support dynamic reconfiguration and spectator views.
+ referee box to support dynamic reconfiguration and spectator views. For 2025,
+ the TC plans to further improve the accessibility of the league by improving
+ tooling, documentation, and by lifting platform restrictions for the main
+ track.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The Task}
@@ -383,7 +389,7 @@ The RCLL supports different competition tracks:
 A \ac{RCLL} tournament is divided, such that entry-level teams participate in
 the challenge track and advanced teams compete in the main track separately.
 
-This work flow is controlled by a \acf{refbox}~\cite{RCI-RefBox}%
+This workflow is controlled by a \acf{refbox}~\cite{RCI-RefBox}%
 \footnote{Code and documentation available at
 \url{https://github.com/robocup-logistics/rcll-refbox}}
 broadcasting information via wifi (see \refsec{sec:referee-box}).
@@ -391,7 +397,7 @@ broadcasting information via wifi (see \refsec{sec:referee-box}).
 It is a software system that runs on a
 system provided by the Organizing Committee and controls the overall game,
 monitors feedback from the robots, and awards points.
-The work flow itself is divided into phases:
+The game itself is divided into phases:
 During a setup phase (see \refsec{sec:setup-phase})
 the field setup is prepared and the robots are started.
 Within the production phase (see \refsec{sec:production-phase}) the
@@ -407,18 +413,14 @@ individual challenges skip the exploration phase, see
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Agreements \& Regulations}
 \label{sec:agreements}
-\paragraph{Standardized Robotic Platform}
-In the \ac{RCLL}, the Robotino robotic system from Festo Didactic SE is used as
-the common base platform.
-It can be used with certain freedoms and limitations regarding hardware and
-software modifications and additions, which will be outlined in
-\refsec{sec:robotino}.
-This includes the current version, Robotino 4, as well as the phased-out
-Robotino 3 and 2.
-Entry-level teams can explore the league with other robotic platforms as
-participation in the challenge track does not require the usage of the
-Robotino platform. However, the general hardware constraints outlined in
-\refsec{sec:robotino} still apply.
+\paragraph{Robotic Platforms}
+Until 2025, the Festo Robotino was the standard platform
+of the \ac{RCLL}. Starting in 2025, the \ac{RCLL} will allow the usage of
+alternative robotic platforms for every track of the competition, as long as
+they fulfill the general hardware constraints outlined in \refsec{sec:robotino}.
+These constraints are
+designed to ensure a fair competition and to allow for a smooth integration of
+the robots into the competition environment.
 
 \paragraph{Rules Philosophy}
 Each team should act within the meaning of a cooperative and fair behavior,
@@ -440,7 +442,7 @@ year of stabilization and conservative changes.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{League Administration} \label{sec:commitees}
-\subsection{Technical Committee 2024}
+\subsection{Technical Committee 2025}
 \label{sec:tc}
 The \acf{TC} is responsible to update and publish the
 rulebook, to decide on technical questions during the tournament, and
@@ -448,40 +450,38 @@ to communicate with the league stake holders on technical
 advancements. Current members of the \ac{TC} are
 (in alphabetical order):\\[.5em]
 % Alphabetical order by last name
-\emph{Kousheek Chakraborty}, \'Ecole polytechnique universitaire de Lille,
-Lille, France\\
-\emph{Leo F\"urba\ss}, Graz University of Technology, Graz, Austria\\
+\emph{Jana Koehler}, Lucerne University of Applied Sciences and Arts, Lucerne, Switzerland\\%chktex ignore-long-line
 \emph{Peter Kohout}, Graz University of Technology, Graz, Austria\\
-\emph{Alain Rohr}, HFTM Technical Institute of Applied Science Mittelland,
-Biel, Switzerland\\
-\emph{Daniel Ruelas}, National Autonomous University of Mexico, Mexico City,
-Mexico\\
-\emph{Jesus Savage}, National Autonomous University of Mexico, Mexico City,
+\emph{Mario Sanz Lopez}, \'Ecole polytechnique universitaire de Lille,
+Lille, France\\
+\emph{Kosuke Nakajima}, Ryukoku University, Kyoto, Japan\\
+\emph{Ruben Sandoval}, National Autonomous University of Mexico, Mexico City,
 Mexico\\
 \emph{Daniel Swoboda}, RWTH Aachen University, Aachen, Germany\\
 \emph{Tarik Viehmann}, RWTH Aachen University, Aachen, Germany
 
+
 \medskip
 \noindent To get into contact with the \ac{TC} use the mailing list\\
-\centerline{\url{robocup-logistics-tc@lists.rwth-aachen.de}}
+\centerline{\url{rc-logistics-tc@lists.robocup.org}}
 
-\subsection{Organizing Committee 2024}
+\subsection{Organizing Committee 2025}
 \label{sec:oc}
 The \ac{OC} is responsible for organizing the
 RoboCup competitions, to communicate to the RoboCup Federation
 trustees and chairs the requirements of the league, and to inform and
 attract new teams to the league. Current members of the \ac{OC} are (in
 alphabetical order):\\[.5em]
-\emph{Joshua Martin\`ez}, National Autonomous University of Mexico, Mexico City,
-Mexico\\
-\emph{Stefan Moser}, Graz University of Technology, Graz, Austria\\
 \emph{Matteo Tschesche}, FH Aachen University of Applied Sciences, Aachen,
 Germany\\
-\emph{Wataru Uemura}, Ryukoku University, Kyoto, Japan
+\emph{Wataru Uemura}, Ryukoku University, Kyoto, Japan\\
+\emph{Miguel Ya\~{n}ez}, National Autonomous University of Mexico, Mexico City,
+Mexico\\
+\emph{Shohei Yasuda}, Ryukoku University, Kyoto, Japan
 
 \medskip
 \noindent To get into contact with the \ac{OC} use the mailing list\\
-\centerline{\url{robocup-logistics-oc@lists.rwth-aachen.de}}
+\centerline{\url{rc-logistics-oc@lists.robocup.org}}
 
 \subsection{Executive Committee}
 \label{sec:ec}
@@ -493,8 +493,8 @@ feedback to organize the league. All committee members are also
 members of the Technical Committee. Executive Committee members are
 elected by the Board of Trustees and appointed by the President of the
 RoboCup Federation; they serve 3-year terms.\\[.5em]
-%\emph{Alexander Ferrein}, FH Aachen, Aachen, Germany\\
-\emph{Christian Deppe}, Festo Didactic SE, Denkendorf, Germany
+\emph{Till Hofmann}, RWTH Aachen University, Aachen, Germany\\
+\emph{Wataru Uemura}, Ryukoku University, Kyoto, Japan
 
 \subsection{Website and Contact}
 \label{sec:website-ml}
@@ -509,8 +509,10 @@ league is available at\\
 
 \smallskip
 \noindent
-We also have a Slack workspace, which anyone is welcome to
+A slack workspace is set up for the league and used to communicate
+most details and quickly answer questions. You can
 join\footnote{{\url{https://join.slack.com/t/robocuplogist-ewg8659/shared_invite/zt-11rvzswk5-AuV0isGO3Log1soa5_dwmg}}}. %chktex ignore-long-line
+here.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Competition Area} \label{sec:area}
@@ -712,9 +714,8 @@ Based on these shared properties, there are five kinds of machines:
 \end{description}
 
 \noindent
-Machines of type \ac{CS} and \ac{RS} are called production machines as they
-perform refinement steps on a workpiece during the production
-phase. Processing times are outlined in \reftab{tab:processing-times}.
+Processing times for each of the machines are outlined in
+\reftab{tab:processing-times}.
 
 \begin{figure}[bh!]
 \centering
@@ -780,21 +781,22 @@ phase. Processing times are outlined in \reftab{tab:processing-times}.
             Type & Distribution & (Final) processing time[s]\\\hline
             \acf{BS} & 1 per team & minimum physical time\\
             \acf{CS} & 2 per team & $t_2 = \SItextrange{15:25}{\sec}$\\
-            \acf{RS} & 2 per team &$t_3 = \SItextrange{40:60}{\sec}$\\
+            \acf{RS} & 2 per team &$t_3 = \SItextrange{15:25}{\sec}$\\
             \acf{SS} & 1 per team & minimum physical time\\
-            \acf{DS} & 1 per team &$t_5 =\SItextrange{20:40}{\sec}$
+            \acf{DS} & 1 per team &$t_5 =\SItextrange{5:15}{\sec}$
         \end{tabularx}
     }
-    \caption{\ac{MPS} type, distribution and processing times}
+    \caption{\ac{MPS} type, distribution and approximate processing times}
     \label{tab:processing-times}
 \end{table}
 
-\subsubsection{Physical Description of Machines}
+\subsection{Physical Description of Machines}
 
-The stations have a rectangular base shape of \SI{0,35 x 0,7}{\metre}% chktex 29
-with a height of about \SI{1}{\metre} depending on machine type.
-A machine is movable by four wheels with \SI{0.1}{\metre} clearance.
-Both narrow sides of the trolley are closed by plexiglas and have a handle.
+The stations have a rectangular base shape of \SI{0.35 \times0.7}{\metre} with
+a height of about \SI{1}{\metre} depending on machine type.
+Machines are movable by four wheels with \SI{0.1}{\metre} clearance.
+Both narrow sides of the trolley are covered with transparent acrylic doors
+and have a handle, and a lock.
 All physical interfaces like conveyor belt inputs and outputs, shelves, and
 slides for additional bases on ring stations are accessible at
 \SI{89.8}{\centi\metre} height\footnote{Note however, that due to small
@@ -806,7 +808,7 @@ adjusting. All diffuse sensors (input side) have been removed to allow
 for infrared-emitting cameras.  To simplify the delivery on the belt,
 each machine will be equipped with a narrowing cone on its input side
 (\reffig{fig:narrow-cone}).  You can order them from Festo Didactic SE
-(C. Deppe) or download the STL model file from the \ac{RCLL} site.
+or download the STL model file from the \ac{RCLL} site.
 \begin{figure}
     \includegraphics[height=8cm]{narrowConeSketch.jpg}
 \caption{Narrowing cone}
@@ -865,8 +867,10 @@ if oriented next to a wall or field border
 (e.g., zones C-Z*1, C-Z*8, C-Z7*, M-Z*1, M-Z*8 and M-Z7* in
 \reffig{fig:competition-area}).
 The reason being, that the shelf and slide of these stations are
-offset sideways at the input side. This might lead to the situation that for one
-team the shelf is close to the wall, and for the other it is not. To remedy this
+offset sideways at the input side. This might lead to the situation that for
+one
+team the shelf is close to the wall, and for the other it is not. To remedy
+this
 problem, the \ac{RS} and \ac{CS} machines adjacent to a wall will always
 be placed such that the shelf or slide is on the farther end with respect
 to the wall.
@@ -934,8 +938,9 @@ and slides are reachable. That
 is, a path to each blocked zone (see \reffig{fig:zone-mps-blocked}) must exist
 from any unoccupied or blocked zone of the field. If a machine is rotated with
 \ang{0}, \ang{90}, \ang{180} or \ang{270} the zones in front the input and
-output side are blocked as well (\reffig{fig:zone-mps-rotation-straight}).  For
-machines with rotations \ang{45}, \ang{135}, \ang{225} and \ang{315} three zones
+output side are blocked as well (\reffig{fig:zone-mps-rotation-straight}). For
+machines with rotations \ang{45}, \ang{135}, \ang{225} and \ang{315} three
+zones
 in front of each input and output side are blocked
 (\reffig{fig:zone-mps-rotation-odd}). No \ac{MPS} nor blocked zones for
 another \ac{MPS} may be placed in a blocked zone.
@@ -1092,7 +1097,8 @@ Teams can choose whether uniquely identifying markers should be added to their
 machines or not.
 In the main track of the \ac{RCLL}, where two teams compete on the same playing
 field, \acl{UMPS} markers may be used for machines of a team that
-does not require markers, if the opposing team relies o the presence of markers.
+does not require markers, if the opposing team relies o the presence of
+markers.
 
 Markers will be
 horizontally centered below the conveyor belt. The vertical distance
@@ -1132,11 +1138,13 @@ The building materials for the models must be opaque, but may have any color.
 At the beginning of each match, the \ac{refbox} must be configured according to
 the game mode specification.
 To guide the match, the \ac{refbox} utilizes different phases,
-which are outlined in the following sections. Within the different game modes in
+which are outlined in the following sections. Within the different game modes
+in
 the \ac{RCLL} (see \refsec{sec:tournament-main} and
 \refsec{sec:tournament-challenges}), different phases might be utilized.
 Regardless of the game mode, all matches will
-start at the exact time scheduled by the Organizing Committee in the setup phase
+start at the exact time scheduled by the Organizing Committee in the setup
+phase
 (cf.~\refsec{sec:setup-phase}).
 
 
@@ -1156,6 +1164,13 @@ the robot is allowed. The robot(s) must react to the \ac{refbox} %chktex 36
 game state messages and start the game play autonomously.
 The \ac{refbox} will automatically end the setup phase after 5 minutes.
 Production phase follows.
+
+Every team is entitled to perform non-obstrusive visual checks of the field,
+the machines, and the robots of the opposing team during the setup phase.
+Scrutineering is only allowed during the setup phase and must be announced to
+the referees beforehand. The opposing team must be informed about the
+scrutineering in advance and must be given the opportunity to be present during
+the inspection.
 
 \subsection{Production Phase}
 \label{sec:production-phase}
@@ -1256,7 +1271,7 @@ They consist of the following elements:
   \label{fig:workpieces}
 \end{figure}
 
-\paragraph{Barcodes.}
+\paragraph{Barcodes}
 All bases are labeled with a horizontally encircling, white glossy tag
 containing a white reference area as well as an identifying
 UPC-E barcode.
@@ -1400,45 +1415,53 @@ For a non-competitive order, each team scores independently of the other team.
   \label{fig:production-chains}
 \end{figure}
 
-\subsubsection{MPS --- During Production Phase}
+\subsubsection{MPS Interactions}
 \label{sec:production-machines-production}
 In the production phase a production machine performs refinement steps on
 a product such as mounting an additional ring or a cap. Machines
 operate in a transaction style. That is, before using a machine it
-must be prepared for a specific mode. Then the input products can be fed
-into the machine and the refinement step commences. Eventually, after
-the production period is completed, the resulting product is delivered
-on the output lane.
+must be prepared for a specific mode. Most machines take any workpiece
+placed on the input of the machine, perform its operation, and move the
+resulting modified workpiece to the output. Exceptions are \ac{DS}, \ac{BS},
+ and \ac{SS}.
+A \ac{DS} only consumes workpieces, a \ac{BS} can only release (fresh)
+workpieces, whereas a \ac{SS} only does one step (consumption or release)
+at a time.
 
 A light signal mounted near the output lane
 (cf. \refsec{sec:machines}) indicates the state of the machine.
 The light signals are summarized in
 \reftab{tab:machine-lights}.
 
-In the production phase, machines must be prepared to be used by instructing
+Machines must be prepared to be used by instructing
 the refbox. This applies to all machine types.
 If a product from the input is required for the processing step
 (\ac{DS}, \ac{CS}, \ac{RS} and a storage operation at the \ac{SS}),
 then the conveyor belt is started
 after receiving a prepare message. If no workpiece reaches the
 machine operating point (indicated through the middle belt sensor)
-within \SI{45}{\second}, the machine goes to a temporary out-of-order
-state (cf.~\refsec{sec:broken-machine}).
+within \SI{20}{\second}, the machine goes to a temporary out-of-order
+state (cf.~\refsec{par:unintended-mps-use}).
 The \ac{BS} and the retrieval operation at the \ac{SS} cause
 the requested workpiece to be dispensed upon receiving a prepare message.
 After performing an operation at the \ac{BS}, \ac{CS}, \ac{RS} or the \ac{SS}
 (in case of a retrieval) the conveyor belt is started.
 If no workpiece reaches the destination
 point (indicated through the output belt sensor, or in case of the \ac{BS}
-either the input or output belt sensor) within \SI{90}{\second},
+either the input or output belt sensor) within \SI{20}{\second},
 the machine goes in a temporary out-of-order state
-(cf.~\refsec{sec:broken-machine}).
+(cf.~\refsec{par:unintended-mps-use}).
 The workpiece may remain on the machine for an arbitrary time after the
 operation is completed.
 
-The following describes the communication and reactions of the
-machines during the production phase. For the actual messages we refer
-to the \ac{refbox} documentation (see \refsec{sec:task}).
+If the out-of-order state is reached despite the team operating the machine
+correctly, the referee will attempt to recover the machine's state
+(cf.~\refsec{sec:broken-machine}).
+
+The following describes the interactions with
+machines during the production phase. We refer
+to the \ac{refbox} documentation (see \refsec{sec:task}) for implementation
+details (protobuf messages, etc.).
 
 \smallskip
 
@@ -1489,7 +1512,8 @@ the consumption.
 \noindent\textbf{\acl{SS}}
 The \ac{SS} prepare message denotes the storage place (shelf and slot number)
 and the type of the operation that should be performed.
-The \ac{SS} consists of six shelves with eight slots each. \reffig{fig:ss-shelf}
+The \ac{SS} consists of six shelves with eight slots each.
+\reffig{fig:ss-shelf}
 depicts how positions are mapped to their respective shelf and slot numbers
 $(x,y),x\in[0,5],y\in[0,7]$.
 Accessing a slot $(x,y), y\in\{1,3,5,7\}$ in the back of a shelf while slot
@@ -1526,8 +1550,10 @@ machine has been prepared, the full cycle can be completed (committed).
 There may be only one transaction running at a time. If a
 second preparation is performed the machine will
 be temporarily broken, which causes it to recover to a determined state.
-An \ac{MPS} may be reset by a team at any time by a dedicated msg.
-This causes the \ac{MPS} to go into the broken state as well.
+An \ac{MPS} may be reset by a team at any time by a dedicated message.
+This causes the \ac{MPS} to go into the broken state as well, after
+which it returns to the initial state. This also means that it must
+be physically reset.
 
 \begin{table}
   \begin{tabular}{c|c|c||l}
@@ -1552,24 +1578,53 @@ This causes the \ac{MPS} to go into the broken state as well.
   \label{tab:machine-lights}
 \end{table}
 
-\subsubsection{Broken Machine Downtime}
+\subsubsection{MPS Failure}
 \label{sec:broken-machine}
-If a machine is improperly instructed or used, or a reset message has
-been sent, the machine will go into a failure state. The machine cannot be
-used for 30 seconds and until repaired. This includes interactions with shelves,
-conveyor belts, or slides.
-That is, if damage was
-inflicted on the machine or the referee needs longer to repair the
-machine the game continues and the machine will be offline for a
-longer time. Any production that was running will be aborted and any
-product which was being processed or placed into the machine's input or output
-is no longer available and will be removed by the referee. Any additional bases
-or caps buffered at the machine will be void and the points gained removed.
-For storage stations, no slot is refilled, the load status remains exactly as
-before the broken state. The downtime is indicated by a flashing red light.
+When a machine deviates from expected behaviour
+(i.e., a timeout is reached, or a slide payment is missing), the machine
+pauses its operation and the referee is prompted to resolve the situation.
+Such deviation can be caused either by a techhnical malfunction of the machine,
+or my a team wrongly instructing the machine.
 
+\paragraph{Unintended Use of MPS}\label{par:unintended-mps-use}
+If a machine is used in an% chktex 8
+unintended way,
+(e.g., instructing an RS to mount a ring while a payment is missing, or
+instructing a CS to mount a cap without any intermediate product on the belt)
+the referee is prompted to confirm. The referee can then visually inspect the
+status of the machine (e.g., number of payments in the slide, positions of
+workpieces, etc.) and decide whether to set the machine to a broken state, or
+to manually progress the state of the machine to the correct next step.
 
-\subsubsection{Scheduled Machine Downtime}
+\paragraph{Technical Failure}
+In case of a malfunction,% chktex 8
+the machine will not
+break. Instead, the referee will attempt to recover the machine state through
+the refbox frontend.
+In severe cases, the machine will be switched to mockup mode and operation of
+the machine will be handed over to the respective team's replenisher.
+The replenisher may only perform steps based on feedback from the referee.
+Manual recoveries by referees are no grounds to question the
+validity of the game.
+
+\paragraph{Broken Machine State}
+If the referee% chktex 8
+decided that the machine was
+in fact improperly used, or if the machine was broken manually by a team to
+reset its default state, the machine will be set into a failure state.
+The machine cannot be used for 30 seconds. This includes interactions with
+shelves, conveyor belts, or slides. During this time, the replenisher must
+reset the machine.
+If the machine was used improperly, any production that was running will be
+aborted and
+any product which was being processed or placed into the machine's input or
+output is no longer available and will be removed by the referee. Any additional
+bases or caps buffered at the machine will be void and the points gained
+removed. For storage stations, no slot is refilled, the load status remains
+exactly as before the broken state. The downtime is indicated by a flashing red
+light.
+
+\subsubsection{Scheduled MPS Downtime}
 \label{sec:out-of-order}
 Depending on the game format, the \ac{refbox} may take down \ac{RS} and \ac{CS}
 machines at random. If two teams play at the same time, then the same machines
@@ -1625,11 +1680,13 @@ has been delivered.
 
 \paragraph{Competitive Order Scoring}
 For a competitive order, the same scoring scheme for in-time, delayed, and late
-delivery applies, with additional points for the successful first delivery and a
+delivery applies, with additional points for the successful first delivery and
+a
 point deduction for the second delivery (cf.~\reftab{tab:scoring}). The
 deduction may not exceed the points given for the delivery\footnote{As an
 example, if a team delivers late and scores only $5$ points for the delivery,
-only $5$ points will be deducted.}. Points for production steps are given in the
+only $5$ points will be deducted.}. Points for production steps are given in
+the
 same way as for non-competitive orders. In particular, production points are
 also given if a team delivers the product after the other team.
 
@@ -1822,6 +1879,11 @@ The scoring is shown in \reftab{tab:scoring}.
         & Deliver a workpiece to a machine of the opposing team
         & $-20$
         \\
+        Instructing without workpiece placement
+        & Instructing a machine (i.e., \ac{DS}, \ac{RS}, \ac{CS}, or \ac{SS})
+        without placing a workpiece on its input
+        & $-1$
+        \\
         \hline
       Round Total & A minimum of 0 points is awarded. & $\geq 0$ \\
           \hhline{===}
@@ -1830,8 +1892,8 @@ The scoring is shown in \reftab{tab:scoring}.
         & \multicolumn{1}{l}{Game Commentary}
         & \multicolumn{1}{l}{Points}\\\hline\hline
         Accepted Commentary
-        & Commentate at least one half of the game continuously on microphone in
-        English (or the local language of the venue) to the public
+        & Commentate at least one half of the game continuously on microphone
+        in English (or the local language of the venue) to the public
         &  +10\\
         %disable row coloring again. activate with \showrowcolors
         \hiderowcolors%
@@ -1999,8 +2061,8 @@ robots and should interfere as little as possible.  The machines can only be
 refilled when a magazine or shelf is empty. In this case the replenisher may
 enter the competition-area without asking the referee. Shelves have to be
 (re-)filled in all three reachable slots. % chktex 36
-The replenisher may restock only caps if transparent base elements have been put
-back to the shelf, once no cap is remaining on this shelf.
+The replenisher may restock only caps if transparent base elements have been
+put back to the shelf, once no cap is remaining on this shelf.
 Ring station slides must be emptied once three payments are inserted to avoid
 overflowing slides.
 
@@ -2022,25 +2084,33 @@ respected according to the \ac{refbox} announcement.
 All participants have to design their competition robots within the
 following specifications.
 
-\subsection{Robot Dimensions}
-\begin{figure}
-  \includegraphics{figures/dimensions.pdf}
-  \caption{Robot dimensional constraints (top down view).}
-  \label{fig:dimensions}
-\end{figure}
+% \subsection{Robot Dimensions}
+% \begin{figure}
+%   \includegraphics{figures/dimensions.pdf}
+%   \caption{Robot dimensional constraints (top down view), derived from the Robotino platform.}% chktex ignore-long-line
+%   \label{fig:dimensions}
+% \end{figure}
+
+\subsection{Physical Constraints}
+The league imposes no limits on the type of robot used during competitions.
+It is recommended to use omnidirectional drive systems
+and a circular base for the robot. The robot must be able to withstand
+non-deliberate impacts of other robots or obstacles (e.g., machines).
 
 The robots dimensions (including sensors, computing equipment, etc.) must be
-within a cylindrical bounding box with maximum total height of \SI{1.6}{\metre}
-(relative to the ground) and a diameter of
-\SI{0.55}{\metre} (centered at the robot's rotational
-center-point, green \emph{Robotino base area} plus blue \emph{Extended area} of
-\reffig{fig:dimensions}) during regular operation.
-While  in front of a machine and during a production process, the gripper may
-be extended up to \SI{30}{\centi\metre} beyond the bounding box
-(red \emph{Actuator reach} of \reffig{fig:dimensions}).
-But it is only allowed to reach a maximum of
+within a bounding box with maximum total height of \SI{1.6}{\metre}
+(relative to the ground) and a quadratic base of
+\SI{0.50 \times0.50}{\metre} (centered at the robot's rotational
+center-point) during regular operation.
+If the robot is attempting to interact with a machine or workpiece,
+the gripper may be extended up to \SI{30}{\centi\metre} beyond
+this bounding box. But it is only allowed to reach a maximum of
 \SI{15}{\centi\metre} into the machine area.
 
+All robots are restricted to
+operate with a maximum speed of
+\SI[fraction-function=\dfrac]{0.7}{\metre/\second}. They must make use of
+wheel based drive systems (e.g., omniwheels, differential drive, etc.).
 There are no set weight limitations, however teams must be able to manually
 carry their robots from the field with at most 2 people in case of major
 failures.
@@ -2048,11 +2118,14 @@ failures.
 \subsection{Sensors and Actuators}
 Any kind of sensors can be changed or added to the robot platform.
 However, it is not possible to implement sensors that require
-modifications outside the Robotino area (e.g., Northstar, indoor GPS).
-The only additional actuator allowed is one gripping device for
-workpieces which can be the original or a modified one. In the resting
-position and while driving it also must not exceed the robot diameter by
-more than this 5cm, including workpiece.
+modifications to the game field (e.g., Northstar, (indoor) GPS).
+Additionally, active sensing or support of sensors (e.g., camera lights)
+are prohibited if they can interfer with the function of the robots of
+the other team or the MPS.\@
+
+Robots are restricted to have only one gripping device. In the resting
+position and while driving it also must not exceed the maximum robot diameter by
+more than 5cm.
 Only one workpiece or a composite product must be grasped and
 transported per robot at once. Storage magazines on the robot or
 similar are prohibited. All products will incorporate exactly one base
@@ -2063,36 +2136,13 @@ The gripper is allowed to transport one workpiece at a time. And it must
 release the workpiece for safety whenever the referee wants to take out it.
 
 \subsection{Additional Computing Devices}
-It is allowed to install additional computing power on the
-\Robotino. This may either be in form of a notebook/laptop device or
-any other computing device that suits the size requirement of the
-\Robotino{} competition system. Furthermore, it is allowed to
+Robots may have an arbitrary amount of computing devices installed
+as long as physical constraints are not violated.
+Furthermore, it is allowed to
 communicate with an additional computing device off-field. This device
 may be used for team coordination and/or other purposes. However,
 communication among the robots and the off-field device is not
-guaranteed during the competition.
-
-\subsection{Robotino-Specific Regulations}
-The following regulations are only applied to robots participating in the
-main track of the \ac{RCLL}, those are required to use the robotino platform.
-For a detailed technical description of the basic robotino hardware, refer to
-the robotino website\footnote{\href{https://robotino.com}{robotino.com} by
-Festo Didactics.}.
-
-There must be no changes to the controller or mechanical system.
-Past the diameter of \SI{45}{\centi\metre} (the width of the Robotino),
-additional hardware may only occupy up to $25\%$ of this
-additional \SI{5}{\centi\metre} wide ring around the robot
-(e.g., the dashed part of the \emph{Extended area} of \reffig{fig:dimensions}).
-
-\subsection{Open-Platform Regulations}
-The following regulations are only applied to robots participating in the
-challenge track of the \ac{RCLL} and that are not utilizing the robotino with
-its original controller and mechanical system.
-
-All robots are restricted to
-operate with a maximum speed of \SI[fraction-function=\dfrac]{1}{\metre/\second}
-to be comparable with the capabilities of the Robotino.
+guaranteed during the competition, due to network interference.
 
 \subsection{Markings}
 \label{sec:robot-markings}
@@ -2108,8 +2158,8 @@ box (cf.~\refsec{sec:referee-box}).
 
 Robots have to operate autonomously, that is, without any human
 interference during the game. Communication among robots and to
-off-board computing units is in principle only allowed using wifi
-(cf.~\refsec{sec:wifi-regulations}). If the event regulations set by the
+off-board computing units is in principle only allowed using wifi.
+If the event regulations set by the
 venue organizers, organizing committee and technical committee allow it, other
 wireless communication methods (e.g., broadband cellular) might be used after
 explicit approval is granted.
@@ -2229,11 +2279,7 @@ tournament.
 \label{sec:wifi-regulations}
 In order to provide the optimal possible solution for wireless
 communication during the event, all teams are required to use the
-\SI{5}{\giga\hertz} wifi equipment. They are furthermore required to
-connect their Robotinos wifi unit to the access point provided. All
-teams can also rely on wifi clients supplied by Festo but are not
-required to. A detailed description concerning the infrastructure can
-be found in Appendix~\ref{sec:wifi-equipment}.
+\SI{5}{\giga\hertz} wifi equipment.
 
 % Please refer to Sect.~\ref{sec:radio-interference} for further details.
 
@@ -2397,8 +2443,8 @@ ranking score per won games.
 As each team in this phase directly competes with an opposing team, a ranking
 score will be determined as follows.
 In each \emph{game}, the winning team gets 3 ranking points, the
-loosing team gets 0. A team wins if it achieves more points in the game than the
-other team (cf.~\ref{sec:production-phase}).
+loosing team gets 0. A team wins if it achieves more points in the game than
+the other team (cf.~\ref{sec:production-phase}).
 In the case of a non-zero draw, see \refsec{sec:overtime} for overtime.
 If, after overtime, a draw is not resolved, both teams get 1 ranking point.
 If both team end with a zero score, each team gets 0 ranking points.
@@ -2445,11 +2491,11 @@ matches, such as best-of-3 or best-of-5 formats.
 
 \paragraph{Finals}
 The best teams of the two playoff groups (or the two best teams in case of one
-group) will advance to the grand finale, the remaining two teams will compete in
-the small finals for the third place. The team that scores more points after the
-regular game time wins. If there is no winner after the regular time, refer to
-Section~\refsec{sec:overtime}. If after this there is still no winner, a coin
-toss will decide.
+group) will advance to the grand finale, the remaining two teams will compete
+in the small finals for the third place. The team that scores more points after
+the regular game time wins. If there is no winner after the regular time, refer
+to Section~\refsec{sec:overtime}. If after this there is still no winner, a
+coin toss will decide.
 
 \bigskip \hskip-\parindent{}
 The detailed seeding will be created at the event. Although the idea
@@ -2508,7 +2554,8 @@ Challenges are played on fields, where the competition area spans
 \SI{5 x 5}{\metre} and only one team participates at a time. %chktex 29
 The field depicted in \reffig{fig:competition-area-challenges} depicts a valid
 competition area for a match.
-Up to four \ac{MPS} may be placed on a field, depending on the chosen challenge.
+Up to four \ac{MPS} may be placed on a field, depending on the chosen
+challenge.
 
 \subsubsection{Remote Setup}
 In case a competition is carried out remotely, a rule-compliant local setup
@@ -2532,8 +2579,8 @@ has been approved and only with the approved setup.
 
 
 \subsubsection{Overview --- Challenge Track}
-The challenge track offers a set of individual challenges that need to be solved
-throughout the official competition days.
+The challenge track offers a set of individual challenges that need to be
+solved throughout the official competition days.
 The available challenges are defined in \refsec{sec:tournament-challenges}.
 Points can be earned by solving challenges, where the amount of points varies
 depending on the difficulty and task of the challenge.
@@ -2555,8 +2602,8 @@ challenge is carried out according to the following procedure:
 	\item Then the \texttt{PRODUCTION} phase starts by instructing the referee
     box accordingly.
     During the production phase the team has 20 minutes to solve the challenge.
-    The challenge must be terminated before the 30 minutes of the time slot end,
-    otherwise the attempt will be counted as a failure.
+    The challenge must be terminated before the 30 minutes of the time slot
+    end, otherwise the attempt will be counted as a failure.
 \end{enumerate}
 
 % TODO: is this desired? this encourages volatile solutions that are brute
@@ -2663,20 +2710,30 @@ in the highest difficulty achieved in each of the challenge types.
 The challenge types of the competition are described in
 \refsec{sec:challenge-navigation}-\ref{sec:challenge-markerless}.
 
+Any challenge requires connection to the refbox. The refbox will be set to the
+corresponding phase for each challenge. The setup phase is used to place the
+robots and machines on the field. Every challenge will have a production phase
+where the actual task has to be solved. The robots may only start moving after
+the production phase has started.
+
 
 \subsubsection{Navigation Challenge}\label{sec:challenge-navigation}
 Basic navigation task with known obstacles.\\
-\textbf{Task:} Drive to 12 randomly generated target zones. A target zone is
-reached, if any robot remains in that zone for at least 5 consecutive seconds.
+\textbf{Task:} Drive to $n$ randomly generated machine sides
+(i.e., INPUT or OUTPUT) on a random field with $n$ machines.
+Te robot must remain at the corresponding
+machine side for at least 5 consecutive seconds. The machine side is considered
+reached if the transmitted robot pose is at most \SI{0.5}{\metre} away from the
+machine side's outer wall and within the width of the machine side.
 The pose of each robot must be set in the beacon message
 for the \ac{refbox} to properly register the zones as visited.
-The robot may move within the zone during the 5 second period.\\
+The robot may move within that area during the 5 second period.\\
 Variations of this challenge depend on the number of available machines
 (see \reftab{tab:challenge-navigation}). An unknown machine may be
 added as a further variation. The placement of this machine is decided by the
 referee in the setup phase but must be in accordance with the general rules for
 placing machines.
-Multiple robots may be used to simultaneously to reach multiple target zones.
+Multiple robots may be used to simultaneously to reach multiple target machines.
 Partial points may be awarded in case only a subset of target zones were
 reached, which are accumulated if the challenge is completed fully.
 
@@ -2685,11 +2742,11 @@ reached, which are accumulated if the challenge is completed fully.
  \begin{tabular}{l|l|l|l|l}
   \multirow{2}{*}{Machines (Unknown)}
   & \multicolumn{4}{c}{Scoring} \\\cline{2-5}
-	& $\geq$ 4 zones  & $\geq$ 8 zones & all 12 zones  & combined \\\hline\hline
-	 2 & +4 & +3 & +3 & 10 \\
-	 3 & +5 & +4 & +3 & 12 \\
-	 4 & +6 & +5 & +4 & 15 \\
-	 4 (+1) & +7 & +6 & +5 & 18 \\
+	& 2 sides  &  3 sides & 4 sides & combined \\\hline\hline% chktex ignore-long-line
+	 2 & +4 & n/a & n/a & 4 \\
+	 3 & +5 & +4 & n/a & 9  \\
+	 4 & +6 & +5 & +4 & 15  \\
+	 4 (+1) & +7 & +6 & +5 & 18  \\
  \end{tabular}
  \caption{Navigation Challenge}
  \label{tab:challenge-navigation}
@@ -2715,8 +2772,6 @@ Variable in the number of machines
  \caption{Exploration Challenge}
  \label{tab:challenge-exploration}
 \end{table}
-This challenge needs to be run by setting the \ac{refbox} to phase
-\texttt{EXPLORATION}.
 
 \subsubsection{Grasping Challenge}\label{sec:challenge-grasping}
 Simple grasping task.
@@ -2800,6 +2855,8 @@ each of them has to perform at least one retrieve and one deliver task.
  \end{table}
 
 \subsubsection{Markerless Detection Challenge}\label{sec:challenge-markerless}
+Postponed for 2025 to develop an improved successor to the current challenge
+given current developments in the field of machine learning.
 Image recognition challenge to classify different machine types.\\
 \textbf{Task:} Autonomously label the machines shown in a set of pictures
 by their type.
@@ -3001,10 +3058,16 @@ Additionally, the labeled data has to be sent to the \ac{OC}.
 % localize themselves via sensors attached to the robot.
 
 \subsection{Open Challenge}\label{sec:open-challenge}
-Each team will be given 5 minutes to showcase their robot team, e.g.,
-show some new robotics developments. This may involve any task as long
-as it is performed with at most three Robotino robots within the
-competition area. For the time of the free challenge, any software or
+The open challenge is a free space where teams can present their
+developments, ideas, and research. It is open to
+any participating team and can be used to showcase developments
+related to the logistics league. It is encouraged to present projects that
+are beneficial to other teams and the RoboCup community as a whole.
+
+Each team will be given 5 minutes to showcase their ideas.
+This may involve live demonstrations of any task as long
+as it is performed with at most three competition robots within the
+game field. For the time of the open challenge, any software or
 hardware modification is allowed, even though otherwise disallowed in
 the regular competition. This may be used to motivate ideas for future
 developments of the league and to highlight particular advances in the
